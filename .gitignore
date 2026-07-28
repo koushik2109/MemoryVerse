@@ -1,0 +1,51 @@
+# ── Flutter / Dart ────────────────────────────────────────────────────────────
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+build/
+
+# ── Flutter env & secrets ─────────────────────────────────────────────────────
+frontend/.env
+frontend/.env.local
+frontend/.env.*.local
+
+# ── Python backend ────────────────────────────────────────────────────────────
+backend/.venv/
+backend/venv/
+backend/__pycache__/
+backend/**/__pycache__/
+backend/**/*.pyc
+backend/.env
+backend/.env.local
+backend/*.log
+
+# ── AI engine ────────────────────────────────────────────────────────────────
+ai_engine/.venv/
+ai_engine/.env
+ai_engine/**/__pycache__/
+ai_engine/**/*.pyc
+
+# ── Docker ────────────────────────────────────────────────────────────────────
+.docker/
+docker-compose.override.yml
+
+# ── IDE / OS ──────────────────────────────────────────────────────────────────
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# ── Logs ─────────────────────────────────────────────────────────────────────
+*.log
+logs/
+
+# ── Secrets (NEVER commit) ────────────────────────────────────────────────────
+*.env
+secrets.json
+service_account*.json

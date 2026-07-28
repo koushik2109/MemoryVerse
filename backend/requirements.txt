@@ -1,0 +1,38 @@
+# ── Core framework ──────────────────────────────────────────────────────────
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+python-dotenv==1.0.1
+
+# ── Validation ──────────────────────────────────────────────────────────────
+pydantic==2.10.6
+pydantic-settings==2.7.1
+email-validator==2.2.0
+
+# ── Supabase / Auth ─────────────────────────────────────────────────────────
+# gotrue, postgrest, storage3 are transitive deps managed by supabase itself
+supabase==2.13.0
+
+# ── HTTP & async ─────────────────────────────────────────────────────────────
+httpx==0.28.1
+anyio==4.8.0
+
+# ── Database ─────────────────────────────────────────────────────────────────
+asyncpg==0.30.0
+sqlalchemy[asyncio]==2.0.37
+
+# ── AI / ML ──────────────────────────────────────────────────────────────────
+openai==1.59.9
+tiktoken==0.8.0
+sentence-transformers==3.3.1
+
+# ── Security ─────────────────────────────────────────────────────────────────
+python-jose[cryptography]==3.3.0
+# passlib 1.7.4 is incompatible with bcrypt >= 4.0 — pin to 3.x
+passlib[bcrypt]==1.7.4
+bcrypt==3.2.2
+
+# ── Utilities ────────────────────────────────────────────────────────────────
+python-multipart==0.0.20
+orjson==3.10.14
+structlog==24.4.0
+tenacity==9.0.0
