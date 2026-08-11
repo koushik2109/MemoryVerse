@@ -1,5 +1,5 @@
 name: memory_verse
-description: "MemoryVerse Mobile Application"
+description: "MemoryVerse — AI-Powered Personal Memory Vault"
 publish_to: 'none'
 version: 1.0.0+1
 
@@ -9,10 +9,45 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  supabase_flutter: ^2.3.0
-  flutter_dotenv: ^5.1.0
-  google_fonts: ^6.2.1
 
+  # Auth & Backend
+  supabase_flutter: ^2.16.0
+  flutter_dotenv: ^5.1.0
+
+  # State Management
+  flutter_riverpod: ^2.5.1
+
+  # Navigation
+  go_router: ^14.2.7
+
+  # Fonts & Theming
+  google_fonts: ^6.2.1
+  shared_preferences: ^2.5.5
+
+  # Animations
+  flutter_animate: ^4.5.0
+
+  # Images
+  cached_network_image: ^3.3.1
+
+  # Network & Utilities
+  dio: ^5.4.3+1
+  intl: ^0.19.0
+
+  # Media — pick, play
+  image_picker: ^1.1.2
+  file_picker: ^8.0.5
+  video_player: ^2.9.2
+  chewie: ^1.8.5
+
+  # File system & sharing
+  path_provider: ^2.1.3
+  path: ^1.9.0
+  flutter_secure_storage: ^9.2.1
+  share_plus: ^9.0.0
+  qr_flutter: ^4.1.0
+
+  uuid: any
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -22,3 +57,7 @@ flutter:
   uses-material-design: true
   assets:
     - .env
+    - assets/illustrations/
+    - assets/branding/
+    - assets/icons/
+    - assets/images/

@@ -1,0 +1,8 @@
+{
+  "extraPaths": [
+    "/home/koushik_2109/MemoryVerse/.venv/lib/python3.12/site-packages",
+    "/home/koushik_2109/.local/lib/python3.12/site-packages",
+    "/home/koushik_2109/MemoryVerse/backend"
+  ],
+  "pythonVersion": "3.12"
+}

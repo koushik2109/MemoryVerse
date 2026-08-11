@@ -1,4 +1,22 @@
 
+# IDEs
 .idea/
 .vscode/
+
+# Environment files
 *.env
+.env
+
+# Python virtual environment
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# OS files
+.DS_Store
+Thumbs.db
+.env
+backend/.env
+frontend/.env
