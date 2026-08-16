@@ -49,6 +49,23 @@ echo ""
 
 if $RUN_BACKEND; then
   [[ -d "$BACKEND_DIR" ]] || err "Backend directory not found: $BACKEND_DIR"
+  
+  warn "Checking for existing backend processes..."
+  if command -v lsof >/dev/null 2>&1; then
+    PIDS=$(lsof -t -i:8000 || true)
+    if [ -n "$PIDS" ]; then
+      warn "Killing existing process on port 8000 (PID: $PIDS)..."
+      kill -9 $PIDS 2>/dev/null || true
+    fi
+  elif command -v fuser >/dev/null 2>&1; then
+    if fuser 8000/tcp >/dev/null 2>&1; then
+      warn "Killing existing process on port 8000..."
+      fuser -k -9 8000/tcp >/dev/null 2>&1 || true
+    fi
+  else
+    pkill -f "uvicorn app.main:app" >/dev/null 2>&1 || true
+  fi
+
   if [[ ! -d "$VENV_DIR" ]]; then
     warn "Virtual environment not found at $VENV_DIR — creating one..."
     python3 -m venv "$VENV_DIR"

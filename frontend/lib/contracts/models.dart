@@ -7,6 +7,8 @@ class UserModel {
   final String? bio;
   final int vaultCount;
   final int mediaCount;
+  final DateTime? createdAt;
+  final DateTime? updatedAt;
 
   UserModel({
     required this.id,
@@ -17,6 +19,8 @@ class UserModel {
     this.bio,
     this.vaultCount = 0,
     this.mediaCount = 0,
+    this.createdAt,
+    this.updatedAt,
   });
 
   factory UserModel.fromJson(Map<String, dynamic> json) {
@@ -29,6 +33,8 @@ class UserModel {
       bio: json['bio'],
       vaultCount: json['vault_count'] ?? 0,
       mediaCount: json['media_count'] ?? 0,
+      createdAt: json['created_at'] != null ? DateTime.tryParse(json['created_at']) : null,
+      updatedAt: json['updated_at'] != null ? DateTime.tryParse(json['updated_at']) : null,
     );
   }
 }

@@ -31,7 +31,9 @@ abstract final class AuthErrorHandler {
     // ── Rate limiting ──────────────────────────────────────
     if (raw.contains('rate_limit') ||
         raw.contains('too many requests') ||
-        raw.contains('for security')) {
+        raw.contains('for security') ||
+        raw.contains('please wait')) {
+      if (raw.contains('please wait')) return error.toString();
       return 'Too many attempts. Please wait a moment and try again.';
     }
 
@@ -70,6 +72,11 @@ abstract final class AuthErrorHandler {
     }
 
     // ── Fallback ───────────────────────────────────────────
+    if (!raw.contains('exception') &&
+        !raw.contains('error:') &&
+        error.toString().length < 150) {
+      return error.toString();
+    }
     return 'Something went wrong. Please try again.';
   }
 }

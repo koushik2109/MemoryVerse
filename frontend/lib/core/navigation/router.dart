@@ -7,6 +7,7 @@ import 'package:memory_verse/features/auth/presentation/forgot_password_screen.d
 import 'package:memory_verse/features/auth/presentation/sign_in_screen.dart';
 import 'package:memory_verse/features/auth/presentation/sign_up_screen.dart';
 import 'package:memory_verse/features/auth/presentation/otp_verification_screen.dart';
+import 'package:memory_verse/features/auth/presentation/reset_password_screen.dart';
 import 'package:memory_verse/features/home/presentation/home_screen.dart';
 import 'package:memory_verse/features/timeline/presentation/timeline_screen.dart';
 import 'package:memory_verse/features/ai/presentation/ai_screen.dart';
@@ -92,6 +93,13 @@ final routerProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: Routes.forgotPassword,
         pageBuilder: (_, __) => _slide(const ForgotPasswordScreen()),
+      ),
+      GoRoute(
+        path: '/reset-password',
+        pageBuilder: (context, state) {
+          final email = state.extra as String? ?? '';
+          return _slide(ResetPasswordScreen(email: email));
+        },
       ),
       GoRoute(
         path: Routes.otpVerify,

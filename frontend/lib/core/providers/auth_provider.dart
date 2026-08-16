@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import '../api/api_client.dart';
 
 // ── Raw auth state stream ─────────────────────────────
 final authStreamProvider = StreamProvider<AuthState>((ref) {
@@ -19,6 +20,7 @@ final currentUserProvider = Provider<User?>((ref) {
 // ── Auth actions notifier ─────────────────────────────
 class AuthNotifier extends AsyncNotifier<void> {
   SupabaseClient get _client => Supabase.instance.client;
+  ApiClient get _api => ref.read(apiClientProvider);
 
   @override
   Future<void> build() async {}
@@ -37,32 +39,60 @@ class AuthNotifier extends AsyncNotifier<void> {
   }) async {
     state = const AsyncLoading();
     state = await AsyncValue.guard(() async {
-      await _client.auth.signUp(
-        email: email,
-        password: password,
-        data: {'full_name': displayName},
-      );
+      await _api.post('/auth/signup', data: {
+        'email': email,
+        'password': password,
+        'full_name': displayName,
+      });
     });
   }
 
   Future<void> verifyOtp({required String email, required String token, OtpType type = OtpType.signup}) async {
     state = const AsyncLoading();
     state = await AsyncValue.guard(() async {
-      await _client.auth.verifyOTP(
-        email: email,
-        token: token,
-        type: type,
-      );
+      if (type == OtpType.recovery) {
+        // Recovery logic requires new password which isn't passed here. 
+        // We will assume the UI sends the new password via another method or we update UI.
+        // Actually, the UI for password reset will need to be updated. For now throw unimplemented if it's recovery.
+        if (type == OtpType.recovery) {
+          throw UnimplementedError("Recovery OTP requires new password. Use resetPassword API instead.");
+        }
+      }
+      
+      await _api.post('/auth/verify-otp', data: {
+        'email': email,
+        'otp': token,
+      });
+      // OTP verified successfully on backend, user must now sign in
     });
   }
 
   Future<void> sendPasswordReset(String email) async {
     state = const AsyncLoading();
     state = await AsyncValue.guard(() async {
-      await _client.auth.resetPasswordForEmail(
-        email,
-        redirectTo: 'io.supabase.memoryverse://login-callback',
-      );
+      await _api.post('/auth/forgot-password', data: {
+        'email': email,
+      });
+    });
+  }
+
+  Future<void> resendOtp({required String email}) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(() async {
+      await _api.post('/auth/resend-otp', data: {
+        'email': email,
+      });
+    });
+  }
+
+  Future<void> resetPassword({required String email, required String token, required String newPassword}) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(() async {
+      await _api.post('/auth/reset-password', data: {
+        'email': email,
+        'otp': token,
+        'new_password': newPassword,
+      });
     });
   }
 

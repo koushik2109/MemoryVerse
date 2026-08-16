@@ -16,7 +16,8 @@ class _ForgotPasswordScreenState extends ConsumerState<ForgotPasswordScreen>
     with SingleTickerProviderStateMixin {
   final _email = TextEditingController();
   String? _error;
-  bool _sent = false, _isSubmitting = false;
+  final bool _sent = false;
+  bool _isSubmitting = false;
 
   late AnimationController _ec;
   late Animation<double> _fa;
@@ -50,7 +51,8 @@ class _ForgotPasswordScreenState extends ConsumerState<ForgotPasswordScreen>
     if (s.hasError) {
       setState(() { _error = AuthErrorHandler.parse(s.error!); _isSubmitting = false; });
     } else {
-      setState(() { _sent = true; _isSubmitting = false; });
+      setState(() { _isSubmitting = false; });
+      context.push('/reset-password', extra: _email.text.trim());
     }
   }
 

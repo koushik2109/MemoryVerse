@@ -6,7 +6,6 @@ import 'package:memory_verse/core/design/tokens.dart';
 import 'package:memory_verse/core/providers/auth_provider.dart';
 import 'package:memory_verse/core/utils/auth_error_handler.dart';
 import 'package:memory_verse/features/auth/presentation/auth_widgets.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
 
 class OtpVerificationScreen extends ConsumerStatefulWidget {
   final String email;
@@ -69,6 +68,11 @@ class _OtpVerificationScreenState extends ConsumerState<OtpVerificationScreen>
       _foci[0].requestFocus();
     } else {
       setState(() => _isSubmitting = false);
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: const Text('Email verified successfully. Please log in.'),
+        behavior: SnackBarBehavior.floating,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppRadii.md))));
+      context.go('/sign-in');
     }
   }
 
@@ -76,7 +80,7 @@ class _OtpVerificationScreenState extends ConsumerState<OtpVerificationScreen>
     if (_resendCooldown) return;
     setState(() { _resendCooldown = true; _resendSeconds = 30; _error = null; });
     try {
-      await Supabase.instance.client.auth.resend(type: OtpType.signup, email: widget.email);
+      await ref.read(authNotifierProvider.notifier).resendOtp(email: widget.email);
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: const Text('New code sent!'), behavior: SnackBarBehavior.floating,
