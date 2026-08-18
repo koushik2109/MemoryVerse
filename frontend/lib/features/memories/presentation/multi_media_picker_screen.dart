@@ -1,31 +1,44 @@
 import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:memory_verse/core/design/tokens.dart';
 import 'package:memory_verse/core/providers/upload_controller.dart';
+
 class MultiMediaPickerScreen extends ConsumerStatefulWidget {
   final String memoryId;
   final String? vaultId;
-  
-  const MultiMediaPickerScreen({super.key, required this.memoryId, this.vaultId});
 
-  static void open(BuildContext context, {required String memoryId, String? vaultId}) {
+  const MultiMediaPickerScreen({
+    super.key,
+    required this.memoryId,
+    this.vaultId,
+  });
+
+  static void open(
+    BuildContext context, {
+    required String memoryId,
+    String? vaultId,
+  }) {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (_) => MultiMediaPickerScreen(memoryId: memoryId, vaultId: vaultId),
+        builder: (_) =>
+            MultiMediaPickerScreen(memoryId: memoryId, vaultId: vaultId),
         fullscreenDialog: true,
       ),
     );
   }
 
   @override
-  ConsumerState<MultiMediaPickerScreen> createState() => _MultiMediaPickerScreenState();
+  ConsumerState<MultiMediaPickerScreen> createState() =>
+      _MultiMediaPickerScreenState();
 }
 
-class _MultiMediaPickerScreenState extends ConsumerState<MultiMediaPickerScreen> {
+class _MultiMediaPickerScreenState
+    extends ConsumerState<MultiMediaPickerScreen> {
   final ImagePicker _picker = ImagePicker();
   final List<File> _selectedFiles = [];
   final List<String> _mediaTypes = []; // 'image' or 'video'
@@ -73,18 +86,20 @@ class _MultiMediaPickerScreenState extends ConsumerState<MultiMediaPickerScreen>
       });
     }
   }
-  
+
   void _startUpload() {
     if (_selectedFiles.isEmpty) return;
-    
-    ref.read(uploadControllerProvider.notifier).addUploads(
-      files: _selectedFiles,
-      mediaTypes: _mediaTypes,
-      memoryId: widget.memoryId,
-      vaultId: widget.vaultId,
-      coverIndex: _coverIndex,
-    );
-    
+
+    ref
+        .read(uploadControllerProvider.notifier)
+        .addUploads(
+          files: _selectedFiles,
+          mediaTypes: _mediaTypes,
+          memoryId: widget.memoryId,
+          vaultId: widget.vaultId,
+          coverIndex: _coverIndex,
+        );
+
     Navigator.pop(context); // Close the picker immediately
   }
 
@@ -92,7 +107,9 @@ class _MultiMediaPickerScreenState extends ConsumerState<MultiMediaPickerScreen>
     if (_mediaTypes[index] == 'video') {
       // For local video preview we can't use VideoPlayerScreen easily if it expects network url.
       // But we will just show a snackbar or implement a local player if needed.
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Video preview coming soon')));
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Video preview coming soon')),
+      );
     } else {
       showDialog(
         context: context,
@@ -102,10 +119,16 @@ class _MultiMediaPickerScreenState extends ConsumerState<MultiMediaPickerScreen>
           child: Stack(
             fit: StackFit.expand,
             children: [
-              InteractiveViewer(child: Image.file(_selectedFiles[index], fit: BoxFit.contain)),
+              InteractiveViewer(
+                child: Image.file(_selectedFiles[index], fit: BoxFit.contain),
+              ),
               Positioned(
-                top: AppSpacing.s32, right: AppSpacing.s16,
-                child: IconButton(icon: const Icon(Icons.close, color: Colors.white, size: 32), onPressed: () => Navigator.pop(ctx)),
+                top: AppSpacing.s32,
+                right: AppSpacing.s16,
+                child: IconButton(
+                  icon: const Icon(Icons.close, color: Colors.white, size: 32),
+                  onPressed: () => Navigator.pop(ctx),
+                ),
               ),
             ],
           ),
@@ -123,29 +146,51 @@ class _MultiMediaPickerScreenState extends ConsumerState<MultiMediaPickerScreen>
       appBar: AppBar(
         backgroundColor: c.surface,
         elevation: 0,
-        title: Text('Select Media', style: TextStyle(fontFamily: 'Inter', fontSize: 18, fontWeight: FontWeight.w600, color: c.text)),
-        leading: IconButton(icon: Icon(Icons.close_rounded, color: c.text), onPressed: () => Navigator.pop(context)),
+        title: Text(
+          'Select Media',
+          style: TextStyle(
+            fontFamily: 'Inter',
+            fontSize: 18,
+            fontWeight: FontWeight.w600,
+            color: c.text,
+          ),
+        ),
+        leading: IconButton(
+          icon: Icon(Icons.close_rounded, color: c.text),
+          onPressed: () => Navigator.pop(context),
+        ),
         actions: [
           if (_selectedFiles.isNotEmpty)
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s16, vertical: AppSpacing.s8),
+              padding: const EdgeInsets.symmetric(
+                horizontal: AppSpacing.s16,
+                vertical: AppSpacing.s8,
+              ),
               child: ElevatedButton(
                 onPressed: _startUpload,
                 style: ElevatedButton.styleFrom(
                   backgroundColor: c.primary,
                   foregroundColor: c.primaryInverse,
                   elevation: 0,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppRadii.pill)),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(AppRadii.pill),
+                  ),
                 ),
-                child: Text('Upload (${_selectedFiles.length})', style: const TextStyle(fontWeight: FontWeight.w600)),
+                child: Text(
+                  'Upload (${_selectedFiles.length})',
+                  style: const TextStyle(fontWeight: FontWeight.w600),
+                ),
               ),
-            )
+            ),
         ],
       ),
       body: Column(
         children: [
           Container(
-            padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s16, vertical: AppSpacing.s12),
+            padding: const EdgeInsets.symmetric(
+              horizontal: AppSpacing.s16,
+              vertical: AppSpacing.s12,
+            ),
             decoration: BoxDecoration(
               color: c.surface,
               border: Border(bottom: BorderSide(color: c.border, width: 0.5)),
@@ -153,24 +198,53 @@ class _MultiMediaPickerScreenState extends ConsumerState<MultiMediaPickerScreen>
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                _ActionBtn(icon: Icons.photo_library_outlined, label: 'Photos', onTap: _pickImages, colors: c),
-                _ActionBtn(icon: Icons.videocam_outlined, label: 'Video', onTap: _pickVideo, colors: c),
-                _ActionBtn(icon: Icons.folder_open_outlined, label: 'Files', onTap: _pickFiles, colors: c),
+                _ActionBtn(
+                  icon: Icons.photo_library_outlined,
+                  label: 'Photos',
+                  onTap: _pickImages,
+                  colors: c,
+                ),
+                _ActionBtn(
+                  icon: Icons.videocam_outlined,
+                  label: 'Video',
+                  onTap: _pickVideo,
+                  colors: c,
+                ),
+                _ActionBtn(
+                  icon: Icons.folder_open_outlined,
+                  label: 'Files',
+                  onTap: _pickFiles,
+                  colors: c,
+                ),
               ],
             ),
           ),
-          
+
           Expanded(
             child: _selectedFiles.isEmpty
                 ? Center(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(Icons.perm_media_outlined, size: 64, color: c.textMuted.withValues(alpha: 0.3)),
+                        Icon(
+                          Icons.perm_media_outlined,
+                          size: 64,
+                          color: c.textMuted.withValues(alpha: 0.3),
+                        ),
                         const SizedBox(height: AppSpacing.s16),
-                        Text('No media selected', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: c.text)),
+                        Text(
+                          'No media selected',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: c.text,
+                          ),
+                        ),
                         const SizedBox(height: AppSpacing.s8),
-                        Text('Tap above to select photos or videos', style: TextStyle(color: c.textMuted)),
+                        Text(
+                          'Tap above to select photos or videos',
+                          style: TextStyle(color: c.textMuted),
+                        ),
                       ],
                     ),
                   )
@@ -183,14 +257,16 @@ class _MultiMediaPickerScreenState extends ConsumerState<MultiMediaPickerScreen>
                         final type = _mediaTypes.removeAt(oldIndex);
                         _selectedFiles.insert(newIndex, file);
                         _mediaTypes.insert(newIndex, type);
-                        
+
                         // Update cover index if affected
                         if (_coverIndex == oldIndex) {
                           _coverIndex = newIndex;
                         } else if (_coverIndex != null) {
-                          if (oldIndex < _coverIndex! && newIndex >= _coverIndex!) {
+                          if (oldIndex < _coverIndex! &&
+                              newIndex >= _coverIndex!) {
                             _coverIndex = _coverIndex! - 1;
-                          } else if (oldIndex > _coverIndex! && newIndex <= _coverIndex!) {
+                          } else if (oldIndex > _coverIndex! &&
+                              newIndex <= _coverIndex!) {
                             _coverIndex = _coverIndex! + 1;
                           }
                         }
@@ -200,14 +276,17 @@ class _MultiMediaPickerScreenState extends ConsumerState<MultiMediaPickerScreen>
                       final file = _selectedFiles[i];
                       final isVideo = _mediaTypes[i] == 'video';
                       final isCover = _coverIndex == i;
-                      
+
                       return Container(
                         key: ValueKey(file.path),
                         margin: const EdgeInsets.only(bottom: AppSpacing.s12),
                         decoration: BoxDecoration(
                           color: c.surfaceElevated,
                           borderRadius: BorderRadius.circular(AppRadii.lg),
-                          border: Border.all(color: isCover ? c.primary : c.border, width: isCover ? 2 : 1),
+                          border: Border.all(
+                            color: isCover ? c.primary : c.border,
+                            width: isCover ? 2 : 1,
+                          ),
                         ),
                         child: ListTile(
                           contentPadding: const EdgeInsets.all(AppSpacing.s8),
@@ -216,38 +295,84 @@ class _MultiMediaPickerScreenState extends ConsumerState<MultiMediaPickerScreen>
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(AppRadii.md),
                               child: SizedBox(
-                                width: 64, height: 64,
+                                width: 64,
+                                height: 64,
                                 child: Stack(
                                   fit: StackFit.expand,
                                   children: [
                                     if (isVideo)
-                                      Container(color: Colors.black87, child: const Icon(Icons.movie_outlined, color: Colors.white))
+                                      Container(
+                                        color: Colors.black87,
+                                        child: const Icon(
+                                          Icons.movie_outlined,
+                                          color: Colors.white,
+                                        ),
+                                      )
                                     else
                                       Image.file(file, fit: BoxFit.cover),
-                                      
+
                                     if (isVideo)
-                                      Container(color: Colors.black.withValues(alpha: 0.3), child: const Center(child: Icon(Icons.play_arrow_rounded, color: Colors.white))),
+                                      Container(
+                                        color: Colors.black.withValues(
+                                          alpha: 0.3,
+                                        ),
+                                        child: const Center(
+                                          child: Icon(
+                                            Icons.play_arrow_rounded,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                      ),
                                   ],
                                 ),
                               ),
                             ),
                           ),
-                          title: Text(file.path.split('/').last, maxLines: 1, overflow: TextOverflow.ellipsis, style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: c.text)),
+                          title: Text(
+                            file.path.split('/').last,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500,
+                              color: c.text,
+                            ),
+                          ),
                           subtitle: Padding(
                             padding: const EdgeInsets.only(top: 4),
                             child: Row(
                               children: [
-                                if (isCover) 
+                                if (isCover)
                                   Container(
-                                    padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
-                                    decoration: BoxDecoration(color: c.primary.withValues(alpha: 0.1), borderRadius: BorderRadius.circular(4)),
-                                    child: Text('COVER', style: TextStyle(fontSize: 10, fontWeight: FontWeight.w700, color: c.primary)),
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 6,
+                                      vertical: 2,
+                                    ),
+                                    decoration: BoxDecoration(
+                                      color: c.primary.withValues(alpha: 0.1),
+                                      borderRadius: BorderRadius.circular(4),
+                                    ),
+                                    child: Text(
+                                      'COVER',
+                                      style: TextStyle(
+                                        fontSize: 10,
+                                        fontWeight: FontWeight.w700,
+                                        color: c.primary,
+                                      ),
+                                    ),
                                   )
                                 else
                                   GestureDetector(
-                                    onTap: () => setState(() => _coverIndex = i),
-                                    child: Text('Set as cover', style: TextStyle(fontSize: 12, color: c.primary)),
-                                  )
+                                    onTap: () =>
+                                        setState(() => _coverIndex = i),
+                                    child: Text(
+                                      'Set as cover',
+                                      style: TextStyle(
+                                        fontSize: 12,
+                                        color: c.primary,
+                                      ),
+                                    ),
+                                  ),
                               ],
                             ),
                           ),
@@ -255,20 +380,29 @@ class _MultiMediaPickerScreenState extends ConsumerState<MultiMediaPickerScreen>
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               IconButton(
-                                icon: Icon(Icons.close_rounded, color: c.textMuted),
+                                icon: Icon(
+                                  Icons.close_rounded,
+                                  color: c.textMuted,
+                                ),
                                 onPressed: () {
                                   setState(() {
                                     _selectedFiles.removeAt(i);
                                     _mediaTypes.removeAt(i);
                                     if (_coverIndex == i) {
-                                      _coverIndex = _selectedFiles.isEmpty ? null : 0;
-                                    } else if (_coverIndex != null && _coverIndex! > i) {
+                                      _coverIndex = _selectedFiles.isEmpty
+                                          ? null
+                                          : 0;
+                                    } else if (_coverIndex != null &&
+                                        _coverIndex! > i) {
                                       _coverIndex = _coverIndex! - 1;
                                     }
                                   });
                                 },
                               ),
-                              Icon(Icons.drag_handle_rounded, color: c.textMuted.withValues(alpha: 0.5)),
+                              Icon(
+                                Icons.drag_handle_rounded,
+                                color: c.textMuted.withValues(alpha: 0.5),
+                              ),
                             ],
                           ),
                         ),
@@ -288,14 +422,22 @@ class _ActionBtn extends StatelessWidget {
   final VoidCallback onTap;
   final AppColors colors;
 
-  const _ActionBtn({required this.icon, required this.label, required this.onTap, required this.colors});
+  const _ActionBtn({
+    required this.icon,
+    required this.label,
+    required this.onTap,
+    required this.colors,
+  });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s20, vertical: AppSpacing.s12),
+        padding: const EdgeInsets.symmetric(
+          horizontal: AppSpacing.s20,
+          vertical: AppSpacing.s12,
+        ),
         decoration: BoxDecoration(
           color: colors.bg,
           borderRadius: BorderRadius.circular(AppRadii.lg),
@@ -304,7 +446,14 @@ class _ActionBtn extends StatelessWidget {
           children: [
             Icon(icon, size: 24, color: colors.text),
             const SizedBox(height: 4),
-            Text(label, style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500, color: colors.text)),
+            Text(
+              label,
+              style: TextStyle(
+                fontSize: 12,
+                fontWeight: FontWeight.w500,
+                color: colors.text,
+              ),
+            ),
           ],
         ),
       ),

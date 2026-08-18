@@ -1,4 +1,5 @@
 import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
@@ -49,7 +50,10 @@ class _MvBottomBar extends StatelessWidget {
       branchIndex = index - 1;
     }
     if (shell.currentIndex == branchIndex) return;
-    shell.goBranch(branchIndex, initialLocation: branchIndex == shell.currentIndex);
+    shell.goBranch(
+      branchIndex,
+      initialLocation: branchIndex == shell.currentIndex,
+    );
   }
 
   @override
@@ -62,7 +66,9 @@ class _MvBottomBar extends StatelessWidget {
         child: Container(
           decoration: BoxDecoration(
             color: Colors.black.withOpacity(0.2),
-            border: Border(top: BorderSide(color: Colors.white.withOpacity(0.1), width: 0.5)),
+            border: Border(
+              top: BorderSide(color: Colors.white.withOpacity(0.1), width: 0.5),
+            ),
           ),
           child: SafeArea(
             top: false,
@@ -96,9 +102,15 @@ class _MvBottomBar extends StatelessWidget {
                             decoration: BoxDecoration(
                               color: Colors.white.withOpacity(0.15),
                               borderRadius: BorderRadius.circular(AppRadii.md),
-                              border: Border.all(color: Colors.white.withOpacity(0.3)),
+                              border: Border.all(
+                                color: Colors.white.withOpacity(0.3),
+                              ),
                             ),
-                            child: const Icon(Icons.add_rounded, color: Colors.white, size: 26),
+                            child: const Icon(
+                              Icons.add_rounded,
+                              color: Colors.white,
+                              size: 26,
+                            ),
                           ),
                         ],
                       ),

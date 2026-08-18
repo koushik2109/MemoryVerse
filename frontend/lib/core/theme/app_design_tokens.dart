@@ -201,9 +201,7 @@ class AppTheme {
         bodySmall: AppTextStyles.caption,
         labelSmall: AppTextStyles.micro,
       ),
-      elevatedButtonTheme: ElevatedButtonThemeData(
-        style: primaryButtonOnLight,
-      ),
+      elevatedButtonTheme: ElevatedButtonThemeData(style: primaryButtonOnLight),
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: secondaryButtonOnLight,
       ),

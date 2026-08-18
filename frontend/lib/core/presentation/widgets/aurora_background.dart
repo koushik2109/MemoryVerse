@@ -34,14 +34,38 @@ class _AuroraPainter extends CustomPainter {
     // If it's dark, we might want slightly different blob colors or opacities,
     // but the user requested "aurora theme here too" for the dark screens.
     // The blobs on a dark gradient will look like nebulas.
-    // Let's use the same blobs but adjust opacity slightly for dark mode if needed, 
+    // Let's use the same blobs but adjust opacity slightly for dark mode if needed,
     // or just keep them as they are since they are translucent.
-    
-    _paintBlob(canvas, size, const Alignment(-0.84, -0.84), 0.85, const Color(0x6BAF6DFF));
-    _paintBlob(canvas, size, const Alignment(0.5, -0.3), 0.75, const Color(0x8CFFEBAA));
-    _paintBlob(canvas, size, const Alignment(-0.7, 0.6), 0.7, const Color(0x66FF64B4));
-    _paintBlob(canvas, size, const Alignment(0.84, 0.84), 0.7, const Color(0x7378BEFF));
-    
+
+    _paintBlob(
+      canvas,
+      size,
+      const Alignment(-0.84, -0.84),
+      0.85,
+      const Color(0x6BAF6DFF),
+    );
+    _paintBlob(
+      canvas,
+      size,
+      const Alignment(0.5, -0.3),
+      0.75,
+      const Color(0x8CFFEBAA),
+    );
+    _paintBlob(
+      canvas,
+      size,
+      const Alignment(-0.7, 0.6),
+      0.7,
+      const Color(0x66FF64B4),
+    );
+    _paintBlob(
+      canvas,
+      size,
+      const Alignment(0.84, 0.84),
+      0.7,
+      const Color(0x7378BEFF),
+    );
+
     if (isDark) {
       // Apply the scrim on top of the blobs if it's dark mode, to ensure text legibility
       canvas.drawRect(
@@ -59,17 +83,17 @@ class _AuroraPainter extends CustomPainter {
     Color color,
   ) {
     final paint = Paint()
-      ..shader = RadialGradient(
-        colors: [color, color.withOpacity(0)],
-      ).createShader(
-        Rect.fromCircle(
-          center: center.alongSize(size),
-          radius: size.shortestSide * radiusFactor,
-        ),
-      );
+      ..shader = RadialGradient(colors: [color, color.withOpacity(0)])
+          .createShader(
+            Rect.fromCircle(
+              center: center.alongSize(size),
+              radius: size.shortestSide * radiusFactor,
+            ),
+          );
     canvas.drawRect(Offset.zero & size, paint);
   }
 
   @override
-  bool shouldRepaint(covariant _AuroraPainter oldDelegate) => oldDelegate.isDark != isDark;
+  bool shouldRepaint(covariant _AuroraPainter oldDelegate) =>
+      oldDelegate.isDark != isDark;
 }

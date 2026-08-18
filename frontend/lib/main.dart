@@ -14,10 +14,12 @@ Future<void> main() async {
     DeviceOrientation.portraitDown,
   ]);
 
-  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-    statusBarColor: Colors.transparent,
-    statusBarIconBrightness: Brightness.dark,
-  ));
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      statusBarIconBrightness: Brightness.dark,
+    ),
+  );
 
   await dotenv.load(fileName: '.env');
 
@@ -32,7 +34,9 @@ Future<void> main() async {
   runApp(
     ProviderScope(
       overrides: [
-        themeModeProvider.overrideWith((ref) => ThemeModeNotifier(ThemeMode.dark)),
+        themeModeProvider.overrideWith(
+          (ref) => ThemeModeNotifier(ThemeMode.dark),
+        ),
       ],
       child: const MemoryVerseApp(),
     ),

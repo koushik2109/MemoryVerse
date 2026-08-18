@@ -5,11 +5,7 @@ class MediaGrid extends StatelessWidget {
   final List<String> imageUrls;
   final Function(int)? onMediaTap;
 
-  const MediaGrid({
-    super.key,
-    required this.imageUrls,
-    this.onMediaTap,
-  });
+  const MediaGrid({super.key, required this.imageUrls, this.onMediaTap});
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +29,8 @@ class MediaGrid extends StatelessWidget {
             child: Image.network(
               imageUrls[index],
               fit: BoxFit.cover,
-              errorBuilder: (_, __, ___) => Icon(Icons.image, color: context.colors.textMuted),
+              errorBuilder: (_, __, ___) =>
+                  Icon(Icons.image, color: context.colors.textMuted),
             ),
           ),
         );
@@ -64,7 +61,8 @@ class VideoThumbnail extends StatelessWidget {
           Image.network(
             imageUrl,
             fit: BoxFit.cover,
-            errorBuilder: (_, __, ___) => Container(color: context.colors.surfaceElevated),
+            errorBuilder: (_, __, ___) =>
+                Container(color: context.colors.surfaceElevated),
           ),
           Center(
             child: Container(
@@ -74,7 +72,11 @@ class VideoThumbnail extends StatelessWidget {
                 shape: BoxShape.circle,
                 border: Border.all(color: Colors.white.withValues(alpha: 0.2)),
               ),
-              child: const Icon(Icons.play_arrow_rounded, color: Colors.white, size: 28),
+              child: const Icon(
+                Icons.play_arrow_rounded,
+                color: Colors.white,
+                size: 28,
+              ),
             ),
           ),
           if (duration != null)
@@ -82,14 +84,21 @@ class VideoThumbnail extends StatelessWidget {
               bottom: AppSpacing.s8,
               right: AppSpacing.s8,
               child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s8, vertical: 2),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: AppSpacing.s8,
+                  vertical: 2,
+                ),
                 decoration: BoxDecoration(
                   color: Colors.black.withValues(alpha: 0.6),
                   borderRadius: BorderRadius.circular(AppRadii.sm),
                 ),
                 child: Text(
                   duration!,
-                  style: const TextStyle(color: Colors.white, fontSize: 11, fontWeight: FontWeight.w600),
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 11,
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
               ),
             ),
@@ -116,7 +125,9 @@ class Avatar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final c = context.colors;
-    final initial = (name ?? 'U').isNotEmpty ? (name ?? 'U')[0].toUpperCase() : 'U';
+    final initial = (name ?? 'U').isNotEmpty
+        ? (name ?? 'U')[0].toUpperCase()
+        : 'U';
 
     Widget child;
     if (url != null && url!.isNotEmpty) {

@@ -30,13 +30,28 @@ class _TimelineScreenState extends ConsumerState<TimelineScreen> {
       context: context,
       builder: (ctx) => AlertDialog(
         backgroundColor: context.colors.surface,
-        title: Text('Delete Memory?', style: TextStyle(color: context.colors.text)),
-        content: Text('This memory and all its media will be permanently deleted.', style: TextStyle(color: context.colors.textMuted)),
+        title: Text(
+          'Delete Memory?',
+          style: TextStyle(color: context.colors.text),
+        ),
+        content: Text(
+          'This memory and all its media will be permanently deleted.',
+          style: TextStyle(color: context.colors.textMuted),
+        ),
         actions: [
-          TextButton(onPressed: () => Navigator.pop(ctx, false), child: Text('Cancel', style: TextStyle(color: context.colors.textMuted))),
+          TextButton(
+            onPressed: () => Navigator.pop(ctx, false),
+            child: Text(
+              'Cancel',
+              style: TextStyle(color: context.colors.textMuted),
+            ),
+          ),
           TextButton(
             onPressed: () => Navigator.pop(ctx, true),
-            child: Text('Delete', style: TextStyle(color: context.colors.error)),
+            child: Text(
+              'Delete',
+              style: TextStyle(color: context.colors.error),
+            ),
           ),
         ],
       ),
@@ -48,7 +63,10 @@ class _TimelineScreenState extends ConsumerState<TimelineScreen> {
         ref.invalidate(timelineProvider);
         ref.invalidate(memoriesListProvider);
       } catch (e) {
-        if (mounted) ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Failed to delete memory')));
+        if (mounted)
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Failed to delete memory')),
+          );
       }
     }
   }
@@ -58,13 +76,22 @@ class _TimelineScreenState extends ConsumerState<TimelineScreen> {
     showModalBottomSheet(
       context: context,
       backgroundColor: c.surfaceElevated,
-      shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(AppRadii.xl))),
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(AppRadii.xl)),
+      ),
       builder: (ctx) => SafeArea(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             const SizedBox(height: AppSpacing.s8),
-            Container(width: 40, height: 4, decoration: BoxDecoration(color: c.border, borderRadius: BorderRadius.circular(2))),
+            Container(
+              width: 40,
+              height: 4,
+              decoration: BoxDecoration(
+                color: c.border,
+                borderRadius: BorderRadius.circular(2),
+              ),
+            ),
             const SizedBox(height: AppSpacing.s16),
             ListTile(
               leading: Icon(Icons.edit_outlined, color: c.text),
@@ -124,53 +151,122 @@ class _TimelineScreenState extends ConsumerState<TimelineScreen> {
           data: (timeline) {
             // Filter logic
             var filteredGroups = timeline.groups;
-            
+
             if (_selectedYear != null) {
-              filteredGroups = filteredGroups.where((g) => g.year == _selectedYear).toList();
+              filteredGroups = filteredGroups
+                  .where((g) => g.year == _selectedYear)
+                  .toList();
             }
-            
+
             if (_selectedMonth != null) {
-              filteredGroups = filteredGroups.map((g) {
-                final filteredMonths = g.months.where((m) => m.month == _selectedMonth).toList();
-                return TimelineYearGroup(year: g.year, months: filteredMonths);
-              }).where((g) => g.months.isNotEmpty).toList();
+              filteredGroups = filteredGroups
+                  .map((g) {
+                    final filteredMonths = g.months
+                        .where((m) => m.month == _selectedMonth)
+                        .toList();
+                    return TimelineYearGroup(
+                      year: g.year,
+                      months: filteredMonths,
+                    );
+                  })
+                  .where((g) => g.months.isNotEmpty)
+                  .toList();
             }
-            
+
             if (_searchQuery.isNotEmpty) {
               final q = _searchQuery.toLowerCase();
-              filteredGroups = filteredGroups.map((g) {
-                final filteredMonths = g.months.map((m) {
-                  final filteredDays = m.days.map((d) {
-                    final filteredMemories = d.memories.where((mem) {
-                      return mem.title.toLowerCase().contains(q) || 
-                             (mem.locationName?.toLowerCase().contains(q) ?? false) ||
-                             (mem.description?.toLowerCase().contains(q) ?? false);
-                    }).toList();
-                    return TimelineDayGroup(dateLabel: d.dateLabel, date: d.date, memories: filteredMemories);
-                  }).where((d) => d.memories.isNotEmpty).toList();
-                  return TimelineMonthGroup(month: m.month, days: filteredDays);
-                }).where((m) => m.days.isNotEmpty).toList();
-                return TimelineYearGroup(year: g.year, months: filteredMonths);
-              }).where((g) => g.months.isNotEmpty).toList();
+              filteredGroups = filteredGroups
+                  .map((g) {
+                    final filteredMonths = g.months
+                        .map((m) {
+                          final filteredDays = m.days
+                              .map((d) {
+                                final filteredMemories = d.memories.where((
+                                  mem,
+                                ) {
+                                  return mem.title.toLowerCase().contains(q) ||
+                                      (mem.locationName?.toLowerCase().contains(
+                                            q,
+                                          ) ??
+                                          false) ||
+                                      (mem.description?.toLowerCase().contains(
+                                            q,
+                                          ) ??
+                                          false);
+                                }).toList();
+                                return TimelineDayGroup(
+                                  dateLabel: d.dateLabel,
+                                  date: d.date,
+                                  memories: filteredMemories,
+                                );
+                              })
+                              .where((d) => d.memories.isNotEmpty)
+                              .toList();
+                          return TimelineMonthGroup(
+                            month: m.month,
+                            days: filteredDays,
+                          );
+                        })
+                        .where((m) => m.days.isNotEmpty)
+                        .toList();
+                    return TimelineYearGroup(
+                      year: g.year,
+                      months: filteredMonths,
+                    );
+                  })
+                  .where((g) => g.months.isNotEmpty)
+                  .toList();
             }
 
             final hasData = timeline.groups.isNotEmpty;
             final hasFilteredData = filteredGroups.isNotEmpty;
 
-            final availableYears = timeline.groups.map((g) => g.year).toSet().toList();
-            final availableMonths = {'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'};
+            final availableYears = timeline.groups
+                .map((g) => g.year)
+                .toSet()
+                .toList();
+            final availableMonths = {
+              'January',
+              'February',
+              'March',
+              'April',
+              'May',
+              'June',
+              'July',
+              'August',
+              'September',
+              'October',
+              'November',
+              'December',
+            };
 
             return CustomScrollView(
-              physics: const BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
+              physics: const BouncingScrollPhysics(
+                parent: AlwaysScrollableScrollPhysics(),
+              ),
               slivers: [
                 // Header & Search
                 SliverToBoxAdapter(
                   child: Padding(
-                    padding: const EdgeInsets.fromLTRB(AppSpacing.s24, AppSpacing.s16, AppSpacing.s24, AppSpacing.s16),
+                    padding: const EdgeInsets.fromLTRB(
+                      AppSpacing.s24,
+                      AppSpacing.s16,
+                      AppSpacing.s24,
+                      AppSpacing.s16,
+                    ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('Timeline', style: TextStyle(fontFamily: 'Inter', fontSize: 32, fontWeight: FontWeight.w700, color: c.text, letterSpacing: -1.0)),
+                        Text(
+                          'Timeline',
+                          style: TextStyle(
+                            fontFamily: 'Inter',
+                            fontSize: 32,
+                            fontWeight: FontWeight.w700,
+                            color: c.text,
+                            letterSpacing: -1.0,
+                          ),
+                        ),
                         const SizedBox(height: AppSpacing.s16),
                         if (hasData)
                           Container(
@@ -183,11 +279,18 @@ class _TimelineScreenState extends ConsumerState<TimelineScreen> {
                               decoration: InputDecoration(
                                 hintText: 'Search memories...',
                                 hintStyle: TextStyle(color: c.textMuted),
-                                prefixIcon: Icon(Icons.search, color: c.textMuted),
+                                prefixIcon: Icon(
+                                  Icons.search,
+                                  color: c.textMuted,
+                                ),
                                 border: InputBorder.none,
-                                contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+                                contentPadding: const EdgeInsets.symmetric(
+                                  horizontal: 16,
+                                  vertical: 14,
+                                ),
                               ),
-                              onChanged: (val) => setState(() => _searchQuery = val),
+                              onChanged: (val) =>
+                                  setState(() => _searchQuery = val),
                             ),
                           ),
                       ],
@@ -202,7 +305,9 @@ class _TimelineScreenState extends ConsumerState<TimelineScreen> {
                       height: 40,
                       child: ListView(
                         scrollDirection: Axis.horizontal,
-                        padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s24),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: AppSpacing.s24,
+                        ),
                         children: [
                           _FilterChip(
                             label: _selectedYear ?? 'All Years',
@@ -214,15 +319,29 @@ class _TimelineScreenState extends ConsumerState<TimelineScreen> {
                                 builder: (ctx) => ListView(
                                   children: [
                                     ListTile(
-                                      title: Text('All Years', style: TextStyle(color: c.text)),
-                                      onTap: () { setState(() => _selectedYear = null); Navigator.pop(ctx); },
+                                      title: Text(
+                                        'All Years',
+                                        style: TextStyle(color: c.text),
+                                      ),
+                                      onTap: () {
+                                        setState(() => _selectedYear = null);
+                                        Navigator.pop(ctx);
+                                      },
                                     ),
-                                    ...availableYears.map((y) => ListTile(
-                                      title: Text(y, style: TextStyle(color: c.text)),
-                                      onTap: () { setState(() => _selectedYear = y); Navigator.pop(ctx); },
-                                    ))
+                                    ...availableYears.map(
+                                      (y) => ListTile(
+                                        title: Text(
+                                          y,
+                                          style: TextStyle(color: c.text),
+                                        ),
+                                        onTap: () {
+                                          setState(() => _selectedYear = y);
+                                          Navigator.pop(ctx);
+                                        },
+                                      ),
+                                    ),
                                   ],
-                                )
+                                ),
                               );
                             },
                           ),
@@ -237,15 +356,29 @@ class _TimelineScreenState extends ConsumerState<TimelineScreen> {
                                 builder: (ctx) => ListView(
                                   children: [
                                     ListTile(
-                                      title: Text('All Months', style: TextStyle(color: c.text)),
-                                      onTap: () { setState(() => _selectedMonth = null); Navigator.pop(ctx); },
+                                      title: Text(
+                                        'All Months',
+                                        style: TextStyle(color: c.text),
+                                      ),
+                                      onTap: () {
+                                        setState(() => _selectedMonth = null);
+                                        Navigator.pop(ctx);
+                                      },
                                     ),
-                                    ...availableMonths.map((m) => ListTile(
-                                      title: Text(m, style: TextStyle(color: c.text)),
-                                      onTap: () { setState(() => _selectedMonth = m); Navigator.pop(ctx); },
-                                    ))
+                                    ...availableMonths.map(
+                                      (m) => ListTile(
+                                        title: Text(
+                                          m,
+                                          style: TextStyle(color: c.text),
+                                        ),
+                                        onTap: () {
+                                          setState(() => _selectedMonth = m);
+                                          Navigator.pop(ctx);
+                                        },
+                                      ),
+                                    ),
                                   ],
-                                )
+                                ),
                               );
                             },
                           ),
@@ -253,8 +386,10 @@ class _TimelineScreenState extends ConsumerState<TimelineScreen> {
                       ),
                     ),
                   ),
-                  
-                const SliverToBoxAdapter(child: SizedBox(height: AppSpacing.s16)),
+
+                const SliverToBoxAdapter(
+                  child: SizedBox(height: AppSpacing.s16),
+                ),
 
                 if (!hasData)
                   SliverFillRemaining(
@@ -273,154 +408,324 @@ class _TimelineScreenState extends ConsumerState<TimelineScreen> {
                   SliverFillRemaining(
                     hasScrollBody: false,
                     child: Center(
-                      child: Text('No memories match your filters.', style: TextStyle(color: c.textMuted)),
+                      child: Text(
+                        'No memories match your filters.',
+                        style: TextStyle(color: c.textMuted),
+                      ),
                     ),
                   )
                 else
-                  ...filteredGroups.expand((yearGroup) => [
-                    // Year Header
-                    SliverToBoxAdapter(
-                      child: Padding(
-                        padding: const EdgeInsets.fromLTRB(AppSpacing.s24, AppSpacing.s32, AppSpacing.s24, AppSpacing.s16),
-                        child: Text(yearGroup.year, style: TextStyle(fontFamily: 'Inter', fontSize: 28, fontWeight: FontWeight.w800, color: c.text, letterSpacing: -0.5)),
-                      ),
-                    ),
-                    ...yearGroup.months.expand((monthGroup) => [
-                      // Month Header
+                  ...filteredGroups.expand(
+                    (yearGroup) => [
+                      // Year Header
                       SliverToBoxAdapter(
                         child: Padding(
-                          padding: const EdgeInsets.fromLTRB(AppSpacing.s24, AppSpacing.s16, AppSpacing.s24, AppSpacing.s12),
-                          child: Text(monthGroup.month.toUpperCase(), style: TextStyle(fontFamily: 'Inter', fontSize: 13, fontWeight: FontWeight.w700, color: c.primary, letterSpacing: 1.2)),
+                          padding: const EdgeInsets.fromLTRB(
+                            AppSpacing.s24,
+                            AppSpacing.s32,
+                            AppSpacing.s24,
+                            AppSpacing.s16,
+                          ),
+                          child: Text(
+                            yearGroup.year,
+                            style: TextStyle(
+                              fontFamily: 'Inter',
+                              fontSize: 28,
+                              fontWeight: FontWeight.w800,
+                              color: c.text,
+                              letterSpacing: -0.5,
+                            ),
+                          ),
                         ),
                       ),
-                      ...monthGroup.days.expand((dayGroup) => [
-                        // Day Label (Aug 10) + Memories List
-                        SliverToBoxAdapter(
-                          child: Padding(
-                            padding: const EdgeInsets.fromLTRB(AppSpacing.s24, AppSpacing.s8, AppSpacing.s24, 0),
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                // Date Column
-                                SizedBox(
-                                  width: 60,
-                                  child: Text(
-                                    dayGroup.dateLabel,
-                                    style: TextStyle(fontFamily: 'Inter', fontSize: 14, fontWeight: FontWeight.w600, color: c.textMuted, height: 1.3),
-                                  ),
+                      ...yearGroup.months.expand(
+                        (monthGroup) => [
+                          // Month Header
+                          SliverToBoxAdapter(
+                            child: Padding(
+                              padding: const EdgeInsets.fromLTRB(
+                                AppSpacing.s24,
+                                AppSpacing.s16,
+                                AppSpacing.s24,
+                                AppSpacing.s12,
+                              ),
+                              child: Text(
+                                monthGroup.month.toUpperCase(),
+                                style: TextStyle(
+                                  fontFamily: 'Inter',
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w700,
+                                  color: c.primary,
+                                  letterSpacing: 1.2,
                                 ),
-                                // Memories Column
-                                Expanded(
-                                  child: Column(
-                                    children: dayGroup.memories.map((memory) {
-                                      final cover = _getCoverMedia(memory);
-                                      final photos = memory.media.where((m) => m.mediaType == 'image').length;
-                                      final videos = memory.media.where((m) => m.mediaType == 'video').length;
-                                      
-                                      return Padding(
-                                        padding: const EdgeInsets.only(bottom: AppSpacing.s20),
-                                        child: GestureDetector(
-                                          onTap: () => MemoryDetailScreen.open(context, memory),
-                                          onLongPress: () => _showMemoryOptions(context, memory),
-                                          child: Container(
-                                            decoration: BoxDecoration(
-                                              color: c.surfaceElevated,
-                                              borderRadius: BorderRadius.circular(AppRadii.lg),
-                                              border: Border.all(color: c.border.withValues(alpha: 0.5)),
-                                            ),
-                                            clipBehavior: Clip.antiAlias,
-                                            child: Column(
-                                              crossAxisAlignment: CrossAxisAlignment.start,
-                                              mainAxisSize: MainAxisSize.min,
-                                              children: [
-                                                // Cover Image
-                                                if (cover != null)
-                                                  Stack(
-                                                    children: [
-                                                      SizedBox(
-                                                        height: 140,
-                                                        width: double.infinity,
-                                                        child: Image.network(
-                                                          cover.thumbnailUrl ?? cover.url,
-                                                          fit: BoxFit.cover,
-                                                          errorBuilder: (_, __, ___) => Container(color: c.surface),
+                              ),
+                            ),
+                          ),
+                          ...monthGroup.days.expand(
+                            (dayGroup) => [
+                              // Day Label (Aug 10) + Memories List
+                              SliverToBoxAdapter(
+                                child: Padding(
+                                  padding: const EdgeInsets.fromLTRB(
+                                    AppSpacing.s24,
+                                    AppSpacing.s8,
+                                    AppSpacing.s24,
+                                    0,
+                                  ),
+                                  child: Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      // Date Column
+                                      SizedBox(
+                                        width: 60,
+                                        child: Text(
+                                          dayGroup.dateLabel,
+                                          style: TextStyle(
+                                            fontFamily: 'Inter',
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w600,
+                                            color: c.textMuted,
+                                            height: 1.3,
+                                          ),
+                                        ),
+                                      ),
+                                      // Memories Column
+                                      Expanded(
+                                        child: Column(
+                                          children: dayGroup.memories.map((
+                                            memory,
+                                          ) {
+                                            final cover = _getCoverMedia(
+                                              memory,
+                                            );
+                                            final photos = memory.media
+                                                .where(
+                                                  (m) => m.mediaType == 'image',
+                                                )
+                                                .length;
+                                            final videos = memory.media
+                                                .where(
+                                                  (m) => m.mediaType == 'video',
+                                                )
+                                                .length;
+
+                                            return Padding(
+                                              padding: const EdgeInsets.only(
+                                                bottom: AppSpacing.s20,
+                                              ),
+                                              child: GestureDetector(
+                                                onTap: () =>
+                                                    MemoryDetailScreen.open(
+                                                      context,
+                                                      memory,
+                                                    ),
+                                                onLongPress: () =>
+                                                    _showMemoryOptions(
+                                                      context,
+                                                      memory,
+                                                    ),
+                                                child: Container(
+                                                  decoration: BoxDecoration(
+                                                    color: c.surfaceElevated,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                          AppRadii.lg,
                                                         ),
-                                                      ),
-                                                      if (cover.isVideo)
-                                                        Positioned(
-                                                          top: 8, right: 8,
-                                                          child: Container(
-                                                            padding: const EdgeInsets.all(4),
-                                                            decoration: BoxDecoration(color: Colors.black.withValues(alpha: 0.6), shape: BoxShape.circle),
-                                                            child: const Icon(Icons.play_arrow_rounded, color: Colors.white, size: 16),
+                                                    border: Border.all(
+                                                      color: c.border
+                                                          .withValues(
+                                                            alpha: 0.5,
                                                           ),
-                                                        ),
-                                                    ],
-                                                  )
-                                                else
-                                                  Container(
-                                                    height: 100,
-                                                    width: double.infinity,
-                                                    decoration: BoxDecoration(
-                                                      gradient: LinearGradient(
-                                                        colors: [c.primary.withValues(alpha: 0.2), c.bg],
-                                                        begin: Alignment.topLeft,
-                                                        end: Alignment.bottomRight,
-                                                      ),
                                                     ),
                                                   ),
-                                                  
-                                                // Info
-                                                Padding(
-                                                  padding: const EdgeInsets.all(AppSpacing.s16),
+                                                  clipBehavior: Clip.antiAlias,
                                                   child: Column(
-                                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                                    mainAxisSize: MainAxisSize.min,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    mainAxisSize:
+                                                        MainAxisSize.min,
                                                     children: [
-                                                      Text(
-                                                        memory.title,
-                                                        style: TextStyle(fontFamily: 'Inter', fontSize: 16, fontWeight: FontWeight.w700, color: c.text),
-                                                        maxLines: 1, overflow: TextOverflow.ellipsis,
-                                                      ),
-                                                      const SizedBox(height: AppSpacing.s4),
-                                                      Row(
-                                                        children: [
-                                                          if (memory.locationName != null) ...[
-                                                            Icon(Icons.location_on, size: 12, color: c.textMuted),
-                                                            const SizedBox(width: 4),
-                                                            Expanded(
-                                                              child: Text(
-                                                                memory.locationName!,
-                                                                style: TextStyle(fontSize: 12, color: c.textMuted),
-                                                                maxLines: 1, overflow: TextOverflow.ellipsis,
+                                                      // Cover Image
+                                                      if (cover != null)
+                                                        Stack(
+                                                          children: [
+                                                            SizedBox(
+                                                              height: 140,
+                                                              width: double
+                                                                  .infinity,
+                                                              child: Image.network(
+                                                                cover.thumbnailUrl ??
+                                                                    cover.url,
+                                                                fit: BoxFit
+                                                                    .cover,
+                                                                errorBuilder:
+                                                                    (
+                                                                      _,
+                                                                      __,
+                                                                      ___,
+                                                                    ) => Container(
+                                                                      color: c
+                                                                          .surface,
+                                                                    ),
                                                               ),
                                                             ),
+                                                            if (cover.isVideo)
+                                                              Positioned(
+                                                                top: 8,
+                                                                right: 8,
+                                                                child: Container(
+                                                                  padding:
+                                                                      const EdgeInsets.all(
+                                                                        4,
+                                                                      ),
+                                                                  decoration: BoxDecoration(
+                                                                    color: Colors
+                                                                        .black
+                                                                        .withValues(
+                                                                          alpha:
+                                                                              0.6,
+                                                                        ),
+                                                                    shape: BoxShape
+                                                                        .circle,
+                                                                  ),
+                                                                  child: const Icon(
+                                                                    Icons
+                                                                        .play_arrow_rounded,
+                                                                    color: Colors
+                                                                        .white,
+                                                                    size: 16,
+                                                                  ),
+                                                                ),
+                                                              ),
                                                           ],
-                                                          Text(
-                                                            '${photos > 0 ? '$photos photos' : ''}${photos > 0 && videos > 0 ? ' · ' : ''}${videos > 0 ? '$videos videos' : ''}${photos == 0 && videos == 0 ? '0 media' : ''}',
-                                                            style: TextStyle(fontSize: 12, color: c.textMuted, fontWeight: FontWeight.w500),
+                                                        )
+                                                      else
+                                                        Container(
+                                                          height: 100,
+                                                          width:
+                                                              double.infinity,
+                                                          decoration: BoxDecoration(
+                                                            gradient: LinearGradient(
+                                                              colors: [
+                                                                c.primary
+                                                                    .withValues(
+                                                                      alpha:
+                                                                          0.2,
+                                                                    ),
+                                                                c.bg,
+                                                              ],
+                                                              begin: Alignment
+                                                                  .topLeft,
+                                                              end: Alignment
+                                                                  .bottomRight,
+                                                            ),
                                                           ),
-                                                        ],
+                                                        ),
+
+                                                      // Info
+                                                      Padding(
+                                                        padding:
+                                                            const EdgeInsets.all(
+                                                              AppSpacing.s16,
+                                                            ),
+                                                        child: Column(
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .start,
+                                                          mainAxisSize:
+                                                              MainAxisSize.min,
+                                                          children: [
+                                                            Text(
+                                                              memory.title,
+                                                              style: TextStyle(
+                                                                fontFamily:
+                                                                    'Inter',
+                                                                fontSize: 16,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w700,
+                                                                color: c.text,
+                                                              ),
+                                                              maxLines: 1,
+                                                              overflow:
+                                                                  TextOverflow
+                                                                      .ellipsis,
+                                                            ),
+                                                            const SizedBox(
+                                                              height:
+                                                                  AppSpacing.s4,
+                                                            ),
+                                                            Row(
+                                                              children: [
+                                                                if (memory
+                                                                        .locationName !=
+                                                                    null) ...[
+                                                                  Icon(
+                                                                    Icons
+                                                                        .location_on,
+                                                                    size: 12,
+                                                                    color: c
+                                                                        .textMuted,
+                                                                  ),
+                                                                  const SizedBox(
+                                                                    width: 4,
+                                                                  ),
+                                                                  Expanded(
+                                                                    child: Text(
+                                                                      memory
+                                                                          .locationName!,
+                                                                      style: TextStyle(
+                                                                        fontSize:
+                                                                            12,
+                                                                        color: c
+                                                                            .textMuted,
+                                                                      ),
+                                                                      maxLines:
+                                                                          1,
+                                                                      overflow:
+                                                                          TextOverflow
+                                                                              .ellipsis,
+                                                                    ),
+                                                                  ),
+                                                                ],
+                                                                Text(
+                                                                  '${photos > 0 ? '$photos photos' : ''}${photos > 0 && videos > 0 ? ' · ' : ''}${videos > 0 ? '$videos videos' : ''}${photos == 0 && videos == 0 ? '0 media' : ''}',
+                                                                  style: TextStyle(
+                                                                    fontSize:
+                                                                        12,
+                                                                    color: c
+                                                                        .textMuted,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w500,
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ],
+                                                        ),
                                                       ),
                                                     ],
                                                   ),
                                                 ),
-                                              ],
-                                            ),
-                                          ),
+                                              ),
+                                            );
+                                          }).toList(),
                                         ),
-                                      );
-                                    }).toList(),
+                                      ),
+                                    ],
                                   ),
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
-                        ),
-                      ]),
-                    ]),
-                  ]),
-                
+                        ],
+                      ),
+                    ],
+                  ),
+
                 const SliverToBoxAdapter(child: SizedBox(height: 100)),
               ],
             );
@@ -436,7 +741,11 @@ class _FilterChip extends StatelessWidget {
   final bool isActive;
   final VoidCallback onTap;
 
-  const _FilterChip({required this.label, required this.isActive, required this.onTap});
+  const _FilterChip({
+    required this.label,
+    required this.isActive,
+    required this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -453,9 +762,20 @@ class _FilterChip extends StatelessWidget {
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(label, style: TextStyle(color: isActive ? c.primaryInverse : c.text, fontSize: 13, fontWeight: FontWeight.w500)),
+            Text(
+              label,
+              style: TextStyle(
+                color: isActive ? c.primaryInverse : c.text,
+                fontSize: 13,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
             const SizedBox(width: 4),
-            Icon(Icons.keyboard_arrow_down, size: 16, color: isActive ? c.primaryInverse : c.textMuted),
+            Icon(
+              Icons.keyboard_arrow_down,
+              size: 16,
+              color: isActive ? c.primaryInverse : c.textMuted,
+            ),
           ],
         ),
       ),

@@ -1,4 +1,5 @@
 import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
@@ -88,7 +89,8 @@ class _MediaPickerSheetState extends ConsumerState<MediaPickerSheet> {
         final name = file.path.split('/').last;
 
         setState(() {
-          _uploadStatus = 'Uploading ${i + 1}/${_selectedFiles.length}: $name...';
+          _uploadStatus =
+              'Uploading ${i + 1}/${_selectedFiles.length}: $name...';
         });
 
         await repo.uploadMedia(
@@ -110,7 +112,9 @@ class _MediaPickerSheetState extends ConsumerState<MediaPickerSheet> {
         Navigator.pop(context);
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('${_selectedFiles.length} media item(s) uploaded successfully!'),
+            content: Text(
+              '${_selectedFiles.length} media item(s) uploaded successfully!',
+            ),
             backgroundColor: context.colors.success,
           ),
         );
@@ -119,7 +123,10 @@ class _MediaPickerSheetState extends ConsumerState<MediaPickerSheet> {
       if (mounted) {
         setState(() => _isUploading = false);
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Upload error: $e'), backgroundColor: context.colors.error),
+          SnackBar(
+            content: Text('Upload error: $e'),
+            backgroundColor: context.colors.error,
+          ),
         );
       }
     }
@@ -133,7 +140,9 @@ class _MediaPickerSheetState extends ConsumerState<MediaPickerSheet> {
       padding: const EdgeInsets.all(AppSpacing.s24),
       decoration: BoxDecoration(
         color: c.surfaceElevated,
-        borderRadius: const BorderRadius.vertical(top: Radius.circular(AppRadii.xl)),
+        borderRadius: const BorderRadius.vertical(
+          top: Radius.circular(AppRadii.xl),
+        ),
         border: Border.all(color: c.borderSubtle),
       ),
       child: SafeArea(
@@ -144,14 +153,11 @@ class _MediaPickerSheetState extends ConsumerState<MediaPickerSheet> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  'Add Memories',
-                  style: context.text.headlineSmall,
-                ),
+                Text('Add Memories', style: context.text.headlineSmall),
                 IconButton(
                   onPressed: () => Navigator.pop(context),
                   icon: Icon(Icons.close, color: c.textMuted),
-                )
+                ),
               ],
             ),
             const SizedBox(height: AppSpacing.s16),
@@ -210,7 +216,13 @@ class _MediaPickerSheetState extends ConsumerState<MediaPickerSheet> {
                               child: Image.file(file, fit: BoxFit.cover),
                             )
                           else
-                            Center(child: Icon(Icons.movie_outlined, size: 36, color: c.text)),
+                            Center(
+                              child: Icon(
+                                Icons.movie_outlined,
+                                size: 36,
+                                color: c.text,
+                              ),
+                            ),
                           Positioned(
                             top: 4,
                             right: 4,
@@ -223,11 +235,18 @@ class _MediaPickerSheetState extends ConsumerState<MediaPickerSheet> {
                               },
                               child: Container(
                                 padding: const EdgeInsets.all(2),
-                                decoration: const BoxDecoration(color: Colors.black54, shape: BoxShape.circle),
-                                child: const Icon(Icons.close, size: 14, color: Colors.white),
+                                decoration: const BoxDecoration(
+                                  color: Colors.black54,
+                                  shape: BoxShape.circle,
+                                ),
+                                child: const Icon(
+                                  Icons.close,
+                                  size: 14,
+                                  color: Colors.white,
+                                ),
                               ),
                             ),
-                          )
+                          ),
                         ],
                       ),
                     );
@@ -270,7 +289,11 @@ class _OptionTile extends StatelessWidget {
   final String label;
   final VoidCallback onTap;
 
-  const _OptionTile({required this.icon, required this.label, required this.onTap});
+  const _OptionTile({
+    required this.icon,
+    required this.label,
+    required this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -278,7 +301,10 @@ class _OptionTile extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        padding: const EdgeInsets.symmetric(vertical: AppSpacing.s20, horizontal: AppSpacing.s8),
+        padding: const EdgeInsets.symmetric(
+          vertical: AppSpacing.s20,
+          horizontal: AppSpacing.s8,
+        ),
         decoration: BoxDecoration(
           color: c.surface,
           borderRadius: BorderRadius.circular(AppRadii.lg),
@@ -291,7 +317,9 @@ class _OptionTile extends StatelessWidget {
             Text(
               label,
               textAlign: TextAlign.center,
-              style: context.text.labelSmall?.copyWith(fontWeight: FontWeight.w600),
+              style: context.text.labelSmall?.copyWith(
+                fontWeight: FontWeight.w600,
+              ),
             ),
           ],
         ),

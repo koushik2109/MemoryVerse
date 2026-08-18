@@ -17,7 +17,8 @@ class FlowButton extends StatefulWidget {
   State<FlowButton> createState() => _FlowButtonState();
 }
 
-class _FlowButtonState extends State<FlowButton> with SingleTickerProviderStateMixin {
+class _FlowButtonState extends State<FlowButton>
+    with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _scaleAnimation;
   late Animation<double> _circleExpandAnimation;
@@ -31,13 +32,15 @@ class _FlowButtonState extends State<FlowButton> with SingleTickerProviderStateM
       reverseDuration: const Duration(milliseconds: 300),
     );
 
-    _scaleAnimation = Tween<double>(begin: 1.0, end: 0.97).animate(
-      CurvedAnimation(parent: _controller, curve: Curves.easeOut),
-    );
+    _scaleAnimation = Tween<double>(
+      begin: 1.0,
+      end: 0.97,
+    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeOut));
 
-    _circleExpandAnimation = Tween<double>(begin: 0.0, end: 300.0).animate(
-      CurvedAnimation(parent: _controller, curve: Curves.easeIn),
-    );
+    _circleExpandAnimation = Tween<double>(
+      begin: 0.0,
+      end: 300.0,
+    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeIn));
   }
 
   @override
@@ -50,7 +53,7 @@ class _FlowButtonState extends State<FlowButton> with SingleTickerProviderStateM
     _controller.forward();
     await Future.delayed(const Duration(milliseconds: 200));
     widget.onPressed();
-    
+
     Future.delayed(const Duration(milliseconds: 500), () {
       if (mounted) {
         _controller.reverse();
@@ -63,7 +66,9 @@ class _FlowButtonState extends State<FlowButton> with SingleTickerProviderStateM
     final defaultTextColor = widget.isDark ? Colors.white : AppColors.plum800;
     final hoverTextColor = widget.isDark ? AppColors.plum800 : Colors.white;
     final circleColor = widget.isDark ? Colors.white : AppColors.plum800;
-    final borderColor = widget.isDark ? Colors.white24 : AppColors.plum800.withOpacity(0.25);
+    final borderColor = widget.isDark
+        ? Colors.white24
+        : AppColors.plum800.withOpacity(0.25);
 
     return GestureDetector(
       onTap: _handleTap,
@@ -78,7 +83,9 @@ class _FlowButtonState extends State<FlowButton> with SingleTickerProviderStateM
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(AppRadius.md),
                 border: Border.all(
-                  color: _controller.value > 0.1 ? Colors.transparent : borderColor,
+                  color: _controller.value > 0.1
+                      ? Colors.transparent
+                      : borderColor,
                   width: 1.5,
                 ),
                 color: Colors.transparent,

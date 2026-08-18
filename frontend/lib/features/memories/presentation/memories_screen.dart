@@ -29,14 +29,26 @@ class _MemoriesScreenState extends ConsumerState<MemoriesScreen> {
           children: [
             // ── Header ──────────────────────────────────
             Padding(
-              padding: const EdgeInsets.fromLTRB(AppSpacing.s20, AppSpacing.s12, AppSpacing.s20, 0),
+              padding: const EdgeInsets.fromLTRB(
+                AppSpacing.s20,
+                AppSpacing.s12,
+                AppSpacing.s20,
+                0,
+              ),
               child: Row(
                 children: [
                   Expanded(
-                    child: Text('Memories', style: Theme.of(context).textTheme.displaySmall?.copyWith(color: c.text)),
+                    child: Text(
+                      'Memories',
+                      style: Theme.of(context).textTheme.displaySmall
+                          ?.copyWith(color: c.text),
+                    ),
                   ),
                   IconButton(
-                    icon: Icon(Icons.add_circle_outline_rounded, color: c.primary),
+                    icon: Icon(
+                      Icons.add_circle_outline_rounded,
+                      color: c.primary,
+                    ),
                     onPressed: () => CreateMemorySheet.show(context),
                   ),
                 ],
@@ -45,10 +57,16 @@ class _MemoriesScreenState extends ConsumerState<MemoriesScreen> {
 
             // Month label
             Padding(
-              padding: const EdgeInsets.fromLTRB(AppSpacing.s20, AppSpacing.s4, AppSpacing.s20, AppSpacing.s12),
+              padding: const EdgeInsets.fromLTRB(
+                AppSpacing.s20,
+                AppSpacing.s4,
+                AppSpacing.s20,
+                AppSpacing.s12,
+              ),
               child: Text(
                 DateFormat('MMMM yyyy').format(DateTime.now()),
-                style: Theme.of(context).textTheme.bodySmall?.copyWith(color: c.textMuted),
+                style: Theme.of(context).textTheme.bodySmall
+                    ?.copyWith(color: c.textMuted),
               ),
             ),
 
@@ -78,7 +96,11 @@ class _MemoriesScreenState extends ConsumerState<MemoriesScreen> {
                   final groups = <String, List<MemoryModel>>{};
                   for (final m in memories) {
                     final diff = today.difference(m.memoryDate).inDays;
-                    final label = diff == 0 ? 'Today' : diff == 1 ? 'Yesterday' : DateFormat('MMMM yyyy').format(m.memoryDate);
+                    final label = diff == 0
+                        ? 'Today'
+                        : diff == 1
+                        ? 'Yesterday'
+                        : DateFormat('MMMM yyyy').format(m.memoryDate);
                     groups.putIfAbsent(label, () => []).add(m);
                   }
 
@@ -86,7 +108,9 @@ class _MemoriesScreenState extends ConsumerState<MemoriesScreen> {
                     color: c.primary,
                     onRefresh: () async => ref.invalidate(memoriesListProvider),
                     child: ListView.builder(
-                      padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s20),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: AppSpacing.s20,
+                      ),
                       itemCount: groups.length,
                       itemBuilder: (_, gi) {
                         final label = groups.keys.elementAt(gi);
@@ -95,20 +119,29 @@ class _MemoriesScreenState extends ConsumerState<MemoriesScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             if (gi > 0) const SizedBox(height: AppSpacing.s24),
-                            Text(label, style: Theme.of(context).textTheme.titleSmall?.copyWith(color: c.textMuted, fontWeight: FontWeight.w600)),
+                            Text(
+                              label,
+                              style: Theme.of(context).textTheme.titleSmall
+                                  ?.copyWith(
+                                    color: c.textMuted,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                            ),
                             const SizedBox(height: AppSpacing.s12),
                             GridView.builder(
                               shrinkWrap: true,
                               physics: const NeverScrollableScrollPhysics(),
-                              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 2,
-                                crossAxisSpacing: AppSpacing.s12,
-                                mainAxisSpacing: AppSpacing.s12,
-                                childAspectRatio: 0.8,
-                              ),
+                              gridDelegate:
+                                  const SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: 2,
+                                    crossAxisSpacing: AppSpacing.s12,
+                                    mainAxisSpacing: AppSpacing.s12,
+                                    childAspectRatio: 0.8,
+                                  ),
                               itemCount: items.length,
-                              itemBuilder: (_, i) => _MemoryGridItem(memory: items[i]),
-                            )
+                              itemBuilder: (_, i) =>
+                                  _MemoryGridItem(memory: items[i]),
+                            ),
                           ],
                         );
                       },
@@ -131,11 +164,11 @@ class _MemoryGridItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final c = context.colors;
-    
-    final String? imageUrl = memory.media.isNotEmpty 
+
+    final String? imageUrl = memory.media.isNotEmpty
         ? (memory.media.first.thumbnailUrl ?? memory.media.first.url)
         : null;
-        
+
     return GestureDetector(
       onTap: () => MemoryDetailScreen.open(context, memory),
       child: Container(
@@ -151,13 +184,18 @@ class _MemoryGridItem extends StatelessWidget {
               Image.network(
                 imageUrl,
                 fit: BoxFit.cover,
-                errorBuilder: (_, __, ___) => Container(color: c.surfaceElevated),
+                errorBuilder: (_, __, ___) =>
+                    Container(color: c.surfaceElevated),
               )
             else
               Container(
                 color: c.primary.withValues(alpha: 0.1),
                 child: Center(
-                  child: Icon(Icons.auto_awesome_rounded, color: c.primary.withValues(alpha: 0.5), size: 32),
+                  child: Icon(
+                    Icons.auto_awesome_rounded,
+                    color: c.primary.withValues(alpha: 0.5),
+                    size: 32,
+                  ),
                 ),
               ),
             Container(
@@ -165,7 +203,10 @@ class _MemoryGridItem extends StatelessWidget {
                 gradient: LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
-                  colors: [Colors.transparent, Colors.black.withValues(alpha: 0.7)],
+                  colors: [
+                    Colors.transparent,
+                    Colors.black.withValues(alpha: 0.7),
+                  ],
                   stops: const [0.5, 1.0],
                 ),
               ),
@@ -181,12 +222,21 @@ class _MemoryGridItem extends StatelessWidget {
                     memory.title,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(fontFamily: 'Inter', fontSize: 13, fontWeight: FontWeight.w600, color: Colors.white),
+                    style: const TextStyle(
+                      fontFamily: 'Inter',
+                      fontSize: 13,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.white,
+                    ),
                   ),
                   const SizedBox(height: 2),
                   Text(
                     '${memory.media.length} items',
-                    style: TextStyle(fontFamily: 'Inter', fontSize: 11, color: Colors.white.withValues(alpha: 0.8)),
+                    style: TextStyle(
+                      fontFamily: 'Inter',
+                      fontSize: 11,
+                      color: Colors.white.withValues(alpha: 0.8),
+                    ),
                   ),
                 ],
               ),

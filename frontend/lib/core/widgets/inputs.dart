@@ -32,7 +32,7 @@ class AppTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final c = context.colors;
-    
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -54,7 +54,10 @@ class AppTextField extends StatelessWidget {
             errorText: errorText,
             filled: true,
             fillColor: c.surface,
-            contentPadding: const EdgeInsets.symmetric(horizontal: AppSpacing.s16, vertical: AppSpacing.s16),
+            contentPadding: const EdgeInsets.symmetric(
+              horizontal: AppSpacing.s16,
+              vertical: AppSpacing.s16,
+            ),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(AppRadii.sm),
               borderSide: BorderSide(color: c.border),
@@ -82,7 +85,7 @@ class SearchField extends StatelessWidget {
   final TextEditingController? controller;
   final String hint;
   final ValueChanged<String>? onChanged;
-  
+
   const SearchField({
     super.key,
     this.controller,
@@ -93,7 +96,7 @@ class SearchField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final c = context.colors;
-    
+
     return TextField(
       controller: controller,
       onChanged: onChanged,
@@ -104,7 +107,10 @@ class SearchField extends StatelessWidget {
         filled: true,
         fillColor: c.surface,
         prefixIcon: Icon(Icons.search_rounded, color: c.textMuted, size: 20),
-        contentPadding: const EdgeInsets.symmetric(horizontal: AppSpacing.s16, vertical: 0),
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: AppSpacing.s16,
+          vertical: 0,
+        ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(AppRadii.pill),
           borderSide: BorderSide.none,

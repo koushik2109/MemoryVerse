@@ -6,8 +6,6 @@ import 'package:memory_verse/core/design/tokens.dart';
 import 'package:memory_verse/core/providers/app_providers.dart';
 import 'package:memory_verse/core/repositories/app_repositories.dart';
 
-
-
 class CreateVaultDialog extends ConsumerStatefulWidget {
   const CreateVaultDialog({super.key});
 
@@ -48,7 +46,9 @@ class _CreateVaultDialogState extends ConsumerState<CreateVaultDialog> {
       final repo = ref.read(vaultRepositoryProvider);
       await repo.createVault(
         name: name,
-        description: _descController.text.trim().isEmpty ? null : _descController.text.trim(),
+        description: _descController.text.trim().isEmpty
+            ? null
+            : _descController.text.trim(),
       );
       ref.invalidate(vaultsListProvider);
       ref.invalidate(userProfileProvider);
@@ -56,7 +56,10 @@ class _CreateVaultDialogState extends ConsumerState<CreateVaultDialog> {
       if (mounted) {
         Navigator.pop(context);
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Room created successfully!'), backgroundColor: Colors.green),
+          const SnackBar(
+            content: Text('Room created successfully!'),
+            backgroundColor: Colors.green,
+          ),
         );
       }
     } catch (e) {
@@ -75,18 +78,26 @@ class _CreateVaultDialogState extends ConsumerState<CreateVaultDialog> {
 
     return Dialog(
       backgroundColor: c.surface,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppRadii.xl)),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(AppRadii.xl),
+      ),
       child: Padding(
         padding: const EdgeInsets.all(AppSpacing.s24),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Create New Room',
-                style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w700)),
+            Text(
+              'Create New Room',
+              style: Theme.of(context).textTheme.titleLarge
+                  ?.copyWith(fontWeight: FontWeight.w700),
+            ),
             const SizedBox(height: AppSpacing.s6),
-            Text('Organize your photos & videos with collaborators',
-                style: Theme.of(context).textTheme.bodySmall?.copyWith(color: c.textMuted)),
+            Text(
+              'Organize your photos & videos with collaborators',
+              style: Theme.of(context).textTheme.bodySmall
+                  ?.copyWith(color: c.textMuted),
+            ),
             const SizedBox(height: AppSpacing.s20),
 
             AppTextField(
@@ -103,7 +114,11 @@ class _CreateVaultDialogState extends ConsumerState<CreateVaultDialog> {
 
             if (_error != null) ...[
               const SizedBox(height: AppSpacing.s12),
-              Text(_error!, style: Theme.of(context).textTheme.bodySmall?.copyWith(color: c.error)),
+              Text(
+                _error!,
+                style: Theme.of(context).textTheme.bodySmall
+                    ?.copyWith(color: c.error),
+              ),
             ],
 
             const SizedBox(height: AppSpacing.s24),

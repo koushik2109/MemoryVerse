@@ -77,9 +77,7 @@ class AuthField extends StatelessWidget {
           keyboardType: keyboardType,
           textInputAction: textInputAction,
           onSubmitted: onSubmitted,
-          style: AppTextStyles.body.copyWith(
-            color: AppColors.onDarkPrimary,
-          ),
+          style: AppTextStyles.body.copyWith(color: AppColors.onDarkPrimary),
           decoration: InputDecoration(
             hintText: hint,
             hintStyle: AppTextStyles.body.copyWith(
@@ -132,12 +130,18 @@ class AuthErrorBanner extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: const Color(0xFFE5484D).withOpacity(0.1),
                   borderRadius: BorderRadius.circular(AppRadius.md),
-                  border: Border.all(color: const Color(0xFFE5484D).withOpacity(0.3)),
+                  border: Border.all(
+                    color: const Color(0xFFE5484D).withOpacity(0.3),
+                  ),
                 ),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Icon(Icons.error_outline_rounded, size: 16, color: Color(0xFFE5484D)),
+                    const Icon(
+                      Icons.error_outline_rounded,
+                      size: 16,
+                      color: Color(0xFFE5484D),
+                    ),
                     const SizedBox(width: AppSpacing.s8),
                     Expanded(
                       child: Text(
@@ -201,7 +205,9 @@ class AuthOrDivider extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Expanded(child: Divider(color: Colors.white.withOpacity(0.2), height: 1)),
+        Expanded(
+          child: Divider(color: Colors.white.withOpacity(0.2), height: 1),
+        ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s16),
           child: Text(
@@ -209,7 +215,9 @@ class AuthOrDivider extends StatelessWidget {
             style: AppTextStyles.caption.copyWith(color: AppColors.onDarkMuted),
           ),
         ),
-        Expanded(child: Divider(color: Colors.white.withOpacity(0.2), height: 1)),
+        Expanded(
+          child: Divider(color: Colors.white.withOpacity(0.2), height: 1),
+        ),
       ],
     );
   }

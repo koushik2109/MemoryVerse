@@ -13,8 +13,8 @@ class MemoryVerseApp extends ConsumerWidget {
     return MaterialApp.router(
       title: 'MemoryVerse',
       debugShowCheckedModeBanner: false,
-      themeMode:  ThemeMode.light,
-      theme:      AppTheme.light,
+      themeMode: ThemeMode.light,
+      theme: AppTheme.light,
       routerConfig: router,
     );
   }

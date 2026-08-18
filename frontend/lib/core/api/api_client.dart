@@ -54,7 +54,10 @@ class ApiClient {
 
   Dio get dio => _dio;
 
-  Future<Response<T>> get<T>(String path, {Map<String, dynamic>? queryParameters}) async {
+  Future<Response<T>> get<T>(
+    String path, {
+    Map<String, dynamic>? queryParameters,
+  }) async {
     try {
       return await _dio.get<T>(path, queryParameters: queryParameters);
     } on DioException catch (e) {
@@ -62,9 +65,17 @@ class ApiClient {
     }
   }
 
-  Future<Response<T>> post<T>(String path, {dynamic data, Map<String, dynamic>? queryParameters}) async {
+  Future<Response<T>> post<T>(
+    String path, {
+    dynamic data,
+    Map<String, dynamic>? queryParameters,
+  }) async {
     try {
-      return await _dio.post<T>(path, data: data, queryParameters: queryParameters);
+      return await _dio.post<T>(
+        path,
+        data: data,
+        queryParameters: queryParameters,
+      );
     } on DioException catch (e) {
       throw _handleError(e);
     }
@@ -129,7 +140,8 @@ class ApiClient {
       // Try to extract a meaningful error message
       String? msg;
       if (body is Map) {
-        msg = body['detail'] as String? ??
+        msg =
+            body['detail'] as String? ??
             (body['error'] as Map?)?['message'] as String?;
       }
       if (msg != null && msg.isNotEmpty) return msg;
@@ -153,4 +165,3 @@ class ApiClient {
     return 'Network error. Please check your connection and try again.';
   }
 }
-

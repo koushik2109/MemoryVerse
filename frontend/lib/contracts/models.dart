@@ -33,8 +33,12 @@ class UserModel {
       bio: json['bio'],
       vaultCount: json['vault_count'] ?? 0,
       mediaCount: json['media_count'] ?? 0,
-      createdAt: json['created_at'] != null ? DateTime.tryParse(json['created_at']) : null,
-      updatedAt: json['updated_at'] != null ? DateTime.tryParse(json['updated_at']) : null,
+      createdAt: json['created_at'] != null
+          ? DateTime.tryParse(json['created_at'])
+          : null,
+      updatedAt: json['updated_at'] != null
+          ? DateTime.tryParse(json['updated_at'])
+          : null,
     );
   }
 }
@@ -66,7 +70,9 @@ class VaultMemberModel {
       email: json['email'],
       avatarUrl: json['avatar_url'],
       role: json['role'] ?? 'editor',
-      joinedAt: json['joined_at'] != null ? DateTime.tryParse(json['joined_at']) : null,
+      joinedAt: json['joined_at'] != null
+          ? DateTime.tryParse(json['joined_at'])
+          : null,
     );
   }
 }
@@ -113,13 +119,15 @@ class VaultModel {
       memberCount: json['member_count'] ?? 1,
       mediaCount: json['media_count'] ?? 0,
       inviteCode: json['invite_code'],
-      members: (json['members'] as List<dynamic>?)
+      members:
+          (json['members'] as List<dynamic>?)
               ?.map((m) => VaultMemberModel.fromJson(m))
               .toList() ??
           [],
     );
   }
 }
+
 class MemoryModel {
   final String id;
   final String ownerId;
@@ -157,18 +165,21 @@ class MemoryModel {
       title: json['title'] ?? 'Untitled Memory',
       description: json['description'],
       coverMediaId: json['cover_media_id'],
-      memoryDate: DateTime.tryParse(json['memory_date'] ?? '') ?? DateTime.now(),
+      memoryDate:
+          DateTime.tryParse(json['memory_date'] ?? '') ?? DateTime.now(),
       locationName: json['location_name'],
       createdAt: DateTime.tryParse(json['created_at'] ?? '') ?? DateTime.now(),
       updatedAt: DateTime.tryParse(json['updated_at'] ?? '') ?? DateTime.now(),
       mediaCount: json['media_count'] ?? 0,
-      media: (json['media'] as List<dynamic>?)
+      media:
+          (json['media'] as List<dynamic>?)
               ?.map((m) => MediaModel.fromJson(m))
               .toList() ??
           [],
     );
   }
 }
+
 class MediaModel {
   final String id;
   final String? vaultId;
@@ -328,7 +339,8 @@ class TimelineDayGroup {
     return TimelineDayGroup(
       dateLabel: json['date_label'] ?? '',
       date: DateTime.tryParse(json['date'] ?? '') ?? DateTime.now(),
-      memories: (json['memories'] as List<dynamic>?)
+      memories:
+          (json['memories'] as List<dynamic>?)
               ?.map((m) => MemoryModel.fromJson(m))
               .toList() ??
           [],
@@ -345,7 +357,8 @@ class TimelineMonthGroup {
   factory TimelineMonthGroup.fromJson(Map<String, dynamic> json) {
     return TimelineMonthGroup(
       month: json['month'] ?? '',
-      days: (json['days'] as List<dynamic>?)
+      days:
+          (json['days'] as List<dynamic>?)
               ?.map((d) => TimelineDayGroup.fromJson(d))
               .toList() ??
           [],
@@ -362,7 +375,8 @@ class TimelineYearGroup {
   factory TimelineYearGroup.fromJson(Map<String, dynamic> json) {
     return TimelineYearGroup(
       year: json['year'] ?? '',
-      months: (json['months'] as List<dynamic>?)
+      months:
+          (json['months'] as List<dynamic>?)
               ?.map((m) => TimelineMonthGroup.fromJson(m))
               .toList() ??
           [],
@@ -378,7 +392,8 @@ class TimelineResponse {
 
   factory TimelineResponse.fromJson(Map<String, dynamic> json) {
     return TimelineResponse(
-      groups: (json['groups'] as List<dynamic>?)
+      groups:
+          (json['groups'] as List<dynamic>?)
               ?.map((g) => TimelineYearGroup.fromJson(g))
               .toList() ??
           [],
@@ -446,14 +461,18 @@ class AiConversationModel {
   }
 }
 
-
 class VideoJobModel {
   final String id;
   final String status;
   final String? resultUrl;
   final String? errorMessage;
 
-  VideoJobModel({required this.id, required this.status, this.resultUrl, this.errorMessage});
+  VideoJobModel({
+    required this.id,
+    required this.status,
+    this.resultUrl,
+    this.errorMessage,
+  });
 
   factory VideoJobModel.fromJson(Map<String, dynamic> json) {
     return VideoJobModel(

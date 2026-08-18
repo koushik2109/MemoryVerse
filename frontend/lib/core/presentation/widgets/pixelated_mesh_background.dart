@@ -1,15 +1,18 @@
 import 'dart:math';
 import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 class PixelatedMeshBackground extends StatefulWidget {
   const PixelatedMeshBackground({super.key});
 
   @override
-  State<PixelatedMeshBackground> createState() => _PixelatedMeshBackgroundState();
+  State<PixelatedMeshBackground> createState() =>
+      _PixelatedMeshBackgroundState();
 }
 
-class _PixelatedMeshBackgroundState extends State<PixelatedMeshBackground> with SingleTickerProviderStateMixin {
+class _PixelatedMeshBackgroundState extends State<PixelatedMeshBackground>
+    with SingleTickerProviderStateMixin {
   late AnimationController _controller;
 
   @override
@@ -44,20 +47,34 @@ class _PixelatedMeshBackgroundState extends State<PixelatedMeshBackground> with 
           children: [
             // Base dark background
             Container(color: const Color(0xFF120D31)),
-            
+
             // Gradient Orbs
-            _GradientOrb(alignment: pos1, color: const Color(0xFF6C4CE1), radius: 1.5),
-            _GradientOrb(alignment: pos2, color: const Color(0xFFEF5D89), radius: 1.3),
-            _GradientOrb(alignment: pos3, color: const Color(0xFFFFD166), radius: 1.4),
-            _GradientOrb(alignment: pos4, color: const Color(0xFF6C4CE1), radius: 1.6),
+            _GradientOrb(
+              alignment: pos1,
+              color: const Color(0xFF6C4CE1),
+              radius: 1.5,
+            ),
+            _GradientOrb(
+              alignment: pos2,
+              color: const Color(0xFFEF5D89),
+              radius: 1.3,
+            ),
+            _GradientOrb(
+              alignment: pos3,
+              color: const Color(0xFFFFD166),
+              radius: 1.4,
+            ),
+            _GradientOrb(
+              alignment: pos4,
+              color: const Color(0xFF6C4CE1),
+              radius: 1.6,
+            ),
 
             // Heavy blur filter to blend them and create the soft "abstract" mesh feel
             Positioned.fill(
               child: BackdropFilter(
                 filter: ImageFilter.blur(sigmaX: 80.0, sigmaY: 80.0),
-                child: Container(
-                  color: Colors.black.withValues(alpha: 0.2), 
-                ),
+                child: Container(color: Colors.black.withValues(alpha: 0.2)),
               ),
             ),
           ],

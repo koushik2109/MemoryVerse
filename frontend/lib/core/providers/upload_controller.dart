@@ -1,4 +1,5 @@
 import 'dart:io';
+
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:memory_verse/core/providers/app_providers.dart';
@@ -15,7 +16,7 @@ class UploadTask {
   final String memoryId;
   final String? vaultId;
   final bool isCover;
-  
+
   final double progress;
   final UploadStatus status;
   final CancelToken? cancelToken;
@@ -84,21 +85,26 @@ class UploadController extends Notifier<List<UploadTask>> {
         ),
       );
     }
-    
+
     state = [...state, ...newTasks];
     _processQueue();
   }
 
   Future<void> _processQueue() async {
     // Find all waiting tasks
-    final waitingTasks = state.where((t) => t.status == UploadStatus.waiting).toList();
+    final waitingTasks = state
+        .where((t) => t.status == UploadStatus.waiting)
+        .toList();
     if (waitingTasks.isEmpty) return;
 
     // Process sequentially (or concurrently, but sequential is safer for mobile bandwidth)
     for (final task in waitingTasks) {
       // Check if it's still in the queue (might have been canceled)
-      if (!state.any((t) => t.id == task.id && t.status == UploadStatus.waiting)) continue;
-      
+      if (!state.any(
+        (t) => t.id == task.id && t.status == UploadStatus.waiting,
+      ))
+        continue;
+
       await _uploadSingle(task.id);
     }
   }
@@ -106,11 +112,19 @@ class UploadController extends Notifier<List<UploadTask>> {
   Future<void> _uploadSingle(String taskId) async {
     final taskIndex = state.indexWhere((t) => t.id == taskId);
     if (taskIndex == -1) return;
-    
+
     final task = state[taskIndex];
     final cancelToken = CancelToken();
 
-    _updateTask(taskId, task.copyWith(status: UploadStatus.uploading, cancelToken: cancelToken, progress: 0.0, error: null));
+    _updateTask(
+      taskId,
+      task.copyWith(
+        status: UploadStatus.uploading,
+        cancelToken: cancelToken,
+        progress: 0.0,
+        error: null,
+      ),
+    );
 
     try {
       final repo = ref.read(mediaRepositoryProvider);
@@ -126,7 +140,8 @@ class UploadController extends Notifier<List<UploadTask>> {
             final progress = count / total;
             // Only update state if progress significantly changed to prevent UI rebuild spam
             final currentTask = state.firstWhere((t) => t.id == taskId);
-            if ((progress - currentTask.progress).abs() > 0.05 || progress == 1.0) {
+            if ((progress - currentTask.progress).abs() > 0.05 ||
+                progress == 1.0) {
               _updateTask(taskId, currentTask.copyWith(progress: progress));
             }
           }
@@ -136,23 +151,39 @@ class UploadController extends Notifier<List<UploadTask>> {
       // If it's a cover, update the memory
       if (task.isCover) {
         try {
-          await ref.read(memoryRepositoryProvider).updateMemory(task.memoryId, coverMediaId: mediaResult.id);
+          await ref
+              .read(memoryRepositoryProvider)
+              .updateMemory(task.memoryId, coverMediaId: mediaResult.id);
         } catch (_) {
           // Non-critical if setting cover fails
         }
       }
 
-      _updateTask(taskId, state.firstWhere((t) => t.id == taskId).copyWith(status: UploadStatus.completed, progress: 1.0));
-      
+      _updateTask(
+        taskId,
+        state
+            .firstWhere((t) => t.id == taskId)
+            .copyWith(status: UploadStatus.completed, progress: 1.0),
+      );
+
       // Invalidate relevant providers to refresh UI
       ref.invalidate(memoriesListProvider);
       ref.invalidate(memoryDetailProvider(task.memoryId));
-
     } catch (e) {
       if (e is DioException && CancelToken.isCancel(e)) {
-        _updateTask(taskId, state.firstWhere((t) => t.id == taskId).copyWith(status: UploadStatus.canceled));
+        _updateTask(
+          taskId,
+          state
+              .firstWhere((t) => t.id == taskId)
+              .copyWith(status: UploadStatus.canceled),
+        );
       } else {
-        _updateTask(taskId, state.firstWhere((t) => t.id == taskId).copyWith(status: UploadStatus.error, error: e.toString()));
+        _updateTask(
+          taskId,
+          state
+              .firstWhere((t) => t.id == taskId)
+              .copyWith(status: UploadStatus.error, error: e.toString()),
+        );
       }
     }
   }
@@ -160,7 +191,7 @@ class UploadController extends Notifier<List<UploadTask>> {
   void _updateTask(String id, UploadTask newTask) {
     state = [
       for (final t in state)
-        if (t.id == id) newTask else t
+        if (t.id == id) newTask else t,
     ];
   }
 
@@ -174,10 +205,13 @@ class UploadController extends Notifier<List<UploadTask>> {
 
   void retryUpload(String taskId) {
     final task = state.firstWhere((t) => t.id == taskId);
-    _updateTask(taskId, task.copyWith(status: UploadStatus.waiting, progress: 0.0, error: null));
+    _updateTask(
+      taskId,
+      task.copyWith(status: UploadStatus.waiting, progress: 0.0, error: null),
+    );
     _processQueue();
   }
-  
+
   void removeCompleted() {
     state = state.where((t) => t.status != UploadStatus.completed).toList();
   }
@@ -192,6 +226,7 @@ class UploadController extends Notifier<List<UploadTask>> {
   }
 }
 
-final uploadControllerProvider = NotifierProvider<UploadController, List<UploadTask>>(() {
-  return UploadController();
-});
+final uploadControllerProvider =
+    NotifierProvider<UploadController, List<UploadTask>>(() {
+      return UploadController();
+    });

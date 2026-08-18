@@ -62,11 +62,18 @@ class AppColors extends ThemeExtension<AppColors> {
 
   @override
   AppColors copyWith({
-    Color? bg, Color? surface, Color? surfaceElevated,
-    Color? border, Color? borderSubtle,
-    Color? text, Color? textMuted, Color? textInverse,
-    Color? primary, Color? primaryInverse,
-    Color? error, Color? success,
+    Color? bg,
+    Color? surface,
+    Color? surfaceElevated,
+    Color? border,
+    Color? borderSubtle,
+    Color? text,
+    Color? textMuted,
+    Color? textInverse,
+    Color? primary,
+    Color? primaryInverse,
+    Color? error,
+    Color? success,
   }) => AppColors(
     bg: bg ?? this.bg,
     surface: surface ?? this.surface,

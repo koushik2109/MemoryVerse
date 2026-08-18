@@ -1,4 +1,5 @@
 import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:memory_verse/core/theme/app_design_tokens.dart';
 
@@ -29,7 +30,10 @@ class GlassContainer extends StatelessWidget {
           decoration: BoxDecoration(
             color: tint.withOpacity(0.55),
             borderRadius: BorderRadius.circular(borderRadius),
-            border: Border.all(color: AppColors.plum800.withOpacity(0.15), width: 0.5),
+            border: Border.all(
+              color: AppColors.plum800.withOpacity(0.15),
+              width: 0.5,
+            ),
           ),
           child: child,
         ),

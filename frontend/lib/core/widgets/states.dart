@@ -25,7 +25,7 @@ class EmptyState extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final c = context.colors;
-    
+
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: AppSpacing.s24),
       padding: EdgeInsets.all(isSmall ? AppSpacing.s16 : AppSpacing.s24),
@@ -43,13 +43,42 @@ class EmptyState extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             if (imageAsset != null)
-              Image.asset(imageAsset!, width: isSmall ? 80 : 120, height: isSmall ? 80 : 120, errorBuilder: (_,__,___) => Icon(icon ?? Icons.folder_open, size: isSmall ? 24 : 32, color: c.textMuted.withValues(alpha: 0.5)))
+              Image.asset(
+                imageAsset!,
+                width: isSmall ? 80 : 120,
+                height: isSmall ? 80 : 120,
+                errorBuilder: (_, __, ___) => Icon(
+                  icon ?? Icons.folder_open,
+                  size: isSmall ? 24 : 32,
+                  color: c.textMuted.withValues(alpha: 0.5),
+                ),
+              )
             else if (icon != null)
-              Icon(icon, size: isSmall ? 24 : 32, color: c.textMuted.withValues(alpha: 0.5)),
+              Icon(
+                icon,
+                size: isSmall ? 24 : 32,
+                color: c.textMuted.withValues(alpha: 0.5),
+              ),
             SizedBox(height: isSmall ? AppSpacing.s8 : AppSpacing.s16),
-            Text(title, style: TextStyle(fontFamily: 'Inter', fontSize: isSmall ? 14 : 16, fontWeight: FontWeight.w600, color: c.text)),
+            Text(
+              title,
+              style: TextStyle(
+                fontFamily: 'Inter',
+                fontSize: isSmall ? 14 : 16,
+                fontWeight: FontWeight.w600,
+                color: c.text,
+              ),
+            ),
             const SizedBox(height: 4),
-            Text(subtitle, textAlign: TextAlign.center, style: TextStyle(fontFamily: 'Inter', fontSize: isSmall ? 12 : 14, color: c.textMuted)),
+            Text(
+              subtitle,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontFamily: 'Inter',
+                fontSize: isSmall ? 12 : 14,
+                color: c.textMuted,
+              ),
+            ),
             if (buttonText != null && onTap != null) ...[
               const SizedBox(height: AppSpacing.s16),
               OutlinedButton(
@@ -57,11 +86,20 @@ class EmptyState extends StatelessWidget {
                 style: OutlinedButton.styleFrom(
                   foregroundColor: c.text,
                   side: BorderSide(color: c.border),
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppRadii.md)),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(AppRadii.md),
+                  ),
                 ),
-                child: Text(buttonText!, style: const TextStyle(fontFamily: 'Inter', fontSize: 13, fontWeight: FontWeight.w500)),
+                child: Text(
+                  buttonText!,
+                  style: const TextStyle(
+                    fontFamily: 'Inter',
+                    fontSize: 13,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
               ),
-            ]
+            ],
           ],
         ),
       ),
@@ -84,7 +122,7 @@ class ErrorState extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final c = context.colors;
-    
+
     return Center(
       child: Padding(
         padding: const EdgeInsets.all(AppSpacing.s32),
@@ -102,7 +140,11 @@ class ErrorState extends StatelessWidget {
                     color: c.error.withValues(alpha: 0.1),
                     shape: BoxShape.circle,
                   ),
-                  child: Icon(Icons.warning_amber_rounded, size: 32, color: c.error),
+                  child: Icon(
+                    Icons.warning_amber_rounded,
+                    size: 32,
+                    color: c.error,
+                  ),
                 ),
               )
             else
@@ -112,7 +154,11 @@ class ErrorState extends StatelessWidget {
                   color: c.error.withValues(alpha: 0.1),
                   shape: BoxShape.circle,
                 ),
-                child: Icon(Icons.warning_amber_rounded, size: 32, color: c.error),
+                child: Icon(
+                  Icons.warning_amber_rounded,
+                  size: 32,
+                  color: c.error,
+                ),
               ),
             const SizedBox(height: AppSpacing.s24),
             Text(
@@ -152,7 +198,7 @@ class LoadingState extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final c = context.colors;
-    
+
     return Center(
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -160,7 +206,10 @@ class LoadingState extends StatelessWidget {
           CircularProgressIndicator(color: c.primary, strokeWidth: 2),
           if (message != null) ...[
             const SizedBox(height: AppSpacing.s20),
-            Text(message!, style: context.text.bodySmall?.copyWith(color: c.textMuted)),
+            Text(
+              message!,
+              style: context.text.bodySmall?.copyWith(color: c.textMuted),
+            ),
           ],
         ],
       ),

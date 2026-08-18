@@ -9,19 +9,22 @@ class ThemeModeNotifier extends StateNotifier<ThemeMode> {
 
   void toggle() {
     state = state == ThemeMode.dark ? ThemeMode.light : ThemeMode.dark;
-    SharedPreferences.getInstance()
-        .then((p) => p.setString(_kThemeKey, state.name));
+    SharedPreferences.getInstance().then(
+      (p) => p.setString(_kThemeKey, state.name),
+    );
   }
 
   void setMode(ThemeMode mode) {
     state = mode;
-    SharedPreferences.getInstance()
-        .then((p) => p.setString(_kThemeKey, mode.name));
+    SharedPreferences.getInstance().then(
+      (p) => p.setString(_kThemeKey, mode.name),
+    );
   }
 }
 
-final themeModeProvider =
-    StateNotifierProvider<ThemeModeNotifier, ThemeMode>((ref) {
+final themeModeProvider = StateNotifierProvider<ThemeModeNotifier, ThemeMode>((
+  ref,
+) {
   // Initial value is overridden in main.dart after reading SharedPreferences
   return ThemeModeNotifier(ThemeMode.system);
 });

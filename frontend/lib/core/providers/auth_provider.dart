@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+
 import '../api/api_client.dart';
 
 // ── Raw auth state stream ─────────────────────────────
@@ -40,30 +41,32 @@ class AuthNotifier extends AsyncNotifier<void> {
   }) async {
     state = const AsyncLoading();
     state = await AsyncValue.guard(() async {
-      await _api.post('/auth/signup', data: {
-        'email': email,
-        'password': password,
-        'full_name': displayName,
-      });
+      await _api.post(
+        '/auth/signup',
+        data: {'email': email, 'password': password, 'full_name': displayName},
+      );
     });
   }
 
-  Future<void> verifyOtp({required String email, required String token, OtpType type = OtpType.signup}) async {
+  Future<void> verifyOtp({
+    required String email,
+    required String token,
+    OtpType type = OtpType.signup,
+  }) async {
     state = const AsyncLoading();
     state = await AsyncValue.guard(() async {
       if (type == OtpType.recovery) {
-        // Recovery logic requires new password which isn't passed here. 
+        // Recovery logic requires new password which isn't passed here.
         // We will assume the UI sends the new password via another method or we update UI.
         // Actually, the UI for password reset will need to be updated. For now throw unimplemented if it's recovery.
         if (type == OtpType.recovery) {
-          throw UnimplementedError("Recovery OTP requires new password. Use resetPassword API instead.");
+          throw UnimplementedError(
+            "Recovery OTP requires new password. Use resetPassword API instead.",
+          );
         }
       }
-      
-      await _api.post('/auth/verify-otp', data: {
-        'email': email,
-        'otp': token,
-      });
+
+      await _api.post('/auth/verify-otp', data: {'email': email, 'otp': token});
       // OTP verified successfully on backend, user must now sign in
     });
   }
@@ -71,29 +74,28 @@ class AuthNotifier extends AsyncNotifier<void> {
   Future<void> sendPasswordReset(String email) async {
     state = const AsyncLoading();
     state = await AsyncValue.guard(() async {
-      await _api.post('/auth/forgot-password', data: {
-        'email': email,
-      });
+      await _api.post('/auth/forgot-password', data: {'email': email});
     });
   }
 
   Future<void> resendOtp({required String email}) async {
     state = const AsyncLoading();
     state = await AsyncValue.guard(() async {
-      await _api.post('/auth/resend-otp', data: {
-        'email': email,
-      });
+      await _api.post('/auth/resend-otp', data: {'email': email});
     });
   }
 
-  Future<void> resetPassword({required String email, required String token, required String newPassword}) async {
+  Future<void> resetPassword({
+    required String email,
+    required String token,
+    required String newPassword,
+  }) async {
     state = const AsyncLoading();
     state = await AsyncValue.guard(() async {
-      await _api.post('/auth/reset-password', data: {
-        'email': email,
-        'otp': token,
-        'new_password': newPassword,
-      });
+      await _api.post(
+        '/auth/reset-password',
+        data: {'email': email, 'otp': token, 'new_password': newPassword},
+      );
     });
   }
 
@@ -126,5 +128,6 @@ class AuthNotifier extends AsyncNotifier<void> {
   }
 }
 
-final authNotifierProvider =
-    AsyncNotifierProvider<AuthNotifier, void>(AuthNotifier.new);
+final authNotifierProvider = AsyncNotifierProvider<AuthNotifier, void>(
+  AuthNotifier.new,
+);

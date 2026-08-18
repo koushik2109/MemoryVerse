@@ -17,7 +17,10 @@ final memoriesListProvider = FutureProvider<List<MemoryModel>>((ref) async {
   return repo.fetchMemories(limit: 50);
 });
 
-final memoryDetailProvider = FutureProvider.family<MemoryModel, String>((ref, id) async {
+final memoryDetailProvider = FutureProvider.family<MemoryModel, String>((
+  ref,
+  id,
+) async {
   final repo = ref.watch(memoryRepositoryProvider);
   return repo.fetchMemoryDetails(id);
 });
@@ -27,16 +30,20 @@ final userProfileProvider = FutureProvider<UserModel>((ref) async {
   return repo.fetchProfile();
 });
 
-final notificationsListProvider = FutureProvider<List<NotificationModel>>((ref) async {
+final notificationsListProvider = FutureProvider<List<NotificationModel>>((
+  ref,
+) async {
   final repo = ref.watch(notificationRepositoryProvider);
   return repo.fetchNotifications();
 });
 
-final searchResultsProvider = FutureProvider.family<Map<String, dynamic>, String>((ref, query) async {
-  if (query.trim().isEmpty) return {'vaults': [], 'media': [], 'collaborators': []};
-  final repo = ref.watch(searchRepositoryProvider);
-  return repo.search(query);
-});
+final searchResultsProvider =
+    FutureProvider.family<Map<String, dynamic>, String>((ref, query) async {
+      if (query.trim().isEmpty)
+        return {'vaults': [], 'media': [], 'collaborators': []};
+      final repo = ref.watch(searchRepositoryProvider);
+      return repo.search(query);
+    });
 
 // Timeline provider
 final timelineProvider = FutureProvider<TimelineResponse>((ref) async {
@@ -45,8 +52,9 @@ final timelineProvider = FutureProvider<TimelineResponse>((ref) async {
 });
 
 // AI providers
-final aiConversationsProvider = FutureProvider<List<AiConversationModel>>((ref) async {
+final aiConversationsProvider = FutureProvider<List<AiConversationModel>>((
+  ref,
+) async {
   final repo = ref.watch(aiRepositoryProvider);
   return repo.listConversations();
 });
-

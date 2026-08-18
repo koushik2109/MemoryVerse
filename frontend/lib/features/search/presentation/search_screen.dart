@@ -24,7 +24,9 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
   @override
   Widget build(BuildContext context) {
     final c = context.colors;
-    final searchAsync = _query.isNotEmpty ? ref.watch(searchResultsProvider(_query)) : null;
+    final searchAsync = _query.isNotEmpty
+        ? ref.watch(searchResultsProvider(_query))
+        : null;
 
     return Scaffold(
       backgroundColor: c.bg,
@@ -63,63 +65,112 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
       body: _query.isEmpty
           ? _EmptySearch(c: c)
           : searchAsync?.when(
-              loading: () => Center(child: CircularProgressIndicator(color: c.primary, strokeWidth: 2)),
-              error: (e, _) => Center(child: Text('Error: $e', style: Theme.of(context).textTheme.bodySmall)),
-              data: (results) {
-                final vaults = results['vaults'] as List? ?? [];
-                final media = results['media'] as List? ?? [];
-
-                if (vaults.isEmpty && media.isEmpty) {
-                  return Center(
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Icon(Icons.search_off_rounded, size: 48, color: c.textMuted),
-                        const SizedBox(height: AppSpacing.s16),
-                        Text('No results found', style: Theme.of(context).textTheme.headlineSmall),
-                        const SizedBox(height: AppSpacing.s4),
-                        Text('Try a different search term', style: Theme.of(context).textTheme.bodySmall?.copyWith(color: c.textMuted)),
-                      ],
+                  loading: () => Center(
+                    child: CircularProgressIndicator(
+                      color: c.primary,
+                      strokeWidth: 2,
                     ),
-                  );
-                }
+                  ),
+                  error: (e, _) => Center(
+                    child: Text(
+                      'Error: $e',
+                      style: Theme.of(context).textTheme.bodySmall,
+                    ),
+                  ),
+                  data: (results) {
+                    final vaults = results['vaults'] as List? ?? [];
+                    final media = results['media'] as List? ?? [];
 
-                return ListView(
-                  padding: const EdgeInsets.all(AppSpacing.s20),
-                  children: [
-                    if (media.isNotEmpty) ...[
-                      Text('Media', style: Theme.of(context).textTheme.titleSmall?.copyWith(color: c.textMuted)),
-                      const SizedBox(height: AppSpacing.s10),
-                      ...media.map((m) => Container(
-                        margin: const EdgeInsets.only(bottom: AppSpacing.s8),
-                        padding: const EdgeInsets.all(AppSpacing.s12),
-                        decoration: BoxDecoration(
-                          color: c.surface,
-                          borderRadius: BorderRadius.circular(AppRadii.md),
-                          border: Border.all(color: c.border),
+                    if (vaults.isEmpty && media.isEmpty) {
+                      return Center(
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Icon(
+                              Icons.search_off_rounded,
+                              size: 48,
+                              color: c.textMuted,
+                            ),
+                            const SizedBox(height: AppSpacing.s16),
+                            Text(
+                              'No results found',
+                              style: Theme.of(context).textTheme.headlineSmall,
+                            ),
+                            const SizedBox(height: AppSpacing.s4),
+                            Text(
+                              'Try a different search term',
+                              style: Theme.of(context).textTheme.bodySmall
+                                  ?.copyWith(color: c.textMuted),
+                            ),
+                          ],
                         ),
-                        child: Text(m.toString(), style: Theme.of(context).textTheme.bodySmall),
-                      )),
-                    ],
-                    if (vaults.isNotEmpty) ...[
-                      if (media.isNotEmpty) const SizedBox(height: AppSpacing.s20),
-                      Text('Vaults', style: Theme.of(context).textTheme.titleSmall?.copyWith(color: c.textMuted)),
-                      const SizedBox(height: AppSpacing.s10),
-                      ...vaults.map((v) => Container(
-                        margin: const EdgeInsets.only(bottom: AppSpacing.s8),
-                        padding: const EdgeInsets.all(AppSpacing.s12),
-                        decoration: BoxDecoration(
-                          color: c.surface,
-                          borderRadius: BorderRadius.circular(AppRadii.md),
-                          border: Border.all(color: c.border),
-                        ),
-                        child: Text(v.toString(), style: Theme.of(context).textTheme.bodySmall),
-                      )),
-                    ],
-                  ],
-                );
-              },
-            ) ?? const SizedBox.shrink(),
+                      );
+                    }
+
+                    return ListView(
+                      padding: const EdgeInsets.all(AppSpacing.s20),
+                      children: [
+                        if (media.isNotEmpty) ...[
+                          Text(
+                            'Media',
+                            style: Theme.of(context).textTheme.titleSmall
+                                ?.copyWith(color: c.textMuted),
+                          ),
+                          const SizedBox(height: AppSpacing.s10),
+                          ...media.map(
+                            (m) => Container(
+                              margin: const EdgeInsets.only(
+                                bottom: AppSpacing.s8,
+                              ),
+                              padding: const EdgeInsets.all(AppSpacing.s12),
+                              decoration: BoxDecoration(
+                                color: c.surface,
+                                borderRadius: BorderRadius.circular(
+                                  AppRadii.md,
+                                ),
+                                border: Border.all(color: c.border),
+                              ),
+                              child: Text(
+                                m.toString(),
+                                style: Theme.of(context).textTheme.bodySmall,
+                              ),
+                            ),
+                          ),
+                        ],
+                        if (vaults.isNotEmpty) ...[
+                          if (media.isNotEmpty)
+                            const SizedBox(height: AppSpacing.s20),
+                          Text(
+                            'Vaults',
+                            style: Theme.of(context).textTheme.titleSmall
+                                ?.copyWith(color: c.textMuted),
+                          ),
+                          const SizedBox(height: AppSpacing.s10),
+                          ...vaults.map(
+                            (v) => Container(
+                              margin: const EdgeInsets.only(
+                                bottom: AppSpacing.s8,
+                              ),
+                              padding: const EdgeInsets.all(AppSpacing.s12),
+                              decoration: BoxDecoration(
+                                color: c.surface,
+                                borderRadius: BorderRadius.circular(
+                                  AppRadii.md,
+                                ),
+                                border: Border.all(color: c.border),
+                              ),
+                              child: Text(
+                                v.toString(),
+                                style: Theme.of(context).textTheme.bodySmall,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ],
+                    );
+                  },
+                ) ??
+                const SizedBox.shrink(),
     );
   }
 }
@@ -136,11 +187,15 @@ class _EmptySearch extends StatelessWidget {
         children: [
           Icon(Icons.search_rounded, size: 48, color: c.textMuted),
           const SizedBox(height: AppSpacing.s16),
-          Text('Search your memories', style: Theme.of(context).textTheme.headlineSmall),
+          Text(
+            'Search your memories',
+            style: Theme.of(context).textTheme.headlineSmall,
+          ),
           const SizedBox(height: AppSpacing.s4),
           Text(
             'Find photos, videos, vaults, and more',
-            style: Theme.of(context).textTheme.bodySmall?.copyWith(color: c.textMuted),
+            style: Theme.of(context).textTheme.bodySmall
+                ?.copyWith(color: c.textMuted),
           ),
         ],
       ),

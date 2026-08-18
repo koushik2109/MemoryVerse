@@ -33,28 +33,54 @@ class _SplashScreenState extends State<SplashScreen>
     super.initState();
 
     // Background fade: 0→1 over 400ms
-    _bgCtrl = AnimationController(vsync: this, duration: const Duration(milliseconds: 400));
-    _bgOpacity = Tween<double>(begin: 0, end: 1)
-        .animate(CurvedAnimation(parent: _bgCtrl, curve: Curves.easeOut));
+    _bgCtrl = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 400),
+    );
+    _bgOpacity = Tween<double>(
+      begin: 0,
+      end: 1,
+    ).animate(CurvedAnimation(parent: _bgCtrl, curve: Curves.easeOut));
 
     // Logo: scale 0.6→1.0 + fade, over 550ms with spring feel
-    _logoCtrl = AnimationController(vsync: this, duration: const Duration(milliseconds: 550));
-    _logoScale = Tween<double>(begin: 0.60, end: 1.0)
-        .animate(CurvedAnimation(parent: _logoCtrl, curve: Curves.easeOutBack));
-    _logoOpacity = Tween<double>(begin: 0, end: 1)
-        .animate(CurvedAnimation(parent: _logoCtrl, curve: const Interval(0.0, 0.6, curve: Curves.easeOut)));
+    _logoCtrl = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 550),
+    );
+    _logoScale = Tween<double>(
+      begin: 0.60,
+      end: 1.0,
+    ).animate(CurvedAnimation(parent: _logoCtrl, curve: Curves.easeOutBack));
+    _logoOpacity = Tween<double>(begin: 0, end: 1).animate(
+      CurvedAnimation(
+        parent: _logoCtrl,
+        curve: const Interval(0.0, 0.6, curve: Curves.easeOut),
+      ),
+    );
 
     // Wordmark: subtle upward slide + fade over 450ms
-    _wordmarkCtrl = AnimationController(vsync: this, duration: const Duration(milliseconds: 450));
-    _wordmarkOpacity = Tween<double>(begin: 0, end: 1)
-        .animate(CurvedAnimation(parent: _wordmarkCtrl, curve: Curves.easeOut));
-    _wordmarkSlide = Tween<Offset>(begin: const Offset(0, 0.2), end: Offset.zero)
-        .animate(CurvedAnimation(parent: _wordmarkCtrl, curve: Curves.easeOutCubic));
+    _wordmarkCtrl = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 450),
+    );
+    _wordmarkOpacity = Tween<double>(
+      begin: 0,
+      end: 1,
+    ).animate(CurvedAnimation(parent: _wordmarkCtrl, curve: Curves.easeOut));
+    _wordmarkSlide =
+        Tween<Offset>(begin: const Offset(0, 0.2), end: Offset.zero).animate(
+          CurvedAnimation(parent: _wordmarkCtrl, curve: Curves.easeOutCubic),
+        );
 
     // Tagline: fade in after wordmark
-    _taglineCtrl = AnimationController(vsync: this, duration: const Duration(milliseconds: 400));
-    _taglineOpacity = Tween<double>(begin: 0, end: 1)
-        .animate(CurvedAnimation(parent: _taglineCtrl, curve: Curves.easeOut));
+    _taglineCtrl = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 400),
+    );
+    _taglineOpacity = Tween<double>(
+      begin: 0,
+      end: 1,
+    ).animate(CurvedAnimation(parent: _taglineCtrl, curve: Curves.easeOut));
 
     _run();
   }
@@ -250,9 +276,7 @@ class _AtmosphericBackground extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomPaint(
-      painter: _BgPainter(isDark: isDark),
-    );
+    return CustomPaint(painter: _BgPainter(isDark: isDark));
   }
 }
 
@@ -266,7 +290,9 @@ class _BgPainter extends CustomPainter {
 
     // Subtle memory frame motifs — top-right corner
     final paint = Paint()
-      ..color = (isDark ? Colors.white : Colors.black).withValues(alpha: baseAlpha)
+      ..color = (isDark ? Colors.white : Colors.black).withValues(
+        alpha: baseAlpha,
+      )
       ..style = PaintingStyle.stroke
       ..strokeWidth = 1.0;
 
@@ -288,7 +314,9 @@ class _BgPainter extends CustomPainter {
 
     // Diagonal film strip dots — bottom-left
     final dotPaint = Paint()
-      ..color = (isDark ? Colors.white : Colors.black).withValues(alpha: baseAlpha * 0.8)
+      ..color = (isDark ? Colors.white : Colors.black).withValues(
+        alpha: baseAlpha * 0.8,
+      )
       ..style = PaintingStyle.fill;
 
     for (var row = 0; row < 4; row++) {
@@ -330,9 +358,10 @@ class _PulsingDotsState extends State<_PulsingDots>
       vsync: this,
       duration: const Duration(milliseconds: 1200),
     )..repeat(reverse: true);
-    _anim = Tween<double>(begin: 0.3, end: 1.0).animate(
-      CurvedAnimation(parent: _ctrl, curve: Curves.easeInOut),
-    );
+    _anim = Tween<double>(
+      begin: 0.3,
+      end: 1.0,
+    ).animate(CurvedAnimation(parent: _ctrl, curve: Curves.easeInOut));
   }
 
   @override

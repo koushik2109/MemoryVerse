@@ -16,7 +16,9 @@ class RoomShareSheet extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: c.surface,
-        borderRadius: const BorderRadius.vertical(top: Radius.circular(AppRadii.xl)),
+        borderRadius: const BorderRadius.vertical(
+          top: Radius.circular(AppRadii.xl),
+        ),
       ),
       padding: const EdgeInsets.all(AppSpacing.s24),
       child: SafeArea(
@@ -35,16 +37,34 @@ class RoomShareSheet extends StatelessWidget {
                 ),
               ),
             ),
-            Text('Share Room', style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w700, color: c.text)),
+            Text(
+              'Share Room',
+              style: Theme.of(context).textTheme.titleLarge
+                  ?.copyWith(fontWeight: FontWeight.w700, color: c.text),
+            ),
             const SizedBox(height: AppSpacing.s8),
-            Text('Invite others to collaborate in this room.', style: TextStyle(color: c.textMuted)),
+            Text(
+              'Invite others to collaborate in this room.',
+              style: TextStyle(color: c.textMuted),
+            ),
             const SizedBox(height: AppSpacing.s32),
 
             // Room Code
-            Text('ROOM CODE', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700, color: c.textMuted, letterSpacing: 1.2)),
+            Text(
+              'ROOM CODE',
+              style: TextStyle(
+                fontSize: 12,
+                fontWeight: FontWeight.w700,
+                color: c.textMuted,
+                letterSpacing: 1.2,
+              ),
+            ),
             const SizedBox(height: AppSpacing.s8),
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s16, vertical: AppSpacing.s12),
+              padding: const EdgeInsets.symmetric(
+                horizontal: AppSpacing.s16,
+                vertical: AppSpacing.s12,
+              ),
               decoration: BoxDecoration(
                 color: c.surfaceElevated,
                 borderRadius: BorderRadius.circular(AppRadii.md),
@@ -53,26 +73,47 @@ class RoomShareSheet extends StatelessWidget {
               child: Row(
                 children: [
                   Expanded(
-                    child: Text(inviteCode, style: TextStyle(fontFamily: 'Inter', fontSize: 18, fontWeight: FontWeight.w600, color: c.text)),
+                    child: Text(
+                      inviteCode,
+                      style: TextStyle(
+                        fontFamily: 'Inter',
+                        fontSize: 18,
+                        fontWeight: FontWeight.w600,
+                        color: c.text,
+                      ),
+                    ),
                   ),
                   TextButton.icon(
                     onPressed: () {
                       Clipboard.setData(ClipboardData(text: inviteCode));
-                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Code copied!')));
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text('Code copied!')),
+                      );
                     },
                     icon: const Icon(Icons.copy_outlined, size: 18),
                     label: const Text('Copy'),
-                  )
+                  ),
                 ],
               ),
             ),
             const SizedBox(height: AppSpacing.s24),
 
             // Room Link
-            Text('ROOM LINK', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700, color: c.textMuted, letterSpacing: 1.2)),
+            Text(
+              'ROOM LINK',
+              style: TextStyle(
+                fontSize: 12,
+                fontWeight: FontWeight.w700,
+                color: c.textMuted,
+                letterSpacing: 1.2,
+              ),
+            ),
             const SizedBox(height: AppSpacing.s8),
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s16, vertical: AppSpacing.s12),
+              padding: const EdgeInsets.symmetric(
+                horizontal: AppSpacing.s16,
+                vertical: AppSpacing.s12,
+              ),
               decoration: BoxDecoration(
                 color: c.surfaceElevated,
                 borderRadius: BorderRadius.circular(AppRadii.md),
@@ -81,16 +122,27 @@ class RoomShareSheet extends StatelessWidget {
               child: Row(
                 children: [
                   Expanded(
-                    child: Text(inviteLink, style: TextStyle(fontFamily: 'Inter', fontSize: 14, color: c.text), maxLines: 1, overflow: TextOverflow.ellipsis),
+                    child: Text(
+                      inviteLink,
+                      style: TextStyle(
+                        fontFamily: 'Inter',
+                        fontSize: 14,
+                        color: c.text,
+                      ),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
                   ),
                   TextButton.icon(
                     onPressed: () {
                       Clipboard.setData(ClipboardData(text: inviteLink));
-                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Link copied!')));
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text('Link copied!')),
+                      );
                     },
                     icon: const Icon(Icons.link_outlined, size: 18),
                     label: const Text('Copy Link'),
-                  )
+                  ),
                 ],
               ),
             ),
@@ -103,21 +155,40 @@ class RoomShareSheet extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () {
                   // TODO: Implement native share
-                  Clipboard.setData(ClipboardData(text: 'Join my MemoryVerse room! Code: $inviteCode\n$inviteLink'));
-                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Copied to clipboard. Native share coming soon!')));
+                  Clipboard.setData(
+                    ClipboardData(
+                      text:
+                          'Join my MemoryVerse room! Code: $inviteCode\n$inviteLink',
+                    ),
+                  );
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text(
+                        'Copied to clipboard. Native share coming soon!',
+                      ),
+                    ),
+                  );
                   Navigator.pop(context);
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: c.primary,
                   foregroundColor: c.primaryInverse,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppRadii.md)),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(AppRadii.md),
+                  ),
                 ),
                 child: const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Icon(Icons.share_outlined),
                     SizedBox(width: AppSpacing.s8),
-                    Text('Share Room', style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16)),
+                    Text(
+                      'Share Room',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 16,
+                      ),
+                    ),
                   ],
                 ),
               ),

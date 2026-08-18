@@ -1,4 +1,5 @@
 import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -23,22 +24,28 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 
 // ── Route paths ───────────────────────────────────────────
 abstract final class Routes {
-  static const splash         = '/';
-  static const landing        = '/landing';
-  static const signIn         = '/sign-in';
-  static const signUp         = '/sign-up';
-  static const otpVerify      = '/otp-verify';
+  static const splash = '/';
+  static const landing = '/landing';
+  static const signIn = '/sign-in';
+  static const signUp = '/sign-up';
+  static const otpVerify = '/otp-verify';
   static const forgotPassword = '/forgot-password';
-  static const home           = '/home';
-  static const timeline       = '/timeline';
-  static const memories       = '/memories';
-  static const profile        = '/profile';
-  static const ai             = '/ai';
-  static const search         = '/search';
-  static const notifications  = '/notifications';
-  static const settings       = '/settings';
+  static const home = '/home';
+  static const timeline = '/timeline';
+  static const memories = '/memories';
+  static const profile = '/profile';
+  static const ai = '/ai';
+  static const search = '/search';
+  static const notifications = '/notifications';
+  static const settings = '/settings';
 
-  static const _authRoutes = {landing, signIn, signUp, forgotPassword, otpVerify};
+  static const _authRoutes = {
+    landing,
+    signIn,
+    signUp,
+    forgotPassword,
+    otpVerify,
+  };
   static const _shellRoutes = {home, timeline, memories, profile};
 }
 
@@ -74,7 +81,8 @@ final routerProvider = Provider<GoRouter>((ref) {
 
       if (path == Routes.splash) return null;
 
-      if (!hasSession && Routes._shellRoutes.contains(path)) return Routes.landing;
+      if (!hasSession && Routes._shellRoutes.contains(path))
+        return Routes.landing;
       if (hasSession && Routes._authRoutes.contains(path)) return Routes.home;
 
       return null;
@@ -142,10 +150,38 @@ final routerProvider = Provider<GoRouter>((ref) {
       StatefulShellRoute.indexedStack(
         builder: (context, state, shell) => AppShell(shell: shell),
         branches: [
-          StatefulShellBranch(routes: [GoRoute(path: Routes.home,     builder: (_, __) => const HomeScreen())]),
-          StatefulShellBranch(routes: [GoRoute(path: Routes.timeline,  builder: (_, __) => const TimelineScreen())]),
-          StatefulShellBranch(routes: [GoRoute(path: Routes.memories,  builder: (_, __) => const MemoriesScreen())]),
-          StatefulShellBranch(routes: [GoRoute(path: Routes.profile,   builder: (_, __) => const ProfileScreen())]),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: Routes.home,
+                builder: (_, __) => const HomeScreen(),
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: Routes.timeline,
+                builder: (_, __) => const TimelineScreen(),
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: Routes.memories,
+                builder: (_, __) => const MemoriesScreen(),
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: Routes.profile,
+                builder: (_, __) => const ProfileScreen(),
+              ),
+            ],
+          ),
         ],
       ),
     ],
@@ -156,16 +192,18 @@ final routerProvider = Provider<GoRouter>((ref) {
 
 CustomTransitionPage<void> _fade(Widget child) => CustomTransitionPage(
   child: child,
-  transitionsBuilder: (_, anim, __, child) => FadeTransition(opacity: anim, child: child),
+  transitionsBuilder: (_, anim, __, child) =>
+      FadeTransition(opacity: anim, child: child),
   transitionDuration: const Duration(milliseconds: 280),
 );
 
 CustomTransitionPage<void> _slide(Widget child) => CustomTransitionPage(
   child: child,
   transitionsBuilder: (_, anim, __, child) => SlideTransition(
-    position: Tween(begin: const Offset(1, 0), end: Offset.zero)
-        .chain(CurveTween(curve: Curves.easeOutCubic))
-        .animate(anim),
+    position: Tween(
+      begin: const Offset(1, 0),
+      end: Offset.zero,
+    ).chain(CurveTween(curve: Curves.easeOutCubic)).animate(anim),
     child: child,
   ),
   transitionDuration: const Duration(milliseconds: 300),

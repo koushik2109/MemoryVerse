@@ -21,7 +21,7 @@ class MemoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final c = context.colors;
-    
+
     return GestureDetector(
       onTap: onTap,
       child: Container(
@@ -61,7 +61,10 @@ class MemoryCard extends StatelessWidget {
                 children: [
                   Text(
                     title,
-                    style: context.text.titleLarge?.copyWith(color: Colors.white, fontWeight: FontWeight.w600),
+                    style: context.text.titleLarge?.copyWith(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w600,
+                    ),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
@@ -70,14 +73,22 @@ class MemoryCard extends StatelessWidget {
                     children: [
                       Text(
                         DateFormat('MMM d, yyyy').format(date),
-                        style: context.text.labelMedium?.copyWith(color: Colors.white.withValues(alpha: 0.8)),
+                        style: context.text.labelMedium?.copyWith(
+                          color: Colors.white.withValues(alpha: 0.8),
+                        ),
                       ),
                       const SizedBox(width: AppSpacing.s8),
-                      Icon(Icons.photo_library_rounded, size: 12, color: Colors.white.withValues(alpha: 0.8)),
+                      Icon(
+                        Icons.photo_library_rounded,
+                        size: 12,
+                        color: Colors.white.withValues(alpha: 0.8),
+                      ),
                       const SizedBox(width: AppSpacing.s4),
                       Text(
                         '$photoCount',
-                        style: context.text.labelMedium?.copyWith(color: Colors.white.withValues(alpha: 0.8)),
+                        style: context.text.labelMedium?.copyWith(
+                          color: Colors.white.withValues(alpha: 0.8),
+                        ),
                       ),
                     ],
                   ),
@@ -108,7 +119,7 @@ class RoomCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final c = context.colors;
-    
+
     return GestureDetector(
       onTap: onTap,
       child: Container(
@@ -188,7 +199,10 @@ class UploadProgressCard extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
-              Text('${(progress * 100).toInt()}%', style: context.text.labelMedium),
+              Text(
+                '${(progress * 100).toInt()}%',
+                style: context.text.labelMedium,
+              ),
             ],
           ),
           const SizedBox(height: AppSpacing.s12),
@@ -248,7 +262,11 @@ class MediaCard extends StatelessWidget {
                       fit: BoxFit.cover,
                       errorBuilder: (_, __, ___) => Container(
                         color: c.surfaceElevated,
-                        child: Icon(Icons.image_outlined, color: c.textMuted, size: 28),
+                        child: Icon(
+                          Icons.image_outlined,
+                          color: c.textMuted,
+                          size: 28,
+                        ),
                       ),
                     ),
                     if (isVideo) ...[
@@ -260,22 +278,34 @@ class MediaCard extends StatelessWidget {
                             color: Colors.black.withValues(alpha: 0.5),
                             shape: BoxShape.circle,
                           ),
-                          child: const Icon(Icons.play_arrow_rounded, color: Colors.white, size: 20),
+                          child: const Icon(
+                            Icons.play_arrow_rounded,
+                            color: Colors.white,
+                            size: 20,
+                          ),
                         ),
                       ),
                       // Duration badge
                       if (duration != null)
                         Positioned(
-                          bottom: AppSpacing.s6, right: AppSpacing.s6,
+                          bottom: AppSpacing.s6,
+                          right: AppSpacing.s6,
                           child: Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 6,
+                              vertical: 2,
+                            ),
                             decoration: BoxDecoration(
                               color: Colors.black.withValues(alpha: 0.7),
                               borderRadius: BorderRadius.circular(4),
                             ),
                             child: Text(
                               duration!,
-                              style: const TextStyle(color: Colors.white, fontSize: 11, fontWeight: FontWeight.w500),
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 11,
+                                fontWeight: FontWeight.w500,
+                              ),
                             ),
                           ),
                         ),
@@ -290,7 +320,9 @@ class MediaCard extends StatelessWidget {
               title,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
-              style: context.text.titleMedium?.copyWith(fontWeight: FontWeight.w600),
+              style: context.text.titleMedium?.copyWith(
+                fontWeight: FontWeight.w600,
+              ),
             ),
             const SizedBox(height: 2),
             // Subtitle

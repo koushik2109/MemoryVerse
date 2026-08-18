@@ -12,7 +12,8 @@ class StackedCarousel extends StatelessWidget {
     {
       "image": "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=600&q=80",
       "title": "River Rafting",
-      "description": "Feel the adrenaline rush as you navigate the wild rapids.",
+      "description":
+          "Feel the adrenaline rush as you navigate the wild rapids.",
       "badge": "Extreme",
     },
     {
@@ -24,7 +25,8 @@ class StackedCarousel extends StatelessWidget {
     {
       "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80",
       "title": "Azure Beach",
-      "description": "Unwind on the crystal clear shores of a tropical paradise.",
+      "description":
+          "Unwind on the crystal clear shores of a tropical paradise.",
       "badge": "Paradise",
     },
   ];
@@ -98,11 +100,16 @@ class StackedCarousel extends StatelessWidget {
                   Align(
                     alignment: Alignment.topRight,
                     child: Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 12,
+                        vertical: 6,
+                      ),
                       decoration: BoxDecoration(
                         color: Colors.white.withOpacity(0.2),
                         borderRadius: BorderRadius.circular(20),
-                        border: Border.all(color: Colors.white.withOpacity(0.4)),
+                        border: Border.all(
+                          color: Colors.white.withOpacity(0.4),
+                        ),
                       ),
                       child: Text(
                         memory['badge']!.toUpperCase(),
@@ -146,4 +153,3 @@ class StackedCarousel extends StatelessWidget {
     );
   }
 }
-

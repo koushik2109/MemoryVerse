@@ -7,7 +7,6 @@ import 'package:memory_verse/core/providers/theme_provider.dart';
 class SettingsScreen extends ConsumerWidget {
   const SettingsScreen({super.key});
 
-
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final c = context.colors;
@@ -53,7 +52,11 @@ class _Section extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(title, style: Theme.of(context).textTheme.titleSmall?.copyWith(color: c.textMuted)),
+        Text(
+          title,
+          style: Theme.of(context).textTheme.titleSmall
+              ?.copyWith(color: c.textMuted),
+        ),
         const SizedBox(height: AppSpacing.s10),
         Container(
           decoration: BoxDecoration(
@@ -63,7 +66,12 @@ class _Section extends StatelessWidget {
           ),
           child: Column(
             children: List.generate(children.length * 2 - 1, (i) {
-              if (i.isOdd) return Divider(height: 0, color: c.border, indent: AppSpacing.s48);
+              if (i.isOdd)
+                return Divider(
+                  height: 0,
+                  color: c.border,
+                  indent: AppSpacing.s48,
+                );
               return children[i ~/ 2];
             }),
           ),
@@ -74,7 +82,12 @@ class _Section extends StatelessWidget {
 }
 
 class _Tile extends StatelessWidget {
-  const _Tile({required this.icon, required this.title, required this.subtitle, required this.onTap});
+  const _Tile({
+    required this.icon,
+    required this.title,
+    required this.subtitle,
+    required this.onTap,
+  });
   final IconData icon;
   final String title;
   final String subtitle;
@@ -87,7 +100,10 @@ class _Tile extends StatelessWidget {
       onTap: onTap,
       borderRadius: BorderRadius.circular(AppRadii.md),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s16, vertical: AppSpacing.s14),
+        padding: const EdgeInsets.symmetric(
+          horizontal: AppSpacing.s16,
+          vertical: AppSpacing.s14,
+        ),
         child: Row(
           children: [
             Icon(icon, size: 22, color: c.textMuted),
@@ -97,7 +113,11 @@ class _Tile extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(title, style: Theme.of(context).textTheme.bodyMedium),
-                  Text(subtitle, style: Theme.of(context).textTheme.bodySmall?.copyWith(color: c.textMuted)),
+                  Text(
+                    subtitle,
+                    style: Theme.of(context).textTheme.bodySmall
+                        ?.copyWith(color: c.textMuted),
+                  ),
                 ],
               ),
             ),

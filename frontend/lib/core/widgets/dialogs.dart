@@ -64,7 +64,10 @@ class AppDialog extends StatelessWidget {
           children: [
             Text(title, style: context.text.headlineSmall),
             const SizedBox(height: AppSpacing.s12),
-            Text(content, style: context.text.bodyMedium?.copyWith(color: c.textMuted)),
+            Text(
+              content,
+              style: context.text.bodyMedium?.copyWith(color: c.textMuted),
+            ),
             const SizedBox(height: AppSpacing.s32),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
@@ -73,7 +76,8 @@ class AppDialog extends StatelessWidget {
                   Expanded(
                     child: SecondaryButton(
                       label: secondaryLabel!,
-                      onPressed: onSecondary ?? () => Navigator.of(context).pop(),
+                      onPressed:
+                          onSecondary ?? () => Navigator.of(context).pop(),
                     ),
                   ),
                   const SizedBox(width: AppSpacing.s12),
@@ -85,11 +89,22 @@ class AppDialog extends StatelessWidget {
                       backgroundColor: isDestructive ? c.error : c.primary,
                       foregroundColor: c.primaryInverse,
                       elevation: 0,
-                      padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s24, vertical: AppSpacing.s16),
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppRadii.sm)),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: AppSpacing.s24,
+                        vertical: AppSpacing.s16,
+                      ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(AppRadii.sm),
+                      ),
                       minimumSize: const Size(0, 56),
                     ),
-                    child: Text(primaryLabel, style: context.text.labelLarge?.copyWith(color: c.primaryInverse, fontWeight: FontWeight.w600)),
+                    child: Text(
+                      primaryLabel,
+                      style: context.text.labelLarge?.copyWith(
+                        color: c.primaryInverse,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
                   ),
                 ),
               ],
@@ -122,7 +137,9 @@ class BottomSheetContainer extends StatelessWidget {
       margin: const EdgeInsets.only(top: AppSpacing.s64),
       decoration: BoxDecoration(
         color: c.bg,
-        borderRadius: const BorderRadius.vertical(top: Radius.circular(AppRadii.xl)),
+        borderRadius: const BorderRadius.vertical(
+          top: Radius.circular(AppRadii.xl),
+        ),
         border: Border.all(color: c.borderSubtle),
       ),
       child: SafeArea(

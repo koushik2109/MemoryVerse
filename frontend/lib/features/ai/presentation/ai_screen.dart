@@ -40,13 +40,15 @@ class _AiScreenState extends ConsumerState<AiScreen> {
 
     setState(() {
       _sending = true;
-      _messages.add(AiMessageModel(
-        id: 'local-${DateTime.now().millisecondsSinceEpoch}',
-        conversationId: _currentConvoId ?? '',
-        role: 'user',
-        content: text,
-        createdAt: DateTime.now(),
-      ));
+      _messages.add(
+        AiMessageModel(
+          id: 'local-${DateTime.now().millisecondsSinceEpoch}',
+          conversationId: _currentConvoId ?? '',
+          role: 'user',
+          content: text,
+          createdAt: DateTime.now(),
+        ),
+      );
     });
     _msgController.clear();
     _scrollToBottom();
@@ -60,13 +62,19 @@ class _AiScreenState extends ConsumerState<AiScreen> {
       if (mounted) {
         setState(() {
           _currentConvoId = response['conversation_id'] as String?;
-          _messages.add(AiMessageModel(
-            id: response['id'] ?? 'resp-${DateTime.now().millisecondsSinceEpoch}',
-            conversationId: _currentConvoId ?? '',
-            role: 'assistant',
-            content: response['content'] ?? 'I couldn\'t process that. Please try again.',
-            createdAt: DateTime.now(),
-          ));
+          _messages.add(
+            AiMessageModel(
+              id:
+                  response['id'] ??
+                  'resp-${DateTime.now().millisecondsSinceEpoch}',
+              conversationId: _currentConvoId ?? '',
+              role: 'assistant',
+              content:
+                  response['content'] ??
+                  'I couldn\'t process that. Please try again.',
+              createdAt: DateTime.now(),
+            ),
+          );
           _sending = false;
         });
         _scrollToBottom();
@@ -74,13 +82,15 @@ class _AiScreenState extends ConsumerState<AiScreen> {
     } catch (e) {
       if (mounted) {
         setState(() {
-          _messages.add(AiMessageModel(
-            id: 'err-${DateTime.now().millisecondsSinceEpoch}',
-            conversationId: _currentConvoId ?? '',
-            role: 'assistant',
-            content: 'Sorry, I couldn\'t process that right now. Please try again.',
-            createdAt: DateTime.now(),
-          ));
+          _messages.add(
+            AiMessageModel(
+              id: 'err-${DateTime.now().millisecondsSinceEpoch}',
+              conversationId: _currentConvoId ?? '',
+              role: 'assistant',
+              content: 'Sorry, I couldn\'t process that right now. Please try again.',
+              createdAt: DateTime.now(),
+            ),
+          );
           _sending = false;
         });
       }
@@ -121,7 +131,9 @@ class _AiScreenState extends ConsumerState<AiScreen> {
             child: _messages.isEmpty
                 ? _WelcomeView(
                     c: c,
-                    name: profileAsync.valueOrNull?.fullName?.split(' ').first ?? 'there',
+                    name:
+                        profileAsync.valueOrNull?.fullName?.split(' ').first ??
+                        'there',
                     onSuggestion: (s) {
                       _msgController.text = s;
                       _send();
@@ -143,7 +155,9 @@ class _AiScreenState extends ConsumerState<AiScreen> {
           // Input bar
           Container(
             padding: EdgeInsets.fromLTRB(
-              AppSpacing.s16, AppSpacing.s12, AppSpacing.s12,
+              AppSpacing.s16,
+              AppSpacing.s12,
+              AppSpacing.s12,
               AppSpacing.s12 + MediaQuery.of(context).padding.bottom,
             ),
             decoration: BoxDecoration(
@@ -170,7 +184,10 @@ class _AiScreenState extends ConsumerState<AiScreen> {
                         borderRadius: BorderRadius.circular(AppRadii.xl),
                         borderSide: BorderSide(color: c.primary),
                       ),
-                      contentPadding: const EdgeInsets.symmetric(horizontal: AppSpacing.s16, vertical: AppSpacing.s12),
+                      contentPadding: const EdgeInsets.symmetric(
+                        horizontal: AppSpacing.s16,
+                        vertical: AppSpacing.s12,
+                      ),
                       filled: true,
                       fillColor: c.surfaceElevated,
                     ),
@@ -182,12 +199,17 @@ class _AiScreenState extends ConsumerState<AiScreen> {
                 GestureDetector(
                   onTap: _send,
                   child: Container(
-                    width: 44, height: 44,
+                    width: 44,
+                    height: 44,
                     decoration: BoxDecoration(
                       color: c.primary,
                       shape: BoxShape.circle,
                     ),
-                    child: const Icon(Icons.send_rounded, color: Colors.white, size: 20),
+                    child: const Icon(
+                      Icons.send_rounded,
+                      color: Colors.white,
+                      size: 20,
+                    ),
                   ),
                 ),
               ],
@@ -200,7 +222,11 @@ class _AiScreenState extends ConsumerState<AiScreen> {
 }
 
 class _WelcomeView extends StatelessWidget {
-  const _WelcomeView({required this.c, required this.name, required this.onSuggestion});
+  const _WelcomeView({
+    required this.c,
+    required this.name,
+    required this.onSuggestion,
+  });
   final AppColors c;
   final String name;
   final ValueChanged<String> onSuggestion;
@@ -214,7 +240,8 @@ class _WelcomeView extends StatelessWidget {
           const SizedBox(height: AppSpacing.s40),
           // AI Avatar
           Container(
-            width: 64, height: 64,
+            width: 64,
+            height: 64,
             decoration: BoxDecoration(
               color: c.surfaceElevated,
               shape: BoxShape.circle,
@@ -230,34 +257,51 @@ class _WelcomeView extends StatelessWidget {
           Text(
             'How can I help you with your memories today?',
             textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: c.textMuted),
+            style: Theme.of(context).textTheme.bodyMedium
+                ?.copyWith(color: c.textMuted),
           ),
           const SizedBox(height: AppSpacing.s32),
-          ..._AiScreenState._suggestions.map((s) => Padding(
-            padding: const EdgeInsets.only(bottom: AppSpacing.s10),
-            child: GestureDetector(
-              onTap: () => onSuggestion(s),
-              child: Container(
-                width: double.infinity,
-                padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s16, vertical: AppSpacing.s14),
-                decoration: BoxDecoration(
-                  color: c.surface,
-                  borderRadius: BorderRadius.circular(AppRadii.md),
-                  border: Border.all(color: c.border),
-                ),
-                child: Row(
-                  children: [
-                    Icon(Icons.auto_awesome_outlined, size: 18, color: c.primary),
-                    const SizedBox(width: AppSpacing.s12),
-                    Expanded(
-                      child: Text(s, style: Theme.of(context).textTheme.bodyMedium),
-                    ),
-                    Icon(Icons.arrow_forward_ios_rounded, size: 14, color: c.textMuted),
-                  ],
+          ..._AiScreenState._suggestions.map(
+            (s) => Padding(
+              padding: const EdgeInsets.only(bottom: AppSpacing.s10),
+              child: GestureDetector(
+                onTap: () => onSuggestion(s),
+                child: Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: AppSpacing.s16,
+                    vertical: AppSpacing.s14,
+                  ),
+                  decoration: BoxDecoration(
+                    color: c.surface,
+                    borderRadius: BorderRadius.circular(AppRadii.md),
+                    border: Border.all(color: c.border),
+                  ),
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.auto_awesome_outlined,
+                        size: 18,
+                        color: c.primary,
+                      ),
+                      const SizedBox(width: AppSpacing.s12),
+                      Expanded(
+                        child: Text(
+                          s,
+                          style: Theme.of(context).textTheme.bodyMedium,
+                        ),
+                      ),
+                      Icon(
+                        Icons.arrow_forward_ios_rounded,
+                        size: 14,
+                        color: c.textMuted,
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
-          )),
+          ),
         ],
       ),
     );
@@ -278,24 +322,29 @@ class _MessageBubble extends StatelessWidget {
       child: Align(
         alignment: isUser ? Alignment.centerRight : Alignment.centerLeft,
         child: Container(
-          constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width * 0.78),
-          padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s16, vertical: AppSpacing.s12),
+          constraints: BoxConstraints(
+            maxWidth: MediaQuery.of(context).size.width * 0.78,
+          ),
+          padding: const EdgeInsets.symmetric(
+            horizontal: AppSpacing.s16,
+            vertical: AppSpacing.s12,
+          ),
           decoration: BoxDecoration(
             color: isUser ? c.primary : c.surface,
             borderRadius: BorderRadius.only(
               topLeft: const Radius.circular(AppRadii.lg),
               topRight: const Radius.circular(AppRadii.lg),
               bottomLeft: Radius.circular(isUser ? AppRadii.lg : AppSpacing.s4),
-              bottomRight: Radius.circular(isUser ? AppSpacing.s4 : AppRadii.lg),
+              bottomRight: Radius.circular(
+                isUser ? AppSpacing.s4 : AppRadii.lg,
+              ),
             ),
             border: isUser ? null : Border.all(color: c.border),
           ),
           child: Text(
             message.content,
-            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-              color: isUser ? Colors.white : c.text,
-              height: 1.5,
-            ),
+            style: Theme.of(context).textTheme.bodyMedium
+                ?.copyWith(color: isUser ? Colors.white : c.text, height: 1.5),
           ),
         ),
       ),
@@ -326,10 +375,13 @@ class _TypingIndicator extends StatelessWidget {
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
-          children: List.generate(3, (i) => Padding(
-            padding: EdgeInsets.only(right: i < 2 ? 4 : 0),
-            child: _Dot(delay: i * 200, c: c),
-          )),
+          children: List.generate(
+            3,
+            (i) => Padding(
+              padding: EdgeInsets.only(right: i < 2 ? 4 : 0),
+              child: _Dot(delay: i * 200, c: c),
+            ),
+          ),
         ),
       ),
     );
@@ -351,22 +403,28 @@ class _DotState extends State<_Dot> with SingleTickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    _ctrl = AnimationController(vsync: this, duration: const Duration(milliseconds: 600))
-      ..repeat(reverse: true);
+    _ctrl = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 600),
+    )..repeat(reverse: true);
     Future.delayed(Duration(milliseconds: widget.delay), () {
       if (mounted) _ctrl.forward();
     });
   }
 
   @override
-  void dispose() { _ctrl.dispose(); super.dispose(); }
+  void dispose() {
+    _ctrl.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
       animation: _ctrl,
       builder: (_, __) => Container(
-        width: 8, height: 8,
+        width: 8,
+        height: 8,
         decoration: BoxDecoration(
           color: widget.c.textMuted.withValues(alpha: 0.3 + 0.5 * _ctrl.value),
           shape: BoxShape.circle,

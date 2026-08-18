@@ -33,9 +33,11 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
 
   Future<void> _initializePlayer() async {
     try {
-      _videoPlayerController = VideoPlayerController.networkUrl(Uri.parse(widget.media.url));
+      _videoPlayerController = VideoPlayerController.networkUrl(
+        Uri.parse(widget.media.url),
+      );
       await _videoPlayerController.initialize();
-      
+
       _chewieController = ChewieController(
         videoPlayerController: _videoPlayerController,
         autoPlay: true,
@@ -49,7 +51,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
           bufferedColor: AppColors.light.border,
         ),
       );
-      
+
       setState(() {
         _isLoading = false;
       });
@@ -88,31 +90,35 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
         child: _isLoading
             ? CircularProgressIndicator(color: c.primary)
             : _hasError
-                ? Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Icon(Icons.error_outline, color: Colors.white54, size: 48),
-                      const SizedBox(height: AppSpacing.s16),
-                      const Text(
-                        'Failed to load video',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      const SizedBox(height: AppSpacing.s16),
-                      TextButton(
-                        onPressed: () {
-                          setState(() {
-                            _isLoading = true;
-                            _hasError = false;
-                          });
-                          _initializePlayer();
-                        },
-                        child: Text('Retry', style: TextStyle(color: c.primary)),
-                      ),
-                    ],
-                  )
-                : _chewieController != null
-                    ? Chewie(controller: _chewieController!)
-                    : const SizedBox.shrink(),
+            ? Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Icon(
+                    Icons.error_outline,
+                    color: Colors.white54,
+                    size: 48,
+                  ),
+                  const SizedBox(height: AppSpacing.s16),
+                  const Text(
+                    'Failed to load video',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  const SizedBox(height: AppSpacing.s16),
+                  TextButton(
+                    onPressed: () {
+                      setState(() {
+                        _isLoading = true;
+                        _hasError = false;
+                      });
+                      _initializePlayer();
+                    },
+                    child: Text('Retry', style: TextStyle(color: c.primary)),
+                  ),
+                ],
+              )
+            : _chewieController != null
+            ? Chewie(controller: _chewieController!)
+            : const SizedBox.shrink(),
       ),
     );
   }

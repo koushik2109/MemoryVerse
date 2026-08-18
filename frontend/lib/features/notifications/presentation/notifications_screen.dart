@@ -49,7 +49,11 @@ class NotificationsScreen extends ConsumerWidget {
                 decoration: BoxDecoration(
                   color: n.isRead ? c.surface : c.surfaceElevated,
                   borderRadius: BorderRadius.circular(AppRadii.md),
-                  border: Border.all(color: n.isRead ? c.border : c.primary.withValues(alpha: 0.2)),
+                  border: Border.all(
+                    color: n.isRead
+                        ? c.border
+                        : c.primary.withValues(alpha: 0.2),
+                  ),
                 ),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -60,16 +64,28 @@ class NotificationsScreen extends ConsumerWidget {
                         color: c.surfaceElevated,
                         shape: BoxShape.circle,
                       ),
-                      child: Icon(_iconFor(n.type), size: 18, color: c.textMuted),
+                      child: Icon(
+                        _iconFor(n.type),
+                        size: 18,
+                        color: c.textMuted,
+                      ),
                     ),
                     const SizedBox(width: AppSpacing.s12),
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(n.title, style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w600)),
+                          Text(
+                            n.title,
+                            style: Theme.of(context).textTheme.titleMedium
+                                ?.copyWith(fontWeight: FontWeight.w600),
+                          ),
                           const SizedBox(height: 2),
-                          Text(n.message, style: Theme.of(context).textTheme.bodySmall?.copyWith(color: c.textMuted)),
+                          Text(
+                            n.message,
+                            style: Theme.of(context).textTheme.bodySmall
+                                ?.copyWith(color: c.textMuted),
+                          ),
                           const SizedBox(height: AppSpacing.s4),
                           Text(
                             DateFormat('MMM d, h:mm a').format(n.createdAt),
@@ -80,8 +96,12 @@ class NotificationsScreen extends ConsumerWidget {
                     ),
                     if (!n.isRead)
                       Container(
-                        width: 8, height: 8,
-                        decoration: BoxDecoration(color: c.primary, shape: BoxShape.circle),
+                        width: 8,
+                        height: 8,
+                        decoration: BoxDecoration(
+                          color: c.primary,
+                          shape: BoxShape.circle,
+                        ),
                       ),
                   ],
                 ),
@@ -95,10 +115,14 @@ class NotificationsScreen extends ConsumerWidget {
 
   IconData _iconFor(String type) {
     switch (type) {
-      case 'invite': return Icons.group_add_outlined;
-      case 'media': return Icons.photo_outlined;
-      case 'ai': return Icons.auto_awesome_outlined;
-      default: return Icons.notifications_outlined;
+      case 'invite':
+        return Icons.group_add_outlined;
+      case 'media':
+        return Icons.photo_outlined;
+      case 'ai':
+        return Icons.auto_awesome_outlined;
+      default:
+        return Icons.notifications_outlined;
     }
   }
 }

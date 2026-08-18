@@ -2,8 +2,8 @@ import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:memory_verse/contracts/models.dart';
 import 'package:memory_verse/core/api/api_client.dart';
-import 'dart:io';
 
+import 'dart:io';
 
 // ── VAULT REPOSITORY ─────────────────────────────────────
 class VaultRepository {
@@ -20,22 +20,38 @@ class VaultRepository {
     return VaultModel.fromJson(res.data);
   }
 
-  Future<VaultModel> createVault({required String name, String? description, String? coverImageUrl}) async {
-    final res = await _api.post('/vaults', data: {
-      'name': name,
-      'description': description,
-      'cover_image_url': coverImageUrl,
-    });
+  Future<VaultModel> createVault({
+    required String name,
+    String? description,
+    String? coverImageUrl,
+  }) async {
+    final res = await _api.post(
+      '/vaults',
+      data: {
+        'name': name,
+        'description': description,
+        'cover_image_url': coverImageUrl,
+      },
+    );
     return VaultModel.fromJson(res.data);
   }
 
-  Future<VaultModel> updateVault(String id, {String? name, String? description, String? coverImageUrl, bool? isArchived}) async {
-    final res = await _api.put('/vaults/$id', data: {
-      'name': name,
-      'description': description,
-      'cover_image_url': coverImageUrl,
-      'is_archived': isArchived,
-    });
+  Future<VaultModel> updateVault(
+    String id, {
+    String? name,
+    String? description,
+    String? coverImageUrl,
+    bool? isArchived,
+  }) async {
+    final res = await _api.put(
+      '/vaults/$id',
+      data: {
+        'name': name,
+        'description': description,
+        'cover_image_url': coverImageUrl,
+        'is_archived': isArchived,
+      },
+    );
     return VaultModel.fromJson(res.data);
   }
 
@@ -63,7 +79,10 @@ class VaultRepository {
   }
 
   Future<VaultModel> joinVault(String inviteCode) async {
-    final res = await _api.post('/vaults/join', data: {'invite_code': inviteCode});
+    final res = await _api.post(
+      '/vaults/join',
+      data: {'invite_code': inviteCode},
+    );
     return VaultModel.fromJson(res.data);
   }
 
@@ -81,7 +100,10 @@ class MemoryRepository {
   final ApiClient _api;
   MemoryRepository(this._api);
 
-  Future<List<MemoryModel>> fetchMemories({String? vaultId, int limit = 50}) async {
+  Future<List<MemoryModel>> fetchMemories({
+    String? vaultId,
+    int limit = 50,
+  }) async {
     final query = <String, dynamic>{'limit': limit};
     if (vaultId != null) query['vault_id'] = vaultId;
     final res = await _api.get('/memories', queryParameters: query);
@@ -99,12 +121,15 @@ class MemoryRepository {
     String? vaultId,
     String? locationName,
   }) async {
-    final res = await _api.post('/memories', data: {
-      'title': title,
-      'description': description,
-      if (vaultId != null) 'vault_id': vaultId,
-      if (locationName != null) 'location_name': locationName,
-    });
+    final res = await _api.post(
+      '/memories',
+      data: {
+        'title': title,
+        'description': description,
+        if (vaultId != null) 'vault_id': vaultId,
+        if (locationName != null) 'location_name': locationName,
+      },
+    );
     return MemoryModel.fromJson(res.data);
   }
 
@@ -116,13 +141,16 @@ class MemoryRepository {
     String? locationName,
     DateTime? memoryDate,
   }) async {
-    final res = await _api.put('/memories/$id', data: {
-      if (title != null) 'title': title,
-      if (description != null) 'description': description,
-      if (coverMediaId != null) 'cover_media_id': coverMediaId,
-      if (locationName != null) 'location_name': locationName,
-      if (memoryDate != null) 'memory_date': memoryDate.toIso8601String(),
-    });
+    final res = await _api.put(
+      '/memories/$id',
+      data: {
+        if (title != null) 'title': title,
+        if (description != null) 'description': description,
+        if (coverMediaId != null) 'cover_media_id': coverMediaId,
+        if (locationName != null) 'location_name': locationName,
+        if (memoryDate != null) 'memory_date': memoryDate.toIso8601String(),
+      },
+    );
     return MemoryModel.fromJson(res.data);
   }
 
@@ -165,7 +193,7 @@ class MediaRepository {
     };
 
     final res = await _api.postForm(
-      '/media/upload', 
+      '/media/upload',
       formData: formData,
       cancelToken: cancelToken,
       onSendProgress: onSendProgress,
@@ -179,7 +207,10 @@ class MediaRepository {
 
   Future<String> generateVideo(String memoryId, {String? dimension}) async {
     final query = dimension != null ? {'dimension': dimension} : null;
-    final res = await _api.post('/media/memory/$memoryId/generate-video', queryParameters: query);
+    final res = await _api.post(
+      '/media/memory/$memoryId/generate-video',
+      queryParameters: query,
+    );
     return res.data['job_id'] as String;
   }
 
@@ -208,13 +239,21 @@ class ProfileRepository {
     return UserModel.fromJson(res.data);
   }
 
-  Future<UserModel> updateProfile({String? fullName, String? username, String? avatarUrl, String? bio}) async {
-    final res = await _api.put('/profile', data: {
-      'full_name': fullName,
-      'username': username,
-      'avatar_url': avatarUrl,
-      'bio': bio,
-    });
+  Future<UserModel> updateProfile({
+    String? fullName,
+    String? username,
+    String? avatarUrl,
+    String? bio,
+  }) async {
+    final res = await _api.put(
+      '/profile',
+      data: {
+        'full_name': fullName,
+        'username': username,
+        'avatar_url': avatarUrl,
+        'bio': bio,
+      },
+    );
     return UserModel.fromJson(res.data);
   }
 
@@ -234,7 +273,9 @@ class NotificationRepository {
 
   Future<List<NotificationModel>> fetchNotifications() async {
     final res = await _api.get('/notifications');
-    return (res.data as List).map((x) => NotificationModel.fromJson(x)).toList();
+    return (res.data as List)
+        .map((x) => NotificationModel.fromJson(x))
+        .toList();
   }
 
   Future<void> markRead(String id) async {
@@ -273,7 +314,10 @@ class TimelineRepository {
   Future<TimelineResponse> fetchTimeline({String? vaultId}) async {
     final query = <String, dynamic>{};
     if (vaultId != null) query['vault_id'] = vaultId;
-    final res = await _api.get('/timeline', queryParameters: query.isEmpty ? null : query);
+    final res = await _api.get(
+      '/timeline',
+      queryParameters: query.isEmpty ? null : query,
+    );
     return TimelineResponse.fromJson(res.data as Map<String, dynamic>);
   }
 }
@@ -291,16 +335,21 @@ class AiRepository {
     required String message,
     String? conversationId,
   }) async {
-    final res = await _api.post('/ai/chat', data: {
-      'message': message,
-      if (conversationId != null) 'conversation_id': conversationId,
-    });
+    final res = await _api.post(
+      '/ai/chat',
+      data: {
+        'message': message,
+        if (conversationId != null) 'conversation_id': conversationId,
+      },
+    );
     return res.data as Map<String, dynamic>;
   }
 
   Future<List<AiConversationModel>> listConversations() async {
     final res = await _api.get('/ai/conversations');
-    return (res.data as List).map((x) => AiConversationModel.fromJson(x)).toList();
+    return (res.data as List)
+        .map((x) => AiConversationModel.fromJson(x))
+        .toList();
   }
 
   Future<List<AiMessageModel>> getMessages(String conversationId) async {

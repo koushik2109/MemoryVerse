@@ -18,31 +18,49 @@ class PrimaryButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final c = context.colors;
-    
+
     return ElevatedButton(
       onPressed: isLoading ? null : onPressed,
       style: ElevatedButton.styleFrom(
         backgroundColor: c.primary,
         foregroundColor: c.primaryInverse,
         elevation: 0,
-        padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s24, vertical: AppSpacing.s16),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppRadii.sm)),
+        padding: const EdgeInsets.symmetric(
+          horizontal: AppSpacing.s24,
+          vertical: AppSpacing.s16,
+        ),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(AppRadii.sm),
+        ),
         minimumSize: const Size(double.infinity, 56),
         disabledBackgroundColor: c.border,
         disabledForegroundColor: c.textMuted,
       ),
-      child: isLoading 
-        ? SizedBox(
-            height: 20, width: 20, 
-            child: CircularProgressIndicator(color: c.primaryInverse, strokeWidth: 2)
-          )
-        : Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              if (icon != null) ...[Icon(icon, size: 18), const SizedBox(width: AppSpacing.s8)],
-              Text(label, style: context.text.labelLarge?.copyWith(color: c.primaryInverse, fontWeight: FontWeight.w600)),
-            ],
-          ),
+      child: isLoading
+          ? SizedBox(
+              height: 20,
+              width: 20,
+              child: CircularProgressIndicator(
+                color: c.primaryInverse,
+                strokeWidth: 2,
+              ),
+            )
+          : Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                if (icon != null) ...[
+                  Icon(icon, size: 18),
+                  const SizedBox(width: AppSpacing.s8),
+                ],
+                Text(
+                  label,
+                  style: context.text.labelLarge?.copyWith(
+                    color: c.primaryInverse,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ],
+            ),
     );
   }
 }
@@ -62,21 +80,34 @@ class SecondaryButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final c = context.colors;
-    
+
     return OutlinedButton(
       onPressed: onPressed,
       style: OutlinedButton.styleFrom(
         foregroundColor: c.text,
         side: BorderSide(color: c.border),
-        padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s24, vertical: AppSpacing.s16),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppRadii.sm)),
+        padding: const EdgeInsets.symmetric(
+          horizontal: AppSpacing.s24,
+          vertical: AppSpacing.s16,
+        ),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(AppRadii.sm),
+        ),
         minimumSize: const Size(double.infinity, 56),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          if (icon != null) ...[Icon(icon, size: 18), const SizedBox(width: AppSpacing.s8)],
-          Text(label, style: context.text.labelLarge?.copyWith(fontWeight: FontWeight.w600)),
+          if (icon != null) ...[
+            Icon(icon, size: 18),
+            const SizedBox(width: AppSpacing.s8),
+          ],
+          Text(
+            label,
+            style: context.text.labelLarge?.copyWith(
+              fontWeight: FontWeight.w600,
+            ),
+          ),
         ],
       ),
     );
@@ -98,7 +129,7 @@ class AppIconButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final c = context.colors;
-    
+
     return InkWell(
       onTap: onPressed,
       borderRadius: BorderRadius.circular(AppRadii.sm),
@@ -134,7 +165,10 @@ class AppFilterChip extends StatelessWidget {
       onTap: () => onSelected(!selected),
       child: AnimatedContainer(
         duration: AppMotion.fast,
-        padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s14, vertical: AppSpacing.s8),
+        padding: const EdgeInsets.symmetric(
+          horizontal: AppSpacing.s14,
+          vertical: AppSpacing.s8,
+        ),
         decoration: BoxDecoration(
           color: selected ? c.primary : c.surfaceElevated,
           borderRadius: BorderRadius.circular(AppRadii.pill),

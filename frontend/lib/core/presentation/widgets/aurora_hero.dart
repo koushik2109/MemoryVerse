@@ -21,8 +21,7 @@ class AuroraHero extends StatelessWidget {
     this.appName = 'MemoryVerse',
     this.badgeText = 'Now with shared timelines',
     this.headline = 'Every memory, worth revisiting',
-    this.subheadline =
-        'Collect, relive, and share your story with the people who were there for it.',
+    this.subheadline = 'Collect, relive, and share your story with the people who were there for it.',
     this.primaryCtaLabel = 'Start free',
     this.secondaryCtaLabel = 'See how it works',
     this.onPrimaryCta,
@@ -38,7 +37,10 @@ class AuroraHero extends StatelessWidget {
           const Positioned.fill(child: AuroraBackground(isDark: true)),
           SafeArea(
             child: SingleChildScrollView(
-              padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s28, vertical: AppSpacing.s20),
+              padding: const EdgeInsets.symmetric(
+                horizontal: AppSpacing.s28,
+                vertical: AppSpacing.s20,
+              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
@@ -67,7 +69,11 @@ class AuroraHero extends StatelessWidget {
                 color: Colors.white.withOpacity(0.15),
                 borderRadius: BorderRadius.circular(AppRadius.md),
               ),
-              child: const Icon(Icons.auto_awesome, size: 20, color: Colors.white),
+              child: const Icon(
+                Icons.auto_awesome,
+                size: 20,
+                color: Colors.white,
+              ),
             ),
             const SizedBox(width: AppSpacing.s12),
             Text(
@@ -121,4 +127,3 @@ class AuroraHero extends StatelessWidget {
     );
   }
 }
-

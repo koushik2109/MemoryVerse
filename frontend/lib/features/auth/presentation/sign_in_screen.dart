@@ -35,11 +35,14 @@ class _SignInScreenState extends ConsumerState<SignInScreen>
   void initState() {
     super.initState();
     _entryCtrl = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 500))
-      ..forward();
+      vsync: this,
+      duration: const Duration(milliseconds: 500),
+    )..forward();
     _fadeAnim = CurvedAnimation(parent: _entryCtrl, curve: Curves.easeOut);
-    _slideAnim = Tween<Offset>(begin: const Offset(0, 0.06), end: Offset.zero)
-        .animate(CurvedAnimation(parent: _entryCtrl, curve: Curves.easeOutCubic));
+    _slideAnim = Tween<Offset>(
+      begin: const Offset(0, 0.06),
+      end: Offset.zero,
+    ).animate(CurvedAnimation(parent: _entryCtrl, curve: Curves.easeOutCubic));
   }
 
   @override
@@ -57,29 +60,45 @@ class _SignInScreenState extends ConsumerState<SignInScreen>
 
   Future<void> _signIn() async {
     if (_isSubmitting) return;
-    setState(() { _error = null; _isSubmitting = true; });
+    setState(() {
+      _error = null;
+      _isSubmitting = true;
+    });
 
     final email = _email.text.trim();
     final pass = _password.text;
 
     if (email.isEmpty || pass.isEmpty) {
-      setState(() { _error = 'Please enter your email and password.'; _isSubmitting = false; });
+      setState(() {
+        _error = 'Please enter your email and password.';
+        _isSubmitting = false;
+      });
       return;
     }
     if (!_isValidEmail(email)) {
-      setState(() { _error = 'Please enter a valid email address.'; _isSubmitting = false; });
+      setState(() {
+        _error = 'Please enter a valid email address.';
+        _isSubmitting = false;
+      });
       return;
     }
 
-    await ref.read(authNotifierProvider.notifier).signIn(email: email, password: pass);
+    await ref
+        .read(authNotifierProvider.notifier)
+        .signIn(email: email, password: pass);
 
     if (!mounted) return;
     final authState = ref.read(authNotifierProvider);
 
     if (authState.hasError) {
       final msg = AuthErrorHandler.parse(authState.error!);
-      setState(() { _error = msg; _isSubmitting = false; });
-      if (authState.error.toString().toLowerCase().contains('email not confirmed')) {
+      setState(() {
+        _error = msg;
+        _isSubmitting = false;
+      });
+      if (authState.error.toString().toLowerCase().contains(
+        'email not confirmed',
+      )) {
         await Future<void>.delayed(const Duration(milliseconds: 600));
         if (mounted) context.push(Routes.otpVerify, extra: email);
       }
@@ -101,8 +120,11 @@ class _SignInScreenState extends ConsumerState<SignInScreen>
               child: SlideTransition(
                 position: _slideAnim,
                 child: SingleChildScrollView(
-                  padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s24),
-                  keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: AppSpacing.s24,
+                  ),
+                  keyboardDismissBehavior:
+                      ScrollViewKeyboardDismissBehavior.onDrag,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -112,101 +134,122 @@ class _SignInScreenState extends ConsumerState<SignInScreen>
                       const AuthLogo(),
                       const SizedBox(height: AppSpacing.s32),
 
-                  const Text(
-                    'Welcome\nback.',
-                    style: TextStyle(
-                      fontFamily: 'Inter', fontSize: 38,
-                      fontWeight: FontWeight.w700, letterSpacing: -1.5,
-                      height: 1.05, color: Colors.white,
-                    ),
-                  ),
-                  const SizedBox(height: AppSpacing.s8),
-                  const Text(
-                    'Sign in to continue your story.',
-                    style: TextStyle(fontFamily: 'Inter', fontSize: 15,
-                        fontWeight: FontWeight.w400, color: Colors.white70, height: 1.5),
-                  ),
-
-                  const SizedBox(height: AppSpacing.s40),
-
-                  AuthField(
-                    label: 'Email',
-                    hint: 'you@example.com',
-                    controller: _email,
-                    focusNode: _emailFocus,
-                    keyboardType: TextInputType.emailAddress,
-                    textInputAction: TextInputAction.next,
-                    onSubmitted: (_) => _passwordFocus.requestFocus(),
-                    prefixIcon: Icons.mail_outline_rounded,
-                  ),
-                  const SizedBox(height: AppSpacing.s16),
-
-                  AuthField(
-                    label: 'Password',
-                    hint: '••••••••',
-                    controller: _password,
-                    focusNode: _passwordFocus,
-                    obscureText: !_showPassword,
-                    textInputAction: TextInputAction.done,
-                    onSubmitted: (_) => _signIn(),
-                    prefixIcon: Icons.lock_outline_rounded,
-                    suffixIcon: IconButton(
-                      icon: Icon(
-                        _showPassword ? Icons.visibility_off_outlined : Icons.visibility_outlined,
-                        size: 20, color: AppColors.onDarkMuted,
+                      const Text(
+                        'Welcome\nback.',
+                        style: TextStyle(
+                          fontFamily: 'Inter',
+                          fontSize: 38,
+                          fontWeight: FontWeight.w700,
+                          letterSpacing: -1.5,
+                          height: 1.05,
+                          color: Colors.white,
+                        ),
                       ),
-                      onPressed: () => setState(() => _showPassword = !_showPassword),
-                    ),
-                  ),
-
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: TextButton(
-                      onPressed: () => context.push(Routes.forgotPassword),
-                      style: TextButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(vertical: AppSpacing.s8, horizontal: AppSpacing.s4),
+                      const SizedBox(height: AppSpacing.s8),
+                      const Text(
+                        'Sign in to continue your story.',
+                        style: TextStyle(
+                          fontFamily: 'Inter',
+                          fontSize: 15,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.white70,
+                          height: 1.5,
+                        ),
                       ),
-                      child: Text(
-                        'Forgot password?',
-                        style: AppTextStyles.caption.copyWith(
-                            fontWeight: FontWeight.w500, color: AppColors.onDarkMuted),
+
+                      const SizedBox(height: AppSpacing.s40),
+
+                      AuthField(
+                        label: 'Email',
+                        hint: 'you@example.com',
+                        controller: _email,
+                        focusNode: _emailFocus,
+                        keyboardType: TextInputType.emailAddress,
+                        textInputAction: TextInputAction.next,
+                        onSubmitted: (_) => _passwordFocus.requestFocus(),
+                        prefixIcon: Icons.mail_outline_rounded,
                       ),
-                    ),
+                      const SizedBox(height: AppSpacing.s16),
+
+                      AuthField(
+                        label: 'Password',
+                        hint: '••••••••',
+                        controller: _password,
+                        focusNode: _passwordFocus,
+                        obscureText: !_showPassword,
+                        textInputAction: TextInputAction.done,
+                        onSubmitted: (_) => _signIn(),
+                        prefixIcon: Icons.lock_outline_rounded,
+                        suffixIcon: IconButton(
+                          icon: Icon(
+                            _showPassword
+                                ? Icons.visibility_off_outlined
+                                : Icons.visibility_outlined,
+                            size: 20,
+                            color: AppColors.onDarkMuted,
+                          ),
+                          onPressed: () =>
+                              setState(() => _showPassword = !_showPassword),
+                        ),
+                      ),
+
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: TextButton(
+                          onPressed: () => context.push(Routes.forgotPassword),
+                          style: TextButton.styleFrom(
+                            padding: const EdgeInsets.symmetric(
+                              vertical: AppSpacing.s8,
+                              horizontal: AppSpacing.s4,
+                            ),
+                          ),
+                          child: Text(
+                            'Forgot password?',
+                            style: AppTextStyles.caption.copyWith(
+                              fontWeight: FontWeight.w500,
+                              color: AppColors.onDarkMuted,
+                            ),
+                          ),
+                        ),
+                      ),
+
+                      AuthErrorBanner(error: _error),
+                      const SizedBox(height: AppSpacing.s20),
+
+                      Center(
+                        child: FlowButton(
+                          text: _isSubmitting ? 'Signing In...' : 'Sign In',
+                          isDark: true,
+                          onPressed: _signIn,
+                        ),
+                      ),
+
+                      const SizedBox(height: AppSpacing.s28),
+                      const AuthOrDivider(),
+                      const SizedBox(height: AppSpacing.s20),
+
+                      AuthSocialButton(
+                        label: 'Continue with Google',
+                        icon: const GoogleIcon(),
+                        onPressed: _signInWithGoogle,
+                      ),
+
+                      const SizedBox(height: AppSpacing.s40),
+
+                      Center(
+                        child: AuthNavLink(
+                          question: "Don't have an account?",
+                          action: 'Create one',
+                          onTap: () => context.push(Routes.signUp),
+                        ),
+                      ),
+
+                      const SizedBox(height: AppSpacing.s32),
+                    ],
                   ),
-
-                  AuthErrorBanner(error: _error),
-                  const SizedBox(height: AppSpacing.s20),
-
-                  Center(
-                    child: FlowButton(
-                      text: _isSubmitting ? 'Signing In...' : 'Sign In',
-                      isDark: true,
-                      onPressed: _signIn,
-                    ),
-                  ),
-
-                  const SizedBox(height: AppSpacing.s28),
-                  const AuthOrDivider(),
-                  const SizedBox(height: AppSpacing.s20),
-
-                  AuthSocialButton(
-                    label: 'Continue with Google', icon: const GoogleIcon(),
-                    onPressed: _signInWithGoogle,
-                  ),
-
-                  const SizedBox(height: AppSpacing.s40),
-
-                  Center(child: AuthNavLink(
-                    question: "Don't have an account?", action: 'Create one',
-                    onTap: () => context.push(Routes.signUp),
-                  )),
-
-                  const SizedBox(height: AppSpacing.s32),
-                ],
+                ),
               ),
             ),
-          ),
-          ),
           ),
         ],
       ),
@@ -215,24 +258,33 @@ class _SignInScreenState extends ConsumerState<SignInScreen>
 
   Future<void> _signInWithGoogle() async {
     if (_isSubmitting) return;
-    setState(() { _error = null; _isSubmitting = true; });
+    setState(() {
+      _error = null;
+      _isSubmitting = true;
+    });
     await ref.read(authNotifierProvider.notifier).signInWithGoogle();
     if (!mounted) return;
     final authState = ref.read(authNotifierProvider);
     if (authState.hasError) {
       final err = authState.error.toString();
       if (!err.contains('cancelled')) {
-        setState(() { _error = AuthErrorHandler.parse(authState.error!); });
+        setState(() {
+          _error = AuthErrorHandler.parse(authState.error!);
+        });
       }
     }
     setState(() => _isSubmitting = false);
   }
 
   void _showComingSoon(BuildContext ctx, String provider) {
-    ScaffoldMessenger.of(ctx).showSnackBar(SnackBar(
-      content: Text('$provider sign-in coming soon'),
-      behavior: SnackBarBehavior.floating,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppRadius.md)),
-    ));
+    ScaffoldMessenger.of(ctx).showSnackBar(
+      SnackBar(
+        content: Text('$provider sign-in coming soon'),
+        behavior: SnackBarBehavior.floating,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(AppRadius.md),
+        ),
+      ),
+    );
   }
 }

@@ -22,7 +22,8 @@ class MemoryMediaViewer extends ConsumerStatefulWidget {
     Navigator.push(
       context,
       PageRouteBuilder(
-        pageBuilder: (context, animation, secondaryAnimation) => MemoryMediaViewer(memory: memory, initialIndex: initialIndex),
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            MemoryMediaViewer(memory: memory, initialIndex: initialIndex),
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
           return FadeTransition(opacity: animation, child: child);
         },
@@ -62,13 +63,28 @@ class _MemoryMediaViewerState extends ConsumerState<MemoryMediaViewer> {
       context: context,
       builder: (ctx) => AlertDialog(
         backgroundColor: context.colors.surface,
-        title: Text('Delete Media?', style: TextStyle(color: context.colors.text)),
-        content: Text('Are you sure you want to delete this item?', style: TextStyle(color: context.colors.textMuted)),
+        title: Text(
+          'Delete Media?',
+          style: TextStyle(color: context.colors.text),
+        ),
+        content: Text(
+          'Are you sure you want to delete this item?',
+          style: TextStyle(color: context.colors.textMuted),
+        ),
         actions: [
-          TextButton(onPressed: () => Navigator.pop(ctx, false), child: Text('Cancel', style: TextStyle(color: context.colors.textMuted))),
+          TextButton(
+            onPressed: () => Navigator.pop(ctx, false),
+            child: Text(
+              'Cancel',
+              style: TextStyle(color: context.colors.textMuted),
+            ),
+          ),
           TextButton(
             onPressed: () => Navigator.pop(ctx, true),
-            child: Text('Delete', style: TextStyle(color: context.colors.error)),
+            child: Text(
+              'Delete',
+              style: TextStyle(color: context.colors.error),
+            ),
           ),
         ],
       ),
@@ -83,11 +99,15 @@ class _MemoryMediaViewerState extends ConsumerState<MemoryMediaViewer> {
             Navigator.pop(context); // Close viewer if it was the last item
           } else {
             // UI will rebuild naturally once provider updates, but we'll stay open.
-            ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Deleted successfully')));
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text('Deleted successfully')),
+            );
           }
         }
       } catch (e) {
-        if (mounted) ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Failed to delete: $e')));
+        if (mounted)
+          ScaffoldMessenger.of(context)
+              .showSnackBar(SnackBar(content: Text('Failed to delete: $e')));
       }
     }
   }
@@ -95,16 +115,25 @@ class _MemoryMediaViewerState extends ConsumerState<MemoryMediaViewer> {
   Future<void> _setAsCover() async {
     final media = widget.memory.media[_currentIndex];
     if (media.mediaType != 'image') {
-       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Cover must be an image.')));
-       return;
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(const SnackBar(content: Text('Cover must be an image.')));
+      return;
     }
-    
+
     try {
-      await ref.read(memoryRepositoryProvider).updateMemory(widget.memory.id, coverMediaId: media.id);
+      await ref
+          .read(memoryRepositoryProvider)
+          .updateMemory(widget.memory.id, coverMediaId: media.id);
       ref.invalidate(memoryDetailProvider(widget.memory.id));
-      if (mounted) ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Cover updated')));
+      if (mounted)
+        ScaffoldMessenger.of(context)
+            .showSnackBar(const SnackBar(content: Text('Cover updated')));
     } catch (e) {
-      if (mounted) ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Failed to update cover: $e')));
+      if (mounted)
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text('Failed to update cover: $e')));
     }
   }
 
@@ -116,14 +145,20 @@ class _MemoryMediaViewerState extends ConsumerState<MemoryMediaViewer> {
   @override
   Widget build(BuildContext context) {
     // If the memory media was modified and the index is now out of bounds
-    if (_currentIndex >= widget.memory.media.length && widget.memory.media.isNotEmpty) {
+    if (_currentIndex >= widget.memory.media.length &&
+        widget.memory.media.isNotEmpty) {
       _currentIndex = widget.memory.media.length - 1;
     } else if (widget.memory.media.isEmpty) {
       // In case we deleted the last one and didn't pop yet
       return Scaffold(
         backgroundColor: Colors.black,
-        appBar: AppBar(backgroundColor: Colors.transparent, iconTheme: const IconThemeData(color: Colors.white)),
-        body: const Center(child: Text('No media', style: TextStyle(color: Colors.white))),
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          iconTheme: const IconThemeData(color: Colors.white),
+        ),
+        body: const Center(
+          child: Text('No media', style: TextStyle(color: Colors.white)),
+        ),
       );
     }
 
@@ -156,13 +191,19 @@ class _MemoryMediaViewerState extends ConsumerState<MemoryMediaViewer> {
                       Image.network(
                         media.thumbnailUrl ?? media.url,
                         fit: BoxFit.contain,
-                        errorBuilder: (_, __, ___) => const Center(child: Icon(Icons.error, color: Colors.white)),
+                        errorBuilder: (_, __, ___) => const Center(
+                          child: Icon(Icons.error, color: Colors.white),
+                        ),
                       ),
                       Center(
                         child: IconButton(
                           iconSize: 72,
-                          icon: const Icon(Icons.play_circle_fill, color: Colors.white70),
-                          onPressed: () => VideoPlayerScreen.open(context, media),
+                          icon: const Icon(
+                            Icons.play_circle_fill,
+                            color: Colors.white70,
+                          ),
+                          onPressed: () =>
+                              VideoPlayerScreen.open(context, media),
                         ),
                       ),
                     ],
@@ -176,9 +217,15 @@ class _MemoryMediaViewerState extends ConsumerState<MemoryMediaViewer> {
                       fit: BoxFit.contain,
                       loadingBuilder: (context, child, progress) {
                         if (progress == null) return child;
-                        return const Center(child: CircularProgressIndicator(color: Colors.white24));
+                        return const Center(
+                          child: CircularProgressIndicator(
+                            color: Colors.white24,
+                          ),
+                        );
                       },
-                      errorBuilder: (_, __, ___) => const Center(child: Icon(Icons.error, color: Colors.white)),
+                      errorBuilder: (_, __, ___) => const Center(
+                        child: Icon(Icons.error, color: Colors.white),
+                      ),
                     ),
                   );
                 }
@@ -193,7 +240,9 @@ class _MemoryMediaViewerState extends ConsumerState<MemoryMediaViewer> {
             child: Align(
               alignment: Alignment.topCenter,
               child: Container(
-                padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
+                padding: EdgeInsets.only(
+                  top: MediaQuery.of(context).padding.top,
+                ),
                 decoration: const BoxDecoration(
                   gradient: LinearGradient(
                     colors: [Colors.black87, Colors.transparent],
@@ -204,7 +253,10 @@ class _MemoryMediaViewerState extends ConsumerState<MemoryMediaViewer> {
                 child: Row(
                   children: [
                     IconButton(
-                      icon: const Icon(Icons.arrow_back_rounded, color: Colors.white),
+                      icon: const Icon(
+                        Icons.arrow_back_rounded,
+                        color: Colors.white,
+                      ),
                       onPressed: () => Navigator.pop(context),
                     ),
                     Expanded(
@@ -213,12 +265,20 @@ class _MemoryMediaViewerState extends ConsumerState<MemoryMediaViewer> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            DateFormat('MMMM d, yyyy h:mm a').format(currentMedia.createdAt),
-                            style: const TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.w600),
+                            DateFormat('MMMM d, yyyy h:mm a')
+                                .format(currentMedia.createdAt),
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 13,
+                              fontWeight: FontWeight.w600,
+                            ),
                           ),
                           Text(
                             '${_currentIndex + 1} of ${mediaList.length}',
-                            style: const TextStyle(color: Colors.white70, fontSize: 11),
+                            style: const TextStyle(
+                              color: Colors.white70,
+                              fontSize: 11,
+                            ),
                           ),
                         ],
                       ),
@@ -236,7 +296,10 @@ class _MemoryMediaViewerState extends ConsumerState<MemoryMediaViewer> {
             child: Align(
               alignment: Alignment.bottomCenter,
               child: Container(
-                padding: EdgeInsets.only(bottom: MediaQuery.of(context).padding.bottom, top: 16),
+                padding: EdgeInsets.only(
+                  bottom: MediaQuery.of(context).padding.bottom,
+                  top: 16,
+                ),
                 decoration: const BoxDecoration(
                   gradient: LinearGradient(
                     colors: [Colors.transparent, Colors.black87],
@@ -258,7 +321,10 @@ class _MemoryMediaViewerState extends ConsumerState<MemoryMediaViewer> {
                         onPressed: _setAsCover,
                       ),
                     IconButton(
-                      icon: const Icon(Icons.delete_outline, color: Colors.redAccent),
+                      icon: const Icon(
+                        Icons.delete_outline,
+                        color: Colors.redAccent,
+                      ),
                       onPressed: _deleteCurrentMedia,
                     ),
                   ],

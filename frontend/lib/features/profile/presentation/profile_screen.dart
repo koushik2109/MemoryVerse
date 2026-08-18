@@ -47,7 +47,8 @@ class ProfileScreen extends ConsumerWidget {
                     const SizedBox(height: AppSpacing.s16),
                     Text(
                       user.fullName ?? 'User',
-                      style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                      style: Theme.of(context).textTheme.headlineMedium
+                          ?.copyWith(
                             color: c.text,
                             fontWeight: FontWeight.w700,
                           ),
@@ -56,20 +57,23 @@ class ProfileScreen extends ConsumerWidget {
                       const SizedBox(height: AppSpacing.s4),
                       Text(
                         '@${user.username}',
-                        style: Theme.of(context).textTheme.titleMedium?.copyWith(color: c.primary),
+                        style: Theme.of(context).textTheme.titleMedium
+                            ?.copyWith(color: c.primary),
                       ),
                     ],
                     const SizedBox(height: AppSpacing.s4),
                     Text(
                       user.email,
-                      style: Theme.of(context).textTheme.bodySmall?.copyWith(color: c.textMuted),
+                      style: Theme.of(context).textTheme.bodySmall
+                          ?.copyWith(color: c.textMuted),
                     ),
                     if (user.bio != null && user.bio!.isNotEmpty) ...[
                       const SizedBox(height: AppSpacing.s8),
                       Text(
                         user.bio!,
                         textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.bodySmall?.copyWith(color: c.textMuted),
+                        style: Theme.of(context).textTheme.bodySmall
+                            ?.copyWith(color: c.textMuted),
                       ),
                     ],
 
@@ -79,8 +83,18 @@ class ProfileScreen extends ConsumerWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        _StatItem(label: 'Memories', value: '${user.mediaCount}'),
-                        Container(width: 1, height: 32, color: c.border, margin: const EdgeInsets.symmetric(horizontal: AppSpacing.s24)),
+                        _StatItem(
+                          label: 'Memories',
+                          value: '${user.mediaCount}',
+                        ),
+                        Container(
+                          width: 1,
+                          height: 32,
+                          color: c.border,
+                          margin: const EdgeInsets.symmetric(
+                            horizontal: AppSpacing.s24,
+                          ),
+                        ),
                         _StatItem(label: 'Vaults', value: '${user.vaultCount}'),
                       ],
                     ),
@@ -110,7 +124,8 @@ class ProfileScreen extends ConsumerWidget {
                     title: 'Appearance',
                     trailing: Text(
                       context.isDark ? 'Dark' : 'Light',
-                      style: Theme.of(context).textTheme.bodySmall?.copyWith(color: c.textMuted),
+                      style: Theme.of(context).textTheme.bodySmall
+                          ?.copyWith(color: c.textMuted),
                     ),
                     onTap: () => ref.read(themeModeProvider.notifier).toggle(),
                   ),
@@ -140,7 +155,9 @@ class ProfileScreen extends ConsumerWidget {
                         builder: (ctx) => AlertDialog(
                           backgroundColor: ctx.colors.surface,
                           title: const Text('Help & Support'),
-                          content: const Text('For assistance, please email support@memoryverse.app'),
+                          content: const Text(
+                            'For assistance, please email support@memoryverse.app',
+                          ),
                           actions: [
                             TextButton(
                               onPressed: () => Navigator.pop(ctx),
@@ -159,7 +176,8 @@ class ProfileScreen extends ConsumerWidget {
                         context: context,
                         applicationName: 'MemoryVerse',
                         applicationVersion: '1.0.0',
-                        applicationLegalese: '© 2026 Koushik. All rights reserved.',
+                        applicationLegalese:
+                            '© 2026 Koushik. All rights reserved.',
                         applicationIcon: Container(
                           width: 48,
                           height: 48,
@@ -167,7 +185,11 @@ class ProfileScreen extends ConsumerWidget {
                             color: c.primary,
                             borderRadius: BorderRadius.circular(AppRadii.md),
                           ),
-                          child: const Icon(Icons.auto_awesome_rounded, color: Colors.white, size: 24),
+                          child: const Icon(
+                            Icons.auto_awesome_rounded,
+                            color: Colors.white,
+                            size: 24,
+                          ),
                         ),
                       );
                     },
@@ -196,7 +218,8 @@ class ProfileScreen extends ConsumerWidget {
               // Version
               Text(
                 'MemoryVerse v1.0.0',
-                style: Theme.of(context).textTheme.labelSmall?.copyWith(color: c.textMuted),
+                style: Theme.of(context).textTheme.labelSmall
+                    ?.copyWith(color: c.textMuted),
               ),
 
               const SizedBox(height: AppSpacing.s32),
@@ -217,9 +240,17 @@ class _StatItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text(value, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontWeight: FontWeight.w700)),
+        Text(
+          value,
+          style: Theme.of(context).textTheme.headlineMedium
+              ?.copyWith(fontWeight: FontWeight.w700),
+        ),
         const SizedBox(height: 2),
-        Text(label, style: Theme.of(context).textTheme.bodySmall?.copyWith(color: context.colors.textMuted)),
+        Text(
+          label,
+          style: Theme.of(context).textTheme.bodySmall
+              ?.copyWith(color: context.colors.textMuted),
+        ),
       ],
     );
   }
@@ -240,7 +271,8 @@ class _SettingsSection extends StatelessWidget {
       ),
       child: Column(
         children: List.generate(children.length * 2 - 1, (i) {
-          if (i.isOdd) return Divider(height: 0, color: c.border, indent: AppSpacing.s48);
+          if (i.isOdd)
+            return Divider(height: 0, color: c.border, indent: AppSpacing.s48);
           return children[i ~/ 2];
         }),
       ),
@@ -272,13 +304,20 @@ class _SettingsTile extends StatelessWidget {
       onTap: onTap,
       borderRadius: BorderRadius.circular(AppRadii.md),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s16, vertical: AppSpacing.s14),
+        padding: const EdgeInsets.symmetric(
+          horizontal: AppSpacing.s16,
+          vertical: AppSpacing.s14,
+        ),
         child: Row(
           children: [
             Icon(icon, size: 22, color: isDestructive ? c.error : c.textMuted),
             const SizedBox(width: AppSpacing.s12),
             Expanded(
-              child: Text(title, style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: color)),
+              child: Text(
+                title,
+                style: Theme.of(context).textTheme.bodyMedium
+                    ?.copyWith(color: color),
+              ),
             ),
             if (trailing != null) trailing!,
             if (!isDestructive)
@@ -327,7 +366,10 @@ class _EditProfileDialogState extends ConsumerState<_EditProfileDialog> {
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Failed to update: $e'), backgroundColor: Colors.red),
+          SnackBar(
+            content: Text('Failed to update: $e'),
+            backgroundColor: Colors.red,
+          ),
         );
       }
     } finally {
@@ -345,7 +387,9 @@ class _EditProfileDialogState extends ConsumerState<_EditProfileDialog> {
         controller: _nameController,
         decoration: InputDecoration(
           labelText: 'Display Name',
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(AppRadii.md)),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(AppRadii.md),
+          ),
         ),
       ),
       actions: [
@@ -356,9 +400,16 @@ class _EditProfileDialogState extends ConsumerState<_EditProfileDialog> {
         FilledButton(
           onPressed: _isSaving ? null : _save,
           style: FilledButton.styleFrom(backgroundColor: c.primary),
-          child: _isSaving 
-            ? const SizedBox(width: 16, height: 16, child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white))
-            : const Text('Save'),
+          child: _isSaving
+              ? const SizedBox(
+                  width: 16,
+                  height: 16,
+                  child: CircularProgressIndicator(
+                    strokeWidth: 2,
+                    color: Colors.white,
+                  ),
+                )
+              : const Text('Save'),
         ),
       ],
     );

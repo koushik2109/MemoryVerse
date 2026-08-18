@@ -31,10 +31,10 @@ class _VaultDetailScreenState extends ConsumerState<VaultDetailScreen> {
     try {
       final vRepo = ref.read(vaultRepositoryProvider);
       final vault = await vRepo.fetchVaultDetails(widget.vaultId);
-      
+
       // Temporary hack: in a real implementation we would fetch memories by room_id.
       // Assuming we have a way to fetch memories belonging to this vault.
-      
+
       setState(() {
         _vault = vault;
         _loading = false;
@@ -63,7 +63,8 @@ class _VaultDetailScreenState extends ConsumerState<VaultDetailScreen> {
       context: context,
       isScrollControlled: true,
       backgroundColor: Colors.transparent,
-      builder: (_) => ManageMembersSheet(vault: _vault!, onMembersUpdated: _loadVaultData),
+      builder: (_) =>
+          ManageMembersSheet(vault: _vault!, onMembersUpdated: _loadVaultData),
     );
   }
 
@@ -74,14 +75,16 @@ class _VaultDetailScreenState extends ConsumerState<VaultDetailScreen> {
       ref.invalidate(vaultsListProvider);
       if (mounted) {
         Navigator.pop(context);
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Left room')),
-        );
+        ScaffoldMessenger.of(context)
+            .showSnackBar(const SnackBar(content: Text('Left room')));
       }
     } catch (e) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Error leaving room: $e'), backgroundColor: Colors.red),
+        SnackBar(
+          content: Text('Error leaving room: $e'),
+          backgroundColor: Colors.red,
+        ),
       );
     }
   }
@@ -102,7 +105,10 @@ class _VaultDetailScreenState extends ConsumerState<VaultDetailScreen> {
       return Scaffold(
         backgroundColor: c.bg,
         appBar: AppBar(backgroundColor: c.bg),
-        body: ErrorState(message: _error ?? 'Room not found', onRetry: _loadVaultData),
+        body: ErrorState(
+          message: _error ?? 'Room not found',
+          onRetry: _loadVaultData,
+        ),
       );
     }
 
@@ -119,12 +125,19 @@ class _VaultDetailScreenState extends ConsumerState<VaultDetailScreen> {
             backgroundColor: c.bg,
             iconTheme: IconThemeData(color: c.text),
             flexibleSpace: FlexibleSpaceBar(
-              title: Text(vault.name,
-                  style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700, color: c.text)),
+              title: Text(
+                vault.name,
+                style: Theme.of(context).textTheme.titleMedium
+                    ?.copyWith(fontWeight: FontWeight.w700, color: c.text),
+              ),
               background: Container(
                 color: c.surfaceElevated,
                 child: Center(
-                  child: Icon(Icons.people_alt_outlined, size: 64, color: c.primary.withValues(alpha: 0.3)),
+                  child: Icon(
+                    Icons.people_alt_outlined,
+                    size: 64,
+                    color: c.primary.withValues(alpha: 0.3),
+                  ),
                 ),
               ),
             ),
@@ -140,8 +153,17 @@ class _VaultDetailScreenState extends ConsumerState<VaultDetailScreen> {
                   if (val == 'members') _showManageMembers();
                 },
                 itemBuilder: (_) => [
-                  const PopupMenuItem(value: 'members', child: Text('Manage Members')),
-                  const PopupMenuItem(value: 'leave', child: Text('Leave Room', style: TextStyle(color: Colors.red))),
+                  const PopupMenuItem(
+                    value: 'members',
+                    child: Text('Manage Members'),
+                  ),
+                  const PopupMenuItem(
+                    value: 'leave',
+                    child: Text(
+                      'Leave Room',
+                      style: TextStyle(color: Colors.red),
+                    ),
+                  ),
                 ],
               ),
             ],
@@ -154,24 +176,43 @@ class _VaultDetailScreenState extends ConsumerState<VaultDetailScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  if (vault.description != null && vault.description!.isNotEmpty) ...[
-                    Text(vault.description!, style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: c.textMuted, fontSize: 16)),
+                  if (vault.description != null &&
+                      vault.description!.isNotEmpty) ...[
+                    Text(
+                      vault.description!,
+                      style: Theme.of(context).textTheme.bodyMedium
+                          ?.copyWith(color: c.textMuted, fontSize: 16),
+                    ),
                     const SizedBox(height: AppSpacing.s24),
                   ],
                   Row(
                     children: [
                       Icon(Icons.group_outlined, size: 20, color: c.primary),
                       const SizedBox(width: AppSpacing.s8),
-                      Text('${vault.memberCount} Members', style: TextStyle(fontFamily: 'Inter', fontWeight: FontWeight.w600, color: c.text)),
+                      Text(
+                        '${vault.memberCount} Members',
+                        style: TextStyle(
+                          fontFamily: 'Inter',
+                          fontWeight: FontWeight.w600,
+                          color: c.text,
+                        ),
+                      ),
                       const Spacer(),
                       TextButton(
                         onPressed: _showManageMembers,
-                        child: Text('View All', style: TextStyle(color: c.primary)),
+                        child: Text(
+                          'View All',
+                          style: TextStyle(color: c.primary),
+                        ),
                       ),
                     ],
                   ),
                   const Divider(height: 32),
-                  Text('Shared Memories', style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w700)),
+                  Text(
+                    'Shared Memories',
+                    style: Theme.of(context).textTheme.titleLarge
+                        ?.copyWith(fontWeight: FontWeight.w700),
+                  ),
                   const SizedBox(height: AppSpacing.s16),
                 ],
               ),
@@ -187,7 +228,8 @@ class _VaultDetailScreenState extends ConsumerState<VaultDetailScreen> {
                 child: EmptyState(
                   imageAsset: 'assets/images/empty_gallery.png',
                   title: 'No memories yet.',
-                  subtitle: 'Create a memory and add it to this room to collaborate.',
+                  subtitle:
+                      'Create a memory and add it to this room to collaborate.',
                 ),
               ),
             ),

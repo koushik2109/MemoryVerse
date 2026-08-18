@@ -8,7 +8,11 @@ import 'package:memory_verse/core/repositories/app_repositories.dart';
 class ManageMembersSheet extends ConsumerStatefulWidget {
   final VaultModel vault;
   final VoidCallback onMembersUpdated;
-  const ManageMembersSheet({super.key, required this.vault, required this.onMembersUpdated});
+  const ManageMembersSheet({
+    super.key,
+    required this.vault,
+    required this.onMembersUpdated,
+  });
 
   @override
   ConsumerState<ManageMembersSheet> createState() => _ManageMembersSheetState();
@@ -24,11 +28,14 @@ class _ManageMembersSheetState extends ConsumerState<ManageMembersSheet> {
       await repo.removeMember(widget.vault.id, targetUserId);
       widget.onMembersUpdated();
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Member removed.')));
+        ScaffoldMessenger.of(context)
+            .showSnackBar(const SnackBar(content: Text('Member removed.')));
       }
     } catch (e) {
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Error: $e'), backgroundColor: Colors.red));
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Error: $e'), backgroundColor: Colors.red),
+        );
       }
     } finally {
       if (mounted) setState(() => _loading = false);
@@ -44,10 +51,18 @@ class _ManageMembersSheetState extends ConsumerState<ManageMembersSheet> {
     return Container(
       decoration: BoxDecoration(
         color: c.surface,
-        borderRadius: const BorderRadius.vertical(top: Radius.circular(AppRadii.xl)),
+        borderRadius: const BorderRadius.vertical(
+          top: Radius.circular(AppRadii.xl),
+        ),
       ),
-      padding: const EdgeInsets.only(top: AppSpacing.s24, left: AppSpacing.s24, right: AppSpacing.s24),
-      constraints: BoxConstraints(maxHeight: MediaQuery.of(context).size.height * 0.7),
+      padding: const EdgeInsets.only(
+        top: AppSpacing.s24,
+        left: AppSpacing.s24,
+        right: AppSpacing.s24,
+      ),
+      constraints: BoxConstraints(
+        maxHeight: MediaQuery.of(context).size.height * 0.7,
+      ),
       child: SafeArea(
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -64,9 +79,16 @@ class _ManageMembersSheetState extends ConsumerState<ManageMembersSheet> {
                 ),
               ),
             ),
-            Text('Room Members', style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w700, color: c.text)),
+            Text(
+              'Room Members',
+              style: Theme.of(context).textTheme.titleLarge
+                  ?.copyWith(fontWeight: FontWeight.w700, color: c.text),
+            ),
             const SizedBox(height: AppSpacing.s8),
-            Text('${widget.vault.memberCount} people have joined this room.', style: TextStyle(color: c.textMuted)),
+            Text(
+              '${widget.vault.memberCount} people have joined this room.',
+              style: TextStyle(color: c.textMuted),
+            ),
             const SizedBox(height: AppSpacing.s24),
 
             if (_loading) const LinearProgressIndicator(),
@@ -78,24 +100,46 @@ class _ManageMembersSheetState extends ConsumerState<ManageMembersSheet> {
                 itemBuilder: (context, index) {
                   final member = widget.vault.members[index];
                   final isMe = member.userId == currentUser?.id;
-                  
+
                   return ListTile(
                     contentPadding: EdgeInsets.zero,
                     leading: CircleAvatar(
                       backgroundColor: c.primary.withValues(alpha: 0.1),
-                      backgroundImage: member.avatarUrl != null ? NetworkImage(member.avatarUrl!) : null,
+                      backgroundImage: member.avatarUrl != null
+                          ? NetworkImage(member.avatarUrl!)
+                          : null,
                       child: member.avatarUrl == null
-                          ? Text(member.fullName?.substring(0, 1).toUpperCase() ?? 'U', style: TextStyle(color: c.primary, fontWeight: FontWeight.bold))
+                          ? Text(
+                              member.fullName?.substring(0, 1).toUpperCase() ??
+                                  'U',
+                              style: TextStyle(
+                                color: c.primary,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            )
                           : null,
                     ),
                     title: Text(
                       isMe ? 'You' : (member.fullName ?? 'Unknown User'),
-                      style: TextStyle(fontWeight: FontWeight.w600, color: c.text),
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        color: c.text,
+                      ),
                     ),
-                    subtitle: Text(member.role.toUpperCase(), style: TextStyle(fontSize: 12, color: c.textMuted, letterSpacing: 0.5)),
+                    subtitle: Text(
+                      member.role.toUpperCase(),
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: c.textMuted,
+                        letterSpacing: 0.5,
+                      ),
+                    ),
                     trailing: isOwner && !isMe
                         ? IconButton(
-                            icon: Icon(Icons.person_remove_outlined, color: c.error),
+                            icon: Icon(
+                              Icons.person_remove_outlined,
+                              color: c.error,
+                            ),
                             onPressed: () => _removeMember(member.userId),
                             tooltip: 'Remove from room',
                           )

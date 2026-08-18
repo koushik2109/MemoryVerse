@@ -81,9 +81,13 @@ class _CreateMemorySheetState extends ConsumerState<CreateMemorySheet> {
       final repo = ref.read(memoryRepositoryProvider);
       final memory = await repo.createMemory(
         title: _titleCtrl.text.trim(),
-        description: _descCtrl.text.trim().isNotEmpty ? _descCtrl.text.trim() : null,
+        description: _descCtrl.text.trim().isNotEmpty
+            ? _descCtrl.text.trim()
+            : null,
         vaultId: widget.vaultId,
-        locationName: _locCtrl.text.trim().isNotEmpty ? _locCtrl.text.trim() : null,
+        locationName: _locCtrl.text.trim().isNotEmpty
+            ? _locCtrl.text.trim()
+            : null,
       );
 
       // Invalidate the memories list
@@ -110,12 +114,17 @@ class _CreateMemorySheetState extends ConsumerState<CreateMemorySheet> {
       ),
       decoration: BoxDecoration(
         color: c.surface,
-        borderRadius: const BorderRadius.vertical(top: Radius.circular(AppRadii.xl)),
+        borderRadius: const BorderRadius.vertical(
+          top: Radius.circular(AppRadii.xl),
+        ),
       ),
       child: SafeArea(
         top: false,
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s24, vertical: AppSpacing.s32),
+          padding: const EdgeInsets.symmetric(
+            horizontal: AppSpacing.s24,
+            vertical: AppSpacing.s32,
+          ),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -125,7 +134,13 @@ class _CreateMemorySheetState extends ConsumerState<CreateMemorySheet> {
                 children: [
                   Text(
                     'Create Memory',
-                    style: TextStyle(fontFamily: 'Inter', fontSize: 22, fontWeight: FontWeight.w700, letterSpacing: -0.5, color: c.text),
+                    style: TextStyle(
+                      fontFamily: 'Inter',
+                      fontSize: 22,
+                      fontWeight: FontWeight.w700,
+                      letterSpacing: -0.5,
+                      color: c.text,
+                    ),
                   ),
                   IconButton(
                     icon: Icon(Icons.close_rounded, color: c.text),
@@ -161,13 +176,19 @@ class _CreateMemorySheetState extends ConsumerState<CreateMemorySheet> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('Date', style: Theme.of(context).textTheme.labelSmall?.copyWith(color: c.textMuted)),
+                        Text(
+                          'Date',
+                          style: Theme.of(context).textTheme.labelSmall
+                              ?.copyWith(color: c.textMuted),
+                        ),
                         const SizedBox(height: AppSpacing.s8),
                         GestureDetector(
                           onTap: _pickDate,
                           child: Container(
                             height: 52,
-                            padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s16),
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: AppSpacing.s16,
+                            ),
                             decoration: BoxDecoration(
                               color: c.bg,
                               borderRadius: BorderRadius.circular(AppRadii.md),
@@ -175,7 +196,11 @@ class _CreateMemorySheetState extends ConsumerState<CreateMemorySheet> {
                             ),
                             child: Row(
                               children: [
-                                Icon(Icons.calendar_today_rounded, size: 16, color: c.textMuted),
+                                Icon(
+                                  Icons.calendar_today_rounded,
+                                  size: 16,
+                                  color: c.textMuted,
+                                ),
                                 const SizedBox(width: AppSpacing.s8),
                                 Text(
                                   DateFormat('MMM d, yyyy').format(_date),

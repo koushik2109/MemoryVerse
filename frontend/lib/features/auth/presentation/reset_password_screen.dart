@@ -11,7 +11,8 @@ class ResetPasswordScreen extends ConsumerStatefulWidget {
   final String email;
   const ResetPasswordScreen({super.key, required this.email});
   @override
-  ConsumerState<ResetPasswordScreen> createState() => _ResetPasswordScreenState();
+  ConsumerState<ResetPasswordScreen> createState() =>
+      _ResetPasswordScreenState();
 }
 
 class _ResetPasswordScreenState extends ConsumerState<ResetPasswordScreen>
@@ -30,9 +31,14 @@ class _ResetPasswordScreenState extends ConsumerState<ResetPasswordScreen>
   @override
   void initState() {
     super.initState();
-    _ec = AnimationController(vsync: this, duration: const Duration(milliseconds: 450))..forward();
+    _ec = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 450),
+    )..forward();
     _fa = CurvedAnimation(parent: _ec, curve: Curves.easeOut);
-    WidgetsBinding.instance.addPostFrameCallback((_) => _otpFocus.requestFocus());
+    WidgetsBinding.instance.addPostFrameCallback(
+      (_) => _otpFocus.requestFocus(),
+    );
   }
 
   @override
@@ -47,10 +53,10 @@ class _ResetPasswordScreenState extends ConsumerState<ResetPasswordScreen>
 
   Future<void> _reset() async {
     if (_isSubmitting) return;
-    
+
     final otp = _otpCtrl.text.trim();
     final pw = _passCtrl.text;
-    
+
     if (otp.length < 6) {
       setState(() => _error = 'Please enter the complete 6-digit code.');
       return;
@@ -59,26 +65,35 @@ class _ResetPasswordScreenState extends ConsumerState<ResetPasswordScreen>
       setState(() => _error = 'Password must be at least 8 characters.');
       return;
     }
-    
-    setState(() { _error = null; _isSubmitting = true; });
 
-    await ref.read(authNotifierProvider.notifier).resetPassword(
-      email: widget.email, 
-      token: otp, 
-      newPassword: pw
-    );
+    setState(() {
+      _error = null;
+      _isSubmitting = true;
+    });
+
+    await ref
+        .read(authNotifierProvider.notifier)
+        .resetPassword(email: widget.email, token: otp, newPassword: pw);
 
     if (!mounted) return;
     final s = ref.read(authNotifierProvider);
     if (s.hasError) {
-      setState(() { _error = AuthErrorHandler.parse(s.error!); _isSubmitting = false; });
+      setState(() {
+        _error = AuthErrorHandler.parse(s.error!);
+        _isSubmitting = false;
+      });
       _otpFocus.requestFocus();
     } else {
       setState(() => _isSubmitting = false);
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: const Text('Password reset successfully. Please log in.'),
-        behavior: SnackBarBehavior.floating,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppRadii.md))));
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: const Text('Password reset successfully. Please log in.'),
+          behavior: SnackBarBehavior.floating,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(AppRadii.md),
+          ),
+        ),
+      );
       context.go(Routes.signIn);
     }
   }
@@ -94,44 +109,101 @@ class _ResetPasswordScreenState extends ConsumerState<ResetPasswordScreen>
           child: SingleChildScrollView(
             padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s24),
             keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
-            child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              const SizedBox(height: AppSpacing.s56),
-              Row(children: [
-                AuthBackButton(onTap: () => context.pop(), colors: c),
-                const Spacer(),
-                AuthLogo(colors: c),
-              ]),
-              const SizedBox(height: AppSpacing.s40),
-              Text('Reset your\npassword.', style: TextStyle(fontFamily: 'Inter', fontSize: 34,
-                fontWeight: FontWeight.w700, letterSpacing: -1.2, height: 1.1, color: c.text)),
-              const SizedBox(height: AppSpacing.s10),
-              Text.rich(TextSpan(
-                style: TextStyle(fontFamily: 'Inter', fontSize: 14, color: c.textMuted, height: 1.5),
-                children: [
-                  const TextSpan(text: 'We sent a 6-digit code to '),
-                  TextSpan(text: widget.email, style: TextStyle(color: c.text, fontWeight: FontWeight.w500)),
-                  const TextSpan(text: '. Enter it below along with your new password.'),
-                ])),
-              const SizedBox(height: AppSpacing.s36),
-              
-              AuthField(label: '6-Digit Reset Code', hint: '123456', controller: _otpCtrl, focusNode: _otpFocus,
-                keyboardType: TextInputType.number, textInputAction: TextInputAction.next,
-                onSubmitted: (_) => _passFocus.requestFocus(), colors: c, prefixIcon: Icons.pin_outlined),
-              const SizedBox(height: AppSpacing.s20),
-              
-              AuthField(label: 'New Password', hint: '••••••••', controller: _passCtrl, focusNode: _passFocus,
-                obscureText: !_showPw, textInputAction: TextInputAction.done,
-                onSubmitted: (_) => _reset(), colors: c,
-                prefixIcon: Icons.lock_outline_rounded,
-                suffixIcon: IconButton(
-                  icon: Icon(_showPw ? Icons.visibility_off_outlined : Icons.visibility_outlined, size: 20, color: c.textMuted),
-                  onPressed: () => setState(() => _showPw = !_showPw))),
-              
-              AuthErrorBanner(error: _error, colors: c),
-              const SizedBox(height: AppSpacing.s32),
-              AuthPrimaryButton(label: 'Reset Password', isLoading: _isSubmitting, onPressed: _reset, colors: c),
-              const SizedBox(height: AppSpacing.s32),
-            ]),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(height: AppSpacing.s56),
+                Row(
+                  children: [
+                    AuthBackButton(onTap: () => context.pop(), colors: c),
+                    const Spacer(),
+                    AuthLogo(colors: c),
+                  ],
+                ),
+                const SizedBox(height: AppSpacing.s40),
+                Text(
+                  'Reset your\npassword.',
+                  style: TextStyle(
+                    fontFamily: 'Inter',
+                    fontSize: 34,
+                    fontWeight: FontWeight.w700,
+                    letterSpacing: -1.2,
+                    height: 1.1,
+                    color: c.text,
+                  ),
+                ),
+                const SizedBox(height: AppSpacing.s10),
+                Text.rich(
+                  TextSpan(
+                    style: TextStyle(
+                      fontFamily: 'Inter',
+                      fontSize: 14,
+                      color: c.textMuted,
+                      height: 1.5,
+                    ),
+                    children: [
+                      const TextSpan(text: 'We sent a 6-digit code to '),
+                      TextSpan(
+                        text: widget.email,
+                        style: TextStyle(
+                          color: c.text,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      const TextSpan(
+                        text: '. Enter it below along with your new password.',
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: AppSpacing.s36),
+
+                AuthField(
+                  label: '6-Digit Reset Code',
+                  hint: '123456',
+                  controller: _otpCtrl,
+                  focusNode: _otpFocus,
+                  keyboardType: TextInputType.number,
+                  textInputAction: TextInputAction.next,
+                  onSubmitted: (_) => _passFocus.requestFocus(),
+                  colors: c,
+                  prefixIcon: Icons.pin_outlined,
+                ),
+                const SizedBox(height: AppSpacing.s20),
+
+                AuthField(
+                  label: 'New Password',
+                  hint: '••••••••',
+                  controller: _passCtrl,
+                  focusNode: _passFocus,
+                  obscureText: !_showPw,
+                  textInputAction: TextInputAction.done,
+                  onSubmitted: (_) => _reset(),
+                  colors: c,
+                  prefixIcon: Icons.lock_outline_rounded,
+                  suffixIcon: IconButton(
+                    icon: Icon(
+                      _showPw
+                          ? Icons.visibility_off_outlined
+                          : Icons.visibility_outlined,
+                      size: 20,
+                      color: c.textMuted,
+                    ),
+                    onPressed: () => setState(() => _showPw = !_showPw),
+                  ),
+                ),
+
+                AuthErrorBanner(error: _error, colors: c),
+                const SizedBox(height: AppSpacing.s32),
+                AuthPrimaryButton(
+                  label: 'Reset Password',
+                  isLoading: _isSubmitting,
+                  onPressed: _reset,
+                  colors: c,
+                ),
+                const SizedBox(height: AppSpacing.s32),
+              ],
+            ),
           ),
         ),
       ),

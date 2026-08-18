@@ -12,7 +12,10 @@ class JoinVaultDialog extends ConsumerStatefulWidget {
   const JoinVaultDialog({super.key, this.initialCode});
 
   static void show(BuildContext context, {String? initialCode}) {
-    showDialog(context: context, builder: (_) => JoinVaultDialog(initialCode: initialCode));
+    showDialog(
+      context: context,
+      builder: (_) => JoinVaultDialog(initialCode: initialCode),
+    );
   }
 
   @override
@@ -68,9 +71,17 @@ class _JoinVaultDialogState extends ConsumerState<JoinVaultDialog> {
       if (mounted) {
         Navigator.pop(context);
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Successfully joined room!'), backgroundColor: Colors.green),
+          const SnackBar(
+            content: Text('Successfully joined room!'),
+            backgroundColor: Colors.green,
+          ),
         );
-        Navigator.push(context, MaterialPageRoute(builder: (_) => VaultDetailScreen(vaultId: room.id)));
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (_) => VaultDetailScreen(vaultId: room.id),
+          ),
+        );
       }
     } catch (e) {
       if (mounted) {
@@ -88,18 +99,26 @@ class _JoinVaultDialogState extends ConsumerState<JoinVaultDialog> {
 
     return Dialog(
       backgroundColor: c.surface,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppRadii.xl)),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(AppRadii.xl),
+      ),
       child: Padding(
         padding: const EdgeInsets.all(AppSpacing.s24),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Join a Room',
-                style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w700)),
+            Text(
+              'Join a Room',
+              style: Theme.of(context).textTheme.titleLarge
+                  ?.copyWith(fontWeight: FontWeight.w700),
+            ),
             const SizedBox(height: AppSpacing.s6),
-            Text('Enter the room code or paste the invite link',
-                style: Theme.of(context).textTheme.bodySmall?.copyWith(color: c.textMuted)),
+            Text(
+              'Enter the room code or paste the invite link',
+              style: Theme.of(context).textTheme.bodySmall
+                  ?.copyWith(color: c.textMuted),
+            ),
             const SizedBox(height: AppSpacing.s20),
 
             AppTextField(
@@ -110,7 +129,11 @@ class _JoinVaultDialogState extends ConsumerState<JoinVaultDialog> {
 
             if (_error != null) ...[
               const SizedBox(height: AppSpacing.s12),
-              Text(_error!, style: Theme.of(context).textTheme.bodySmall?.copyWith(color: c.error)),
+              Text(
+                _error!,
+                style: Theme.of(context).textTheme.bodySmall
+                    ?.copyWith(color: c.error),
+              ),
             ],
 
             const SizedBox(height: AppSpacing.s24),

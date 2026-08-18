@@ -39,10 +39,7 @@ class SectionHeader extends StatelessWidget {
 class TimelineMarker extends StatelessWidget {
   final String label;
 
-  const TimelineMarker({
-    super.key,
-    required this.label,
-  });
+  const TimelineMarker({super.key, required this.label});
 
   @override
   Widget build(BuildContext context) {
@@ -55,15 +52,14 @@ class TimelineMarker extends StatelessWidget {
           Container(
             width: 8,
             height: 8,
-            decoration: BoxDecoration(
-              color: c.text,
-              shape: BoxShape.circle,
-            ),
+            decoration: BoxDecoration(color: c.text, shape: BoxShape.circle),
           ),
           const SizedBox(width: AppSpacing.s16),
           Text(
             label,
-            style: context.text.titleLarge?.copyWith(fontWeight: FontWeight.w700),
+            style: context.text.titleLarge?.copyWith(
+              fontWeight: FontWeight.w700,
+            ),
           ),
         ],
       ),
@@ -100,7 +96,11 @@ class MemoryHeader extends StatelessWidget {
         children: [
           if (onBack != null)
             IconButton(
-              icon: Icon(Icons.arrow_back_ios_new_rounded, color: c.text, size: 20),
+              icon: Icon(
+                Icons.arrow_back_ios_new_rounded,
+                color: c.text,
+                size: 20,
+              ),
               onPressed: onBack,
             ),
           const SizedBox(width: AppSpacing.s8),
