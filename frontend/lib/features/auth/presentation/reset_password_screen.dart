@@ -115,9 +115,9 @@ class _ResetPasswordScreenState extends ConsumerState<ResetPasswordScreen>
                 const SizedBox(height: AppSpacing.s56),
                 Row(
                   children: [
-                    AuthBackButton(onTap: () => context.pop(), colors: c),
+                    AuthBackButton(onTap: () => context.pop()),
                     const Spacer(),
-                    AuthLogo(colors: c),
+                    AuthLogo(),
                   ],
                 ),
                 const SizedBox(height: AppSpacing.s40),
@@ -166,7 +166,6 @@ class _ResetPasswordScreenState extends ConsumerState<ResetPasswordScreen>
                   keyboardType: TextInputType.number,
                   textInputAction: TextInputAction.next,
                   onSubmitted: (_) => _passFocus.requestFocus(),
-                  colors: c,
                   prefixIcon: Icons.pin_outlined,
                 ),
                 const SizedBox(height: AppSpacing.s20),
@@ -179,7 +178,6 @@ class _ResetPasswordScreenState extends ConsumerState<ResetPasswordScreen>
                   obscureText: !_showPw,
                   textInputAction: TextInputAction.done,
                   onSubmitted: (_) => _reset(),
-                  colors: c,
                   prefixIcon: Icons.lock_outline_rounded,
                   suffixIcon: IconButton(
                     icon: Icon(
@@ -193,13 +191,12 @@ class _ResetPasswordScreenState extends ConsumerState<ResetPasswordScreen>
                   ),
                 ),
 
-                AuthErrorBanner(error: _error, colors: c),
+                AuthErrorBanner(error: _error),
                 const SizedBox(height: AppSpacing.s32),
                 AuthPrimaryButton(
                   label: 'Reset Password',
                   isLoading: _isSubmitting,
                   onPressed: _reset,
-                  colors: c,
                 ),
                 const SizedBox(height: AppSpacing.s32),
               ],

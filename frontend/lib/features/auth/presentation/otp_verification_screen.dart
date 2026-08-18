@@ -92,7 +92,7 @@ class _OtpVerificationScreenState extends ConsumerState<OtpVerificationScreen>
           content: const Text('Email verified successfully. Please log in.'),
           behavior: SnackBarBehavior.floating,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(AppRadii.md),
+            borderRadius: BorderRadius.circular(AppRadius.md),
           ),
         ),
       );

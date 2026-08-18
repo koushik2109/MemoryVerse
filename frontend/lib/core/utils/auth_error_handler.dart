@@ -77,6 +77,6 @@ abstract final class AuthErrorHandler {
         error.toString().length < 150) {
       return error.toString();
     }
-    return 'Something went wrong. Please try again.';
+    return 'Error: $error';
   }
 }

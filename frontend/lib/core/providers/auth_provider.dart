@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import '../api/api_client.dart';
 
@@ -102,8 +103,10 @@ class AuthNotifier extends AsyncNotifier<void> {
   Future<void> signInWithGoogle() async {
     state = const AsyncLoading();
     state = await AsyncValue.guard(() async {
+      final webClientId = dotenv.env['GOOGLE_CLIENT_ID'];
       final googleSignIn = GoogleSignIn(
         clientId: '413763126044-jgj0jq3s55pemg1jj4f53ratglvmv662.apps.googleusercontent.com',
+        serverClientId: webClientId,
       );
       final googleUser = await googleSignIn.signIn();
       if (googleUser == null) throw Exception('Google sign-in cancelled');
