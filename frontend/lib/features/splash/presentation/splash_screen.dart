@@ -90,7 +90,7 @@ class _SplashScreenState extends State<SplashScreen>
   void _navigate() {
     final session = Supabase.instance.client.auth.currentSession;
     if (!mounted) return;
-    context.go(session != null ? Routes.home : Routes.signIn);
+    context.go(session != null ? Routes.home : Routes.landing);
   }
 
   @override

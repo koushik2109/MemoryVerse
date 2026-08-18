@@ -22,7 +22,7 @@ class _MemoriesScreenState extends ConsumerState<MemoriesScreen> {
     final memoriesAsync = ref.watch(memoriesListProvider);
 
     return Scaffold(
-      backgroundColor: c.bg,
+      backgroundColor: Colors.transparent,
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -68,8 +68,8 @@ class _MemoriesScreenState extends ConsumerState<MemoriesScreen> {
                       icon: Icons.photo_library_outlined,
                       title: 'No memories yet',
                       subtitle: 'Capture your first moment and let MemoryVerse bring it to life.',
-                      actionLabel: 'Create Memory',
-                      onAction: () => CreateMemorySheet.show(context),
+                      buttonText: 'Create Memory',
+                      onTap: () => CreateMemorySheet.show(context),
                     );
                   }
 

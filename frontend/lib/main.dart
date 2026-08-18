@@ -32,7 +32,7 @@ Future<void> main() async {
   runApp(
     ProviderScope(
       overrides: [
-        themeModeProvider.overrideWith((ref) => ThemeModeNotifier(ThemeMode.light)),
+        themeModeProvider.overrideWith((ref) => ThemeModeNotifier(ThemeMode.dark)),
       ],
       child: const MemoryVerseApp(),
     ),

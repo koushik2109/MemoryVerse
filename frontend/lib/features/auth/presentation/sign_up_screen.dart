@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:memory_verse/core/design/tokens.dart';
+import 'package:memory_verse/core/theme/app_design_tokens.dart';
 import 'package:memory_verse/core/navigation/router.dart';
 import 'package:memory_verse/core/providers/auth_provider.dart';
 import 'package:memory_verse/core/utils/auth_error_handler.dart';
 import 'package:memory_verse/features/auth/presentation/auth_widgets.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:memory_verse/core/presentation/widgets/aurora_background.dart';
+import 'package:memory_verse/core/presentation/widgets/flow_button.dart';
 
 class SignUpScreen extends ConsumerStatefulWidget {
   const SignUpScreen({super.key});
@@ -16,17 +18,15 @@ class SignUpScreen extends ConsumerStatefulWidget {
 
 class _SignUpScreenState extends ConsumerState<SignUpScreen>
     with SingleTickerProviderStateMixin {
-  final _name = TextEditingController();
   final _email = TextEditingController();
   final _password = TextEditingController();
   final _confirmPass = TextEditingController();
-  final _nameFocus = FocusNode();
   final _emailFocus = FocusNode();
   final _passFocus = FocusNode();
   final _confirmFocus = FocusNode();
 
   bool _showPw = false, _showCPw = false, _agreedTerms = false, _isSubmitting = false;
-  String? _error, _nameErr, _emailErr, _passErr, _confErr;
+  String? _error, _emailErr, _passErr, _confErr;
 
   late AnimationController _ec;
   late Animation<double> _fa;
@@ -40,10 +40,10 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen>
 
   @override
   void dispose() {
-    for (final c in [_name, _email, _password, _confirmPass]) {
+    for (final c in [_email, _password, _confirmPass]) {
       c.dispose();
     }
-    for (final f in [_nameFocus, _emailFocus, _passFocus, _confirmFocus]) {
+    for (final f in [_emailFocus, _passFocus, _confirmFocus]) {
       f.dispose();
     }
     _ec.dispose();
@@ -51,16 +51,11 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen>
   }
 
   bool _validate() {
-    final nm = _name.text.trim(), em = _email.text.trim(),
+    final em = _email.text.trim(),
           pw = _password.text, cp = _confirmPass.text;
 
-    String? ne, ee, pe, ce;
-    if (nm.isEmpty) {
-      ne = 'Full name is required.';
-    } else if (nm.length < 2) {
-      ne = 'Name is too short.';
-    }
-
+    String? ee, pe, ce;
+    
     if (em.isEmpty) {
       ee = 'Email address is required.';
     } else if (!RegExp(r'^[^@\s]+@[^@\s]+\.[^@\s]+$').hasMatch(em)) {
@@ -81,8 +76,8 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen>
       ce = 'Passwords do not match.';
     }
 
-    setState(() { _nameErr = ne; _emailErr = ee; _passErr = pe; _confErr = ce; _error = null; });
-    return [ne, ee, pe, ce].every((e) => e == null);
+    setState(() { _emailErr = ee; _passErr = pe; _confErr = ce; _error = null; });
+    return [ee, pe, ce].every((e) => e == null);
   }
 
   Future<void> _signUp() async {
@@ -95,7 +90,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen>
     setState(() { _error = null; _isSubmitting = true; });
 
     await ref.read(authNotifierProvider.notifier).signUp(
-      email: _email.text.trim(), password: _password.text, displayName: _name.text.trim());
+      email: _email.text.trim(), password: _password.text);
 
     if (!mounted) return;
     final s = ref.read(authNotifierProvider);
@@ -113,111 +108,120 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen>
 
   @override
   Widget build(BuildContext context) {
-    final c = context.colors;
     return Scaffold(
-      backgroundColor: c.bg,
-      body: SafeArea(
-        child: FadeTransition(
-          opacity: _fa,
-          child: SingleChildScrollView(
-            padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s24),
-            keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
-            child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              const SizedBox(height: AppSpacing.s56),
-              Row(children: [
-                AuthBackButton(onTap: () => context.pop(), colors: c),
-                const Spacer(),
-                AuthLogo(colors: c),
-              ]),
-              const SizedBox(height: AppSpacing.s32),
-              Text('Create your\naccount.', style: TextStyle(fontFamily: 'Inter',
-                fontSize: 36, fontWeight: FontWeight.w700, letterSpacing: -1.4, height: 1.05, color: c.text)),
+      backgroundColor: Colors.transparent,
+      body: Stack(
+        children: [
+          const AuroraBackground(isDark: true),
+          SafeArea(
+            child: FadeTransition(
+              opacity: _fa,
+              child: SingleChildScrollView(
+                padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s24),
+                keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+                child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                  const SizedBox(height: AppSpacing.s16),
+                  Row(children: [
+                    AuthBackButton(onTap: () => context.pop()),
+                    const Spacer(),
+                    const AuthLogo(),
+                  ]),
+                  const SizedBox(height: AppSpacing.s24),
+                  const Text('Create your\naccount.', style: TextStyle(fontFamily: 'Inter',
+                fontSize: 32, fontWeight: FontWeight.w700, letterSpacing: -1.2, height: 1.05, color: Colors.white)),
               const SizedBox(height: AppSpacing.s8),
-              Text('Begin preserving your most important memories.',
-                style: TextStyle(fontFamily: 'Inter', fontSize: 14, color: c.textMuted, height: 1.5)),
-              const SizedBox(height: AppSpacing.s36),
-
-              AuthField(label: 'Full Name', hint: 'Alex Johnson', controller: _name, focusNode: _nameFocus,
-                textInputAction: TextInputAction.next, onSubmitted: (_) => _emailFocus.requestFocus(),
-                colors: c, prefixIcon: Icons.person_outline_rounded),
-              _FErr(error: _nameErr),
-              const SizedBox(height: AppSpacing.s14),
+              const Text('Begin preserving your most important memories.',
+                style: TextStyle(fontFamily: 'Inter', fontSize: 13, color: Colors.white70, height: 1.5)),
+              const SizedBox(height: AppSpacing.s24),
 
               AuthField(label: 'Email Address', hint: 'you@example.com', controller: _email, focusNode: _emailFocus,
                 keyboardType: TextInputType.emailAddress, textInputAction: TextInputAction.next,
-                onSubmitted: (_) => _passFocus.requestFocus(), colors: c, prefixIcon: Icons.mail_outline_rounded),
+                onSubmitted: (_) => _passFocus.requestFocus(), prefixIcon: Icons.mail_outline_rounded),
               _FErr(error: _emailErr),
-              const SizedBox(height: AppSpacing.s14),
+              const SizedBox(height: AppSpacing.s12),
 
               AuthField(label: 'Password', hint: '••••••••', controller: _password, focusNode: _passFocus,
                 obscureText: !_showPw, textInputAction: TextInputAction.next,
-                onSubmitted: (_) => _confirmFocus.requestFocus(), colors: c,
+                onSubmitted: (_) => _confirmFocus.requestFocus(),
                 prefixIcon: Icons.lock_outline_rounded,
                 suffixIcon: IconButton(
-                  icon: Icon(_showPw ? Icons.visibility_off_outlined : Icons.visibility_outlined, size: 20, color: c.textMuted),
+                  icon: Icon(_showPw ? Icons.visibility_off_outlined : Icons.visibility_outlined, size: 20, color: AppColors.onDarkMuted),
                   onPressed: () => setState(() => _showPw = !_showPw))),
               _FErr(error: _passErr),
               if (_passErr == null && _password.text.isNotEmpty)
-                _PwStrength(password: _password.text, colors: c),
-              const SizedBox(height: AppSpacing.s14),
+                _PwStrength(password: _password.text),
+              const SizedBox(height: AppSpacing.s12),
 
               AuthField(label: 'Confirm Password', hint: '••••••••', controller: _confirmPass, focusNode: _confirmFocus,
                 obscureText: !_showCPw, textInputAction: TextInputAction.done, onSubmitted: (_) => _signUp(),
-                colors: c, prefixIcon: Icons.lock_outline_rounded,
+                prefixIcon: Icons.lock_outline_rounded,
                 suffixIcon: IconButton(
-                  icon: Icon(_showCPw ? Icons.visibility_off_outlined : Icons.visibility_outlined, size: 20, color: c.textMuted),
+                  icon: Icon(_showCPw ? Icons.visibility_off_outlined : Icons.visibility_outlined, size: 20, color: AppColors.onDarkMuted),
                   onPressed: () => setState(() => _showCPw = !_showCPw))),
               _FErr(error: _confErr),
-              const SizedBox(height: AppSpacing.s20),
+              const SizedBox(height: AppSpacing.s16),
 
               GestureDetector(
                 onTap: () => setState(() => _agreedTerms = !_agreedTerms),
                 behavior: HitTestBehavior.opaque,
                 child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                  AnimatedContainer(duration: AppMotion.fast, width: 20, height: 20,
+                  AnimatedContainer(duration: const Duration(milliseconds: 200), width: 20, height: 20,
                     decoration: BoxDecoration(
-                      color: _agreedTerms ? c.primary : Colors.transparent,
+                      color: _agreedTerms ? Colors.white : Colors.transparent,
                       borderRadius: BorderRadius.circular(4),
-                      border: Border.all(color: _agreedTerms ? c.primary : c.border, width: 1.5)),
-                    child: _agreedTerms ? Icon(Icons.check_rounded, size: 13, color: c.primaryInverse) : null),
+                      border: Border.all(color: _agreedTerms ? Colors.white : Colors.white.withOpacity(0.3), width: 1.5)),
+                    child: _agreedTerms ? const Icon(Icons.check_rounded, size: 14, color: AppColors.plum800) : null),
                   const SizedBox(width: AppSpacing.s12),
                   Expanded(child: Text.rich(TextSpan(
-                    style: TextStyle(fontFamily: 'Inter', fontSize: 13, color: c.textMuted, height: 1.4),
+                    style: AppTextStyles.caption.copyWith(color: AppColors.onDarkMuted, height: 1.4),
                     children: [
                       const TextSpan(text: 'I agree to the '),
-                      TextSpan(text: 'Terms of Service', style: TextStyle(color: c.text, fontWeight: FontWeight.w600)),
+                      TextSpan(text: 'Terms of Service', style: AppTextStyles.caption.copyWith(color: AppColors.onDarkPrimary, fontWeight: FontWeight.w600)),
                       const TextSpan(text: ' and '),
-                      TextSpan(text: 'Privacy Policy', style: TextStyle(color: c.text, fontWeight: FontWeight.w600)),
+                      TextSpan(text: 'Privacy Policy', style: AppTextStyles.caption.copyWith(color: AppColors.onDarkPrimary, fontWeight: FontWeight.w600)),
                     ]))),
                 ]),
               ),
 
-              AuthErrorBanner(error: _error, colors: c),
+              AuthErrorBanner(error: _error),
               const SizedBox(height: AppSpacing.s24),
-              AuthPrimaryButton(label: 'Create Account', isLoading: _isSubmitting, onPressed: _signUp, colors: c),
-              const SizedBox(height: AppSpacing.s28),
-              AuthOrDivider(colors: c),
+              Center(
+                child: FlowButton(
+                  text: _isSubmitting ? 'Creating...' : 'Create Account',
+                  isDark: true,
+                  onPressed: _signUp,
+                ),
+              ),
               const SizedBox(height: AppSpacing.s20),
+              const AuthOrDivider(),
+              const SizedBox(height: AppSpacing.s16),
 
-              Row(children: [
-                Expanded(child: AuthSocialButton(label: 'Google', icon: const GoogleIcon(),
-                  onPressed: () => ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Google sign-up coming soon'))), colors: c)),
-                const SizedBox(width: AppSpacing.s12),
-                Expanded(child: AuthSocialButton(label: 'Apple',
-                  icon: Icon(Icons.apple_rounded, size: 20, color: c.text),
-                  onPressed: () => ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Apple sign-up coming soon'))), colors: c)),
-              ]),
-              const SizedBox(height: AppSpacing.s36),
+              AuthSocialButton(label: 'Continue with Google', icon: const GoogleIcon(),
+                  onPressed: _signInWithGoogle),
+              const SizedBox(height: AppSpacing.s24),
               Center(child: AuthNavLink(question: 'Already have an account?', action: 'Sign in',
-                onTap: () => context.pop(), colors: c)),
-              const SizedBox(height: AppSpacing.s32),
+                onTap: () => context.pop())),
+              const SizedBox(height: AppSpacing.s16),
             ]),
           ),
         ),
       ),
+        ],
+      ),
     );
+  }
+
+  Future<void> _signInWithGoogle() async {
+    setState(() => _error = null);
+    await ref.read(authNotifierProvider.notifier).signInWithGoogle();
+    if (!mounted) return;
+    final authState = ref.read(authNotifierProvider);
+    if (authState.hasError) {
+      final err = authState.error.toString();
+      if (!err.contains('cancelled')) {
+        setState(() { _error = AuthErrorHandler.parse(authState.error!); });
+      }
+    }
   }
 }
 
@@ -227,10 +231,10 @@ class _FErr extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedSize(
-      duration: AppMotion.fast,
+      duration: const Duration(milliseconds: 200),
       child: error != null
           ? Padding(
-              padding: const EdgeInsets.only(top: AppSpacing.s6, left: AppSpacing.s4),
+              padding: const EdgeInsets.only(top: AppSpacing.s8, left: AppSpacing.s4),
               child: Row(children: [
                 const Icon(Icons.info_outline_rounded, size: 12, color: Color(0xFFE5484D)),
                 const SizedBox(width: 4),
@@ -243,8 +247,7 @@ class _FErr extends StatelessWidget {
 
 class _PwStrength extends StatelessWidget {
   final String password;
-  final AppColors colors;
-  const _PwStrength({required this.password, required this.colors});
+  const _PwStrength({required this.password});
 
   int _s() {
     int s = 0;
@@ -273,7 +276,7 @@ class _PwStrength extends StatelessWidget {
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         Row(children: List.generate(5, (i) => Expanded(child: Container(
           height: 3, margin: const EdgeInsets.only(right: 3),
-          decoration: BoxDecoration(color: i < s ? col : colors.border,
+          decoration: BoxDecoration(color: i < s ? col : Colors.white.withOpacity(0.2),
             borderRadius: BorderRadius.circular(2)))))),
         const SizedBox(height: 4),
         Text('Password strength: ${_l(s)}',

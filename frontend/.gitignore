@@ -51,3 +51,7 @@ app.*.map.json
 .pub-cache/
 .pub/
 build/
+
+# Google / Firebase credentials — never commit these
+google-services.json
+GoogleService-Info.plist

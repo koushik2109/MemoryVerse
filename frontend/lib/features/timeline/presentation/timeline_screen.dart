@@ -113,7 +113,7 @@ class _TimelineScreenState extends ConsumerState<TimelineScreen> {
     final timelineAsync = ref.watch(timelineProvider);
 
     return Scaffold(
-      backgroundColor: c.bg,
+      backgroundColor: Colors.transparent,
       body: SafeArea(
         child: timelineAsync.when(
           loading: () => const LoadingState(),
@@ -259,31 +259,14 @@ class _TimelineScreenState extends ConsumerState<TimelineScreen> {
                 if (!hasData)
                   SliverFillRemaining(
                     hasScrollBody: false,
-                    child: Center(
-                      child: Padding(
-                        padding: const EdgeInsets.all(AppSpacing.s32),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(Icons.timeline, size: 64, color: c.primary.withValues(alpha: 0.3)),
-                            const SizedBox(height: AppSpacing.s16),
-                            Text('No memories yet.', style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600, color: c.text)),
-                            const SizedBox(height: AppSpacing.s8),
-                            Text('Start building your digital story today.', style: TextStyle(color: c.textMuted)),
-                            const SizedBox(height: AppSpacing.s24),
-                            FilledButton.icon(
-                              icon: const Icon(Icons.add),
-                              label: const Text('Create Memory'),
-                              onPressed: () {
-                                // Just open a dialog or sheet to create memory.
-                                // For simplicity, we can navigate to home or trigger a global create.
-                                // If needed, we can show a prompt.
-                              },
-                              style: FilledButton.styleFrom(backgroundColor: c.primary, foregroundColor: c.primaryInverse),
-                            )
-                          ],
-                        ),
-                      ),
+                    child: EmptyState(
+                      title: 'No memories yet.',
+                      subtitle: 'Start building your digital story today.',
+                      icon: Icons.timeline,
+                      buttonText: 'Create Memory',
+                      onTap: () {
+                        // Open create memory
+                      },
                     ),
                   )
                 else if (!hasFilteredData)
@@ -348,6 +331,7 @@ class _TimelineScreenState extends ConsumerState<TimelineScreen> {
                                             clipBehavior: Clip.antiAlias,
                                             child: Column(
                                               crossAxisAlignment: CrossAxisAlignment.start,
+                                              mainAxisSize: MainAxisSize.min,
                                               children: [
                                                 // Cover Image
                                                 if (cover != null)
@@ -391,6 +375,7 @@ class _TimelineScreenState extends ConsumerState<TimelineScreen> {
                                                   padding: const EdgeInsets.all(AppSpacing.s16),
                                                   child: Column(
                                                     crossAxisAlignment: CrossAxisAlignment.start,
+                                                    mainAxisSize: MainAxisSize.min,
                                                     children: [
                                                       Text(
                                                         memory.title,

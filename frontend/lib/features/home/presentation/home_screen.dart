@@ -7,11 +7,14 @@ import 'package:memory_verse/core/design/tokens.dart';
 import 'package:memory_verse/core/navigation/router.dart';
 import 'package:memory_verse/core/providers/app_providers.dart';
 import 'package:memory_verse/core/widgets/media.dart';
+import 'package:memory_verse/core/widgets/states.dart';
 import 'package:memory_verse/features/memories/presentation/create_memory_sheet.dart';
 import 'package:memory_verse/features/memories/presentation/memory_detail_screen.dart';
 import 'package:memory_verse/features/vaults/presentation/create_vault_dialog.dart';
 import 'package:memory_verse/features/vaults/presentation/join_vault_dialog.dart';
 import 'package:memory_verse/features/vaults/presentation/vault_detail_screen.dart';
+import 'package:memory_verse/core/presentation/widgets/stacked_carousel.dart';
+import 'package:memory_verse/core/presentation/widgets/flow_button.dart';
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
@@ -25,19 +28,19 @@ class HomeScreen extends ConsumerWidget {
     final timelineAsync = ref.watch(timelineProvider);
 
     return Scaffold(
-      backgroundColor: c.bg,
+      backgroundColor: Colors.transparent,
       body: RefreshIndicator(
         color: c.primary,
         backgroundColor: c.surface,
         onRefresh: () async {
-          ref.invalidate(userProfileProvider);
-          ref.invalidate(vaultsListProvider);
-          ref.invalidate(memoriesListProvider);
-          ref.invalidate(timelineProvider);
-        },
-        child: CustomScrollView(
-          physics: const BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
-          slivers: [
+              ref.invalidate(userProfileProvider);
+              ref.invalidate(vaultsListProvider);
+              ref.invalidate(memoriesListProvider);
+              ref.invalidate(timelineProvider);
+            },
+            child: CustomScrollView(
+              physics: const BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
+              slivers: [
             // Header
             _buildHeader(context, c, profileAsync),
             const SliverToBoxAdapter(child: SizedBox(height: AppSpacing.s24)),
@@ -153,25 +156,11 @@ class HomeScreen extends ConsumerWidget {
                 style: TextStyle(fontFamily: 'Inter', fontSize: 15, color: c.textMuted, height: 1.4),
               ),
               const SizedBox(height: AppSpacing.s24),
-              SizedBox(
-                width: double.infinity,
-                height: 54,
-                child: ElevatedButton(
+              Center(
+                child: FlowButton(
+                  text: 'Create Memory',
+                  isDark: Theme.of(context).brightness == Brightness.dark,
                   onPressed: () => CreateMemorySheet.show(context),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: c.primary,
-                    foregroundColor: c.primaryInverse,
-                    elevation: 0,
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppRadii.md)),
-                  ),
-                  child: const Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(Icons.add_circle_outline_rounded, size: 20),
-                      SizedBox(width: AppSpacing.s8),
-                      Text('Create Memory', style: TextStyle(fontFamily: 'Inter', fontSize: 15, fontWeight: FontWeight.w600)),
-                    ],
-                  ),
                 ),
               ),
             ],
@@ -227,82 +216,42 @@ class HomeScreen extends ConsumerWidget {
 
   Widget _buildRecentMemories(BuildContext context, AppColors c, AsyncValue<List<MemoryModel>> memoriesAsync) {
     return SliverToBoxAdapter(
-      child: SizedBox(
-        height: 280,
-        child: memoriesAsync.when(
-          loading: () => ListView.separated(
-            scrollDirection: Axis.horizontal,
-            padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s24),
-            itemCount: 3,
-            separatorBuilder: (_, __) => const SizedBox(width: AppSpacing.s16),
-            itemBuilder: (_, __) => _SkeletonCard(width: 200, height: 280, colors: c),
-          ),
-          error: (_, __) => _EmptyStateCard(
-            title: 'Your story starts here.',
-            subtitle: 'Upload your first memory.',
-            icon: Icons.photo_library_outlined,
-            buttonText: 'Create Memory',
-            onTap: () => CreateMemorySheet.show(context),
-            colors: c,
-          ),
-          data: (memories) {
-            if (memories.isEmpty) {
-              return _EmptyStateCard(
-                title: 'Your story starts here.',
-                subtitle: 'Upload your first memory.',
-                icon: Icons.photo_library_outlined,
-                buttonText: 'Create Memory',
-                onTap: () => CreateMemorySheet.show(context),
-                colors: c,
-              );
-            }
-            return ListView.separated(
-              scrollDirection: Axis.horizontal,
-              padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s24),
-              itemCount: memories.length,
-              separatorBuilder: (_, __) => const SizedBox(width: AppSpacing.s16),
-              itemBuilder: (_, i) {
-                final item = memories[i];
-                return _MemoryCard(memory: item, onTap: () => MemoryDetailScreen.open(context, item), colors: c);
-              },
-            );
-          },
-        ),
-      ),
+      child: StackedCarousel(),
     );
   }
 
   Widget _buildTimelinePreview(BuildContext context, AppColors c, AsyncValue<TimelineResponse> timelineAsync) {
     return SliverToBoxAdapter(
-      child: SizedBox(
-        height: 120,
-        child: timelineAsync.when(
-          loading: () => ListView.separated(
+      child: timelineAsync.when(
+        loading: () => SizedBox(
+          height: 120,
+          child: ListView.separated(
             scrollDirection: Axis.horizontal,
             padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s24),
             itemCount: 4,
             separatorBuilder: (_, __) => const SizedBox(width: AppSpacing.s12),
             itemBuilder: (_, __) => _SkeletonCard(width: 100, height: 120, colors: c),
           ),
-          error: (_, __) => _EmptyStateCard(
-            title: 'No timeline yet.',
-            subtitle: 'Memories will appear here chronologically.',
-            imageAsset: 'assets/images/empty_timeline.png',
-            colors: c,
-            isSmall: true,
-          ),
-          data: (timeline) {
-            final items = timeline.groups.expand((y) => y.months).expand((m) => m.days).expand((d) => d.memories).take(10).toList();
-            if (items.isEmpty) {
-              return _EmptyStateCard(
-                title: 'No timeline yet.',
-                subtitle: 'Memories will appear here chronologically.',
-                imageAsset: 'assets/images/empty_timeline.png',
-                colors: c,
-                isSmall: true,
-              );
-            }
-            return ListView.separated(
+        ),
+        error: (_, __) => const EmptyState(
+          title: 'No timeline yet.',
+          subtitle: 'Memories will appear here chronologically.',
+          imageAsset: 'assets/images/empty_timeline.png',
+          isSmall: true,
+        ),
+        data: (timeline) {
+          final items = timeline.groups.expand((y) => y.months).expand((m) => m.days).expand((d) => d.memories).take(10).toList();
+          if (items.isEmpty) {
+            return const EmptyState(
+              title: 'No timeline yet.',
+              subtitle: 'Memories will appear here chronologically.',
+              imageAsset: 'assets/images/empty_timeline.png',
+              isSmall: true,
+            );
+          }
+          return SizedBox(
+            height: 120,
+            child: ListView.separated(
               scrollDirection: Axis.horizontal,
               padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s24),
               itemCount: items.length,
@@ -311,9 +260,9 @@ class HomeScreen extends ConsumerWidget {
                 final item = items[i];
                 return _TimelinePreviewCard(item: item, colors: c);
               },
-            );
-          },
-        ),
+            ),
+          );
+        },
       ),
     );
   }
@@ -333,13 +282,12 @@ class HomeScreen extends ConsumerWidget {
         ),
       ),
       error: (_, __) => SliverToBoxAdapter(
-        child: _EmptyStateCard(
+        child: EmptyState(
           title: 'No rooms yet',
           subtitle: 'Create a room to collaborate.',
           imageAsset: 'assets/images/empty_room.png',
           buttonText: 'Create Room',
           onTap: () => CreateVaultDialog.show(context),
-          colors: c,
         ),
       ),
       data: (vaults) {
@@ -664,68 +612,6 @@ class _SkeletonCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: colors.surfaceElevated,
         borderRadius: BorderRadius.circular(AppRadii.xl),
-      ),
-    );
-  }
-}
-
-class _EmptyStateCard extends StatelessWidget {
-  final String title;
-  final String subtitle;
-  final IconData? icon;
-  final String? imageAsset;
-  final String? buttonText;
-  final VoidCallback? onTap;
-  final AppColors colors;
-  final bool isSmall;
-
-  const _EmptyStateCard({
-    required this.title,
-    required this.subtitle,
-    this.icon,
-    this.imageAsset,
-    this.buttonText,
-    this.onTap,
-    required this.colors,
-    this.isSmall = false,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: AppSpacing.s24),
-      padding: EdgeInsets.all(isSmall ? AppSpacing.s16 : AppSpacing.s24),
-      decoration: BoxDecoration(
-        color: colors.surface,
-        borderRadius: BorderRadius.circular(AppRadii.xl),
-        border: Border.all(color: colors.border, style: BorderStyle.solid),
-      ),
-      child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            if (imageAsset != null)
-              Image.asset(imageAsset!, width: isSmall ? 80 : 120, height: isSmall ? 80 : 120)
-            else if (icon != null)
-              Icon(icon, size: isSmall ? 24 : 32, color: colors.textMuted.withValues(alpha: 0.5)),
-            SizedBox(height: isSmall ? AppSpacing.s8 : AppSpacing.s16),
-            Text(title, style: TextStyle(fontFamily: 'Inter', fontSize: isSmall ? 14 : 16, fontWeight: FontWeight.w600, color: colors.text)),
-            const SizedBox(height: 4),
-            Text(subtitle, textAlign: TextAlign.center, style: TextStyle(fontFamily: 'Inter', fontSize: isSmall ? 12 : 14, color: colors.textMuted)),
-            if (buttonText != null && onTap != null) ...[
-              const SizedBox(height: AppSpacing.s16),
-              OutlinedButton(
-                onPressed: onTap,
-                style: OutlinedButton.styleFrom(
-                  foregroundColor: colors.text,
-                  side: BorderSide(color: colors.border),
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppRadii.md)),
-                ),
-                child: Text(buttonText!, style: const TextStyle(fontFamily: 'Inter', fontSize: 13, fontWeight: FontWeight.w500)),
-              ),
-            ]
-          ],
-        ),
       ),
     );
   }

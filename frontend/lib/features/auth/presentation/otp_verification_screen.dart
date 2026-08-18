@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:memory_verse/core/design/tokens.dart';
+import 'package:memory_verse/core/theme/app_design_tokens.dart';
 import 'package:memory_verse/core/providers/auth_provider.dart';
 import 'package:memory_verse/core/utils/auth_error_handler.dart';
 import 'package:memory_verse/features/auth/presentation/auth_widgets.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:memory_verse/core/presentation/widgets/aurora_background.dart';
 
 class OtpVerificationScreen extends ConsumerStatefulWidget {
   final String email;
@@ -84,7 +86,7 @@ class _OtpVerificationScreenState extends ConsumerState<OtpVerificationScreen>
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: const Text('New code sent!'), behavior: SnackBarBehavior.floating,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppRadii.md))));
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppRadius.md))));
       }
     } catch (e) {
       if (mounted) setState(() => _error = AuthErrorHandler.parse(e));
@@ -101,71 +103,75 @@ class _OtpVerificationScreenState extends ConsumerState<OtpVerificationScreen>
 
   @override
   Widget build(BuildContext context) {
-    final c = context.colors;
     return Scaffold(
-      backgroundColor: c.bg,
-      body: SafeArea(
-        child: FadeTransition(
-          opacity: _fa,
-          child: SingleChildScrollView(
-            padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s24),
-            keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
-            child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              const SizedBox(height: AppSpacing.s56),
-              Row(children: [
-                AuthBackButton(onTap: () => context.pop(), colors: c),
-                const Spacer(),
-                AuthLogo(colors: c),
-              ]),
-              const SizedBox(height: AppSpacing.s40),
-              Container(width: 52, height: 52,
-                decoration: BoxDecoration(color: c.surface, borderRadius: BorderRadius.circular(AppRadii.md),
-                  border: Border.all(color: c.border)),
-                child: Icon(Icons.email_outlined, color: c.text, size: 24)),
-              const SizedBox(height: AppSpacing.s24),
-              Text('Verify your\nemail.', style: TextStyle(fontFamily: 'Inter', fontSize: 34,
-                fontWeight: FontWeight.w700, letterSpacing: -1.2, height: 1.1, color: c.text)),
-              const SizedBox(height: AppSpacing.s10),
-              Text.rich(TextSpan(
-                style: TextStyle(fontFamily: 'Inter', fontSize: 14, color: c.textMuted, height: 1.5),
-                children: [
-                  const TextSpan(text: 'We sent a 6-digit code to '),
-                  TextSpan(text: widget.email, style: TextStyle(color: c.text, fontWeight: FontWeight.w500)),
-                  const TextSpan(text: '.'),
-                ])),
-              const SizedBox(height: AppSpacing.s40),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: List.generate(6, (i) => _OtpBox(
-                  controller: _ctrls[i], focusNode: _foci[i], colors: c,
-                  onInput: (v) {
-                    if (v.isNotEmpty && i < 5) _foci[i + 1].requestFocus();
-                    if (v.isNotEmpty && i == 5) _verify();
-                  },
-                  onBackspace: () { if (i > 0) { _ctrls[i].clear(); _foci[i - 1].requestFocus(); } },
-                )),
+      backgroundColor: Colors.transparent,
+      body: Stack(
+        children: [
+          const AuroraBackground(isDark: true),
+          SafeArea(
+            child: FadeTransition(
+              opacity: _fa,
+              child: SingleChildScrollView(
+                padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s24),
+                keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+                child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                  const SizedBox(height: AppSpacing.s48),
+                  Row(children: [
+                    AuthBackButton(onTap: () => context.pop()),
+                    const Spacer(),
+                    const AuthLogo(),
+                  ]),
+                  const SizedBox(height: AppSpacing.s40),
+                  Container(width: 52, height: 52,
+                    decoration: BoxDecoration(color: Colors.white.withOpacity(0.1), borderRadius: BorderRadius.circular(AppRadius.md),
+                      border: Border.all(color: Colors.white.withOpacity(0.2))),
+                    child: const Icon(Icons.email_outlined, color: Colors.white, size: 24)),
+                  const SizedBox(height: AppSpacing.s24),
+                  const Text('Verify your\nemail.', style: TextStyle(fontFamily: 'Inter', fontSize: 34,
+                    fontWeight: FontWeight.w700, letterSpacing: -1.2, height: 1.1, color: Colors.white)),
+                  const SizedBox(height: AppSpacing.s8),
+                  Text.rich(TextSpan(
+                    style: AppTextStyles.body.copyWith(color: AppColors.onDarkMuted, height: 1.5),
+                    children: [
+                      const TextSpan(text: 'We sent a 6-digit code to '),
+                      TextSpan(text: widget.email, style: AppTextStyles.body.copyWith(color: Colors.white, fontWeight: FontWeight.w500)),
+                      const TextSpan(text: '.'),
+                    ])),
+                  const SizedBox(height: AppSpacing.s40),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: List.generate(6, (i) => _OtpBox(
+                      controller: _ctrls[i], focusNode: _foci[i],
+                      onInput: (v) {
+                        if (v.isNotEmpty && i < 5) _foci[i + 1].requestFocus();
+                        if (v.isNotEmpty && i == 5) _verify();
+                      },
+                      onBackspace: () { if (i > 0) { _ctrls[i].clear(); _foci[i - 1].requestFocus(); } },
+                    )),
+                  ),
+                  AuthErrorBanner(error: _error),
+                  const SizedBox(height: AppSpacing.s32),
+                  AuthPrimaryButton(label: 'Verify & Sign In', isLoading: _isSubmitting, onPressed: _verify),
+                  const SizedBox(height: AppSpacing.s24),
+                  Center(child: _resendCooldown
+                    ? Text('Resend code in ${_resendSeconds}s',
+                        style: AppTextStyles.caption.copyWith(color: AppColors.onDarkMuted))
+                    : GestureDetector(
+                        onTap: _resend,
+                        child: Text.rich(TextSpan(
+                          style: AppTextStyles.caption.copyWith(color: AppColors.onDarkMuted),
+                          children: [
+                            const TextSpan(text: "Didn't receive it? "),
+                            TextSpan(text: 'Resend code', style: AppTextStyles.caption.copyWith(
+                              color: AppColors.onDarkPrimary, fontWeight: FontWeight.w600,
+                              decoration: TextDecoration.underline, decorationColor: AppColors.onDarkPrimary)),
+                          ])))),
+                  const SizedBox(height: AppSpacing.s32),
+                ]),
               ),
-              AuthErrorBanner(error: _error, colors: c),
-              const SizedBox(height: AppSpacing.s32),
-              AuthPrimaryButton(label: 'Verify & Sign In', isLoading: _isSubmitting, onPressed: _verify, colors: c),
-              const SizedBox(height: AppSpacing.s24),
-              Center(child: _resendCooldown
-                ? Text('Resend code in ${_resendSeconds}s',
-                    style: TextStyle(fontFamily: 'Inter', fontSize: 14, color: c.textMuted))
-                : GestureDetector(
-                    onTap: _resend,
-                    child: Text.rich(TextSpan(
-                      style: TextStyle(fontFamily: 'Inter', fontSize: 14, color: c.textMuted),
-                      children: [
-                        const TextSpan(text: "Didn't receive it? "),
-                        TextSpan(text: 'Resend code', style: TextStyle(
-                          color: c.text, fontWeight: FontWeight.w600,
-                          decoration: TextDecoration.underline, decorationColor: c.text)),
-                      ])))),
-              const SizedBox(height: AppSpacing.s32),
-            ]),
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
@@ -174,10 +180,9 @@ class _OtpVerificationScreenState extends ConsumerState<OtpVerificationScreen>
 class _OtpBox extends StatefulWidget {
   final TextEditingController controller;
   final FocusNode focusNode;
-  final AppColors colors;
   final ValueChanged<String> onInput;
   final VoidCallback onBackspace;
-  const _OtpBox({required this.controller, required this.focusNode, required this.colors,
+  const _OtpBox({required this.controller, required this.focusNode,
     required this.onInput, required this.onBackspace});
   @override
   State<_OtpBox> createState() => _OtpBoxState();
@@ -194,14 +199,13 @@ class _OtpBoxState extends State<_OtpBox> {
 
   @override
   Widget build(BuildContext context) {
-    final c = widget.colors;
     final has = widget.controller.text.isNotEmpty;
-    return AnimatedContainer(duration: AppMotion.fast, width: 44, height: 56,
+    return AnimatedContainer(duration: const Duration(milliseconds: 200), width: 44, height: 56,
       decoration: BoxDecoration(
-        color: has ? c.primary.withValues(alpha: 0.05) : c.surface,
-        borderRadius: BorderRadius.circular(AppRadii.md),
+        color: Colors.white.withOpacity(0.1),
+        borderRadius: BorderRadius.circular(AppRadius.md),
         border: Border.all(
-          color: _focused ? c.primary : has ? c.primary.withValues(alpha: 0.4) : c.border,
+          color: _focused ? Colors.white : has ? Colors.white.withOpacity(0.5) : Colors.white.withOpacity(0.2),
           width: _focused ? 1.5 : 1.0)),
       child: KeyboardListener(
         focusNode: FocusNode(),
@@ -218,7 +222,7 @@ class _OtpBoxState extends State<_OtpBox> {
           keyboardType: TextInputType.number,
           textAlign: TextAlign.center,
           inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-          style: TextStyle(fontFamily: 'Inter', fontSize: 22, fontWeight: FontWeight.w700, color: c.text),
+          style: const TextStyle(fontFamily: 'Inter', fontSize: 22, fontWeight: FontWeight.w700, color: Colors.white),
           decoration: const InputDecoration(counterText: '', border: InputBorder.none, contentPadding: EdgeInsets.zero),
           onChanged: (val) {
             if (val.length > 1) widget.controller.text = val[0];

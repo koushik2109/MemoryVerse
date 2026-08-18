@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:memory_verse/core/design/tokens.dart';
+import 'package:memory_verse/core/theme/app_design_tokens.dart';
 import 'package:memory_verse/core/navigation/router.dart';
 import 'package:memory_verse/core/providers/auth_provider.dart';
 import 'package:memory_verse/core/utils/auth_error_handler.dart';
 import 'package:memory_verse/features/auth/presentation/auth_widgets.dart';
+import 'package:memory_verse/core/presentation/widgets/aurora_background.dart';
+import 'package:memory_verse/core/presentation/widgets/flow_button.dart';
 
 class SignInScreen extends ConsumerStatefulWidget {
   const SignInScreen({super.key});
@@ -88,39 +90,41 @@ class _SignInScreenState extends ConsumerState<SignInScreen>
 
   @override
   Widget build(BuildContext context) {
-    final c = context.colors;
-
     return Scaffold(
-      backgroundColor: c.bg,
-      body: SafeArea(
-        child: FadeTransition(
-          opacity: _fadeAnim,
-          child: SlideTransition(
-            position: _slideAnim,
-            child: SingleChildScrollView(
-              padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s24),
-              keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const SizedBox(height: AppSpacing.s64),
+      backgroundColor: Colors.transparent,
+      body: Stack(
+        children: [
+          const AuroraBackground(isDark: true),
+          SafeArea(
+            child: FadeTransition(
+              opacity: _fadeAnim,
+              child: SlideTransition(
+                position: _slideAnim,
+                child: SingleChildScrollView(
+                  padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s24),
+                  keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const SizedBox(height: AppSpacing.s16),
+                      AuthBackButton(onTap: () => context.pop()),
+                      const SizedBox(height: AppSpacing.s24),
+                      const AuthLogo(),
+                      const SizedBox(height: AppSpacing.s32),
 
-                  AuthLogo(colors: c),
-                  const SizedBox(height: AppSpacing.s32),
-
-                  Text(
+                  const Text(
                     'Welcome\nback.',
                     style: TextStyle(
                       fontFamily: 'Inter', fontSize: 38,
                       fontWeight: FontWeight.w700, letterSpacing: -1.5,
-                      height: 1.05, color: c.text,
+                      height: 1.05, color: Colors.white,
                     ),
                   ),
                   const SizedBox(height: AppSpacing.s8),
-                  Text(
+                  const Text(
                     'Sign in to continue your story.',
                     style: TextStyle(fontFamily: 'Inter', fontSize: 15,
-                        fontWeight: FontWeight.w400, color: c.textMuted, height: 1.5),
+                        fontWeight: FontWeight.w400, color: Colors.white70, height: 1.5),
                   ),
 
                   const SizedBox(height: AppSpacing.s40),
@@ -133,10 +137,9 @@ class _SignInScreenState extends ConsumerState<SignInScreen>
                     keyboardType: TextInputType.emailAddress,
                     textInputAction: TextInputAction.next,
                     onSubmitted: (_) => _passwordFocus.requestFocus(),
-                    colors: c,
                     prefixIcon: Icons.mail_outline_rounded,
                   ),
-                  const SizedBox(height: AppSpacing.s14),
+                  const SizedBox(height: AppSpacing.s16),
 
                   AuthField(
                     label: 'Password',
@@ -146,12 +149,11 @@ class _SignInScreenState extends ConsumerState<SignInScreen>
                     obscureText: !_showPassword,
                     textInputAction: TextInputAction.done,
                     onSubmitted: (_) => _signIn(),
-                    colors: c,
                     prefixIcon: Icons.lock_outline_rounded,
                     suffixIcon: IconButton(
                       icon: Icon(
                         _showPassword ? Icons.visibility_off_outlined : Icons.visibility_outlined,
-                        size: 20, color: c.textMuted,
+                        size: 20, color: AppColors.onDarkMuted,
                       ),
                       onPressed: () => setState(() => _showPassword = !_showPassword),
                     ),
@@ -166,41 +168,37 @@ class _SignInScreenState extends ConsumerState<SignInScreen>
                       ),
                       child: Text(
                         'Forgot password?',
-                        style: TextStyle(fontFamily: 'Inter', fontSize: 13,
-                            fontWeight: FontWeight.w500, color: c.textMuted),
+                        style: AppTextStyles.caption.copyWith(
+                            fontWeight: FontWeight.w500, color: AppColors.onDarkMuted),
                       ),
                     ),
                   ),
 
-                  AuthErrorBanner(error: _error, colors: c),
+                  AuthErrorBanner(error: _error),
                   const SizedBox(height: AppSpacing.s20),
 
-                  AuthPrimaryButton(label: 'Sign In', isLoading: _isSubmitting,
-                      onPressed: _signIn, colors: c),
+                  Center(
+                    child: FlowButton(
+                      text: _isSubmitting ? 'Signing In...' : 'Sign In',
+                      isDark: true,
+                      onPressed: _signIn,
+                    ),
+                  ),
 
                   const SizedBox(height: AppSpacing.s28),
-                  AuthOrDivider(colors: c),
+                  const AuthOrDivider(),
                   const SizedBox(height: AppSpacing.s20),
 
-                  Row(
-                    children: [
-                      Expanded(child: AuthSocialButton(
-                        label: 'Google', icon: const GoogleIcon(),
-                        onPressed: () => _showComingSoon(context, 'Google'), colors: c,
-                      )),
-                      const SizedBox(width: AppSpacing.s12),
-                      Expanded(child: AuthSocialButton(
-                        label: 'Apple', icon: Icon(Icons.apple_rounded, size: 20, color: c.text),
-                        onPressed: () => _showComingSoon(context, 'Apple'), colors: c,
-                      )),
-                    ],
+                  AuthSocialButton(
+                    label: 'Continue with Google', icon: const GoogleIcon(),
+                    onPressed: _signInWithGoogle,
                   ),
 
                   const SizedBox(height: AppSpacing.s40),
 
                   Center(child: AuthNavLink(
                     question: "Don't have an account?", action: 'Create one',
-                    onTap: () => context.push(Routes.signUp), colors: c,
+                    onTap: () => context.push(Routes.signUp),
                   )),
 
                   const SizedBox(height: AppSpacing.s32),
@@ -208,16 +206,33 @@ class _SignInScreenState extends ConsumerState<SignInScreen>
               ),
             ),
           ),
-        ),
+          ),
+          ),
+        ],
       ),
     );
+  }
+
+  Future<void> _signInWithGoogle() async {
+    if (_isSubmitting) return;
+    setState(() { _error = null; _isSubmitting = true; });
+    await ref.read(authNotifierProvider.notifier).signInWithGoogle();
+    if (!mounted) return;
+    final authState = ref.read(authNotifierProvider);
+    if (authState.hasError) {
+      final err = authState.error.toString();
+      if (!err.contains('cancelled')) {
+        setState(() { _error = AuthErrorHandler.parse(authState.error!); });
+      }
+    }
+    setState(() => _isSubmitting = false);
   }
 
   void _showComingSoon(BuildContext ctx, String provider) {
     ScaffoldMessenger.of(ctx).showSnackBar(SnackBar(
       content: Text('$provider sign-in coming soon'),
       behavior: SnackBarBehavior.floating,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppRadii.md)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppRadius.md)),
     ));
   }
 }

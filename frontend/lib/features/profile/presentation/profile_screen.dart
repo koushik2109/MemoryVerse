@@ -19,7 +19,7 @@ class ProfileScreen extends ConsumerWidget {
     final profileAsync = ref.watch(userProfileProvider);
 
     return Scaffold(
-      backgroundColor: c.bg,
+      backgroundColor: Colors.transparent,
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s20),
@@ -30,7 +30,17 @@ class ProfileScreen extends ConsumerWidget {
               // ── Profile Header ────────────────────────
               profileAsync.when(
                 loading: () => const LoadingState(),
-                error: (_, __) => ErrorState(message: 'Failed to load profile', onRetry: () => ref.invalidate(userProfileProvider)),
+                error: (_, __) => Container(
+                  decoration: BoxDecoration(
+                    color: c.surface,
+                    borderRadius: BorderRadius.circular(AppRadii.xl),
+                    border: Border.all(color: c.border),
+                  ),
+                  child: ErrorState(
+                    message: 'Failed to load profile',
+                    onRetry: () => ref.invalidate(userProfileProvider),
+                  ),
+                ),
                 data: (user) => Column(
                   children: [
                     Avatar(url: user.avatarUrl, name: user.fullName, size: 80),

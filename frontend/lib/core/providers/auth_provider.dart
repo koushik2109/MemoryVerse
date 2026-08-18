@@ -1,4 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import '../api/api_client.dart';
 
@@ -35,7 +36,7 @@ class AuthNotifier extends AsyncNotifier<void> {
   Future<void> signUp({
     required String email,
     required String password,
-    required String displayName,
+    String? displayName,
   }) async {
     state = const AsyncLoading();
     state = await AsyncValue.guard(() async {
@@ -93,6 +94,27 @@ class AuthNotifier extends AsyncNotifier<void> {
         'otp': token,
         'new_password': newPassword,
       });
+    });
+  }
+
+  Future<void> signInWithGoogle() async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(() async {
+      final googleSignIn = GoogleSignIn(
+        clientId: '413763126044-jgj0jq3s55pemg1jj4f53ratglvmv662.apps.googleusercontent.com',
+      );
+      final googleUser = await googleSignIn.signIn();
+      if (googleUser == null) throw Exception('Google sign-in cancelled');
+
+      final googleAuth = await googleUser.authentication;
+      final idToken = googleAuth.idToken;
+      if (idToken == null) throw Exception('Failed to get Google ID token');
+
+      await _client.auth.signInWithIdToken(
+        provider: OAuthProvider.google,
+        idToken: idToken,
+        accessToken: googleAuth.accessToken,
+      );
     });
   }
 

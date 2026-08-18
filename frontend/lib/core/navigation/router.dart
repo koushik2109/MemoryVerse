@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:memory_verse/core/navigation/shell.dart';
 import 'package:memory_verse/features/auth/presentation/forgot_password_screen.dart';
+import 'package:memory_verse/features/auth/presentation/landing_screen.dart';
 import 'package:memory_verse/features/auth/presentation/sign_in_screen.dart';
 import 'package:memory_verse/features/auth/presentation/sign_up_screen.dart';
 import 'package:memory_verse/features/auth/presentation/otp_verification_screen.dart';
@@ -23,6 +24,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 // ── Route paths ───────────────────────────────────────────
 abstract final class Routes {
   static const splash         = '/';
+  static const landing        = '/landing';
   static const signIn         = '/sign-in';
   static const signUp         = '/sign-up';
   static const otpVerify      = '/otp-verify';
@@ -36,7 +38,7 @@ abstract final class Routes {
   static const notifications  = '/notifications';
   static const settings       = '/settings';
 
-  static const _authRoutes = {signIn, signUp, forgotPassword, otpVerify};
+  static const _authRoutes = {landing, signIn, signUp, forgotPassword, otpVerify};
   static const _shellRoutes = {home, timeline, memories, profile};
 }
 
@@ -72,7 +74,7 @@ final routerProvider = Provider<GoRouter>((ref) {
 
       if (path == Routes.splash) return null;
 
-      if (!hasSession && Routes._shellRoutes.contains(path)) return Routes.signIn;
+      if (!hasSession && Routes._shellRoutes.contains(path)) return Routes.landing;
       if (hasSession && Routes._authRoutes.contains(path)) return Routes.home;
 
       return null;
@@ -81,6 +83,10 @@ final routerProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: Routes.splash,
         pageBuilder: (_, __) => const NoTransitionPage(child: SplashScreen()),
+      ),
+      GoRoute(
+        path: Routes.landing,
+        pageBuilder: (_, __) => _fade(const LandingScreen()),
       ),
       GoRoute(
         path: Routes.signIn,

@@ -7,8 +7,9 @@ class EmptyState extends StatelessWidget {
   final String? imageAsset;
   final String title;
   final String subtitle;
-  final String? actionLabel;
-  final VoidCallback? onAction;
+  final String? buttonText;
+  final VoidCallback? onTap;
+  final bool isSmall;
 
   const EmptyState({
     super.key,
@@ -16,46 +17,51 @@ class EmptyState extends StatelessWidget {
     this.imageAsset,
     required this.title,
     required this.subtitle,
-    this.actionLabel,
-    this.onAction,
+    this.buttonText,
+    this.onTap,
+    this.isSmall = false,
   });
 
   @override
   Widget build(BuildContext context) {
     final c = context.colors;
     
-    return Center(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s32, vertical: AppSpacing.s64),
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: AppSpacing.s24),
+      padding: EdgeInsets.all(isSmall ? AppSpacing.s16 : AppSpacing.s24),
+      decoration: BoxDecoration(
+        color: c.surface.withValues(alpha: context.isDark ? 0.05 : 0.4),
+        borderRadius: BorderRadius.circular(AppRadii.xl),
+        border: Border.all(
+          color: c.border.withValues(alpha: context.isDark ? 0.1 : 0.5),
+          style: BorderStyle.solid,
+        ),
+      ),
+      child: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
           children: [
             if (imageAsset != null)
-              Image.asset(imageAsset!, width: 120, height: 120)
+              Image.asset(imageAsset!, width: isSmall ? 80 : 120, height: isSmall ? 80 : 120, errorBuilder: (_,__,___) => Icon(icon ?? Icons.folder_open, size: isSmall ? 24 : 32, color: c.textMuted.withValues(alpha: 0.5)))
             else if (icon != null)
-              Icon(icon, size: 48, color: c.textMuted.withValues(alpha: 0.5)),
-            const SizedBox(height: AppSpacing.s24),
-            Text(
-              title,
-              style: context.text.headlineSmall?.copyWith(color: c.text),
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: AppSpacing.s8),
-            Text(
-              subtitle,
-              style: context.text.bodyMedium?.copyWith(color: c.textMuted),
-              textAlign: TextAlign.center,
-            ),
-            if (actionLabel != null && onAction != null) ...[
-              const SizedBox(height: AppSpacing.s32),
-              SizedBox(
-                width: 200,
-                child: SecondaryButton(
-                  label: actionLabel!,
-                  onPressed: onAction,
+              Icon(icon, size: isSmall ? 24 : 32, color: c.textMuted.withValues(alpha: 0.5)),
+            SizedBox(height: isSmall ? AppSpacing.s8 : AppSpacing.s16),
+            Text(title, style: TextStyle(fontFamily: 'Inter', fontSize: isSmall ? 14 : 16, fontWeight: FontWeight.w600, color: c.text)),
+            const SizedBox(height: 4),
+            Text(subtitle, textAlign: TextAlign.center, style: TextStyle(fontFamily: 'Inter', fontSize: isSmall ? 12 : 14, color: c.textMuted)),
+            if (buttonText != null && onTap != null) ...[
+              const SizedBox(height: AppSpacing.s16),
+              OutlinedButton(
+                onPressed: onTap,
+                style: OutlinedButton.styleFrom(
+                  foregroundColor: c.text,
+                  side: BorderSide(color: c.border),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppRadii.md)),
                 ),
+                child: Text(buttonText!, style: const TextStyle(fontFamily: 'Inter', fontSize: 13, fontWeight: FontWeight.w500)),
               ),
-            ],
+            ]
           ],
         ),
       ),
@@ -86,7 +92,19 @@ class ErrorState extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             if (imageAsset != null)
-              Image.asset(imageAsset!, width: 120, height: 120)
+              Image.asset(
+                imageAsset!,
+                width: 120,
+                height: 120,
+                errorBuilder: (_, __, ___) => Container(
+                  padding: const EdgeInsets.all(AppSpacing.s16),
+                  decoration: BoxDecoration(
+                    color: c.error.withValues(alpha: 0.1),
+                    shape: BoxShape.circle,
+                  ),
+                  child: Icon(Icons.warning_amber_rounded, size: 32, color: c.error),
+                ),
+              )
             else
               Container(
                 padding: const EdgeInsets.all(AppSpacing.s16),
