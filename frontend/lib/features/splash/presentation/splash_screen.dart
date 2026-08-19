@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:memory_verse/core/design/tokens.dart';
+import 'package:memory_verse/core/theme/app_design_tokens.dart' as brand;
 import 'package:memory_verse/core/navigation/router.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -24,7 +25,6 @@ class _SplashScreenState extends State<SplashScreen>
   late Animation<double> _bgOpacity;
   late Animation<double> _logoScale;
   late Animation<double> _logoOpacity;
-  late Animation<double> _logoRotation;
   late Animation<double> _wordmarkOpacity;
   late Animation<Offset> _wordmarkSlide;
   late Animation<double> _taglineOpacity;
@@ -44,13 +44,20 @@ class _SplashScreenState extends State<SplashScreen>
     ).animate(CurvedAnimation(parent: _bgCtrl, curve: Curves.easeOut));
 
     // Logo: scale 0.6→1.0 + fade, over 550ms with spring feel
-    _logoCtrl = AnimationController(vsync: this, duration: const Duration(milliseconds: 550));
-    _logoScale = Tween<double>(begin: 0.60, end: 1.0)
-        .animate(CurvedAnimation(parent: _logoCtrl, curve: Curves.easeOutBack));
-    _logoOpacity = Tween<double>(begin: 0, end: 1)
-        .animate(CurvedAnimation(parent: _logoCtrl, curve: const Interval(0.0, 0.6, curve: Curves.easeOut)));
-    _logoRotation = Tween<double>(begin: -0.08, end: 0.0)
-        .animate(CurvedAnimation(parent: _logoCtrl, curve: Curves.easeOutBack));
+    _logoCtrl = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 550),
+    );
+    _logoScale = Tween<double>(
+      begin: 0.60,
+      end: 1.0,
+    ).animate(CurvedAnimation(parent: _logoCtrl, curve: Curves.easeOutBack));
+    _logoOpacity = Tween<double>(begin: 0, end: 1).animate(
+      CurvedAnimation(
+        parent: _logoCtrl,
+        curve: const Interval(0.0, 0.6, curve: Curves.easeOut),
+      ),
+    );
 
     // Wordmark: subtle upward slide + fade over 450ms
     _wordmarkCtrl = AnimationController(
@@ -80,22 +87,27 @@ class _SplashScreenState extends State<SplashScreen>
   }
 
   Future<void> _run() async {
+    // Start background immediately
     _bgCtrl.forward();
 
     await Future<void>.delayed(const Duration(milliseconds: 180));
     if (!mounted) return;
 
+    // Logo reveal
     await _logoCtrl.forward();
     if (!mounted) return;
 
+    // Wordmark follows
     await Future<void>.delayed(const Duration(milliseconds: 80));
     if (!mounted) return;
     _wordmarkCtrl.forward();
 
+    // Tagline follows wordmark
     await Future<void>.delayed(const Duration(milliseconds: 200));
     if (!mounted) return;
     _taglineCtrl.forward();
 
+    // Hold for legibility
     await Future<void>.delayed(const Duration(milliseconds: 900));
     if (!mounted) return;
 
@@ -122,14 +134,24 @@ class _SplashScreenState extends State<SplashScreen>
     final c = context.colors;
 
     return Scaffold(
-      backgroundColor: c.bg,
+      backgroundColor: Colors.black, // Fallback
       body: Stack(
         fit: StackFit.expand,
         children: [
-          // ── Warm atmospheric background ──────────────────
+          Positioned.fill(
+            child: DecoratedBox(
+              decoration: BoxDecoration(gradient: brand.AppGradients.dark),
+            ),
+          ),
+          Positioned.fill(
+            child: DecoratedBox(
+              decoration: BoxDecoration(gradient: brand.AppGradients.scrim),
+            ),
+          ),
+          // ── Atmospheric background motif ──────────────────
           FadeTransition(
             opacity: _bgOpacity,
-            child: _WarmBackground(colors: c),
+            child: const _AtmosphericBackground(isDark: true),
           ),
 
           // ── Center content ────────────────────────────────
@@ -137,55 +159,48 @@ class _SplashScreenState extends State<SplashScreen>
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                // Logo mark — warm amber with camera
-                AnimatedBuilder(
-                  animation: _logoCtrl,
-                  builder: (_, child) => Transform.rotate(
-                    angle: _logoRotation.value,
-                    child: Transform.scale(
-                      scale: _logoScale.value,
-                      child: Opacity(
-                        opacity: _logoOpacity.value,
-                        child: child,
-                      ),
-                    ),
+                // Logo mark
+                ScaleTransition(
+                  scale: _logoScale,
+                  child: FadeTransition(
+                    opacity: _logoOpacity,
+                    child: const _LogoMark(size: 76),
                   ),
-                  child: _WarmLogoMark(size: 84, colors: c),
                 ),
 
-                const SizedBox(height: AppSpacing.s28),
+                const SizedBox(height: brand.AppSpacing.s28),
 
-                // Wordmark — serif font
+                // Wordmark
                 SlideTransition(
                   position: _wordmarkSlide,
                   child: FadeTransition(
                     opacity: _wordmarkOpacity,
                     child: Text(
                       'MemoryVerse',
-                      style: GoogleFonts.playfairDisplay(
-                        fontSize: 32,
+                      style: GoogleFonts.poppins(
+                        fontSize: 30,
                         fontWeight: FontWeight.w700,
-                        letterSpacing: -0.5,
-                        color: c.text,
+                        letterSpacing: -1.0,
+                        color: Colors.white,
                         height: 1,
                       ),
                     ),
                   ),
                 ),
 
-                const SizedBox(height: AppSpacing.s10),
+                const SizedBox(height: brand.AppSpacing.s12),
 
                 // Tagline
                 FadeTransition(
                   opacity: _taglineOpacity,
-                  child: Text(
+                  child: const Text(
                     'Where memories live forever.',
                     style: TextStyle(
                       fontFamily: 'Inter',
-                      fontSize: 14,
+                      fontSize: 13,
                       fontWeight: FontWeight.w400,
                       letterSpacing: 0.2,
-                      color: c.textMuted,
+                      color: Colors.white70,
                     ),
                   ),
                 ),
@@ -193,14 +208,14 @@ class _SplashScreenState extends State<SplashScreen>
             ),
           ),
 
-          // ── Bottom loading indicator ───────────────────────
+          // ── Bottom loading dots ───────────────────────────
           Positioned(
             bottom: 60,
             left: 0,
             right: 0,
             child: FadeTransition(
               opacity: _taglineOpacity,
-              child: _WarmPulsingDots(color: c.primary),
+              child: const _PulsingDots(color: Colors.white70),
             ),
           ),
         ],
@@ -210,13 +225,12 @@ class _SplashScreenState extends State<SplashScreen>
 }
 
 // ─────────────────────────────────────────────────────────────────
-// Warm Logo Mark — amber gradient with camera lens
+// Logo Mark
 // ─────────────────────────────────────────────────────────────────
 
-class _WarmLogoMark extends StatelessWidget {
+class _LogoMark extends StatelessWidget {
   final double size;
-  final AppColors colors;
-  const _WarmLogoMark({required this.size, required this.colors});
+  const _LogoMark({required this.size});
 
   @override
   Widget build(BuildContext context) {
@@ -224,49 +238,36 @@ class _WarmLogoMark extends StatelessWidget {
       width: size,
       height: size,
       decoration: BoxDecoration(
-        gradient: const LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [
-            Color(0xFFE8A838),
-            Color(0xFFD97B5C),
-          ],
-        ),
+        color: Colors.white,
         borderRadius: BorderRadius.circular(size * 0.28),
         boxShadow: [
           BoxShadow(
-            color: const Color(0xFFE8A838).withValues(alpha: 0.3),
-            blurRadius: 32,
+            color: Colors.black.withValues(alpha: 0.2),
+            blurRadius: 24,
             spreadRadius: 0,
-            offset: const Offset(0, 10),
-          ),
-          BoxShadow(
-            color: const Color(0xFFD97B5C).withValues(alpha: 0.15),
-            blurRadius: 16,
-            offset: const Offset(0, 4),
+            offset: const Offset(0, 8),
           ),
         ],
       ),
       child: Stack(
         alignment: Alignment.center,
         children: [
-          // Subtle lens flare ring
           Positioned(
-            right: size * 0.08,
-            top: size * 0.08,
+            right: size * 0.1,
+            top: size * 0.1,
             child: Container(
-              width: size * 0.3,
-              height: size * 0.3,
+              width: size * 0.28,
+              height: size * 0.28,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: Colors.white.withValues(alpha: 0.12),
+                color: brand.AppColors.plum800.withValues(alpha: 0.1),
               ),
             ),
           ),
           Icon(
-            Icons.camera_alt_rounded,
-            color: Colors.white,
-            size: size * 0.42,
+            Icons.auto_awesome_rounded,
+            color: brand.AppColors.plum800,
+            size: size * 0.44,
           ),
         ],
       ),
@@ -275,28 +276,22 @@ class _WarmLogoMark extends StatelessWidget {
 }
 
 // ─────────────────────────────────────────────────────────────────
-// Warm atmospheric background — golden gradient orbs + film motifs
+// Atmospheric background — lightweight, no shaders
 // ─────────────────────────────────────────────────────────────────
 
-class _WarmBackground extends StatelessWidget {
-  final AppColors colors;
-  const _WarmBackground({required this.colors});
+class _AtmosphericBackground extends StatelessWidget {
+  final bool isDark;
+  const _AtmosphericBackground({required this.isDark});
 
   @override
   Widget build(BuildContext context) {
-    return CustomPaint(
-      painter: _WarmMotifPainter(
-        colors: colors,
-        isDark: context.isDark,
-      ),
-    );
+    return CustomPaint(painter: _BgPainter(isDark: isDark));
   }
 }
 
-class _WarmMotifPainter extends CustomPainter {
-  final AppColors colors;
+class _BgPainter extends CustomPainter {
   final bool isDark;
-  const _WarmMotifPainter({required this.colors, required this.isDark});
+  const _BgPainter({required this.isDark});
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -304,61 +299,63 @@ class _WarmMotifPainter extends CustomPainter {
 
     // Subtle memory frame motifs — top-right corner
     final paint = Paint()
-      ..color = (isDark ? Colors.white : Colors.black).withValues(alpha: baseAlpha)
+      ..color = (isDark ? Colors.white : Colors.black).withValues(
+        alpha: baseAlpha,
+      )
       ..style = PaintingStyle.stroke
       ..strokeWidth = 1.0;
 
-    // Top-right frames
-    _drawFrame(canvas, Offset(size.width - 60, 80), 40, -0.1, paint);
-    _drawFrame(canvas, Offset(size.width - 30, 140), 30, 0.08, paint);
+    // Three concentric arcs — top right
+    for (var i = 1; i <= 3; i++) {
+      final r = 80.0 + (i * 55);
+      canvas.drawArc(
+        Rect.fromCenter(
+          center: Offset(size.width, 0),
+          width: r * 2,
+          height: r * 2,
+        ),
+        0.5,
+        1.0,
+        false,
+        paint,
+      );
+    }
 
-    // Bottom-left dots (like film sprocket holes)
+    // Diagonal film strip dots — bottom-left
     final dotPaint = Paint()
-      ..color = (isDark ? Colors.white : Colors.black).withValues(alpha: baseAlpha * 0.8)
+      ..color = (isDark ? Colors.white : Colors.black).withValues(
+        alpha: baseAlpha * 0.8,
+      )
       ..style = PaintingStyle.fill;
 
-    for (var row = 0; row < 3; row++) {
-      for (var col = 0; col < 3; col++) {
+    for (var row = 0; row < 4; row++) {
+      for (var col = 0; col < 4; col++) {
         canvas.drawCircle(
-          Offset(28.0 + (col * 16), size.height - 70 + (row * 16)),
-          2.0,
+          Offset(30.0 + (col * 20), size.height - 80 + (row * 20)),
+          1.5,
           dotPaint,
         );
       }
     }
   }
 
-  void _drawFrame(Canvas canvas, Offset center, double size, double angle, Paint paint) {
-    canvas.save();
-    canvas.translate(center.dx, center.dy);
-    canvas.rotate(angle);
-    canvas.drawRRect(
-      RRect.fromRectAndRadius(
-        Rect.fromCenter(center: Offset.zero, width: size, height: size * 1.2),
-        const Radius.circular(4),
-      ),
-      paint,
-    );
-    canvas.restore();
-  }
-
   @override
-  bool shouldRepaint(_WarmMotifPainter old) => old.isDark != isDark;
+  bool shouldRepaint(_BgPainter old) => old.isDark != isDark;
 }
 
 // ─────────────────────────────────────────────────────────────────
-// Warm pulsing loading dots — amber colored
+// Pulsing loading indicator
 // ─────────────────────────────────────────────────────────────────
 
-class _WarmPulsingDots extends StatefulWidget {
+class _PulsingDots extends StatefulWidget {
   final Color color;
-  const _WarmPulsingDots({required this.color});
+  const _PulsingDots({required this.color});
 
   @override
-  State<_WarmPulsingDots> createState() => _WarmPulsingDotsState();
+  State<_PulsingDots> createState() => _PulsingDotsState();
 }
 
-class _WarmPulsingDotsState extends State<_WarmPulsingDots>
+class _PulsingDotsState extends State<_PulsingDots>
     with SingleTickerProviderStateMixin {
   late AnimationController _ctrl;
   late Animation<double> _anim;
@@ -389,12 +386,13 @@ class _WarmPulsingDotsState extends State<_WarmPulsingDots>
       builder: (_, __) => Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: List.generate(3, (i) {
+          // Stagger each dot
           final phase = (i / 3.0);
           final opacity = ((_anim.value + phase) % 1.0).clamp(0.25, 1.0);
           return Container(
             margin: const EdgeInsets.symmetric(horizontal: 3),
-            width: 5,
-            height: 5,
+            width: 4,
+            height: 4,
             decoration: BoxDecoration(
               color: widget.color.withValues(alpha: opacity),
               shape: BoxShape.circle,

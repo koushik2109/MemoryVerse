@@ -15,20 +15,23 @@ import 'package:memory_verse/features/vaults/presentation/join_vault_dialog.dart
 import 'package:memory_verse/features/vaults/presentation/vault_detail_screen.dart';
 import 'package:memory_verse/core/presentation/widgets/stacked_carousel.dart';
 import 'package:memory_verse/core/presentation/widgets/flow_button.dart';
+import 'package:memory_verse/core/theme/app_design_tokens.dart' as design;
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final c = context.colors;
+    final c = AppColors.dark;
     final profileAsync = ref.watch(userProfileProvider);
     final vaultsAsync = ref.watch(vaultsListProvider);
     final memoriesAsync = ref.watch(memoriesListProvider);
     final timelineAsync = ref.watch(timelineProvider);
 
-    return Scaffold(
-      backgroundColor: Colors.transparent,
+    return Container(
+      decoration: const BoxDecoration(gradient: design.AppGradients.dark),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
       body: RefreshIndicator(
         color: c.primary,
         backgroundColor: c.surface,
@@ -93,6 +96,7 @@ class HomeScreen extends ConsumerWidget {
             const SliverToBoxAdapter(child: SizedBox(height: AppSpacing.s80)),
           ],
         ),
+      ),
       ),
     );
   }
@@ -201,19 +205,7 @@ class HomeScreen extends ConsumerWidget {
         padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s24),
         child: Container(
           width: double.infinity,
-          padding: const EdgeInsets.all(AppSpacing.s24),
-          decoration: BoxDecoration(
-            color: c.surface,
-            borderRadius: BorderRadius.circular(AppRadii.xl),
-            border: Border.all(color: c.border),
-            boxShadow: [
-              BoxShadow(
-                color: c.primary.withValues(alpha: 0.05),
-                blurRadius: 24,
-                offset: const Offset(0, 8),
-              ),
-            ],
-          ),
+          padding: const EdgeInsets.symmetric(vertical: AppSpacing.s16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -238,12 +230,26 @@ class HomeScreen extends ConsumerWidget {
                   height: 1.4,
                 ),
               ),
-              const SizedBox(height: AppSpacing.s24),
+              const SizedBox(height: 48),
               Center(
-                child: FlowButton(
-                  text: 'Create Memory',
-                  isDark: Theme.of(context).brightness == Brightness.dark,
+                child: ElevatedButton(
                   onPressed: () => CreateMemorySheet.show(context),
+                  style: design.AppTheme.primaryButtonOnDark.copyWith(
+                    padding: WidgetStateProperty.all(
+                      const EdgeInsets.symmetric(horizontal: 32, vertical: 20),
+                    ),
+                    textStyle: WidgetStateProperty.all(
+                      design.AppTextStyles.body.copyWith(fontWeight: FontWeight.w600, fontSize: 16),
+                    ),
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const Text('Create Memory'),
+                      const SizedBox(width: 8),
+                      const Icon(Icons.arrow_forward, size: 20),
+                    ],
+                  ),
                 ),
               ),
             ],
@@ -325,7 +331,58 @@ class HomeScreen extends ConsumerWidget {
     AppColors c,
     AsyncValue<List<MemoryModel>> memoriesAsync,
   ) {
-    return SliverToBoxAdapter(child: StackedCarousel());
+    return SliverToBoxAdapter(
+      child: memoriesAsync.when(
+        data: (memories) {
+          if (memories.isEmpty) {
+            final mockItems = const [
+              CarouselItem(
+                title: "Mountain Trek",
+                subtitle: "Scale new heights and embrace the hiker's journey.",
+                imageUrl: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80",
+                badge: "Adventure",
+              ),
+              CarouselItem(
+                title: "River Rafting",
+                subtitle: "Feel the adrenaline rush as you navigate the wild rapids.",
+                imageUrl: "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=600&q=80",
+                badge: "Extreme",
+              ),
+              CarouselItem(
+                title: "Forest Walk",
+                subtitle: "Deep dive into the silence of the ancient woods.",
+                imageUrl: "https://images.unsplash.com/photo-1448375240586-882707db888b?w=600&q=80",
+                badge: "Nature",
+              ),
+              CarouselItem(
+                title: "Azure Beach",
+                subtitle: "Unwind on the crystal clear shores of a tropical paradise.",
+                imageUrl: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80",
+                badge: "Paradise",
+              ),
+            ];
+            return StackedCarousel(items: mockItems, showIndicators: false);
+          }
+          final items = memories.map((m) {
+            String imageUrl = 'https://images.unsplash.com/photo-1551632811-561732d1e306?q=80&w=2070'; // fallback
+            if (m.media.isNotEmpty) {
+              imageUrl = m.media.first.url;
+            }
+            return CarouselItem(
+              title: m.title,
+              subtitle: m.locationName ?? m.description,
+              imageUrl: imageUrl,
+            );
+          }).toList();
+          return StackedCarousel(items: items, showIndicators: false);
+        },
+        loading: () => const SizedBox(
+          height: 240,
+          child: Center(child: CircularProgressIndicator()),
+        ),
+        error: (_, __) => const SizedBox(height: 240),
+      ),
+    );
   }
 
   Widget _buildTimelinePreview(
@@ -518,18 +575,10 @@ class _IconButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        width: 44,
-        height: 44,
-        decoration: BoxDecoration(
-          color: colors.surface,
-          shape: BoxShape.circle,
-          border: Border.all(color: colors.border),
-        ),
-        child: Icon(icon, size: 20, color: colors.text),
-      ),
+    return IconButton(
+      onPressed: onTap,
+      style: design.AppTheme.iconButtonStyle(onDark: true),
+      icon: Icon(icon, size: 20),
     );
   }
 }
@@ -552,23 +601,18 @@ class _QuickActionButton extends StatelessWidget {
       onTap: onTap,
       child: Container(
         width:
-            (MediaQuery.sizeOf(context).width - 48 - 24) / 3, // evenly spaced
-        padding: const EdgeInsets.symmetric(vertical: AppSpacing.s16),
-        decoration: BoxDecoration(
-          color: colors.surface,
-          borderRadius: BorderRadius.circular(AppRadii.lg),
-          border: Border.all(color: colors.border),
-        ),
+            (MediaQuery.sizeOf(context).width - 48 - 16) / 2, // evenly spaced for 2 items
+        padding: const EdgeInsets.symmetric(vertical: AppSpacing.s8),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(icon, size: 24, color: colors.text),
+            Icon(icon, size: 32, color: colors.text),
             const SizedBox(height: AppSpacing.s8),
             Text(
               label,
               style: TextStyle(
                 fontFamily: 'Inter',
-                fontSize: 12,
+                fontSize: 14,
                 fontWeight: FontWeight.w500,
                 color: colors.textMuted,
               ),

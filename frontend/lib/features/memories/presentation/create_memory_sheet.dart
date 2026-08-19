@@ -1,7 +1,10 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:memory_verse/core/design/tokens.dart';
+import 'package:memory_verse/core/theme/app_design_tokens.dart' as design;
 import 'package:memory_verse/core/providers/app_providers.dart';
 import 'package:memory_verse/core/repositories/app_repositories.dart';
 import 'package:memory_verse/core/widgets/buttons.dart';
@@ -17,7 +20,11 @@ class CreateMemorySheet extends ConsumerStatefulWidget {
       context: context,
       isScrollControlled: true,
       backgroundColor: Colors.transparent,
-      builder: (ctx) => CreateMemorySheet(vaultId: vaultId),
+      barrierColor: Colors.black.withValues(alpha: 0.2),
+      builder: (ctx) => Theme(
+        data: Theme.of(ctx).copyWith(extensions: const [AppColors.dark]),
+        child: CreateMemorySheet(vaultId: vaultId),
+      ),
     );
   }
 
@@ -108,16 +115,25 @@ class _CreateMemorySheetState extends ConsumerState<CreateMemorySheet> {
   @override
   Widget build(BuildContext context) {
     final c = context.colors;
-    return Container(
-      padding: EdgeInsets.only(
-        bottom: MediaQuery.of(context).viewInsets.bottom,
+    return ClipRRect(
+      borderRadius: const BorderRadius.vertical(
+        top: Radius.circular(AppRadii.xl),
       ),
-      decoration: BoxDecoration(
-        color: c.surface,
-        borderRadius: const BorderRadius.vertical(
-          top: Radius.circular(AppRadii.xl),
-        ),
-      ),
+      child: BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: 64, sigmaY: 64),
+        child: Container(
+          padding: EdgeInsets.only(
+            bottom: MediaQuery.of(context).viewInsets.bottom,
+          ),
+          decoration: BoxDecoration(
+            color: design.AppColors.plum900.withValues(alpha: 0.5),
+            border: Border(
+              top: BorderSide(
+                color: Colors.white.withValues(alpha: 0.15),
+                width: 1,
+              ),
+            ),
+          ),
       child: SafeArea(
         top: false,
         child: Padding(
@@ -190,9 +206,9 @@ class _CreateMemorySheetState extends ConsumerState<CreateMemorySheet> {
                               horizontal: AppSpacing.s16,
                             ),
                             decoration: BoxDecoration(
-                              color: c.bg,
-                              borderRadius: BorderRadius.circular(AppRadii.md),
-                              border: Border.all(color: c.border),
+                              color: Colors.white.withValues(alpha: 0.06),
+                              borderRadius: BorderRadius.circular(AppRadii.lg),
+                              border: Border.all(color: Colors.white.withValues(alpha: 0.15)),
                             ),
                             child: Row(
                               children: [
@@ -227,6 +243,8 @@ class _CreateMemorySheetState extends ConsumerState<CreateMemorySheet> {
               ),
             ],
           ),
+        ),
+      ),
         ),
       ),
     );

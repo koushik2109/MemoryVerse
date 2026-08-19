@@ -7,8 +7,6 @@ import 'package:memory_verse/core/providers/auth_provider.dart';
 import 'package:memory_verse/core/utils/auth_error_handler.dart';
 import 'package:memory_verse/features/auth/presentation/auth_widgets.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:memory_verse/core/presentation/widgets/aurora_background.dart';
-
 class OtpVerificationScreen extends ConsumerStatefulWidget {
   final String email;
   const OtpVerificationScreen({super.key, required this.email});
@@ -147,7 +145,11 @@ class _OtpVerificationScreenState extends ConsumerState<OtpVerificationScreen>
       backgroundColor: Colors.transparent,
       body: Stack(
         children: [
-          const AuroraBackground(isDark: true),
+          const Positioned.fill(
+            child: DecoratedBox(
+              decoration: BoxDecoration(gradient: AppGradients.dark),
+            ),
+          ),
           SafeArea(
             child: FadeTransition(
               opacity: _fa,

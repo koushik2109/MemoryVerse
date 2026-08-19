@@ -5,8 +5,6 @@ import 'package:memory_verse/core/theme/app_design_tokens.dart';
 import 'package:memory_verse/core/providers/auth_provider.dart';
 import 'package:memory_verse/core/utils/auth_error_handler.dart';
 import 'package:memory_verse/features/auth/presentation/auth_widgets.dart';
-import 'package:memory_verse/core/presentation/widgets/aurora_background.dart';
-
 class ForgotPasswordScreen extends ConsumerStatefulWidget {
   const ForgotPasswordScreen({super.key});
   @override
@@ -79,7 +77,11 @@ class _ForgotPasswordScreenState extends ConsumerState<ForgotPasswordScreen>
       backgroundColor: Colors.transparent,
       body: Stack(
         children: [
-          const AuroraBackground(isDark: true),
+          const Positioned.fill(
+            child: DecoratedBox(
+              decoration: BoxDecoration(gradient: AppGradients.dark),
+            ),
+          ),
           SafeArea(
             child: FadeTransition(
               opacity: _fa,

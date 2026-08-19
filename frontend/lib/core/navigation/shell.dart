@@ -4,10 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import 'package:memory_verse/core/design/tokens.dart';
+import 'package:memory_verse/core/theme/app_design_tokens.dart';
 import 'package:memory_verse/features/memories/presentation/create_memory_sheet.dart';
 import 'package:memory_verse/features/memories/presentation/upload_progress_banner.dart';
-
-import 'package:memory_verse/core/presentation/widgets/pixelated_mesh_background.dart';
 
 class AppShell extends StatelessWidget {
   const AppShell({super.key, required this.shell});
@@ -19,7 +18,17 @@ class AppShell extends StatelessWidget {
       backgroundColor: Colors.black,
       body: Stack(
         children: [
-          const PixelatedMeshBackground(),
+          // Aurora theme background
+          Positioned.fill(
+            child: DecoratedBox(
+              decoration: BoxDecoration(gradient: AppGradients.dark),
+            ),
+          ),
+          Positioned.fill(
+            child: DecoratedBox(
+              decoration: BoxDecoration(gradient: AppGradients.scrim),
+            ),
+          ),
           Column(
             children: [
               Expanded(child: shell),

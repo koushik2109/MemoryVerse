@@ -1,3 +1,4 @@
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -9,7 +10,7 @@ import 'package:memory_verse/core/providers/theme_provider.dart';
 import 'package:memory_verse/core/repositories/app_repositories.dart';
 import 'package:memory_verse/core/widgets/states.dart';
 import 'package:memory_verse/core/widgets/media.dart';
-
+import 'package:memory_verse/core/theme/app_design_tokens.dart' as design;
 class ProfileScreen extends ConsumerWidget {
   const ProfileScreen({super.key});
 
@@ -30,17 +31,13 @@ class ProfileScreen extends ConsumerWidget {
               // ── Profile Header ────────────────────────
               profileAsync.when(
                 loading: () => const LoadingState(),
-                error: (_, __) => Container(
-                  decoration: BoxDecoration(
-                    color: c.surface,
-                    borderRadius: BorderRadius.circular(AppRadii.xl),
-                    border: Border.all(color: c.border),
-                  ),
-                  child: ErrorState(
+                error: (err, stack) {
+                  debugPrint('Failed to load profileProvider: $err\n$stack');
+                  return ErrorState(
                     message: 'Failed to load profile',
                     onRetry: () => ref.invalidate(userProfileProvider),
-                  ),
-                ),
+                  );
+                },
                 data: (user) => Column(
                   children: [
                     Avatar(url: user.avatarUrl, name: user.fullName, size: 80),
@@ -262,20 +259,8 @@ class _SettingsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final c = context.colors;
-    return Container(
-      decoration: BoxDecoration(
-        color: c.surface,
-        borderRadius: BorderRadius.circular(AppRadii.md),
-        border: Border.all(color: c.border),
-      ),
-      child: Column(
-        children: List.generate(children.length * 2 - 1, (i) {
-          if (i.isOdd)
-            return Divider(height: 0, color: c.border, indent: AppSpacing.s48);
-          return children[i ~/ 2];
-        }),
-      ),
+    return Column(
+      children: children,
     );
   }
 }
@@ -315,8 +300,12 @@ class _SettingsTile extends StatelessWidget {
             Expanded(
               child: Text(
                 title,
-                style: Theme.of(context).textTheme.bodyMedium
-                    ?.copyWith(color: color),
+                style: TextStyle(
+                  fontFamily: 'Inter',
+                  fontSize: 15,
+                  fontWeight: FontWeight.w500,
+                  color: color,
+                ),
               ),
             ),
             if (trailing != null) trailing!,

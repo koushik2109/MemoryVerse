@@ -7,8 +7,6 @@ import 'package:memory_verse/core/providers/auth_provider.dart';
 import 'package:memory_verse/core/utils/auth_error_handler.dart';
 import 'package:memory_verse/features/auth/presentation/auth_widgets.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:memory_verse/core/presentation/widgets/aurora_background.dart';
-import 'package:memory_verse/core/presentation/widgets/flow_button.dart';
 
 class SignUpScreen extends ConsumerStatefulWidget {
   const SignUpScreen({super.key});
@@ -134,9 +132,19 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.transparent,
-      body: Stack(
-        children: [
-          const AuroraBackground(isDark: true),
+      body: SizedBox.expand(
+        child: Stack(
+          children: [
+            const Positioned.fill(
+              child: DecoratedBox(
+                decoration: BoxDecoration(gradient: AppGradients.dark),
+              ),
+            ),
+            const Positioned.fill(
+              child: DecoratedBox(
+                decoration: BoxDecoration(gradient: AppGradients.scrim),
+              ),
+            ),
           SafeArea(
             child: FadeTransition(
               opacity: _fa,
@@ -155,7 +163,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen>
                         const AuthLogo(),
                       ],
                     ),
-                    const SizedBox(height: AppSpacing.s24),
+                    const SizedBox(height: 64),
                     const Text(
                       'Create your\naccount.',
                       style: TextStyle(
@@ -306,27 +314,30 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen>
                     AuthErrorBanner(error: _error),
                     const SizedBox(height: AppSpacing.s24),
                     Center(
-                      child: FlowButton(
-                        text: _isSubmitting ? 'Creating...' : 'Create Account',
-                        isDark: true,
+                      child: ElevatedButton(
+                        style: AppTheme.primaryButtonOnDark,
                         onPressed: _signUp,
+                        child: Text(_isSubmitting ? 'Creating...' : 'Create Account'),
                       ),
                     ),
                     const SizedBox(height: AppSpacing.s20),
                     const AuthOrDivider(),
                     const SizedBox(height: AppSpacing.s16),
 
-                    AuthSocialButton(
-                      label: 'Continue with Google',
-                      icon: const GoogleIcon(),
-                      onPressed: _signInWithGoogle,
+                    Center(
+                      child: OutlinedButton.icon(
+                        onPressed: _signInWithGoogle,
+                        style: AppTheme.secondaryButtonOnDark,
+                        icon: const GoogleIcon(),
+                        label: const Text('Continue with Google'),
+                      ),
                     ),
                     const SizedBox(height: AppSpacing.s24),
                     Center(
                       child: AuthNavLink(
                         question: 'Already have an account?',
                         action: 'Sign in',
-                        onTap: () => context.pop(),
+                        onTap: () => context.pushReplacement(Routes.signIn),
                       ),
                     ),
                     const SizedBox(height: AppSpacing.s16),
@@ -334,8 +345,9 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen>
                 ),
               ),
             ),
-          ),
-        ],
+            ),
+          ],
+        ),
       ),
     );
   }

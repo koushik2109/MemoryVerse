@@ -1,6 +1,7 @@
 // Shared auth UI primitives — imported by Sign Up, Forgot Password, OTP screens.
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:memory_verse/core/theme/app_design_tokens.dart';
 
 class AuthLogo extends StatelessWidget {
@@ -325,7 +326,13 @@ class AuthBackButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      onPressed: onTap,
+      onPressed: () {
+        if (context.canPop()) {
+          onTap();
+        } else {
+          context.go('/landing');
+        }
+      },
       style: AppTheme.iconButtonStyle(onDark: true),
       icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 16),
     );

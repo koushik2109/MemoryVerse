@@ -20,3 +20,9 @@ Thumbs.db
 .env
 backend/.env
 frontend/.env
+
+# AI Agents
+.agents/
+
+# Flutter desktop ephemeral files
+ephemeral/

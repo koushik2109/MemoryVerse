@@ -6,8 +6,6 @@ import 'package:memory_verse/core/navigation/router.dart';
 import 'package:memory_verse/core/providers/auth_provider.dart';
 import 'package:memory_verse/core/utils/auth_error_handler.dart';
 import 'package:memory_verse/features/auth/presentation/auth_widgets.dart';
-import 'package:memory_verse/core/presentation/widgets/aurora_background.dart';
-import 'package:memory_verse/core/presentation/widgets/flow_button.dart';
 
 class SignInScreen extends ConsumerStatefulWidget {
   const SignInScreen({super.key});
@@ -111,9 +109,19 @@ class _SignInScreenState extends ConsumerState<SignInScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.transparent,
-      body: Stack(
-        children: [
-          const AuroraBackground(isDark: true),
+      body: SizedBox.expand(
+        child: Stack(
+          children: [
+            const Positioned.fill(
+              child: DecoratedBox(
+                decoration: BoxDecoration(gradient: AppGradients.dark),
+              ),
+            ),
+            const Positioned.fill(
+              child: DecoratedBox(
+                decoration: BoxDecoration(gradient: AppGradients.scrim),
+              ),
+            ),
           SafeArea(
             child: FadeTransition(
               opacity: _fadeAnim,
@@ -217,10 +225,10 @@ class _SignInScreenState extends ConsumerState<SignInScreen>
                       const SizedBox(height: AppSpacing.s20),
 
                       Center(
-                        child: FlowButton(
-                          text: _isSubmitting ? 'Signing In...' : 'Sign In',
-                          isDark: true,
+                        child: ElevatedButton(
+                          style: AppTheme.primaryButtonOnDark,
                           onPressed: _signIn,
+                          child: Text(_isSubmitting ? 'Signing In...' : 'Sign In'),
                         ),
                       ),
 
@@ -228,10 +236,13 @@ class _SignInScreenState extends ConsumerState<SignInScreen>
                       const AuthOrDivider(),
                       const SizedBox(height: AppSpacing.s20),
 
-                      AuthSocialButton(
-                        label: 'Continue with Google',
-                        icon: const GoogleIcon(),
-                        onPressed: _signInWithGoogle,
+                      Center(
+                        child: OutlinedButton.icon(
+                          onPressed: _signInWithGoogle,
+                          style: AppTheme.secondaryButtonOnDark,
+                          icon: const GoogleIcon(),
+                          label: const Text('Continue with Google'),
+                        ),
                       ),
 
                       const SizedBox(height: AppSpacing.s40),
@@ -240,7 +251,7 @@ class _SignInScreenState extends ConsumerState<SignInScreen>
                         child: AuthNavLink(
                           question: "Don't have an account?",
                           action: 'Create one',
-                          onTap: () => context.push(Routes.signUp),
+                          onTap: () => context.pushReplacement(Routes.signUp),
                         ),
                       ),
 
@@ -251,7 +262,8 @@ class _SignInScreenState extends ConsumerState<SignInScreen>
               ),
             ),
           ),
-        ],
+          ],
+        ),
       ),
     );
   }

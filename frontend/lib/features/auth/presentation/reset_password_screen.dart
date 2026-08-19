@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:memory_verse/core/design/tokens.dart';
+import 'package:memory_verse/core/theme/app_design_tokens.dart';
 import 'package:memory_verse/core/navigation/router.dart';
 import 'package:memory_verse/core/providers/auth_provider.dart';
 import 'package:memory_verse/core/utils/auth_error_handler.dart';
@@ -90,7 +90,7 @@ class _ResetPasswordScreenState extends ConsumerState<ResetPasswordScreen>
           content: const Text('Password reset successfully. Please log in.'),
           behavior: SnackBarBehavior.floating,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(AppRadii.md),
+            borderRadius: BorderRadius.circular(AppRadius.md),
           ),
         ),
       );
@@ -100,11 +100,17 @@ class _ResetPasswordScreenState extends ConsumerState<ResetPasswordScreen>
 
   @override
   Widget build(BuildContext context) {
-    final c = context.colors;
     return Scaffold(
-      backgroundColor: c.bg,
-      body: SafeArea(
-        child: FadeTransition(
+      backgroundColor: Colors.transparent,
+      body: Stack(
+        children: [
+          const Positioned.fill(
+            child: DecoratedBox(
+              decoration: BoxDecoration(gradient: AppGradients.dark),
+            ),
+          ),
+          SafeArea(
+            child: FadeTransition(
           opacity: _fa,
           child: SingleChildScrollView(
             padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s24),
@@ -112,12 +118,12 @@ class _ResetPasswordScreenState extends ConsumerState<ResetPasswordScreen>
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: AppSpacing.s56),
+                const SizedBox(height: AppSpacing.s48),
                 Row(
                   children: [
                     AuthBackButton(onTap: () => context.pop()),
                     const Spacer(),
-                    AuthLogo(),
+                    const AuthLogo(),
                   ],
                 ),
                 const SizedBox(height: AppSpacing.s40),
@@ -129,24 +135,24 @@ class _ResetPasswordScreenState extends ConsumerState<ResetPasswordScreen>
                     fontWeight: FontWeight.w700,
                     letterSpacing: -1.2,
                     height: 1.1,
-                    color: c.text,
+                    color: Colors.white,
                   ),
                 ),
-                const SizedBox(height: AppSpacing.s10),
+                const SizedBox(height: AppSpacing.s12),
                 Text.rich(
                   TextSpan(
                     style: TextStyle(
                       fontFamily: 'Inter',
                       fontSize: 14,
-                      color: c.textMuted,
+                      color: Colors.white70,
                       height: 1.5,
                     ),
                     children: [
                       const TextSpan(text: 'We sent a 6-digit code to '),
                       TextSpan(
                         text: widget.email,
-                        style: TextStyle(
-                          color: c.text,
+                        style: const TextStyle(
+                          color: Colors.white,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
@@ -156,7 +162,7 @@ class _ResetPasswordScreenState extends ConsumerState<ResetPasswordScreen>
                     ],
                   ),
                 ),
-                const SizedBox(height: AppSpacing.s36),
+                const SizedBox(height: AppSpacing.s32),
 
                 AuthField(
                   label: '6-Digit Reset Code',
@@ -185,7 +191,7 @@ class _ResetPasswordScreenState extends ConsumerState<ResetPasswordScreen>
                           ? Icons.visibility_off_outlined
                           : Icons.visibility_outlined,
                       size: 20,
-                      color: c.textMuted,
+                      color: AppColors.onDarkMuted,
                     ),
                     onPressed: () => setState(() => _showPw = !_showPw),
                   ),
@@ -203,6 +209,8 @@ class _ResetPasswordScreenState extends ConsumerState<ResetPasswordScreen>
             ),
           ),
         ),
+      ),
+        ],
       ),
     );
   }

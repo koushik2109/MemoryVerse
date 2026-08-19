@@ -122,6 +122,12 @@ class Avatar extends StatelessWidget {
     this.hasBorder = false,
   });
 
+  bool _isLoadableUrl(String? value) {
+    if (value == null || value.trim().isEmpty) return false;
+    final uri = Uri.tryParse(value);
+    return uri != null && (uri.scheme == 'http' || uri.scheme == 'https') && uri.host.isNotEmpty;
+  }
+
   @override
   Widget build(BuildContext context) {
     final c = context.colors;
@@ -130,11 +136,14 @@ class Avatar extends StatelessWidget {
         : 'U';
 
     Widget child;
-    if (url != null && url!.isNotEmpty) {
+    if (_isLoadableUrl(url)) {
       child = Image.network(
         url!,
         fit: BoxFit.cover,
-        errorBuilder: (_, __, ___) => _fallback(c, initial),
+        errorBuilder: (context, error, stackTrace) {
+          debugPrint('Avatar Image.network failed to load: $url. Error: $error');
+          return _fallback(c, initial);
+        },
       );
     } else {
       child = _fallback(c, initial);
