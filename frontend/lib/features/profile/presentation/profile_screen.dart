@@ -153,7 +153,7 @@ class ProfileScreen extends ConsumerWidget {
                           backgroundColor: ctx.colors.surface,
                           title: const Text('Help & Support'),
                           content: const Text(
-                            'For assistance, please email support@memoryverse.app',
+                            'For assistance, please email memoryversekmit@gmail.com',
                           ),
                           actions: [
                             TextButton(
@@ -169,24 +169,38 @@ class ProfileScreen extends ConsumerWidget {
                     icon: Icons.info_outline_rounded,
                     title: 'About MemoryVerse',
                     onTap: () {
-                      showAboutDialog(
+                      showDialog(
                         context: context,
-                        applicationName: 'MemoryVerse',
-                        applicationVersion: '1.0.0',
-                        applicationLegalese:
-                            '© 2026 Koushik. All rights reserved.',
-                        applicationIcon: Container(
-                          width: 48,
-                          height: 48,
-                          decoration: BoxDecoration(
-                            color: c.primary,
-                            borderRadius: BorderRadius.circular(AppRadii.md),
+                        builder: (ctx) => AlertDialog(
+                          backgroundColor: ctx.colors.surface,
+                          title: Row(
+                            children: [
+                              Container(
+                                width: 32,
+                                height: 32,
+                                decoration: BoxDecoration(
+                                  color: ctx.colors.primary,
+                                  borderRadius: BorderRadius.circular(AppRadii.sm),
+                                ),
+                                child: const Icon(
+                                  Icons.auto_awesome_rounded,
+                                  color: Colors.white,
+                                  size: 16,
+                                ),
+                              ),
+                              const SizedBox(width: AppSpacing.s12),
+                              const Text('MemoryVerse'),
+                            ],
                           ),
-                          child: const Icon(
-                            Icons.auto_awesome_rounded,
-                            color: Colors.white,
-                            size: 24,
+                          content: const Text(
+                            'Version 1.0.0\n\n© 2026 Koushik. All rights reserved.',
                           ),
+                          actions: [
+                            TextButton(
+                              onPressed: () => Navigator.pop(ctx),
+                              child: const Text('Close'),
+                            ),
+                          ],
                         ),
                       );
                     },
