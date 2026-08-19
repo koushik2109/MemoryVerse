@@ -183,7 +183,7 @@ class _CreateMemorySheetState extends ConsumerState<CreateMemorySheet> {
                   Expanded(
                     child: AppTextField(
                       label: 'Location (optional)',
-                      hint: 'e.g. Paris',
+                      hint: 'e.g. Goa',
                       controller: _locCtrl,
                     ),
                   ),
