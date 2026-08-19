@@ -117,16 +117,6 @@ class ProfileScreen extends ConsumerWidget {
                     },
                   ),
                   _SettingsTile(
-                    icon: Icons.palette_outlined,
-                    title: 'Appearance',
-                    trailing: Text(
-                      context.isDark ? 'Dark' : 'Light',
-                      style: Theme.of(context).textTheme.bodySmall
-                          ?.copyWith(color: c.textMuted),
-                    ),
-                    onTap: () => ref.read(themeModeProvider.notifier).toggle(),
-                  ),
-                  _SettingsTile(
                     icon: Icons.notifications_outlined,
                     title: 'Notifications',
                     onTap: () => context.push(Routes.notifications),
