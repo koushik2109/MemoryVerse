@@ -1,144 +1,121 @@
-#!/usr/bin/env bash
-# ============================================================
-#  MemoryVerse — Unified Development Launcher
-#  Opens two separate terminal windows:
-#    • Terminal 1 → Backend  (FastAPI / uvicorn)
-#    • Terminal 2 → Frontend (Flutter)
-#
-#  Usage:  ./dev.sh
-#          ./dev.sh --backend-only
-#          ./dev.sh --frontend-only
-# ============================================================
+#!/bin/bash
 
-set -euo pipefail
+# =================================================================
+#       MemoryVerse Dev Launcher (macOS / Linux)
+# =================================================================
+
+RUN_BACKEND=true
+RUN_FRONTEND=true
+
+# Parse flags
+for arg in "$@"; do
+  case $arg in
+    --backend-only|-b)
+      RUN_FRONTEND=false
+      shift
+      ;;
+    --frontend-only|-f)
+      RUN_BACKEND=false
+      shift
+      ;;
+  esac
+done
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 BACKEND_DIR="$SCRIPT_DIR/backend"
 FRONTEND_DIR="$SCRIPT_DIR/frontend"
 VENV_DIR="$SCRIPT_DIR/.venv"
 
-# ── Colour helpers ────────────────────────────────────────
-GREEN='\033[0;32m'
-YELLOW='\033[1;33m'
-RED='\033[0;31m'
-NC='\033[0m'
-ok()   { echo -e "${GREEN}✔${NC}  $*"; }
-warn() { echo -e "${YELLOW}⚠${NC}  $*"; }
-err()  { echo -e "${RED}✘${NC}  $*"; exit 1; }
+# Helper print functions
+print_ok() { echo -e "\033[0;32m[OK]  $1\033[0m"; }
+print_warn() { echo -e "\033[0;33m[!]   $1\033[0m"; }
+print_err() { echo -e "\033[0;31m[ERR] $1\033[0m"; exit 1; }
 
-# ── Argument parsing ──────────────────────────────────────
-RUN_BACKEND=true
-RUN_FRONTEND=true
-for arg in "$@"; do
-  case "$arg" in
-    --backend-only)  RUN_FRONTEND=false ;;
-    --frontend-only) RUN_BACKEND=false  ;;
-    --help|-h)
-      echo "Usage: $0 [--backend-only | --frontend-only]"
-      exit 0
-      ;;
-  esac
-done
-
-# ── Pre-flight checks ─────────────────────────────────────
 echo ""
-echo "╔══════════════════════════════════════╗"
-echo "║      MemoryVerse Dev Launcher        ║"
-echo "╚══════════════════════════════════════╝"
+echo "========================================"
+echo "       MemoryVerse Dev Launcher         "
+echo "========================================"
 echo ""
 
-if $RUN_BACKEND; then
-  [[ -d "$BACKEND_DIR" ]] || err "Backend directory not found: $BACKEND_DIR"
-  
-  warn "Checking for existing backend processes..."
-  if command -v lsof >/dev/null 2>&1; then
-    PIDS=$(lsof -t -i:8000 || true)
-    if [ -n "$PIDS" ]; then
-      warn "Killing existing process on port 8000 (PID: $PIDS)..."
-      kill -9 $PIDS 2>/dev/null || true
-    fi
-  elif command -v fuser >/dev/null 2>&1; then
-    if fuser 8000/tcp >/dev/null 2>&1; then
-      warn "Killing existing process on port 8000..."
-      fuser -k -9 8000/tcp >/dev/null 2>&1 || true
-    fi
-  else
-    pkill -f "uvicorn app.main:app" >/dev/null 2>&1 || true
+# Backend Check
+if [ "$RUN_BACKEND" = true ]; then
+  if [ ! -d "$BACKEND_DIR" ]; then
+    print_err "Backend directory not found: $BACKEND_DIR"
   fi
 
-  if [[ ! -d "$VENV_DIR" ]]; then
-    warn "Virtual environment not found at $VENV_DIR — creating one..."
-    python3 -m venv "$VENV_DIR"
-    "$VENV_DIR/bin/python" -m ensurepip --quiet
-    "$VENV_DIR/bin/python" -m pip install -q --upgrade pip
-    "$VENV_DIR/bin/python" -m pip install -q -r "$BACKEND_DIR/requirements.txt"
-    ok "Virtual environment created and dependencies installed."
+  # Port 8000 check
+  print_warn "Checking for existing backend processes on port 8000..."
+  PIDS=$(lsof -t -i:8000 2>/dev/null)
+  if [ -n "$PIDS" ]; then
+    print_warn "Killing existing process on port 8000 (PID: $PIDS)..."
+    echo "$PIDS" | xargs kill -9 2>/dev/null
+  fi
+
+  # Python virtual environment check
+  if [ ! -d "$VENV_DIR" ]; then
+    print_warn "Virtual environment not found at $VENV_DIR -- creating one..."
+    python3 -m venv "$VENV_DIR" || print_err "Failed to create virtual environment. Ensure python3 is installed."
+    "$VENV_DIR/bin/pip" install --upgrade pip
+    "$VENV_DIR/bin/pip" install -r "$BACKEND_DIR/requirements.txt"
+    print_ok "Virtual environment created and dependencies installed."
   else
-    ok "Virtual environment found."
+    print_ok "Virtual environment found."
   fi
 fi
 
-if $RUN_FRONTEND; then
-  command -v flutter >/dev/null 2>&1 || err "Flutter is not in PATH. Install from https://flutter.dev"
-  ok "Flutter found: $(flutter --version --machine 2>/dev/null | python3 -c 'import sys,json; d=json.load(sys.stdin); print(d.get(\"frameworkVersion","?"))' 2>/dev/null || flutter --version | head -1)"
+# Frontend Check
+if [ "$RUN_FRONTEND" = true ]; then
+  if ! command -v flutter &> /dev/null; then
+    print_err "Flutter is not in PATH. Install from https://flutter.dev"
+  fi
+  FLUTTER_VER=$(flutter --version | head -n 1)
+  print_ok "Flutter found: $FLUTTER_VER"
 fi
 
-# ── Backend command ───────────────────────────────────────
-BACKEND_CMD="cd '$BACKEND_DIR' && source '$VENV_DIR/bin/activate' && echo '' && echo '  🚀  MemoryVerse Backend starting...' && echo '' && PYTHONPATH=. python -m uvicorn app.main:app --reload --host 0.0.0.0 --port 8000"
+# Launching terminals (macOS specific terminal launcher, falls back to background jobs on Linux)
+IS_MAC=false
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  IS_MAC=true
+fi
 
-# ── Frontend command ──────────────────────────────────────
-FRONTEND_CMD="cd '$FRONTEND_DIR' && echo '' && echo '  📱  MemoryVerse Flutter starting...' && echo '' && flutter run"
-
-# ── Terminal emulator detection + launch ─────────────────
-launch_in_terminal() {
-  local title="$1"
-  local cmd="$2"
-
-  # Try common terminal emulators in order of preference
-  if command -v gnome-terminal &>/dev/null; then
-    gnome-terminal --title="$title" -- bash -c "$cmd; exec bash" &
-  elif command -v konsole &>/dev/null; then
-    konsole --new-tab -p "tabtitle=$title" -e bash -c "$cmd; exec bash" &
-  elif command -v xterm &>/dev/null; then
-    xterm -title "$title" -e bash -c "$cmd; exec bash" &
-  elif command -v tilix &>/dev/null; then
-    tilix -a session-add-right --title="$title" -e bash -c "$cmd; exec bash" &
-  elif command -v x-terminal-emulator &>/dev/null; then
-    x-terminal-emulator -title "$title" -e bash -c "$cmd; exec bash" &
+if [ "$RUN_BACKEND" = true ]; then
+  print_ok "Starting Backend..."
+  if [ "$IS_MAC" = true ]; then
+    # Open in new macOS Terminal window
+    osascript -e "tell application \"Terminal\" to do script \"cd '$BACKEND_DIR' && source '$VENV_DIR/bin/activate' && PYTHONPATH=. python3 -m uvicorn app.main:app --reload --host 0.0.0.0 --port 8000\""
   else
-    # Fallback: run in background processes in same terminal
-    warn "No graphical terminal found. Running both in background."
-    echo "  Backend log → /tmp/mv_backend.log"
-    echo "  Frontend log → /tmp/mv_frontend.log"
-    bash -c "$cmd" > /tmp/mv_backend.log 2>&1 &
-    return
+    # Fallback/Linux: run in background and output to log
+    cd "$BACKEND_DIR" && source "$VENV_DIR/bin/activate" && PYTHONPATH=. python3 -m uvicorn app.main:app --reload --host 0.0.0.0 --port 8000 > "$SCRIPT_DIR/backend.log" 2>&1 &
+    print_warn "Backend running in background. Logs: backend.log"
   fi
-}
+fi
 
-# ── Launch ────────────────────────────────────────────────
-if $RUN_BACKEND && $RUN_FRONTEND; then
-  ok "Opening Backend terminal..."
-  launch_in_terminal "MemoryVerse — Backend" "$BACKEND_CMD"
-  sleep 1  # small delay so windows don't stack perfectly
-  ok "Opening Frontend terminal..."
-  launch_in_terminal "MemoryVerse — Frontend" "$FRONTEND_CMD"
-  echo ""
-  ok "Both services launching!"
-  echo ""
-  echo "  📡  Backend  → http://localhost:8000"
-  echo "  📡  API docs → http://localhost:8000/docs"
-  echo "  📱  Frontend → check the Flutter terminal for device selection"
-  echo ""
-elif $RUN_BACKEND; then
-  ok "Opening Backend terminal..."
-  launch_in_terminal "MemoryVerse — Backend" "$BACKEND_CMD"
-  echo "  📡  Backend  → http://localhost:8000"
-elif $RUN_FRONTEND; then
-  ok "Opening Frontend terminal..."
-  launch_in_terminal "MemoryVerse — Frontend" "$FRONTEND_CMD"
-  echo "  📱  Frontend → check the Flutter terminal"
+if [ "$RUN_BACKEND" = true ] && [ "$RUN_FRONTEND" = true ]; then
+  sleep 1
+fi
+
+if [ "$RUN_FRONTEND" = true ]; then
+  print_ok "Starting Frontend..."
+  if [ "$IS_MAC" = true ]; then
+    # Open in new macOS Terminal window
+    osascript -e "tell application \"Terminal\" to do script \"cd '$FRONTEND_DIR' && flutter run\""
+  else
+    # Fallback/Linux: run in background and output to log
+    cd "$FRONTEND_DIR" && flutter run > "$SCRIPT_DIR/frontend.log" 2>&1 &
+    print_warn "Frontend running in background. Logs: frontend.log"
+  fi
 fi
 
 echo ""
-echo "  Press Ctrl+C in each terminal window to stop."
+if [ "$RUN_BACKEND" = true ] && [ "$RUN_FRONTEND" = true ]; then
+  print_ok "Both services launching!"
+  echo ""
+  echo "  API Backend -> http://localhost:8000"
+  echo "  API Docs    -> http://localhost:8000/docs"
+  echo "  Frontend    -> check the Terminal window for device selection (supporting iOS/Simulator)"
+elif [ "$RUN_BACKEND" = true ]; then
+  echo "  API Backend -> http://localhost:8000"
+elif [ "$RUN_FRONTEND" = true ]; then
+  echo "  Frontend    -> check the Terminal window"
+fi
 echo ""
