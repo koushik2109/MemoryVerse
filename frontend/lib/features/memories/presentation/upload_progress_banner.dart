@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:memory_verse/core/design/tokens.dart';
 import 'package:memory_verse/core/providers/upload_controller.dart';
+import 'package:memory_verse/core/theme/app_design_tokens.dart' as adt;
 
 class UploadProgressBanner extends ConsumerWidget {
   const UploadProgressBanner({super.key});
@@ -70,7 +71,7 @@ class UploadProgressBanner extends ConsumerWidget {
           border: Border(bottom: BorderSide(color: c.border, width: 0.5)),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withValues(alpha: 0.1),
+              color: adt.AppColors.plum900.withValues(alpha: 0.1),
               blurRadius: 4,
               offset: const Offset(0, 2),
             ),

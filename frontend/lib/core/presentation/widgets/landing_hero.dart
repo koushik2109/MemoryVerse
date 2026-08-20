@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../theme/app_design_tokens.dart';
 import 'stacked_carousel.dart';
+import 'package:memory_verse/core/theme/app_design_tokens.dart' as adt;
 
 class LandingStat {
   final String value;
@@ -44,11 +45,11 @@ class LandingHero extends StatelessWidget {
         child: Stack(
           children: [
             // Same constant the auth screens use — not a new gradient.
-            Positioned.fill(
+            const Positioned.fill(
               child: DecoratedBox(decoration: BoxDecoration(gradient: AppGradients.dark)),
             ),
             // Mandatory on the dark scheme — do not remove.
-            Positioned.fill(
+            const Positioned.fill(
               child: DecoratedBox(decoration: BoxDecoration(gradient: AppGradients.scrim)),
             ),
             SafeArea(
@@ -81,7 +82,7 @@ class LandingHero extends StatelessWidget {
           width: 32,
           height: 32,
           decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.15),
+            color: adt.AppColors.onDarkPrimary.withValues(alpha: 0.15),
             borderRadius: BorderRadius.circular(AppRadius.sm),
           ),
           child: const Icon(Icons.auto_awesome, size: 18, color: AppColors.onDarkPrimary),

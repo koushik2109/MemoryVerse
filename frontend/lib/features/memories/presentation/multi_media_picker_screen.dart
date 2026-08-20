@@ -6,6 +6,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:memory_verse/core/design/tokens.dart';
 import 'package:memory_verse/core/providers/upload_controller.dart';
+import 'package:memory_verse/core/theme/app_design_tokens.dart' as adt;
 
 class MultiMediaPickerScreen extends ConsumerStatefulWidget {
   final String memoryId;
@@ -126,7 +127,7 @@ class _MultiMediaPickerScreenState
                 top: AppSpacing.s32,
                 right: AppSpacing.s16,
                 child: IconButton(
-                  icon: const Icon(Icons.close, color: Colors.white, size: 32),
+                  icon: const Icon(Icons.close, color: adt.AppColors.onDarkPrimary, size: 32),
                   onPressed: () => Navigator.pop(ctx),
                 ),
               ),
@@ -149,7 +150,6 @@ class _MultiMediaPickerScreenState
         title: Text(
           'Select Media',
           style: TextStyle(
-            fontFamily: 'Inter',
             fontSize: 18,
             fontWeight: FontWeight.w600,
             color: c.text,
@@ -302,10 +302,10 @@ class _MultiMediaPickerScreenState
                                   children: [
                                     if (isVideo)
                                       Container(
-                                        color: Colors.black87,
+                                        color: adt.AppColors.plum900.withValues(alpha: 0.87),
                                         child: const Icon(
                                           Icons.movie_outlined,
-                                          color: Colors.white,
+                                          color: adt.AppColors.onDarkPrimary,
                                         ),
                                       )
                                     else
@@ -313,13 +313,13 @@ class _MultiMediaPickerScreenState
 
                                     if (isVideo)
                                       Container(
-                                        color: Colors.black.withValues(
+                                        color: adt.AppColors.plum900.withValues(
                                           alpha: 0.3,
                                         ),
                                         child: const Center(
                                           child: Icon(
                                             Icons.play_arrow_rounded,
-                                            color: Colors.white,
+                                            color: adt.AppColors.onDarkPrimary,
                                           ),
                                         ),
                                       ),

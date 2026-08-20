@@ -164,7 +164,7 @@ class AppTheme {
   static final secondaryButtonOnLight = OutlinedButton.styleFrom(
     backgroundColor: Colors.transparent,
     foregroundColor: AppColors.plum800,
-    side: BorderSide(color: AppColors.plum800.withOpacity(0.25), width: 0.5),
+    side: BorderSide(color: AppColors.plum800.withValues(alpha: 0.25), width: 0.5),
     minimumSize: const Size(0, 44),
     padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s24),
     shape: RoundedRectangleBorder(
@@ -177,7 +177,7 @@ class AppTheme {
     return IconButton.styleFrom(
       backgroundColor: onDark
           ? const Color(0x26FFFFFF)
-          : AppColors.plum800.withOpacity(0.08),
+          : AppColors.plum800.withValues(alpha: 0.08),
       foregroundColor: onDark ? Colors.white : AppColors.plum800,
       fixedSize: const Size(36, 36),
       shape: const CircleBorder(),

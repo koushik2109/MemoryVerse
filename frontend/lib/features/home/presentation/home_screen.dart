@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:intl/intl.dart';
 import 'package:memory_verse/contracts/models.dart';
 import 'package:memory_verse/core/design/tokens.dart';
 import 'package:memory_verse/core/navigation/router.dart';
@@ -9,12 +8,10 @@ import 'package:memory_verse/core/providers/app_providers.dart';
 import 'package:memory_verse/core/widgets/media.dart';
 import 'package:memory_verse/core/widgets/states.dart';
 import 'package:memory_verse/features/memories/presentation/create_memory_sheet.dart';
-import 'package:memory_verse/features/memories/presentation/memory_detail_screen.dart';
 import 'package:memory_verse/features/vaults/presentation/create_vault_dialog.dart';
 import 'package:memory_verse/features/vaults/presentation/join_vault_dialog.dart';
 import 'package:memory_verse/features/vaults/presentation/vault_detail_screen.dart';
 import 'package:memory_verse/core/presentation/widgets/stacked_carousel.dart';
-import 'package:memory_verse/core/presentation/widgets/flow_button.dart';
 import 'package:memory_verse/core/theme/app_design_tokens.dart' as design;
 
 class HomeScreen extends ConsumerWidget {
@@ -22,7 +19,7 @@ class HomeScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final c = AppColors.dark;
+    const c = AppColors.dark;
     final profileAsync = ref.watch(userProfileProvider);
     final vaultsAsync = ref.watch(vaultsListProvider);
     final memoriesAsync = ref.watch(memoriesListProvider);
@@ -140,7 +137,6 @@ class HomeScreen extends ConsumerWidget {
                       data: (p) => Text(
                         '$greeting, ${p.fullName?.split(' ').first ?? 'there'}',
                         style: TextStyle(
-                          fontFamily: 'Inter',
                           fontSize: 13,
                           color: c.textMuted,
                           fontWeight: FontWeight.w500,
@@ -149,7 +145,6 @@ class HomeScreen extends ConsumerWidget {
                       loading: () => Text(
                         greeting,
                         style: TextStyle(
-                          fontFamily: 'Inter',
                           fontSize: 13,
                           color: c.textMuted,
                         ),
@@ -157,7 +152,6 @@ class HomeScreen extends ConsumerWidget {
                       error: (_, __) => Text(
                         greeting,
                         style: TextStyle(
-                          fontFamily: 'Inter',
                           fontSize: 13,
                           color: c.textMuted,
                         ),
@@ -167,7 +161,6 @@ class HomeScreen extends ConsumerWidget {
                     Text(
                       'MemoryVerse',
                       style: TextStyle(
-                        fontFamily: 'Inter',
                         fontSize: 22,
                         fontWeight: FontWeight.w700,
                         letterSpacing: -0.5,
@@ -212,7 +205,6 @@ class HomeScreen extends ConsumerWidget {
               Text(
                 'Your story.',
                 style: TextStyle(
-                  fontFamily: 'Inter',
                   fontSize: 32,
                   fontWeight: FontWeight.w700,
                   letterSpacing: -1.2,
@@ -224,7 +216,6 @@ class HomeScreen extends ConsumerWidget {
               Text(
                 'Capture today\'s moments before they fade.',
                 style: TextStyle(
-                  fontFamily: 'Inter',
                   fontSize: 15,
                   color: c.textMuted,
                   height: 1.4,
@@ -242,12 +233,12 @@ class HomeScreen extends ConsumerWidget {
                       design.AppTextStyles.body.copyWith(fontWeight: FontWeight.w600, fontSize: 16),
                     ),
                   ),
-                  child: Row(
+                  child: const Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      const Text('Create Memory'),
-                      const SizedBox(width: 8),
-                      const Icon(Icons.arrow_forward, size: 20),
+                      Text('Create Memory'),
+                      SizedBox(width: 8),
+                      Icon(Icons.arrow_forward, size: 20),
                     ],
                   ),
                 ),
@@ -301,7 +292,6 @@ class HomeScreen extends ConsumerWidget {
             Text(
               title,
               style: TextStyle(
-                fontFamily: 'Inter',
                 fontSize: 20,
                 fontWeight: FontWeight.w600,
                 letterSpacing: -0.5,
@@ -313,7 +303,6 @@ class HomeScreen extends ConsumerWidget {
               child: Text(
                 action,
                 style: TextStyle(
-                  fontFamily: 'Inter',
                   fontSize: 13,
                   fontWeight: FontWeight.w500,
                   color: c.primary,
@@ -335,7 +324,7 @@ class HomeScreen extends ConsumerWidget {
       child: memoriesAsync.when(
         data: (memories) {
           if (memories.isEmpty) {
-            final mockItems = const [
+            const mockItems = [
               CarouselItem(
                 title: "Mountain Trek",
                 subtitle: "Scale new heights and embrace the hiker's journey.",
@@ -361,7 +350,7 @@ class HomeScreen extends ConsumerWidget {
                 badge: "Paradise",
               ),
             ];
-            return StackedCarousel(items: mockItems, showIndicators: false);
+            return const StackedCarousel(items: mockItems, showIndicators: false);
           }
           final items = memories.map((m) {
             String imageUrl = 'https://images.unsplash.com/photo-1551632811-561732d1e306?q=80&w=2070'; // fallback
@@ -611,128 +600,11 @@ class _QuickActionButton extends StatelessWidget {
             Text(
               label,
               style: TextStyle(
-                fontFamily: 'Inter',
                 fontSize: 14,
                 fontWeight: FontWeight.w500,
                 color: colors.textMuted,
               ),
             ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class _MemoryCard extends StatelessWidget {
-  final MemoryModel memory;
-  final VoidCallback onTap;
-  final AppColors colors;
-  const _MemoryCard({
-    required this.memory,
-    required this.onTap,
-    required this.colors,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    // If we have a cover media, we can use it, else generic gradient or icon
-    // For now we'll check if media list is populated and has at least one item
-    final String? imageUrl = memory.media.isNotEmpty
-        ? (memory.media.first.thumbnailUrl ?? memory.media.first.url)
-        : null;
-
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        width: 200,
-        height: 280,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(AppRadii.xl),
-          color: colors.surfaceElevated,
-        ),
-        clipBehavior: Clip.antiAlias,
-        child: Stack(
-          fit: StackFit.expand,
-          children: [
-            if (imageUrl != null)
-              Image.network(
-                imageUrl,
-                fit: BoxFit.cover,
-                errorBuilder: (_, __, ___) =>
-                    Container(color: colors.surfaceElevated),
-              )
-            else
-              Container(
-                color: colors.primary.withValues(alpha: 0.1),
-                child: Center(
-                  child: Icon(
-                    Icons.auto_awesome_rounded,
-                    color: colors.primary.withValues(alpha: 0.5),
-                    size: 48,
-                  ),
-                ),
-              ),
-            Container(
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [
-                    Colors.transparent,
-                    Colors.black.withValues(alpha: 0.7),
-                  ],
-                  stops: const [0.6, 1.0],
-                ),
-              ),
-            ),
-            Positioned(
-              bottom: AppSpacing.s16,
-              left: AppSpacing.s16,
-              right: AppSpacing.s16,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    memory.title,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(
-                      fontFamily: 'Inter',
-                      fontSize: 15,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.white,
-                    ),
-                  ),
-                  const SizedBox(height: 2),
-                  Text(
-                    DateFormat('MMMM d, yyyy').format(memory.memoryDate),
-                    style: TextStyle(
-                      fontFamily: 'Inter',
-                      fontSize: 12,
-                      color: Colors.white.withValues(alpha: 0.8),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            if (memory.media.isNotEmpty && memory.media.first.isVideo)
-              Positioned(
-                top: AppSpacing.s12,
-                right: AppSpacing.s12,
-                child: Container(
-                  padding: const EdgeInsets.all(6),
-                  decoration: BoxDecoration(
-                    color: Colors.black.withValues(alpha: 0.5),
-                    shape: BoxShape.circle,
-                  ),
-                  child: const Icon(
-                    Icons.play_arrow_rounded,
-                    color: Colors.white,
-                    size: 16,
-                  ),
-                ),
-              ),
           ],
         ),
       ),
@@ -839,7 +711,6 @@ class _RoomCard extends StatelessWidget {
                       Text(
                         '${vault.memberCount}',
                         style: TextStyle(
-                          fontFamily: 'Inter',
                           fontSize: 12,
                           fontWeight: FontWeight.w600,
                           color: colors.text,
@@ -858,7 +729,6 @@ class _RoomCard extends StatelessWidget {
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
-                    fontFamily: 'Inter',
                     fontSize: 16,
                     fontWeight: FontWeight.w600,
                     color: colors.text,
@@ -868,7 +738,6 @@ class _RoomCard extends StatelessWidget {
                 Text(
                   '${vault.mediaCount} memories',
                   style: TextStyle(
-                    fontFamily: 'Inter',
                     fontSize: 13,
                     color: colors.textMuted,
                   ),

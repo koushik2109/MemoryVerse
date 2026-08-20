@@ -1,4 +1,3 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -6,11 +5,10 @@ import 'package:memory_verse/core/design/tokens.dart';
 import 'package:memory_verse/core/navigation/router.dart';
 import 'package:memory_verse/core/providers/app_providers.dart';
 import 'package:memory_verse/core/providers/auth_provider.dart';
-import 'package:memory_verse/core/providers/theme_provider.dart';
 import 'package:memory_verse/core/repositories/app_repositories.dart';
 import 'package:memory_verse/core/widgets/states.dart';
 import 'package:memory_verse/core/widgets/media.dart';
-import 'package:memory_verse/core/theme/app_design_tokens.dart' as design;
+import 'package:memory_verse/core/theme/app_design_tokens.dart' as adt;
 class ProfileScreen extends ConsumerWidget {
   const ProfileScreen({super.key});
 
@@ -174,7 +172,7 @@ class ProfileScreen extends ConsumerWidget {
                                 ),
                                 child: const Icon(
                                   Icons.auto_awesome_rounded,
-                                  color: Colors.white,
+                                  color: adt.AppColors.onDarkPrimary,
                                   size: 16,
                                 ),
                               ),
@@ -274,9 +272,8 @@ class _SettingsTile extends StatelessWidget {
     required this.icon,
     required this.title,
     required this.onTap,
-    this.trailing,
     this.isDestructive = false,
-  });
+  }) : trailing = null;
 
   final IconData icon;
   final String title;
@@ -305,7 +302,6 @@ class _SettingsTile extends StatelessWidget {
               child: Text(
                 title,
                 style: TextStyle(
-                  fontFamily: 'Inter',
                   fontSize: 15,
                   fontWeight: FontWeight.w500,
                   color: color,
@@ -399,7 +395,7 @@ class _EditProfileDialogState extends ConsumerState<_EditProfileDialog> {
                   height: 16,
                   child: CircularProgressIndicator(
                     strokeWidth: 2,
-                    color: Colors.white,
+                    color: adt.AppColors.onDarkPrimary,
                   ),
                 )
               : const Text('Save'),

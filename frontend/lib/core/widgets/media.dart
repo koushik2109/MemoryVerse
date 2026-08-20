@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:memory_verse/core/design/tokens.dart';
+import 'package:memory_verse/core/theme/app_design_tokens.dart' as adt;
 
 class MediaGrid extends StatelessWidget {
   final List<String> imageUrls;
@@ -68,13 +69,13 @@ class VideoThumbnail extends StatelessWidget {
             child: Container(
               padding: const EdgeInsets.all(AppSpacing.s12),
               decoration: BoxDecoration(
-                color: Colors.black.withValues(alpha: 0.4),
+                color: adt.AppColors.plum900.withValues(alpha: 0.4),
                 shape: BoxShape.circle,
-                border: Border.all(color: Colors.white.withValues(alpha: 0.2)),
+                border: Border.all(color: adt.AppColors.onDarkPrimary.withValues(alpha: 0.2)),
               ),
               child: const Icon(
                 Icons.play_arrow_rounded,
-                color: Colors.white,
+                color: adt.AppColors.onDarkPrimary,
                 size: 28,
               ),
             ),
@@ -89,13 +90,13 @@ class VideoThumbnail extends StatelessWidget {
                   vertical: 2,
                 ),
                 decoration: BoxDecoration(
-                  color: Colors.black.withValues(alpha: 0.6),
+                  color: adt.AppColors.plum900.withValues(alpha: 0.6),
                   borderRadius: BorderRadius.circular(AppRadii.sm),
                 ),
                 child: Text(
                   duration!,
                   style: const TextStyle(
-                    color: Colors.white,
+                    color: adt.AppColors.onDarkPrimary,
                     fontSize: 11,
                     fontWeight: FontWeight.w600,
                   ),

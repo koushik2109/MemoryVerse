@@ -11,6 +11,7 @@ import 'package:memory_verse/features/memories/presentation/video_creator_sheet.
 import 'package:memory_verse/features/memories/presentation/memory_media_viewer.dart';
 import 'package:memory_verse/features/memories/presentation/edit_memory_screen.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:memory_verse/core/theme/app_design_tokens.dart' as adt;
 
 class MemoryDetailScreen extends ConsumerStatefulWidget {
   const MemoryDetailScreen({super.key, required this.memory});
@@ -263,19 +264,19 @@ class _MemoryDetailScreenState extends ConsumerState<MemoryDetailScreen> {
                 backgroundColor: c.bg,
                 elevation: 0,
                 leading: IconButton(
-                  icon: const Icon(
+                  icon: Icon(
                     Icons.arrow_back_rounded,
-                    color: Colors.white,
-                    shadows: [Shadow(color: Colors.black45, blurRadius: 4)],
+                    color: adt.AppColors.onDarkPrimary,
+                    shadows: [Shadow(color: adt.AppColors.plum900.withValues(alpha: 0.45), blurRadius: 4)],
                   ),
                   onPressed: () => Navigator.pop(context),
                 ),
                 actions: [
                   PopupMenuButton<String>(
-                    icon: const Icon(
+                    icon: Icon(
                       Icons.more_horiz,
-                      color: Colors.white,
-                      shadows: [Shadow(color: Colors.black45, blurRadius: 4)],
+                      color: adt.AppColors.onDarkPrimary,
+                      shadows: [Shadow(color: adt.AppColors.plum900.withValues(alpha: 0.45), blurRadius: 4)],
                     ),
                     color: c.surfaceElevated,
                     onSelected: (val) {
@@ -316,12 +317,12 @@ class _MemoryDetailScreenState extends ConsumerState<MemoryDetailScreen> {
                         ),
                       // Gradient Overlay for Text Readability
                       Container(
-                        decoration: const BoxDecoration(
+                        decoration: BoxDecoration(
                           gradient: LinearGradient(
-                            colors: [Colors.transparent, Colors.black87],
+                            colors: [Colors.transparent, adt.AppColors.plum900.withValues(alpha: 0.87)],
                             begin: Alignment.topCenter,
                             end: Alignment.bottomCenter,
-                            stops: [0.4, 1.0],
+                            stops: const [0.4, 1.0],
                           ),
                         ),
                       ),
@@ -336,11 +337,10 @@ class _MemoryDetailScreenState extends ConsumerState<MemoryDetailScreen> {
                             Text(
                               memory.title,
                               style: const TextStyle(
-                                fontFamily: 'Inter',
                                 fontSize: 36,
                                 fontWeight: FontWeight.w700,
                                 letterSpacing: -1.0,
-                                color: Colors.white,
+                                color: adt.AppColors.onDarkPrimary,
                                 height: 1.1,
                               ),
                             ),
@@ -350,16 +350,15 @@ class _MemoryDetailScreenState extends ConsumerState<MemoryDetailScreen> {
                                 const Icon(
                                   Icons.calendar_today_rounded,
                                   size: 14,
-                                  color: Colors.white70,
+                                  color: adt.AppColors.onDarkSecondary,
                                 ),
                                 const SizedBox(width: AppSpacing.s6),
                                 Text(
                                   DateFormat('MMMM d, yyyy')
                                       .format(memory.memoryDate),
                                   style: const TextStyle(
-                                    fontFamily: 'Inter',
                                     fontSize: 13,
-                                    color: Colors.white70,
+                                    color: adt.AppColors.onDarkSecondary,
                                     fontWeight: FontWeight.w500,
                                   ),
                                 ),
@@ -368,15 +367,14 @@ class _MemoryDetailScreenState extends ConsumerState<MemoryDetailScreen> {
                                   const Icon(
                                     Icons.location_on,
                                     size: 14,
-                                    color: Colors.white70,
+                                    color: adt.AppColors.onDarkSecondary,
                                   ),
                                   const SizedBox(width: AppSpacing.s4),
                                   Text(
                                     memory.locationName!,
                                     style: const TextStyle(
-                                      fontFamily: 'Inter',
                                       fontSize: 13,
-                                      color: Colors.white70,
+                                      color: adt.AppColors.onDarkSecondary,
                                       fontWeight: FontWeight.w500,
                                     ),
                                   ),
@@ -438,7 +436,6 @@ class _MemoryDetailScreenState extends ConsumerState<MemoryDetailScreen> {
                     child: Text(
                       memory.description!,
                       style: TextStyle(
-                        fontFamily: 'Inter',
                         fontSize: 15,
                         color: c.text,
                         height: 1.5,
@@ -517,14 +514,14 @@ class _MemoryDetailScreenState extends ConsumerState<MemoryDetailScreen> {
                                   child: Container(
                                     padding: const EdgeInsets.all(4),
                                     decoration: BoxDecoration(
-                                      color: Colors.black.withValues(
+                                      color: adt.AppColors.plum900.withValues(
                                         alpha: 0.6,
                                       ),
                                       shape: BoxShape.circle,
                                     ),
                                     child: const Icon(
                                       Icons.play_arrow_rounded,
-                                      color: Colors.white,
+                                      color: adt.AppColors.onDarkPrimary,
                                       size: 16,
                                     ),
                                   ),

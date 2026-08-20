@@ -47,10 +47,12 @@ class _VideoCreatorSheetState extends ConsumerState<VideoCreatorSheet> {
 
   String get _ineligibilityReason {
     if (_totalCount == 0) return 'Add media to create a video.';
-    if (_photoCount == 1 && _videoCount == 0)
+    if (_photoCount == 1 && _videoCount == 0) {
       return 'Add more media to stitch a video.';
-    if (_videoCount == 1 && _photoCount == 0)
+    }
+    if (_videoCount == 1 && _photoCount == 0) {
       return 'Your memory has one video. Add more photos or video clips to create a stitched Memory Video.';
+    }
     return '';
   }
 

@@ -7,6 +7,7 @@ import 'package:memory_verse/core/providers/app_providers.dart';
 import 'package:memory_verse/core/repositories/app_repositories.dart';
 import 'package:memory_verse/features/memories/presentation/video_player_screen.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:memory_verse/core/theme/app_design_tokens.dart' as adt;
 
 class MemoryMediaViewer extends ConsumerStatefulWidget {
   final MemoryModel memory;
@@ -105,9 +106,10 @@ class _MemoryMediaViewerState extends ConsumerState<MemoryMediaViewer> {
           }
         }
       } catch (e) {
-        if (mounted)
+        if (mounted) {
           ScaffoldMessenger.of(context)
               .showSnackBar(SnackBar(content: Text('Failed to delete: $e')));
+        }
       }
     }
   }
@@ -126,14 +128,16 @@ class _MemoryMediaViewerState extends ConsumerState<MemoryMediaViewer> {
           .read(memoryRepositoryProvider)
           .updateMemory(widget.memory.id, coverMediaId: media.id);
       ref.invalidate(memoryDetailProvider(widget.memory.id));
-      if (mounted)
+      if (mounted) {
         ScaffoldMessenger.of(context)
             .showSnackBar(const SnackBar(content: Text('Cover updated')));
+      }
     } catch (e) {
-      if (mounted)
+      if (mounted) {
         ScaffoldMessenger.of(
           context,
         ).showSnackBar(SnackBar(content: Text('Failed to update cover: $e')));
+      }
     }
   }
 
@@ -151,13 +155,13 @@ class _MemoryMediaViewerState extends ConsumerState<MemoryMediaViewer> {
     } else if (widget.memory.media.isEmpty) {
       // In case we deleted the last one and didn't pop yet
       return Scaffold(
-        backgroundColor: Colors.black,
+        backgroundColor: adt.AppColors.plum900,
         appBar: AppBar(
           backgroundColor: Colors.transparent,
-          iconTheme: const IconThemeData(color: Colors.white),
+          iconTheme: const IconThemeData(color: adt.AppColors.onDarkPrimary),
         ),
         body: const Center(
-          child: Text('No media', style: TextStyle(color: Colors.white)),
+          child: Text('No media', style: TextStyle(color: adt.AppColors.onDarkPrimary)),
         ),
       );
     }
@@ -166,7 +170,7 @@ class _MemoryMediaViewerState extends ConsumerState<MemoryMediaViewer> {
     final currentMedia = mediaList[_currentIndex];
 
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: adt.AppColors.plum900,
       body: Stack(
         fit: StackFit.expand,
         children: [
@@ -192,7 +196,7 @@ class _MemoryMediaViewerState extends ConsumerState<MemoryMediaViewer> {
                         media.thumbnailUrl ?? media.url,
                         fit: BoxFit.contain,
                         errorBuilder: (_, __, ___) => const Center(
-                          child: Icon(Icons.error, color: Colors.white),
+                          child: Icon(Icons.error, color: adt.AppColors.onDarkPrimary),
                         ),
                       ),
                       Center(
@@ -200,7 +204,7 @@ class _MemoryMediaViewerState extends ConsumerState<MemoryMediaViewer> {
                           iconSize: 72,
                           icon: const Icon(
                             Icons.play_circle_fill,
-                            color: Colors.white70,
+                            color: adt.AppColors.onDarkSecondary,
                           ),
                           onPressed: () =>
                               VideoPlayerScreen.open(context, media),
@@ -217,14 +221,14 @@ class _MemoryMediaViewerState extends ConsumerState<MemoryMediaViewer> {
                       fit: BoxFit.contain,
                       loadingBuilder: (context, child, progress) {
                         if (progress == null) return child;
-                        return const Center(
+                        return Center(
                           child: CircularProgressIndicator(
-                            color: Colors.white24,
+                            color: adt.AppColors.onDarkPrimary.withValues(alpha: 0.24),
                           ),
                         );
                       },
                       errorBuilder: (_, __, ___) => const Center(
-                        child: Icon(Icons.error, color: Colors.white),
+                        child: Icon(Icons.error, color: adt.AppColors.onDarkPrimary),
                       ),
                     ),
                   );
@@ -243,9 +247,9 @@ class _MemoryMediaViewerState extends ConsumerState<MemoryMediaViewer> {
                 padding: EdgeInsets.only(
                   top: MediaQuery.of(context).padding.top,
                 ),
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   gradient: LinearGradient(
-                    colors: [Colors.black87, Colors.transparent],
+                    colors: [adt.AppColors.plum900.withValues(alpha: 0.87), Colors.transparent],
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                   ),
@@ -255,7 +259,7 @@ class _MemoryMediaViewerState extends ConsumerState<MemoryMediaViewer> {
                     IconButton(
                       icon: const Icon(
                         Icons.arrow_back_rounded,
-                        color: Colors.white,
+                        color: adt.AppColors.onDarkPrimary,
                       ),
                       onPressed: () => Navigator.pop(context),
                     ),
@@ -268,7 +272,7 @@ class _MemoryMediaViewerState extends ConsumerState<MemoryMediaViewer> {
                             DateFormat('MMMM d, yyyy h:mm a')
                                 .format(currentMedia.createdAt),
                             style: const TextStyle(
-                              color: Colors.white,
+                              color: adt.AppColors.onDarkPrimary,
                               fontSize: 13,
                               fontWeight: FontWeight.w600,
                             ),
@@ -276,7 +280,7 @@ class _MemoryMediaViewerState extends ConsumerState<MemoryMediaViewer> {
                           Text(
                             '${_currentIndex + 1} of ${mediaList.length}',
                             style: const TextStyle(
-                              color: Colors.white70,
+                              color: adt.AppColors.onDarkSecondary,
                               fontSize: 11,
                             ),
                           ),
@@ -300,9 +304,9 @@ class _MemoryMediaViewerState extends ConsumerState<MemoryMediaViewer> {
                   bottom: MediaQuery.of(context).padding.bottom,
                   top: 16,
                 ),
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   gradient: LinearGradient(
-                    colors: [Colors.transparent, Colors.black87],
+                    colors: [Colors.transparent, adt.AppColors.plum900.withValues(alpha: 0.87)],
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                   ),
@@ -311,12 +315,12 @@ class _MemoryMediaViewerState extends ConsumerState<MemoryMediaViewer> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     IconButton(
-                      icon: const Icon(Icons.ios_share, color: Colors.white),
+                      icon: const Icon(Icons.ios_share, color: adt.AppColors.onDarkPrimary),
                       onPressed: _shareCurrentMedia,
                     ),
                     if (currentMedia.mediaType == 'image')
                       IconButton(
-                        icon: const Icon(Icons.wallpaper, color: Colors.white),
+                        icon: const Icon(Icons.wallpaper, color: adt.AppColors.onDarkPrimary),
                         tooltip: 'Set as Cover',
                         onPressed: _setAsCover,
                       ),

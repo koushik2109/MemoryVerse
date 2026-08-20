@@ -7,6 +7,7 @@ import 'package:memory_verse/core/providers/auth_provider.dart';
 import 'package:memory_verse/core/utils/auth_error_handler.dart';
 import 'package:memory_verse/features/auth/presentation/auth_widgets.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:memory_verse/core/theme/app_design_tokens.dart' as adt;
 
 class SignUpScreen extends ConsumerStatefulWidget {
   const SignUpScreen({super.key});
@@ -167,21 +168,19 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen>
                     const Text(
                       'Create your\naccount.',
                       style: TextStyle(
-                        fontFamily: 'Inter',
                         fontSize: 32,
                         fontWeight: FontWeight.w700,
                         letterSpacing: -1.2,
                         height: 1.05,
-                        color: Colors.white,
+                        color: adt.AppColors.onDarkPrimary,
                       ),
                     ),
                     const SizedBox(height: AppSpacing.s8),
                     const Text(
                       'Begin preserving your most important memories.',
                       style: TextStyle(
-                        fontFamily: 'Inter',
                         fontSize: 13,
-                        color: Colors.white70,
+                        color: adt.AppColors.onDarkSecondary,
                         height: 1.5,
                       ),
                     ),
@@ -260,13 +259,13 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen>
                             height: 20,
                             decoration: BoxDecoration(
                               color: _agreedTerms
-                                  ? Colors.white
+                                  ? adt.AppColors.onDarkPrimary
                                   : Colors.transparent,
                               borderRadius: BorderRadius.circular(4),
                               border: Border.all(
                                 color: _agreedTerms
-                                    ? Colors.white
-                                    : Colors.white.withOpacity(0.3),
+                                    ? adt.AppColors.onDarkPrimary
+                                    : adt.AppColors.onDarkPrimary.withValues(alpha: 0.3),
                                 width: 1.5,
                               ),
                             ),
@@ -392,7 +391,6 @@ class _FErr extends StatelessWidget {
                   Text(
                     error!,
                     style: const TextStyle(
-                      fontFamily: 'Inter',
                       fontSize: 12,
                       color: Color(0xFFE5484D),
                     ),
@@ -451,7 +449,7 @@ class _PwStrength extends StatelessWidget {
                   height: 3,
                   margin: const EdgeInsets.only(right: 3),
                   decoration: BoxDecoration(
-                    color: i < s ? col : Colors.white.withOpacity(0.2),
+                    color: i < s ? col : adt.AppColors.onDarkPrimary.withValues(alpha: 0.2),
                     borderRadius: BorderRadius.circular(2),
                   ),
                 ),
@@ -462,7 +460,6 @@ class _PwStrength extends StatelessWidget {
           Text(
             'Password strength: ${_l(s)}',
             style: TextStyle(
-              fontFamily: 'Inter',
               fontSize: 11,
               color: col,
               fontWeight: FontWeight.w500,

@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:memory_verse/core/theme/app_design_tokens.dart';
+import 'package:memory_verse/core/theme/app_design_tokens.dart' as adt;
 
 class AuthLogo extends StatelessWidget {
   const AuthLogo({super.key});
@@ -13,11 +14,11 @@ class AuthLogo extends StatelessWidget {
       width: 44,
       height: 44,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: adt.AppColors.onDarkPrimary,
         borderRadius: BorderRadius.circular(AppRadius.md),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.15),
+            color: adt.AppColors.plum900.withValues(alpha: 0.15),
             blurRadius: 12,
             offset: const Offset(0, 4),
           ),
@@ -85,7 +86,7 @@ class AuthField extends StatelessWidget {
               color: AppColors.onDarkMuted,
             ),
             filled: true,
-            fillColor: Colors.white.withOpacity(0.1),
+            fillColor: adt.AppColors.onDarkPrimary.withValues(alpha: 0.1),
             prefixIcon: prefixIcon != null
                 ? Icon(prefixIcon, size: 18, color: AppColors.onDarkMuted)
                 : null,
@@ -96,15 +97,15 @@ class AuthField extends StatelessWidget {
             ),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(AppRadius.md),
-              borderSide: BorderSide(color: Colors.white.withOpacity(0.2)),
+              borderSide: BorderSide(color: adt.AppColors.onDarkPrimary.withValues(alpha: 0.2)),
             ),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(AppRadius.md),
-              borderSide: BorderSide(color: Colors.white.withOpacity(0.2)),
+              borderSide: BorderSide(color: adt.AppColors.onDarkPrimary.withValues(alpha: 0.2)),
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(AppRadius.md),
-              borderSide: const BorderSide(color: Colors.white, width: 1.5),
+              borderSide: const BorderSide(color: adt.AppColors.onDarkPrimary, width: 1.5),
             ),
           ),
         ),
@@ -129,10 +130,10 @@ class AuthErrorBanner extends StatelessWidget {
                 width: double.infinity,
                 padding: const EdgeInsets.all(AppSpacing.s12),
                 decoration: BoxDecoration(
-                  color: const Color(0xFFE5484D).withOpacity(0.1),
+                  color: const Color(0xFFE5484D).withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(AppRadius.md),
                   border: Border.all(
-                    color: const Color(0xFFE5484D).withOpacity(0.3),
+                    color: const Color(0xFFE5484D).withValues(alpha: 0.3),
                   ),
                 ),
                 child: Row(
@@ -207,7 +208,7 @@ class AuthOrDivider extends StatelessWidget {
     return Row(
       children: [
         Expanded(
-          child: Divider(color: Colors.white.withOpacity(0.2), height: 1),
+          child: Divider(color: adt.AppColors.onDarkPrimary.withValues(alpha: 0.2), height: 1),
         ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s16),
@@ -217,7 +218,7 @@ class AuthOrDivider extends StatelessWidget {
           ),
         ),
         Expanded(
-          child: Divider(color: Colors.white.withOpacity(0.2), height: 1),
+          child: Divider(color: adt.AppColors.onDarkPrimary.withValues(alpha: 0.2), height: 1),
         ),
       ],
     );

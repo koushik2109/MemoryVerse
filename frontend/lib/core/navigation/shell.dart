@@ -7,6 +7,7 @@ import 'package:memory_verse/core/design/tokens.dart';
 import 'package:memory_verse/core/theme/app_design_tokens.dart';
 import 'package:memory_verse/features/memories/presentation/create_memory_sheet.dart';
 import 'package:memory_verse/features/memories/presentation/upload_progress_banner.dart';
+import 'package:memory_verse/core/theme/app_design_tokens.dart' as adt;
 
 class AppShell extends StatelessWidget {
   const AppShell({super.key, required this.shell});
@@ -15,16 +16,16 @@ class AppShell extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: adt.AppColors.plum900,
       body: Stack(
         children: [
           // Aurora theme background
-          Positioned.fill(
+          const Positioned.fill(
             child: DecoratedBox(
               decoration: BoxDecoration(gradient: AppGradients.dark),
             ),
           ),
-          Positioned.fill(
+          const Positioned.fill(
             child: DecoratedBox(
               decoration: BoxDecoration(gradient: AppGradients.scrim),
             ),
@@ -74,9 +75,9 @@ class _MvBottomBar extends StatelessWidget {
         filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
         child: Container(
           decoration: BoxDecoration(
-            color: Colors.black.withOpacity(0.2),
+            color: adt.AppColors.plum900.withValues(alpha: 0.2),
             border: Border(
-              top: BorderSide(color: Colors.white.withOpacity(0.1), width: 0.5),
+              top: BorderSide(color: adt.AppColors.onDarkPrimary.withValues(alpha: 0.1), width: 0.5),
             ),
           ),
           child: SafeArea(
@@ -109,15 +110,15 @@ class _MvBottomBar extends StatelessWidget {
                             width: 44,
                             height: 44,
                             decoration: BoxDecoration(
-                              color: Colors.white.withOpacity(0.15),
+                              color: adt.AppColors.onDarkPrimary.withValues(alpha: 0.15),
                               borderRadius: BorderRadius.circular(AppRadii.md),
                               border: Border.all(
-                                color: Colors.white.withOpacity(0.3),
+                                color: adt.AppColors.onDarkPrimary.withValues(alpha: 0.3),
                               ),
                             ),
                             child: const Icon(
                               Icons.add_rounded,
-                              color: Colors.white,
+                              color: adt.AppColors.onDarkPrimary,
                               size: 26,
                             ),
                           ),
@@ -176,16 +177,15 @@ class _NavItem extends StatelessWidget {
             Icon(
               active ? activeIcon : icon,
               size: 22,
-              color: active ? Colors.white : Colors.white.withOpacity(0.5),
+              color: active ? adt.AppColors.onDarkPrimary : adt.AppColors.onDarkPrimary.withValues(alpha: 0.5),
             ),
             const SizedBox(height: 4),
             Text(
               label,
               style: TextStyle(
-                fontFamily: 'Inter',
                 fontSize: 11,
                 fontWeight: active ? FontWeight.w600 : FontWeight.w400,
-                color: active ? Colors.white : Colors.white.withOpacity(0.5),
+                color: active ? adt.AppColors.onDarkPrimary : adt.AppColors.onDarkPrimary.withValues(alpha: 0.5),
               ),
             ),
           ],

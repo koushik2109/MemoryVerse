@@ -6,6 +6,7 @@ import 'package:memory_verse/core/navigation/router.dart';
 import 'package:memory_verse/core/providers/auth_provider.dart';
 import 'package:memory_verse/core/utils/auth_error_handler.dart';
 import 'package:memory_verse/features/auth/presentation/auth_widgets.dart';
+import 'package:memory_verse/core/theme/app_design_tokens.dart' as adt;
 
 class SignInScreen extends ConsumerStatefulWidget {
   const SignInScreen({super.key});
@@ -145,22 +146,20 @@ class _SignInScreenState extends ConsumerState<SignInScreen>
                       const Text(
                         'Welcome\nback.',
                         style: TextStyle(
-                          fontFamily: 'Inter',
                           fontSize: 38,
                           fontWeight: FontWeight.w700,
                           letterSpacing: -1.5,
                           height: 1.05,
-                          color: Colors.white,
+                          color: adt.AppColors.onDarkPrimary,
                         ),
                       ),
                       const SizedBox(height: AppSpacing.s8),
                       const Text(
                         'Sign in to continue your story.',
                         style: TextStyle(
-                          fontFamily: 'Inter',
                           fontSize: 15,
                           fontWeight: FontWeight.w400,
-                          color: Colors.white70,
+                          color: adt.AppColors.onDarkSecondary,
                           height: 1.5,
                         ),
                       ),
@@ -288,15 +287,4 @@ class _SignInScreenState extends ConsumerState<SignInScreen>
     setState(() => _isSubmitting = false);
   }
 
-  void _showComingSoon(BuildContext ctx, String provider) {
-    ScaffoldMessenger.of(ctx).showSnackBar(
-      SnackBar(
-        content: Text('$provider sign-in coming soon'),
-        behavior: SnackBarBehavior.floating,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(AppRadius.md),
-        ),
-      ),
-    );
-  }
 }

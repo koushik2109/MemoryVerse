@@ -102,8 +102,9 @@ class UploadController extends Notifier<List<UploadTask>> {
       // Check if it's still in the queue (might have been canceled)
       if (!state.any(
         (t) => t.id == task.id && t.status == UploadStatus.waiting,
-      ))
+      )) {
         continue;
+      }
 
       await _uploadSingle(task.id);
     }

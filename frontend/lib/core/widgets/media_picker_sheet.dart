@@ -8,6 +8,7 @@ import 'package:memory_verse/core/design/tokens.dart';
 import 'package:memory_verse/core/providers/app_providers.dart';
 import 'package:memory_verse/core/repositories/app_repositories.dart';
 import 'package:memory_verse/core/widgets/buttons.dart';
+import 'package:memory_verse/core/theme/app_design_tokens.dart' as adt;
 
 class MediaPickerSheet extends ConsumerStatefulWidget {
   final String? vaultId;
@@ -235,14 +236,14 @@ class _MediaPickerSheetState extends ConsumerState<MediaPickerSheet> {
                               },
                               child: Container(
                                 padding: const EdgeInsets.all(2),
-                                decoration: const BoxDecoration(
-                                  color: Colors.black54,
+                                decoration: BoxDecoration(
+                                  color: adt.AppColors.plum900.withValues(alpha: 0.54),
                                   shape: BoxShape.circle,
                                 ),
                                 child: const Icon(
                                   Icons.close,
                                   size: 14,
-                                  color: Colors.white,
+                                  color: adt.AppColors.onDarkPrimary,
                                 ),
                               ),
                             ),

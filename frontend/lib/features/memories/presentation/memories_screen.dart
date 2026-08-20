@@ -7,6 +7,7 @@ import 'package:memory_verse/core/providers/app_providers.dart';
 import 'package:memory_verse/core/widgets/states.dart';
 import 'package:memory_verse/features/memories/presentation/create_memory_sheet.dart';
 import 'package:memory_verse/features/memories/presentation/memory_detail_screen.dart';
+import 'package:memory_verse/core/theme/app_design_tokens.dart' as adt;
 
 class MemoriesScreen extends ConsumerStatefulWidget {
   const MemoriesScreen({super.key});
@@ -205,7 +206,7 @@ class _MemoryGridItem extends StatelessWidget {
                   end: Alignment.bottomCenter,
                   colors: [
                     Colors.transparent,
-                    Colors.black.withValues(alpha: 0.7),
+                    adt.AppColors.plum900.withValues(alpha: 0.7),
                   ],
                   stops: const [0.5, 1.0],
                 ),
@@ -223,19 +224,17 @@ class _MemoryGridItem extends StatelessWidget {
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: const TextStyle(
-                      fontFamily: 'Inter',
                       fontSize: 13,
                       fontWeight: FontWeight.w600,
-                      color: Colors.white,
+                      color: adt.AppColors.onDarkPrimary,
                     ),
                   ),
                   const SizedBox(height: 2),
                   Text(
                     '${memory.media.length} items',
                     style: TextStyle(
-                      fontFamily: 'Inter',
                       fontSize: 11,
-                      color: Colors.white.withValues(alpha: 0.8),
+                      color: adt.AppColors.onDarkPrimary.withValues(alpha: 0.8),
                     ),
                   ),
                 ],

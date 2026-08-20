@@ -66,12 +66,13 @@ class _Section extends StatelessWidget {
           ),
           child: Column(
             children: List.generate(children.length * 2 - 1, (i) {
-              if (i.isOdd)
+              if (i.isOdd) {
                 return Divider(
                   height: 0,
                   color: c.border,
                   indent: AppSpacing.s48,
                 );
+              }
               return children[i ~/ 2];
             }),
           ),

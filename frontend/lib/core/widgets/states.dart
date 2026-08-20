@@ -1,7 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:memory_verse/core/design/tokens.dart';
-import 'package:memory_verse/core/widgets/buttons.dart';
 
 class EmptyState extends StatelessWidget {
   final IconData? icon;
@@ -69,7 +68,6 @@ class EmptyState extends StatelessWidget {
                   Text(
                     title,
                     style: TextStyle(
-                      fontFamily: 'Inter',
                       fontSize: isSmall ? 14 : 16,
                       fontWeight: FontWeight.w600,
                       color: c.text,
@@ -80,7 +78,6 @@ class EmptyState extends StatelessWidget {
                     subtitle,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontFamily: 'Inter',
                       fontSize: isSmall ? 12 : 14,
                       color: c.textMuted,
                     ),
@@ -99,7 +96,6 @@ class EmptyState extends StatelessWidget {
                       child: Text(
                         buttonText!,
                         style: const TextStyle(
-                          fontFamily: 'Inter',
                           fontSize: 13,
                           fontWeight: FontWeight.w500,
                         ),
@@ -169,7 +165,6 @@ class ErrorState extends StatelessWidget {
                   Text(
                     'An Error Occurred',
                     style: TextStyle(
-                      fontFamily: 'Inter',
                       fontSize: 18,
                       fontWeight: FontWeight.w600,
                       color: textColor ?? c.text,
@@ -180,7 +175,6 @@ class ErrorState extends StatelessWidget {
                   Text(
                     message,
                     style: TextStyle(
-                      fontFamily: 'Inter',
                       fontSize: 14,
                       color: messageColor ?? c.textMuted,
                     ),
@@ -200,7 +194,6 @@ class ErrorState extends StatelessWidget {
                         ),
                         padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s24, vertical: AppSpacing.s12),
                         textStyle: const TextStyle(
-                          fontFamily: 'Inter',
                           fontSize: 14,
                           fontWeight: FontWeight.w500,
                         ),

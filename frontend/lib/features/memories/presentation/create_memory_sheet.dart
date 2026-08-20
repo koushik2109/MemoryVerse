@@ -10,6 +10,7 @@ import 'package:memory_verse/core/repositories/app_repositories.dart';
 import 'package:memory_verse/core/widgets/buttons.dart';
 import 'package:memory_verse/core/widgets/inputs.dart';
 import 'package:memory_verse/features/memories/presentation/memory_detail_screen.dart';
+import 'package:memory_verse/core/theme/app_design_tokens.dart' as adt;
 
 class CreateMemorySheet extends ConsumerStatefulWidget {
   final String? vaultId;
@@ -20,7 +21,7 @@ class CreateMemorySheet extends ConsumerStatefulWidget {
       context: context,
       isScrollControlled: true,
       backgroundColor: Colors.transparent,
-      barrierColor: Colors.black.withValues(alpha: 0.2),
+      barrierColor: adt.AppColors.plum900.withValues(alpha: 0.2),
       builder: (ctx) => Theme(
         data: Theme.of(ctx).copyWith(extensions: const [AppColors.dark]),
         child: CreateMemorySheet(vaultId: vaultId),
@@ -129,7 +130,7 @@ class _CreateMemorySheetState extends ConsumerState<CreateMemorySheet> {
             color: design.AppColors.plum900.withValues(alpha: 0.5),
             border: Border(
               top: BorderSide(
-                color: Colors.white.withValues(alpha: 0.15),
+                color: adt.AppColors.onDarkPrimary.withValues(alpha: 0.15),
                 width: 1,
               ),
             ),
@@ -151,7 +152,6 @@ class _CreateMemorySheetState extends ConsumerState<CreateMemorySheet> {
                   Text(
                     'Create Memory',
                     style: TextStyle(
-                      fontFamily: 'Inter',
                       fontSize: 22,
                       fontWeight: FontWeight.w700,
                       letterSpacing: -0.5,
@@ -206,9 +206,9 @@ class _CreateMemorySheetState extends ConsumerState<CreateMemorySheet> {
                               horizontal: AppSpacing.s16,
                             ),
                             decoration: BoxDecoration(
-                              color: Colors.white.withValues(alpha: 0.06),
+                              color: adt.AppColors.onDarkPrimary.withValues(alpha: 0.06),
                               borderRadius: BorderRadius.circular(AppRadii.lg),
-                              border: Border.all(color: Colors.white.withValues(alpha: 0.15)),
+                              border: Border.all(color: adt.AppColors.onDarkPrimary.withValues(alpha: 0.15)),
                             ),
                             child: Row(
                               children: [

@@ -63,10 +63,11 @@ class _TimelineScreenState extends ConsumerState<TimelineScreen> {
         ref.invalidate(timelineProvider);
         ref.invalidate(memoriesListProvider);
       } catch (e) {
-        if (mounted)
+        if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(content: Text('Failed to delete memory')),
           );
+        }
       }
     }
   }
@@ -260,7 +261,6 @@ class _TimelineScreenState extends ConsumerState<TimelineScreen> {
                         Text(
                           'Timeline',
                           style: TextStyle(
-                            fontFamily: 'Inter',
                             fontSize: 32,
                             fontWeight: FontWeight.w700,
                             color: c.text,
@@ -429,7 +429,6 @@ class _TimelineScreenState extends ConsumerState<TimelineScreen> {
                           child: Text(
                             yearGroup.year,
                             style: TextStyle(
-                              fontFamily: 'Inter',
                               fontSize: 28,
                               fontWeight: FontWeight.w800,
                               color: c.text,
@@ -452,7 +451,6 @@ class _TimelineScreenState extends ConsumerState<TimelineScreen> {
                               child: Text(
                                 monthGroup.month.toUpperCase(),
                                 style: TextStyle(
-                                  fontFamily: 'Inter',
                                   fontSize: 13,
                                   fontWeight: FontWeight.w700,
                                   color: c.primary,
@@ -482,7 +480,6 @@ class _TimelineScreenState extends ConsumerState<TimelineScreen> {
                                         child: Text(
                                           dayGroup.dateLabel,
                                           style: TextStyle(
-                                            fontFamily: 'Inter',
                                             fontSize: 14,
                                             fontWeight: FontWeight.w600,
                                             color: c.textMuted,
@@ -640,8 +637,6 @@ class _TimelineScreenState extends ConsumerState<TimelineScreen> {
                                                             Text(
                                                               memory.title,
                                                               style: TextStyle(
-                                                                fontFamily:
-                                                                    'Inter',
                                                                 fontSize: 16,
                                                                 fontWeight:
                                                                     FontWeight

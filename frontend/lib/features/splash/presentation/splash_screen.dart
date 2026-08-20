@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:memory_verse/core/design/tokens.dart';
 import 'package:memory_verse/core/theme/app_design_tokens.dart' as brand;
 import 'package:memory_verse/core/navigation/router.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:memory_verse/core/theme/app_design_tokens.dart' as adt;
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -131,19 +131,17 @@ class _SplashScreenState extends State<SplashScreen>
 
   @override
   Widget build(BuildContext context) {
-    final c = context.colors;
-
     return Scaffold(
-      backgroundColor: Colors.black, // Fallback
+      backgroundColor: adt.AppColors.plum900, // Fallback
       body: Stack(
         fit: StackFit.expand,
         children: [
-          Positioned.fill(
+          const Positioned.fill(
             child: DecoratedBox(
               decoration: BoxDecoration(gradient: brand.AppGradients.dark),
             ),
           ),
-          Positioned.fill(
+          const Positioned.fill(
             child: DecoratedBox(
               decoration: BoxDecoration(gradient: brand.AppGradients.scrim),
             ),
@@ -181,7 +179,7 @@ class _SplashScreenState extends State<SplashScreen>
                         fontSize: 30,
                         fontWeight: FontWeight.w700,
                         letterSpacing: -1.0,
-                        color: Colors.white,
+                        color: adt.AppColors.onDarkPrimary,
                         height: 1,
                       ),
                     ),
@@ -196,11 +194,10 @@ class _SplashScreenState extends State<SplashScreen>
                   child: const Text(
                     'Where memories live forever.',
                     style: TextStyle(
-                      fontFamily: 'Inter',
                       fontSize: 13,
                       fontWeight: FontWeight.w400,
                       letterSpacing: 0.2,
-                      color: Colors.white70,
+                      color: adt.AppColors.onDarkSecondary,
                     ),
                   ),
                 ),
@@ -215,7 +212,7 @@ class _SplashScreenState extends State<SplashScreen>
             right: 0,
             child: FadeTransition(
               opacity: _taglineOpacity,
-              child: const _PulsingDots(color: Colors.white70),
+              child: const _PulsingDots(color: adt.AppColors.onDarkSecondary),
             ),
           ),
         ],
@@ -238,11 +235,11 @@ class _LogoMark extends StatelessWidget {
       width: size,
       height: size,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: adt.AppColors.onDarkPrimary,
         borderRadius: BorderRadius.circular(size * 0.28),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.2),
+            color: adt.AppColors.plum900.withValues(alpha: 0.2),
             blurRadius: 24,
             spreadRadius: 0,
             offset: const Offset(0, 8),
@@ -299,7 +296,7 @@ class _BgPainter extends CustomPainter {
 
     // Subtle memory frame motifs — top-right corner
     final paint = Paint()
-      ..color = (isDark ? Colors.white : Colors.black).withValues(
+      ..color = (isDark ? adt.AppColors.onDarkPrimary : adt.AppColors.plum900).withValues(
         alpha: baseAlpha,
       )
       ..style = PaintingStyle.stroke
@@ -323,7 +320,7 @@ class _BgPainter extends CustomPainter {
 
     // Diagonal film strip dots — bottom-left
     final dotPaint = Paint()
-      ..color = (isDark ? Colors.white : Colors.black).withValues(
+      ..color = (isDark ? adt.AppColors.onDarkPrimary : adt.AppColors.plum900).withValues(
         alpha: baseAlpha * 0.8,
       )
       ..style = PaintingStyle.fill;

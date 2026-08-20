@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:memory_verse/core/design/tokens.dart';
+import 'package:memory_verse/core/theme/app_design_tokens.dart' as adt;
 
 class AppTextField extends StatelessWidget {
   final String label;
@@ -53,22 +54,22 @@ class AppTextField extends StatelessWidget {
             hintStyle: context.text.bodyMedium?.copyWith(color: c.textMuted),
             errorText: errorText,
             filled: true,
-            fillColor: Colors.white.withValues(alpha: 0.06),
+            fillColor: adt.AppColors.onDarkPrimary.withValues(alpha: 0.06),
             contentPadding: const EdgeInsets.symmetric(
               horizontal: AppSpacing.s16,
               vertical: AppSpacing.s16,
             ),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(AppRadii.lg),
-              borderSide: BorderSide(color: Colors.white.withValues(alpha: 0.15)),
+              borderSide: BorderSide(color: adt.AppColors.onDarkPrimary.withValues(alpha: 0.15)),
             ),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(AppRadii.lg),
-              borderSide: BorderSide(color: Colors.white.withValues(alpha: 0.15)),
+              borderSide: BorderSide(color: adt.AppColors.onDarkPrimary.withValues(alpha: 0.15)),
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(AppRadii.lg),
-              borderSide: BorderSide(color: Colors.white.withValues(alpha: 0.3)),
+              borderSide: BorderSide(color: adt.AppColors.onDarkPrimary.withValues(alpha: 0.3)),
             ),
             errorBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(AppRadii.lg),
@@ -105,7 +106,7 @@ class SearchField extends StatelessWidget {
         hintText: hint,
         hintStyle: context.text.bodyMedium?.copyWith(color: c.textMuted),
         filled: true,
-        fillColor: Colors.white.withValues(alpha: 0.06),
+        fillColor: adt.AppColors.onDarkPrimary.withValues(alpha: 0.06),
         prefixIcon: Icon(Icons.search_rounded, color: c.textMuted, size: 20),
         contentPadding: const EdgeInsets.symmetric(
           horizontal: AppSpacing.s16,
@@ -113,15 +114,15 @@ class SearchField extends StatelessWidget {
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(AppRadii.pill),
-          borderSide: BorderSide(color: Colors.white.withValues(alpha: 0.15)),
+          borderSide: BorderSide(color: adt.AppColors.onDarkPrimary.withValues(alpha: 0.15)),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(AppRadii.pill),
-          borderSide: BorderSide(color: Colors.white.withValues(alpha: 0.15)),
+          borderSide: BorderSide(color: adt.AppColors.onDarkPrimary.withValues(alpha: 0.15)),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(AppRadii.pill),
-          borderSide: BorderSide(color: Colors.white.withValues(alpha: 0.3)),
+          borderSide: BorderSide(color: adt.AppColors.onDarkPrimary.withValues(alpha: 0.3)),
         ),
       ),
     );

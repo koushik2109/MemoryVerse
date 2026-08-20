@@ -3,6 +3,7 @@ import 'package:chewie/chewie.dart';
 import 'package:video_player/video_player.dart';
 import 'package:memory_verse/contracts/models.dart';
 import 'package:memory_verse/core/design/tokens.dart';
+import 'package:memory_verse/core/theme/app_design_tokens.dart' as adt;
 
 class VideoPlayerScreen extends StatefulWidget {
   const VideoPlayerScreen({super.key, required this.media});
@@ -76,14 +77,14 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
     final c = context.colors;
 
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: adt.AppColors.plum900,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        iconTheme: const IconThemeData(color: Colors.white),
+        iconTheme: const IconThemeData(color: adt.AppColors.onDarkPrimary),
         title: Text(
           widget.media.filename,
-          style: const TextStyle(color: Colors.white, fontSize: 16),
+          style: const TextStyle(color: adt.AppColors.onDarkPrimary, fontSize: 16),
         ),
       ),
       body: Center(
@@ -95,13 +96,13 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
                 children: [
                   const Icon(
                     Icons.error_outline,
-                    color: Colors.white54,
+                    color: adt.AppColors.onDarkMuted,
                     size: 48,
                   ),
                   const SizedBox(height: AppSpacing.s16),
                   const Text(
                     'Failed to load video',
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: adt.AppColors.onDarkPrimary),
                   ),
                   const SizedBox(height: AppSpacing.s16),
                   TextButton(

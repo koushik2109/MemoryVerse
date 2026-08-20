@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:memory_verse/core/design/tokens.dart';
 import 'package:intl/intl.dart';
+import 'package:memory_verse/core/theme/app_design_tokens.dart' as adt;
 
 class MemoryCard extends StatelessWidget {
   final String imageUrl;
@@ -47,7 +48,7 @@ class MemoryCard extends StatelessWidget {
                   end: Alignment.bottomCenter,
                   colors: [
                     Colors.transparent,
-                    Colors.black.withValues(alpha: 0.7),
+                    adt.AppColors.plum900.withValues(alpha: 0.7),
                   ],
                 ),
               ),
@@ -62,7 +63,7 @@ class MemoryCard extends StatelessWidget {
                   Text(
                     title,
                     style: context.text.titleLarge?.copyWith(
-                      color: Colors.white,
+                      color: adt.AppColors.onDarkPrimary,
                       fontWeight: FontWeight.w600,
                     ),
                     maxLines: 1,
@@ -74,20 +75,20 @@ class MemoryCard extends StatelessWidget {
                       Text(
                         DateFormat('MMM d, yyyy').format(date),
                         style: context.text.labelMedium?.copyWith(
-                          color: Colors.white.withValues(alpha: 0.8),
+                          color: adt.AppColors.onDarkPrimary.withValues(alpha: 0.8),
                         ),
                       ),
                       const SizedBox(width: AppSpacing.s8),
                       Icon(
                         Icons.photo_library_rounded,
                         size: 12,
-                        color: Colors.white.withValues(alpha: 0.8),
+                        color: adt.AppColors.onDarkPrimary.withValues(alpha: 0.8),
                       ),
                       const SizedBox(width: AppSpacing.s4),
                       Text(
                         '$photoCount',
                         style: context.text.labelMedium?.copyWith(
-                          color: Colors.white.withValues(alpha: 0.8),
+                          color: adt.AppColors.onDarkPrimary.withValues(alpha: 0.8),
                         ),
                       ),
                     ],
@@ -275,12 +276,12 @@ class MediaCard extends StatelessWidget {
                         child: Container(
                           padding: const EdgeInsets.all(8),
                           decoration: BoxDecoration(
-                            color: Colors.black.withValues(alpha: 0.5),
+                            color: adt.AppColors.plum900.withValues(alpha: 0.5),
                             shape: BoxShape.circle,
                           ),
                           child: const Icon(
                             Icons.play_arrow_rounded,
-                            color: Colors.white,
+                            color: adt.AppColors.onDarkPrimary,
                             size: 20,
                           ),
                         ),
@@ -296,13 +297,13 @@ class MediaCard extends StatelessWidget {
                               vertical: 2,
                             ),
                             decoration: BoxDecoration(
-                              color: Colors.black.withValues(alpha: 0.7),
+                              color: adt.AppColors.plum900.withValues(alpha: 0.7),
                               borderRadius: BorderRadius.circular(4),
                             ),
                             child: Text(
                               duration!,
                               style: const TextStyle(
-                                color: Colors.white,
+                                color: adt.AppColors.onDarkPrimary,
                                 fontSize: 11,
                                 fontWeight: FontWeight.w500,
                               ),

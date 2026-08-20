@@ -79,6 +79,13 @@ if $RUN_BACKEND; then
 fi
 
 if $RUN_FRONTEND; then
+  warn "Checking for existing frontend processes..."
+  if pgrep -f "flutter run" >/dev/null 2>&1 || pgrep -f "flutter_tools.snapshot run" >/dev/null 2>&1; then
+    warn "Killing existing flutter run processes..."
+    pkill -9 -f "flutter run" >/dev/null 2>&1 || true
+    pkill -9 -f "flutter_tools.snapshot run" >/dev/null 2>&1 || true
+  fi
+
   command -v flutter >/dev/null 2>&1 || err "Flutter is not in PATH. Install from https://flutter.dev"
   ok "Flutter found: $(flutter --version --machine 2>/dev/null | python3 -c 'import sys,json; d=json.load(sys.stdin); print(d.get("frameworkVersion","?"))' 2>/dev/null || flutter --version | head -1)"
   

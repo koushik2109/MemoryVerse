@@ -6,7 +6,7 @@ import 'package:memory_verse/core/theme/app_design_tokens.dart';
 import 'package:memory_verse/core/providers/auth_provider.dart';
 import 'package:memory_verse/core/utils/auth_error_handler.dart';
 import 'package:memory_verse/features/auth/presentation/auth_widgets.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:memory_verse/core/theme/app_design_tokens.dart' as adt;
 class OtpVerificationScreen extends ConsumerStatefulWidget {
   final String email;
   const OtpVerificationScreen({super.key, required this.email});
@@ -173,15 +173,15 @@ class _OtpVerificationScreenState extends ConsumerState<OtpVerificationScreen>
                       width: 52,
                       height: 52,
                       decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.1),
+                        color: adt.AppColors.onDarkPrimary.withValues(alpha: 0.1),
                         borderRadius: BorderRadius.circular(AppRadius.md),
                         border: Border.all(
-                          color: Colors.white.withOpacity(0.2),
+                          color: adt.AppColors.onDarkPrimary.withValues(alpha: 0.2),
                         ),
                       ),
                       child: const Icon(
                         Icons.email_outlined,
-                        color: Colors.white,
+                        color: adt.AppColors.onDarkPrimary,
                         size: 24,
                       ),
                     ),
@@ -189,12 +189,11 @@ class _OtpVerificationScreenState extends ConsumerState<OtpVerificationScreen>
                     const Text(
                       'Verify your\nemail.',
                       style: TextStyle(
-                        fontFamily: 'Inter',
                         fontSize: 34,
                         fontWeight: FontWeight.w700,
                         letterSpacing: -1.2,
                         height: 1.1,
-                        color: Colors.white,
+                        color: adt.AppColors.onDarkPrimary,
                       ),
                     ),
                     const SizedBox(height: AppSpacing.s8),
@@ -209,7 +208,7 @@ class _OtpVerificationScreenState extends ConsumerState<OtpVerificationScreen>
                           TextSpan(
                             text: widget.email,
                             style: AppTextStyles.body.copyWith(
-                              color: Colors.white,
+                              color: adt.AppColors.onDarkPrimary,
                               fontWeight: FontWeight.w500,
                             ),
                           ),
@@ -226,8 +225,9 @@ class _OtpVerificationScreenState extends ConsumerState<OtpVerificationScreen>
                           controller: _ctrls[i],
                           focusNode: _foci[i],
                           onInput: (v) {
-                            if (v.isNotEmpty && i < 5)
+                            if (v.isNotEmpty && i < 5) {
                               _foci[i + 1].requestFocus();
+                            }
                             if (v.isNotEmpty && i == 5) _verify();
                           },
                           onBackspace: () {
@@ -325,14 +325,14 @@ class _OtpBoxState extends State<_OtpBox> {
       width: 44,
       height: 56,
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.1),
+        color: adt.AppColors.onDarkPrimary.withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(AppRadius.md),
         border: Border.all(
           color: _focused
-              ? Colors.white
+              ? adt.AppColors.onDarkPrimary
               : has
-              ? Colors.white.withOpacity(0.5)
-              : Colors.white.withOpacity(0.2),
+              ? adt.AppColors.onDarkPrimary.withValues(alpha: 0.5)
+              : adt.AppColors.onDarkPrimary.withValues(alpha: 0.2),
           width: _focused ? 1.5 : 1.0,
         ),
       ),
@@ -353,10 +353,9 @@ class _OtpBoxState extends State<_OtpBox> {
           textAlign: TextAlign.center,
           inputFormatters: [FilteringTextInputFormatter.digitsOnly],
           style: const TextStyle(
-            fontFamily: 'Inter',
             fontSize: 22,
             fontWeight: FontWeight.w700,
-            color: Colors.white,
+            color: adt.AppColors.onDarkPrimary,
           ),
           decoration: const InputDecoration(
             counterText: '',

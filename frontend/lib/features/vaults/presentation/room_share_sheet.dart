@@ -76,7 +76,6 @@ class RoomShareSheet extends StatelessWidget {
                     child: Text(
                       inviteCode,
                       style: TextStyle(
-                        fontFamily: 'Inter',
                         fontSize: 18,
                         fontWeight: FontWeight.w600,
                         color: c.text,
@@ -125,7 +124,6 @@ class RoomShareSheet extends StatelessWidget {
                     child: Text(
                       inviteLink,
                       style: TextStyle(
-                        fontFamily: 'Inter',
                         fontSize: 14,
                         color: c.text,
                       ),

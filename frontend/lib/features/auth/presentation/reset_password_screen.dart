@@ -6,6 +6,7 @@ import 'package:memory_verse/core/navigation/router.dart';
 import 'package:memory_verse/core/providers/auth_provider.dart';
 import 'package:memory_verse/core/utils/auth_error_handler.dart';
 import 'package:memory_verse/features/auth/presentation/auth_widgets.dart';
+import 'package:memory_verse/core/theme/app_design_tokens.dart' as adt;
 
 class ResetPasswordScreen extends ConsumerStatefulWidget {
   final String email;
@@ -127,24 +128,22 @@ class _ResetPasswordScreenState extends ConsumerState<ResetPasswordScreen>
                   ],
                 ),
                 const SizedBox(height: AppSpacing.s40),
-                Text(
+                const Text(
                   'Reset your\npassword.',
                   style: TextStyle(
-                    fontFamily: 'Inter',
                     fontSize: 34,
                     fontWeight: FontWeight.w700,
                     letterSpacing: -1.2,
                     height: 1.1,
-                    color: Colors.white,
+                    color: adt.AppColors.onDarkPrimary,
                   ),
                 ),
                 const SizedBox(height: AppSpacing.s12),
                 Text.rich(
                   TextSpan(
-                    style: TextStyle(
-                      fontFamily: 'Inter',
+                    style: const TextStyle(
                       fontSize: 14,
-                      color: Colors.white70,
+                      color: adt.AppColors.onDarkSecondary,
                       height: 1.5,
                     ),
                     children: [
@@ -152,7 +151,7 @@ class _ResetPasswordScreenState extends ConsumerState<ResetPasswordScreen>
                       TextSpan(
                         text: widget.email,
                         style: const TextStyle(
-                          color: Colors.white,
+                          color: adt.AppColors.onDarkPrimary,
                           fontWeight: FontWeight.w500,
                         ),
                       ),

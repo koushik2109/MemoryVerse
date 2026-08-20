@@ -5,6 +5,7 @@ import 'package:memory_verse/core/theme/app_design_tokens.dart';
 import 'package:memory_verse/core/providers/auth_provider.dart';
 import 'package:memory_verse/core/utils/auth_error_handler.dart';
 import 'package:memory_verse/features/auth/presentation/auth_widgets.dart';
+import 'package:memory_verse/core/theme/app_design_tokens.dart' as adt;
 class ForgotPasswordScreen extends ConsumerStatefulWidget {
   const ForgotPasswordScreen({super.key});
   @override
@@ -158,13 +159,13 @@ class _FormView extends StatelessWidget {
           width: 52,
           height: 52,
           decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.1),
+            color: adt.AppColors.onDarkPrimary.withValues(alpha: 0.1),
             borderRadius: BorderRadius.circular(AppRadius.md),
-            border: Border.all(color: Colors.white.withOpacity(0.2)),
+            border: Border.all(color: adt.AppColors.onDarkPrimary.withValues(alpha: 0.2)),
           ),
           child: const Icon(
             Icons.lock_reset_rounded,
-            color: Colors.white,
+            color: adt.AppColors.onDarkPrimary,
             size: 24,
           ),
         ),
@@ -172,12 +173,11 @@ class _FormView extends StatelessWidget {
         const Text(
           'Forgot your\npassword?',
           style: TextStyle(
-            fontFamily: 'Inter',
             fontSize: 34,
             fontWeight: FontWeight.w700,
             letterSpacing: -1.2,
             height: 1.1,
-            color: Colors.white,
+            color: adt.AppColors.onDarkPrimary,
           ),
         ),
         const SizedBox(height: AppSpacing.s12),
@@ -224,7 +224,7 @@ class _SuccessView extends StatelessWidget {
           width: 52,
           height: 52,
           decoration: BoxDecoration(
-            color: const Color(0xFF30A46C).withOpacity(0.15),
+            color: const Color(0xFF30A46C).withValues(alpha: 0.15),
             borderRadius: BorderRadius.circular(AppRadius.md),
           ),
           child: const Icon(
@@ -237,12 +237,11 @@ class _SuccessView extends StatelessWidget {
         const Text(
           'Check your\ninbox.',
           style: TextStyle(
-            fontFamily: 'Inter',
             fontSize: 34,
             fontWeight: FontWeight.w700,
             letterSpacing: -1.2,
             height: 1.1,
-            color: Colors.white,
+            color: adt.AppColors.onDarkPrimary,
           ),
         ),
         const SizedBox(height: AppSpacing.s12),
@@ -257,7 +256,7 @@ class _SuccessView extends StatelessWidget {
               TextSpan(
                 text: email,
                 style: AppTextStyles.body.copyWith(
-                  color: Colors.white,
+                  color: adt.AppColors.onDarkPrimary,
                   fontWeight: FontWeight.w500,
                 ),
               ),
@@ -269,7 +268,7 @@ class _SuccessView extends StatelessWidget {
         Text(
           "Didn't receive it? Check your spam folder.",
           style: AppTextStyles.caption.copyWith(
-            color: AppColors.onDarkMuted.withOpacity(0.7),
+            color: AppColors.onDarkMuted.withValues(alpha: 0.7),
           ),
         ),
         const SizedBox(height: AppSpacing.s40),

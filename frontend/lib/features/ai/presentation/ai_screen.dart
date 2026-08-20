@@ -5,6 +5,7 @@ import 'package:memory_verse/core/design/tokens.dart';
 import 'package:memory_verse/core/providers/app_providers.dart';
 import 'package:memory_verse/core/repositories/app_repositories.dart';
 import 'package:memory_verse/contracts/models.dart';
+import 'package:memory_verse/core/theme/app_design_tokens.dart' as adt;
 
 class AiScreen extends ConsumerStatefulWidget {
   const AiScreen({super.key});
@@ -207,7 +208,7 @@ class _AiScreenState extends ConsumerState<AiScreen> {
                     ),
                     child: const Icon(
                       Icons.send_rounded,
-                      color: Colors.white,
+                      color: adt.AppColors.onDarkPrimary,
                       size: 20,
                     ),
                   ),
@@ -344,7 +345,7 @@ class _MessageBubble extends StatelessWidget {
           child: Text(
             message.content,
             style: Theme.of(context).textTheme.bodyMedium
-                ?.copyWith(color: isUser ? Colors.white : c.text, height: 1.5),
+                ?.copyWith(color: isUser ? adt.AppColors.onDarkPrimary : c.text, height: 1.5),
           ),
         ),
       ),

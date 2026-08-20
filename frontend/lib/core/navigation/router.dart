@@ -81,8 +81,9 @@ final routerProvider = Provider<GoRouter>((ref) {
 
       if (path == Routes.splash) return null;
 
-      if (!hasSession && Routes._shellRoutes.contains(path))
+      if (!hasSession && Routes._shellRoutes.contains(path)) {
         return Routes.landing;
+      }
       if (hasSession && Routes._authRoutes.contains(path)) return Routes.home;
 
       return null;

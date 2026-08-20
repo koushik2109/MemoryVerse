@@ -422,8 +422,9 @@ class _EditMemoryScreenState extends ConsumerState<EditMemoryScreen> {
                             icon: Icon(Icons.more_vert, color: c.textMuted),
                             color: c.surface,
                             onSelected: (val) {
-                              if (val == 'cover')
+                              if (val == 'cover') {
                                 setState(() => _coverMediaId = media.id);
+                              }
                               if (val == 'remove') _removeMedia(index);
                             },
                             itemBuilder: (_) => [

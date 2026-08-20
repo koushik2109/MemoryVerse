@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:memory_verse/core/theme/app_design_tokens.dart' as adt;
 
 class CarouselItem {
   final String title;
@@ -69,7 +70,7 @@ class _StackedCarouselState extends State<StackedCarousel> {
             borderRadius: BorderRadius.circular(24),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(0.3),
+                color: adt.AppColors.plum900.withValues(alpha: 0.3),
                 blurRadius: 15,
                 offset: const Offset(0, 10),
               ),
@@ -86,8 +87,8 @@ class _StackedCarouselState extends State<StackedCarousel> {
                 begin: Alignment.bottomCenter,
                 end: Alignment.topCenter,
                 colors: [
-                  Colors.black.withOpacity(0.9),
-                  Colors.black.withOpacity(0.3),
+                  adt.AppColors.plum900.withValues(alpha: 0.9),
+                  adt.AppColors.plum900.withValues(alpha: 0.3),
                   Colors.transparent,
                 ],
                 stops: const [0.0, 0.4, 1.0],
@@ -107,16 +108,16 @@ class _StackedCarouselState extends State<StackedCarousel> {
                         vertical: 6,
                       ),
                       decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.2),
+                        color: adt.AppColors.onDarkPrimary.withValues(alpha: 0.2),
                         borderRadius: BorderRadius.circular(20),
                         border: Border.all(
-                          color: Colors.white.withOpacity(0.4),
+                          color: adt.AppColors.onDarkPrimary.withValues(alpha: 0.4),
                         ),
                       ),
                       child: Text(
                         item.badge!.toUpperCase(),
                         style: const TextStyle(
-                          color: Colors.white,
+                          color: adt.AppColors.onDarkPrimary,
                           fontSize: 10,
                           fontWeight: FontWeight.w800,
                           letterSpacing: 1.2,
@@ -128,8 +129,7 @@ class _StackedCarouselState extends State<StackedCarousel> {
                 Text(
                   item.title,
                   style: const TextStyle(
-                    fontFamily: 'Inter',
-                    color: Colors.white,
+                    color: adt.AppColors.onDarkPrimary,
                     fontSize: 22,
                     fontWeight: FontWeight.bold,
                   ),
@@ -141,8 +141,7 @@ class _StackedCarouselState extends State<StackedCarousel> {
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
-                      fontFamily: 'Inter',
-                      color: Colors.white.withOpacity(0.8),
+                      color: adt.AppColors.onDarkPrimary.withValues(alpha: 0.8),
                       fontSize: 13,
                       fontStyle: FontStyle.italic,
                     ),
@@ -162,8 +161,8 @@ class _StackedCarouselState extends State<StackedCarousel> {
           return const LinearGradient(
             colors: [
               Colors.transparent,
-              Colors.black,
-              Colors.black,
+              adt.AppColors.plum900,
+              adt.AppColors.plum900,
               Colors.transparent,
             ],
             stops: [0.0, 0.05, 0.95, 1.0],
@@ -190,7 +189,7 @@ class _StackedCarouselState extends State<StackedCarousel> {
                   shape: BoxShape.circle,
                   color: _currentIndex == entry.key
                       ? Theme.of(context).colorScheme.primary
-                      : Theme.of(context).colorScheme.primary.withOpacity(0.3),
+                      : Theme.of(context).colorScheme.primary.withValues(alpha: 0.3),
                 ),
               );
             }).toList(),

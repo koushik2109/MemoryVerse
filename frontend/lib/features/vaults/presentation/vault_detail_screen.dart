@@ -192,7 +192,6 @@ class _VaultDetailScreenState extends ConsumerState<VaultDetailScreen> {
                       Text(
                         '${vault.memberCount} Members',
                         style: TextStyle(
-                          fontFamily: 'Inter',
                           fontWeight: FontWeight.w600,
                           color: c.text,
                         ),

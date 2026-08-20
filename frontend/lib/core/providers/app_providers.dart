@@ -39,8 +39,9 @@ final notificationsListProvider = FutureProvider<List<NotificationModel>>((
 
 final searchResultsProvider =
     FutureProvider.family<Map<String, dynamic>, String>((ref, query) async {
-      if (query.trim().isEmpty)
+      if (query.trim().isEmpty) {
         return {'vaults': [], 'media': [], 'collaborators': []};
+      }
       final repo = ref.watch(searchRepositoryProvider);
       return repo.search(query);
     });
