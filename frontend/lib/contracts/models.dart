@@ -7,6 +7,7 @@ class UserModel {
   final String? bio;
   final int vaultCount;
   final int mediaCount;
+  final int memoryCount;
   final DateTime? createdAt;
   final DateTime? updatedAt;
 
@@ -19,6 +20,7 @@ class UserModel {
     this.bio,
     this.vaultCount = 0,
     this.mediaCount = 0,
+    this.memoryCount = 0,
     this.createdAt,
     this.updatedAt,
   });
@@ -33,6 +35,7 @@ class UserModel {
       bio: json['bio'],
       vaultCount: json['vault_count'] ?? 0,
       mediaCount: json['media_count'] ?? 0,
+      memoryCount: json['memory_count'] ?? json['media_count'] ?? 0,
       createdAt: json['created_at'] != null
           ? DateTime.tryParse(json['created_at'])
           : null,

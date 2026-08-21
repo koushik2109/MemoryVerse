@@ -97,7 +97,7 @@ class TimelineService:
                 for day_date in sorted(year_month_day[year][month_num].keys(), reverse=True):
                     items = year_month_day[year][month_num][day_date]
                     
-                    day_label = day_date.strftime('%b %-d') # e.g. "Aug 10"
+                    day_label = f"{calendar.month_abbr[day_date.month]} {day_date.day}"
 
                     day_groups.append(TimelineDayGroup(
                         date_label=day_label,

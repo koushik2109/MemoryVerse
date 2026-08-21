@@ -3,13 +3,21 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
+import 'dart:io' show Platform;
+import 'package:flutter/foundation.dart' show kIsWeb;
+
 final apiClientProvider = Provider<ApiClient>((ref) => ApiClient());
 
 class ApiClient {
   late final Dio _dio;
 
   ApiClient() {
-    final baseUrl = dotenv.env['API_BASE_URL'] ?? 'http://10.0.2.2:8000/api/v1';
+    String baseUrl = dotenv.env['API_BASE_URL'] ?? 'http://127.0.0.1:8000/api/v1';
+    if (kIsWeb || (!kIsWeb && !Platform.isAndroid)) {
+      baseUrl = baseUrl.replaceAll('10.0.2.2', '127.0.0.1');
+    } else if (!kIsWeb && Platform.isAndroid) {
+      baseUrl = baseUrl.replaceAll('localhost', '10.0.2.2').replaceAll('127.0.0.1', '10.0.2.2');
+    }
     _dio = Dio(
       BaseOptions(
         baseUrl: baseUrl,

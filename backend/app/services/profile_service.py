@@ -25,6 +25,7 @@ class ProfileService:
         # Calculate counts
         vault_cnt = supabase.table("vault_members").select("id", count="exact").eq("user_id", user_id).execute().count or 0  # type: ignore
         media_cnt = supabase.table("media").select("id", count="exact").eq("owner_id", user_id).execute().count or 0  # type: ignore
+        memory_cnt = supabase.table("memories").select("id", count="exact").eq("owner_id", user_id).execute().count or 0  # type: ignore
 
         return UserProfile(
             id=prof["id"],
@@ -35,6 +36,7 @@ class ProfileService:
             bio=prof.get("bio"),
             vault_count=vault_cnt,
             media_count=media_cnt,
+            memory_count=memory_cnt,
             created_at=datetime.fromisoformat(cast(str, prof.get("created_at")).replace("Z", "+00:00")) if prof.get("created_at") else None
         )
 

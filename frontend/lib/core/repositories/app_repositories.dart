@@ -120,6 +120,7 @@ class MemoryRepository {
     String? description,
     String? vaultId,
     String? locationName,
+    DateTime? memoryDate,
   }) async {
     final res = await _api.post(
       '/memories',
@@ -128,6 +129,7 @@ class MemoryRepository {
         'description': description,
         if (vaultId != null) 'vault_id': vaultId,
         if (locationName != null) 'location_name': locationName,
+        if (memoryDate != null) 'memory_date': memoryDate.toIso8601String(),
       },
     );
     return MemoryModel.fromJson(res.data);
@@ -199,6 +201,35 @@ class MediaRepository {
       onSendProgress: onSendProgress,
     );
     return MediaModel.fromJson(res.data);
+  }
+
+  /// Server-side batch upload of multiple media files
+  Future<List<MediaModel>> uploadMultipleMedia({
+    required List<File> files,
+    String? vaultId,
+    String? memoryId,
+    CancelToken? cancelToken,
+    ProgressCallback? onSendProgress,
+  }) async {
+    final multipartFiles = <MultipartFile>[];
+    for (final file in files) {
+      final name = file.path.split('/').last.split('\\').last;
+      multipartFiles.add(await MultipartFile.fromFile(file.path, filename: name));
+    }
+
+    final formData = {
+      'files': multipartFiles,
+      if (vaultId != null) 'vault_id': vaultId,
+      if (memoryId != null) 'memory_id': memoryId,
+    };
+
+    final res = await _api.postForm(
+      '/media/upload-multiple',
+      formData: formData,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+    );
+    return (res.data as List).map((x) => MediaModel.fromJson(x)).toList();
   }
 
   Future<void> deleteMedia(String id) async {

@@ -75,3 +75,16 @@ async def delete_memory(
 ):
     """Delete a memory and cascade delete its media (handled by DB)."""
     await service.delete_memory(user.id, memory_id)
+
+
+@router.post("/auto-cluster", status_code=status.HTTP_200_OK)
+async def auto_cluster_memories(
+    vault_id: Optional[str] = Query(None, description="Trigger clustering for a specific vault"),
+    user: CurrentUser = Depends(get_current_user)
+):
+    """
+    Trigger automatic event detection and clustering for the user's unassociated media.
+    Groups photos/videos chronologically and semantically into logical Memories.
+    """
+    from app.services.event_clustering_service import EventClusteringService
+    return await EventClusteringService.cluster_user_media(user.id, vault_id=vault_id)

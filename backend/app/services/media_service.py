@@ -31,6 +31,16 @@ class MediaService:
             raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Failed to save media metadata")
         
         m = cast(list[dict[str, Any]], res.data)[0]
+        
+        # If media belongs to a memory, check if memory needs a cover image
+        if payload.memory_id:
+            try:
+                mem_res = supabase.table("memories").select("cover_media_id").eq("id", payload.memory_id).execute()
+                if mem_res.data and not mem_res.data[0].get("cover_media_id"):
+                    supabase.table("memories").update({"cover_media_id": m["id"]}).eq("id", payload.memory_id).execute()
+            except Exception:
+                pass
+
         return MediaResponse(
             id=m["id"],
             vault_id=m.get("vault_id"),

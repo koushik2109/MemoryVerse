@@ -23,6 +23,7 @@ from datetime import datetime, timezone, timedelta
 from app.schemas.domain import MediaCreate, MediaResponse, VideoJobResponse, MediaReorderRequest
 from app.services.media_service import MediaService
 from app.services.video_service import VideoService
+from app.services.ai_extractor import AIExtractor
 from app.core.security import get_current_user, CurrentUser
 from app.core.db import get_supabase_client
 
@@ -169,6 +170,7 @@ async def get_video_job_status(
 
 @router.post("/upload", response_model=MediaResponse, status_code=status.HTTP_201_CREATED)
 async def upload_media(
+    background_tasks: BackgroundTasks,
     file: UploadFile = File(...),
     vault_id: Optional[str] = Form(None),
     memory_id: Optional[str] = Form(None),
@@ -248,7 +250,88 @@ async def upload_media(
         file_size=file_size,
         mime_type=content_type,
     )
-    return MediaService.create_media(user_id, payload)
+    created = MediaService.create_media(user_id, payload)
+    
+    # Trigger background AI feature & metadata extraction
+    background_tasks.add_task(AIExtractor.process_media_item, created.id, file_bytes, content_type)
+    
+    return created
+
+
+@router.post("/upload-multiple", response_model=List[MediaResponse], status_code=status.HTTP_201_CREATED)
+async def upload_multiple_media(
+    background_tasks: BackgroundTasks,
+    files: List[UploadFile] = File(...),
+    vault_id: Optional[str] = Form(None),
+    memory_id: Optional[str] = Form(None),
+    current_user: CurrentUser = Depends(get_current_user),
+):
+    """
+    Upload multiple photos or videos in batch.
+    Processes and uploads each file to Supabase Storage and records metadata in PostgreSQL.
+    """
+    results: List[MediaResponse] = []
+    user_id = current_user.id
+    import time
+    base_ts = int(time.time() * 1000)
+
+    for i, file in enumerate(files):
+        content_type = file.content_type or "application/octet-stream"
+        if content_type not in ALLOWED_TYPES:
+            continue
+
+        file_bytes = await file.read()
+        file_size = len(file_bytes)
+        if file_size > MAX_FILE_SIZE_MB * 1024 * 1024:
+            continue
+
+        filename = file.filename or f"upload_{i}"
+        ts = base_ts + i
+        safe_name = "".join(c if c.isalnum() or c in "._-" else "_" for c in filename)
+        media_type = _detect_media_type(content_type)
+
+        original_path = f"{user_id}/{ts}_{safe_name}"
+
+        try:
+            original_url = _upload_to_storage("memories", original_path, file_bytes, content_type)
+        except Exception as e:
+            logger.error(f"Storage upload failed for {filename}: {e}")
+            continue
+
+        if media_type == "video":
+            suffix = ".mp4" if "mp4" in content_type else ".mov"
+            thumb_bytes = _extract_video_thumbnail(file_bytes, suffix=suffix)
+            if thumb_bytes:
+                thumb_path = f"{user_id}/thumbs/{ts}_{safe_name}.jpg"
+                try:
+                    thumb_url = _upload_to_storage("memories", thumb_path, thumb_bytes, "image/jpeg")
+                except Exception as e:
+                    logger.warning(f"Thumbnail upload failed (non-critical): {e}")
+                    thumb_url = original_url
+            else:
+                thumb_url = original_url
+        else:
+            thumb_path = original_path
+            thumb_url = original_url
+
+        payload = MediaCreate(
+            vault_id=vault_id,
+            memory_id=memory_id,
+            filename=filename,
+            storage_path=original_path,
+            url=original_url,
+            thumbnail_url=thumb_url,
+            media_type=media_type,
+            file_size=file_size,
+            mime_type=content_type,
+        )
+        created = MediaService.create_media(user_id, payload)
+        results.append(created)
+
+        # Trigger background AI feature & metadata extraction
+        background_tasks.add_task(AIExtractor.process_media_item, created.id, file_bytes, content_type)
+
+    return results
 
 
 @router.post("", response_model=MediaResponse, status_code=status.HTTP_201_CREATED)

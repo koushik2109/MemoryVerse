@@ -80,7 +80,7 @@ class ProfileScreen extends ConsumerWidget {
                       children: [
                         _StatItem(
                           label: 'Memories',
-                          value: '${user.mediaCount}',
+                          value: '${user.memoryCount}',
                         ),
                         Container(
                           width: 1,

@@ -40,7 +40,7 @@ class MemoryService:
             raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Failed to fetch memory")
 
     async def create_memory(self, user_id: str, memory: MemoryCreate) -> dict:
-        data = memory.model_dump(exclude_unset=True)
+        data = memory.model_dump(mode="json", exclude_unset=True)
         data["owner_id"] = user_id
         
         try:
@@ -53,7 +53,7 @@ class MemoryService:
             raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=str(e))
 
     async def update_memory(self, user_id: str, memory_id: str, memory: MemoryUpdate) -> dict:
-        data = memory.model_dump(exclude_unset=True)
+        data = memory.model_dump(mode="json", exclude_unset=True)
         if not data:
             return await self.get_memory(user_id, memory_id)
             

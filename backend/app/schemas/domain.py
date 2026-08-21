@@ -50,6 +50,7 @@ class UserProfile(BaseModel):
     bio: Optional[str] = None
     vault_count: int = 0
     media_count: int = 0
+    memory_count: int = 0
     created_at: Optional[datetime] = None
     updated_at: Optional[datetime] = None
 
