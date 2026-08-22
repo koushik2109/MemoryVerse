@@ -1,0 +1,48 @@
+# Audio RAG dependencies
+# Run from the MemoryVerse root:
+#   pip install -r ai_engine/rag/requirements.txt
+
+# Transcription (local, no API key)
+openai-whisper>=20231117
+
+# Audio feature extraction
+librosa>=0.10.2
+soundfile>=0.12.1
+
+# BGE-M3 Embeddings (local)
+FlagEmbedding>=1.2.9
+torch>=2.2.0
+
+# ESC-50 ambient classifier
+scikit-learn>=1.4.0
+numpy>=1.26.4
+
+# Supabase vector store
+supabase>=2.4.0
+
+# LLM (Ollama) intent extraction
+httpx>=0.27.0
+
+# FastAPI
+fastapi>=0.111.0
+python-multipart>=0.0.9    # for UploadFile form data
+uvicorn[standard]>=0.30.0
+
+# Environment loading
+python-dotenv>=1.0.1
+
+# ─────────────────────────────────────────────────────────────────
+# Video RAG Pipeline
+# ─────────────────────────────────────────────────────────────────
+
+# Keyframe extraction
+opencv-python-headless>=4.9.0.80
+
+# SigLIP image + text embeddings (local)
+transformers>=4.40.0
+Pillow>=10.3.0
+# torch already listed above
+
+# Qwen3-VL captioner (via Ollama, uses httpx already listed)
+# No extra package needed — uses Ollama multimodal API
+

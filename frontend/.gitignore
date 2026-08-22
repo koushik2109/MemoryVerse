@@ -55,3 +55,4 @@ build/
 # Google / Firebase credentials — never commit these
 google-services.json
 GoogleService-Info.plist
+.auto_reload.py

@@ -26,3 +26,6 @@ frontend/.env
 
 # Flutter desktop ephemeral files
 ephemeral/
+
+dev1.sh
+*.zip
