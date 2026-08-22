@@ -33,6 +33,15 @@ class AuthNotifier extends AsyncNotifier<void> {
     state = const AsyncLoading();
     state = await AsyncValue.guard(() async {
       await _client.auth.signInWithPassword(email: email, password: password);
+      
+      // Invalidate all cached data providers so they fetch fresh data
+      ref.invalidate(userProfileProvider);
+      ref.invalidate(vaultsListProvider);
+      ref.invalidate(userMediaProvider);
+      ref.invalidate(memoriesListProvider);
+      ref.invalidate(timelineProvider);
+      ref.invalidate(notificationsListProvider);
+      ref.invalidate(aiConversationsProvider);
     });
   }
 
@@ -121,6 +130,15 @@ class AuthNotifier extends AsyncNotifier<void> {
         idToken: idToken,
         accessToken: googleAuth.accessToken,
       );
+      
+      // Invalidate all cached data providers so they fetch fresh data
+      ref.invalidate(userProfileProvider);
+      ref.invalidate(vaultsListProvider);
+      ref.invalidate(userMediaProvider);
+      ref.invalidate(memoriesListProvider);
+      ref.invalidate(timelineProvider);
+      ref.invalidate(notificationsListProvider);
+      ref.invalidate(aiConversationsProvider);
     });
   }
 
