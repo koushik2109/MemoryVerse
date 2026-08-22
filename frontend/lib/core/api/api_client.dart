@@ -12,12 +12,17 @@ class ApiClient {
   late final Dio _dio;
 
   ApiClient() {
-    String baseUrl = dotenv.env['API_BASE_URL'] ?? 'http://127.0.0.1:8000/api/v1';
+    String baseUrl = dotenv.env['API_BASE_URL'] ?? 'http://10.0.2.2:8000/api/v1';
     if (kIsWeb || (!kIsWeb && !Platform.isAndroid)) {
       baseUrl = baseUrl.replaceAll('10.0.2.2', '127.0.0.1');
     } else if (!kIsWeb && Platform.isAndroid) {
       baseUrl = baseUrl.replaceAll('localhost', '10.0.2.2').replaceAll('127.0.0.1', '10.0.2.2');
     }
+
+    if (!baseUrl.endsWith('/api/v1')) {
+      baseUrl = baseUrl.endsWith('/') ? '${baseUrl}api/v1' : '$baseUrl/api/v1';
+    }
+
     _dio = Dio(
       BaseOptions(
         baseUrl: baseUrl,

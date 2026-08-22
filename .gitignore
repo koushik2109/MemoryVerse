@@ -23,6 +23,7 @@ frontend/.env
 
 # AI Agents
 .agents/
+GEMINI.md
 
 # Flutter desktop ephemeral files
 ephemeral/
