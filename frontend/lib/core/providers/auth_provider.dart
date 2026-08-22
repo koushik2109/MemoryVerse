@@ -4,6 +4,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import '../api/api_client.dart';
+import 'app_providers.dart';
 
 // ── Raw auth state stream ─────────────────────────────
 final authStreamProvider = StreamProvider<AuthState>((ref) {
@@ -127,6 +128,15 @@ class AuthNotifier extends AsyncNotifier<void> {
     state = const AsyncLoading();
     state = await AsyncValue.guard(() async {
       await _client.auth.signOut();
+      
+      // Invalidate all cached data providers so the new user doesn't see them
+      ref.invalidate(userProfileProvider);
+      ref.invalidate(vaultsListProvider);
+      ref.invalidate(userMediaProvider);
+      ref.invalidate(memoriesListProvider);
+      ref.invalidate(timelineProvider);
+      ref.invalidate(notificationsListProvider);
+      ref.invalidate(aiConversationsProvider);
     });
   }
 }
