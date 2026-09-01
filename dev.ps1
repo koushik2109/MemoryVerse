@@ -47,11 +47,15 @@ if ($RunBackend) {
         }
     }
 
-    if (-not (Test-Path $VenvDir)) {
-        Write-Warn "Virtual environment not found at $VenvDir -- creating one..."
-        python -m venv $VenvDir
+    $FastapiCheck = Join-Path $VenvDir "Lib\site-packages\fastapi"
+    $ExifreadCheck = Join-Path $VenvDir "Lib\site-packages\exifread"
+    if ((-not (Test-Path $VenvDir)) -or (-not (Test-Path $FastapiCheck)) -or (-not (Test-Path $ExifreadCheck))) {
+        Write-Warn "Virtual environment dependencies missing or incomplete at $VenvDir -- installing..."
         $PythonExe = Join-Path $VenvDir "Scripts\python.exe"
-        & $PythonExe -m ensurepip --quiet
+        if (-not (Test-Path $VenvDir)) {
+            python -m venv $VenvDir
+            & $PythonExe -m ensurepip
+        }
         & $PythonExe -m pip install -q --upgrade pip
         & $PythonExe -m pip install -q -r (Join-Path $BackendDir "requirements.txt")
         Write-Ok "Virtual environment created and dependencies installed."
@@ -76,8 +80,8 @@ if ($RunFrontend) {
 # Launching terminals
 if ($RunBackend) {
     Write-Ok "Opening Backend terminal..."
-    $BackendCmd = "cd '$BackendDir'; & '$VenvDir\Scripts\activate.ps1'; Write-Host ''; Write-Host '  >>> MemoryVerse Backend starting...'; Write-Host ''; `$env:PYTHONPATH='.'; python -m uvicorn app.main:app --reload --host 0.0.0.0 --port 8000"
-    Start-Process powershell -ArgumentList "-NoExit", "-Command", $BackendCmd
+    $BackendCmd = "Set-Location '$BackendDir'; & '$VenvDir\Scripts\Activate.ps1'; Write-Host ''; Write-Host '  >>> MemoryVerse Backend starting...'; Write-Host ''; `$env:PYTHONPATH='.'; python -m uvicorn app.main:app --reload --host 0.0.0.0 --port 8000"
+    Start-Process powershell -ArgumentList "-ExecutionPolicy", "Bypass", "-NoExit", "-Command", $BackendCmd
 }
 
 if ($RunBackend -and $RunFrontend) {
@@ -87,7 +91,7 @@ if ($RunBackend -and $RunFrontend) {
 if ($RunFrontend) {
     Write-Ok "Opening Frontend terminal..."
     $FrontendCmd = "cd '$FrontendDir'; Write-Host ''; Write-Host '  >>> MemoryVerse Flutter starting...'; Write-Host ''; flutter run"
-    Start-Process powershell -ArgumentList "-NoExit", "-Command", $FrontendCmd
+    Start-Process powershell -ArgumentList "-ExecutionPolicy", "Bypass", "-NoExit", "-Command", $FrontendCmd
 }
 
 Write-Host ""

@@ -1,7 +1,7 @@
 // This is a generated file; do not edit or check into version control.
-FLUTTER_ROOT=/home/koushik_2109/develop/flutter
-FLUTTER_APPLICATION_PATH=/home/koushik_2109/MemoryVerse/frontend
-FLUTTER_FRAMEWORK_SWIFT_PACKAGE_PATH=/home/koushik_2109/MemoryVerse/frontend/macos/Flutter/ephemeral/Packages/.packages/FlutterFramework
+FLUTTER_ROOT=C:\Users\VICTUS\develop\flutter
+FLUTTER_APPLICATION_PATH=D:\MemoryVerse\proj\MemoryVerse\frontend
+FLUTTER_FRAMEWORK_SWIFT_PACKAGE_PATH=D:\MemoryVerse\proj\MemoryVerse\frontend\macos\Flutter\ephemeral\Packages\.packages\FlutterFramework
 COCOAPODS_PARALLEL_CODE_SIGN=true
 FLUTTER_BUILD_DIR=build
 FLUTTER_BUILD_NAME=1.0.0

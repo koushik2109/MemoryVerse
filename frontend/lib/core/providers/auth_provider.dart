@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -113,23 +114,36 @@ class AuthNotifier extends AsyncNotifier<void> {
   Future<void> signInWithGoogle() async {
     state = const AsyncLoading();
     state = await AsyncValue.guard(() async {
-      final webClientId = dotenv.env['GOOGLE_CLIENT_ID'];
-      final googleSignIn = GoogleSignIn(
-        clientId: '413763126044-jgj0jq3s55pemg1jj4f53ratglvmv662.apps.googleusercontent.com',
-        serverClientId: webClientId,
-      );
-      final googleUser = await googleSignIn.signIn();
-      if (googleUser == null) throw Exception('Google sign-in cancelled');
+      final googleClientId = dotenv.env['GOOGLE_CLIENT_ID'] ?? '413763126044-jgj0jq3s55pemg1jj4f53ratglvmv662.apps.googleusercontent.com';
 
-      final googleAuth = await googleUser.authentication;
-      final idToken = googleAuth.idToken;
-      if (idToken == null) throw Exception('Failed to get Google ID token');
+      try {
+        final googleSignIn = GoogleSignIn(
+          clientId: googleClientId,
+          serverClientId: googleClientId,
+        );
+        final googleUser = await googleSignIn.signIn();
+        if (googleUser == null) throw Exception('Google sign-in cancelled');
 
-      await _client.auth.signInWithIdToken(
-        provider: OAuthProvider.google,
-        idToken: idToken,
-        accessToken: googleAuth.accessToken,
-      );
+        final googleAuth = await googleUser.authentication;
+        final idToken = googleAuth.idToken;
+        if (idToken == null) throw Exception('Failed to get Google ID token');
+
+        await _client.auth.signInWithIdToken(
+          provider: OAuthProvider.google,
+          idToken: idToken,
+          accessToken: googleAuth.accessToken,
+        );
+      } catch (e) {
+        if (kIsWeb) {
+          // Fallback to Supabase OAuth redirect flow on Web if native GoogleSignIn fails
+          await _client.auth.signInWithOAuth(
+            OAuthProvider.google,
+            redirectTo: null,
+          );
+        } else {
+          rethrow;
+        }
+      }
       
       // Invalidate all cached data providers so they fetch fresh data
       ref.invalidate(userProfileProvider);

@@ -3,17 +3,28 @@ import logging
 from datetime import datetime, timezone
 from typing import Any, Dict, List, Optional, Tuple
 from PIL import Image
-import exifread
-from sentence_transformers import SentenceTransformer
+try:
+    import exifread
+except ImportError:
+    exifread = None
+
+try:
+    from sentence_transformers import SentenceTransformer
+except ImportError:
+    SentenceTransformer = None
+
 from app.core.db import get_supabase_client
 
 logger = logging.getLogger(__name__)
 
 # Lazy-loaded CLIP Model to keep memory footprint low at startup
-_clip_model: Optional[SentenceTransformer] = None
+_clip_model = None
 
-def get_clip_model() -> SentenceTransformer:
+def get_clip_model():
     global _clip_model
+    if SentenceTransformer is None:
+        logger.warning("sentence-transformers is not available. CLIP embeddings will be skipped.")
+        return None
     if _clip_model is None:
         logger.info("Loading lightweight CLIP model (clip-ViT-B-32) for multimodal embeddings...")
         _clip_model = SentenceTransformer('clip-ViT-B-32')
@@ -36,7 +47,7 @@ class AIExtractor:
         }
 
         # EXIF only applies to images
-        if not mime_type.startswith("image/"):
+        if not mime_type.startswith("image/") or exifread is None:
             return metadata
 
         try:
