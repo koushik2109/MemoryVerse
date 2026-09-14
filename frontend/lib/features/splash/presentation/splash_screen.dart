@@ -87,28 +87,19 @@ class _SplashScreenState extends State<SplashScreen>
   }
 
   Future<void> _run() async {
-    // Start background immediately
+    // Start background & logo immediately
     _bgCtrl.forward();
+    _logoCtrl.forward();
 
-    await Future<void>.delayed(const Duration(milliseconds: 180));
-    if (!mounted) return;
-
-    // Logo reveal
-    await _logoCtrl.forward();
-    if (!mounted) return;
-
-    // Wordmark follows
-    await Future<void>.delayed(const Duration(milliseconds: 80));
+    await Future<void>.delayed(const Duration(milliseconds: 100));
     if (!mounted) return;
     _wordmarkCtrl.forward();
 
-    // Tagline follows wordmark
-    await Future<void>.delayed(const Duration(milliseconds: 200));
+    await Future<void>.delayed(const Duration(milliseconds: 100));
     if (!mounted) return;
     _taglineCtrl.forward();
 
-    // Hold for legibility
-    await Future<void>.delayed(const Duration(milliseconds: 900));
+    await Future<void>.delayed(const Duration(milliseconds: 300));
     if (!mounted) return;
 
     _navigate();

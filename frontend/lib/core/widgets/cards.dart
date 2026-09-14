@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:memory_verse/core/design/tokens.dart';
 import 'package:intl/intl.dart';
 import 'package:memory_verse/core/theme/app_design_tokens.dart' as adt;
+import 'package:memory_verse/core/widgets/media.dart';
 
 class MemoryCard extends StatelessWidget {
   final String imageUrl;
@@ -35,10 +36,10 @@ class MemoryCard extends StatelessWidget {
         child: Stack(
           fit: StackFit.expand,
           children: [
-            Image.network(
-              imageUrl,
+            AppNetworkImage(
+              imageUrl: imageUrl,
               fit: BoxFit.cover,
-              errorBuilder: (_, __, ___) => Container(color: c.surfaceElevated),
+              memCacheWidth: 600,
             ),
             // Gradient Overlay
             DecoratedBox(
@@ -258,17 +259,10 @@ class MediaCard extends StatelessWidget {
                 child: Stack(
                   fit: StackFit.expand,
                   children: [
-                    Image.network(
-                      imageUrl,
+                    AppNetworkImage(
+                      imageUrl: imageUrl,
                       fit: BoxFit.cover,
-                      errorBuilder: (_, __, ___) => Container(
-                        color: c.surfaceElevated,
-                        child: Icon(
-                          Icons.image_outlined,
-                          color: c.textMuted,
-                          size: 28,
-                        ),
-                      ),
+                      memCacheWidth: 400,
                     ),
                     if (isVideo) ...[
                       // Play icon overlay

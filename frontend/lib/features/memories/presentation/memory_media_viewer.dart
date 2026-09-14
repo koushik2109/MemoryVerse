@@ -5,6 +5,7 @@ import 'package:memory_verse/contracts/models.dart';
 import 'package:memory_verse/core/design/tokens.dart';
 import 'package:memory_verse/core/providers/app_providers.dart';
 import 'package:memory_verse/core/repositories/app_repositories.dart';
+import 'package:memory_verse/core/widgets/media.dart';
 import 'package:memory_verse/features/memories/presentation/video_player_screen.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:memory_verse/core/theme/app_design_tokens.dart' as adt;
@@ -192,12 +193,10 @@ class _MemoryMediaViewerState extends ConsumerState<MemoryMediaViewer> {
                   return Stack(
                     fit: StackFit.expand,
                     children: [
-                      Image.network(
-                        media.thumbnailUrl ?? media.url,
+                      AppNetworkImage(
+                        imageUrl: media.thumbnailUrl ?? media.url,
                         fit: BoxFit.contain,
-                        errorBuilder: (_, __, ___) => const Center(
-                          child: Icon(Icons.error, color: adt.AppColors.onDarkPrimary),
-                        ),
+                        memCacheWidth: 800,
                       ),
                       Center(
                         child: IconButton(
@@ -216,20 +215,10 @@ class _MemoryMediaViewerState extends ConsumerState<MemoryMediaViewer> {
                   return InteractiveViewer(
                     minScale: 1.0,
                     maxScale: 4.0,
-                    child: Image.network(
-                      media.url,
+                    child: AppNetworkImage(
+                      imageUrl: media.url,
                       fit: BoxFit.contain,
-                      loadingBuilder: (context, child, progress) {
-                        if (progress == null) return child;
-                        return Center(
-                          child: CircularProgressIndicator(
-                            color: adt.AppColors.onDarkPrimary.withValues(alpha: 0.24),
-                          ),
-                        );
-                      },
-                      errorBuilder: (_, __, ___) => const Center(
-                        child: Icon(Icons.error, color: adt.AppColors.onDarkPrimary),
-                      ),
+                      memCacheWidth: 1200,
                     ),
                   );
                 }

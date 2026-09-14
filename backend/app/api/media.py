@@ -15,7 +15,7 @@ import os
 import tempfile
 import logging
 
-from fastapi import APIRouter, Depends, Query, UploadFile, File, Form, HTTPException, status, BackgroundTasks
+from fastapi import APIRouter, Depends, Query, UploadFile, File, Form, HTTPException, status, BackgroundTasks, Request, Response
 from fastapi.responses import JSONResponse
 from typing import List, Optional, cast, Any
 from datetime import datetime, timezone, timedelta
@@ -47,6 +47,27 @@ def _detect_media_type(mime: str) -> str:
     if mime in ALLOWED_VIDEO_TYPES:
         return "video"
     return "image"
+
+
+def _extract_image_thumbnail(image_bytes: bytes, max_dim: int = 480, quality: int = 80) -> bytes | None:
+    """
+    Resize an image to max_dim pixels keeping aspect ratio and compress as JPEG.
+    Returns lightweight bytes (~30-50KB) for instant grid rendering.
+    """
+    try:
+        from PIL import Image
+        img = Image.open(io.BytesIO(image_bytes))
+        img = img.convert("RGB")
+        
+        if img.width > max_dim or img.height > max_dim:
+            img.thumbnail((max_dim, max_dim), Image.Resampling.LANCZOS)
+            
+        buf = io.BytesIO()
+        img.save(buf, format="JPEG", quality=quality, optimize=True)
+        return buf.getvalue()
+    except Exception as e:
+        logger.warning(f"Image thumbnail generation failed: {e}")
+        return None
 
 
 def _extract_video_thumbnail(video_bytes: bytes, suffix: str = ".mp4") -> bytes | None:
@@ -104,7 +125,60 @@ def _upload_to_storage(bucket: str, path: str, data: bytes, mime: str) -> str:
     return res.get("signedURL") or res.get("signed_url") or ""
 
 
-# ── Endpoints ─────────────────────────────────────────────────────────────────
+@router.get("/stream/{media_id}")
+async def stream_media(media_id: str, request: Request):
+    """
+    Stream media (video or image) directly by media_id.
+    Provides a clean local URL with HTTP 206 Partial Content / Range support for native desktop & mobile media players.
+    """
+    supabase = get_supabase_client()
+    res = supabase.table("media").select("*").eq("id", media_id).execute()
+    if not res.data:
+        raise HTTPException(status_code=404, detail="Media not found")
+        
+    m = cast(list[dict[str, Any]], res.data)[0]
+    storage_path = m.get("storage_path")
+    mime_type = m.get("mime_type") or "video/mp4"
+    
+    if not storage_path:
+        raise HTTPException(status_code=404, detail="Storage path missing")
+        
+    try:
+        file_bytes = supabase.storage.from_("memories").download(storage_path)
+        total_size = len(file_bytes)
+        
+        range_header = request.headers.get("Range")
+        if range_header and range_header.startswith("bytes="):
+            byte_range = range_header[6:].split("-")
+            start = int(byte_range[0]) if byte_range[0] else 0
+            end = int(byte_range[1]) if len(byte_range) > 1 and byte_range[1] else total_size - 1
+            start = max(0, min(start, total_size - 1))
+            end = max(start, min(end, total_size - 1))
+            chunk_size = end - start + 1
+            
+            headers = {
+                "Content-Range": f"bytes {start}-{end}/{total_size}",
+                "Accept-Ranges": "bytes",
+                "Content-Length": str(chunk_size),
+                "Content-Type": mime_type,
+            }
+            return Response(
+                content=file_bytes[start:end+1],
+                status_code=206,
+                headers=headers,
+                media_type=mime_type,
+            )
+            
+        headers = {
+            "Accept-Ranges": "bytes",
+            "Content-Length": str(total_size),
+            "Content-Type": mime_type,
+        }
+        return Response(content=file_bytes, media_type=mime_type, headers=headers)
+    except Exception as e:
+        logger.error(f"Failed to stream media {media_id}: {e}")
+        raise HTTPException(status_code=500, detail="Failed to stream media")
+
 
 @router.get("", response_model=List[MediaResponse])
 async def list_media(
@@ -128,7 +202,17 @@ async def generate_video(
     """
     supabase = get_supabase_client()
     
-    # Create the job record
+    # Mark old incomplete jobs for this memory as stale/failed
+    try:
+        supabase.table("video_jobs")\
+            .update({"status": "failed", "error_message": "Superceded by a new creation request."})\
+            .eq("memory_id", memory_id)\
+            .in_("status", ["queued", "processing"])\
+            .execute()
+    except Exception:
+        pass
+    
+    # Create the new job record
     job_res = supabase.table("video_jobs").insert({
         "memory_id": memory_id,
         "user_id": current_user.id,
@@ -234,9 +318,17 @@ async def upload_media(
         else:
             thumb_url = original_url
     else:
-        # For images, use the image itself as its thumbnail
-        thumb_path = original_path
-        thumb_url = original_url
+        # Generate + upload lightweight thumbnail (~30-50KB) for images
+        thumb_bytes = _extract_image_thumbnail(file_bytes, max_dim=480, quality=80)
+        if thumb_bytes:
+            thumb_path = f"{user_id}/thumbs/{ts}_{safe_name}.jpg"
+            try:
+                thumb_url = _upload_to_storage("memories", thumb_path, thumb_bytes, "image/jpeg")
+            except Exception as e:
+                logger.warning(f"Image thumbnail upload failed: {e}")
+                thumb_url = original_url
+        else:
+            thumb_url = original_url
 
     # 6. Register in DB
     payload = MediaCreate(
@@ -311,8 +403,17 @@ async def upload_multiple_media(
             else:
                 thumb_url = original_url
         else:
-            thumb_path = original_path
-            thumb_url = original_url
+            # Generate + upload lightweight thumbnail (~30-50KB) for images
+            thumb_bytes = _extract_image_thumbnail(file_bytes, max_dim=480, quality=80)
+            if thumb_bytes:
+                thumb_path = f"{user_id}/thumbs/{ts}_{safe_name}.jpg"
+                try:
+                    thumb_url = _upload_to_storage("memories", thumb_path, thumb_bytes, "image/jpeg")
+                except Exception as e:
+                    logger.warning(f"Image thumbnail upload failed: {e}")
+                    thumb_url = original_url
+            else:
+                thumb_url = original_url
 
         payload = MediaCreate(
             vault_id=vault_id,

@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:memory_verse/contracts/models.dart';
 import 'package:memory_verse/core/design/tokens.dart';
 import 'package:memory_verse/core/providers/app_providers.dart';
+import 'package:memory_verse/core/widgets/media.dart';
 import 'package:memory_verse/core/widgets/states.dart';
 import 'package:memory_verse/features/memories/presentation/create_memory_sheet.dart';
 import 'package:memory_verse/features/memories/presentation/memory_detail_screen.dart';
@@ -182,11 +183,10 @@ class _MemoryGridItem extends StatelessWidget {
           fit: StackFit.expand,
           children: [
             if (imageUrl != null)
-              Image.network(
-                imageUrl,
+              AppNetworkImage(
+                imageUrl: imageUrl,
                 fit: BoxFit.cover,
-                errorBuilder: (_, __, ___) =>
-                    Container(color: c.surfaceElevated),
+                memCacheWidth: 400,
               )
             else
               Container(

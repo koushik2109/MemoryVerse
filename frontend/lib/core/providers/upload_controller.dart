@@ -129,28 +129,41 @@ class UploadController extends Notifier<List<UploadTask>> {
 
     try {
       final repo = ref.read(mediaRepositoryProvider);
-      final mediaResult = await repo.uploadMedia(
-        file: task.file,
-        filename: task.filename,
-        mediaType: task.mediaType,
-        memoryId: task.memoryId,
-        vaultId: task.vaultId,
-        cancelToken: cancelToken,
-        onSendProgress: (count, total) {
-          if (total > 0) {
-            final progress = count / total;
-            // Only update state if progress significantly changed to prevent UI rebuild spam
-            final currentTask = state.firstWhere((t) => t.id == taskId);
-            if ((progress - currentTask.progress).abs() > 0.05 ||
-                progress == 1.0) {
-              _updateTask(taskId, currentTask.copyWith(progress: progress));
-            }
-          }
-        },
-      );
+      dynamic mediaResult;
+      int attempts = 0;
+      const maxAttempts = 3;
+
+      while (attempts < maxAttempts) {
+        try {
+          attempts++;
+          mediaResult = await repo.uploadMedia(
+            file: task.file,
+            filename: task.filename,
+            mediaType: task.mediaType,
+            memoryId: task.memoryId,
+            vaultId: task.vaultId,
+            cancelToken: cancelToken,
+            onSendProgress: (count, total) {
+              if (total > 0) {
+                final progress = count / total;
+                final currentTask = state.firstWhere((t) => t.id == taskId);
+                if ((progress - currentTask.progress).abs() > 0.05 ||
+                    progress == 1.0) {
+                  _updateTask(taskId, currentTask.copyWith(progress: progress));
+                }
+              }
+            },
+          );
+          break; // Upload succeeded!
+        } catch (err) {
+          if (err is DioException && CancelToken.isCancel(err)) rethrow;
+          if (attempts >= maxAttempts) rethrow;
+          await Future.delayed(Duration(milliseconds: 500 * attempts));
+        }
+      }
 
       // If it's a cover, update the memory
-      if (task.isCover) {
+      if (task.isCover && mediaResult != null) {
         try {
           await ref
               .read(memoryRepositoryProvider)

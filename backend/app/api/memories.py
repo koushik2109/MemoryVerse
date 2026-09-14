@@ -1,8 +1,12 @@
 from fastapi import APIRouter, Depends, Query, status
 from typing import List, Optional
+from datetime import datetime
 import logging
 
-from app.schemas.domain import MemoryCreate, MemoryUpdate, MemoryResponse
+from app.schemas.domain import (
+    MemoryCreate, MemoryUpdate, MemoryResponse, ClusterPreviewResponse, ClusterExecutionResponse,
+    MemoryNarrativeResponse, AnalyzeMemoryRequest
+)
 from app.services.memory_service import MemoryService
 from app.core.security import get_current_user, CurrentUser
 from app.core.db import get_supabase_client
@@ -77,7 +81,20 @@ async def delete_memory(
     await service.delete_memory(user.id, memory_id)
 
 
-@router.post("/auto-cluster", status_code=status.HTTP_200_OK)
+@router.get("/auto-cluster/preview", response_model=ClusterPreviewResponse, status_code=status.HTTP_200_OK)
+@router.post("/auto-cluster/preview", response_model=ClusterPreviewResponse, status_code=status.HTTP_200_OK)
+async def preview_auto_cluster_memories(
+    vault_id: Optional[str] = Query(None, description="Preview clustering for a specific vault"),
+    user: CurrentUser = Depends(get_current_user)
+):
+    """
+    Preview automatic event clustering for unassociated media without creating memories.
+    """
+    from app.services.event_clustering_service import EventClusteringService
+    return await EventClusteringService.preview_clusters_for_user(user.id, vault_id=vault_id)
+
+
+@router.post("/auto-cluster", response_model=ClusterExecutionResponse, status_code=status.HTTP_200_OK)
 async def auto_cluster_memories(
     vault_id: Optional[str] = Query(None, description="Trigger clustering for a specific vault"),
     user: CurrentUser = Depends(get_current_user)
@@ -87,4 +104,82 @@ async def auto_cluster_memories(
     Groups photos/videos chronologically and semantically into logical Memories.
     """
     from app.services.event_clustering_service import EventClusteringService
-    return await EventClusteringService.cluster_user_media(user.id, vault_id=vault_id)
+    return await EventClusteringService.cluster_and_create_memories(user.id, vault_id=vault_id)
+
+
+# ── STEP 8: MEMORY NARRATIVE INTELLIGENCE ENDPOINTS ──────────────────────────
+
+@router.post("/{memory_id}/analyze", response_model=MemoryNarrativeResponse, status_code=status.HTTP_200_OK)
+async def analyze_memory_narrative(
+    memory_id: str,
+    payload: Optional[AnalyzeMemoryRequest] = None,
+    user: CurrentUser = Depends(get_current_user)
+):
+    """
+    Generate or regenerate grounded narrative intelligence (timeline, key moments, atmosphere, highlights)
+    and persist results in memories.metadata without overwriting user custom titles.
+    """
+    from app.services.memory_narrative_service import MemoryNarrativeService
+    force = payload.force_regenerate if payload else False
+    return await MemoryNarrativeService.analyze_and_persist_memory(
+        memory_id=memory_id,
+        user_id=user.id,
+        force_regenerate=force
+    )
+
+
+@router.get("/{memory_id}/narrative", response_model=MemoryNarrativeResponse, status_code=status.HTTP_200_OK)
+async def get_memory_narrative(
+    memory_id: str,
+    user: CurrentUser = Depends(get_current_user)
+):
+    """
+    Retrieve structured narrative intelligence, timeline phases, key moments, and atmosphere for a memory.
+    """
+    from app.services.memory_narrative_service import MemoryNarrativeService
+    return await MemoryNarrativeService.analyze_and_persist_memory(
+        memory_id=memory_id,
+        user_id=user.id,
+        force_regenerate=False
+    )
+
+
+@router.post("/narrative/preview", response_model=MemoryNarrativeResponse, status_code=status.HTTP_200_OK)
+async def preview_memory_narrative(
+    items_data: List[dict],
+    user: CurrentUser = Depends(get_current_user)
+):
+    """
+    Dry-run narrative analysis on a list of media item contexts without mutating database records.
+    """
+    from app.services.memory_narrative_service import MemoryNarrativeService
+    from app.services.event_clustering_service import MediaItemContext
+
+    contexts = []
+    for idx, d in enumerate(items_data):
+        dt_str = d.get("taken_at") or d.get("timestamp") or d.get("created_at")
+        dt = None
+        if dt_str:
+            try:
+                dt = datetime.fromisoformat(str(dt_str).replace("Z", "+00:00"))
+            except Exception:
+                pass
+        
+        contexts.append(MediaItemContext(
+            id=d.get("id") or f"preview_{idx}",
+            filename=d.get("filename") or f"media_{idx}.jpg",
+            timestamp=dt,
+            latitude=d.get("latitude"),
+            longitude=d.get("longitude"),
+            location_name=d.get("location_name"),
+            scenes=d.get("scenes", []),
+            objects=d.get("objects", []),
+            people_count=d.get("people_count"),
+            vlm_description=d.get("vlm_description"),
+            quality_score=float(d.get("quality_score", 0.80)),
+            media_type=d.get("media_type") or "image"
+        ))
+
+    return MemoryNarrativeService.analyze_memory_event(items=contexts, enable_llm=True)
+
+

@@ -14,6 +14,12 @@ class TimelineService:
 
     @staticmethod
     def get_timeline(user_id: str, vault_id: str | None = None) -> TimelineResponse:
+        from app.core.cache import get_cache, set_cache
+        cache_key = f"timeline:{user_id}:{vault_id or 'all'}"
+        cached = get_cache(cache_key)
+        if cached is not None:
+            return cached
+
         supabase = get_supabase_client()
 
         # Fetch memories (with joined media if possible, or fetch separately if Supabase Python client struggles with nested queries)
@@ -32,7 +38,9 @@ class TimelineService:
         memories_list = cast(list[dict[str, Any]], res.data or [])
 
         if not memories_list:
-            return TimelineResponse(groups=[], total_items=0)
+            res_empty = TimelineResponse(groups=[], total_items=0)
+            set_cache(cache_key, res_empty, ttl_seconds=30.0)
+            return res_empty
 
         # ── Bucket by ISO year → calendar-month → day ─────────────
         # Structure: {year: {month_num: {date: [MemoryResponse]}}}
@@ -79,7 +87,7 @@ class TimelineService:
             day_date = datetime(year, month, dt.day)
 
             # We'll store a dict that conforms to the JSON output expected
-            mem_dict = m_response.dict()
+            mem_dict = m_response.model_dump(mode="json")
             mem_dict['media'] = media_arr
             mem_dict['media_count'] = media_count
             
@@ -110,7 +118,10 @@ class TimelineService:
 
             year_groups.append(TimelineYearGroup(year=str(year), months=month_groups))
 
-        return TimelineResponse(groups=year_groups, total_items=total_items)
+        result = TimelineResponse(groups=year_groups, total_items=total_items)
+        from app.core.cache import set_cache
+        set_cache(cache_key, result, ttl_seconds=30.0)
+        return result
 
     @staticmethod
     def _parse_dt(value: str | None) -> datetime | None:

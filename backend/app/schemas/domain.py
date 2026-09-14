@@ -245,6 +245,7 @@ class AIMessageResponse(BaseModel):
     role: str  # user | assistant
     content: str
     related_memory_ids: List[str] = []
+    related_media: List[MediaResponse] = []
     created_at: datetime
 
 class AIChatResponse(BaseModel):
@@ -259,5 +260,107 @@ class AIConversationResponse(BaseModel):
     updated_at: datetime
     message_count: int = 0
 
+# --- RAG MEDIA FILTER SCHEMAS ---
+class MediaCandidate(BaseModel):
+    id: str
+    filename: str
+    media_type: str = "image" # image | video
+    timestamp: Optional[datetime] = None
+    location_name: Optional[str] = None
+    tags: List[str] = []
+    file_size: Optional[int] = None
+    duration: Optional[int] = None
+    width: Optional[int] = None
+    height: Optional[int] = None
+
+class FilterMediaRequest(BaseModel):
+    prompt: str = Field(..., min_length=1, max_length=1000)
+    candidates: List[MediaCandidate]
+    top_k: Optional[int] = 30
+    threshold: Optional[float] = 0.15
+
+class FilteredMediaItem(BaseModel):
+    id: str
+    filename: Optional[str] = None
+    relevance_score: float
+    reason: Optional[str] = None
+    matched_tags: List[str] = []
+    recommended: bool = True
+    visual_description: Optional[str] = None
+
+class FilterMediaResponse(BaseModel):
+    prompt: str
+    suggested_title: str
+    suggested_description: Optional[str] = None
+    suggested_date: Optional[datetime] = None
+    suggested_location: Optional[str] = None
+    matched_media: List[FilteredMediaItem] = []
+    total_candidates: int = 0
+    total_matched: int = 0
+# --- EVENT CLUSTERING SCHEMAS ---
+class ClusteredEventResponse(BaseModel):
+    event_id: str
+    title: str
+    summary: str
+    start_time: Optional[datetime] = None
+    end_time: Optional[datetime] = None
+    location: Optional[str] = None
+    confidence: float = 0.90
+    media_ids: List[str] = []
+    representative_media_id: Optional[str] = None
+    is_coherent_event: bool = True
+    parent_trip_id: Optional[str] = None
+    parent_trip_title: Optional[str] = None
+
+class ClusterPreviewResponse(BaseModel):
+    status: str = "success"
+    total_media_processed: int = 0
+    events_found: int = 0
+    events: List[ClusteredEventResponse] = []
+    trips: List[dict] = []
+
+class ClusterExecutionResponse(BaseModel):
+    status: str = "success"
+    total_media_processed: int = 0
+    memories_created: int = 0
+# --- MEMORY NARRATIVE SCHEMAS ---
+class TimelinePhase(BaseModel):
+    phase_id: str
+    start_time: str
+    end_time: str
+    title: str
+    description: str
+    media_ids: List[str] = []
+    evidence_summary: Optional[str] = None
+
+class KeyMoment(BaseModel):
+    media_id: str
+    timestamp: Optional[str] = None
+    description: str
+    importance_score: float = 0.85
+    reason: str
+
+class AtmosphereItem(BaseModel):
+    label: str
+    confidence: float = 0.85
+    evidence: Optional[str] = None
+
+class MemoryNarrativeResponse(BaseModel):
+    memory_id: Optional[str] = None
+    ai_title: str
+    ai_summary: str
+    atmosphere: List[AtmosphereItem] = []
+    timeline: List[TimelinePhase] = []
+    key_moments: List[KeyMoment] = []
+    highlights: List[str] = []
+    narrative_confidence: float = 0.90
+    generated_at: str
+
+class AnalyzeMemoryRequest(BaseModel):
+    media_ids: Optional[List[str]] = None
+    force_regenerate: bool = False
+
 MemoryResponse.model_rebuild()
+
+
 

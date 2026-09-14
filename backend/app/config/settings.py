@@ -21,6 +21,11 @@ class Settings(BaseSettings):
     LLM_MODEL: str = "gpt-4o-mini"        # provider-specific model name
     AI_ENABLED: bool = True               # set False to disable AI chat
 
+    # AI Video Generation configuration
+    AI_VIDEO_PROVIDER: str = "auto"       # auto | replicate | luma | runway | local_ai
+    AI_VIDEO_API_KEY: Optional[str] = None
+    REPLICATE_API_KEY: Optional[str] = None
+
     # Email & OTP
     SMTP_SERVER: str = "smtp.gmail.com"
     SMTP_PORT: int = 465
@@ -34,7 +39,7 @@ class Settings(BaseSettings):
     UPSTASH_REDIS_REST_URL: Optional[str] = None
     UPSTASH_REDIS_REST_TOKEN: Optional[str] = None
 
-    model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8", extra="ignore")
+    model_config = SettingsConfigDict(env_file=(".env", "backend/.env"), env_file_encoding="utf-8", extra="ignore")
 
 settings = Settings()
 

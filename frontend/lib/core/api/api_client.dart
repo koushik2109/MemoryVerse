@@ -11,21 +11,25 @@ final apiClientProvider = Provider<ApiClient>((ref) => ApiClient());
 class ApiClient {
   late final Dio _dio;
 
-  ApiClient() {
-    String baseUrl = dotenv.env['API_BASE_URL'] ?? 'http://10.0.2.2:8000/api/v1';
+  static String get baseUrl {
+    String url = dotenv.env['API_BASE_URL'] ?? 'http://10.0.2.2:8000/api/v1';
     if (kIsWeb || (!kIsWeb && !Platform.isAndroid)) {
-      baseUrl = baseUrl.replaceAll('10.0.2.2', '127.0.0.1');
+      url = url.replaceAll('10.0.2.2', '127.0.0.1');
     } else if (!kIsWeb && Platform.isAndroid) {
-      baseUrl = baseUrl.replaceAll('localhost', '10.0.2.2').replaceAll('127.0.0.1', '10.0.2.2');
+      url = url.replaceAll('localhost', '10.0.2.2').replaceAll('127.0.0.1', '10.0.2.2');
     }
+    if (!url.endsWith('/api/v1')) {
+      url = url.endsWith('/') ? '${url}api/v1' : '$url/api/v1';
+    }
+    return url;
+  }
 
-    if (!baseUrl.endsWith('/api/v1')) {
-      baseUrl = baseUrl.endsWith('/') ? '${baseUrl}api/v1' : '$baseUrl/api/v1';
-    }
+  ApiClient() {
+    String url = baseUrl;
 
     _dio = Dio(
       BaseOptions(
-        baseUrl: baseUrl,
+        baseUrl: url,
         connectTimeout: const Duration(seconds: 15),
         receiveTimeout: const Duration(seconds: 30),
         headers: {

@@ -1,6 +1,63 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:memory_verse/core/design/tokens.dart';
 import 'package:memory_verse/core/theme/app_design_tokens.dart' as adt;
+
+/// High-performance network image loader with disk caching and low-memory decoding.
+class AppNetworkImage extends StatelessWidget {
+  final String imageUrl;
+  final BoxFit fit;
+  final double? width;
+  final double? height;
+  final int? memCacheWidth;
+
+  const AppNetworkImage({
+    super.key,
+    required this.imageUrl,
+    this.fit = BoxFit.cover,
+    this.width,
+    this.height,
+    this.memCacheWidth = 480,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    if (imageUrl.isEmpty) {
+      return Container(
+        width: width,
+        height: height,
+        color: context.colors.surfaceElevated,
+        child: Icon(Icons.image_not_supported_outlined, color: context.colors.textMuted, size: 24),
+      );
+    }
+
+    return CachedNetworkImage(
+      imageUrl: imageUrl,
+      width: width,
+      height: height,
+      fit: fit,
+      memCacheWidth: memCacheWidth,
+      placeholder: (context, url) => Container(
+        width: width,
+        height: height,
+        color: context.colors.surfaceElevated,
+        child: const Center(
+          child: SizedBox(
+            width: 16,
+            height: 16,
+            child: CircularProgressIndicator(strokeWidth: 2),
+          ),
+        ),
+      ),
+      errorWidget: (context, url, error) => Container(
+        width: width,
+        height: height,
+        color: context.colors.surfaceElevated,
+        child: Icon(Icons.broken_image_outlined, color: context.colors.textMuted, size: 24),
+      ),
+    );
+  }
+}
 
 class MediaGrid extends StatelessWidget {
   final List<String> imageUrls;
@@ -27,11 +84,10 @@ class MediaGrid extends StatelessWidget {
           onTap: () => onMediaTap?.call(index),
           child: Container(
             color: context.colors.surfaceElevated,
-            child: Image.network(
-              imageUrls[index],
+            child: AppNetworkImage(
+              imageUrl: imageUrls[index],
               fit: BoxFit.cover,
-              errorBuilder: (_, __, ___) =>
-                  Icon(Icons.image, color: context.colors.textMuted),
+              memCacheWidth: 400,
             ),
           ),
         );
@@ -59,11 +115,10 @@ class VideoThumbnail extends StatelessWidget {
       child: Stack(
         fit: StackFit.expand,
         children: [
-          Image.network(
-            imageUrl,
+          AppNetworkImage(
+            imageUrl: imageUrl,
             fit: BoxFit.cover,
-            errorBuilder: (_, __, ___) =>
-                Container(color: context.colors.surfaceElevated),
+            memCacheWidth: 400,
           ),
           Center(
             child: Container(
@@ -138,13 +193,11 @@ class Avatar extends StatelessWidget {
 
     Widget child;
     if (_isLoadableUrl(url)) {
-      child = Image.network(
-        url!,
-        fit: BoxFit.cover,
-        errorBuilder: (context, error, stackTrace) {
-          debugPrint('Avatar Image.network failed to load: $url. Error: $error');
-          return _fallback(c, initial);
-        },
+      child = AppNetworkImage(
+        imageUrl: url!,
+        width: size,
+        height: size,
+        memCacheWidth: (size * 2).toInt(),
       );
     } else {
       child = _fallback(c, initial);

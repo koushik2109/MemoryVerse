@@ -1,20 +1,27 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:memory_verse/app.dart';
+import 'package:memory_verse/core/design/tokens.dart';
+import 'package:memory_verse/features/memories/presentation/widgets/media_permission_view.dart';
 
 void main() {
-  testWidgets('MemoryVerseApp smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MemoryVerseApp());
+  testWidgets('MediaPermissionView renders successfully in ProviderScope', (WidgetTester tester) async {
+    await tester.pumpWidget(
+      ProviderScope(
+        child: MaterialApp(
+          theme: ThemeData.dark().copyWith(
+            extensions: const [AppColors.dark],
+          ),
+          home: const Scaffold(
+            body: MediaPermissionView(),
+          ),
+        ),
+      ),
+    );
 
-    // Verify that our app renders successfully.
-    expect(find.byType(MemoryVerseApp), findsOneWidget);
+    // Verify widget builds without exceptions
+    expect(find.byType(MediaPermissionView), findsOneWidget);
   });
 }
+
+

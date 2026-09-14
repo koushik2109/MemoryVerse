@@ -413,6 +413,7 @@ class AiMessageModel {
   final String role; // user | assistant
   final String content;
   final List<String> relatedMemoryIds;
+  final List<MediaModel> relatedMedia;
   final DateTime createdAt;
 
   AiMessageModel({
@@ -421,6 +422,7 @@ class AiMessageModel {
     required this.role,
     required this.content,
     this.relatedMemoryIds = const [],
+    this.relatedMedia = const [],
     required this.createdAt,
   });
 
@@ -433,6 +435,10 @@ class AiMessageModel {
       role: json['role'] ?? 'user',
       content: json['content'] ?? '',
       relatedMemoryIds: List<String>.from(json['related_memory_ids'] ?? []),
+      relatedMedia: (json['related_media'] as List<dynamic>?)
+              ?.map((m) => MediaModel.fromJson(m))
+              .toList() ??
+          const [],
       createdAt: DateTime.tryParse(json['created_at'] ?? '') ?? DateTime.now(),
     );
   }

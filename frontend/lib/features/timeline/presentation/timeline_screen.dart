@@ -4,6 +4,7 @@ import 'package:memory_verse/contracts/models.dart';
 import 'package:memory_verse/core/design/tokens.dart';
 import 'package:memory_verse/core/providers/app_providers.dart';
 import 'package:memory_verse/core/repositories/app_repositories.dart';
+import 'package:memory_verse/core/widgets/media.dart';
 import 'package:memory_verse/core/widgets/states.dart';
 import 'package:memory_verse/features/memories/presentation/memory_detail_screen.dart';
 import 'package:memory_verse/features/memories/presentation/edit_memory_screen.dart';
@@ -550,22 +551,11 @@ class _TimelineScreenState extends ConsumerState<TimelineScreen> {
                                                           children: [
                                                             SizedBox(
                                                               height: 140,
-                                                              width: double
-                                                                  .infinity,
-                                                              child: Image.network(
-                                                                cover.thumbnailUrl ??
-                                                                    cover.url,
-                                                                fit: BoxFit
-                                                                    .cover,
-                                                                errorBuilder:
-                                                                    (
-                                                                      _,
-                                                                      __,
-                                                                      ___,
-                                                                    ) => Container(
-                                                                      color: c
-                                                                          .surface,
-                                                                    ),
+                                                              width: double.infinity,
+                                                              child: AppNetworkImage(
+                                                                imageUrl: cover.thumbnailUrl ?? cover.url,
+                                                                fit: BoxFit.cover,
+                                                                memCacheWidth: 480,
                                                               ),
                                                             ),
                                                             if (cover.isVideo)

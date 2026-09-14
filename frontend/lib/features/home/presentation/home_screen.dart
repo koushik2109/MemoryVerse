@@ -171,6 +171,12 @@ class HomeScreen extends ConsumerWidget {
                 ),
               ),
               _IconButton(
+                icon: Icons.auto_awesome_rounded,
+                onTap: () => context.push(Routes.ai),
+                colors: c,
+              ),
+              const SizedBox(width: AppSpacing.s8),
+              _IconButton(
                 icon: Icons.search_rounded,
                 onTap: () => context.push(Routes.search),
                 colors: c,
@@ -255,19 +261,32 @@ class HomeScreen extends ConsumerWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s24),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            _QuickActionButton(
-              icon: Icons.create_new_folder_outlined,
-              label: 'Create Room',
-              onTap: () => CreateVaultDialog.show(context),
-              colors: c,
+            Expanded(
+              child: _QuickActionButton(
+                icon: Icons.auto_awesome_rounded,
+                label: 'Ask AI',
+                onTap: () => context.push(Routes.ai),
+                colors: c,
+              ),
             ),
-            _QuickActionButton(
-              icon: Icons.group_add_outlined,
-              label: 'Join Room',
-              onTap: () => JoinVaultDialog.show(context),
-              colors: c,
+            const SizedBox(width: AppSpacing.s12),
+            Expanded(
+              child: _QuickActionButton(
+                icon: Icons.create_new_folder_outlined,
+                label: 'Create Room',
+                onTap: () => CreateVaultDialog.show(context),
+                colors: c,
+              ),
+            ),
+            const SizedBox(width: AppSpacing.s12),
+            Expanded(
+              child: _QuickActionButton(
+                icon: Icons.group_add_outlined,
+                label: 'Join Room',
+                onTap: () => JoinVaultDialog.show(context),
+                colors: c,
+              ),
             ),
           ],
         ),
@@ -589,8 +608,7 @@ class _QuickActionButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width:
-            (MediaQuery.sizeOf(context).width - 48 - 16) / 2, // evenly spaced for 2 items
+        width: double.infinity,
         padding: const EdgeInsets.symmetric(vertical: AppSpacing.s8),
         child: Column(
           mainAxisSize: MainAxisSize.min,

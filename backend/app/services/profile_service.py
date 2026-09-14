@@ -8,6 +8,12 @@ from datetime import datetime
 class ProfileService:
     @staticmethod
     def get_profile(user_id: str, email: str = "") -> UserProfile:
+        from app.core.cache import get_cache, set_cache
+        cache_key = f"profile:{user_id}"
+        cached = get_cache(cache_key)
+        if cached is not None:
+            return cached
+
         supabase = get_supabase_client()
         res = supabase.table("profiles").select("*").eq("id", user_id).execute()
         if not res.data:
@@ -22,12 +28,36 @@ class ProfileService:
         else:
             prof = cast(list[dict[str, Any]], res.data)[0]
 
-        # Calculate counts
-        vault_cnt = supabase.table("vault_members").select("id", count="exact").eq("user_id", user_id).execute().count or 0  # type: ignore
-        media_cnt = supabase.table("media").select("id", count="exact").eq("owner_id", user_id).execute().count or 0  # type: ignore
-        memory_cnt = supabase.table("memories").select("id", count="exact").eq("owner_id", user_id).execute().count or 0  # type: ignore
+        # Calculate counts concurrently for instant response
+        from concurrent.futures import ThreadPoolExecutor
 
-        return UserProfile(
+        def _count_vaults():
+            try:
+                return supabase.table("vault_members").select("id", count="exact").eq("user_id", user_id).execute().count or 0
+            except Exception:
+                return 0
+
+        def _count_media():
+            try:
+                return supabase.table("media").select("id", count="exact").eq("owner_id", user_id).execute().count or 0
+            except Exception:
+                return 0
+
+        def _count_memories():
+            try:
+                return supabase.table("memories").select("id", count="exact").eq("owner_id", user_id).execute().count or 0
+            except Exception:
+                return 0
+
+        with ThreadPoolExecutor(max_workers=3) as pool:
+            f_v = pool.submit(_count_vaults)
+            f_m = pool.submit(_count_media)
+            f_mem = pool.submit(_count_memories)
+            vault_cnt = f_v.result()
+            media_cnt = f_m.result()
+            memory_cnt = f_mem.result()
+
+        result = UserProfile(
             id=prof["id"],
             email=prof.get("email") or email,
             full_name=prof.get("full_name"),
@@ -39,9 +69,13 @@ class ProfileService:
             memory_count=memory_cnt,
             created_at=datetime.fromisoformat(cast(str, prof.get("created_at")).replace("Z", "+00:00")) if prof.get("created_at") else None
         )
+        set_cache(cache_key, result, ttl_seconds=30.0)
+        return result
 
     @staticmethod
     def update_profile(user_id: str, payload: ProfileUpdate) -> UserProfile:
+        from app.core.cache import invalidate_user_cache
+        invalidate_user_cache(user_id)
         supabase = get_supabase_client()
         update_dict = {}
         if payload.full_name is not None: update_dict["full_name"] = payload.full_name

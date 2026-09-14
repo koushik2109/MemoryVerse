@@ -12,6 +12,8 @@ from postgrest.types import CountMethod
 class VaultService:
     @staticmethod
     def create_vault(user_id: str, payload: VaultCreate) -> VaultResponse:
+        from app.core.cache import invalidate_user_cache
+        invalidate_user_cache(user_id)
         supabase = get_supabase_client()
         now = datetime.now(timezone.utc).isoformat()
         vault_data = {
@@ -65,6 +67,12 @@ class VaultService:
 
     @staticmethod
     def get_user_vaults(user_id: str) -> list[VaultResponse]:
+        from app.core.cache import get_cache, set_cache
+        cache_key = f"vaults:{user_id}"
+        cached = get_cache(cache_key)
+        if cached is not None:
+            return cached
+
         supabase = get_supabase_client()
         # Find vaults owned or joined by user
         member_res = supabase.table("vault_members").select("vault_id").eq("user_id", user_id).execute()
@@ -76,15 +84,39 @@ class VaultService:
         vaults_res = supabase.table("vaults").select("*").in_("id", vault_ids).order("updated_at", desc=True).execute()
         vaults = cast(list[dict[str, Any]], vaults_res.data or [])
 
+        # Fetch invite codes for all vaults in 1 single query instead of N queries
+        inv_map = {}
+        try:
+            inv_res = supabase.table("vault_invitations").select("vault_id, invite_code").in_("vault_id", vault_ids).execute()
+            for row in (inv_res.data or []):
+                inv_map[row["vault_id"]] = row.get("invite_code")
+        except Exception:
+            pass
+
+        from concurrent.futures import ThreadPoolExecutor
+
+        def _fetch_vault_stats(v):
+            vid = v["id"]
+            try:
+                mem_cnt = supabase.table("vault_members").select("id", count="exact").eq("vault_id", vid).execute().count or 1
+            except Exception:
+                mem_cnt = 1
+            try:
+                med_cnt = supabase.table("media").select("id", count="exact").eq("vault_id", vid).execute().count or 0
+            except Exception:
+                med_cnt = 0
+            return (vid, mem_cnt, med_cnt)
+
+        stats_map = {}
+        with ThreadPoolExecutor(max_workers=min(len(vaults), 5)) as pool:
+            for vid, mem_c, med_c in pool.map(_fetch_vault_stats, vaults):
+                stats_map[vid] = (mem_c, med_c)
+
         result = []
         for v in vaults:
-            # Count members & media
-            mem_cnt = supabase.table("vault_members").select("id", count="exact").eq("vault_id", v["id"]).execute().count or 1  # type: ignore
-            med_cnt = supabase.table("media").select("id", count="exact").eq("vault_id", v["id"]).execute().count or 0  # type: ignore
-            
-            # Get invite code
-            inv_res = supabase.table("vault_invitations").select("invite_code").eq("vault_id", v["id"]).execute()
-            inv_code = cast(list[dict[str, Any]], inv_res.data)[0]["invite_code"] if inv_res.data else None
+            vid = v["id"]
+            mem_cnt, med_cnt = stats_map.get(vid, (1, 0))
+            inv_code = inv_map.get(vid)
             
             result.append(VaultResponse(
                 id=v["id"],
@@ -100,6 +132,7 @@ class VaultService:
                 invite_code=inv_code,
                 members=[]
             ))
+        set_cache(cache_key, result, ttl_seconds=30.0)
         return result
 
     @staticmethod

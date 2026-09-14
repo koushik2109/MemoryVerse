@@ -1,3 +1,13 @@
+import socket
+
+# Force IPv4 resolution to prevent ISP NAT64 IPv6 SSL handshake stalls on Windows
+_orig_getaddrinfo = socket.getaddrinfo
+def _ipv4_preferred_getaddrinfo(host, port, family=0, type=0, proto=0, flags=0):
+    if family == 0:
+        family = socket.AF_INET
+    return _orig_getaddrinfo(host, port, family, type, proto, flags)
+socket.getaddrinfo = _ipv4_preferred_getaddrinfo
+
 from fastapi import FastAPI, Request, status
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse

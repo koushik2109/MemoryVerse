@@ -387,8 +387,61 @@ class AiRepository {
     final res = await _api.get('/ai/conversations/$conversationId/messages');
     return (res.data as List).map((x) => AiMessageModel.fromJson(x)).toList();
   }
+
+  Future<Map<String, dynamic>> filterMedia({
+    required String prompt,
+    required List<Map<String, dynamic>> candidates,
+    int topK = 30,
+    double threshold = 0.15,
+  }) async {
+    final res = await _api.post(
+      '/ai/filter-media',
+      data: {
+        'prompt': prompt,
+        'candidates': candidates,
+        'top_k': topK,
+        'threshold': threshold,
+      },
+    );
+    return res.data as Map<String, dynamic>;
+  }
+
+  Future<Map<String, dynamic>> curateLocalMedia({
+    required String prompt,
+    required List<File> files,
+    String? title,
+    String? description,
+    double threshold = 0.50,
+  }) async {
+    final formData = FormData();
+    formData.fields.add(MapEntry('prompt', prompt));
+    if (title != null) formData.fields.add(MapEntry('title', title));
+    if (description != null) {
+      formData.fields.add(MapEntry('description', description));
+    }
+    formData.fields.add(MapEntry('threshold', threshold.toString()));
+
+    for (final f in files) {
+      if (f.existsSync()) {
+        final filename = f.path.split(Platform.pathSeparator).last;
+        formData.files.add(
+          MapEntry(
+            'files',
+            await MultipartFile.fromFile(f.path, filename: filename),
+          ),
+        );
+      }
+    }
+
+    final res = await _api.post(
+      '/ai/curate-local-media',
+      data: formData,
+    );
+    return res.data as Map<String, dynamic>;
+  }
 }
 
 final aiRepositoryProvider = Provider<AiRepository>((ref) {
   return AiRepository(ref.watch(apiClientProvider));
 });
+

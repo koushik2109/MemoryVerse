@@ -46,7 +46,11 @@ class _MultiMediaPickerScreenState
   int? _coverIndex;
 
   Future<void> _pickImages() async {
-    final images = await _picker.pickMultiImage(imageQuality: 80);
+    final images = await _picker.pickMultiImage(
+      imageQuality: 80,
+      maxWidth: 1920,
+      maxHeight: 1080,
+    );
     if (images.isNotEmpty) {
       setState(() {
         _selectedFiles.addAll(images.map((x) => File(x.path)));

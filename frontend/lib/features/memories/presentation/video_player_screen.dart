@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:chewie/chewie.dart';
 import 'package:video_player/video_player.dart';
 import 'package:memory_verse/contracts/models.dart';
+import 'package:memory_verse/core/api/api_client.dart';
 import 'package:memory_verse/core/design/tokens.dart';
 import 'package:memory_verse/core/theme/app_design_tokens.dart' as adt;
 
@@ -34,8 +35,11 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
 
   Future<void> _initializePlayer() async {
     try {
+      final streamUrl = '${ApiClient.baseUrl}/media/stream/${widget.media.id}';
+      debugPrint('Initializing VideoPlayer with streamUrl: $streamUrl');
+
       _videoPlayerController = VideoPlayerController.networkUrl(
-        Uri.parse(widget.media.url),
+        Uri.parse(streamUrl),
       );
       await _videoPlayerController.initialize();
 

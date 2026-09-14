@@ -5,6 +5,7 @@ import 'package:memory_verse/contracts/models.dart';
 import 'package:memory_verse/core/design/tokens.dart';
 import 'package:memory_verse/core/providers/app_providers.dart';
 import 'package:memory_verse/core/repositories/app_repositories.dart';
+import 'package:memory_verse/core/widgets/media.dart';
 import 'package:memory_verse/core/widgets/states.dart';
 import 'package:memory_verse/features/memories/presentation/multi_media_picker_screen.dart';
 import 'package:memory_verse/features/memories/presentation/video_creator_sheet.dart';
@@ -299,11 +300,10 @@ class _MemoryDetailScreenState extends ConsumerState<MemoryDetailScreen> {
                     children: [
                       // Cover Image or Gradient
                       if (coverMedia != null)
-                        Image.network(
-                          coverMedia.url,
+                        AppNetworkImage(
+                          imageUrl: coverMedia.thumbnailUrl ?? coverMedia.url,
                           fit: BoxFit.cover,
-                          errorBuilder: (_, __, ___) =>
-                              Container(color: c.surfaceElevated),
+                          memCacheWidth: 800,
                         )
                       else
                         Container(
@@ -497,15 +497,10 @@ class _MemoryDetailScreenState extends ConsumerState<MemoryDetailScreen> {
                           child: Stack(
                             fit: StackFit.expand,
                             children: [
-                              Image.network(
-                                mediaItem.thumbnailUrl ?? mediaItem.url,
+                              AppNetworkImage(
+                                imageUrl: mediaItem.thumbnailUrl ?? mediaItem.url,
                                 fit: BoxFit.cover,
-                                errorBuilder: (_, __, ___) => Center(
-                                  child: Icon(
-                                    Icons.image_outlined,
-                                    color: c.textMuted,
-                                  ),
-                                ),
+                                memCacheWidth: 400,
                               ),
                               if (mediaItem.isVideo)
                                 Positioned(

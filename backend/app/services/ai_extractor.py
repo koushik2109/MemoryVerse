@@ -18,7 +18,8 @@ from app.core.db import get_supabase_client
 logger = logging.getLogger(__name__)
 
 # Lazy-loaded CLIP Model to keep memory footprint low at startup
-_clip_model = None
+_clip_model: Optional[SentenceTransformer] = None
+_cached_label_embeddings: Optional[Any] = None
 
 def get_clip_model():
     global _clip_model
@@ -120,9 +121,13 @@ class AIExtractor:
             scenes_labels = ["beach", "cityscape", "nature", "mountains", "indoor", "outdoor", "sunset", "party", "office"]
             objects_labels = ["food", "beverage", "car", "dog", "cat", "laptop", "building", "document", "plant"]
             people_labels = ["no people", "one person", "group of people"]
-
             all_labels = scenes_labels + objects_labels + people_labels
-            text_embeddings = model.encode([f"a photo of {x}" for x in all_labels])
+
+            global _cached_label_embeddings
+            if "_cached_label_embeddings" not in globals() or _cached_label_embeddings is None:
+                _cached_label_embeddings = model.encode([f"a photo of {x}" for x in all_labels])
+
+            text_embeddings = _cached_label_embeddings
 
             # Compute similarities
             import numpy as np

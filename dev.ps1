@@ -44,7 +44,9 @@ if ($RunBackend) {
         Write-Warn "Killing existing process on port 8000 (PID: $($pids -join ', '))..."
         foreach ($p in $pids) {
             Stop-Process -Id $p -Force -ErrorAction SilentlyContinue
+            cmd /c "taskkill /F /PID $p" 2>$null
         }
+        Start-Sleep -Seconds 1
     }
 
     $FastapiCheck = Join-Path $VenvDir "Lib\site-packages\fastapi"
@@ -80,7 +82,8 @@ if ($RunFrontend) {
 # Launching terminals
 if ($RunBackend) {
     Write-Ok "Opening Backend terminal..."
-    $BackendCmd = "Set-Location '$BackendDir'; & '$VenvDir\Scripts\Activate.ps1'; Write-Host ''; Write-Host '  >>> MemoryVerse Backend starting...'; Write-Host ''; `$env:PYTHONPATH='.'; python -m uvicorn app.main:app --reload --host 0.0.0.0 --port 8000"
+    $PythonExe = Join-Path $VenvDir "Scripts\python.exe"
+    $BackendCmd = "cd '$BackendDir'; `$env:PYTHONPATH='.'; Write-Host ''; Write-Host '  >>> MemoryVerse Backend starting (Uvicorn with Auto-Reload)...'; Write-Host ''; & '$PythonExe' -m uvicorn app.main:app --reload --reload-dir app --host 0.0.0.0 --port 8000"
     Start-Process powershell -ArgumentList "-ExecutionPolicy", "Bypass", "-NoExit", "-Command", $BackendCmd
 }
 
@@ -89,22 +92,13 @@ if ($RunBackend -and $RunFrontend) {
 }
 
 if ($RunFrontend) {
-    Write-Ok "Opening Frontend terminal..."
-    $FrontendCmd = "cd '$FrontendDir'; Write-Host ''; Write-Host '  >>> MemoryVerse Flutter starting...'; Write-Host ''; flutter run"
-    Start-Process powershell -ArgumentList "-ExecutionPolicy", "Bypass", "-NoExit", "-Command", $FrontendCmd
-}
-
-Write-Host ""
-if ($RunBackend -and $RunFrontend) {
-    Write-Ok "Both services launching!"
+    Write-Ok "Starting Frontend in this terminal (press 'r' for Hot Reload, 'R' for Hot Restart)..."
     Write-Host ""
     Write-Host "  API Backend -> http://localhost:8000"
     Write-Host "  API Docs    -> http://localhost:8000/docs"
-    Write-Host "  Frontend    -> check the Flutter terminal for device selection"
-} elseif ($RunBackend) {
-    Write-Host "  API Backend -> http://localhost:8000"
-} elseif ($RunFrontend) {
-    Write-Host "  Frontend    -> check the Flutter terminal"
+    Write-Host ""
+    Set-Location $FrontendDir
+    flutter run
 }
 
 Write-Host ""

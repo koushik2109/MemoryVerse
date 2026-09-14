@@ -36,7 +36,11 @@ class _MediaPickerSheetState extends ConsumerState<MediaPickerSheet> {
   String? _uploadStatus;
 
   Future<void> _pickImages() async {
-    final images = await _picker.pickMultiImage(imageQuality: 80);
+    final images = await _picker.pickMultiImage(
+      imageQuality: 80,
+      maxWidth: 1920,
+      maxHeight: 1080,
+    );
     if (images.isNotEmpty) {
       setState(() {
         _selectedFiles.addAll(images.map((x) => File(x.path)));
@@ -68,7 +72,7 @@ class _MediaPickerSheetState extends ConsumerState<MediaPickerSheet> {
             final ext = (file.extension ?? '').toLowerCase();
             final isVideo = ['mp4', 'mov', 'avi'].contains(ext);
             _selectedFiles.add(File(file.path!));
-            _mediaTypes.add(isVideo ? 'image' : 'video'); // Quick fix: should map extensions properly but this works for demo
+            _mediaTypes.add(isVideo ? 'video' : 'image');
           }
         }
       });
