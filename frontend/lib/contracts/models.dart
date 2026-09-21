@@ -195,6 +195,9 @@ class MediaModel {
   final String mediaType; // image, video
   final int fileSize;
   final String? mimeType;
+  final String? locationName;
+  final Map<String, dynamic>? metadata;
+  final DateTime? takenAt;
   final DateTime createdAt;
 
   MediaModel({
@@ -209,10 +212,32 @@ class MediaModel {
     this.mediaType = 'image',
     required this.fileSize,
     this.mimeType,
+    this.locationName,
+    this.metadata,
+    this.takenAt,
     required this.createdAt,
   });
 
   bool get isVideo => mediaType == 'video';
+  bool get isAlternate =>
+      metadata?['duplicate_info']?['is_alternate'] == true;
+  String? get duplicateLabel =>
+      metadata?['duplicate_info']?['label'] as String?;
+  int get alternateCount =>
+      (metadata?['duplicate_info']?['alternate_media_ids'] as List?)?.length ??
+      (metadata?['duplicate_info']?['alternate_count'] as int? ?? 0);
+
+  List<String> get aiTags {
+    final tags = metadata?['ai_tags'];
+    if (tags is Map) {
+      final scenes =
+          (tags['scenes'] as List?)?.map((e) => e.toString()).toList() ?? [];
+      final objects =
+          (tags['objects'] as List?)?.map((e) => e.toString()).toList() ?? [];
+      return [...scenes, ...objects];
+    }
+    return [];
+  }
 
   factory MediaModel.fromJson(Map<String, dynamic> json) {
     return MediaModel(
@@ -227,6 +252,13 @@ class MediaModel {
       mediaType: json['media_type'] ?? 'image',
       fileSize: json['file_size'] ?? 0,
       mimeType: json['mime_type'],
+      locationName: json['location_name'],
+      metadata: json['metadata'] is Map<String, dynamic>
+          ? json['metadata'] as Map<String, dynamic>
+          : null,
+      takenAt: json['taken_at'] != null
+          ? DateTime.tryParse(json['taken_at'])
+          : null,
       createdAt: DateTime.tryParse(json['created_at'] ?? '') ?? DateTime.now(),
     );
   }

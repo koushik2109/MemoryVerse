@@ -13,6 +13,7 @@ from moviepy import VideoClip, VideoFileClip, AudioArrayClip, concatenate_videoc
 from app.core.db import get_supabase_client
 from app.config.settings import settings
 from app.services import media_intelligence as mi
+from ai_engine.video_generation.tts_engine import EmotionTTSEngine
 
 logger = logging.getLogger(__name__)
 
@@ -490,8 +491,6 @@ def _create_ai_cinematic_scene_clip(
     fg0 = border_img.resize((w0, h0), Image.Resampling.BILINEAR) if z0 != 1.0 else border_img
     canvas0 = bg_base.copy()
     canvas0.paste(fg0, ((tw - w0) // 2 + sx0, (th - h0) // 2 + sy0), fg0)
-    arr0 = np.array(canvas0, dtype=np.float32)
-
     # Pre-render End Keyframe (p = 1.0)
     z1 = 1.10 if "zoom_in" in motion_type else (1.00 if "zoom_out" in motion_type else 1.05)
     sx1 = 15 if "pan_right" in motion_type else (-15 if "pan_left" in motion_type else 0)
@@ -501,6 +500,16 @@ def _create_ai_cinematic_scene_clip(
     fg1 = border_img.resize((w1, h1), Image.Resampling.BILINEAR) if z1 != 1.0 else border_img
     canvas1 = bg_base.copy()
     canvas1.paste(fg1, ((tw - w1) // 2 + sx1, (th - h1) // 2 + sy1), fg1)
+
+    if caption and caption.strip():
+        try:
+            from ai_engine.video_generation.subtitles import render_subtitle_frame
+            canvas0 = render_subtitle_frame(canvas0, caption.strip(), font_size=28, bottom_margin=int(th * 0.12))
+            canvas1 = render_subtitle_frame(canvas1, caption.strip(), font_size=28, bottom_margin=int(th * 0.12))
+        except Exception as sub_err:
+            logger.debug(f"Subtitle overlay skipped: {sub_err}")
+
+    arr0 = np.array(canvas0, dtype=np.float32)
     arr1 = np.array(canvas1, dtype=np.float32)
 
     def make_frame(t: float) -> np.ndarray:
@@ -654,7 +663,14 @@ def _try_generate_external_ai_video(prompt: str, image_url: str) -> str | None:
 
 class VideoService:
     @staticmethod
-    def process_video_job(job_id: str, memory_id: str, user_id: str, dimension: str | None = None) -> None:
+    def process_video_job(
+        job_id: str,
+        memory_id: str,
+        user_id: str,
+        dimension: str | None = None,
+        mood: str | None = "calm",
+        selected_media_ids: list[str] | None = None,
+    ) -> None:
         import tempfile
         import shutil
 
@@ -691,21 +707,36 @@ class VideoService:
                         memory_date = raw_date[:10]
                 vault_id = mem.get("vault_id")
 
-            # ── 2. Fetch ALL source media (expanded pool for intelligence pipeline) ────
-            res = supabase.table("media")\
-                .select("*")\
-                .eq("memory_id", memory_id)\
-                .order("created_at", desc=False)\
-                .limit(60)\
-                .execute()
+            # ── 2. Fetch ALL source media (with retry grace period for concurrent uploads) ────
+            import time
+            all_media: list[dict[str, Any]] = []
+            for attempt in range(5):
+                res = supabase.table("media")\
+                    .select("*")\
+                    .eq("memory_id", memory_id)\
+                    .order("created_at", desc=False)\
+                    .limit(60)\
+                    .execute()
 
-            all_media: list[dict[str, Any]] = [
-                item for item in cast(list[dict[str, Any]], res.data or [])
-                if "reels/" not in (item.get("storage_path") or "")
-            ]
+                all_media = [
+                    item for item in cast(list[dict[str, Any]], res.data or [])
+                    if "reels/" not in (item.get("storage_path") or "")
+                ]
+                if all_media:
+                    break
+                if attempt < 4:
+                    time.sleep(2.0)
+
             if not all_media:
                 update_job_status("failed", "No source media items found in this memory.")
                 return
+
+            # If user selected specific pictures/media IDs, filter to those
+            if selected_media_ids:
+                selected_set = {str(mid) for mid in selected_media_ids}
+                filtered = [m for m in all_media if str(m.get("id")) in selected_set]
+                if filtered:
+                    all_media = filtered
 
             all_media_ids = [str(item.get("id", "")) for item in all_media]
 
@@ -873,14 +904,20 @@ class VideoService:
                     first_img_path = downloaded.get(mid)
                     break
 
+            title_duration = 3.0
             title_clip = _create_ai_title_card_clip(
                 title=story_plan.get("title") or memory_title,
                 subtitle=memory_date,
-                duration=3.0,
+                duration=title_duration,
                 target_size=TARGET_SIZE,
                 bg_img_path=first_img_path,
             )
             clips.append(title_clip)
+
+            # ── 10b. Synthesize Emotion-Aware TTS Narration & Render Scenes ─────────
+            tts_engine = EmotionTTSEngine()
+            speech_segments: list[tuple[float, np.ndarray]] = []
+            current_timeline = title_duration
 
             for scene in scenes:
                 scene_media_id = str(scene.get("media_id", ""))
@@ -894,6 +931,21 @@ class VideoService:
                 purpose   = str(scene.get("purpose") or "rising_action")
                 item_data = media_by_id.get(scene_media_id, {})
                 mtype     = (item_data.get("media_type") or "image").lower()
+                narration = (scene.get("narration") or "").strip()
+
+                # Synthesize emotion-aware speech voiceover for this scene
+                if narration:
+                    try:
+                        speech_arr, speech_dur, _ = tts_engine.synthesize_sync(
+                            text=narration,
+                            emotion=mood or "calm",
+                        )
+                        if speech_dur > 0:
+                            # Adjust scene duration so spoken narration finishes naturally
+                            dur = max(dur, speech_dur + 0.6)
+                            speech_segments.append((current_timeline + 0.2, speech_arr))
+                    except Exception as tts_err:
+                        logger.warning(f"Scene {scene.get('scene_id')} TTS synthesis failed: {tts_err}")
 
                 try:
                     if mtype == "image":
@@ -916,8 +968,10 @@ class VideoService:
                                 duration=dur,
                                 target_size=TARGET_SIZE,
                                 motion_type=motion,
+                                caption=narration,
                             )
                         clips.append(scene_clip)
+                        current_timeline += dur
 
                     else:  # video
                         v_clip = VideoFileClip(scene_path)
@@ -934,8 +988,8 @@ class VideoService:
                         elif total_v_dur > (dur + 2.0):
                             v_clip = v_clip.subclipped(0, min(total_v_dur, dur + 2.0))
 
-                        # Preserve audio for actual video clips
                         clips.append(v_clip)
+                        current_timeline += float(v_clip.duration or dur)
 
                 except Exception as clip_err:
                     logger.error(f"Error building clip for scene {scene.get('scene_id')} ({scene_media_id}): {clip_err}")
@@ -945,16 +999,53 @@ class VideoService:
                 return
 
             final_clip = concatenate_videoclips(clips, method="compose")
+            reel_total_dur = float(final_clip.duration or current_timeline)
+            sr = 44100
+            total_samples = max(1, int(reel_total_dur * sr))
 
-            # ── 11. Audio: ambient BGM (original video audio preserved in clips above) ─
+            # ── 11. Audio: Ambient BGM + Emotion-Aware TTS Narration with Audio Ducking ──
             try:
-                ambient_music = _create_ambient_audio(final_clip.duration)
-                # Only overwrite audio if the clip has no audio track
-                if not final_clip.audio:
-                    final_clip = final_clip.with_audio(ambient_music)
-                # Note: full audio mixing (ducking, voiceover) comes in a future phase
+                from ai_engine.video_generation.audio_synth import synthesize_ambient_soundtrack
+                raw_bgm = synthesize_ambient_soundtrack(
+                    mood=mood or "calm",
+                    duration_seconds=reel_total_dur,
+                    sample_rate=sr,
+                )
+                bgm_stereo = np.column_stack([raw_bgm, raw_bgm])
+
+                # Build speech ducking envelope
+                speech_mask = np.zeros(total_samples, dtype=np.float32)
+                speech_track = np.zeros((total_samples, 2), dtype=np.float32)
+
+                for seg_start_t, s_arr in speech_segments:
+                    start_idx = int(seg_start_t * sr)
+                    end_idx = min(total_samples, start_idx + len(s_arr))
+                    slice_len = end_idx - start_idx
+                    if slice_len > 0:
+                        speech_mask[start_idx:end_idx] = 1.0
+                        speech_track[start_idx:end_idx] += s_arr[:slice_len]
+
+                # Smooth ducking transitions (0.25s cosine fade)
+                fade_samples = max(1, int(0.25 * sr))
+                kernel = np.hanning(fade_samples * 2)
+                kernel /= kernel.sum()
+                speech_mask_smooth = np.convolve(speech_mask, kernel, mode="same")
+                speech_mask_smooth = np.clip(speech_mask_smooth, 0.0, 1.0)
+
+                # Duck BGM: 55% normal volume, ducks down to 18% during voice narration
+                bgm_gain = 0.55 * (1.0 - 0.68 * speech_mask_smooth)
+                ducked_bgm = bgm_stereo * bgm_gain[:, None]
+
+                # Composite final mixed soundtrack
+                mixed_audio = ducked_bgm + speech_track
+                mixed_audio = np.clip(mixed_audio, -0.98, 0.98)
+
+                ambient_music = AudioArrayClip(mixed_audio, fps=sr)
+                final_clip = final_clip.with_audio(ambient_music)
             except Exception as audio_err:
-                logger.warning(f"Ambient audio attachment failed: {audio_err}")
+                logger.warning(f"Soundtrack composition failed: {audio_err}, falling back to ambient generator")
+                ambient_music = _create_ambient_audio(reel_total_dur)
+                final_clip = final_clip.with_audio(ambient_music)
 
             # ── 12. Write output MP4 ──────────────────────────────────────────────────
             output_filename = f"memory_video_{uuid.uuid4().hex}.mp4"

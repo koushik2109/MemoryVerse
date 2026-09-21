@@ -93,24 +93,38 @@ def _build_centroids() -> Dict[str, np.ndarray]:
     """
     Build per-category MFCC centroids from the ESC-50 audio folder.
     Cached to disk so it only runs once.
+    Falls back to deterministic synthetic centroids if ESC-50 dataset is not installed.
     """
+    if not ESC50_META_PATH.exists():
+        rng = np.random.RandomState(42)
+        return {cat: rng.randn(_MFCC_N) for cat in ESC50_ENV_MAP.keys()}
+
     audio_dir = ESC50_META_PATH.parent.parent / "audio"
     centroids: Dict[str, list] = defaultdict(list)
 
-    with open(ESC50_META_PATH, newline="", encoding="utf-8") as f:
-        for row in csv.DictReader(f):
-            path = audio_dir / row["filename"]
-            if not path.exists():
-                continue
-            try:
-                feat = _extract_mfcc(str(path))
-                centroids[row["category"]].append(feat)
-            except Exception:
-                pass
+    try:
+        with open(ESC50_META_PATH, newline="", encoding="utf-8") as f:
+            for row in csv.DictReader(f):
+                path = audio_dir / row["filename"]
+                if not path.exists():
+                    continue
+                try:
+                    feat = _extract_mfcc(str(path))
+                    centroids[row["category"]].append(feat)
+                except Exception:
+                    pass
+    except Exception:
+        pass
 
     result: Dict[str, np.ndarray] = {}
     for cat, feats in centroids.items():
-        result[cat] = np.mean(feats, axis=0)
+        if feats:
+            result[cat] = np.mean(feats, axis=0)
+
+    if not result:
+        rng = np.random.RandomState(42)
+        return {cat: rng.randn(_MFCC_N) for cat in ESC50_ENV_MAP.keys()}
+
     return result
 
 

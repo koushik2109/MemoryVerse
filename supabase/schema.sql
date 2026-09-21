@@ -135,6 +135,18 @@ CREATE TABLE IF NOT EXISTS public.video_jobs (
     updated_at      TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
+-- NOTIFICATIONS
+CREATE TABLE IF NOT EXISTS public.notifications (
+    id          UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    user_id     UUID NOT NULL REFERENCES public.profiles(id) ON DELETE CASCADE,
+    title       TEXT NOT NULL,
+    message     TEXT NOT NULL,
+    type        TEXT NOT NULL,
+    data        JSONB DEFAULT '{}',
+    is_read     BOOLEAN NOT NULL DEFAULT FALSE,
+    created_at  TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
 -- AI CONVERSATIONS
 CREATE TABLE IF NOT EXISTS public.ai_conversations (
     id          UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -154,13 +166,92 @@ CREATE TABLE IF NOT EXISTS public.ai_messages (
     created_at          TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
--- MEDIA EMBEDDINGS (pgvector)
+-- MEDIA EMBEDDINGS (pgvector multi-modal)
 CREATE TABLE IF NOT EXISTS public.media_embeddings (
-    id          UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    media_id    UUID NOT NULL REFERENCES public.media(id) ON DELETE CASCADE UNIQUE,
-    embedding   extensions.vector(1536),  -- OpenAI ada-002 dimension
-    created_at  TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    id               UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    media_id         UUID NOT NULL REFERENCES public.media(id) ON DELETE CASCADE UNIQUE,
+    clip_embedding   extensions.vector(512),   -- OpenAI CLIP ViT-B/32
+    image_embedding  extensions.vector(768),   -- Google SigLIP ViT-B/16-224
+    text_embedding   extensions.vector(1024),  -- BAAI BGE-M3
+    embedding        extensions.vector(1536),  -- OpenAI ada-002 / text-embedding-3-small
+    created_at       TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
+
+-- ============================================================
+-- RPC MATCH FUNCTIONS FOR MULTI-MODAL VECTORS
+-- ============================================================
+
+CREATE OR REPLACE FUNCTION match_media_by_clip(
+    query_embedding extensions.vector(512),
+    match_count     INT DEFAULT 10,
+    filter_user_id  UUID DEFAULT NULL
+)
+RETURNS TABLE (
+    media_id   UUID,
+    similarity FLOAT
+)
+LANGUAGE plpgsql AS $$
+BEGIN
+    RETURN QUERY
+    SELECT
+        me.media_id,
+        1 - (me.clip_embedding <=> query_embedding) AS similarity
+    FROM public.media_embeddings me
+    JOIN public.media m ON m.id = me.media_id
+    WHERE (filter_user_id IS NULL OR m.owner_id = filter_user_id)
+      AND me.clip_embedding IS NOT NULL
+    ORDER BY me.clip_embedding <=> query_embedding
+    LIMIT match_count;
+END;
+$$;
+
+CREATE OR REPLACE FUNCTION match_media_by_siglip(
+    query_embedding extensions.vector(768),
+    match_count     INT DEFAULT 10,
+    filter_user_id  UUID DEFAULT NULL
+)
+RETURNS TABLE (
+    media_id   UUID,
+    similarity FLOAT
+)
+LANGUAGE plpgsql AS $$
+BEGIN
+    RETURN QUERY
+    SELECT
+        me.media_id,
+        1 - (me.image_embedding <=> query_embedding) AS similarity
+    FROM public.media_embeddings me
+    JOIN public.media m ON m.id = me.media_id
+    WHERE (filter_user_id IS NULL OR m.owner_id = filter_user_id)
+      AND me.image_embedding IS NOT NULL
+    ORDER BY me.image_embedding <=> query_embedding
+    LIMIT match_count;
+END;
+$$;
+
+CREATE OR REPLACE FUNCTION match_media_by_bge(
+    query_embedding extensions.vector(1024),
+    match_count     INT DEFAULT 10,
+    filter_user_id  UUID DEFAULT NULL
+)
+RETURNS TABLE (
+    media_id   UUID,
+    similarity FLOAT
+)
+LANGUAGE plpgsql AS $$
+BEGIN
+    RETURN QUERY
+    SELECT
+        me.media_id,
+        1 - (me.text_embedding <=> query_embedding) AS similarity
+    FROM public.media_embeddings me
+    JOIN public.media m ON m.id = me.media_id
+    WHERE (filter_user_id IS NULL OR m.owner_id = filter_user_id)
+      AND me.text_embedding IS NOT NULL
+    ORDER BY me.text_embedding <=> query_embedding
+    LIMIT match_count;
+END;
+$$;
 
 -- ============================================================
 -- 4. INDEXES
@@ -193,6 +284,8 @@ CREATE INDEX IF NOT EXISTS idx_ai_conversations_user_id ON public.ai_conversatio
 CREATE INDEX IF NOT EXISTS idx_ai_messages_conversation_id ON public.ai_messages(conversation_id);
 
 CREATE INDEX IF NOT EXISTS idx_media_embeddings_media_id ON public.media_embeddings(media_id);
+CREATE INDEX IF NOT EXISTS idx_notifications_user_id ON public.notifications(user_id);
+CREATE INDEX IF NOT EXISTS idx_notifications_created_at ON public.notifications(created_at DESC);
 
 -- ============================================================
 -- 5. TRIGGERS
@@ -371,6 +464,17 @@ DROP POLICY IF EXISTS "embeddings_insert" ON public.media_embeddings;
 CREATE POLICY "embeddings_insert" ON public.media_embeddings FOR INSERT WITH CHECK (
     media_id IN (SELECT id FROM public.media WHERE owner_id = auth.uid())
 );
+
+-- ── Notifications ──
+ALTER TABLE public.notifications ENABLE ROW LEVEL SECURITY;
+DROP POLICY IF EXISTS "notifications_select_own" ON public.notifications;
+CREATE POLICY "notifications_select_own" ON public.notifications FOR SELECT USING (auth.uid() = user_id);
+DROP POLICY IF EXISTS "notifications_insert_any" ON public.notifications;
+CREATE POLICY "notifications_insert_any" ON public.notifications FOR INSERT WITH CHECK (true);
+DROP POLICY IF EXISTS "notifications_update_own" ON public.notifications;
+CREATE POLICY "notifications_update_own" ON public.notifications FOR UPDATE USING (auth.uid() = user_id);
+DROP POLICY IF EXISTS "notifications_delete_own" ON public.notifications;
+CREATE POLICY "notifications_delete_own" ON public.notifications FOR DELETE USING (auth.uid() = user_id);
 
 -- ============================================================
 -- 7. STORAGE BUCKETS

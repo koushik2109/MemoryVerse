@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:memory_verse/contracts/models.dart';
 import 'package:memory_verse/core/design/tokens.dart';
 
@@ -152,20 +153,10 @@ class RoomShareSheet extends StatelessWidget {
               height: 54,
               child: ElevatedButton(
                 onPressed: () {
-                  // TODO: Implement native share
-                  Clipboard.setData(
-                    ClipboardData(
-                      text:
-                          'Join my MemoryVerse room! Code: $inviteCode\n$inviteLink',
-                    ),
-                  );
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text(
-                        'Copied to clipboard. Native share coming soon!',
-                      ),
-                    ),
-                  );
+                  final shareText =
+                      'Join my MemoryVerse room! Code: $inviteCode\n$inviteLink';
+                  Clipboard.setData(ClipboardData(text: shareText));
+                  Share.share(shareText, subject: 'Join my MemoryVerse room');
                   Navigator.pop(context);
                 },
                 style: ElevatedButton.styleFrom(

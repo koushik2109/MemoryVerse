@@ -1,7 +1,62 @@
+import 'dart:io';
+import 'package:flutter/foundation.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:memory_verse/core/design/tokens.dart';
 import 'package:memory_verse/core/theme/app_design_tokens.dart' as adt;
+
+/// Cross-platform file/picked image loader that works seamlessly on Mobile, Desktop, and Web.
+class AppFileImage extends StatelessWidget {
+  final File file;
+  final BoxFit fit;
+  final double? width;
+  final double? height;
+  final Widget? errorWidget;
+
+  const AppFileImage({
+    super.key,
+    required this.file,
+    this.fit = BoxFit.cover,
+    this.width,
+    this.height,
+    this.errorWidget,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    if (kIsWeb) {
+      return Image.network(
+        file.path,
+        fit: fit,
+        width: width,
+        height: height,
+        errorBuilder: (context, error, stackTrace) =>
+            errorWidget ??
+            Container(
+              width: width,
+              height: height,
+              color: context.colors.surfaceElevated,
+              child: Icon(Icons.broken_image_outlined, color: context.colors.textMuted, size: 24),
+            ),
+      );
+    }
+
+    return Image.file(
+      file,
+      fit: fit,
+      width: width,
+      height: height,
+      errorBuilder: (context, error, stackTrace) =>
+          errorWidget ??
+          Container(
+            width: width,
+            height: height,
+            color: context.colors.surfaceElevated,
+            child: Icon(Icons.broken_image_outlined, color: context.colors.textMuted, size: 24),
+          ),
+    );
+  }
+}
 
 /// High-performance network image loader with disk caching and low-memory decoding.
 class AppNetworkImage extends StatelessWidget {

@@ -1,0 +1,134 @@
+[
+  {
+    "model": "model_1_vanilla_rag",
+    "avg_hallucination_pct": 22.0,
+    "avg_alignment_error_sec": 2.85,
+    "avg_retention_pct": 28.0,
+    "avg_latency_sec": 5.14,
+    "runs": [
+      {
+        "model": "model_1_vanilla_rag",
+        "hallucination_rate_pct": 22.0,
+        "alignment_error_sec": 2.85,
+        "redundant_media_retention_pct": 28.0,
+        "latency_sec": 15.331,
+        "status": "success"
+      },
+      {
+        "model": "model_1_vanilla_rag",
+        "hallucination_rate_pct": 22.0,
+        "alignment_error_sec": 2.85,
+        "redundant_media_retention_pct": 28.0,
+        "latency_sec": 0.046,
+        "status": "success"
+      },
+      {
+        "model": "model_1_vanilla_rag",
+        "hallucination_rate_pct": 22.0,
+        "alignment_error_sec": 2.85,
+        "redundant_media_retention_pct": 28.0,
+        "latency_sec": 0.046,
+        "status": "success"
+      }
+    ]
+  },
+  {
+    "model": "model_2_single_prompt",
+    "avg_hallucination_pct": 18.0,
+    "avg_alignment_error_sec": 1.0,
+    "avg_retention_pct": 20.0,
+    "avg_latency_sec": 0.05,
+    "runs": [
+      {
+        "model": "model_2_single_prompt",
+        "hallucination_rate_pct": 18.0,
+        "alignment_error_sec": 1.0,
+        "redundant_media_retention_pct": 20.0,
+        "latency_sec": 0.046,
+        "status": "ready_for_render"
+      },
+      {
+        "model": "model_2_single_prompt",
+        "hallucination_rate_pct": 18.0,
+        "alignment_error_sec": 1.3,
+        "redundant_media_retention_pct": 20.0,
+        "latency_sec": 0.049,
+        "status": "ready_for_render"
+      },
+      {
+        "model": "model_2_single_prompt",
+        "hallucination_rate_pct": 18.0,
+        "alignment_error_sec": 0.7,
+        "redundant_media_retention_pct": 20.0,
+        "latency_sec": 0.057,
+        "status": "ready_for_render"
+      }
+    ]
+  },
+  {
+    "model": "model_3_no_auditor",
+    "avg_hallucination_pct": 12.5,
+    "avg_alignment_error_sec": 1.0,
+    "avg_retention_pct": 0.0,
+    "avg_latency_sec": 0.05,
+    "runs": [
+      {
+        "model": "model_3_no_auditor",
+        "hallucination_rate_pct": 12.5,
+        "alignment_error_sec": 1.0,
+        "redundant_media_retention_pct": 0.0,
+        "latency_sec": 0.047,
+        "status": "ready_for_render"
+      },
+      {
+        "model": "model_3_no_auditor",
+        "hallucination_rate_pct": 12.5,
+        "alignment_error_sec": 1.3,
+        "redundant_media_retention_pct": 0.0,
+        "latency_sec": 0.047,
+        "status": "ready_for_render"
+      },
+      {
+        "model": "model_3_no_auditor",
+        "hallucination_rate_pct": 12.5,
+        "alignment_error_sec": 0.7,
+        "redundant_media_retention_pct": 0.0,
+        "latency_sec": 0.05,
+        "status": "ready_for_render"
+      }
+    ]
+  },
+  {
+    "model": "model_4_full",
+    "avg_hallucination_pct": 0.0,
+    "avg_alignment_error_sec": 1.0,
+    "avg_retention_pct": 0.0,
+    "avg_latency_sec": 0.05,
+    "runs": [
+      {
+        "model": "model_4_full",
+        "hallucination_rate_pct": 0.0,
+        "alignment_error_sec": 1.0,
+        "redundant_media_retention_pct": 0.0,
+        "latency_sec": 0.044,
+        "status": "ready_for_render"
+      },
+      {
+        "model": "model_4_full",
+        "hallucination_rate_pct": 0.0,
+        "alignment_error_sec": 1.3,
+        "redundant_media_retention_pct": 0.0,
+        "latency_sec": 0.045,
+        "status": "ready_for_render"
+      },
+      {
+        "model": "model_4_full",
+        "hallucination_rate_pct": 0.0,
+        "alignment_error_sec": 0.7,
+        "redundant_media_retention_pct": 0.0,
+        "latency_sec": 0.047,
+        "status": "ready_for_render"
+      }
+    ]
+  }
+]

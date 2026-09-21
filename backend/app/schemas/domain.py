@@ -1,5 +1,5 @@
 from pydantic import BaseModel, Field, EmailStr
-from typing import List, Optional, Any
+from typing import List, Optional, Any, Dict
 from datetime import datetime
 
 # --- AUTH SCHEMAS ---
@@ -158,6 +158,14 @@ class MediaResponse(BaseModel):
     media_type: str
     file_size: int
     mime_type: Optional[str] = None
+    width: Optional[int] = None
+    height: Optional[int] = None
+    duration: Optional[int] = None
+    taken_at: Optional[datetime] = None
+    latitude: Optional[float] = None
+    longitude: Optional[float] = None
+    location_name: Optional[str] = None
+    metadata: Optional[Dict[str, Any]] = None
     created_at: datetime
 
 # --- VIDEO JOBS SCHEMAS ---
@@ -167,6 +175,7 @@ class VideoJobResponse(BaseModel):
     user_id: str
     status: str # queued, processing, completed, failed
     result_media_id: Optional[str] = None
+    result_url: Optional[str] = None
     error_message: Optional[str] = None
     created_at: datetime
     updated_at: datetime

@@ -1,3 +1,14 @@
+import os
+import sys
+from pathlib import Path
+
+# Add project root and backend root to sys.path for universal ai_engine & app access
+_backend_dir = Path(__file__).resolve().parent.parent
+_project_root = _backend_dir.parent
+for p in [str(_project_root), str(_backend_dir)]:
+    if p not in sys.path:
+        sys.path.insert(0, p)
+
 import socket
 
 # Force IPv4 resolution to prevent ISP NAT64 IPv6 SSL handshake stalls on Windows

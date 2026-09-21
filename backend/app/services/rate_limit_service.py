@@ -8,9 +8,11 @@ logger = logging.getLogger(__name__)
 
 redis_client = None
 if settings.UPSTASH_REDIS_REST_URL and settings.UPSTASH_REDIS_REST_TOKEN:
-    from upstash_redis import Redis
     try:
+        from upstash_redis import Redis
         redis_client = Redis(url=settings.UPSTASH_REDIS_REST_URL, token=settings.UPSTASH_REDIS_REST_TOKEN)
+    except ImportError:
+        logger.warning("upstash-redis package is not installed. Skipping distributed rate limiting.")
     except Exception as e:
         logger.error(f"Failed to initialize Upstash Redis: {e}")
 

@@ -16,7 +16,7 @@ import tempfile
 import logging
 
 from fastapi import APIRouter, Depends, Query, UploadFile, File, Form, HTTPException, status, BackgroundTasks, Request, Response
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, FileResponse
 from typing import List, Optional, cast, Any
 from datetime import datetime, timezone, timedelta
 
@@ -125,11 +125,16 @@ def _upload_to_storage(bucket: str, path: str, data: bytes, mime: str) -> str:
     return res.get("signedURL") or res.get("signed_url") or ""
 
 
+MEDIA_STREAM_CACHE_DIR = os.path.join(tempfile.gettempdir(), "memoryverse_media_cache")
+os.makedirs(MEDIA_STREAM_CACHE_DIR, exist_ok=True)
+
+
 @router.get("/stream/{media_id}")
 async def stream_media(media_id: str, request: Request):
     """
     Stream media (video or image) directly by media_id.
-    Provides a clean local URL with HTTP 206 Partial Content / Range support for native desktop & mobile media players.
+    Provides high-performance disk-cached HTTP 206 Partial Content / Range support
+    for smooth video playback on mobile, desktop, and web players without network re-downloading.
     """
     supabase = get_supabase_client()
     res = supabase.table("media").select("*").eq("id", media_id).execute()
@@ -142,12 +147,23 @@ async def stream_media(media_id: str, request: Request):
     
     if not storage_path:
         raise HTTPException(status_code=404, detail="Storage path missing")
-        
+
+    safe_base = "".join(c if c.isalnum() or c in "._-" else "_" for c in os.path.basename(storage_path))
+    cached_file_path = os.path.join(MEDIA_STREAM_CACHE_DIR, f"{media_id}_{safe_base}")
+
     try:
-        file_bytes = supabase.storage.from_("memories").download(storage_path)
-        total_size = len(file_bytes)
-        
+        # 1. Download to local disk cache if not already present
+        if not os.path.exists(cached_file_path) or os.path.getsize(cached_file_path) == 0:
+            file_bytes = supabase.storage.from_("memories").download(storage_path)
+            if not file_bytes:
+                raise ValueError("Empty file returned from storage")
+            with open(cached_file_path, "wb") as f:
+                f.write(file_bytes)
+
+        total_size = os.path.getsize(cached_file_path)
         range_header = request.headers.get("Range")
+
+        # 2. Handle HTTP 206 Partial Content Range requests via direct OS file seeks
         if range_header and range_header.startswith("bytes="):
             byte_range = range_header[6:].split("-")
             start = int(byte_range[0]) if byte_range[0] else 0
@@ -155,7 +171,11 @@ async def stream_media(media_id: str, request: Request):
             start = max(0, min(start, total_size - 1))
             end = max(start, min(end, total_size - 1))
             chunk_size = end - start + 1
-            
+
+            with open(cached_file_path, "rb") as f:
+                f.seek(start)
+                chunk_data = f.read(chunk_size)
+
             headers = {
                 "Content-Range": f"bytes {start}-{end}/{total_size}",
                 "Accept-Ranges": "bytes",
@@ -163,18 +183,19 @@ async def stream_media(media_id: str, request: Request):
                 "Content-Type": mime_type,
             }
             return Response(
-                content=file_bytes[start:end+1],
+                content=chunk_data,
                 status_code=206,
                 headers=headers,
                 media_type=mime_type,
             )
-            
-        headers = {
-            "Accept-Ranges": "bytes",
-            "Content-Length": str(total_size),
-            "Content-Type": mime_type,
-        }
-        return Response(content=file_bytes, media_type=mime_type, headers=headers)
+
+        # 3. Standard full response via FileResponse
+        return FileResponse(
+            cached_file_path,
+            media_type=mime_type,
+            headers={"Accept-Ranges": "bytes", "Content-Length": str(total_size)},
+        )
+
     except Exception as e:
         logger.error(f"Failed to stream media {media_id}: {e}")
         raise HTTPException(status_code=500, detail="Failed to stream media")
@@ -195,10 +216,14 @@ async def generate_video(
     memory_id: str,
     background_tasks: BackgroundTasks,
     dimension: Optional[str] = Query(None),
+    mood: Optional[str] = Query("calm"),
+    media_ids: Optional[List[str]] = Query(None),
     current_user: CurrentUser = Depends(get_current_user)
 ):
     """
     Create a new video stitching job for a memory and process it in the background.
+    Supports aspect ratio ('9:16' or '16:9'), audio soundtrack mood ('calm', 'energetic', 'nostalgic'),
+    and optional selection of specific picture/media IDs.
     """
     supabase = get_supabase_client()
     
@@ -230,7 +255,9 @@ async def generate_video(
         job_id=job_id,
         memory_id=memory_id,
         user_id=current_user.id,
-        dimension=dimension
+        dimension=dimension,
+        mood=mood or "calm",
+        selected_media_ids=media_ids,
     )
     
     return {"job_id": job_id, "status": "queued"}
@@ -249,6 +276,15 @@ async def get_video_job_status(
         raise HTTPException(status_code=404, detail="Job not found")
         
     j = cast(list[dict[str, Any]], res.data)[0]
+    result_url = None
+    if j.get("result_media_id"):
+        try:
+            m_res = supabase.table("media").select("url").eq("id", j["result_media_id"]).execute()
+            if m_res.data:
+                result_url = m_res.data[0].get("url")
+        except Exception:
+            pass
+    j["result_url"] = result_url
     return VideoJobResponse(**j)
 
 
@@ -365,72 +401,79 @@ async def upload_multiple_media(
     results: List[MediaResponse] = []
     user_id = current_user.id
     import time
+    import asyncio
     base_ts = int(time.time() * 1000)
 
-    for i, file in enumerate(files):
-        content_type = file.content_type or "application/octet-stream"
-        if content_type not in ALLOWED_TYPES:
-            continue
+    sem = asyncio.Semaphore(10)
 
-        file_bytes = await file.read()
-        file_size = len(file_bytes)
-        if file_size > MAX_FILE_SIZE_MB * 1024 * 1024:
-            continue
+    async def _process_single(i: int, file: UploadFile) -> Optional[MediaResponse]:
+        async with sem:
+            content_type = file.content_type or "application/octet-stream"
+            if content_type not in ALLOWED_TYPES:
+                return None
 
-        filename = file.filename or f"upload_{i}"
-        ts = base_ts + i
-        safe_name = "".join(c if c.isalnum() or c in "._-" else "_" for c in filename)
-        media_type = _detect_media_type(content_type)
+            file_bytes = await file.read()
+            file_size = len(file_bytes)
+            if file_size > MAX_FILE_SIZE_MB * 1024 * 1024:
+                return None
 
-        original_path = f"{user_id}/{ts}_{safe_name}"
+            filename = file.filename or f"upload_{i}"
+            ts = base_ts + i
+            safe_name = "".join(c if c.isalnum() or c in "._-" else "_" for c in filename)
+            media_type = _detect_media_type(content_type)
 
-        try:
-            original_url = _upload_to_storage("memories", original_path, file_bytes, content_type)
-        except Exception as e:
-            logger.error(f"Storage upload failed for {filename}: {e}")
-            continue
+            original_path = f"{user_id}/{ts}_{safe_name}"
 
-        if media_type == "video":
-            suffix = ".mp4" if "mp4" in content_type else ".mov"
-            thumb_bytes = _extract_video_thumbnail(file_bytes, suffix=suffix)
-            if thumb_bytes:
-                thumb_path = f"{user_id}/thumbs/{ts}_{safe_name}.jpg"
-                try:
-                    thumb_url = _upload_to_storage("memories", thumb_path, thumb_bytes, "image/jpeg")
-                except Exception as e:
-                    logger.warning(f"Thumbnail upload failed (non-critical): {e}")
+            try:
+                original_url = await asyncio.to_thread(_upload_to_storage, "memories", original_path, file_bytes, content_type)
+            except Exception as e:
+                logger.error(f"Storage upload failed for {filename}: {e}")
+                return None
+
+            if media_type == "video":
+                suffix = ".mp4" if "mp4" in content_type else ".mov"
+                thumb_bytes = await asyncio.to_thread(_extract_video_thumbnail, file_bytes, suffix=suffix)
+                if thumb_bytes:
+                    thumb_path = f"{user_id}/thumbs/{ts}_{safe_name}.jpg"
+                    try:
+                        thumb_url = await asyncio.to_thread(_upload_to_storage, "memories", thumb_path, thumb_bytes, "image/jpeg")
+                    except Exception as e:
+                        logger.warning(f"Thumbnail upload failed (non-critical): {e}")
+                        thumb_url = original_url
+                else:
                     thumb_url = original_url
             else:
-                thumb_url = original_url
-        else:
-            # Generate + upload lightweight thumbnail (~30-50KB) for images
-            thumb_bytes = _extract_image_thumbnail(file_bytes, max_dim=480, quality=80)
-            if thumb_bytes:
-                thumb_path = f"{user_id}/thumbs/{ts}_{safe_name}.jpg"
-                try:
-                    thumb_url = _upload_to_storage("memories", thumb_path, thumb_bytes, "image/jpeg")
-                except Exception as e:
-                    logger.warning(f"Image thumbnail upload failed: {e}")
+                thumb_bytes = await asyncio.to_thread(_extract_image_thumbnail, file_bytes, max_dim=480, quality=80)
+                if thumb_bytes:
+                    thumb_path = f"{user_id}/thumbs/{ts}_{safe_name}.jpg"
+                    try:
+                        thumb_url = await asyncio.to_thread(_upload_to_storage, "memories", thumb_path, thumb_bytes, "image/jpeg")
+                    except Exception as e:
+                        logger.warning(f"Image thumbnail upload failed: {e}")
+                        thumb_url = original_url
+                else:
                     thumb_url = original_url
-            else:
-                thumb_url = original_url
 
-        payload = MediaCreate(
-            vault_id=vault_id,
-            memory_id=memory_id,
-            filename=filename,
-            storage_path=original_path,
-            url=original_url,
-            thumbnail_url=thumb_url,
-            media_type=media_type,
-            file_size=file_size,
-            mime_type=content_type,
-        )
-        created = MediaService.create_media(user_id, payload)
-        results.append(created)
+            payload = MediaCreate(
+                vault_id=vault_id,
+                memory_id=memory_id,
+                filename=filename,
+                storage_path=original_path,
+                url=original_url,
+                thumbnail_url=thumb_url,
+                media_type=media_type,
+                file_size=file_size,
+                mime_type=content_type,
+            )
+            created = await asyncio.to_thread(MediaService.create_media, user_id, payload)
+            
+            # Trigger background AI feature & metadata extraction
+            background_tasks.add_task(AIExtractor.process_media_item, created.id, file_bytes, content_type)
+            return created
 
-        # Trigger background AI feature & metadata extraction
-        background_tasks.add_task(AIExtractor.process_media_item, created.id, file_bytes, content_type)
+    tasks = [_process_single(i, f) for i, f in enumerate(files)]
+    completed = await asyncio.gather(*tasks)
+    results = [res for res in completed if res is not None]
 
     return results
 

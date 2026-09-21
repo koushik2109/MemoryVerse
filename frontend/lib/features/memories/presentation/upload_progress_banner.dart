@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:memory_verse/core/design/tokens.dart';
 import 'package:memory_verse/core/providers/upload_controller.dart';
 import 'package:memory_verse/core/theme/app_design_tokens.dart' as adt;
+import 'package:memory_verse/core/widgets/media.dart';
 
 class UploadProgressBanner extends ConsumerWidget {
   const UploadProgressBanner({super.key});
@@ -226,7 +227,7 @@ class _UploadQueueSheet extends ConsumerWidget {
                                 borderRadius: BorderRadius.circular(
                                   AppRadii.sm,
                                 ),
-                                child: Image.file(task.file, fit: BoxFit.cover),
+                                child: AppFileImage(file: task.file, fit: BoxFit.cover),
                               ),
                       ),
                       const SizedBox(width: AppSpacing.s12),

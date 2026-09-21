@@ -8,7 +8,7 @@ Average multiple frame embeddings to get a single video embedding.
 Output dim: 768 (SigLIP base patch-16)
 """
 from functools import lru_cache
-from typing import List
+from typing import List, Any
 
 import cv2
 import numpy as np
@@ -95,21 +95,40 @@ def select_most_distinct_keyframes(
         return list(range(len(frame_embeds)))
 
     arr = np.array(frame_embeds, dtype=np.float32)
+    # Normalise vectors for cosine similarity
+    norms = np.linalg.norm(arr, axis=1, keepdims=True) + 1e-8
+    arr = arr / norms
     selected: List[int] = []
 
     # Start with the frame farthest from the mean
-    mean = arr.mean(axis=0)
-    dists = 1 - (arr @ mean / (np.linalg.norm(arr, axis=1) * np.linalg.norm(mean) + 1e-8))
-    selected.append(int(np.argmax(dists)))
+    mean = arr.mean(axis=0, keepdims=True)
+    mean = mean / (np.linalg.norm(mean) + 1e-8)
+    sims_to_mean = (arr @ mean.T).squeeze()
+    selected.append(int(np.argmin(sims_to_mean)))
 
     while len(selected) < top_k:
         selected_arr = arr[selected]  # (k, D)
         sims = arr @ selected_arr.T   # (N, k)
         # For each candidate, its max similarity to any already-selected frame
         max_sim_to_selected = sims.max(axis=1)
-        # Penalise already-selected frames
-        max_sim_to_selected[selected] = 1.0
+        # Strongly penalise already-selected frames so they cannot be picked again
+        max_sim_to_selected[selected] = np.inf
         next_idx = int(np.argmin(max_sim_to_selected))
         selected.append(next_idx)
 
     return selected
+
+
+def select_distinct_keyframes(frames_or_embeds: List[Any], top_k: int = 3) -> List[Any]:
+    """
+    Selects top_k most distinct keyframes.
+    Accepts either a list of frame dicts containing 'embedding' or raw vector lists.
+    """
+    if not frames_or_embeds:
+        return []
+    if isinstance(frames_or_embeds[0], dict):
+        raw_embeds = [f.get("embedding", []) for f in frames_or_embeds]
+        indices = select_most_distinct_keyframes(raw_embeds, top_k=top_k)
+        return [frames_or_embeds[i] for i in indices]
+    return select_most_distinct_keyframes(frames_or_embeds, top_k=top_k)
+

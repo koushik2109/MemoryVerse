@@ -28,5 +28,8 @@ GEMINI.md
 # Flutter desktop ephemeral files
 ephemeral/
 
-dev1.sh
+devl.sh
 *.zip
+PROJECT_REVIEW_SUMMARY.md
+PROJECT_STATUS_AND_CHANGES.md
+DESIGN_DOC.md

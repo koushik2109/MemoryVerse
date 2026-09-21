@@ -1003,3 +1003,35 @@ class AIService:
             "total_recommended": recommended_count,
         }
 
+    @staticmethod
+    def run_multi_agent_flow(
+        user_id: str,
+        prompt: str,
+        ablation_mode: str = "model_4_full",
+        target_duration: float = 30.0,
+        media_type: str = "all",
+    ) -> dict[str, Any]:
+        """
+        Invokes the LangGraph multi-agent cognitive architecture
+        (Planner, Scorer, Storyteller, Auditor, Video Director).
+        """
+        try:
+            from ai_engine.langgraph.graph import run_memory_flow
+            res = run_memory_flow(
+                query=prompt,
+                user_id=user_id,
+                ablation_mode=ablation_mode,
+                target_duration=target_duration,
+                media_type=media_type,
+            )
+            return res.get("final_output", {})
+        except Exception as e:
+            logger.error(f"Failed to execute multi-agent flow: {e}", exc_info=True)
+            return {
+                "title": f"Story of {prompt}",
+                "error": str(e),
+                "status": "fallback",
+                "ablation_mode": ablation_mode,
+            }
+
+

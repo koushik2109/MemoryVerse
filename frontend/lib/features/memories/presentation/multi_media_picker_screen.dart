@@ -7,6 +7,7 @@ import 'package:file_picker/file_picker.dart';
 import 'package:memory_verse/core/design/tokens.dart';
 import 'package:memory_verse/core/providers/upload_controller.dart';
 import 'package:memory_verse/core/theme/app_design_tokens.dart' as adt;
+import 'package:memory_verse/core/widgets/media.dart';
 
 class MultiMediaPickerScreen extends ConsumerStatefulWidget {
   final String memoryId;
@@ -125,7 +126,7 @@ class _MultiMediaPickerScreenState
             fit: StackFit.expand,
             children: [
               InteractiveViewer(
-                child: Image.file(_selectedFiles[index], fit: BoxFit.contain),
+                child: AppFileImage(file: _selectedFiles[index], fit: BoxFit.contain),
               ),
               Positioned(
                 top: AppSpacing.s32,
@@ -313,7 +314,7 @@ class _MultiMediaPickerScreenState
                                         ),
                                       )
                                     else
-                                      Image.file(file, fit: BoxFit.cover),
+                                      AppFileImage(file: file, fit: BoxFit.cover),
 
                                     if (isVideo)
                                       Container(

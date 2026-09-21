@@ -8,6 +8,7 @@ import 'package:memory_verse/core/design/tokens.dart';
 import 'package:memory_verse/core/providers/app_providers.dart';
 import 'package:memory_verse/core/repositories/app_repositories.dart';
 import 'package:memory_verse/core/widgets/buttons.dart';
+import 'package:memory_verse/core/widgets/media.dart';
 import 'package:memory_verse/core/theme/app_design_tokens.dart' as adt;
 
 class MediaPickerSheet extends ConsumerStatefulWidget {
@@ -218,7 +219,7 @@ class _MediaPickerSheetState extends ConsumerState<MediaPickerSheet> {
                           if (!isVideo)
                             ClipRRect(
                               borderRadius: BorderRadius.circular(AppRadii.md),
-                              child: Image.file(file, fit: BoxFit.cover),
+                              child: AppFileImage(file: file, fit: BoxFit.cover),
                             )
                           else
                             Center(

@@ -17,12 +17,12 @@ class InviteService:
             raise HTTPException(status_code=404, detail="Vault not found")
         
         # Check existing invite
-        existing = supabase.table("invitations").select("*").eq("vault_id", vault_id).execute()
+        existing = supabase.table("vault_invitations").select("*").eq("vault_id", vault_id).execute()
         if existing.data:
             code = cast(list[dict[str, Any]], existing.data)[0]["invite_code"]
         else:
             code = secrets.token_urlsafe(8)
-            supabase.table("invitations").insert({
+            supabase.table("vault_invitations").insert({
                 "vault_id": vault_id,
                 "invite_code": code,
                 "created_by": user_id,
@@ -41,7 +41,7 @@ class InviteService:
     @staticmethod
     def get_invite_info(code: str) -> InviteInfoResponse:
         supabase = get_supabase_client()
-        inv_res = supabase.table("invitations").select("*").eq("invite_code", code).execute()
+        inv_res = supabase.table("vault_invitations").select("*").eq("invite_code", code).execute()
         if not inv_res.data:
             raise HTTPException(status_code=404, detail="Invalid or expired invite link")
         
@@ -68,7 +68,7 @@ class InviteService:
     @staticmethod
     def join_vault(code: str, user_id: str) -> VaultResponse:
         supabase = get_supabase_client()
-        inv_res = supabase.table("invitations").select("*").eq("invite_code", code).execute()
+        inv_res = supabase.table("vault_invitations").select("*").eq("invite_code", code).execute()
         if not inv_res.data:
             raise HTTPException(status_code=404, detail="Invalid invite code")
         

@@ -16,6 +16,7 @@ import 'package:memory_verse/core/services/rag/rag_retrieval_service.dart';
 import 'package:memory_verse/core/theme/app_design_tokens.dart' as adt;
 import 'package:memory_verse/core/widgets/buttons.dart';
 import 'package:memory_verse/core/widgets/inputs.dart';
+import 'package:memory_verse/core/widgets/media.dart';
 import 'package:memory_verse/features/memories/presentation/memory_detail_screen.dart';
 import 'package:memory_verse/features/memories/presentation/widgets/media_permission_view.dart';
 import 'package:memory_verse/features/memories/presentation/widgets/memory_rag_review_view.dart';
@@ -739,7 +740,7 @@ class _CreateMemorySheetState extends ConsumerState<CreateMemorySheet> {
                                 color: adt.AppColors.plum900,
                                 child: const Icon(Icons.videocam, color: Colors.white),
                               )
-                            : Image.file(file, fit: BoxFit.cover),
+                            : AppFileImage(file: file, fit: BoxFit.cover),
                       ),
                       Positioned(
                         top: 2,

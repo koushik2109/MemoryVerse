@@ -31,6 +31,9 @@ uvicorn[standard]>=0.30.0
 # Environment loading
 python-dotenv>=1.0.1
 
+# Multi-Agent Orchestration
+langgraph>=1.2.0
+
 # ─────────────────────────────────────────────────────────────────
 # Video RAG Pipeline
 # ─────────────────────────────────────────────────────────────────

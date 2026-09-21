@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:memory_verse/core/design/tokens.dart';
@@ -6,6 +7,7 @@ import 'package:memory_verse/core/services/rag/rag_retrieval_service.dart';
 import 'package:memory_verse/core/theme/app_design_tokens.dart' as adt;
 import 'package:memory_verse/core/widgets/buttons.dart';
 import 'package:memory_verse/core/widgets/inputs.dart';
+import 'package:memory_verse/core/widgets/media.dart';
 
 class MemoryRagReviewView extends StatefulWidget {
   final RagRetrievalResult ragResult;
@@ -116,7 +118,7 @@ class _MemoryRagReviewViewState extends State<MemoryRagReviewView> {
           fit: StackFit.expand,
           children: [
             InteractiveViewer(
-              child: Image.file(item.file!, fit: BoxFit.contain),
+              child: AppFileImage(file: item.file!, fit: BoxFit.contain),
             ),
             Positioned(
               top: AppSpacing.s32,
@@ -362,7 +364,7 @@ class _MemoryRagReviewViewState extends State<MemoryRagReviewView> {
                             // Image or Video Thumbnail
                             ClipRRect(
                               borderRadius: BorderRadius.circular(AppRadii.md),
-                              child: item.file != null && item.file!.existsSync()
+                              child: item.file != null && (kIsWeb || item.file!.existsSync())
                                   ? (item.isVideo
                                       ? Container(
                                           color: adt.AppColors.plum900,
@@ -370,7 +372,7 @@ class _MemoryRagReviewViewState extends State<MemoryRagReviewView> {
                                             child: Icon(Icons.videocam_rounded, color: Colors.white, size: 28),
                                           ),
                                         )
-                                      : Image.file(item.file!, fit: BoxFit.cover))
+                                      : AppFileImage(file: item.file!, fit: BoxFit.cover))
                                   : Container(
                                       color: adt.AppColors.plum900,
                                       child: Icon(Icons.broken_image, color: c.textMuted),

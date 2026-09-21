@@ -53,6 +53,30 @@ def test_unauthenticated_access_to_ai_chat():
     assert response.status_code in (401, 403)
 
 
+def test_unauthenticated_access_to_tts():
+    response = client.post("/api/v1/ai/tts", json={"text": "Hello world", "emotion": "calm"})
+    assert response.status_code in (401, 403)
+
+
+def test_unauthenticated_access_to_memory_narrate():
+    response = client.get("/api/v1/ai/memory/test-memory-id/narrate")
+    assert response.status_code in (401, 403)
+
+
+def test_get_emotion_profiles():
+    response = client.get("/api/v1/ai/emotions")
+    assert response.status_code == 200
+    data = response.json()
+    assert data["success"] is True
+    assert "emotions" in data
+    assert len(data["emotions"]) >= 6
+    emotion_names = [e["emotion"] for e in data["emotions"]]
+    assert "calm" in emotion_names
+    assert "nostalgic" in emotion_names
+    assert "energetic" in emotion_names
+    assert "joyful" in emotion_names
+
+
 # ── Auth — Bad Token ──────────────────────────────────────────────────────────
 
 def test_invalid_token_rejected():

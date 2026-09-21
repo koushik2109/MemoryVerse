@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:memory_verse/core/services/media/media_service.dart';
 import 'package:memory_verse/core/services/media/android_media_service.dart';
@@ -6,7 +7,9 @@ import 'package:memory_verse/core/services/media/ios_media_service.dart';
 import 'package:memory_verse/core/services/media/windows_media_service.dart';
 
 final mediaServiceProvider = Provider<MediaService>((ref) {
-  if (Platform.isAndroid) {
+  if (kIsWeb) {
+    throw UnsupportedError('Web is not supported for media services');
+  } else if (Platform.isAndroid) {
     return AndroidMediaService();
   } else if (Platform.isIOS) {
     return IOSMediaService();

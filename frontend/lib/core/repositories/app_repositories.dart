@@ -236,11 +236,20 @@ class MediaRepository {
     await _api.delete('/media/$id');
   }
 
-  Future<String> generateVideo(String memoryId, {String? dimension}) async {
-    final query = dimension != null ? {'dimension': dimension} : null;
+  Future<String> generateVideo(
+    String memoryId, {
+    String? dimension,
+    String? mood,
+    List<String>? mediaIds,
+  }) async {
+    final query = <String, dynamic>{};
+    if (dimension != null) query['dimension'] = dimension;
+    if (mood != null) query['mood'] = mood;
+    if (mediaIds != null && mediaIds.isNotEmpty) query['media_ids'] = mediaIds;
+
     final res = await _api.post(
       '/media/memory/$memoryId/generate-video',
-      queryParameters: query,
+      queryParameters: query.isNotEmpty ? query : null,
     );
     return res.data['job_id'] as String;
   }

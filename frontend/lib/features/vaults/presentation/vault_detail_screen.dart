@@ -7,6 +7,7 @@ import 'package:memory_verse/core/repositories/app_repositories.dart';
 import 'package:memory_verse/core/widgets/states.dart';
 import 'package:memory_verse/features/vaults/presentation/room_share_sheet.dart';
 import 'package:memory_verse/features/vaults/presentation/manage_members_sheet.dart';
+import 'package:memory_verse/features/memories/presentation/create_memory_sheet.dart';
 
 class VaultDetailScreen extends ConsumerStatefulWidget {
   final String vaultId;
@@ -237,7 +238,7 @@ class _VaultDetailScreenState extends ConsumerState<VaultDetailScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // TODO: Open Create Memory sheet with this vaultId pre-selected
+          CreateMemorySheet.show(context, vaultId: widget.vaultId);
         },
         backgroundColor: c.primary,
         child: Icon(Icons.add, color: c.primaryInverse),
