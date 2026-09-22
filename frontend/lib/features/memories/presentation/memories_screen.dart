@@ -167,9 +167,14 @@ class _MemoryGridItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final c = context.colors;
 
-    final String? imageUrl = memory.media.isNotEmpty
-        ? (memory.media.first.thumbnailUrl ?? memory.media.first.url)
-        : null;
+    MediaModel? coverMedia;
+    if (memory.coverMediaId != null) {
+      coverMedia = memory.media.where((m) => m.id == memory.coverMediaId).firstOrNull;
+    }
+    coverMedia ??= memory.media.where((m) => m.mediaType == 'image').firstOrNull ??
+        (memory.media.isNotEmpty ? memory.media.first : null);
+
+    final String? imageUrl = coverMedia?.thumbnailUrl ?? coverMedia?.url;
 
     return GestureDetector(
       onTap: () => MemoryDetailScreen.open(context, memory),

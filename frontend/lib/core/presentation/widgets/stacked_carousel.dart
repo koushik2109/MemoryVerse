@@ -29,7 +29,7 @@ class StackedCarousel extends StatefulWidget {
     super.key,
     required this.items,
     this.showIndicators = false,
-    this.height = 210,
+    this.height = 200,
     this.onItemTap,
   });
 
@@ -52,13 +52,11 @@ class _StackedCarouselState extends State<StackedCarousel> {
       itemCount: widget.items.length,
       options: CarouselOptions(
         height: widget.height,
-        enlargeCenterPage: true,
-        enlargeFactor: 0.18,
-        viewportFraction: isSingleItem ? 0.92 : 0.82,
-        enableInfiniteScroll: !isSingleItem,
-        autoPlay: !isSingleItem,
-        autoPlayCurve: Curves.fastOutSlowIn,
-        autoPlayAnimationDuration: const Duration(milliseconds: 800),
+        enlargeCenterPage: false,
+        viewportFraction: isSingleItem ? 0.92 : 0.85,
+        enableInfiniteScroll: !isSingleItem && widget.items.length > 2,
+        autoPlay: false,
+        padEnds: true,
         onPageChanged: (index, reason) {
           setState(() {
             _currentIndex = index;
@@ -70,19 +68,19 @@ class _StackedCarouselState extends State<StackedCarousel> {
         return GestureDetector(
           onTap: () => widget.onItemTap?.call(item),
           child: Container(
-            margin: const EdgeInsets.symmetric(vertical: 6, horizontal: 4),
+            margin: const EdgeInsets.symmetric(vertical: 4, horizontal: 6),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(18),
               boxShadow: [
                 BoxShadow(
                   color: Colors.black.withValues(alpha: 0.35),
-                  blurRadius: 14,
-                  offset: const Offset(0, 6),
+                  blurRadius: 12,
+                  offset: const Offset(0, 5),
                 ),
               ],
             ),
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(18),
               child: Stack(
                 fit: StackFit.expand,
                 children: [
@@ -90,12 +88,13 @@ class _StackedCarouselState extends State<StackedCarousel> {
                   CachedNetworkImage(
                     imageUrl: item.imageUrl,
                     fit: BoxFit.cover,
+                    memCacheWidth: 600,
                     placeholder: (context, url) => Container(
                       color: adt.AppColors.plum900,
                       child: const Center(
                         child: SizedBox(
-                          width: 20,
-                          height: 20,
+                          width: 22,
+                          height: 22,
                           child: CircularProgressIndicator(strokeWidth: 2),
                         ),
                       ),
@@ -120,10 +119,10 @@ class _StackedCarouselState extends State<StackedCarousel> {
                         end: Alignment.bottomCenter,
                         colors: [
                           Colors.transparent,
-                          Colors.black.withValues(alpha: 0.1),
+                          Colors.black.withValues(alpha: 0.05),
                           Colors.black.withValues(alpha: 0.8),
                         ],
-                        stops: const [0.35, 0.65, 1.0],
+                        stops: const [0.3, 0.65, 1.0],
                       ),
                     ),
                   ),
@@ -131,7 +130,7 @@ class _StackedCarouselState extends State<StackedCarousel> {
                   // Subtle card border
                   Container(
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(18),
                       border: Border.all(
                         color: Colors.white.withValues(alpha: 0.12),
                         width: 1,
@@ -155,7 +154,7 @@ class _StackedCarouselState extends State<StackedCarousel> {
                                 vertical: 4,
                               ),
                               decoration: BoxDecoration(
-                                color: Colors.black.withValues(alpha: 0.45),
+                                color: Colors.black.withValues(alpha: 0.5),
                                 borderRadius: BorderRadius.circular(16),
                                 border: Border.all(
                                   color: Colors.white.withValues(alpha: 0.3),
@@ -234,29 +233,11 @@ class _StackedCarouselState extends State<StackedCarousel> {
       },
     );
 
-    if (!isSingleItem) {
-      carousel = ShaderMask(
-        shaderCallback: (Rect bounds) {
-          return const LinearGradient(
-            colors: [
-              Colors.transparent,
-              adt.AppColors.plum900,
-              adt.AppColors.plum900,
-              Colors.transparent,
-            ],
-            stops: [0.0, 0.05, 0.95, 1.0],
-          ).createShader(bounds);
-        },
-        blendMode: BlendMode.dstIn,
-        child: carousel,
-      );
-    }
-
     return Column(
       children: [
         carousel,
         if (widget.showIndicators && !isSingleItem) ...[
-          const SizedBox(height: 14),
+          const SizedBox(height: 12),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: widget.items.asMap().entries.map((entry) {

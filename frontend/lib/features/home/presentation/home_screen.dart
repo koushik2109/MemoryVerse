@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:intl/intl.dart';
 import 'package:memory_verse/contracts/models.dart';
 import 'package:memory_verse/core/design/tokens.dart';
 import 'package:memory_verse/core/navigation/router.dart';
@@ -357,26 +358,43 @@ class HomeScreen extends ConsumerWidget {
             ];
             return StackedCarousel(
               items: mockItems,
-              height: 210,
+              height: 200,
               showIndicators: false,
               onItemTap: (_) => context.go(Routes.memories),
             );
           }
           final items = memories.map((m) {
-            String imageUrl = 'https://images.unsplash.com/photo-1551632811-561732d1e306?q=80&w=2070'; // fallback
-            if (m.media.isNotEmpty) {
-              imageUrl = m.media.first.url;
+            MediaModel? coverMedia;
+            if (m.coverMediaId != null) {
+              coverMedia = m.media.where((med) => med.id == m.coverMediaId).firstOrNull;
             }
+            coverMedia ??= m.media.where((med) => med.mediaType == 'image').firstOrNull ??
+                (m.media.isNotEmpty ? m.media.first : null);
+
+            final thumb = coverMedia?.thumbnailUrl;
+            final fullUrl = coverMedia?.url;
+            final imageUrl = (thumb != null && thumb.isNotEmpty)
+                ? thumb
+                : ((fullUrl != null && fullUrl.isNotEmpty)
+                    ? fullUrl
+                    : 'https://images.unsplash.com/photo-1551632811-561732d1e306?q=80&w=2070');
+
+            String? subtitle = m.locationName;
+            if (subtitle == null || subtitle.isEmpty) {
+              subtitle = DateFormat('MMM d, yyyy').format(m.memoryDate);
+            }
+
             return CarouselItem(
               id: m.id,
               title: m.title,
-              subtitle: m.locationName ?? m.description,
+              subtitle: subtitle,
               imageUrl: imageUrl,
+              badge: m.media.length > 1 ? '${m.media.length} photos' : null,
             );
           }).toList();
           return StackedCarousel(
             items: items,
-            height: 210,
+            height: 200,
             showIndicators: false,
             onItemTap: (item) {
               if (item.id != null) {
@@ -386,10 +404,10 @@ class HomeScreen extends ConsumerWidget {
           );
         },
         loading: () => const SizedBox(
-          height: 210,
+          height: 200,
           child: Center(child: CircularProgressIndicator()),
         ),
-        error: (_, __) => const SizedBox(height: 210),
+        error: (_, __) => const SizedBox(height: 200),
       ),
     );
   }
