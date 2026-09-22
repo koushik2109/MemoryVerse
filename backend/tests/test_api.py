@@ -208,3 +208,21 @@ def test_global_error_does_not_expose_stack_trace():
     assert response.status_code == 200
     # Health check should always be clean
     assert "traceback" not in response.text.lower()
+
+
+# ── Bulk Upload & Media Tests ──────────────────────────────────────────────────
+
+def test_media_upload_requires_auth():
+    response = client.post("/api/v1/media/upload")
+    assert response.status_code in (401, 403)
+
+
+def test_media_upload_multiple_requires_auth():
+    response = client.post("/api/v1/media/upload-multiple")
+    assert response.status_code in (401, 403)
+
+
+def test_create_media_batch_empty():
+    from app.services.media_service import MediaService
+    res = MediaService.create_media_batch("test-user-id", [])
+    assert res == []

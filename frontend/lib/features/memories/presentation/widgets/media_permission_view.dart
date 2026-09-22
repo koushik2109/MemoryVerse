@@ -271,16 +271,17 @@ class MediaPermissionView extends ConsumerWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Automatic Memory Discovery',
+                          'Private On-Device Memory Discovery',
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w600,
                             color: c.text,
                           ),
                         ),
+                        const SizedBox(height: 4),
                         Text(
-                          'Allow access so AI can find your relevant photos.',
-                          style: TextStyle(fontSize: 12, color: c.textMuted),
+                          "MemoryVerse can look through your photos and videos to find moments that match what you're creating — so you don't have to hunt for them yourself. This scan happens on your device; nothing is sent anywhere unless you choose to add it to a memory. You can allow full access, select specific albums, or skip this and upload manually.",
+                          style: TextStyle(fontSize: 12, color: c.textMuted, height: 1.35),
                         ),
                       ],
                     ),

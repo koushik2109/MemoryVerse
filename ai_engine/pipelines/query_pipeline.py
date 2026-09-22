@@ -33,9 +33,8 @@ class MultimodalQueryPipeline:
         # 1. Query Video Store if available
         try:
             from ai_engine.rag.video.vector_store import search_by_text_embedding
-            from ai_engine.models.bge_loader import get_bge_model
-            bge = get_bge_model()
-            q_emb = bge.encode_queries([query])[0].tolist() if hasattr(bge, "encode_queries") else []
+            from ai_engine.models.bge_loader import embed_text
+            q_emb = embed_text(query)
             if q_emb:
                 hits = search_by_text_embedding(q_emb, top_k=top_k)
                 for h in hits:
@@ -47,9 +46,8 @@ class MultimodalQueryPipeline:
         # 2. Query Audio Store if available
         try:
             from ai_engine.rag.audio.vector_store import search_transcripts
-            from ai_engine.models.bge_loader import get_bge_model
-            bge = get_bge_model()
-            q_emb = bge.encode_queries([query])[0].tolist() if hasattr(bge, "encode_queries") else []
+            from ai_engine.models.bge_loader import embed_text
+            q_emb = embed_text(query)
             if q_emb:
                 hits = search_transcripts(q_emb, top_k=top_k)
                 for h in hits:

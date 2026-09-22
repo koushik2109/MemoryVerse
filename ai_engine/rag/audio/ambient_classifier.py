@@ -15,7 +15,6 @@ from typing import Dict, Tuple
 
 import librosa
 import numpy as np
-from sklearn.preprocessing import normalize
 
 from ai_engine.rag.config import ESC50_META_PATH, RAG_DIR
 
@@ -148,12 +147,15 @@ def classify_ambient(file_path: str) -> Tuple[str, str]:
     if not centroids:
         return "unknown", "unknown"
 
-    query_feat = _extract_mfcc(file_path).reshape(1, -1)
-    query_feat = normalize(query_feat)[0]
+    query_feat = _extract_mfcc(file_path)
+    q_norm = float(np.linalg.norm(query_feat))
+    if q_norm > 0:
+        query_feat = query_feat / q_norm
 
     best_cat, best_sim = "unknown", -1.0
     for cat, centroid in centroids.items():
-        c = normalize(centroid.reshape(1, -1))[0]
+        c_norm = float(np.linalg.norm(centroid))
+        c = centroid / c_norm if c_norm > 0 else centroid
         sim = float(np.dot(query_feat, c))
         if sim > best_sim:
             best_sim = sim

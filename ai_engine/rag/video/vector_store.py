@@ -18,21 +18,25 @@ Two pgvector RPC functions are used:
   match_video_by_text   → searches text_embedding  (BGE-M3 query)
   match_video_by_image  → searches image_embedding (SigLIP text-encoder query)
 """
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, cast
 
 from supabase import create_client, Client
 
 from ai_engine.rag.config import (
     SUPABASE_URL,
     SUPABASE_SERVICE_ROLE_KEY,
+    VIDEO_TABLE,
     TOP_K,
 )
 
-VIDEO_TABLE = "video_memories"
+_client_instance: Optional[Client] = None
 
 
 def _client() -> Client:
-    return create_client(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY)
+    global _client_instance
+    if _client_instance is None:
+        _client_instance = create_client(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY)
+    return _client_instance
 
 
 # ─── Ingest ────────────────────────────────────────────────────────────────────
@@ -40,7 +44,8 @@ def _client() -> Client:
 def store_video_memory(record: Dict[str, Any]) -> Dict[str, Any]:
     """Upsert a video memory record. Returns the inserted row."""
     resp = _client().table(VIDEO_TABLE).insert(record).execute()
-    return resp.data[0] if resp.data else {}
+    data = cast(list[dict[str, Any]], resp.data or [])
+    return data[0] if data else {}
 
 
 # ─── Retrieval ─────────────────────────────────────────────────────────────────
@@ -59,7 +64,7 @@ def search_by_text_embedding(
         "match_video_by_text",
         {"query_embedding": query_embedding, "match_count": top_k},
     ).execute()
-    return resp.data or []
+    return cast(List[Dict[str, Any]], resp.data or [])
 
 
 def search_by_image_embedding(
@@ -76,7 +81,7 @@ def search_by_image_embedding(
         "match_video_by_image",
         {"query_embedding": query_embedding, "match_count": top_k},
     ).execute()
-    return resp.data or []
+    return cast(List[Dict[str, Any]], resp.data or [])
 
 
 def merge_and_deduplicate(

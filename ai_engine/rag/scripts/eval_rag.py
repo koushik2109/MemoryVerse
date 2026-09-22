@@ -33,7 +33,7 @@ import sys
 import time
 from collections import defaultdict
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Set, Tuple
+from typing import Any, Dict, List, Optional, Set, Tuple, cast
 
 # ─── Path setup ───────────────────────────────────────────────────────────────
 RAG_DIR = Path(__file__).parent.parent
@@ -128,7 +128,8 @@ def supabase_text_search(
         "filter_user_id": user_id,
     }
     resp = _db().rpc("match_memories_by_text", params).execute()
-    return [r.get("filename", "").upper() for r in (resp.data or [])]
+    rows = cast(list[dict[str, Any]], resp.data or [])
+    return [str(r.get("filename", "")).upper() for r in rows]
 
 
 def supabase_image_search(
@@ -143,7 +144,8 @@ def supabase_image_search(
         "filter_user_id": user_id,
     }
     resp = _db().rpc("match_memories_by_image", params).execute()
-    return [r.get("filename", "").upper() for r in (resp.data or [])]
+    rows = cast(list[dict[str, Any]], resp.data or [])
+    return [str(r.get("filename", "")).upper() for r in rows]
 
 
 def supabase_metadata_filter(
@@ -161,7 +163,8 @@ def supabase_metadata_filter(
     for col, val in filters.items():
         q = q.ilike(col, f"%{val}%")  # case-insensitive substring match
     resp = q.limit(top_k).execute()
-    return [r.get("filename", "").upper() for r in (resp.data or [])]
+    rows = cast(list[dict[str, Any]], resp.data or [])
+    return [str(r.get("filename", "")).upper() for r in rows]
 
 
 # ══════════════════════════════════════════════════════════════════════════════

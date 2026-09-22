@@ -8,7 +8,7 @@ import 'package:memory_verse/core/repositories/app_repositories.dart';
 import 'package:memory_verse/core/widgets/media.dart';
 import 'package:memory_verse/core/widgets/states.dart';
 import 'package:memory_verse/features/memories/presentation/multi_media_picker_screen.dart';
-import 'package:memory_verse/features/memories/presentation/video_creator_sheet.dart';
+import 'package:memory_verse/features/memories/presentation/ai_director_screen.dart';
 import 'package:memory_verse/features/memories/presentation/memory_media_viewer.dart';
 import 'package:memory_verse/features/memories/presentation/edit_memory_screen.dart';
 import 'package:share_plus/share_plus.dart';
@@ -223,9 +223,9 @@ class _MemoryDetailScreenState extends ConsumerState<MemoryDetailScreen> {
           SizedBox(
             width: double.infinity,
             child: FilledButton.icon(
-              icon: const Icon(Icons.movie_creation_outlined),
-              label: const Text('Create Memory Video'),
-              onPressed: () => VideoCreatorSheet.show(context, memory),
+              icon: const Icon(Icons.auto_awesome),
+              label: const Text('Create with AI'),
+              onPressed: () => AiDirectorScreen.open(context, memory),
               style: FilledButton.styleFrom(
                 backgroundColor: c.primary,
                 foregroundColor: c.primaryInverse,

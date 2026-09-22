@@ -173,10 +173,22 @@ class VideoJobResponse(BaseModel):
     id: str
     memory_id: str
     user_id: str
-    status: str # queued, processing, completed, failed
+    status: str # queued, initializing, analyzing_media, composing_video, completed, failed, etc.
     result_media_id: Optional[str] = None
     result_url: Optional[str] = None
     error_message: Optional[str] = None
+    stage: str = "queued"
+    overall_progress: int = 0
+    stage_progress: int = 0
+    stage_index: int = 0
+    total_stages: int = 12
+    current_task: str = "Waiting in queue..."
+    estimated_remaining_seconds: Optional[int] = None
+    elapsed_seconds: int = 0
+    error_code: Optional[str] = None
+    retry_count: int = 0
+    upload_speed_mbps: Optional[float] = None
+    upload_progress: Optional[int] = None
     created_at: datetime
     updated_at: datetime
 
@@ -332,6 +344,7 @@ class ClusterExecutionResponse(BaseModel):
     status: str = "success"
     total_media_processed: int = 0
     memories_created: int = 0
+    events: List[ClusteredEventResponse] = []
 # --- MEMORY NARRATIVE SCHEMAS ---
 class TimelinePhase(BaseModel):
     phase_id: str

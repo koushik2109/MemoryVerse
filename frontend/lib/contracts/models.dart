@@ -505,22 +505,314 @@ class AiConversationModel {
 class VideoJobModel {
   final String id;
   final String status;
-  final String? resultUrl;
+  final String stage;
+  final int overallProgress;
+  final int stageProgress;
+  final int stageIndex;
+  final int totalStages;
+  final String currentTask;
+  final int? estimatedRemainingSeconds;
+  final int elapsedSeconds;
+  final double? uploadSpeedMbps;
+  final int? uploadProgress;
+  final String? errorCode;
   final String? errorMessage;
+  final int retryCount;
+  final String? resultMediaId;
+  final String? resultUrl;
+  final String? memoryId;
+  final String? userId;
+  final String? createdAt;
+  final String? updatedAt;
 
   VideoJobModel({
     required this.id,
     required this.status,
-    this.resultUrl,
+    this.stage = 'queued',
+    this.overallProgress = 0,
+    this.stageProgress = 0,
+    this.stageIndex = 0,
+    this.totalStages = 12,
+    this.currentTask = 'Waiting in queue...',
+    this.estimatedRemainingSeconds,
+    this.elapsedSeconds = 0,
+    this.uploadSpeedMbps,
+    this.uploadProgress,
+    this.errorCode,
     this.errorMessage,
+    this.retryCount = 0,
+    this.resultMediaId,
+    this.resultUrl,
+    this.memoryId,
+    this.userId,
+    this.createdAt,
+    this.updatedAt,
   });
+
+  bool get isCompleted => status == 'completed';
+  bool get isFailed => status == 'failed';
+  bool get isCancelled => status == 'cancelled';
+  bool get isProcessing =>
+      status == 'processing' ||
+      status == 'initializing' ||
+      status == 'queued' ||
+      status == 'retrying';
+  bool get canRetry => isFailed || isCancelled;
+
+  String get formattedEta {
+    if (estimatedRemainingSeconds == null || estimatedRemainingSeconds! <= 0) {
+      return 'Calculating...';
+    }
+    final sec = estimatedRemainingSeconds!;
+    if (sec < 60) {
+      return '~${sec}s remaining';
+    }
+    final mins = sec ~/ 60;
+    final remSec = sec % 60;
+    return '~${mins}m ${remSec}s remaining';
+  }
+
+  String? get formattedUploadSpeed {
+    if (uploadSpeedMbps == null || uploadSpeedMbps! <= 0) return null;
+    return '${uploadSpeedMbps!.toStringAsFixed(1)} MB/s';
+  }
 
   factory VideoJobModel.fromJson(Map<String, dynamic> json) {
     return VideoJobModel(
-      id: json['id'] ?? '',
-      status: json['status'] ?? 'pending',
-      resultUrl: json['result_url'],
-      errorMessage: json['error_message'],
+      id: json['id']?.toString() ?? '',
+      status: json['status']?.toString() ?? 'queued',
+      stage: json['stage']?.toString() ?? 'queued',
+      overallProgress: (json['overall_progress'] as num?)?.toInt() ?? 0,
+      stageProgress: (json['stage_progress'] as num?)?.toInt() ?? 0,
+      stageIndex: (json['stage_index'] as num?)?.toInt() ?? 0,
+      totalStages: (json['total_stages'] as num?)?.toInt() ?? 12,
+      currentTask: json['current_task']?.toString() ?? 'Processing...',
+      estimatedRemainingSeconds: (json['estimated_remaining_seconds'] as num?)?.toInt(),
+      elapsedSeconds: (json['elapsed_seconds'] as num?)?.toInt() ?? 0,
+      uploadSpeedMbps: (json['upload_speed_mbps'] as num?)?.toDouble(),
+      uploadProgress: (json['upload_progress'] as num?)?.toInt(),
+      errorCode: json['error_code']?.toString(),
+      errorMessage: json['error_message']?.toString(),
+      retryCount: (json['retry_count'] as num?)?.toInt() ?? 0,
+      resultMediaId: json['result_media_id']?.toString(),
+      resultUrl: json['result_url']?.toString(),
+      memoryId: json['memory_id']?.toString(),
+      userId: json['user_id']?.toString(),
+      createdAt: json['created_at']?.toString(),
+      updatedAt: json['updated_at']?.toString(),
+    );
+  }
+
+  VideoJobModel copyWith({
+    String? id,
+    String? status,
+    String? stage,
+    int? overallProgress,
+    int? stageProgress,
+    int? stageIndex,
+    int? totalStages,
+    String? currentTask,
+    int? estimatedRemainingSeconds,
+    int? elapsedSeconds,
+    double? uploadSpeedMbps,
+    int? uploadProgress,
+    String? errorCode,
+    String? errorMessage,
+    int? retryCount,
+    String? resultMediaId,
+    String? resultUrl,
+    String? memoryId,
+    String? userId,
+    String? createdAt,
+    String? updatedAt,
+  }) {
+    return VideoJobModel(
+      id: id ?? this.id,
+      status: status ?? this.status,
+      stage: stage ?? this.stage,
+      overallProgress: overallProgress ?? this.overallProgress,
+      stageProgress: stageProgress ?? this.stageProgress,
+      stageIndex: stageIndex ?? this.stageIndex,
+      totalStages: totalStages ?? this.totalStages,
+      currentTask: currentTask ?? this.currentTask,
+      estimatedRemainingSeconds:
+          estimatedRemainingSeconds ?? this.estimatedRemainingSeconds,
+      elapsedSeconds: elapsedSeconds ?? this.elapsedSeconds,
+      uploadSpeedMbps: uploadSpeedMbps ?? this.uploadSpeedMbps,
+      uploadProgress: uploadProgress ?? this.uploadProgress,
+      errorCode: errorCode ?? this.errorCode,
+      errorMessage: errorMessage ?? this.errorMessage,
+      retryCount: retryCount ?? this.retryCount,
+      resultMediaId: resultMediaId ?? this.resultMediaId,
+      resultUrl: resultUrl ?? this.resultUrl,
+      memoryId: memoryId ?? this.memoryId,
+      userId: userId ?? this.userId,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
     );
   }
 }
+
+// ── AI Memory Director Models ────────────────────────────────────────────────
+
+class VideoSpecificationModel {
+  final int durationTargetSeconds;
+  final String aspectRatio;
+  final String orientation;
+  final String emotionPrimary;
+  final String musicStyle;
+  final bool narrationEnabled;
+
+  const VideoSpecificationModel({
+    this.durationTargetSeconds = 35,
+    this.aspectRatio = '16:9',
+    this.orientation = 'landscape',
+    this.emotionPrimary = 'calm',
+    this.musicStyle = 'cinematic_warm',
+    this.narrationEnabled = false,
+  });
+
+  factory VideoSpecificationModel.fromJson(Map<String, dynamic> json) {
+    final emo = json['emotion'] as Map<String, dynamic>?;
+    final mus = json['music'] as Map<String, dynamic>?;
+    final narr = json['narration'] as Map<String, dynamic>?;
+
+    return VideoSpecificationModel(
+      durationTargetSeconds: (json['duration_target_seconds'] as num?)?.toInt() ?? 35,
+      aspectRatio: json['aspect_ratio']?.toString() ?? '16:9',
+      orientation: json['orientation']?.toString() ?? 'landscape',
+      emotionPrimary: emo?['primary']?.toString() ?? 'calm',
+      musicStyle: mus?['style']?.toString() ?? 'cinematic_warm',
+      narrationEnabled: narr?['enabled'] == true,
+    );
+  }
+
+  Map<String, dynamic> toJson() => {
+    'duration_target_seconds': durationTargetSeconds,
+    'aspect_ratio': aspectRatio,
+    'orientation': orientation,
+    'emotion': {'primary': emotionPrimary},
+    'music': {'style': musicStyle},
+    'narration': {'enabled': narrationEnabled},
+  };
+
+  VideoSpecificationModel copyWith({
+    int? durationTargetSeconds,
+    String? aspectRatio,
+    String? orientation,
+    String? emotionPrimary,
+    String? musicStyle,
+    bool? narrationEnabled,
+  }) {
+    return VideoSpecificationModel(
+      durationTargetSeconds: durationTargetSeconds ?? this.durationTargetSeconds,
+      aspectRatio: aspectRatio ?? this.aspectRatio,
+      orientation: orientation ?? this.orientation,
+      emotionPrimary: emotionPrimary ?? this.emotionPrimary,
+      musicStyle: musicStyle ?? this.musicStyle,
+      narrationEnabled: narrationEnabled ?? this.narrationEnabled,
+    );
+  }
+}
+
+class AIMessageModel {
+  final String id;
+  final String role; // 'user', 'assistant'
+  final String content;
+  final List<String> suggestions;
+  final String? jobId;
+  final VideoSpecificationModel? specification;
+  final DateTime? createdAt;
+
+  const AIMessageModel({
+    required this.id,
+    required this.role,
+    required this.content,
+    this.suggestions = const [],
+    this.jobId,
+    this.specification,
+    this.createdAt,
+  });
+
+  factory AIMessageModel.fromJson(Map<String, dynamic> json) {
+    return AIMessageModel(
+      id: json['id']?.toString() ?? '',
+      role: json['role']?.toString() ?? 'assistant',
+      content: json['content']?.toString() ?? '',
+      suggestions: (json['suggestions'] as List<dynamic>?)
+              ?.map((e) => e.toString())
+              .toList() ??
+          [],
+      jobId: json['job_id']?.toString(),
+      specification: json['specification'] != null
+          ? VideoSpecificationModel.fromJson(
+              json['specification'] as Map<String, dynamic>)
+          : null,
+      createdAt: json['created_at'] != null
+          ? DateTime.tryParse(json['created_at'].toString())
+          : null,
+    );
+  }
+}
+
+class AISessionModel {
+  final String sessionId;
+  final String memoryId;
+  final String title;
+  final VideoSpecificationModel specification;
+  final List<AIMessageModel> messages;
+  final List<String> suggestions;
+  final String? activeJobId;
+
+  const AISessionModel({
+    required this.sessionId,
+    required this.memoryId,
+    required this.title,
+    required this.specification,
+    this.messages = const [],
+    this.suggestions = const [],
+    this.activeJobId,
+  });
+
+  factory AISessionModel.fromJson(Map<String, dynamic> json) {
+    return AISessionModel(
+      sessionId: json['session_id']?.toString() ?? '',
+      memoryId: json['memory_id']?.toString() ?? '',
+      title: json['title']?.toString() ?? '',
+      specification: json['specification'] != null
+          ? VideoSpecificationModel.fromJson(
+              json['specification'] as Map<String, dynamic>)
+          : const VideoSpecificationModel(),
+      messages: (json['messages'] as List<dynamic>?)
+              ?.map((m) => AIMessageModel.fromJson(m as Map<String, dynamic>))
+              .toList() ??
+          [],
+      suggestions: (json['suggestions'] as List<dynamic>?)
+              ?.map((s) => s.toString())
+              .toList() ??
+          [],
+      activeJobId: json['active_job_id']?.toString(),
+    );
+  }
+
+  AISessionModel copyWith({
+    String? sessionId,
+    String? memoryId,
+    String? title,
+    VideoSpecificationModel? specification,
+    List<AIMessageModel>? messages,
+    List<String>? suggestions,
+    String? activeJobId,
+  }) {
+    return AISessionModel(
+      sessionId: sessionId ?? this.sessionId,
+      memoryId: memoryId ?? this.memoryId,
+      title: title ?? this.title,
+      specification: specification ?? this.specification,
+      messages: messages ?? this.messages,
+      suggestions: suggestions ?? this.suggestions,
+      activeJobId: activeJobId ?? this.activeJobId,
+    );
+  }
+}
+

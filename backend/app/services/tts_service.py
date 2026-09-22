@@ -8,7 +8,7 @@ import io
 import logging
 import os
 import tempfile
-from typing import Any, Dict, Optional, Tuple
+from typing import Any, Dict, Optional, Tuple, cast
 
 from ai_engine.video_generation.tts_engine import EmotionTTSEngine, EMOTION_PROFILES
 from app.core.db import get_supabase_client
@@ -89,11 +89,12 @@ class TTSService:
         if not mem_res.data:
             raise ValueError("Memory not found")
 
-        mem = mem_res.data[0]
-        title = mem.get("title") or "Our Memory"
-        desc = mem.get("description") or ""
-        date_str = mem.get("memory_date") or mem.get("event_date") or ""
-        location = mem.get("location_name") or ""
+        mem_rows = cast(list[dict[str, Any]], mem_res.data)
+        mem = mem_rows[0]
+        title = str(mem.get("title") or "Our Memory")
+        desc = str(mem.get("description") or "")
+        date_str = str(mem.get("memory_date") or mem.get("event_date") or "")
+        location = str(mem.get("location_name") or "")
 
         # 2. Fetch media items for context
         media_res = supabase.table("media")\
@@ -102,7 +103,7 @@ class TTSService:
             .limit(10)\
             .execute()
 
-        media_items = media_res.data or []
+        media_items = cast(list[dict[str, Any]], media_res.data or [])
 
         # 3. Construct rich narrative script
         script_parts = [f"This is the memory of {title}."]
@@ -114,10 +115,10 @@ class TTSService:
             script_parts.append(desc)
 
         # Add visual context if available
-        features = []
+        features: list[str] = []
         for m in media_items[:4]:
             if m.get("description"):
-                features.append(m["description"])
+                features.append(str(m["description"]))
         if features:
             script_parts.append(" ".join(features))
 

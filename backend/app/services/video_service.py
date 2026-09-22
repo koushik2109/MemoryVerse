@@ -7,13 +7,29 @@ import math
 import numpy as np
 from datetime import datetime, timezone
 from typing import cast, Any
-from PIL import Image, ImageFilter, ImageDraw, ImageFont
-from moviepy import VideoClip, VideoFileClip, AudioArrayClip, concatenate_videoclips
+from PIL import Image, ImageFilter, ImageDraw, ImageFont, ImageEnhance
+from moviepy import (
+    AudioArrayClip,
+    ColorClip,
+    CompositeVideoClip,
+    VideoClip,
+    VideoFileClip,
+    concatenate_videoclips,
+)
 
 from app.core.db import get_supabase_client
 from app.config.settings import settings
 from app.services import media_intelligence as mi
 from ai_engine.video_generation.tts_engine import EmotionTTSEngine
+from app.services.job_state_manager import job_state_manager, JobStatus
+from app.services.storage_service import storage_service
+from ai_engine.emotion.emotion_analyzer import emotion_analyzer
+from ai_engine.video_generation.aspect_ratio_composer import (
+    AspectRatioComposer,
+    BackgroundStrategy,
+    TargetAspectRatio,
+)
+from ai_engine.video_generation.quality_validator import QualityValidator
 
 logger = logging.getLogger(__name__)
 
@@ -282,6 +298,7 @@ def _generate_ai_story_plan(
     date_str: str,
     location: str | None,
     selected_media: list[dict[str, Any]],
+    target_duration: float = 30.0,
 ) -> dict[str, Any]:
     """
     Ask the LLM editorial director to generate a STRUCTURED story plan referencing actual media IDs
@@ -294,6 +311,7 @@ def _generate_ai_story_plan(
         f"You are reviewing a personal memory titled \"{title}\""
         f"{f' from {date_str}' if date_str else ''}"
         f"{f' at {location}' if location else ''}.\n\n"
+        f"Target total video duration: {target_duration} seconds.\n\n"
         f"{manifest_text}\n\n"
         "Follow your editorial process:\n"
         "1. Understand what this memory is about based on the evidence above.\n"
@@ -382,7 +400,11 @@ def _generate_ai_story_plan(
     motions = ["zoom_in", "pan_left", "zoom_out", "pan_right", "slow_zoom_in"]
     scenes_fb: list[dict[str, Any]] = []
     total = len(editorial_candidates)
+    title_dur = 2.5
+    avail_scene_dur = max(5.0, float(target_duration) - title_dur)
+    base_dur = max(2.5, min(8.0, avail_scene_dur / max(1, total))) if total > 0 else 4.0
 
+    raw_durations: list[float] = []
     for i, item in enumerate(editorial_candidates):
         mid   = str(item.get("id", ""))
         mtype = (item.get("media_type") or "image").lower()
@@ -393,39 +415,46 @@ def _generate_ai_story_plan(
 
         if i == 0:
             purpose = "opening"
-            dur     = 5.0
+            dur     = max(2.5, min(7.0, base_dur * 1.1))
         elif i == total - 1:
             purpose = "closing"
-            dur     = 4.5
+            dur     = max(2.5, min(7.0, base_dur * 1.0))
         elif q >= 0.72 or mtype == "video":
             purpose = "main_moment"
-            dur     = 6.0
+            dur     = max(3.0, min(8.0, base_dur * 1.25))
         else:
             purpose = "rising_action"
-            dur     = 3.5
+            dur     = max(2.0, min(6.0, base_dur * 0.9))
 
         if mtype == "video":
             if end_t > start_t:
-                dur = min(8.0, max(3.0, round(end_t - start_t, 2)))
+                dur = min(8.0, max(2.5, round(end_t - start_t, 2)))
             else:
-                dur = max(dur, 5.0)
+                dur = max(dur, 4.0)
                 end_t = start_t + dur
 
-        # Build evidence-based fallback narration
+        raw_durations.append(dur)
+
+        # Build evidence-based human narration (never echoing raw prompt commands)
         description = item.get("description") or item.get("selection_reason") or ""
         speech_text = item.get("speech_text") or ""
         if speech_text:
-            # Trim to first ~8 words to avoid overly long sentences
             words = speech_text.strip().split()
             short = " ".join(words[:8]) + ("..." if len(words) > 8 else "")
             narration = f"A memorable moment: \"{short}\""
-        elif description and description not in ("Action footage moment",):
-            # Capitalise and use as-is, but strip internal editorial reasons
-            narration = description.split(":")[0].strip().capitalize()
-            if len(narration) > 120:
-                narration = narration[:117] + "..."
+        elif description and description not in ("Action footage moment", "no description available"):
+            clean_desc = description.split(";")[0].split(":")[0].strip().capitalize()
+            if len(clean_desc) > 80:
+                clean_desc = clean_desc[:77] + "..."
+            narration = clean_desc
         else:
-            narration = f"A moment from {title}."
+            narrative_arcs = [
+                "Every meaningful journey begins with a quiet, authentic moment.",
+                "Gentle light and timeless connections captured in focus.",
+                "Laughter, warmth, and the joy of shared experiences.",
+                "Reflecting on precious moments that stay with us forever.",
+            ]
+            narration = narrative_arcs[i % len(narrative_arcs)]
 
         scenes_fb.append({
             "scene_id":         f"s{i+1}",
@@ -438,6 +467,13 @@ def _generate_ai_story_plan(
             "transition":       "fade",
             "narration":        narration,
         })
+
+    # Duration normalization: enforce exact target duration alignment
+    total_raw = sum(raw_durations)
+    if total_raw > 0 and abs(total_raw - avail_scene_dur) > 0.5:
+        norm_factor = avail_scene_dur / total_raw
+        for sc in scenes_fb:
+            sc["duration_seconds"] = max(2.0, round(sc["duration_seconds"] * norm_factor, 2))
 
     loc_desc = f" at {location}" if location else ""
     return {
@@ -463,24 +499,29 @@ def _create_ai_cinematic_scene_clip(
     orig_img = Image.open(img_path).convert("RGB")
     ow, oh = orig_img.size
 
-    # 1. Fast ambient background
-    small_w, small_h = max(1, tw // 4), max(1, th // 4)
-    bg_small = orig_img.resize((small_w, small_h), Image.Resampling.BILINEAR)
-    bg_small = bg_small.filter(ImageFilter.GaussianBlur(radius=6))
-    bg_base = bg_small.resize((tw, th), Image.Resampling.BILINEAR)
-    dark_overlay = Image.new("RGBA", (tw, th), (15, 10, 25, 140))
-    bg_base = Image.alpha_composite(bg_base.convert("RGBA"), dark_overlay).convert("RGB")
+    # 1. Adaptive cinematic background (never stretch or distort)
+    bg_base = AspectRatioComposer.generate_background(
+        orig_img, tw, th, strategy=BackgroundStrategy.ADAPTIVE_CINEMATIC.value
+    )
 
-    # 2. Foreground base
-    max_fw, max_fh = int(tw * 0.86), int(th * 0.86)
-    scale_fg = min(max_fw / ow, max_fh / oh)
-    fg_w, fg_h = int(ow * scale_fg), int(oh * scale_fg)
-    fg_base = orig_img.resize((fg_w, fg_h), Image.Resampling.LANCZOS)
+    # 2. Foreground base with aspect-ratio preservation & cinematic grading
+    layout = AspectRatioComposer.calculate_layout(ow, oh, tw, th, margin_pct=0.07)
+    fg_w, fg_h = layout["fg_w"], layout["fg_h"]
+    fg_base = orig_img.resize((fg_w, fg_h), cast(Any, Image.Resampling.LANCZOS))
+
+    # Apply cinematic grade: rich contrast, vibrant warm highlights
+    try:
+        enh_con = ImageEnhance.Contrast(fg_base)
+        fg_base = enh_con.enhance(1.08)
+        enh_col = ImageEnhance.Color(fg_base)
+        fg_base = enh_col.enhance(1.10)
+    except Exception:
+        pass
 
     border_img = Image.new("RGBA", (fg_w + 8, fg_h + 8), (0, 0, 0, 0))
-    b_draw = ImageDraw.Draw(border_img)
+    b_draw = ImageDraw.Draw(cast(Any, border_img))
     b_draw.rectangle([0, 0, fg_w + 7, fg_h + 7], outline=(255, 255, 255, 80), width=2)
-    border_img.paste(fg_base, (4, 4))
+    border_img.paste(cast(Any, fg_base), (4, 4))
 
     # Pre-render Start Keyframe (p = 0.0)
     z0 = 1.00 if "zoom_in" in motion_type else (1.10 if "zoom_out" in motion_type else 1.05)
@@ -488,7 +529,7 @@ def _create_ai_cinematic_scene_clip(
     sy0 = -8 if "zoom_in" in motion_type else (8 if "zoom_out" in motion_type else 0)
 
     w0, h0 = int(border_img.width * z0), int(border_img.height * z0)
-    fg0 = border_img.resize((w0, h0), Image.Resampling.BILINEAR) if z0 != 1.0 else border_img
+    fg0 = border_img.resize((w0, h0), cast(Any, Image.Resampling.BILINEAR)) if z0 != 1.0 else border_img
     canvas0 = bg_base.copy()
     canvas0.paste(fg0, ((tw - w0) // 2 + sx0, (th - h0) // 2 + sy0), fg0)
     # Pre-render End Keyframe (p = 1.0)
@@ -497,22 +538,22 @@ def _create_ai_cinematic_scene_clip(
     sy1 = 8 if "zoom_in" in motion_type else (-8 if "zoom_out" in motion_type else 0)
 
     w1, h1 = int(border_img.width * z1), int(border_img.height * z1)
-    fg1 = border_img.resize((w1, h1), Image.Resampling.BILINEAR) if z1 != 1.0 else border_img
+    fg1 = border_img.resize((w1, h1), cast(Any, Image.Resampling.BILINEAR)) if z1 != 1.0 else border_img
     canvas1 = bg_base.copy()
     canvas1.paste(fg1, ((tw - w1) // 2 + sx1, (th - h1) // 2 + sy1), fg1)
 
     if caption and caption.strip():
         try:
             from ai_engine.video_generation.subtitles import render_subtitle_frame
-            canvas0 = render_subtitle_frame(canvas0, caption.strip(), font_size=28, bottom_margin=int(th * 0.12))
-            canvas1 = render_subtitle_frame(canvas1, caption.strip(), font_size=28, bottom_margin=int(th * 0.12))
+            canvas0 = render_subtitle_frame(cast(Any, canvas0), caption.strip(), font_size=28, bottom_margin=int(th * 0.12))
+            canvas1 = render_subtitle_frame(cast(Any, canvas1), caption.strip(), font_size=28, bottom_margin=int(th * 0.12))
         except Exception as sub_err:
             logger.debug(f"Subtitle overlay skipped: {sub_err}")
 
     arr0 = np.array(canvas0, dtype=np.float32)
     arr1 = np.array(canvas1, dtype=np.float32)
 
-    def make_frame(t: float) -> np.ndarray:
+    def make_frame(t: float) -> Any:
         p = max(0.0, min(1.0, t / duration))
         ease_p = 0.5 - 0.5 * math.cos(math.pi * p)
 
@@ -531,61 +572,268 @@ def _create_ai_cinematic_scene_clip(
     return VideoClip(make_frame, duration=duration)
 
 
+def _synthesize_cinematic_title_and_tagline(raw_title: str, emotion: str = "nostalgic") -> tuple[str, str]:
+    """
+    Synthesizes an elevated, cinematic title and evocative poetic tagline for the opening card.
+    Uses Gemini / LLM when available to create artistic titles, and falls back to a deep
+    semantic transformer that turns raw query prompts (e.g. 'Create A Memory Filtering The Images Where There Is Water In It')
+    into elegant titles (e.g. 'Water Reflections', 'Echoes of light and serene waters').
+    """
+    # 1. Attempt Gemini / LLM synthesis if configured
+    try:
+        if settings.LLM_API_KEY and settings.LLM_PROVIDER != "none":
+            from app.services.ai_service import _call_llm
+            prompt = (
+                f"You are an award-winning cinematic film director creating an opening title card for a personal memory movie.\n"
+                f"Memory Title or User Query: \"{raw_title}\"\n"
+                f"Emotion / Mood: \"{emotion}\"\n\n"
+                "Tasks:\n"
+                "1. Craft a concise, poetic, cinematic movie title (2 to 4 words, Title Case, max 26 characters). Never echo user command phrases like 'create a memory' or 'filter images'.\n"
+                "2. Craft a poetic, evocative opening tagline (5 to 8 words).\n\n"
+                "Return ONLY valid JSON:\n"
+                "{\"title\": \"...\", \"tagline\": \"...\"}"
+            )
+            resp = _call_llm(prompt=prompt, context="")
+            raw_text = resp.text.strip()
+            if raw_text.startswith("```"):
+                raw_text = raw_text.split("```")[1]
+                if raw_text.startswith("json"):
+                    raw_text = raw_text[4:]
+            raw_text = raw_text.strip()
+            data = json.loads(raw_text)
+            llm_title = data.get("title", "").strip()
+            llm_tagline = data.get("tagline", "").strip()
+            if llm_title and llm_tagline:
+                if len(llm_title) > 28:
+                    llm_title = llm_title[:26].rsplit(" ", 1)[0]
+                return llm_title, llm_tagline
+    except Exception as e:
+        logger.debug(f"Gemini title synthesis fallback: {e}")
+
+    # 2. Rich Semantic Transformer Fallback
+    clean_t = raw_title.strip()
+    lower = clean_t.lower()
+
+    for prefix in [
+        "create a memory filtering the images where there is ",
+        "create a memory filtering the images where ",
+        "create a memory filtering ",
+        "create a memory about ",
+        "create a memory of ",
+        "create a memory ",
+        "filter the images where there is ",
+        "filter images with ",
+        "filter where there is ",
+        "filter images where ",
+        "find images with ",
+    ]:
+        if lower.startswith(prefix):
+            remainder = clean_t[len(prefix):].strip(" .'\":")
+            clean_t = remainder.title()
+            lower = clean_t.lower()
+            break
+
+    if "where there is" in lower:
+        parts = lower.split("where there is", 1)
+        clean_t = parts[1].strip(" .'\":").title() + " Moments"
+        lower = clean_t.lower()
+
+    # Topic-specific poetic mapping
+    topic_titles = {
+        "water": ("Water Reflections", "Echoes of light and serene waters"),
+        "ocean": ("Ocean Whispers", "Tides of peace and endless blue"),
+        "sea": ("Coastal Echoes", "Where the waves meet timeless horizons"),
+        "beach": ("Golden Shores", "Sunlight, sand, and cherished days"),
+        "sunset": ("Golden Hour Horizons", "Where the sun meets timeless serenity"),
+        "sunrise": ("Dawn of New Days", "First light upon cherished memories"),
+        "mountain": ("Highland Trails", "Journeys high above the clouds"),
+        "hiking": ("Paths Less Traveled", "Finding beauty in every stride"),
+        "family": ("Generations of Joy", "Cherished bonds that never fade"),
+        "kids": ("Childhood Wonders", "Laughter that lights the world"),
+        "friends": ("Shared Laughter", "Unforgettable nights and bright smiles"),
+        "travel": ("Wanderlust Chronicles", "Paths traveled and stories found"),
+        "trip": ("Journey Through Time", "Moments discovered along the way"),
+        "vacation": ("Summer Getaways", "Carefree days and warm breezes"),
+        "wedding": ("Everlasting Grace", "Two souls and a lifetime of love"),
+        "love": ("Moments in Devotion", "Gentle whispers of the heart"),
+        "dog": ("Faithful Companions", "Little paws and boundless love"),
+        "pet": ("Gentle Companions", "Warm purrs and playful days"),
+        "food": ("Flavors & Gatherings", "Warmth around the shared table"),
+        "nature": ("Echoes of Nature", "Wild whispers in the gentle breeze"),
+    }
+
+    for keyword, (mapped_title, mapped_tagline) in topic_titles.items():
+        if keyword in lower:
+            return mapped_title, mapped_tagline
+
+    if len(clean_t) > 28:
+        clean_t = clean_t[:26].rsplit(" ", 1)[0] + "..."
+
+    e = (emotion or "nostalgic").lower()
+    taglines = {
+        "calm": "Quiet moments held gently in time",
+        "nostalgic": "Echoes of cherished days",
+        "joyful": "Bright smiles and joyful laughter",
+        "reflective": "Reflecting on journeys that shape us",
+        "dramatic": "An unforgettable story unfolds",
+        "celebratory": "Moments of triumphant celebration",
+        "serene": "Peaceful memories by the waterside",
+    }
+    tagline = taglines.get(e, "Timeless moments held forever")
+    return clean_t or "Cherished Moments", tagline
+
+
 def _create_ai_title_card_clip(
     title: str,
     subtitle: str,
     duration: float = 2.5,
     target_size: tuple[int, int] = (1280, 720),
-    bg_img_path: str | None = None
+    bg_img_path: str | None = None,
+    emotion: str = "nostalgic",
 ) -> VideoClip:
     """
-    Ultra-Fast Opening Title Card Clip (pre-renders canvas ONCE).
+    Ultra-Cinematic Opening Title Card Clip with animated Ken Burns zoom,
+    luminous radial ambient lighting, floating golden bokeh, double-bordered
+    glass badge, diamond accent, and multi-layer typography.
     """
     tw, th = target_size
+    clean_title, tagline = _synthesize_cinematic_title_and_tagline(title, emotion=emotion)
+
+    # 1. Base image background with blur and rich dark vignette
     if bg_img_path and os.path.exists(bg_img_path):
         with Image.open(bg_img_path) as orig:
             orig = orig.convert("RGB")
             ow, oh = orig.size
-            scale = max(tw / ow, th / oh)
+            scale = max(tw / ow, th / oh) * 1.18
             bw, bh = int(ow * scale), int(oh * scale)
-            bg = orig.resize((bw, bh), Image.Resampling.BILINEAR)
+            bg = orig.resize((bw, bh), cast(Any, Image.Resampling.BILINEAR))
             l = (bw - tw) // 2
             t = (bh - th) // 2
-            bg = bg.crop((l, t, l + tw, t + th)).filter(ImageFilter.GaussianBlur(radius=16))
-            dark = Image.new("RGBA", (tw, th), (10, 5, 22, 210))
-            bg = Image.alpha_composite(bg.convert("RGBA"), dark).convert("RGB")
+            bg = bg.crop((l, t, l + tw, t + th)).filter(cast(Any, ImageFilter.GaussianBlur(radius=22)))
+            # Dark cinematic wash
+            dark = Image.new("RGBA", (tw, th), (15, 8, 24, 210))
+            bg = Image.alpha_composite(cast(Any, bg.convert("RGBA")), dark).convert("RGB")
     else:
-        bg = Image.new("RGB", (tw, th), color=(14, 10, 24))
+        bg = Image.new("RGB", (tw, th), color=(18, 10, 28))
 
-    # Draw title card text ONCE
-    draw = ImageDraw.Draw(bg)
+    # Pre-render End Zoom Keyframe (bg zoomed 1.06x)
+    bw1, bh1 = int(tw * 1.06), int(th * 1.06)
+    bg1 = bg.resize((bw1, bh1), cast(Any, Image.Resampling.BILINEAR))
+    l1 = (bw1 - tw) // 2
+    t1 = (bh1 - th) // 2
+    bg1 = bg1.crop((l1, t1, l1 + tw, t1 + th))
 
+    # 2. Add Luminous Center Radial Glow (Cinematic spotlight effect)
+    cx, cy = tw // 2, th // 2
+    glow = Image.new("RGBA", (tw, th), (0, 0, 0, 0))
+    g_draw = ImageDraw.Draw(glow)
+    max_r = int(min(tw, th) * 0.48)
+    for r in range(max_r, 0, -25):
+        alpha = int(40 * (1.0 - r / max_r))
+        g_draw.ellipse([cx - r, cy - 25 - r, cx + r, cy - 25 + r], fill=(232, 85, 125, alpha))
+    glow = glow.filter(ImageFilter.GaussianBlur(radius=30))
+
+    bg = Image.alpha_composite(cast(Any, bg.convert("RGBA")), glow).convert("RGB")
+    bg1 = Image.alpha_composite(cast(Any, bg1.convert("RGBA")), glow).convert("RGB")
+
+    # Typography setup
     try:
-        font_tag = ImageFont.truetype("arial.ttf", size=22)
-        font_title = ImageFont.truetype("arial.ttf", size=42)
-        font_sub = ImageFont.truetype("arial.ttf", size=26)
+        font_tag = ImageFont.truetype("arial.ttf", size=max(15, int(th * 0.028)))
+        font_title = ImageFont.truetype("arial.ttf", size=max(28, int(th * 0.068)))
+        font_tagline = ImageFont.truetype("arial.ttf", size=max(18, int(th * 0.036)))
+        font_date = ImageFont.truetype("arial.ttf", size=max(15, int(th * 0.028)))
     except Exception:
         try:
-            font_tag = ImageFont.load_default(size=22)
-            font_title = ImageFont.load_default(size=42)
-            font_sub = ImageFont.load_default(size=26)
+            font_tag = ImageFont.load_default(size=max(15, int(th * 0.028)))
+            font_title = ImageFont.load_default(size=max(28, int(th * 0.068)))
+            font_tagline = ImageFont.load_default(size=max(18, int(th * 0.036)))
+            font_date = ImageFont.load_default(size=max(15, int(th * 0.028)))
         except TypeError:
-            font_tag = font_title = font_sub = ImageFont.load_default()
+            font_tag = font_title = font_tagline = font_date = ImageFont.load_default()
 
-    tag_text = "✦  MEMORYVERSE AI REEL  ✦"
-    draw.text((tw // 2, th // 2 - 80), tag_text, font=font_tag, fill=(215, 185, 255), anchor="mm")
+    # Pre-defined floating golden bokeh particles
+    bokeh_particles = [
+        (cx - 280, cy - 140, 6, 80),
+        (cx + 260, cy - 120, 8, 70),
+        (cx - 320, cy + 80, 5, 60),
+        (cx + 310, cy + 110, 9, 75),
+        (cx - 150, cy - 180, 4, 90),
+        (cx + 170, cy - 190, 5, 85),
+        (cx - 80, cy + 160, 7, 65),
+        (cx + 90, cy + 170, 6, 70),
+    ]
 
-    disp_title = title if len(title) <= 36 else title[:33] + "..."
-    draw.text((tw // 2, th // 2 - 25), disp_title, font=font_title, fill=(255, 255, 255), anchor="mm")
+    def draw_elements(target_bg: Image.Image, accent_progress: float = 1.0, drift: int = 0) -> Image.Image:
+        canvas = target_bg.copy()
+        draw = ImageDraw.Draw(cast(Any, canvas))
 
-    if subtitle:
-        draw.text((tw // 2, th // 2 + 40), subtitle, font=font_sub, fill=(185, 175, 205), anchor="mm")
+        # Floating subtle golden bokeh motes
+        for bx, by, br, b_alpha in bokeh_particles:
+            px = bx + drift
+            py = by - drift // 2
+            draw.ellipse([px - br, py - br, px + br, py + br], fill=(255, 215, 170))
 
-    arr_title = np.array(bg, dtype=np.float32)
+        # 1. Top Glassmorphic Badge Pill
+        badge_text = "✦   M E M O R Y V E R S E   C I N E M A   ✦"
+        pill_w = max(260, int(tw * 0.42))
+        pill_h = 34
+        pill_x0 = cx - pill_w // 2
+        pill_y0 = cy - 95
+        # Frosted glass background
+        draw.rounded_rectangle(
+            [pill_x0, pill_y0, pill_x0 + pill_w, pill_y0 + pill_h],
+            radius=17,
+            fill=(38, 18, 48),
+            outline=(255, 175, 195),
+            width=1,
+        )
+        draw.text((cx, pill_y0 + 17), badge_text, font=cast(Any, font_tag), fill=(255, 195, 215), anchor="mm")
 
-    def make_frame(t: float) -> np.ndarray:
-        f = arr_title.copy()
-        fade_dur = 0.35
+        # 2. Main Title with Ambient Glow and Deep 3D Shadow
+        # Ambient rim glow
+        draw.text((cx, cy - 26), clean_title, font=cast(Any, font_title), fill=(180, 60, 95), anchor="mm")
+        # Deep drop shadow
+        draw.text((cx + 2, cy - 23), clean_title, font=cast(Any, font_title), fill=(8, 4, 12), anchor="mm")
+        # Crisp champagne white hero text
+        draw.text((cx, cy - 25), clean_title, font=cast(Any, font_title), fill=(255, 253, 248), anchor="mm")
+
+        # 3. Expanding Glowing Rose Accent Bar with Center Diamond
+        max_bar_w = min(int(tw * 0.52), 340)
+        bar_w = int(max_bar_w * max(0.0, min(1.0, accent_progress)))
+        by = cy + 18
+        if bar_w > 12:
+            bx0 = cx - bar_w // 2
+            bx1 = cx + bar_w // 2
+            # Left wing
+            draw.line([(bx0, by), (cx - 10, by)], fill=(232, 85, 125), width=2)
+            draw.line([(bx0 + 6, by), (cx - 12, by)], fill=(255, 195, 210), width=1)
+            # Right wing
+            draw.line([(cx + 10, by), (bx1, by)], fill=(232, 85, 125), width=2)
+            draw.line([(cx + 12, by), (bx1 - 6, by)], fill=(255, 195, 210), width=1)
+        # Center glowing gold diamond ornament
+        draw.polygon([(cx, by - 6), (cx + 6, by), (cx, by + 6), (cx - 6, by)], fill=(255, 220, 160))
+
+        # 4. Poetic Tagline
+        draw.text((cx, cy + 44), tagline, font=cast(Any, font_tagline), fill=(238, 226, 246), anchor="mm")
+
+        # 5. Date / Location Pill
+        if subtitle:
+            draw.text((cx, cy + 80), subtitle, font=cast(Any, font_date), fill=(195, 185, 212), anchor="mm")
+
+        return canvas
+
+    card0 = draw_elements(bg, accent_progress=0.15, drift=0)
+    card1 = draw_elements(bg1, accent_progress=1.0, drift=8)
+    arr0 = np.array(card0, dtype=np.float32)
+    arr1 = np.array(card1, dtype=np.float32)
+
+    def make_frame(t: float) -> Any:
+        p = max(0.0, min(1.0, t / duration))
+        ease_p = 0.5 - 0.5 * math.cos(math.pi * p)
+        f = (1.0 - ease_p) * arr0 + ease_p * arr1
+
+        # Smooth cinematic fade-in and dissolve out
+        fade_dur = 0.38
         if t < fade_dur:
             f *= (t / fade_dur)
         elif t > (duration - fade_dur):
@@ -593,7 +841,44 @@ def _create_ai_title_card_clip(
         return f.astype(np.uint8)
 
     clip = VideoClip(make_frame, duration=duration)
-    # Attach silent audio track so concatenate_videoclips with audio-bearing video clips succeeds seamlessly
+    sr = 44100
+    n_samples = int(duration * sr)
+    silent_audio = AudioArrayClip(np.zeros((n_samples, 2), dtype=np.float32), fps=sr)
+    return clip.with_audio(silent_audio)
+
+
+def _create_ai_outro_card_clip(
+    duration: float = 1.5,
+    target_size: tuple[int, int] = (1280, 720),
+) -> VideoClip:
+    """
+    Polished Outro Resolution Card Clip ensuring timeline synchronization.
+    """
+    tw, th = target_size
+    bg = Image.new("RGB", (tw, th), color=(14, 8, 22))
+    draw = ImageDraw.Draw(cast(Any, bg))
+
+    try:
+        font_tag = ImageFont.truetype("arial.ttf", size=max(18, int(th * 0.035)))
+    except Exception:
+        try:
+            font_tag = ImageFont.load_default(size=max(18, int(th * 0.035)))
+        except TypeError:
+            font_tag = ImageFont.load_default()
+
+    draw.text((tw // 2, th // 2), "✦  MemoryVerse  ✦", font=cast(Any, font_tag), fill=(215, 185, 235), anchor="mm")
+    arr = np.array(bg, dtype=np.float32)
+
+    def make_frame(t: float) -> Any:
+        f = arr.copy()
+        fade_dur = min(0.4, duration / 2)
+        if t < fade_dur:
+            f *= (t / fade_dur)
+        elif t > (duration - fade_dur):
+            f *= max(0.0, (duration - t) / fade_dur)
+        return f.astype(np.uint8)
+
+    clip = VideoClip(make_frame, duration=duration)
     sr = 44100
     n_samples = int(duration * sr)
     silent_audio = AudioArrayClip(np.zeros((n_samples, 2), dtype=np.float32), fps=sr)
@@ -663,6 +948,62 @@ def _try_generate_external_ai_video(prompt: str, image_url: str) -> str | None:
 
 class VideoService:
     @staticmethod
+    def execute_job_by_id(job_id: str) -> None:
+        """Called by background video worker pool for durable, recoverable execution."""
+        job = job_state_manager.get_job(job_id)
+        if not job:
+            logger.error(f"Cannot execute job {job_id}: not found in JobStateManager.")
+            return
+
+        # Check if job was already rendered and only needs upload retry (preserves artifact!)
+        if job.staged_file_path and os.path.exists(job.staged_file_path) and job.status in ("failed", "retrying"):
+            logger.info(f"Job {job_id} has existing staged video {job.staged_file_path}. Retrying upload directly without re-rendering.")
+            filename = os.path.basename(job.staged_file_path).replace(f"{job_id}_", "")
+            job_state_manager.transition_stage(job_id, "uploading", task_description="Retrying upload of staged video reel...")
+            success, public_url, storage_path, err_code = storage_service.upload_video_with_retry(
+                job_id=job.id,
+                user_id=job.user_id,
+                staged_filepath=job.staged_file_path,
+                output_filename=filename,
+            )
+            if success and public_url:
+                job_state_manager.transition_stage(job_id, "finalizing", task_description="Saving video record...")
+                supabase = get_supabase_client()
+                file_size = os.path.getsize(job.staged_file_path)
+                media_data = {
+                    "memory_id": job.memory_id,
+                    "owner_id": job.user_id,
+                    "filename": filename,
+                    "storage_path": storage_path,
+                    "url": public_url,
+                    "thumbnail_url": None,
+                    "media_type": "video",
+                    "file_size": file_size,
+                    "mime_type": "video/mp4",
+                    "duration": 30,
+                    "created_at": datetime.now(timezone.utc).isoformat(),
+                }
+                insert_res = supabase.table("media").insert(media_data).execute()
+                if insert_res.data:
+                    new_media_records = cast(list[dict[str, Any]], insert_res.data)
+                    new_media = new_media_records[0]
+                    job_state_manager.complete_job(job.id, result_media_id=str(new_media["id"]), result_url=public_url)
+                    storage_service.cleanup_staged_file(job.staged_file_path)
+                    return
+            else:
+                job_state_manager.fail_job(job.id, error_code=err_code or "RETRY_UPLOAD_FAILED", error_message="Upload retry failed. Artifact preserved.")
+                return
+
+        VideoService.process_video_job(
+            job_id=job.id,
+            memory_id=job.memory_id,
+            user_id=job.user_id,
+            dimension=job.dimension,
+            mood=job.mood,
+            selected_media_ids=job.selected_media_ids,
+        )
+
+    @staticmethod
     def process_video_job(
         job_id: str,
         memory_id: str,
@@ -683,22 +1024,60 @@ class VideoService:
                 data["error_message"] = error_msg
             if result_media_id:
                 data["result_media_id"] = result_media_id
-            supabase.table("video_jobs").update(data).eq("id", job_id).execute()
+            try:
+                supabase.table("video_jobs").update(data).eq("id", job_id).execute()
+            except Exception as e:
+                logger.debug(f"DB update fallback: {e}")
 
         update_job_status("processing")
+        job_state_manager.transition_stage(
+            job_id, "initializing", task_description="Initializing generation environment and fetching memory details..."
+        )
 
         tmp_dir = tempfile.mkdtemp(prefix="memoryverse_reel_")
+
+        # Resolve full specification from job_state_manager or DB script_metadata
+        cached_job = job_state_manager.get_job(job_id)
+        spec: dict[str, Any] = {}
+        if cached_job and cached_job.specification:
+            spec = cached_job.specification
+        else:
+            try:
+                db_job = supabase.table("video_jobs").select("script_metadata").eq("id", job_id).execute()
+                if db_job.data and isinstance(db_job.data, list) and len(db_job.data) > 0:
+                    first_record = cast(dict[str, Any], db_job.data[0])
+                    meta = first_record.get("script_metadata")
+                    if isinstance(meta, dict):
+                        found_spec = meta.get("specification")
+                        if isinstance(found_spec, dict):
+                            spec = cast(dict[str, Any], found_spec)
+                        else:
+                            spec = cast(dict[str, Any], meta)
+            except Exception as e:
+                logger.debug(f"Could not load job spec: {e}")
+
+        if not dimension and spec.get("dimension"):
+            dimension = spec.get("dimension")
+        if (not mood or mood == "calm") and spec.get("mood"):
+            mood = spec.get("mood")
+        if not selected_media_ids and spec.get("selected_media_ids"):
+            selected_media_ids = spec.get("selected_media_ids")
+
+        target_duration = float(spec.get("target_duration") or spec.get("duration_seconds") or 30.0)
+        quality_profile = str(spec.get("quality_profile") or "balanced").lower()
+        music_style = str(spec.get("music_style") or mood or "calm").lower()
 
         try:
             # 1. Fetch memory details for title & date
             mem_res = supabase.table("memories").select("*").eq("id", memory_id).execute()
-            memory_title = "My Memory"
-            memory_date = ""
+            memory_title: str = "My Memory"
+            memory_date: str = ""
             vault_id = None
             if mem_res.data:
-                mem = mem_res.data[0]
-                memory_title = mem.get("title") or "My Memory"
-                raw_date = mem.get("event_date") or mem.get("created_at") or ""
+                mem_records = cast(list[dict[str, Any]], mem_res.data)
+                mem = mem_records[0]
+                memory_title = str(mem.get("title") or "My Memory")
+                raw_date = str(mem.get("event_date") or mem.get("created_at") or "")
                 if raw_date:
                     try:
                         dt = datetime.fromisoformat(raw_date.replace("Z", "+00:00"))
@@ -706,6 +1085,10 @@ class VideoService:
                     except Exception:
                         memory_date = raw_date[:10]
                 vault_id = mem.get("vault_id")
+
+            job_state_manager.transition_stage(
+                job_id, "retrieving_memory", task_description=f"Retrieving source assets for '{memory_title}'..."
+            )
 
             # ── 2. Fetch ALL source media (with retry grace period for concurrent uploads) ────
             import time
@@ -728,12 +1111,13 @@ class VideoService:
                     time.sleep(2.0)
 
             if not all_media:
+                job_state_manager.fail_job(job_id, "NO_MEDIA_FOUND", "No source media items found in this memory.")
                 update_job_status("failed", "No source media items found in this memory.")
                 return
 
             # If user selected specific pictures/media IDs, filter to those
             if selected_media_ids:
-                selected_set = {str(mid) for mid in selected_media_ids}
+                selected_set = {mid for mid in selected_media_ids}
                 filtered = [m for m in all_media if str(m.get("id")) in selected_set]
                 if filtered:
                     all_media = filtered
@@ -747,11 +1131,12 @@ class VideoService:
                     .select("media_id, embedding")\
                     .in_("media_id", all_media_ids)\
                     .execute()
-                for row in (emb_res.data or []):
+                emb_records = cast(list[dict[str, Any]], emb_res.data or [])
+                for row in emb_records:
                     mid = str(row.get("media_id", ""))
                     emb = row.get("embedding") or []
                     if isinstance(emb, list):
-                        embeddings_map[mid] = emb
+                        embeddings_map[mid] = [float(x) for x in emb]
             except Exception as emb_err:
                 logger.warning(f"Could not fetch CLIP embeddings: {emb_err}")
 
@@ -869,10 +1254,8 @@ class VideoService:
             )
 
             # ── 8. Target dimensions ──────────────────────────────────────────────────
-            if dimension == "9:16":
-                TARGET_SIZE = (720, 1280)
-            else:
-                TARGET_SIZE = (1280, 720)
+            is_high_res = (quality_profile == "high_quality")
+            TARGET_SIZE = TargetAspectRatio.get_dimensions(dimension or "16:9", high_res=is_high_res)
 
             # ── 9. Generate AI story plan ─────────────────────────────────────────────
             story_plan = _generate_ai_story_plan(
@@ -880,6 +1263,7 @@ class VideoService:
                 date_str=memory_date,
                 location=None,
                 selected_media=selected_media,
+                target_duration=target_duration,
             )
             scenes: list[dict[str, Any]] = story_plan.get("scenes") or []
 
@@ -904,19 +1288,20 @@ class VideoService:
                     first_img_path = downloaded.get(mid)
                     break
 
-            title_duration = 3.0
+            title_duration = 2.5
             title_clip = _create_ai_title_card_clip(
-                title=story_plan.get("title") or memory_title,
+                title=str(story_plan.get("title") or memory_title),
                 subtitle=memory_date,
                 duration=title_duration,
                 target_size=TARGET_SIZE,
                 bg_img_path=first_img_path,
+                emotion=mood or "nostalgic",
             )
             clips.append(title_clip)
 
             # ── 10b. Synthesize Emotion-Aware TTS Narration & Render Scenes ─────────
             tts_engine = EmotionTTSEngine()
-            speech_segments: list[tuple[float, np.ndarray]] = []
+            speech_segments: list[tuple[float, Any]] = []
             current_timeline = title_duration
 
             for scene in scenes:
@@ -958,9 +1343,9 @@ class VideoService:
 
                         if ai_vid_path and os.path.exists(ai_vid_path):
                             scene_clip = (
-                                VideoFileClip(ai_vid_path)
+                                cast(Any, VideoFileClip(ai_vid_path))
                                 .resized(new_size=TARGET_SIZE)
-                                .without_audio()
+                                .with_audio(None)
                             )
                         else:
                             scene_clip = _create_ai_cinematic_scene_clip(
@@ -975,7 +1360,17 @@ class VideoService:
 
                     else:  # video
                         v_clip = VideoFileClip(scene_path)
-                        v_clip = v_clip.resized(new_size=TARGET_SIZE)
+                        vw, vh = v_clip.size
+                        tw, th = TARGET_SIZE
+                        scale = min(tw / vw, th / vh)
+                        nw, nh = int(vw * scale), int(vh * scale)
+                        if abs((vw / vh) - (tw / th)) > 0.02:
+                            # Adaptive composition: letterbox/pillarbox with dark cinematic background
+                            v_resized = v_clip.resized(new_size=(nw, nh))
+                            bg_clip = ColorClip(size=TARGET_SIZE, color=(14, 10, 24), duration=v_clip.duration)
+                            v_clip = CompositeVideoClip([bg_clip, cast(Any, v_resized).with_position(("center", "center"))])
+                        else:
+                            v_clip = v_clip.resized(new_size=TARGET_SIZE)
                         
                         start_t = float(scene.get("start_time", 0.0) or 0.0)
                         end_t = float(scene.get("end_time", 0.0) or 0.0)
@@ -999,67 +1394,117 @@ class VideoService:
                 return
 
             final_clip = concatenate_videoclips(clips, method="compose")
-            reel_total_dur = float(final_clip.duration or current_timeline)
+            target_dur = float(target_duration or 20.0)
+            rendered_dur = float(final_clip.duration or current_timeline)
+            if rendered_dur > (target_dur + 0.3):
+                final_clip = final_clip.subclipped(0, target_dur)
+                reel_total_dur = target_dur
+            elif rendered_dur < (target_dur - 0.5):
+                deficit = target_dur - rendered_dur
+                outro_clip = _create_ai_outro_card_clip(duration=deficit, target_size=TARGET_SIZE)
+                final_clip = concatenate_videoclips([final_clip, outro_clip], method="compose")
+                reel_total_dur = target_dur
+            else:
+                reel_total_dur = rendered_dur
+
             sr = 44100
             total_samples = max(1, int(reel_total_dur * sr))
 
             # ── 11. Audio: Ambient BGM + Emotion-Aware TTS Narration with Audio Ducking ──
             try:
-                from ai_engine.video_generation.audio_synth import synthesize_ambient_soundtrack
-                raw_bgm = synthesize_ambient_soundtrack(
-                    mood=mood or "calm",
-                    duration_seconds=reel_total_dur,
-                    sample_rate=sr,
-                )
-                bgm_stereo = np.column_stack([raw_bgm, raw_bgm])
+                if music_style in ("none", "mute", "off"):
+                    # Only speech track (or silent background)
+                    if speech_segments:
+                        speech_track = np.zeros((total_samples, 2), dtype=np.float32)
+                        for seg_start_t, s_arr in speech_segments:
+                            start_idx = int(seg_start_t * sr)
+                            end_idx = min(total_samples, start_idx + len(s_arr))
+                            slice_len = end_idx - start_idx
+                            if slice_len > 0:
+                                speech_track[start_idx:end_idx] += s_arr[:slice_len]
+                        ambient_music = AudioArrayClip(speech_track, fps=sr)
+                        final_clip = final_clip.with_audio(ambient_music)
+                    else:
+                        final_clip = final_clip.with_audio(None)
+                else:
+                    from ai_engine.video_generation.audio_synth import synthesize_ambient_soundtrack
+                    effective_mood = music_style if music_style in (
+                        "calm", "nostalgic", "joyful", "reflective", "uplifting", "acoustic", "warm", "emotional", "lofi"
+                    ) else (mood or "calm")
+                    raw_bgm = synthesize_ambient_soundtrack(
+                        mood=effective_mood,
+                        duration_seconds=reel_total_dur,
+                        sample_rate=sr,
+                    )
+                    bgm_stereo = np.column_stack([raw_bgm, raw_bgm])
 
-                # Build speech ducking envelope
-                speech_mask = np.zeros(total_samples, dtype=np.float32)
-                speech_track = np.zeros((total_samples, 2), dtype=np.float32)
+                    # Build speech ducking envelope
+                    speech_mask = np.zeros(total_samples, dtype=np.float32)
+                    speech_track = np.zeros((total_samples, 2), dtype=np.float32)
 
-                for seg_start_t, s_arr in speech_segments:
-                    start_idx = int(seg_start_t * sr)
-                    end_idx = min(total_samples, start_idx + len(s_arr))
-                    slice_len = end_idx - start_idx
-                    if slice_len > 0:
-                        speech_mask[start_idx:end_idx] = 1.0
-                        speech_track[start_idx:end_idx] += s_arr[:slice_len]
+                    for seg_start_t, s_arr in speech_segments:
+                        start_idx = int(seg_start_t * sr)
+                        end_idx = min(total_samples, start_idx + len(s_arr))
+                        slice_len = end_idx - start_idx
+                        if slice_len > 0:
+                            speech_mask[start_idx:end_idx] = 1.0
+                            speech_track[start_idx:end_idx] += s_arr[:slice_len]
 
-                # Smooth ducking transitions (0.25s cosine fade)
-                fade_samples = max(1, int(0.25 * sr))
-                kernel = np.hanning(fade_samples * 2)
-                kernel /= kernel.sum()
-                speech_mask_smooth = np.convolve(speech_mask, kernel, mode="same")
-                speech_mask_smooth = np.clip(speech_mask_smooth, 0.0, 1.0)
+                    # Smooth ducking transitions (0.25s cosine fade)
+                    fade_samples = max(1, int(0.25 * sr))
+                    kernel = np.hanning(fade_samples * 2)
+                    kernel /= kernel.sum()
+                    speech_mask_smooth = np.convolve(speech_mask, kernel, mode="same")
+                    speech_mask_smooth = np.clip(speech_mask_smooth, 0.0, 1.0)
 
-                # Duck BGM: 55% normal volume, ducks down to 18% during voice narration
-                bgm_gain = 0.55 * (1.0 - 0.68 * speech_mask_smooth)
-                ducked_bgm = bgm_stereo * bgm_gain[:, None]
+                    # Duck BGM: 55% normal volume, ducks down to 18% during voice narration
+                    bgm_gain = 0.55 * (1.0 - 0.68 * speech_mask_smooth)
+                    ducked_bgm = bgm_stereo * bgm_gain[:, None]
 
-                # Composite final mixed soundtrack
-                mixed_audio = ducked_bgm + speech_track
-                mixed_audio = np.clip(mixed_audio, -0.98, 0.98)
+                    # Composite final mixed soundtrack
+                    mixed_audio = ducked_bgm + speech_track
+                    mixed_audio = np.clip(mixed_audio, -0.98, 0.98)
 
-                ambient_music = AudioArrayClip(mixed_audio, fps=sr)
-                final_clip = final_clip.with_audio(ambient_music)
+                    ambient_music = AudioArrayClip(mixed_audio, fps=sr)
+                    final_clip = final_clip.with_audio(ambient_music)
             except Exception as audio_err:
                 logger.warning(f"Soundtrack composition failed: {audio_err}, falling back to ambient generator")
                 ambient_music = _create_ambient_audio(reel_total_dur)
                 final_clip = final_clip.with_audio(ambient_music)
 
-            # ── 12. Write output MP4 ──────────────────────────────────────────────────
+            # ── 12. Write output MP4 to local staging area ─────────────────────────────
+            job_state_manager.transition_stage(
+                job_id, "encoding_video", task_description="Encoding high-efficiency H.264 video reel..."
+            )
             output_filename = f"memory_video_{uuid.uuid4().hex}.mp4"
-            output_path = os.path.join(tmp_dir, output_filename)
+            staged_path = storage_service.get_staging_path(job_id, output_filename)
+            job_state_manager.set_staged_file(job_id, staged_path)
             cpu_threads = max(2, (os.cpu_count() or 4) - 1)
 
+            # Quality profile configuration
+            if quality_profile == "high_quality":
+                render_preset = "medium"
+                render_fps = 30
+                render_bitrate = "6000k"
+            elif quality_profile == "fast":
+                render_preset = "ultrafast"
+                render_fps = 24
+                render_bitrate = "2000k"
+            else:  # balanced
+                render_preset = "fast"
+                render_fps = 24
+                render_bitrate = "3500k"
+
             final_clip.write_videofile(
-                output_path,
+                staged_path,
                 codec="libx264",
                 audio_codec="aac",
-                preset="ultrafast",
+                preset=render_preset,
                 logger=None,
-                fps=24,
+                fps=render_fps,
+                bitrate=render_bitrate,
                 threads=cpu_threads,
+                ffmpeg_params=["-movflags", "+faststart"],
             )
             reel_duration = final_clip.duration or 0
             final_clip.close()
@@ -1070,20 +1515,50 @@ class VideoService:
                     except Exception:
                         pass
 
-            # ── 13. Upload to Supabase Storage ────────────────────────────────────────
-            reel_storage_path = f"{user_id}/reels/{output_filename}"
-            with open(output_path, "rb") as f:
-                output_bytes = f.read()
-
-            supabase.storage.from_("memories").upload(
-                file=output_bytes,
-                path=reel_storage_path,
-                file_options={"content-type": "video/mp4", "upsert": "true"},
+            # ── 12a. Persist to ratio-partitioned local videos directory ──────────────
+            persistent_video_path = storage_service.save_to_ratio_storage(
+                src_path=staged_path,
+                ratio=dimension or "16:9",
+                filename=output_filename,
             )
-            signed_res = supabase.storage.from_("memories").create_signed_url(reel_storage_path, 31536000)
-            public_url = signed_res.get("signedURL") or signed_res.get("signed_url") or ""
+            logger.info(f"Job {job_id}: Video permanently saved in ratio storage: {persistent_video_path}")
 
-            # Use thumbnail from first selected item if available
+            # ── 12b. Output Quality Validation Check ─────────────────────────────────
+            try:
+                val_result = QualityValidator.validate_video(
+                    filepath=staged_path,
+                    expected_aspect_ratio=dimension or "16:9",
+                    min_duration_seconds=3.0,
+                )
+                logger.info(f"Quality validation for job {job_id}: is_valid={val_result.is_valid}, diagnostics={val_result.diagnostics}")
+                if val_result.warnings:
+                    logger.warning(f"Quality validation warnings for job {job_id}: {val_result.warnings}")
+            except Exception as qv_err:
+                logger.warning(f"Quality validation diagnostic check skipped: {qv_err}")
+
+            # ── 13. Resilient Streaming Upload with Backoff & Jitter ───────────────────
+            job_state_manager.transition_stage(
+                job_id, "uploading", task_description="Streaming generated video reel to cloud storage..."
+            )
+            upload_ok, public_url, reel_storage_path, upload_err_code = storage_service.upload_video_with_retry(
+                job_id=job_id,
+                user_id=user_id,
+                staged_filepath=staged_path,
+                output_filename=output_filename,
+            )
+            if not upload_ok or not public_url:
+                job_state_manager.fail_job(
+                    job_id,
+                    error_code=upload_err_code or "UPLOAD_FAILED",
+                    error_message="Failed to upload video after retries. Video is safely preserved and ready for retry.",
+                )
+                update_job_status("failed", "Failed to upload to storage after retries.")
+                return
+
+            # ── 14. Finalizing Database Record ─────────────────────────────────────────
+            job_state_manager.transition_stage(
+                job_id, "finalizing", task_description="Finalizing database record and video stream URL..."
+            )
             first_media_thumb: str | None = None
             if selected_media:
                 first_media_thumb = (
@@ -1100,7 +1575,7 @@ class VideoService:
                 "url":          public_url,
                 "thumbnail_url":first_media_thumb,
                 "media_type":   "video",
-                "file_size":    len(output_bytes),
+                "file_size":    os.path.getsize(staged_path),
                 "mime_type":    "video/mp4",
                 "duration":     int(reel_duration),
                 "created_at":   datetime.now(timezone.utc).isoformat(),
@@ -1108,19 +1583,26 @@ class VideoService:
 
             insert_res = supabase.table("media").insert(media_data).execute()
             if not insert_res.data:
+                job_state_manager.fail_job(job_id, "DB_INSERT_FAILED", "Failed to save generated video metadata.")
                 update_job_status("failed", "Failed to save generated video metadata.")
                 return
 
-            new_media = insert_res.data[0]
-            update_job_status("completed", result_media_id=new_media["id"])
+            ins_records = cast(list[dict[str, Any]], insert_res.data)
+            new_media = ins_records[0]
+            media_id_str = str(new_media["id"])
+            job_state_manager.complete_job(job_id, result_media_id=media_id_str, result_url=public_url)
+            update_job_status("completed", result_media_id=media_id_str)
+            storage_service.cleanup_staged_file(staged_path)
+
             logger.info(
                 f"Video job {job_id} complete: {output_filename} "
                 f"({len(selected_media)} scenes, {reel_duration:.1f}s, "
-                f"{len(output_bytes) // 1024}KB)"
+                f"{media_data['file_size'] // 1024}KB)"
             )
 
         except Exception as e:
             logger.exception(f"Video job {job_id} failed: {e}")
+            job_state_manager.fail_job(job_id, "PROCESSING_ERROR", str(e))
             update_job_status("failed", str(e))
         finally:
             shutil.rmtree(tmp_dir, ignore_errors=True)

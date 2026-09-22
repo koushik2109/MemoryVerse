@@ -2,7 +2,7 @@ import math
 import json
 import logging
 from datetime import datetime, timezone, timedelta
-from typing import Any, Dict, List, Optional, Tuple, Set
+from typing import Any, Dict, List, Optional, Tuple, Set, cast
 import numpy as np
 
 from app.core.db import get_supabase_client
@@ -116,7 +116,7 @@ class MemoryNarrativeService:
         loc_counts = {}
         for l in locations:
             loc_counts[l] = loc_counts.get(l, 0) + 1
-        dominant_loc = max(loc_counts, key=loc_counts.get) if loc_counts else None
+        dominant_loc = max(loc_counts, key=lambda k: loc_counts.get(k, 0)) if loc_counts else None
 
         # Tags and scene frequencies
         scene_freq: Dict[str, int] = {}
@@ -127,8 +127,8 @@ class MemoryNarrativeService:
             for o in it.objects:
                 obj_freq[o] = obj_freq.get(o, 0) + 1
 
-        top_scenes = sorted(scene_freq, key=scene_freq.get, reverse=True)[:5]
-        top_objects = sorted(obj_freq, key=obj_freq.get, reverse=True)[:5]
+        top_scenes = sorted(scene_freq, key=lambda k: scene_freq.get(k, 0), reverse=True)[:5]
+        top_objects = sorted(obj_freq, key=lambda k: obj_freq.get(k, 0), reverse=True)[:5]
 
         # Gather sample VLM visual notes (max 6 representative descriptions)
         sample_vlm_notes = []
@@ -812,8 +812,11 @@ class MemoryNarrativeService:
             from fastapi import HTTPException
             raise HTTPException(status_code=404, detail="Memory not found")
 
-        mem_record = mem_res.data[0]
-        meta = mem_record.get("metadata") or {}
+        mem_rows = cast(list[dict[str, Any]], mem_res.data)
+        mem_record = mem_rows[0]
+        meta = mem_record.get("metadata")
+        if not isinstance(meta, dict):
+            meta = {}
 
         # If already analyzed and not forcing regenerate, return stored narrative
         if not force_regenerate and "narrative_intelligence" in meta:
@@ -821,7 +824,7 @@ class MemoryNarrativeService:
             return MemoryNarrativeResponse(**stored)
 
         # 2. Hydrate media items
-        media_list = mem_record.get("media") or []
+        media_list = cast(list[dict[str, Any]], mem_record.get("media") or [])
         items: List[MediaItemContext] = []
         for idx, m in enumerate(media_list):
             m_meta = m.get("metadata") or {}
@@ -853,10 +856,11 @@ class MemoryNarrativeService:
             ))
 
         # 3. Analyze
+        title_hint = mem_record.get("title")
         narrative = cls.analyze_memory_event(
             items=items,
             memory_id=memory_id,
-            event_title_hint=mem_record.get("title"),
+            event_title_hint=str(title_hint) if title_hint else None,
             enable_llm=True
         )
 
@@ -866,7 +870,8 @@ class MemoryNarrativeService:
 
         update_payload: Dict[str, Any] = {"metadata": meta}
         # Only set title/description if the existing memory record is blank/empty
-        if not mem_record.get("title") or mem_record.get("title") == "New Memory":
+        mem_title = str(mem_record.get("title") or "")
+        if not mem_title or mem_title == "New Memory":
             update_payload["title"] = narrative.ai_title
         if not mem_record.get("description"):
             update_payload["description"] = narrative.ai_summary

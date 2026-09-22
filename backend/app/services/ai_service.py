@@ -612,7 +612,8 @@ class AIService:
                 m_res = supabase.table("media") \
                     .select("id, filename, media_type, created_at, location_name, vault_id, memory_id, owner_id, storage_path, url, thumbnail_url, file_size, mime_type") \
                     .in_("id", list(all_media_ids)).execute()
-                for m_row in (m_res.data or []):
+                m_rows = cast(list[dict[str, Any]], m_res.data or [])
+                for m_row in m_rows:
                     media_by_id[str(m_row["id"])] = _row_to_media_response(m_row)
             except Exception as e:
                 logger.warning(f"Failed to fetch related media in get_messages: {e}")
@@ -717,7 +718,7 @@ class AIService:
             rel_score = min(rel_score, 0.15)
             reason = evidence or f"Requested subject not visible in {visual_desc}"
         else:
-            is_recommended = bool(rel_score >= 0.50)
+            is_recommended = rel_score >= 0.50
             reason = evidence or f"Contextual match: {visual_desc}"
 
         return {
@@ -881,10 +882,11 @@ class AIService:
         try:
             from app.services.ai_extractor import get_clip_model
             clip_model = get_clip_model()
-            prompt_embedding = clip_model.encode(prompt)
-            prompt_norm = np.linalg.norm(prompt_embedding)
-            if prompt_norm > 0:
-                prompt_embedding = prompt_embedding / prompt_norm
+            if clip_model is not None:
+                prompt_embedding = clip_model.encode(prompt)
+                prompt_norm = np.linalg.norm(prompt_embedding)
+                if prompt_norm > 0:
+                    prompt_embedding = prompt_embedding / prompt_norm
         except Exception as e:
             logger.warning(f"CLIP embedding unavailable for RAG filter, using lexical fallback: {e}")
 
@@ -958,7 +960,7 @@ class AIService:
                 "relevance_score": round(min(max(combined_score, 0.0), 1.0), 4),
                 "reason": f"Matched concepts: {', '.join(matched_tags_list)}" if matched_tags_list else "Chronological & context correlation",
                 "matched_tags": matched_tags_list,
-                "recommended": bool(combined_score >= 0.45),
+                "recommended": combined_score >= 0.45,
                 "timestamp": dt_obj,
                 "location_name": loc_name or None
             })
@@ -1014,7 +1016,29 @@ class AIService:
         """
         Invokes the LangGraph multi-agent cognitive architecture
         (Planner, Scorer, Storyteller, Auditor, Video Director).
+        Uses standalone AI Engine microservice if configured, or falls back to in-process execution.
         """
+        if settings.AI_ENGINE_URL:
+            try:
+                import httpx
+                with httpx.Client(timeout=60.0) as client:
+                    resp = client.post(
+                        f"{settings.AI_ENGINE_URL.rstrip('/')}/api/v1/agents/flow",
+                        json={
+                            "query": prompt,
+                            "user_id": user_id,
+                            "ablation_mode": ablation_mode,
+                            "target_duration": target_duration,
+                            "media_type": media_type,
+                        }
+                    )
+                    if resp.status_code == 200:
+                        data = resp.json()
+                        return data.get("final_output", data)
+                    logger.warning(f"AI Engine HTTP responded {resp.status_code}, falling back to in-process")
+            except Exception as http_err:
+                logger.warning(f"AI Engine HTTP call failed, falling back to in-process: {http_err}")
+
         try:
             from ai_engine.langgraph.graph import run_memory_flow
             res = run_memory_flow(

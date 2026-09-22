@@ -20,6 +20,7 @@ class Settings(BaseSettings):
     LLM_API_KEY: Optional[str] = None
     LLM_MODEL: str = "gpt-4o-mini"        # provider-specific model name
     AI_ENABLED: bool = True               # set False to disable AI chat
+    AI_ENGINE_URL: Optional[str] = None   # e.g. http://ai_engine:8001 when in Docker
 
     # AI Video Generation configuration
     AI_VIDEO_PROVIDER: str = "auto"       # auto | replicate | luma | runway | local_ai

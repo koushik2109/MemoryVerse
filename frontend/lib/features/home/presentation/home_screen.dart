@@ -170,11 +170,6 @@ class HomeScreen extends ConsumerWidget {
                   ],
                 ),
               ),
-              _IconButton(
-                icon: Icons.auto_awesome_rounded,
-                onTap: () => context.push(Routes.ai),
-                colors: c,
-              ),
               const SizedBox(width: AppSpacing.s8),
               _IconButton(
                 icon: Icons.search_rounded,
@@ -262,15 +257,6 @@ class HomeScreen extends ConsumerWidget {
         padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s24),
         child: Row(
           children: [
-            Expanded(
-              child: _QuickActionButton(
-                icon: Icons.auto_awesome_rounded,
-                label: 'Ask AI',
-                onTap: () => context.push(Routes.ai),
-                colors: c,
-              ),
-            ),
-            const SizedBox(width: AppSpacing.s12),
             Expanded(
               child: _QuickActionButton(
                 icon: Icons.create_new_folder_outlined,
@@ -369,7 +355,12 @@ class HomeScreen extends ConsumerWidget {
                 badge: "Paradise",
               ),
             ];
-            return const StackedCarousel(items: mockItems, showIndicators: false);
+            return StackedCarousel(
+              items: mockItems,
+              height: 210,
+              showIndicators: false,
+              onItemTap: (_) => context.go(Routes.memories),
+            );
           }
           final items = memories.map((m) {
             String imageUrl = 'https://images.unsplash.com/photo-1551632811-561732d1e306?q=80&w=2070'; // fallback
@@ -377,18 +368,28 @@ class HomeScreen extends ConsumerWidget {
               imageUrl = m.media.first.url;
             }
             return CarouselItem(
+              id: m.id,
               title: m.title,
               subtitle: m.locationName ?? m.description,
               imageUrl: imageUrl,
             );
           }).toList();
-          return StackedCarousel(items: items, showIndicators: false);
+          return StackedCarousel(
+            items: items,
+            height: 210,
+            showIndicators: false,
+            onItemTap: (item) {
+              if (item.id != null) {
+                context.push('${Routes.memories}/${item.id}');
+              }
+            },
+          );
         },
         loading: () => const SizedBox(
-          height: 240,
+          height: 210,
           child: Center(child: CircularProgressIndicator()),
         ),
-        error: (_, __) => const SizedBox(height: 240),
+        error: (_, __) => const SizedBox(height: 210),
       ),
     );
   }

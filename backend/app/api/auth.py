@@ -1,3 +1,4 @@
+from typing import Any, cast
 from fastapi import APIRouter, HTTPException, status, Depends, Request
 from app.schemas.domain import SignUpRequest, SignInRequest, ForgotPasswordRequest, VerifyOTPRequest, ResendOTPRequest, ResetPasswordRequest, AuthResponse, UserProfile
 from app.core.db import get_supabase_client
@@ -16,13 +17,14 @@ def get_client_ip(request: Request) -> str:
         return forwarded.split(",")[0].strip()
     return request.client.host if request.client else "127.0.0.1"
 
-def get_user_by_email(email: str):
+def get_user_by_email(email: str) -> dict[str, Any] | None:
     """Fetch user profile from public.profiles using service role to bypass RLS"""
     supabase = get_supabase_client()
     res = supabase.table("profiles").select("id, email, full_name").eq("email", email).execute()
     if not res.data:
         return None
-    return res.data[0]
+    records = cast(list[dict[str, Any]], res.data)
+    return records[0]
 
 @router.post("/signup")
 async def signup(payload: SignUpRequest, request: Request):
@@ -81,7 +83,7 @@ async def verify_otp(payload: VerifyOTPRequest, request: Request):
     # Mark user as confirmed via Admin API
     try:
         supabase = get_supabase_client()
-        supabase.auth.admin.update_user_by_id(user["id"], {"email_confirm": True})
+        supabase.auth.admin.update_user_by_id(str(user["id"]), {"email_confirm": True})
         return {"success": True, "message": "Email verified successfully. Please log in."}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to confirm email: {str(e)}")
@@ -100,8 +102,8 @@ async def login(payload: SignInRequest):
         meta = res.user.user_metadata or {}
         return AuthResponse(
             access_token=res.session.access_token,
-            user_id=str(res.user.id),
-            email=str(res.user.email),
+            user_id=res.user.id,
+            email=(res.user.email or ""),
             full_name=meta.get("full_name")
         )
     except Exception as e:
@@ -127,7 +129,7 @@ async def resend_otp(payload: ResendOTPRequest, request: Request):
     otp_service.store_otp(payload.email, PURPOSE_EMAIL_VERIFICATION, otp)
     await email_service.send_verification_email(
         to_email=payload.email, 
-        name=user.get("full_name", "User"), 
+        name=str(user.get("full_name") or "User"), 
         otp=otp, 
         expire_mins=settings.OTP_EXPIRE_MINUTES
     )
@@ -146,7 +148,7 @@ async def forgot_password(payload: ForgotPasswordRequest, request: Request):
         otp_service.store_otp(payload.email, PURPOSE_PASSWORD_RESET, otp)
         await email_service.send_password_reset_email(
             to_email=payload.email, 
-            name=user.get("full_name", "User"), 
+            name=str(user.get("full_name") or "User"), 
             otp=otp, 
             expire_mins=settings.OTP_EXPIRE_MINUTES
         )
@@ -169,7 +171,7 @@ async def reset_password(payload: ResetPasswordRequest, request: Request):
         
     try:
         supabase = get_supabase_client()
-        supabase.auth.admin.update_user_by_id(user["id"], {"password": payload.new_password})
+        supabase.auth.admin.update_user_by_id(str(user["id"]), {"password": payload.new_password})
         
         # After password reset, we should probably revoke existing sessions. 
         # Wait, how to revoke sessions using Admin API?

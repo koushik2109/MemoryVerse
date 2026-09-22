@@ -47,7 +47,7 @@ def transcribe_audio(file_path: str) -> str:
         if hasattr(model, "transcribe"):
             res = model.transcribe(file_path)
             if isinstance(res, dict):
-                return res.get("text", "").strip()
+                return str(res.get("text", "")).strip()
             # faster-whisper returns (segments, info)
             segments, _ = res
             return " ".join(s.text for s in segments).strip()

@@ -18,7 +18,7 @@ Expected Supabase table (audio_memories):
   text_embedding   VECTOR(1024)                 -- bge-m3 dense dim
   created_at       TIMESTAMPTZ DEFAULT now()
 """
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, cast
 
 from supabase import create_client, Client
 
@@ -29,9 +29,14 @@ from ai_engine.rag.config import (
     TOP_K,
 )
 
+_client: Optional[Client] = None
+
 
 def _get_client() -> Client:
-    return create_client(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY)
+    global _client
+    if _client is None:
+        _client = create_client(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY)
+    return _client
 
 
 # ─── Ingest ────────────────────────────────────────────────────────────────────
@@ -44,7 +49,8 @@ def store_audio_memory(record: Dict[str, Any]) -> Dict[str, Any]:
     """
     client = _get_client()
     resp = client.table(AUDIO_TABLE).insert(record).execute()
-    return resp.data[0] if resp.data else {}
+    data = cast(list[dict[str, Any]], resp.data or [])
+    return data[0] if data else {}
 
 
 # ─── Retrieval ─────────────────────────────────────────────────────────────────
@@ -108,4 +114,7 @@ def semantic_search(
         "filter": filters or {},
     }
     resp = client.rpc("match_audio_memories", params).execute()
-    return resp.data or []
+    return cast(List[Dict[str, Any]], resp.data or [])
+
+
+search_transcripts = semantic_search

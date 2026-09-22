@@ -40,6 +40,8 @@ def get_siglip_model():
 def embed_frames(frames: List[np.ndarray]) -> List[List[float]]:
     """Embed list of BGR numpy frames into normalized 768-dim vectors."""
     processor, model = get_siglip_model()
+    if processor is None or model is None or not frames:
+        return []
     pil_images = []
     for f in frames:
         rgb = cv2.cvtColor(f, cv2.COLOR_BGR2RGB)
@@ -57,6 +59,8 @@ def embed_frames(frames: List[np.ndarray]) -> List[List[float]]:
 def embed_text_siglip(texts: List[str]) -> List[List[float]]:
     """Embed list of text strings using SigLIP text encoder into 768-dim vectors."""
     processor, model = get_siglip_model()
+    if processor is None or model is None or not texts:
+        return []
     inputs = processor(text=texts, return_tensors="pt", padding=True, truncation=True)
     with torch.no_grad():
         outputs = model.text_model(**{k: v for k, v in inputs.items() if k != "pixel_values"})

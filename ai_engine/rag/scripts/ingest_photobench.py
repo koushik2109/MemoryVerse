@@ -31,7 +31,7 @@ import os
 import sys
 from collections import defaultdict
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Set
+from typing import Any, Dict, List, Optional, Set, cast
 
 # ─── Project path setup ───────────────────────────────────────────────────────
 RAG_DIR = Path(__file__).parent.parent
@@ -77,7 +77,8 @@ def fetch_ingested_hashes() -> Set[str]:
     """Return set of file_hash values already in Supabase memories table."""
     try:
         resp = _db().table(MEMORIES_TABLE).select("file_hash").execute()
-        return {r["file_hash"] for r in (resp.data or []) if r.get("file_hash")}
+        rows = cast(list[dict[str, Any]], resp.data or [])
+        return {str(r["file_hash"]) for r in rows if r.get("file_hash")}
     except Exception as e:
         print(f"  [warn] Could not fetch existing hashes: {e}")
         return set()

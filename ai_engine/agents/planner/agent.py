@@ -86,10 +86,9 @@ class PlanningAgent:
 
         try:
             from ai_engine.rag.video.vector_store import search_by_text_embedding
-            from ai_engine.models.bge_loader import get_bge_model
+            from ai_engine.models.bge_loader import embed_text
 
-            bge = get_bge_model()
-            q_emb = bge.encode_queries([plan["original_query"]])[0].tolist()
+            q_emb = embed_text(str(plan.get("original_query", "")))
             video_hits = search_by_text_embedding(q_emb, top_k=limit)
             for hit in video_hits:
                 hit["source_modality"] = "video"
@@ -99,10 +98,9 @@ class PlanningAgent:
 
         try:
             from ai_engine.rag.audio.vector_store import search_transcripts
-            from ai_engine.models.bge_loader import get_bge_model
+            from ai_engine.models.bge_loader import embed_text
 
-            bge = get_bge_model()
-            q_emb = bge.encode_queries([plan["original_query"]])[0].tolist()
+            q_emb = embed_text(str(plan.get("original_query", "")))
             audio_hits = search_transcripts(q_emb, top_k=limit)
             for hit in audio_hits:
                 hit["source_modality"] = "audio"

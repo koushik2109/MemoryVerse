@@ -89,14 +89,31 @@ class _MediaPickerSheetState extends ConsumerState<MediaPickerSheet> {
 
     final repo = ref.read(mediaRepositoryProvider);
     try {
-      for (int i = 0; i < _selectedFiles.length; i++) {
-        final file = _selectedFiles[i];
-        final type = _mediaTypes[i];
+      if (_selectedFiles.length > 1) {
+        setState(() {
+          _uploadStatus = 'Uploading ${_selectedFiles.length} items in batch...';
+        });
+
+        await repo.uploadMultipleMedia(
+          files: _selectedFiles,
+          vaultId: widget.vaultId,
+          memoryId: widget.memoryId,
+          onSendProgress: (sent, total) {
+            if (total > 0 && mounted) {
+              final pct = ((sent / total) * 100).toInt();
+              setState(() {
+                _uploadStatus = 'Uploading ${_selectedFiles.length} items ($pct%)...';
+              });
+            }
+          },
+        );
+      } else {
+        final file = _selectedFiles[0];
+        final type = _mediaTypes[0];
         final name = file.path.split('/').last;
 
         setState(() {
-          _uploadStatus =
-              'Uploading ${i + 1}/${_selectedFiles.length}: $name...';
+          _uploadStatus = 'Uploading $name...';
         });
 
         await repo.uploadMedia(

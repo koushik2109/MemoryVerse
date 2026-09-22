@@ -2,7 +2,7 @@ import io
 import logging
 import numpy as np
 from datetime import datetime, timezone
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any, Dict, List, Optional, Tuple, cast
 from PIL import Image
 try:
     import exifread
@@ -42,13 +42,19 @@ def get_clip_model():
     return _clip_model
 
 
+import threading
+
+_EXTRACTION_CONCURRENCY = 2
+_extraction_semaphore = threading.Semaphore(_EXTRACTION_CONCURRENCY)
+
+
 class AIExtractor:
     """Extracts metadata, tags, and embeddings from media files using lightweight local libraries."""
 
     @staticmethod
     def extract_metadata(file_bytes: bytes, mime_type: str) -> Dict[str, Any]:
         """Extract camera maker/model, taken timestamp, and GPS coordinates from EXIF metadata."""
-        metadata = {
+        metadata: Dict[str, Any] = {
             "taken_at": None,
             "latitude": None,
             "longitude": None,
@@ -122,6 +128,8 @@ class AIExtractor:
         try:
             img = Image.open(io.BytesIO(file_bytes)).convert("RGB")
             model = get_clip_model()
+            if model is None:
+                return [0.0] * 512, tags
 
             # 1. Embedding generation
             img_emb = model.encode(img)
@@ -141,7 +149,7 @@ class AIExtractor:
 
             # Compute similarities
             import numpy as np
-            similarities = np.dot(img_emb, text_embeddings.T)
+            similarities = np.dot(img_emb, cast(Any, text_embeddings).T)
             # Softmax to get confidence scores
             scores = np.exp(similarities) / np.sum(np.exp(similarities))
 
@@ -158,8 +166,7 @@ class AIExtractor:
 
             # Determine people status
             people_scores = {p: scores_dict[p] for p in people_labels}
-            # pyrefly: ignore [no-matching-overload]
-            best_people = max(people_scores, key=people_scores.get)
+            best_people = max(people_scores, key=lambda k: people_scores.get(k, 0.0))
             tags["people_count"] = best_people
 
         except Exception as e:
@@ -173,107 +180,114 @@ class AIExtractor:
         """Run metadata and feature extraction, saving results back to database."""
         logger.info(f"Processing uploaded media {media_id} for metadata and embeddings...")
         
-        # 1. Extract EXIF tags
-        meta = AIExtractor.extract_metadata(file_bytes, mime_type)
+        with _extraction_semaphore:
+            # 1. Extract EXIF tags
+            meta = AIExtractor.extract_metadata(file_bytes, mime_type)
 
-        # 2. Generate CLIP embedding & label tags
-        embedding, tags = AIExtractor.extract_features(file_bytes, mime_type)
+            # 2. Generate CLIP embedding & label tags
+            embedding, tags = AIExtractor.extract_features(file_bytes, mime_type)
 
-        # 3. Save to database
-        supabase = get_supabase_client()
-        try:
-            # Check for near-duplicates in the same vault / memory (threshold >= 0.92)
-            duplicate_info: Dict[str, Any] = {"is_alternate": False, "label": "Original", "alternate_media_ids": []}
+            # 3. Save to database
+            supabase = get_supabase_client()
             try:
-                if any(embedding):
-                    curr_media_row = supabase.table("media").select("vault_id, memory_id, owner_id").eq("id", media_id).execute()
-                    if curr_media_row.data:
-                        v_id = curr_media_row.data[0].get("vault_id")
-                        m_id = curr_media_row.data[0].get("memory_id")
-                        u_id = curr_media_row.data[0].get("owner_id")
+                # Check for near-duplicates in the same vault / memory (threshold >= 0.92)
+                duplicate_info: Dict[str, Any] = {"is_alternate": False, "label": "Original", "alternate_media_ids": []}
+                try:
+                    if any(embedding):
+                        curr_media_row = supabase.table("media").select("vault_id, memory_id, owner_id").eq("id", media_id).execute()
+                        if curr_media_row.data:
+                            curr_rows = cast(list[dict[str, Any]], curr_media_row.data)
+                            v_id = curr_rows[0].get("vault_id")
+                            m_id = curr_rows[0].get("memory_id")
+                            u_id = curr_rows[0].get("owner_id")
 
-                        query = supabase.table("media").select("id, metadata").neq("id", media_id)
-                        if v_id:
-                            query = query.eq("vault_id", v_id)
-                        elif m_id:
-                            query = query.eq("memory_id", m_id)
-                        else:
-                            query = query.eq("owner_id", u_id)
+                            query = supabase.table("media").select("id, metadata").neq("id", media_id)
+                            if v_id:
+                                query = query.eq("vault_id", v_id)
+                            elif m_id:
+                                query = query.eq("memory_id", m_id)
+                            else:
+                                query = query.eq("owner_id", u_id)
 
-                        sibling_media = query.limit(50).execute().data or []
-                        if sibling_media:
-                            sibling_ids = [s["id"] for s in sibling_media]
-                            emb_res = supabase.table("media_embeddings").select("media_id, clip_embedding, embedding").in_("media_id", sibling_ids).execute()
+                            sibling_media = cast(list[dict[str, Any]], query.limit(50).execute().data or [])
+                            if sibling_media:
+                                sibling_ids = [str(s["id"]) for s in sibling_media]
+                                emb_res = supabase.table("media_embeddings").select("media_id, clip_embedding, embedding").in_("media_id", sibling_ids).execute()
 
-                            curr_arr = np.array(embedding, dtype=np.float32)
-                            curr_norm = np.linalg.norm(curr_arr)
-                            if curr_norm > 0:
-                                curr_unit = curr_arr / curr_norm
-                                for sibling_emb in (emb_res.data or []):
-                                    s_vec = sibling_emb.get("clip_embedding") or sibling_emb.get("embedding")
-                                    if s_vec and len(s_vec) == len(curr_unit):
-                                        s_arr = np.array(s_vec, dtype=np.float32)
-                                        s_norm = np.linalg.norm(s_arr)
-                                        if s_norm > 0:
-                                            sim = float(np.dot(curr_unit, s_arr / s_norm))
-                                            if sim >= 0.92:
-                                                orig_id = str(sibling_emb["media_id"])
-                                                duplicate_info = {
-                                                    "is_alternate": True,
-                                                    "original_media_id": orig_id,
-                                                    "similarity": round(sim, 4),
-                                                    "label": "Alternate"
-                                                }
-                                                logger.info(f"Media {media_id} detected as near-duplicate / alternate of {orig_id} (similarity: {sim:.4f})")
+                                curr_arr = np.array(embedding, dtype=np.float32)
+                                curr_norm = np.linalg.norm(curr_arr)
+                                if curr_norm > 0:
+                                    curr_unit = curr_arr / curr_norm
+                                    emb_rows = cast(list[dict[str, Any]], emb_res.data or [])
+                                    for sibling_emb in emb_rows:
+                                        s_vec = sibling_emb.get("clip_embedding") or sibling_emb.get("embedding")
+                                        if isinstance(s_vec, list) and len(s_vec) == len(curr_unit):
+                                            s_arr = np.array(s_vec, dtype=np.float32)
+                                            s_norm = np.linalg.norm(s_arr)
+                                            if s_norm > 0:
+                                                sim = float(np.dot(curr_unit, s_arr / s_norm))
+                                                if sim >= 0.92:
+                                                    orig_id = str(sibling_emb["media_id"])
+                                                    duplicate_info = {
+                                                        "is_alternate": True,
+                                                        "original_media_id": orig_id,
+                                                        "similarity": round(sim, 4),
+                                                        "label": "Alternate"
+                                                    }
+                                                    logger.info(f"Media {media_id} detected as near-duplicate / alternate of {orig_id} (similarity: {sim:.4f})")
 
-                                                # Update original media item to track this alternate
-                                                try:
-                                                    orig_row = next((s for s in sibling_media if str(s["id"]) == orig_id), None)
-                                                    if orig_row:
-                                                        orig_meta = orig_row.get("metadata") or {}
-                                                        orig_dup = orig_meta.get("duplicate_info") or {"is_alternate": False, "label": "Original", "alternate_media_ids": []}
-                                                        alt_list = orig_dup.get("alternate_media_ids", [])
-                                                        if media_id not in alt_list:
-                                                            alt_list.append(media_id)
-                                                            orig_dup["alternate_media_ids"] = alt_list
-                                                            orig_dup["alternate_count"] = len(alt_list)
-                                                            orig_meta["duplicate_info"] = orig_dup
-                                                            supabase.table("media").update({"metadata": orig_meta}).eq("id", orig_id).execute()
-                                                except Exception as orig_err:
-                                                    logger.warning(f"Could not update original media metadata: {orig_err}")
-                                                break
-            except Exception as dup_err:
-                logger.warning(f"Duplicate detection check skipped: {dup_err}")
+                                                    # Update original media item to track this alternate
+                                                    try:
+                                                        orig_row = next((s for s in sibling_media if str(s["id"]) == orig_id), None)
+                                                        if orig_row:
+                                                            orig_meta = orig_row.get("metadata") or {}
+                                                            if not isinstance(orig_meta, dict):
+                                                                orig_meta = {}
+                                                            orig_dup: dict[str, Any] = cast(dict[str, Any], orig_meta.get("duplicate_info")) if isinstance(orig_meta.get("duplicate_info"), dict) else {"is_alternate": False, "label": "Original", "alternate_media_ids": []}
+                                                            alt_list = orig_dup.get("alternate_media_ids") or []
+                                                            if not isinstance(alt_list, list):
+                                                                alt_list = []
+                                                            if media_id not in alt_list:
+                                                                alt_list.append(media_id)
+                                                                orig_dup["alternate_media_ids"] = alt_list
+                                                                orig_dup["alternate_count"] = len(alt_list)
+                                                                orig_meta["duplicate_info"] = orig_dup
+                                                                supabase.table("media").update({"metadata": orig_meta}).eq("id", orig_id).execute()
+                                                    except Exception as orig_err:
+                                                        logger.warning(f"Could not update original media metadata: {orig_err}")
+                                                    break
+                except Exception as dup_err:
+                    logger.warning(f"Duplicate detection check skipped: {dup_err}")
 
-            # Combine exif metadata + zero-shot tags + duplicate info into single metadata JSON
-            combined_metadata = {
-                "exif": meta,
-                "ai_tags": tags,
-                "duplicate_info": duplicate_info,
-                "processed_at": datetime.now(timezone.utc).isoformat()
-            }
-
-            # Update PostgreSQL media table with extracted details
-            supabase.table("media").update({
-                "taken_at": meta.get("taken_at"),
-                "latitude": meta.get("latitude"),
-                "longitude": meta.get("longitude"),
-                "location_name": meta.get("location_name") or (combined_metadata["ai_tags"]["scenes"][0] if combined_metadata["ai_tags"]["scenes"] else None),
-                "metadata": combined_metadata
-            }).eq("id", media_id).execute()
-
-            # Insert or update embedding in media_embeddings table (with multi-vector support)
-            if any(embedding):
-                upsert_payload = {
-                    "media_id": media_id,
-                    "embedding": embedding,
-                    "clip_embedding": embedding,
+                # Combine exif metadata + zero-shot tags + duplicate info into single metadata JSON
+                combined_metadata = {
+                    "exif": meta,
+                    "ai_tags": tags,
+                    "duplicate_info": duplicate_info,
+                    "processed_at": datetime.now(timezone.utc).isoformat()
                 }
-                supabase.table("media_embeddings").upsert(upsert_payload).execute()
-                logger.info(f"Successfully processed media {media_id} and stored embedding.")
 
-        except Exception as e:
-            logger.error(f"Failed to save AI extraction results for media {media_id}: {e}")
+                # Update PostgreSQL media table with extracted details
+                supabase.table("media").update({
+                    "taken_at": meta.get("taken_at"),
+                    "latitude": meta.get("latitude"),
+                    "longitude": meta.get("longitude"),
+                    "location_name": meta.get("location_name") or (combined_metadata["ai_tags"]["scenes"][0] if combined_metadata["ai_tags"]["scenes"] else None),
+                    "metadata": combined_metadata
+                }).eq("id", media_id).execute()
+
+                # Insert or update embedding in media_embeddings table (with multi-vector support)
+                if any(embedding):
+                    upsert_payload = {
+                        "media_id": media_id,
+                        "embedding": embedding,
+                        "clip_embedding": embedding,
+                    }
+                    supabase.table("media_embeddings").upsert(upsert_payload).execute()
+                    logger.info(f"Successfully processed media {media_id} and stored embedding.")
+
+            except Exception as e:
+                logger.error(f"Failed to save AI extraction results for media {media_id}: {e}")
 
     @staticmethod
     def _parse_gps(tags: Dict[str, Any]) -> Tuple[Optional[float], Optional[float]]:

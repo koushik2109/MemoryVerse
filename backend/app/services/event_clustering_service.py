@@ -2,7 +2,7 @@ import io
 import math
 import logging
 from datetime import datetime, timezone, timedelta
-from typing import Any, Dict, List, Optional, Tuple, Set
+from typing import Any, Dict, List, Optional, Tuple, Set, cast
 import numpy as np
 
 from app.core.db import get_supabase_client
@@ -200,12 +200,12 @@ class EventClusteringService:
                 vault_id=vault_id or e.get("vault_id"),
                 title=e["title"],
                 description=e["summary"],
-                memory_date=start_dt.date(),
+                memory_date=start_dt,
                 location_name=e.get("location")
             )
             try:
                 new_mem = await mem_service.create_memory(user_id, m_payload)
-                new_mem_id = new_mem.get("id")
+                new_mem_id = str(new_mem.get("id") or "")
                 created_count += 1
 
                 # Associate media items with memory
@@ -392,7 +392,7 @@ class EventClusteringService:
         loc_counts = {}
         for loc in locations:
             loc_counts[loc] = loc_counts.get(loc, 0) + 1
-        dominant_loc = max(loc_counts, key=loc_counts.get) if loc_counts else None
+        dominant_loc = max(loc_counts, key=lambda k: loc_counts.get(k, 0)) if loc_counts else None
 
         # Aggregate tags
         all_scenes: Dict[str, int] = {}
@@ -403,8 +403,8 @@ class EventClusteringService:
             for o in it.objects:
                 all_objects[o] = all_objects.get(o, 0) + 1
 
-        top_scenes = sorted(all_scenes, key=all_scenes.get, reverse=True)[:4]
-        top_objects = sorted(all_objects, key=all_objects.get, reverse=True)[:4]
+        top_scenes = sorted(all_scenes, key=lambda k: all_scenes.get(k, 0), reverse=True)[:4]
+        top_objects = sorted(all_objects, key=lambda k: all_objects.get(k, 0), reverse=True)[:4]
         sample_descriptions = [it.vlm_description for it in sorted_items if it.vlm_description][:3]
 
         # Calculate Coherence Score
@@ -713,7 +713,7 @@ class EventClusteringService:
             query = query.is_("memory_id", "null")
 
         res = query.execute()
-        raw_list = res.data or []
+        raw_list = cast(list[dict[str, Any]], res.data or [])
         items: List[MediaItemContext] = []
 
         for idx, m in enumerate(raw_list):
@@ -738,8 +738,8 @@ class EventClusteringService:
                 dt = datetime.now(timezone.utc) - timedelta(minutes=idx * 5)
 
             items.append(MediaItemContext(
-                id=m["id"],
-                filename=m.get("filename") or f"media_{idx}",
+                id=str(m["id"]),
+                filename=str(m.get("filename") or f"media_{idx}"),
                 timestamp=dt,
                 latitude=m.get("latitude"),
                 longitude=m.get("longitude"),
@@ -748,10 +748,10 @@ class EventClusteringService:
                 objects=ai_tags.get("objects", []),
                 people_count=ai_tags.get("people_count"),
                 vlm_description=meta.get("vlm_description"),
-                embedding=emb,
+                embedding=emb if isinstance(emb, list) else None,
                 quality_score=float(meta.get("quality_score", 0.80)),
                 vault_id=m.get("vault_id"),
-                media_type=m.get("media_type") or "image"
+                media_type=str(m.get("media_type") or "image")
             ))
 
         return items

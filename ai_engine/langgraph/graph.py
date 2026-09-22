@@ -29,27 +29,27 @@ logger = logging.getLogger(__name__)
 
 def planner_node(state: AgentState) -> Dict[str, Any]:
     agent = PlanningAgent()
-    return agent.run(state)
+    return agent.run(dict(state))
 
 
 def scorer_node(state: AgentState) -> Dict[str, Any]:
     agent = MediaScorerAgent()
-    return agent.run(state)
+    return agent.run(dict(state))
 
 
 def storyteller_node(state: AgentState) -> Dict[str, Any]:
     agent = StorytellerAgent()
-    return agent.run(state)
+    return agent.run(dict(state))
 
 
 def auditor_node(state: AgentState) -> Dict[str, Any]:
     agent = FactAuditorAgent()
-    return agent.run(state)
+    return agent.run(dict(state))
 
 
 def video_director_node(state: AgentState) -> Dict[str, Any]:
     agent = VideoDirectorAgent()
-    return agent.run(state)
+    return agent.run(dict(state))
 
 
 def synthesizer_node(state: AgentState) -> Dict[str, Any]:

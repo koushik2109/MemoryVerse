@@ -36,8 +36,10 @@ class MediaService:
         if payload.memory_id:
             try:
                 mem_res = supabase.table("memories").select("cover_media_id").eq("id", payload.memory_id).execute()
-                if mem_res.data and not mem_res.data[0].get("cover_media_id"):
-                    supabase.table("memories").update({"cover_media_id": m["id"]}).eq("id", payload.memory_id).execute()
+                if mem_res.data:
+                    mem_rows = cast(list[dict[str, Any]], mem_res.data)
+                    if not mem_rows[0].get("cover_media_id"):
+                        supabase.table("memories").update({"cover_media_id": m["id"]}).eq("id", payload.memory_id).execute()
             except Exception:
                 pass
 
@@ -55,6 +57,78 @@ class MediaService:
             mime_type=m.get("mime_type"),
             created_at=m["created_at"]
         )
+
+    @staticmethod
+    def create_media_batch(user_id: str, payloads: list[MediaCreate]) -> list[MediaResponse]:
+        """
+        Efficient single-roundtrip batch insert for multiple media items.
+        Significantly reduces latency during bulk uploads.
+        """
+        if not payloads:
+            return []
+
+        supabase = get_supabase_client()
+        now = datetime.now(timezone.utc).isoformat()
+        batch_data = []
+
+        for p in payloads:
+            batch_data.append({
+                "vault_id": p.vault_id,
+                "memory_id": p.memory_id,
+                "owner_id": user_id,
+                "filename": p.filename,
+                "storage_path": p.storage_path,
+                "url": p.url,
+                "thumbnail_url": p.thumbnail_url or p.url,
+                "media_type": p.media_type,
+                "file_size": p.file_size,
+                "mime_type": p.mime_type,
+                "width": p.width,
+                "height": p.height,
+                "duration": p.duration,
+                "metadata": p.metadata or {},
+                "created_at": now
+            })
+
+        res = supabase.table("media").insert(batch_data).execute()
+        if not res.data:
+            raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Failed to save batch media metadata")
+
+        raw_list = cast(list[dict[str, Any]], res.data)
+        responses: list[MediaResponse] = []
+
+        # Check memory cover updates for unique memory_ids
+        memory_ids = list({p.memory_id for p in payloads if p.memory_id})
+        for mem_id in memory_ids:
+            try:
+                mem_res = supabase.table("memories").select("cover_media_id").eq("id", mem_id).execute()
+                if mem_res.data:
+                    mem_rows = cast(list[dict[str, Any]], mem_res.data)
+                    if not mem_rows[0].get("cover_media_id"):
+                        # Pick the first media created for this memory
+                        first_m = next((m for m in raw_list if m.get("memory_id") == mem_id), None)
+                        if first_m:
+                            supabase.table("memories").update({"cover_media_id": first_m["id"]}).eq("id", mem_id).execute()
+            except Exception:
+                pass
+
+        for m in raw_list:
+            responses.append(MediaResponse(
+                id=m["id"],
+                vault_id=m.get("vault_id"),
+                memory_id=m.get("memory_id"),
+                owner_id=m["owner_id"],
+                filename=m["filename"],
+                storage_path=m["storage_path"],
+                url=m["url"],
+                thumbnail_url=m.get("thumbnail_url"),
+                media_type=m["media_type"],
+                file_size=m["file_size"],
+                mime_type=m.get("mime_type"),
+                created_at=m["created_at"]
+            ))
+
+        return responses
 
     @staticmethod
     def get_user_media(user_id: str, vault_id: str | None = None, limit: int = 50) -> list[MediaResponse]:

@@ -7,6 +7,7 @@ import 'package:memory_verse/core/design/tokens.dart';
 import 'package:memory_verse/core/theme/app_design_tokens.dart';
 import 'package:memory_verse/features/memories/presentation/create_memory_sheet.dart';
 import 'package:memory_verse/features/memories/presentation/upload_progress_banner.dart';
+import 'package:memory_verse/features/memories/presentation/video_job_banner.dart';
 import 'package:memory_verse/core/theme/app_design_tokens.dart' as adt;
 
 class AppShell extends StatelessWidget {
@@ -33,6 +34,7 @@ class AppShell extends StatelessWidget {
           Column(
             children: [
               Expanded(child: shell),
+              const VideoJobBanner(),
               const UploadProgressBanner(),
             ],
           ),

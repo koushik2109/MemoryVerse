@@ -259,6 +259,14 @@ class MediaRepository {
     return VideoJobModel.fromJson(res.data);
   }
 
+  Future<void> retryJob(String jobId) async {
+    await _api.post('/media/jobs/$jobId/retry');
+  }
+
+  Future<void> cancelJob(String jobId) async {
+    await _api.post('/media/jobs/$jobId/cancel');
+  }
+
   Future<void> reorderMedia(List<String> mediaIds) async {
     await _api.put('/media/reorder', data: {'media_ids': mediaIds});
   }
@@ -453,4 +461,45 @@ class AiRepository {
 final aiRepositoryProvider = Provider<AiRepository>((ref) {
   return AiRepository(ref.watch(apiClientProvider));
 });
+
+// ── AI DIRECTOR REPOSITORY ───────────────────────────────
+
+class AiDirectorRepository {
+  final ApiClient _api;
+  AiDirectorRepository(this._api);
+
+  Future<AISessionModel> createOrGetSession(String memoryId, {String? initialPrompt}) async {
+    final res = await _api.post('/ai-sessions', data: {
+      'memory_id': memoryId,
+      if (initialPrompt != null) 'initial_prompt': initialPrompt,
+    });
+    return AISessionModel.fromJson(res.data as Map<String, dynamic>);
+  }
+
+  Future<AISessionModel> sendMessage(String sessionId, String message) async {
+    final res = await _api.post('/ai-sessions/$sessionId/messages', data: {
+      'message': message,
+    });
+    return AISessionModel.fromJson(res.data as Map<String, dynamic>);
+  }
+
+  Future<Map<String, dynamic>> approveAndGenerate(String sessionId, {VideoSpecificationModel? spec}) async {
+    final res = await _api.post('/ai-sessions/$sessionId/generate', data: {
+      if (spec != null) 'specification': spec.toJson(),
+    });
+    return res.data as Map<String, dynamic>;
+  }
+
+  Future<Map<String, dynamic>> requestRevision(String sessionId, String prompt) async {
+    final res = await _api.post('/ai-sessions/$sessionId/revision', data: {
+      'prompt': prompt,
+    });
+    return res.data as Map<String, dynamic>;
+  }
+}
+
+final aiDirectorRepositoryProvider = Provider<AiDirectorRepository>((ref) {
+  return AiDirectorRepository(ref.watch(apiClientProvider));
+});
+
 

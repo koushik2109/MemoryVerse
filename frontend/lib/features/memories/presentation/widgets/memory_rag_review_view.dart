@@ -531,7 +531,17 @@ class _MemoryRagReviewViewState extends State<MemoryRagReviewView> {
         ),
         const SizedBox(height: AppSpacing.s24),
 
-        // 6. Action Button
+        // 6. Action Button & Boundary Reassurance
+        Padding(
+          padding: const EdgeInsets.only(bottom: AppSpacing.s12),
+          child: Center(
+            child: Text(
+              'Only the $selectedCount selected moments will be added to this memory. Everything else in your device library remains strictly private.',
+              style: TextStyle(fontSize: 11.5, color: c.textMuted, height: 1.3),
+              textAlign: TextAlign.center,
+            ),
+          ),
+        ),
         PrimaryButton(
           label: selectedCount == 0
               ? 'Select at least 1 memory'

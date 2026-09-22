@@ -2,8 +2,7 @@
   "venvPath": ".",
   "venv": ".venv",
   "extraPaths": [
-    ".venv/lib/python3.12/site-packages",
-    "/home/koushik_2109/.local/lib/python3.12/site-packages",
+    ".",
     "backend"
   ],
   "include": [
@@ -13,16 +12,10 @@
     {
       "root": "backend",
       "extraPaths": [
-        "/home/koushik_2109/MemoryVerse/backend",
-        "/home/koushik_2109/MemoryVerse/.venv/lib/python3.12/site-packages"
+        ".",
+        "backend"
       ]
     }
   ],
-  "pythonVersion": "3.12",
-  "reportArgumentType": false,
-  "reportIndexIssue": false,
-  "reportOptionalSubscript": false,
-  "reportOptionalMemberAccess": false,
-  "reportCallIssue": false,
-  "reportAttributeAccessIssue": false
+  "pythonVersion": "3.14"
 }

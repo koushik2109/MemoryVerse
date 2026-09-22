@@ -3,7 +3,7 @@ BGE-M3 Embedder (local, no API key required)
 Generates dense text embeddings using FlagEmbedding's BAAI/bge-m3.
 """
 from functools import lru_cache
-from typing import List
+from typing import List, Any, cast
 
 import numpy as np
 from FlagEmbedding import BGEM3FlagModel
@@ -19,13 +19,14 @@ def _load_model() -> BGEM3FlagModel:
 def embed_text(text: str) -> List[float]:
     """Embed a single string and return a flat float list."""
     model = _load_model()
-    result = model.encode([text], batch_size=1, max_length=512)
-    dense: np.ndarray = result["dense_vecs"][0]
-    return dense.tolist()
+    result: Any = model.encode([text], batch_size=1, max_length=512)
+    dense = cast(np.ndarray, result["dense_vecs"][0])
+    return [float(x) for x in dense.tolist()]
 
 
 def embed_batch(texts: List[str]) -> List[List[float]]:
     """Embed a list of strings and return a list of float lists."""
     model = _load_model()
-    result = model.encode(texts, batch_size=16, max_length=512)
-    return result["dense_vecs"].tolist()
+    result: Any = model.encode(texts, batch_size=16, max_length=512)
+    dense = cast(np.ndarray, result["dense_vecs"])
+    return cast(List[List[float]], dense.tolist())

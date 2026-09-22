@@ -6,6 +6,7 @@ import urllib.request
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
+from typing import Any, cast
 from app.core.db import get_supabase_client
 from PIL import Image
 
@@ -16,7 +17,7 @@ def optimize_original(image_bytes: bytes, max_dim: int = 1920, quality: int = 80
         
         # Downscale only if it exceeds target dimension
         if img.width > max_dim or img.height > max_dim:
-            img.thumbnail((max_dim, max_dim), Image.Resampling.LANCZOS)
+            img.thumbnail((max_dim, max_dim), cast(Any, Image.Resampling.LANCZOS))
             
         buf = io.BytesIO()
         img.save(buf, format="JPEG", quality=quality, optimize=True)
@@ -35,17 +36,17 @@ def main():
         print("No media records found.")
         return
 
-    items = res.data
+    items = cast(list[dict[str, Any]], res.data or [])
     print(f"Found {len(items)} image records to inspect.")
     
     optimized_count = 0
     
     for item in items:
-        media_id = item["id"]
-        url = item["url"]
-        storage_path = item.get("storage_path")
-        filename = item.get("filename")
-        file_size = item.get("file_size") or 0
+        media_id = str(item["id"])
+        url = str(item["url"])
+        storage_path = str(item.get("storage_path") or "")
+        filename = str(item.get("filename") or "")
+        file_size = int(item.get("file_size") or 0)
         
         # Only optimize if file size is larger than 1MB (1024 * 1024 bytes)
         if file_size <= 1 * 1024 * 1024:
@@ -74,10 +75,10 @@ def main():
             )
             
             # Re-generate the signed URL just in case, and update DB file size
-            signed_res = supabase.storage.from_("memories").create_signed_url(storage_path, 31536000)
+            signed_res = cast(dict[str, Any], supabase.storage.from_("memories").create_signed_url(storage_path, 31536000))
             new_url = signed_res.get("signedURL") or signed_res.get("signed_url") or ""
             
-            update_data = {
+            update_data: dict[str, Any] = {
                 "file_size": len(opt_bytes)
             }
             if new_url:

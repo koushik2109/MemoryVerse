@@ -131,6 +131,7 @@ CREATE TABLE IF NOT EXISTS public.video_jobs (
     status          TEXT NOT NULL DEFAULT 'queued', -- queued, processing, completed, failed
     result_media_id UUID REFERENCES public.media(id) ON DELETE SET NULL,
     error_message   TEXT,
+    script_metadata JSONB DEFAULT '{}'::jsonb,
     created_at      TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     updated_at      TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );

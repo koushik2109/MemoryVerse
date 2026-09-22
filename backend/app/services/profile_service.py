@@ -33,19 +33,19 @@ class ProfileService:
 
         def _count_vaults():
             try:
-                return supabase.table("vault_members").select("id", count="exact").eq("user_id", user_id).execute().count or 0
+                return supabase.table("vault_members").select("id", count=cast(Any, CountMethod.exact)).eq("user_id", user_id).execute().count or 0
             except Exception:
                 return 0
 
         def _count_media():
             try:
-                return supabase.table("media").select("id", count="exact").eq("owner_id", user_id).execute().count or 0
+                return supabase.table("media").select("id", count=cast(Any, CountMethod.exact)).eq("owner_id", user_id).execute().count or 0
             except Exception:
                 return 0
 
         def _count_memories():
             try:
-                return supabase.table("memories").select("id", count="exact").eq("owner_id", user_id).execute().count or 0
+                return supabase.table("memories").select("id", count=cast(Any, CountMethod.exact)).eq("owner_id", user_id).execute().count or 0
             except Exception:
                 return 0
 

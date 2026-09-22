@@ -24,7 +24,14 @@ CHORD_PROGRESSIONS = {
     "calm": [["C4", "E4", "G4"], ["G3", "B3", "D4"], ["A3", "C4", "E4"], ["F3", "A3", "C4"]],  # I - V - vi - IV
     "energetic": [["A3", "C4", "E4"], ["F3", "A3", "C4"], ["C4", "E4", "G4"], ["G3", "B3", "D4"]],  # vi - IV - I - V
     "nostalgic": [["C4", "E4", "G4", "B4"], ["A3", "C4", "E4", "G4"], ["F3", "A3", "C4", "E4"], ["G3", "B3", "D4", "F4"]],
+    "joyful": [["C4", "E4", "G4"], ["F3", "A3", "C4"], ["G3", "B3", "D4"], ["C4", "E4", "G4"]],
+    "dramatic": [["A3", "C4", "E4"], ["D4", "F4", "A4"], ["F3", "A3", "C4"], ["E3", "G#3", "B3"]],
+    "serene": [["F3", "A3", "C4"], ["G3", "B3", "D4"], ["E3", "G3", "B3"], ["A3", "C4", "E4"]],
     "neutral": [["C4", "E4", "G4"], ["A3", "C4", "E4"], ["F3", "A3", "C4"], ["G3", "B3", "D4"]],
+    "acoustic": [["G3", "B3", "D4"], ["D4", "F#4", "A4"], ["E4", "G4", "B4"], ["C4", "E4", "G4"]],
+    "warm": [["C4", "E4", "G4"], ["A3", "C4", "E4"], ["F3", "A3", "C4"], ["G3", "B3", "D4"]],
+    "emotional": [["A3", "C4", "E4"], ["F3", "A3", "C4"], ["C4", "E4", "G4"], ["E3", "G#3", "B3"]],
+    "lofi": [["C4", "E4", "G4", "B4"], ["A3", "C4", "E4", "G4"], ["D4", "F4", "A4", "C5"], ["G3", "B3", "D4", "F4"]],
 }
 
 
@@ -57,7 +64,7 @@ def generate_chord_tone(freq: float, duration_sec: float, sample_rate: int = 441
 
 
 def synthesize_ambient_soundtrack(
-    mood: str = "calm",
+    mood: Any = "calm",
     duration_seconds: float = 30.0,
     sample_rate: int = 44100,
     output_path: Optional[str] = None,
@@ -66,7 +73,16 @@ def synthesize_ambient_soundtrack(
     Synthesizes a complete looping 4-chord ambient soundtrack.
     Optionally saves to WAV file path.
     """
-    progression = CHORD_PROGRESSIONS.get(mood.lower(), CHORD_PROGRESSIONS["calm"])
+    if hasattr(mood, "get_audio_mood"):
+        mood_str = str(getattr(mood, "get_audio_mood")())
+    elif hasattr(mood, "overall_mood"):
+        mood_str = str(getattr(mood, "overall_mood"))
+    elif hasattr(mood, "dominant_emotion"):
+        mood_str = str(getattr(mood, "dominant_emotion"))
+    else:
+        mood_str = str(mood)
+
+    progression = CHORD_PROGRESSIONS.get(mood_str.lower(), CHORD_PROGRESSIONS["calm"])
     chord_duration = 3.5  # seconds per chord
     cycle_duration = chord_duration * len(progression)
     n_cycles = int(np.ceil(duration_seconds / cycle_duration))

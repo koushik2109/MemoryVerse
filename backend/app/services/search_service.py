@@ -120,7 +120,8 @@ class SearchService:
                                         # Fetch full media row if not already loaded
                                         single_m = supabase.table("media").select("*").eq("id", mid).eq("owner_id", user_id).execute()
                                         if single_m.data:
-                                            media_by_id[mid] = single_m.data[0]
+                                            single_rows = cast(list[dict[str, Any]], single_m.data)
+                                            media_by_id[mid] = single_rows[0]
                                     if mid in media_by_id:
                                         relevance_scores[mid] = max(relevance_scores.get(mid, 0.0), sim)
         except Exception as e:

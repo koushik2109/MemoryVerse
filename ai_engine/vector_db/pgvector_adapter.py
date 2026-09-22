@@ -5,7 +5,7 @@ Supports 512-dim (CLIP), 768-dim (SigLIP), 1024-dim (BGE-M3), and 1536-dim (Open
 """
 import os
 import logging
-from typing import List, Dict, Any, Optional
+from typing import List, Dict, Any, Optional, cast
 
 logger = logging.getLogger(__name__)
 
@@ -36,7 +36,7 @@ class PgVectorAdapter:
             return []
         try:
             res = client.rpc("match_media_by_clip", {"query_embedding": query_vector, "match_count": match_count}).execute()
-            return res.data or []
+            return cast(List[Dict[str, Any]], res.data or [])
         except Exception as e:
             logger.debug(f"RPC match_media_by_clip error: {e}")
             return []
@@ -48,7 +48,7 @@ class PgVectorAdapter:
             return []
         try:
             res = client.rpc("match_media_by_siglip", {"query_embedding": query_vector, "match_count": match_count}).execute()
-            return res.data or []
+            return cast(List[Dict[str, Any]], res.data or [])
         except Exception as e:
             logger.debug(f"RPC match_media_by_siglip error: {e}")
             return []
@@ -60,7 +60,7 @@ class PgVectorAdapter:
             return []
         try:
             res = client.rpc("match_media_by_bge", {"query_embedding": query_vector, "match_count": match_count}).execute()
-            return res.data or []
+            return cast(List[Dict[str, Any]], res.data or [])
         except Exception as e:
             logger.debug(f"RPC match_media_by_bge error: {e}")
             return []

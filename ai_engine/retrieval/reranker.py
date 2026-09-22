@@ -47,10 +47,13 @@ class CrossEncoderReranker:
                 for it in items:
                     caption = it.get("caption") or it.get("auto_caption") or ""
                     pairs.append([query, caption])
-                scores = model.compute_score(pairs)
+                scores: Any = model.compute_score(pairs)
                 for idx, it in enumerate(items):
                     entry = dict(it)
-                    entry["rerank_score"] = float(scores[idx]) if isinstance(scores, list) else float(scores)
+                    try:
+                        entry["rerank_score"] = float(scores[idx]) if hasattr(scores, "__getitem__") else float(scores)
+                    except Exception:
+                        entry["rerank_score"] = 0.5
                     reranked.append(entry)
                 reranked.sort(key=lambda x: x["rerank_score"], reverse=True)
                 return reranked[:top_k]

@@ -34,3 +34,4 @@ TOP_K: int = int(os.getenv("TOP_K", "10"))
 
 # Supabase table name for audio memories
 AUDIO_TABLE: str = "audio_memories"
+VIDEO_TABLE: str = os.getenv("VIDEO_TABLE", "video_memories")

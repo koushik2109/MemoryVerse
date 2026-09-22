@@ -39,7 +39,7 @@ fi
 
 # 4. Launch Backend
 echo "[OK]  Launching Backend server..."
-(cd "$BACKEND_DIR" && PYTHONPATH=. "$VENV_DIR/bin/python" -m uvicorn app.main:app --reload --reload-dir app --host 0.0.0.0 --port 8000) &
+(cd "$BACKEND_DIR" && PYTHONPATH=. "$VENV_DIR/bin/python" -m uvicorn app.main:app --reload --reload-dir app --reload-exclude '.venv*' --reload-exclude '*/site-packages/*' --reload-exclude '*/__pycache__/*' --host 0.0.0.0 --port 8000) &
 BACKEND_PID=$!
 
 sleep 2

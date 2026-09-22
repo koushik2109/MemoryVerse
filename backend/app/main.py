@@ -19,16 +19,35 @@ def _ipv4_preferred_getaddrinfo(host, port, family=0, type=0, proto=0, flags=0):
     return _orig_getaddrinfo(host, port, family, type, proto, flags)
 socket.getaddrinfo = _ipv4_preferred_getaddrinfo
 
+from contextlib import asynccontextmanager
 from fastapi import FastAPI, Request, status
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from fastapi.exceptions import HTTPException
 from app.config.settings import settings
-from app.api import auth, profile, vaults, memories, media, invites, notifications, search, ai
+from app.api import auth, profile, vaults, memories, media, invites, notifications, search, ai, ai_sessions
 from app.api import timeline
+from app.services.video_queue import video_worker_pool
+from app.services.video_service import VideoService
 import logging
 
 logger = logging.getLogger(__name__)
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """
+    Application lifespan manager.
+    Registers the video pipeline runner, starts background workers & watchdog,
+    and handles graceful shutdown.
+    """
+    video_worker_pool.register_pipeline_runner(VideoService.execute_job_by_id)
+    video_worker_pool.start()
+    logger.info("VideoWorkerPool successfully initialized and started.")
+    yield
+    video_worker_pool.stop()
+    logger.info("VideoWorkerPool successfully shut down.")
+
 
 app = FastAPI(
     title=settings.PROJECT_NAME,
@@ -36,7 +55,8 @@ app = FastAPI(
     description="MemoryVerse API — Production Backend with Supabase Integration",
     docs_url="/docs",
     redoc_url="/redoc",
-    openapi_url="/openapi.json"
+    openapi_url="/openapi.json",
+    lifespan=lifespan,
 )
 
 # ── CORS ──────────────────────────────────────────────────────────────────────
@@ -134,6 +154,7 @@ app.include_router(invites.router,       prefix="/api/v1")
 app.include_router(notifications.router, prefix="/api/v1")
 app.include_router(search.router,        prefix="/api/v1")
 app.include_router(ai.router,            prefix="/api/v1")
+app.include_router(ai_sessions.router,   prefix="/api/v1")
 
 
 @app.get("/health", tags=["System"])
@@ -148,4 +169,11 @@ async def health_check():
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("app.main:app", host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run(
+        "app.main:app",
+        host="0.0.0.0",
+        port=8000,
+        reload=True,
+        reload_dirs=["app"],
+        reload_excludes=[".venv", "*/.venv/*", "*/site-packages/*", "__pycache__", "cache", "tmp", "storage", "*.pyc"]
+    )

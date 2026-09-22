@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -10,6 +11,26 @@ final apiClientProvider = Provider<ApiClient>((ref) => ApiClient());
 
 class ApiClient {
   late final Dio _dio;
+  Completer<bool>? _refreshCompleter;
+
+  /// Async mutex to prevent concurrent refresh token calls and 401 loops
+  Future<bool> _refreshTokenMutex() async {
+    if (_refreshCompleter != null) {
+      return _refreshCompleter!.future;
+    }
+    _refreshCompleter = Completer<bool>();
+    try {
+      final res = await Supabase.instance.client.auth.refreshSession();
+      final success = res.session != null;
+      _refreshCompleter!.complete(success);
+      return success;
+    } catch (_) {
+      _refreshCompleter!.complete(false);
+      return false;
+    } finally {
+      _refreshCompleter = null;
+    }
+  }
 
   static String get baseUrl {
     String url = dotenv.env['API_BASE_URL'] ?? 'http://10.0.2.2:8000/api/v1';
@@ -50,18 +71,26 @@ class ApiClient {
         },
         onError: (DioException error, handler) async {
           if (error.response?.statusCode == 401) {
-            // Attempt one token refresh then retry
-            try {
-              final res = await Supabase.instance.client.auth.refreshSession();
-              if (res.session != null) {
+            // Use mutex to refresh token only once across concurrent failing requests
+            final refreshed = await _refreshTokenMutex();
+            if (refreshed) {
+              final newSession = Supabase.instance.client.auth.currentSession;
+              if (newSession != null) {
                 error.requestOptions.headers['Authorization'] =
-                    'Bearer ${res.session!.accessToken}';
-                final clonedReq = await _dio.fetch(error.requestOptions);
-                return handler.resolve(clonedReq);
+                    'Bearer ${newSession.accessToken}';
+                try {
+                  final clonedReq = await _dio.fetch(error.requestOptions);
+                  return handler.resolve(clonedReq);
+                } catch (retryError) {
+                  if (retryError is DioException) {
+                    return handler.next(retryError);
+                  }
+                }
               }
-            } catch (_) {}
-            // If refresh failed, sign out so router redirects to sign-in
-            await Supabase.instance.client.auth.signOut();
+            } else {
+              // If refresh failed, sign out so router redirects to sign-in
+              await Supabase.instance.client.auth.signOut();
+            }
           }
           return handler.next(error);
         },
@@ -134,7 +163,11 @@ class ApiClient {
       return await _dio.post<T>(
         path,
         data: form,
-        options: Options(contentType: 'multipart/form-data'),
+        options: Options(
+          contentType: 'multipart/form-data',
+          sendTimeout: const Duration(seconds: 120),
+          receiveTimeout: const Duration(seconds: 120),
+        ),
         cancelToken: cancelToken,
         onSendProgress: onSendProgress,
       );

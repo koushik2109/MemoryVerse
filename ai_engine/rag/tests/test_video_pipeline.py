@@ -37,7 +37,8 @@ def _make_synthetic_video(
     tmp = tempfile.NamedTemporaryFile(delete=False, suffix=".mp4")
     tmp.close()
 
-    fourcc = cv2.VideoWriter_fourcc(*"mp4v")
+    fourcc_fn = getattr(cv2, "VideoWriter_fourcc", getattr(cv2.VideoWriter, "fourcc", None))
+    fourcc = fourcc_fn(*"mp4v") if fourcc_fn else 0x7634706d
     writer = cv2.VideoWriter(tmp.name, fourcc, fps, (width, height))
 
     total_frames = int(duration_sec * fps)

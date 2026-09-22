@@ -8,6 +8,7 @@ import urllib.request
 # Ensure backend folder is on path
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
+from typing import Any, cast
 from app.core.db import get_supabase_client
 from PIL import Image
 
@@ -16,7 +17,7 @@ def generate_thumbnail(image_bytes: bytes, max_dim: int = 480) -> bytes | None:
         img = Image.open(io.BytesIO(image_bytes))
         img = img.convert("RGB")
         if img.width > max_dim or img.height > max_dim:
-            img.thumbnail((max_dim, max_dim), Image.Resampling.LANCZOS)
+            img.thumbnail((max_dim, max_dim), cast(Any, Image.Resampling.LANCZOS))
         buf = io.BytesIO()
         img.save(buf, format="JPEG", quality=80, optimize=True)
         return buf.getvalue()
@@ -34,18 +35,18 @@ def main():
         print("No media records found in database.")
         return
 
-    items = res.data
+    items = cast(list[dict[str, Any]], res.data or [])
     print(f"Found {len(items)} total image records. Inspecting for uncompressed thumbnails...")
     
     updated_count = 0
     
     for item in items:
-        media_id = item["id"]
-        url = item["url"]
-        thumb_url = item.get("thumbnail_url")
-        storage_path = item.get("storage_path")
-        owner_id = item.get("owner_id")
-        filename = item.get("filename")
+        media_id = str(item["id"])
+        url = str(item["url"])
+        thumb_url = str(item.get("thumbnail_url") or "")
+        storage_path = str(item.get("storage_path") or "")
+        owner_id = str(item.get("owner_id") or "")
+        filename = str(item.get("filename") or "")
         
         # If thumbnail is already pointing to a custom thumb folder, skip it
         if thumb_url and "/thumbs/" in thumb_url:
@@ -78,7 +79,7 @@ def main():
             )
             
             # Create a signed URL valid for 1 year
-            signed_res = supabase.storage.from_("memories").create_signed_url(thumb_path, 31536000)
+            signed_res = cast(dict[str, Any], supabase.storage.from_("memories").create_signed_url(thumb_path, 31536000))
             new_thumb_url = signed_res.get("signedURL") or signed_res.get("signed_url") or ""
             
             if not new_thumb_url:

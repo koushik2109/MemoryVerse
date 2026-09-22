@@ -21,5 +21,5 @@ def transcribe(file_path: str) -> str:
     """
     model = _load_model()
     result = model.transcribe(file_path, fp16=False, language=None)
-    text = result.get("text", "").strip()
-    return text
+    raw_text = result.get("text", "")
+    return str(raw_text).strip() if raw_text else ""

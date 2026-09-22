@@ -25,7 +25,7 @@ logger = logging.getLogger(__name__)
 
 # ── Image Quality Scoring ─────────────────────────────────────────────────────
 
-def _laplacian_variance(arr: np.ndarray) -> float:
+def _laplacian_variance(arr: Any) -> float:
     """
     Estimate image sharpness via Laplacian variance.
     Uses scipy.ndimage.laplace if available, falls back to numpy 2nd-order gradient.
@@ -506,11 +506,22 @@ def select_story_candidates(
     if not media_items:
         return []
 
+    def _get_item_score(it: Dict[str, Any]) -> float:
+        k = str(it.get("segment_id") or it.get("id", ""))
+        entry = quality_scores.get(k, {})
+        val = entry.get("overall_score")
+        if val is None:
+            val = it.get("story_value")
+        try:
+            return float(val) if val is not None else 0.5
+        except (ValueError, TypeError):
+            return 0.5
+
     # Step 1: Best representative per cluster
     cluster_best: Dict[int, Tuple[float, str]] = {}
     for item in media_items:
         item_key = str(item.get("segment_id") or item.get("id", ""))
-        q = quality_scores.get(item_key, {}).get("overall_score", item.get("story_value", 0.5))
+        q = _get_item_score(item)
         cid = cluster_map.get(item_key, -1)
         if cid not in cluster_best or cluster_best[cid][0] < q:
             cluster_best[cid] = (q, item_key)
@@ -526,17 +537,14 @@ def select_story_candidates(
     for item in media_items:
         if (item.get("media_type") or "image").lower() == "video":
             mid = str(item.get("media_id") or item.get("id", ""))
-            item_key = str(item.get("segment_id") or item.get("id", ""))
-            score = quality_scores.get(item_key, {}).get("overall_score", item.get("story_value", 0.5))
+            score = _get_item_score(item)
             if mid not in video_peak_scores or score > video_peak_scores[mid]:
                 video_peak_scores[mid] = score
 
     # Sort all input media by quality/story_value first so top moments get priority
     sorted_pool = sorted(
         media_items,
-        key=lambda x: quality_scores.get(
-            str(x.get("segment_id") or x.get("id", "")), {}
-        ).get("overall_score", x.get("story_value", 0.5)),
+        key=_get_item_score,
         reverse=True,
     )
 
@@ -545,7 +553,23 @@ def select_story_candidates(
         if item_key not in winners:
             continue
 
-        q = quality_scores.get(item_key, {}).get("overall_score", item.get("story_value", 0.5))
+        # Sensitive Content & Document Exclusion (Privacy & Safety Policy)
+        desc = (item.get("description") or "").lower()
+        fname = (item.get("file_name") or item.get("filename") or "").lower()
+        tags = [str(t).lower() for t in item.get("tags") or []]
+        is_sensitive = item.get("is_sensitive", False) or any(
+            k in fname or k in desc or k in tags
+            for k in [
+                "screenshot", "screen_shot", "invoice", "receipt",
+                "passport", "id_card", "credit_card", "tax_return",
+                "document_scan", "sensitive_doc", "nsfw"
+            ]
+        )
+        if is_sensitive and not item.get("explicitly_included", False):
+            logger.debug(f"Excluding sensitive/document media {item_key} from storytelling candidate pool")
+            continue
+
+        q = _get_item_score(item)
         mtype = (item.get("media_type") or "image").lower()
 
         if q < min_quality_threshold:
@@ -575,7 +599,9 @@ def select_story_candidates(
         cluster_size = sum(1 for c in cluster_map.values() if c == cid)
         uniqueness = max(0.10, 1.0 - (cluster_size - 1) * 0.25)
 
-        selection_score = 0.50 * q + 0.30 * float(item.get("story_value", q)) + 0.20 * uniqueness
+        story_v = item.get("story_value")
+        s_val = float(story_v) if story_v is not None else q
+        selection_score = 0.50 * q + 0.30 * s_val + 0.20 * uniqueness
 
         # Format human-readable reason
         ai_tags = (item.get("metadata") or {}).get("ai_tags", {})

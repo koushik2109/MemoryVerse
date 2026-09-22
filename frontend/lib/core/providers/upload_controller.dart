@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:dio/dio.dart';
@@ -90,23 +91,38 @@ class UploadController extends Notifier<List<UploadTask>> {
     _processQueue();
   }
 
+  bool _isProcessingQueue = false;
+
   Future<void> _processQueue() async {
-    // Find all waiting tasks
-    final waitingTasks = state
-        .where((t) => t.status == UploadStatus.waiting)
-        .toList();
-    if (waitingTasks.isEmpty) return;
+    if (_isProcessingQueue) return;
+    _isProcessingQueue = true;
 
-    // Process sequentially (or concurrently, but sequential is safer for mobile bandwidth)
-    for (final task in waitingTasks) {
-      // Check if it's still in the queue (might have been canceled)
-      if (!state.any(
-        (t) => t.id == task.id && t.status == UploadStatus.waiting,
-      )) {
-        continue;
+    try {
+      const maxConcurrent = 3;
+      while (true) {
+        final currentUploading =
+            state.where((t) => t.status == UploadStatus.uploading).length;
+        if (currentUploading >= maxConcurrent) {
+          await Future.delayed(const Duration(milliseconds: 150));
+          continue;
+        }
+
+        final nextTask = state.cast<UploadTask?>().firstWhere(
+              (t) => t?.status == UploadStatus.waiting,
+              orElse: () => null,
+            );
+
+        if (nextTask == null) {
+          if (currentUploading == 0) break;
+          await Future.delayed(const Duration(milliseconds: 150));
+          continue;
+        }
+
+        unawaited(_uploadSingle(nextTask.id));
+        await Future.delayed(const Duration(milliseconds: 25));
       }
-
-      await _uploadSingle(task.id);
+    } finally {
+      _isProcessingQueue = false;
     }
   }
 

@@ -34,7 +34,7 @@ def _frame_to_base64(frame: np.ndarray, max_size: int = 512) -> str:
     rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
     pil = Image.fromarray(rgb)
     # Resize to keep within max_size while preserving aspect ratio
-    pil.thumbnail((max_size, max_size), Image.LANCZOS)
+    pil.thumbnail((max_size, max_size), Image.Resampling.LANCZOS)
     buf = io.BytesIO()
     pil.save(buf, format="JPEG", quality=85)
     return base64.b64encode(buf.getvalue()).decode("utf-8")

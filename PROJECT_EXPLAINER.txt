@@ -1,0 +1,775 @@
+================================================================================
+MEMORYVERSE: COMPLETE PROJECT EXPLAINER & ARCHITECTURAL REFERENCE
+================================================================================
+Project: MemoryVerse — Autonomous Episodic Retrieval & Generative Documentary Synthesis
+Target Audience: Developers, Collaborators, Reviewers pulling the codebase
+Codebase Health: 100% Operational (25/25 Backend Tests, 50/50 AI Tests, 0 Flutter Errors)
+Date: September 2026
+================================================================================
+
+TABLE OF CONTENTS
+--------------------------------------------------------------------------------
+1.  PROJECT OVERVIEW & CORE PHILOSOPHY
+2.  HIGH-LEVEL ARCHITECTURE (THE 360-DEGREE VIEW)
+3.  EXTERNAL ARCHITECTURE & USER JOURNEYS (HOW IT WORKS EXTERNALLY)
+    3.1 Authentication, Profiles & Session Handling
+    3.2 Collaborative Vaults & Member Permissions
+    3.3 Resilient Batch Media Ingestion & Uploads
+    3.4 Visual Timeline Exploration (Year / Month / Day)
+    3.5 Multimodal Semantic Search & Discovery
+    3.6 Non-Destructive Duplicate & Burst Photo Handling
+    3.7 Conversational AI Memory Assistant
+    3.8 Cinematic Video Journal Creation & Status Tracking
+    3.9 Smooth Media & Video Streaming (HTTP 206 Partial Content)
+4.  INTERNAL SYSTEM ARCHITECTURE (HOW IT WORKS INTERNALLY)
+    4.1 Frontend Layer (Flutter, Riverpod, GoRouter, Dio)
+    4.2 API Gateway Layer (FastAPI, Pydantic v2, Security, Throttling)
+    4.3 Storage & Persistence Layer (Supabase PostgreSQL, pgvector, S3)
+    4.4 Multi-Agent Cognitive Framework (LangGraph StateGraph)
+    4.5 Multimodal RAG Engine (Standalone Port 8001 Microservice)
+    4.6 Generative Video & Audio Synthesis Engine
+5.  MODELS, APPROACHES & MATHEMATICAL ALGORITHMS
+    5.1 Vision & Multimodal Embeddings (OpenAI CLIP ViT-B/32, SigLIP)
+    5.2 Text & Hybrid Retrieval Embeddings (BAAI BGE-M3, BM25)
+    5.3 Acoustic Features & Speech Recognition (Whisper, Librosa, ESC-50)
+    5.4 Computer Vision Quality Filters (Laplacian Variance, Exposure)
+    5.5 Duplicate Clustering (Union-Find on Cosine Similarity >= 0.92)
+    5.6 Spatiotemporal Episodic Clustering (Haversine Distance Windowing)
+    5.7 Factual Auditing & Zero-Hallucination (Evidence Manifest)
+    5.8 Emotion-Aware Neural Text-to-Speech (Edge-TTS)
+    5.9 Procedural 4-Chord Ambient Synthesizer (NumPy Harmonics)
+    5.10 Dynamic Audio Ducking (Hanning-Smoothed Windowing)
+    5.11 Dynamic Camera Choreography (Ken Burns Cubic Interpolator)
+6.  ACADEMIC RESEARCH & 4-MODEL ABLATION MATRIX
+    6.1 The 4 Tested Configurations
+    6.2 Empirical Benchmark Results
+    6.3 Standardized Evaluation Datasets
+7.  END-TO-END EXECUTION LIFECYCLES (STEP-BY-STEP CODE TRACES)
+    7.1 Trace A: Media Upload -> EXIF -> CLIP -> Zero-Shot Tags -> pgvector
+    7.2 Trace B: Natural Language Query -> Multimodal Semantic Search
+    7.3 Trace C: Memory Selection -> LangGraph Multi-Agent -> Cinematic MP4
+8.  DATABASE SCHEMA & MULTI-VECTOR PGVECTOR LAYER
+9.  REPOSITORY STRUCTURE & FILE MANIFEST
+10. DEVELOPER QUICKSTART GUIDE (PULL, SETUP, RUN & TEST)
+11. COMMON GOTCHAS, FAQS & TROUBLESHOOTING
+
+================================================================================
+1. PROJECT OVERVIEW & CORE PHILOSOPHY
+================================================================================
+
+What is MemoryVerse?
+-------------------
+MemoryVerse is an AI-powered personal memory vault and autonomous documentary 
+filmmaker. 
+
+Traditional gallery platforms (Google Photos, Apple Photos, Amazon Photos) act 
+predominantly as passive cloud hard-drives. When they do generate "memories", 
+they rely on rigid, pre-templated slideshow transitions and arbitrary musical 
+loops without true cinematic narrative structure or factual comprehension.
+
+MemoryVerse transforms raw, chaotic photo and video dumps into:
+1. Collaborative episodic vaults with strict role-based access.
+2. An intelligent visual timeline organized by time, place, and event clusters.
+3. Natural-language semantic search across images, speech, and ambient audio.
+4. An interactive AI memory assistant that talks about your life experiences.
+5. Fully automated, cinematic documentary videos featuring:
+   - Dynamic Ken Burns panning and zooming.
+   - Emotion-aware neural voiceover narration.
+   - Procedural, non-copyrighted harmonic ambient background music.
+   - Professional audio ducking (music softens when the narrator speaks).
+   - Anti-hallucinatory fact auditing (zero invented dates, people, or places).
+
+Key Design Tenet: Complete Local Privacy + Optional Cloud Acceleration
+----------------------------------------------------------------------
+The system is built so that heavy computer vision and audio analysis (blur 
+filtering, EXIF parsing, duplicate clustering, acoustic feature extraction, and 
+vector similarity) run completely offline/locally without mandatory third-party 
+proprietary APIs. When external LLMs (OpenAI, Gemini, OpenRouter) are available, 
+they provide enhanced narrative prose; when absent, the system falls back 
+gracefully to local heuristic synthesizers.
+
+
+================================================================================
+2. HIGH-LEVEL ARCHITECTURE (THE 360-DEGREE VIEW)
+================================================================================
+
+The platform is designed around 6 decoupled layers:
+
++--------------------------------------------------------------------------+
+|                  1. CLIENT LAYER (Flutter / Riverpod)                    |
+|  - Cross-platform: Mobile (Android/iOS), Desktop (Linux/Mac), Web Chrome |
+|  - Real-time photo picker, timeline zoom, AI chat, Chewie video player   |
++--------------------------------------------------------------------------+
+                                    |
+                            REST API / JWT Auth
+                                    v
++--------------------------------------------------------------------------+
+|                     2. API GATEWAY LAYER (FastAPI)                       |
+|  - App Gateway on Port 8000: JWT security, rate-limiting, CORS           |
+|  - Endpoints: /auth, /vaults, /memories, /media, /ai, /search, /timeline |
++--------------------------------------------------------------------------+
+           |                                                |
+           v                                                v
++-----------------------+                        +-------------------------+
+| 3. PERSISTENCE LAYER  |                        |  4. COGNITIVE ENGINE    |
+| (Supabase PostgreSQL) |                        |  (LangGraph 5 Agents)   |
+| - Profiles & Vaults   |                        | - 1. Retrieval Planner  |
+| - Media & Metadata    |                        | - 2. Media Scorer       |
+| - pgvector Embeddings |                        | - 3. Storyteller        |
+| - Object Storage (S3) |                        | - 4. Fact Auditor       |
+| - Private Byte Stream |                        | - 5. Video Director     |
++-----------------------+                        +-------------------------+
+           ^                                                |
+           |                                                v
++-----------------------+                        +-------------------------+
+|  5. MULTIMODAL RAG    |                        |  6. GENERATIVE RENDERER |
+| (Port 8001 Service)   |<-----------------------|  (MoviePy 2.x / FFmpeg) |
+| - SigLIP (768-dim)    |                        | - Ken Burns Pan/Zoom    |
+| - BGE-M3 (1024-dim)   |                        | - Edge-TTS Voiceover    |
+| - Whisper Audio STT   |                        | - NumPy Procedural BGM  |
+| - Librosa Acoustics   |                        | - Dynamic Audio Ducking |
++-----------------------+                        +-------------------------+
+
+
+================================================================================
+3. EXTERNAL ARCHITECTURE & USER JOURNEYS (HOW IT WORKS EXTERNALLY)
+================================================================================
+
+3.1 Authentication, Profiles & Session Handling
+-----------------------------------------------
+- Users sign up or log in via email and password or 6-digit OTP codes.
+- Backend uses Bcrypt password hashing and issues cryptographically signed 
+  RS256/HS256 JWT tokens.
+- Frontend stores JWTs securely and uses a Dio HTTP interceptor to attach 
+  `Authorization: Bearer <token>` to every outgoing request.
+- User profiles track storage consumption, number of vaults, and avatar images.
+
+3.2 Collaborative Vaults & Member Permissions
+---------------------------------------------
+- Users can create shared "Vaults" (e.g., "Paris Trip 2026", "Family Archive").
+- Each vault supports 3 permission roles:
+  * Owner: Full administrative rights, can delete the vault, invite/kick members.
+  * Editor: Can upload media, create memories, and generate videos.
+  * Viewer: Read-only access to browse photos, timeline, and watch videos.
+- 6-character alphanumeric invite codes (e.g. `PARIS1`) allow instant joining.
+- Direct room sharing triggers native device sheets (WhatsApp, AirDrop, etc.) 
+  via `share_plus` with automatic clipboard fallback.
+
+3.3 Resilient Batch Media Ingestion & Uploads
+---------------------------------------------
+- Users select 1 to 50+ images/videos from their local gallery.
+- Client-side pre-processing: A ~30KB compressed thumbnail is generated instantly 
+  for immediate local rendering before upload finishes.
+- Bounded Concurrency: The client and server enforce an `asyncio.Semaphore(4)` 
+  pool so mobile radios and cellular connections are never overwhelmed.
+- Exponential Backoff Retries: Built with `tenacity` (up to 3 retries with random 
+  jitter) to absorb momentary Wi-Fi drops.
+- Partial Batch Isolation: If photo #7 out of 10 fails to upload, photos #1-6 
+  and #8-10 are still preserved and indexed.
+- Floating Non-Intrusive Banner: Shows live upload progress (% and items left) 
+  so users can continue navigating the app freely.
+
+3.4 Visual Timeline Exploration (Year / Month / Day)
+----------------------------------------------------
+- Media items are automatically grouped chronologically using EXIF timestamps.
+- Users can zoom between hierarchical views:
+  * Year View: High-level overview of annual memory milestones.
+  * Month View: Thematic event groupings.
+  * Day View: High-resolution chronological photo grid.
+
+3.5 Multimodal Semantic Search & Discovery
+------------------------------------------
+- Instead of relying on exact filenames, users can type natural questions:
+  * "photos of the beach at sunset"
+  * "birthday party with friends and cake"
+  * "our road trip in the mountains"
+- The search bar provides instant interactive suggestion chips.
+- Results display a 2-column masonry grid with AI tag badges (`#beach`, `#sunset`) 
+  and video duration tags.
+
+3.6 Non-Destructive Duplicate & Burst Photo Handling
+----------------------------------------------------
+- When people take photos, they often take 3 to 5 rapid burst shots.
+- The AI engine calculates cosine visual similarity between sibling items.
+- If similarity >= 0.92, the secondary photos are tagged as "Alternate" rather 
+  than cluttering the feed or being deleted.
+- The primary photo displays an unobtrusive `+N Alt` badge in the grid.
+- Users never lose photos, but their feed remains clean and aesthetic.
+
+3.7 Conversational AI Memory Assistant
+--------------------------------------
+- An integrated chat screen allows users to talk to their memories:
+  * "What did we do on day 2 in Rome?"
+  * "Show me the best family dinners from last year."
+- The assistant retrieves relevant photos and presents them as interactive 
+  visual memory cards within the chat stream.
+
+3.8 Cinematic Video Journal Creation & Status Tracking
+------------------------------------------------------
+- Inside any vault or memory, users tap "Create Video Journal".
+- Configuration Options:
+  * Target duration: 15s, 30s, 60s, or custom.
+  * Narration voice & mood: Calm, Nostalgic, Energetic, Joyful, Dramatic, Serene.
+  * Aspect ratio: 16:9 widescreen or 9:16 vertical reel.
+- Asynchronous State Machine: The job transitions through:
+  `QUEUED` -> `PROCESSING` -> `COMPLETED` (or `FAILED` with retry).
+- The client receives real-time status updates ("Analyzing photos...", 
+  "Composing Ken Burns motion...", "Synthesizing voiceover...", "Ready!").
+- Once finished, the video plays in the built-in video player with story chapter 
+  markers and high-resolution subtitles.
+
+3.9 Smooth Media & Video Streaming (HTTP 206 Partial Content)
+-------------------------------------------------------------
+- Playing 50MB-100MB 1080p MP4 videos over mobile networks often stutters if 
+  the whole file must be downloaded first.
+- The backend implements an intelligent local seekable disk cache 
+  in `/tmp/memoryverse_media_cache/`.
+- Subsequent range requests (`Range: bytes=1048576-2097151`) execute zero-copy 
+  OS `seek()` operations, streaming partial chunks in < 5ms.
+
+
+================================================================================
+4. INTERNAL SYSTEM ARCHITECTURE (HOW IT WORKS INTERNALLY)
+================================================================================
+
+4.1 Frontend Layer (Flutter, Riverpod, GoRouter, Dio)
+-----------------------------------------------------
+- State Management: Uses Flutter Riverpod for declarative, reactive state:
+  * `authProvider`: Manages JWT tokens, user sessions, and auto-refresh.
+  * `uploadController`: Reactive queue tracking background multi-media uploads.
+  * `themeProvider`: Instant dynamic toggle between dark and light modes.
+- Routing: Handled by `go_router` with declarative route guards:
+  Unauthenticated requests are automatically redirected to `/landing` or `/login`.
+- Network Client: Custom `Dio` singleton with request interceptors for headers, 
+  automatic token attachment, and centralized error parsing (`auth_error_handler`).
+- Platform Abstraction: `MediaServiceProvider` delegates dynamically to:
+  * Android: `AndroidMediaService` (ContentResolver & Android PhotoPicker).
+  * iOS: `IosMediaService` (PHPhotoLibrary).
+  * Desktop / Web: `WindowsMediaService` / File picker.
+
+4.2 API Gateway Layer (FastAPI, Pydantic v2, Security, Throttling)
+------------------------------------------------------------------
+- Built on FastAPI for high-throughput asynchronous execution.
+- Data Validation: Powered by Pydantic v2 domain schemas (`backend/app/schemas/domain.py`).
+- Security Dependency: `get_current_user` extracts and decodes the JWT token 
+  from the Authorization header, validating expiration and checking user identity.
+- Rate Limiting: `RateLimitService` provides sliding-window request throttling. 
+  It connects to Upstash Redis if configured, and falls back gracefully to a 
+  thread-safe local in-memory token bucket if Redis is offline.
+- Route Handlers (`backend/app/api/`):
+  * `auth.py`: User registration, login, OTP generation, token refresh.
+  * `vaults.py`: Vault CRUD, role management, invitation links.
+  * `media.py`: Chunked media uploads, EXIF trigger, HTTP 206 video streamer.
+  * `memories.py`: Episodic memories grouping media items.
+  * `search.py`: Lexical, tag-based, and dense vector search.
+  * `ai.py`: Multi-agent orchestration, TTS synthesis, video job queueing.
+  * `timeline.py`: Hierarchical year/month/day queries.
+
+4.3 Storage & Persistence Layer (Supabase PostgreSQL, pgvector, S3)
+-------------------------------------------------------------------
+- Database Engine: Managed PostgreSQL 15+ hosted on Supabase.
+- Vector Extension: PostgreSQL `pgvector` extension enabled.
+- Object Storage: Supabase Storage S3-compatible private bucket named `memories`.
+- Security: Row Level Security (RLS) is enabled on all tables, enforced through 
+  `auth.uid()` and the `is_vault_member()` SECURITY DEFINER function.
+
+4.4 Multi-Agent Cognitive Framework (LangGraph StateGraph)
+----------------------------------------------------------
+A single LLM prompt cannot simultaneously compute computer-vision blur metrics, 
+query vector databases, generate millisecond-timed video shot-lists, and enforce 
+factual verification.
+
+MemoryVerse organizes these duties into 5 specialized agents connected in a 
+cyclic state machine powered by LangGraph (`ai_engine/langgraph/`):
+
+   [START]
+      |
+      v
++-------------+
+| 1. PLANNER  | --> Extracts dates, GPS bounding boxes, duration target
++-------------+
+      |
+      v
++-------------+
+| 2. SCORER   | --> Laplacian blur filter, exposure test, duplicate clustering
++-------------+
+      |
+      v
++-------------+
+| 3. STORY    | --> 3-Act narrative arc (Arrival -> Exploration -> Climax)
++-------------+
+      |
+      v
++-------------+
+| 4. AUDITOR  | --> Verifies script against Evidence Manifest (0.0% Hallucination)
++-------------+
+      |      \
+ [Pass]       \ [Failed & Retries Left]
+      |        +----> (Loops back to 3. STORY for self-correction)
+      v
++-------------+
+| 5. DIRECTOR | --> Compiles millisecond shot-list with Ken Burns & transitions
++-------------+
+      |
+      v
+    [END]
+
+4.5 Multimodal RAG Engine (Standalone Port 8001 Microservice)
+------------------------------------------------------------
+- Located in `ai_engine/rag/server.py`.
+- Can run standalone on Port 8001 or directly inside the backend.
+- Provides dedicated endpoints:
+  * `POST /api/v1/ingest/video`: Subsamples video keyframes via OpenCV, 
+    embeds keyframes with SigLIP, and auto-captions via Qwen-2.5-VL / Ollama.
+  * `POST /api/v1/retrieve/video`: Dual-embedding cross-modal visual retrieval.
+  * `POST /api/v1/ingest/audio`: Computes Librosa acoustic features and Whisper STT.
+  * `POST /api/v1/retrieve/audio`: Intent-filtered audio memory retrieval.
+
+4.6 Generative Video & Audio Synthesis Engine
+---------------------------------------------
+- Located in `ai_engine/video_generation/` and `backend/app/services/video_service.py`.
+- Uses MoviePy 2.x and FFmpeg under the hood.
+- Transforms the shot-list JSON produced by the Video Director Agent into an MP4:
+  1. Loads each high-resolution image.
+  2. Applies dynamic 30fps Ken Burns pan-and-zoom trajectory curves.
+  3. Applies smooth alpha crossfade transitions between scenes.
+  4. Generates neural TTS voiceover audio matching scene descriptions.
+  5. Synthesizes 4-chord procedural ambient background music.
+  6. Automatically ducks background music volume under voiceover.
+  7. Renders anti-aliased typographic title cards and subtitles using PIL.
+  8. Encodes final video with H.264 video and AAC audio.
+
+
+================================================================================
+5. MODELS, APPROACHES & MATHEMATICAL ALGORITHMS
+================================================================================
+
+5.1 Vision & Multimodal Embeddings
+----------------------------------
+- Model: OpenAI CLIP (`clip-ViT-B-32`), 512 dimensions.
+  * Loaded via singleton loader `ai_engine/models/clip_loader.py`.
+  * Encodes photos into unit-normalized visual embeddings.
+  * Encodes text queries ("sunset on a mountain") into the identical embedding 
+    space, enabling direct cosine distance vector search.
+  * Used for zero-shot tag classification across scenes (beach, nature, cityscape, 
+    party, etc.), objects (food, car, building, etc.), and people count.
+- Model: Google SigLIP (`google/siglip-base-patch16-224`), 768 dimensions.
+  * Loaded via `ai_engine/models/siglip_loader.py`.
+  * Used for deep keyframe representation in the video RAG pipeline.
+  * Uses Sigmoid Loss (SigLIP) for superior zero-shot retrieval accuracy over 
+    standard softmax CLIP.
+
+5.2 Text & Hybrid Retrieval Embeddings
+--------------------------------------
+- Model: BAAI BGE-M3 (`BAAI/bge-m3`), 1024 dimensions.
+  * Loaded via `ai_engine/models/bge_loader.py`.
+  * Supports multilingual text representation (over 100 languages).
+  * Combines dense semantic vector retrieval with sparse lexical weights (BM25) 
+    in `ai_engine/retrieval/hybrid_retriever.py` via Reciprocal Rank Fusion (RRF).
+
+5.3 Acoustic Features & Speech Recognition
+------------------------------------------
+- Speech Recognition: OpenAI Whisper (`openai/whisper-base` / `faster-whisper`).
+  * Transcribes spoken dialogue inside video and audio clips.
+  * Outputs word-level timestamps and segment transcriptions.
+- Acoustic Feature Extraction: Librosa (`ai_engine/rag/audio/feature_extractor.py`).
+  * Computes Zero Crossing Rate (ZCR), Root Mean Square (RMS) energy, 
+    spectral centroid, and estimated tempo (BPM).
+  * Classifies acoustic mood (e.g. upbeat, mellow, noisy) from waveform statistics.
+- Environmental Sound Classification: ESC-50 dataset centroids.
+  * Detects environmental context (rain, applause, dog barking, sea waves).
+
+5.4 Computer Vision Quality Filters
+-----------------------------------
+- Laplacian Variance Blur Filter:
+  * Algorithm: The grayscale image is convolved with the 3x3 discrete Laplace 
+    operator kernel:
+      [ 0,  1,  0 ]
+      [ 1, -4,  1 ]
+      [ 0,  1,  0 ]
+  * Sharp edges produce high variance; motion-blurred or out-of-focus images 
+    produce very low variance.
+  * Formula: sigma^2 = Var(Laplacian(Image))
+  * Threshold: Images with sigma^2 < 0.18 are automatically rejected from the 
+    cinematic video journal.
+- Exposure Filter:
+  * Mean pixel luminance is evaluated.
+  * Images with mean luminance < 12 (underexposed/black) or > 248 (blown-out white) 
+    are disqualified.
+
+5.5 Duplicate Clustering (Union-Find)
+-------------------------------------
+- Algorithm: Disjoint Set Union (Union-Find) with path compression.
+- For all pairs of candidate photos within the same vault or event cluster, the 
+  cosine similarity of their normalized CLIP embeddings is computed:
+    Sim(A, B) = (vec_A . vec_B) / (||vec_A|| * ||vec_B||)
+- If Sim(A, B) >= 0.92:
+  * A and B are merged into the same cluster.
+  * The photo with the highest Laplacian sharpness score is elected "Original".
+  * Sibling photos are marked as "Alternate" (`is_alternate = true`).
+  * Result: 100% duplicate suppression in final video journals.
+
+5.6 Spatiotemporal Episodic Clustering (Haversine Distance Windowing)
+---------------------------------------------------------------------
+- Unstructured photos are grouped into cohesive story chapters using spatial 
+  and temporal heuristics (`event_clustering_service.py`):
+  * Haversine Great-Circle Distance: Calculates real-world geographic separation:
+    d = 2 * R * arcsin(sqrt(sin^2(dLat/2) + cos(lat1)*cos(lat2)*sin^2(dLon/2)))
+  * Spatial Window: Photos within a 1.5 km radius are clustered as the same venue.
+  * Adaptive Temporal Window: Gaps > 3.5 hours trigger a new story phase boundary 
+    (e.g., Morning Tour -> Afternoon Lunch -> Evening Gala).
+
+5.7 Factual Auditing & Zero-Hallucination (Evidence Manifest)
+-------------------------------------------------------------
+- The Problem: Standard LLMs hallucinate fictional companions, dates, and 
+  dramatic events when asked to write travel stories.
+- The Solution: The `FactAuditorAgent` builds an immutable `Evidence Manifest`:
+  * Exact confirmed timestamps (`taken_at`).
+  * Exact confirmed GPS city / venue names.
+  * Exact detected objects and people count.
+  * Exact speech transcripts from Whisper.
+- The script generated by the Storyteller Agent is decomposed into atomic claims.
+- Every claim must have a direct reference token in the Evidence Manifest.
+- If an ungrounded claim is detected (e.g. "We went surfing with Mark" when no 
+  beach or person named Mark is confirmed), the auditor rejects the script and 
+  triggers an automated self-correction loop in LangGraph.
+- Proven Performance: **0.0% Hallucination Rate** (vs 22.0% in vanilla RAG).
+
+5.8 Emotion-Aware Neural Text-to-Speech (Edge-TTS)
+--------------------------------------------------
+- Integrated in `ai_engine/video_generation/tts_engine.py` and `backend/app/services/tts_service.py`.
+- Generates natural, high-fidelity neural voiceover narration with zero API cost.
+- Presets & Voice Profiles:
+  * `calm`: `en-US-JennyNeural`, Pitch -2Hz, Rate -8% (Soothing, warm).
+  * `nostalgic`: `en-US-GuyNeural`, Pitch -3Hz, Rate -10% (Contemplative, deep).
+  * `energetic`: `en-US-TonyNeural`, Pitch +3Hz, Rate +12% (Upbeat, celebratory).
+  * `joyful`: `en-US-AriaNeural`, Pitch +2Hz, Rate +5% (Bright, cheerful).
+  * `dramatic`: `en-US-ChristopherNeural`, Pitch -4Hz, Rate -12% (Cinematic gravitas).
+  * `serene`: `en-US-JennyNeural`, Pitch -1Hz, Rate -5% (Reflective, peaceful).
+- Automatic Sentiment Analysis: When no mood is explicitly chosen, 
+  `detect_emotion_from_text()` analyzes story keywords to select the best voice.
+
+5.9 Procedural 4-Chord Ambient Synthesizer
+------------------------------------------
+- Located in `ai_engine/video_generation/audio_synth.py`.
+- Generates royalty-free ambient musical scores using pure NumPy waveforms:
+  * Chord progression: Cmaj7 -> Am7 -> Fmaj7 -> G (I - vi - IV - V).
+  * Note Frequencies: Exact mathematical Hz (C4=261.63Hz, E4=329.63Hz, etc.).
+  * Sound Design: Fundamental sine wave + 2nd harmonic (0.25) + 3rd harmonic (0.15) 
+    for an analog warm pad texture.
+  * ADSR Envelope: 15% Attack, 15% Decay, 50% Sustain (0.8), 20% Release to 
+    eliminate clicks or pops at chord transitions.
+
+5.10 Dynamic Audio Ducking
+--------------------------
+- In professional film production, background music volume drops when a speaker 
+  talks so dialogue remains crisp and intelligible.
+- MemoryVerse implements continuous dynamic audio ducking:
+  * Baseline BGM Volume: 0.55 amplitude.
+  * Ducked Volume during Narration: 0.18 amplitude.
+  * Smoothing: A 0.25-second Hanning-window envelope smooths volume transitions, 
+    preventing abrupt jarring volume shifts.
+
+5.11 Dynamic Camera Choreography (Ken Burns Cubic Interpolator)
+---------------------------------------------------------------
+- Static slideshows look amateurish; dynamic camera movement creates cinema.
+- `ai_engine/video_generation/ken_burns.py` calculates 30fps crop windows.
+- Trajectories:
+  * Zoom In: Centers on subject from 1.0x to 1.25x scale.
+  * Zoom Out: Starts at 1.25x and reveals surrounding scene down to 1.0x.
+  * Pan Left / Pan Right: Smooth horizontal sweep across landscapes.
+  * Pan Top / Pan Bottom: Vertical sweep across portraits or architecture.
+- Easing Curve: Cubic easing `f(t) = t^2 * (3.0 - 2.0*t)` ensures smooth 
+  acceleration and deceleration at scene start and end.
+
+
+================================================================================
+6. ACADEMIC RESEARCH & 4-MODEL ABLATION MATRIX
+================================================================================
+
+To prove the scientific necessity of each architectural component, an automated 
+empirical ablation test runner (`research/ablations/run_ablation_matrix.py`) 
+evaluates four distinct system configurations:
+
+6.1 The 4 Tested Configurations
+-------------------------------
++---------+--------------------+----------------+-------------+------------+-------------+
+| Config  | Architecture Name  | Retrieval      | Agent Setup | Evidence   | Video       |
+| ID      |                    | Pipeline       |             | Manifest   | Director    |
++---------+--------------------+----------------+-------------+------------+-------------+
+| Model 1 | Vanilla Dense RAG  | BGE-M3 only    | None        | Disabled   | Slideshow   |
+| Model 2 | Single-Prompt LLM  | Vector + EXIF  | Monolithic  | Disabled   | Static Cuts |
+| Model 3 | Multi-Agent (No Aud| Two-Stage      | LangGraph   | Disabled   | Ken Burns   |
+| Model 4 | MemoryVerse (Full) | Two-Stage      | LangGraph   | ENABLED    | Full Motion |
++---------+--------------------+----------------+-------------+------------+-------------+
+
+6.2 Empirical Benchmark Results (from research/ablations/ablation_results.json)
+------------------------------------------------------------------------------
++------------------------------------+---------------+---------------+---------------+
+| Architecture Configuration         | Hallucination | Alignment Err | Blur/Duplicate|
+|                                    | Rate (%)      | (seconds)     | Retention (%) |
++------------------------------------+---------------+---------------+---------------+
+| Model 1: Vanilla Dense RAG         | 22.0%         | 2.85s         | 28.0%         |
+| Model 2: Single-Prompt LLM         | 18.0%         | 1.00s         | 20.0%         |
+| Model 3: Multi-Agent (No Auditor)  | 12.5%         | 1.00s         | 0.0%          |
+| Model 4: MemoryVerse (Full System) | **0.0%**      | **1.00s**     | **0.0%**      |
++------------------------------------+---------------+---------------+---------------+
+
+Scientific Conclusions:
+1. Model 1 -> Model 2: EXIF temporal/GPS filters are essential to prevent 
+   retrieving semantic false positives from unrelated years.
+2. Model 2 -> Model 3: Decomposing tasks into specialized agents completely 
+   eliminates blurry and duplicate photos (20% -> 0%).
+3. Model 3 -> Model 4: Activating the Evidence Manifest and Fact Auditor 
+   suppresses narrative hallucinations from 12.5% down to an absolute **0.0%**.
+
+6.3 Standardized Evaluation Datasets
+------------------------------------
+- PhotoBench: Academic benchmark of ground-truth query-image pairs across 6 
+  categories (Location, Time, Person, Object, Concept, Genre).
+- L10 Dataset (`20260822_l10318e6g11p5pnb2`): Real-world multi-day trip dataset 
+  containing thousands of photos, GPS coordinates, and complex natural queries.
+- MemoryBench: Synthetic challenge suite containing 500 hand-crafted episodic 
+  memory queries testing temporal logic and negative constraints.
+
+
+================================================================================
+7. END-TO-END EXECUTION LIFECYCLES (STEP-BY-STEP CODE TRACES)
+================================================================================
+
+7.1 Trace A: Media Upload -> EXIF -> CLIP -> Zero-Shot Tags -> pgvector
+----------------------------------------------------------------------
+1. User taps "Upload" in Flutter -> `MultiMediaPickerScreen`.
+2. File bytes stream to FastAPI `POST /api/v1/media/upload`.
+3. `media.py` enforces `asyncio.Semaphore(4)` concurrency limit.
+4. File is stored in Supabase Storage `memories/<user_id>/<filename>`.
+5. Background task triggers `AIExtractor.process_media_item`:
+   - `exifread` extracts `taken_at`, camera model, and GPS latitude/longitude.
+   - PIL loads image -> `clip_loader.get_clip_model()`.
+   - Generates 512-dim visual embedding.
+   - Computes dot product with label bank -> zero-shot tags (scenes, objects).
+   - Computes cosine similarity with existing media in the vault.
+   - If similarity >= 0.92, flags as `is_alternate = true`.
+6. Record inserted into PostgreSQL tables: `media` and `media_embeddings`.
+
+7.2 Trace B: Natural Language Query -> Multimodal Semantic Search
+-----------------------------------------------------------------
+1. User types "sunset photos from our beach trip" in Flutter `SearchScreen`.
+2. Request hits `GET /api/v1/search?q=sunset+photos+from+our+beach+trip`.
+3. `SearchService.global_search()` executes a multi-signal query:
+   - Signal 1: Direct SQL wildcard matching against filenames and location names.
+   - Signal 2: Keyword expansion using `QUERY_EXPANSIONS` matching JSONB `ai_tags`.
+   - Signal 3: `clip_loader` embeds query text into a 512-dim unit vector.
+   - PostgreSQL executes cosine similarity search via `match_media_by_clip()` RPC:
+       1 - (me.clip_embedding <=> query_embedding) AS similarity
+   - Items with similarity >= 0.18 are ranked and deduplicated.
+4. Returns sorted `GlobalSearchResponse` displayed in Flutter.
+
+7.3 Trace C: Memory Selection -> LangGraph Multi-Agent -> Cinematic MP4
+-----------------------------------------------------------------------
+1. User taps "Create Video Journal" in `VideoCreatorSheet`.
+2. Request hits `POST /api/v1/ai/generate-video` -> creates `video_jobs` row 
+   in status `QUEUED`.
+3. Worker invokes `run_memory_flow()` in `ai_engine/langgraph/graph.py`:
+   - Step 1 (`Planner`): Parses temporal boundaries, duration target (30s).
+   - Step 2 (`Scorer`): Runs Laplacian blur test and Union-Find dedup.
+   - Step 3 (`Storyteller`): Breaks 15 selected items into 3 narrative acts.
+   - Step 4 (`Auditor`): Cross-references narrative claims with Evidence Manifest.
+     If ungrounded claims exist, loops back to Storyteller for self-correction.
+   - Step 5 (`VideoDirector`): Produces shot-list JSON with durations, transitions, 
+     and Ken Burns trajectories.
+4. `backend/app/services/video_service.py` executes rendering:
+   - Generates speech audio via `TTSEngine` (`edge-tts`).
+   - Synthesizes 4-chord ambient music via `audio_synth.py`.
+   - Calculates 0.25s audio ducking envelope.
+   - Animates 30fps pan/zoom crop windows via `ken_burns.py`.
+   - Composes video in MoviePy 2.x and encodes with FFmpeg.
+5. Uploads resulting MP4 to Supabase Storage.
+6. Updates `video_jobs` status to `COMPLETED`.
+7. Flutter sheet updates live -> user watches high-definition video.
+
+
+================================================================================
+8. DATABASE SCHEMA & MULTI-VECTOR PGVECTOR LAYER
+================================================================================
+
+All SQL definitions live in `supabase/schema.sql`.
+
+Key Tables:
+-----------
+- `profiles`: Linked 1-to-1 with `auth.users(id)`. Tracks user metadata and quotas.
+- `vaults`: Collaborative memory vaults owned by a profile.
+- `vault_members`: Membership table with role check (`owner`, `editor`, `viewer`).
+- `vault_invitations`: 6-character unique invite codes with usage counters.
+- `memories`: Episodic memory collections grouped under vaults.
+- `media`: Central asset table storing storage paths, EXIF data, GPS coordinates, 
+  and JSONB metadata (`ai_tags`, `duplicate_info`).
+- `video_jobs`: Asynchronous tracking table for video rendering tasks (`queued`, 
+  `processing`, `completed`, `failed`).
+- `notifications`: User alert feed for invites, completions, and shares.
+- `media_embeddings`: Multi-vector pgvector table storing 4 vector types:
+  * `clip_embedding`: `vector(512)` -> OpenAI CLIP ViT-B/32.
+  * `image_embedding`: `vector(768)` -> Google SigLIP ViT-B/16.
+  * `text_embedding`: `vector(1024)` -> BAAI BGE-M3.
+  * `embedding`: `vector(1536)` -> OpenAI ada-002 / text-embedding-3-small.
+
+Dedicated PostgreSQL Vector RPC Functions:
+------------------------------------------
+- `match_media_by_clip(query_embedding vector(512), match_count, filter_user_id)`
+- `match_media_by_siglip(query_embedding vector(768), match_count, filter_user_id)`
+- `match_media_by_bge(query_embedding vector(1024), match_count, filter_user_id)`
+
+
+================================================================================
+9. REPOSITORY STRUCTURE & FILE MANIFEST
+================================================================================
+
+MemoryVerse/
+|-- ai_engine/                         # Multi-Agent Cognitive Engine & Models
+|   |-- agents/                        # Specialized LangGraph Agents
+|   |   |-- planner/                   # 1. Retrieval Planning Agent & Prompts
+|   |   |-- scorer/                    # 2. Quality Scorer, Blur Filter & Dedup
+|   |   |-- storyteller/               # 3. Narrative Arc Generator
+|   |   |-- narrator/                  # 4. Fact Auditor & Evidence Manifest
+|   |   `-- video/                     # 5. Video Director & Motion Planner
+|   |-- langgraph/                     # LangGraph StateGraph, Edges & Runner
+|   |-- models/                        # Singleton loaders (CLIP, SigLIP, BGE, Whisper)
+|   |-- rag/                           # Video & Audio RAG Microservice (Port 8001)
+|   |-- retrieval/                     # Hybrid dense/sparse retriever & reranker
+|   |-- story_generation/              # Event aggregator & narrative curves
+|   |-- vector_db/                     # pgvector adapters and index managers
+|   |-- video_generation/              # MoviePy renderer, Ken Burns, audio synth, TTS
+|   `-- test/                          # Comprehensive AI test suite (31 tests)
+|
+|-- backend/                           # FastAPI Application Gateway
+|   |-- app/
+|   |   |-- api/                       # REST endpoints (auth, vaults, media, ai, search)
+|   |   |-- core/                      # Supabase client, security (JWT/Bcrypt), cache
+|   |   |-- schemas/                   # Pydantic v2 domain request/response models
+|   |   `-- services/                  # Business logic (ai_extractor, video, search, etc.)
+|   |-- tests/                         # API endpoint test suite (25 tests)
+|   `-- requirements.txt               # Backend Python dependencies
+|
+|-- frontend/                          # Cross-Platform Flutter Application
+|   |-- lib/
+|   |   |-- contracts/                 # Strongly-typed Dart domain models
+|   |   |-- core/                      # Riverpod providers, Dio client, themes, widgets
+|   |   `-- features/                  # UI features (auth, home, vaults, memories, ai, search)
+|   `-- test/                          # Flutter unit and widget tests (4 suites)
+|
+|-- research/                          # Academic Paper & Evaluation Framework
+|   `-- ablations/                     # 4-Model ablation study runner & JSON results
+|
+|-- supabase/                          # Database Schema & Migrations
+|   `-- schema.sql                     # Unified PostgreSQL schema with pgvector & RLS
+|
+|-- devl.sh                            # Multi-terminal Linux development launcher
+|-- DESIGN_DOC.md                      # Complete system design and research document
+|-- PROJECT_REVIEW_SUMMARY.md          # Review & demo-readiness status report
+`-- PROJECT_EXPLAINER.txt              # This comprehensive explainer document
+
+
+================================================================================
+10. DEVELOPER QUICKSTART GUIDE (PULL, SETUP, RUN & TEST)
+================================================================================
+
+Prerequisites:
+- Linux / macOS / Windows WSL2
+- Python 3.10+
+- Flutter 3.19+ and Dart SDK
+- FFmpeg installed (`sudo apt install ffmpeg` on Ubuntu/Debian)
+
+Step 1: Pull the Code and Check Out Main
+----------------------------------------
+git pull origin main
+
+Step 2: Backend Setup & Virtual Environment
+-------------------------------------------
+cd /path/to/MemoryVerse
+python3 -m venv .venv
+source .venv/bin/activate
+pip install --upgrade pip
+pip install -r backend/requirements.txt
+pip install -r ai_engine/rag/requirements.txt
+
+Step 3: Environment Configuration
+---------------------------------
+Verify `backend/.env` has the necessary Supabase credentials:
+SUPABASE_URL="https://<your-project-id>.supabase.co"
+SUPABASE_KEY="<your-supabase-service-role-or-anon-key>"
+SUPABASE_JWT_SECRET="<your-supabase-jwt-secret>"
+PORT=8000
+ENVIRONMENT="development"
+MEDIA_CACHE_DIR="/tmp/memoryverse_media_cache"
+
+Step 4: Launching the Services
+------------------------------
+Option A: Using the Automated Dev Launcher (Linux):
+chmod +x devl.sh
+./devl.sh
+(This automatically starts Backend on 8000, AI RAG on 8001, and Flutter client).
+
+Option B: Manual Terminal Execution:
+Terminal 1 (Backend Gateway):
+source .venv/bin/activate
+export PYTHONPATH=backend:.
+cd backend
+uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+Terminal 2 (Optional Standalone AI RAG Microservice):
+source .venv/bin/activate
+export PYTHONPATH=.
+uvicorn ai_engine.rag.server:app --host 0.0.0.0 --port 8001 --reload
+
+Terminal 3 (Flutter Client):
+cd frontend
+flutter pub get
+flutter run -d chrome    # Or: flutter run -d linux / flutter run -d emulator
+
+Step 5: Verifying Codebase Health (Test Suites)
+----------------------------------------------
+# 1. Run Backend Tests (25 tests):
+PYTHONPATH=backend:. .venv/bin/pytest backend/tests/test_api.py -v
+
+# 2. Run AI Engine & LangGraph Tests (31 tests):
+PYTHONPATH=. .venv/bin/pytest ai_engine/test/ -v
+
+# 3. Run Standalone RAG Microservice Tests (19 tests):
+.venv/bin/python -m unittest ai_engine/rag/tests/test_video_pipeline.py
+.venv/bin/python -m unittest ai_engine/rag/tests/test_audio_pipeline.py
+
+# 4. Run Flutter Analyzer & Tests:
+cd frontend
+flutter analyze
+flutter test
+
+
+================================================================================
+11. COMMON GOTCHAS, FAQS & TROUBLESHOOTING
+================================================================================
+
+Q1: Why does the first search or upload take 2-3 seconds?
+A1: On cold start, the CLIP model (`clip-ViT-B-32`) and its neural weights load 
+    into memory. All subsequent searches and feature extractions execute in < 50ms.
+
+Q2: What happens if external LLM API keys (OpenAI / Gemini) are missing?
+A2: The entire pipeline still works! MemoryVerse was specifically architected 
+    with graceful fallbacks. The Storyteller, Fact Auditor, and TTS synthesize 
+    using local heuristics and Edge-TTS without throwing exceptions.
+
+Q3: Where are video streaming chunks cached?
+A3: In `/tmp/memoryverse_media_cache/`. This prevents repeating 50MB HTTP 
+    downloads on every player range request, eliminating buffering and 504 timeouts.
+
+Q4: What if Redis is not installed locally?
+A4: `rate_limit_service.py` contains a built-in safety net. If Upstash Redis 
+    is unreachable, it silently logs a debug note and falls back to a thread-safe 
+    local in-memory token bucket.
+
+Q5: Why are some duplicate photos marked with an amber badge?
+A5: This is an intentional feature! Photos with visual cosine similarity >= 0.92 
+    are tagged as "Alternate" to keep feeds clean without deleting user media.
+
+================================================================================
+END OF ARCHITECTURAL EXPLAINER
+================================================================================

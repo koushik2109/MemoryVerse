@@ -14,9 +14,11 @@ import io
 import os
 import tempfile
 import logging
+import asyncio
+import json
 
 from fastapi import APIRouter, Depends, Query, UploadFile, File, Form, HTTPException, status, BackgroundTasks, Request, Response
-from fastapi.responses import JSONResponse, FileResponse
+from fastapi.responses import JSONResponse, FileResponse, StreamingResponse, RedirectResponse
 from typing import List, Optional, cast, Any
 from datetime import datetime, timezone, timedelta
 
@@ -24,8 +26,12 @@ from app.schemas.domain import MediaCreate, MediaResponse, VideoJobResponse, Med
 from app.services.media_service import MediaService
 from app.services.video_service import VideoService
 from app.services.ai_extractor import AIExtractor
+from app.services.job_state_manager import job_state_manager, JobStatus
+from app.services.video_queue import video_worker_pool
+from app.core.cache_service import cache_service
 from app.core.security import get_current_user, CurrentUser
 from app.core.db import get_supabase_client
+from app.config.settings import settings
 
 logger = logging.getLogger(__name__)
 
@@ -60,7 +66,7 @@ def _extract_image_thumbnail(image_bytes: bytes, max_dim: int = 480, quality: in
         img = img.convert("RGB")
         
         if img.width > max_dim or img.height > max_dim:
-            img.thumbnail((max_dim, max_dim), Image.Resampling.LANCZOS)
+            img.thumbnail((max_dim, max_dim), cast(Any, Image.Resampling.LANCZOS))
             
         buf = io.BytesIO()
         img.save(buf, format="JPEG", quality=quality, optimize=True)
@@ -99,7 +105,7 @@ def _extract_video_thumbnail(video_bytes: bytes, suffix: str = ".mp4") -> bytes 
             max_w = 720
             if img.width > max_w:
                 ratio = max_w / img.width
-                img = img.resize((max_w, int(img.height * ratio)), Image.Resampling.LANCZOS)
+                img = img.resize((max_w, int(img.height * ratio)), cast(Any, Image.Resampling.LANCZOS))
 
             buf = io.BytesIO()
             img.save(buf, format="JPEG", quality=85)
@@ -122,7 +128,7 @@ def _upload_to_storage(bucket: str, path: str, data: bytes, mime: str) -> str:
     )
     # Create a signed URL valid for 1 year (31536000s)
     res = supabase.storage.from_(bucket).create_signed_url(path, 31536000)
-    return res.get("signedURL") or res.get("signed_url") or ""
+    return str(res.get("signedURL") or res.get("signed_url") or "")
 
 
 MEDIA_STREAM_CACHE_DIR = os.path.join(tempfile.gettempdir(), "memoryverse_media_cache")
@@ -211,81 +217,269 @@ async def list_media(
     return MediaService.get_user_media(current_user.id, vault_id=vault_id, limit=limit)
 
 
+async def _authenticate_sse(request: Request, token_query: Optional[str] = None) -> CurrentUser:
+    """Authenticate SSE connection via Authorization header or token query parameter."""
+    auth_header = request.headers.get("Authorization")
+    raw_token = None
+    if auth_header and auth_header.startswith("Bearer "):
+        raw_token = auth_header[7:].strip()
+    elif token_query:
+        raw_token = token_query.strip()
+
+    if not raw_token:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Missing authentication credentials for SSE stream",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
+
+    try:
+        supabase = get_supabase_client()
+        user_response = supabase.auth.get_user(raw_token)
+        if user_response and user_response.user:
+            user = user_response.user
+            metadata = user.user_metadata or {}
+            user_email = user.email or ""
+            return CurrentUser(
+                id=user.id,
+                email=user_email,
+                full_name=metadata.get("full_name") or (user_email.split("@")[0] if user_email else "User"),
+            )
+    except Exception:
+        pass
+
+    try:
+        from jose import jwt
+        payload = jwt.decode(raw_token, settings.JWT_SECRET, algorithms=[settings.ALGORITHM], options={"verify_aud": False})
+        user_id: str = str(payload.get("sub") or payload.get("user_id"))
+        email: str = payload.get("email", "")
+        if user_id:
+            return CurrentUser(id=user_id, email=email)
+    except Exception:
+        pass
+
+    raise HTTPException(
+        status_code=status.HTTP_401_UNAUTHORIZED,
+        detail="Could not validate credentials for SSE stream",
+        headers={"WWW-Authenticate": "Bearer"},
+    )
+
+
 @router.post("/memory/{memory_id}/generate-video")
 async def generate_video(
     memory_id: str,
-    background_tasks: BackgroundTasks,
-    dimension: Optional[str] = Query(None),
+    dimension: Optional[str] = Query("9:16"),
     mood: Optional[str] = Query("calm"),
     media_ids: Optional[List[str]] = Query(None),
-    current_user: CurrentUser = Depends(get_current_user)
+    current_user: CurrentUser = Depends(get_current_user),
 ):
     """
-    Create a new video stitching job for a memory and process it in the background.
-    Supports aspect ratio ('9:16' or '16:9'), audio soundtrack mood ('calm', 'energetic', 'nostalgic'),
-    and optional selection of specific picture/media IDs.
+    Create a new video stitching job for a memory and process it asynchronously
+    through the bounded durable VideoWorkerPool.
+    Includes deduplication fingerprinting, multi-level state tracking, and recovery.
     """
+    dim = dimension or "9:16"
+    m_mood = mood or "calm"
+    m_ids = media_ids or []
+
+    # 1. Deduplication fingerprint check (idempotent submission)
+    fingerprint = cache_service.compute_job_fingerprint(
+        user_id=current_user.id,
+        memory_id=memory_id,
+        selected_media_ids=m_ids,
+        mood=m_mood,
+        dimension=dim,
+    )
+    existing_job_id = cache_service.get_active_job_by_fingerprint(fingerprint)
+    if existing_job_id:
+        existing_job = job_state_manager.get_job(existing_job_id)
+        if existing_job and existing_job.status in ("queued", "initializing", "processing"):
+            logger.info(
+                f"Deduplicated video generation request for memory {memory_id}: "
+                f"reusing active job {existing_job_id}"
+            )
+            return {"job_id": existing_job.id, "status": existing_job.status, "deduplicated": True}
+
     supabase = get_supabase_client()
-    
-    # Mark old incomplete jobs for this memory as stale/failed
+
+    # 2. Mark old incomplete jobs for this memory as superseded
     try:
         supabase.table("video_jobs")\
-            .update({"status": "failed", "error_message": "Superceded by a new creation request."})\
+            .update({"status": "failed", "error_message": "Superseded by a new creation request."})\
             .eq("memory_id", memory_id)\
+            .eq("user_id", current_user.id)\
             .in_("status", ["queued", "processing"])\
             .execute()
-    except Exception:
-        pass
-    
-    # Create the new job record
+    except Exception as e:
+        logger.debug(f"Could not supersede previous video jobs: {e}")
+
+    # 3. Create job record in database
     job_res = supabase.table("video_jobs").insert({
         "memory_id": memory_id,
         "user_id": current_user.id,
-        "status": "queued"
+        "status": "queued",
     }).execute()
-    
+
     if not job_res.data:
         raise HTTPException(status_code=500, detail="Failed to create video job")
-        
-    job_id = job_res.data[0]["id"]
-    
-    # Enqueue background task
-    background_tasks.add_task(
-        VideoService.process_video_job,
+
+    raw_jobs = cast(list[dict[str, Any]], job_res.data)
+    job_id: str = str(raw_jobs[0]["id"])
+
+    # 4. Initialize in-memory and Redis state in JobStateManager
+    job_state_manager.create_job(
         job_id=job_id,
         memory_id=memory_id,
         user_id=current_user.id,
-        dimension=dimension,
-        mood=mood or "calm",
-        selected_media_ids=media_ids,
+        dimension=dim,
+        mood=m_mood,
+        selected_media_ids=m_ids,
     )
-    
+
+    # 5. Record fingerprint in cache to prevent duplicate rapid submissions
+    cache_service.set_active_job_by_fingerprint(fingerprint, job_id, ttl=600)
+
+    # 6. Submit to durable queue
+    video_worker_pool.submit_job(job_id)
+    logger.info(f"Video job {job_id} submitted to durable queue for user {current_user.id}")
+
     return {"job_id": job_id, "status": "queued"}
 
 
 @router.get("/jobs/{job_id}", response_model=VideoJobResponse)
 async def get_video_job_status(
     job_id: str,
-    current_user: CurrentUser = Depends(get_current_user)
+    current_user: CurrentUser = Depends(get_current_user),
 ):
-    """Get the status of an async video creation job."""
-    supabase = get_supabase_client()
-    res = supabase.table("video_jobs").select("*").eq("id", job_id).eq("user_id", current_user.id).execute()
-    
-    if not res.data:
+    """
+    Get the status of an async video creation job with strict tenant isolation.
+    """
+    job = job_state_manager.get_job(job_id)
+    if not job:
         raise HTTPException(status_code=404, detail="Job not found")
-        
-    j = cast(list[dict[str, Any]], res.data)[0]
-    result_url = None
-    if j.get("result_media_id"):
+
+    # Strict tenant isolation check
+    if job.user_id != current_user.id:
+        raise HTTPException(status_code=404, detail="Job not found")
+
+    d = job.to_dict()
+
+    # Resolve result URL if finished and missing in state
+    if not d.get("result_url") and d.get("result_media_id"):
         try:
-            m_res = supabase.table("media").select("url").eq("id", j["result_media_id"]).execute()
+            supabase = get_supabase_client()
+            m_res = supabase.table("media").select("url").eq("id", d["result_media_id"]).execute()
             if m_res.data:
-                result_url = m_res.data[0].get("url")
+                m_list = cast(list[dict[str, Any]], m_res.data)
+                d["result_url"] = str(m_list[0].get("url") or "")
         except Exception:
             pass
-    j["result_url"] = result_url
-    return VideoJobResponse(**j)
+
+    return VideoJobResponse(**d)
+
+
+@router.get("/jobs/{job_id}/stream")
+async def stream_video_job_status(
+    job_id: str,
+    request: Request,
+    token: Optional[str] = Query(None),
+):
+    """
+    Server-Sent Events (SSE) streaming endpoint for live job status and progress.
+    Pushes real-time updates every 1.0s until terminal state (completed, failed, cancelled).
+    """
+    auth_user = await _authenticate_sse(request, token)
+
+    job = job_state_manager.get_job(job_id)
+    if not job or job.user_id != auth_user.id:
+        raise HTTPException(status_code=404, detail="Job not found")
+
+    async def sse_generator():
+        while True:
+            if await request.is_disconnected():
+                logger.debug(f"SSE client disconnected for job {job_id}")
+                break
+
+            current_job = job_state_manager.get_job(job_id)
+            if not current_job:
+                break
+
+            d = current_job.to_dict()
+            if not d.get("result_url") and d.get("result_media_id"):
+                try:
+                    supabase = get_supabase_client()
+                    m_res = supabase.table("media").select("url").eq("id", d["result_media_id"]).execute()
+                    if m_res.data:
+                        m_list = cast(list[dict[str, Any]], m_res.data)
+                        d["result_url"] = str(m_list[0].get("url") or "")
+                except Exception:
+                    pass
+
+            yield f"data: {json.dumps(d)}\n\n"
+
+            if current_job.status in ("completed", "failed", "cancelled"):
+                break
+
+            await asyncio.sleep(1.0)
+
+    return StreamingResponse(
+        sse_generator(),
+        media_type="text/event-stream",
+        headers={
+            "Cache-Control": "no-cache, no-transform",
+            "Connection": "keep-alive",
+            "X-Accel-Buffering": "no",
+        },
+    )
+
+
+@router.post("/jobs/{job_id}/retry")
+async def retry_video_job(
+    job_id: str,
+    current_user: CurrentUser = Depends(get_current_user),
+):
+    """
+    Retry a failed video generation job.
+    If the rendered video artifact was preserved on disk, resumes directly from upload.
+    Otherwise, recovers and re-processes through the durable queue.
+    """
+    job = job_state_manager.get_job(job_id)
+    if not job or job.user_id != current_user.id:
+        raise HTTPException(status_code=404, detail="Job not found")
+
+    if job.status not in ("failed", "cancelled"):
+        return {"job_id": job.id, "status": job.status, "message": "Job is already active or completed."}
+
+    # Reset failure markers and increment retry count
+    job.status = JobStatus.RETRYING.value
+    job.retry_count += 1
+    job.error_code = None
+    job.error_message = None
+    job_state_manager._persist_job(job, db_sync=True)
+
+    # Re-submit to worker pool
+    video_worker_pool.submit_job(job.id)
+    logger.info(f"Job {job_id} submitted for retry by user {current_user.id}")
+
+    return {"job_id": job.id, "status": "retrying"}
+
+
+@router.post("/jobs/{job_id}/cancel")
+async def cancel_video_job(
+    job_id: str,
+    current_user: CurrentUser = Depends(get_current_user),
+):
+    """
+    Cancels an active or queued video generation job.
+    """
+    cancelled = job_state_manager.cancel_job(job_id, current_user.id)
+    if not cancelled:
+        job = job_state_manager.get_job(job_id)
+        if not job or job.user_id != current_user.id:
+            raise HTTPException(status_code=404, detail="Job not found")
+        return {"job_id": job_id, "status": job.status, "message": f"Job is already in {job.status} state."}
+
+    return {"job_id": job_id, "status": "cancelled"}
 
 
 @router.post("/upload", response_model=MediaResponse, status_code=status.HTTP_201_CREATED)
@@ -335,7 +529,7 @@ async def upload_media(
 
     # 4. Upload original file
     try:
-        original_url = _upload_to_storage("memories", original_path, file_bytes, content_type)
+        original_url = await asyncio.to_thread(_upload_to_storage, "memories", original_path, file_bytes, content_type)
     except Exception as e:
         logger.error(f"Storage upload failed: {e}")
         raise HTTPException(status_code=500, detail="Failed to upload file to storage.")
@@ -343,11 +537,11 @@ async def upload_media(
     # 5. Generate + upload thumbnail for videos
     if media_type == "video":
         suffix = ".mp4" if "mp4" in content_type else ".mov"
-        thumb_bytes = _extract_video_thumbnail(file_bytes, suffix=suffix)
+        thumb_bytes = await asyncio.to_thread(_extract_video_thumbnail, file_bytes, suffix=suffix)
         if thumb_bytes:
             thumb_path = f"{user_id}/thumbs/{ts}_{safe_name}.jpg"
             try:
-                thumb_url = _upload_to_storage("memories", thumb_path, thumb_bytes, "image/jpeg")
+                thumb_url = await asyncio.to_thread(_upload_to_storage, "memories", thumb_path, thumb_bytes, "image/jpeg")
             except Exception as e:
                 logger.warning(f"Thumbnail upload failed (non-critical): {e}")
                 thumb_url = original_url  # fallback: use video URL
@@ -355,11 +549,11 @@ async def upload_media(
             thumb_url = original_url
     else:
         # Generate + upload lightweight thumbnail (~30-50KB) for images
-        thumb_bytes = _extract_image_thumbnail(file_bytes, max_dim=480, quality=80)
+        thumb_bytes = await asyncio.to_thread(_extract_image_thumbnail, file_bytes, max_dim=480, quality=80)
         if thumb_bytes:
             thumb_path = f"{user_id}/thumbs/{ts}_{safe_name}.jpg"
             try:
-                thumb_url = _upload_to_storage("memories", thumb_path, thumb_bytes, "image/jpeg")
+                thumb_url = await asyncio.to_thread(_upload_to_storage, "memories", thumb_path, thumb_bytes, "image/jpeg")
             except Exception as e:
                 logger.warning(f"Image thumbnail upload failed: {e}")
                 thumb_url = original_url
@@ -378,7 +572,7 @@ async def upload_media(
         file_size=file_size,
         mime_type=content_type,
     )
-    created = MediaService.create_media(user_id, payload)
+    created = await asyncio.to_thread(MediaService.create_media, user_id, payload)
     
     # Trigger background AI feature & metadata extraction
     background_tasks.add_task(AIExtractor.process_media_item, created.id, file_bytes, content_type)
@@ -396,17 +590,17 @@ async def upload_multiple_media(
 ):
     """
     Upload multiple photos or videos in batch.
-    Processes and uploads each file to Supabase Storage and records metadata in PostgreSQL.
+    Processes and uploads each file to Supabase Storage concurrently with bounded
+    semaphore, then records all metadata in PostgreSQL in a single batch insert.
     """
-    results: List[MediaResponse] = []
     user_id = current_user.id
     import time
-    import asyncio
     base_ts = int(time.time() * 1000)
 
+    # Concurrency control for storage uploads to prevent socket exhaustion
     sem = asyncio.Semaphore(10)
 
-    async def _process_single(i: int, file: UploadFile) -> Optional[MediaResponse]:
+    async def _process_single(i: int, file: UploadFile) -> Optional[tuple[MediaCreate, bytes, str]]:
         async with sem:
             content_type = file.content_type or "application/octet-stream"
             if content_type not in ALLOWED_TYPES:
@@ -465,17 +659,23 @@ async def upload_multiple_media(
                 file_size=file_size,
                 mime_type=content_type,
             )
-            created = await asyncio.to_thread(MediaService.create_media, user_id, payload)
-            
-            # Trigger background AI feature & metadata extraction
-            background_tasks.add_task(AIExtractor.process_media_item, created.id, file_bytes, content_type)
-            return created
+            return (payload, file_bytes, content_type)
 
     tasks = [_process_single(i, f) for i, f in enumerate(files)]
     completed = await asyncio.gather(*tasks)
-    results = [res for res in completed if res is not None]
+    valid_items = [item for item in completed if item is not None]
 
-    return results
+    if not valid_items:
+        return []
+
+    payloads = [item[0] for item in valid_items]
+    created_responses = await asyncio.to_thread(MediaService.create_media_batch, user_id, payloads)
+
+    # Queue background AI extraction for each item
+    for created, (_, f_bytes, c_type) in zip(created_responses, valid_items):
+        background_tasks.add_task(AIExtractor.process_media_item, created.id, f_bytes, c_type)
+
+    return created_responses
 
 
 @router.post("", response_model=MediaResponse, status_code=status.HTTP_201_CREATED)
@@ -576,3 +776,59 @@ async def get_stream_url(media_id: str, current_user: CurrentUser = Depends(get_
 async def delete_media(media_id: str, current_user: CurrentUser = Depends(get_current_user)):
     """Delete a media file (owner only). Removes from storage and DB."""
     MediaService.delete_media(media_id, current_user.id)
+
+
+@router.get("/videos/{job_id}/download")
+async def download_video_job(
+    job_id: str,
+    current_user: CurrentUser = Depends(get_current_user),
+):
+    """
+    Directly downloads the rendered video file for offline storage, local playback, and external sharing.
+    Returns FileResponse with Content-Disposition: attachment; filename="..." and video/mp4 MIME type.
+    """
+    job = job_state_manager.get_job(job_id)
+    if not job:
+        supabase = get_supabase_client()
+        res = supabase.table("video_jobs").select("*").eq("id", job_id).execute()
+        if not res.data:
+            raise HTTPException(status_code=404, detail="Video job not found")
+        job = res.data[0]
+
+    owner_id = getattr(job, "user_id", None) or (job.get("user_id") if isinstance(job, dict) else None)
+    if owner_id and owner_id != current_user.id:
+        raise HTTPException(status_code=403, detail="Access denied")
+
+    dimension = getattr(job, "dimension", None) or (job.get("dimension") if isinstance(job, dict) else "16:9")
+    safe_ratio = str(dimension).replace(":", "_").replace("/", "_").strip() or "16_9"
+    videos_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "storage", "videos", safe_ratio))
+
+    # 1. Check local staged path
+    staged_path = getattr(job, "staged_filepath", None) or (job.get("staged_filepath") if isinstance(job, dict) else None)
+    if isinstance(staged_path, str) and os.path.exists(staged_path):
+        return FileResponse(
+            path=staged_path,
+            filename=f"MemoryVerse_{job_id[:8]}_{safe_ratio}.mp4",
+            media_type="video/mp4",
+            headers={"Content-Disposition": f'attachment; filename="MemoryVerse_{job_id[:8]}_{safe_ratio}.mp4"'},
+        )
+
+    # 2. Check persistent ratio directory
+    if os.path.exists(videos_dir):
+        for f in os.listdir(videos_dir):
+            if f.endswith(".mp4"):
+                full_p = os.path.join(videos_dir, f)
+                return FileResponse(
+                    path=full_p,
+                    filename=f"MemoryVerse_{job_id[:8]}_{safe_ratio}.mp4",
+                    media_type="video/mp4",
+                    headers={"Content-Disposition": f'attachment; filename="MemoryVerse_{job_id[:8]}_{safe_ratio}.mp4"'},
+                )
+
+    # 3. Fallback to public result URL
+    result_url = getattr(job, "result_url", None) or (job.get("result_url") if isinstance(job, dict) else None)
+    if isinstance(result_url, str) and result_url:
+        return RedirectResponse(url=result_url)
+
+    raise HTTPException(status_code=404, detail="Video file not available for download")
+

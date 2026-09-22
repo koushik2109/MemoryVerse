@@ -88,21 +88,22 @@ class VaultService:
         inv_map = {}
         try:
             inv_res = supabase.table("vault_invitations").select("vault_id, invite_code").in_("vault_id", vault_ids).execute()
-            for row in (inv_res.data or []):
-                inv_map[row["vault_id"]] = row.get("invite_code")
+            inv_rows = cast(list[dict[str, Any]], inv_res.data or [])
+            for row in inv_rows:
+                inv_map[str(row["vault_id"])] = row.get("invite_code")
         except Exception:
             pass
 
         from concurrent.futures import ThreadPoolExecutor
 
-        def _fetch_vault_stats(v):
-            vid = v["id"]
+        def _fetch_vault_stats(v: dict[str, Any]):
+            vid = str(v["id"])
             try:
-                mem_cnt = supabase.table("vault_members").select("id", count="exact").eq("vault_id", vid).execute().count or 1
+                mem_cnt = supabase.table("vault_members").select("id", count=cast(Any, CountMethod.exact)).eq("vault_id", vid).execute().count or 1
             except Exception:
                 mem_cnt = 1
             try:
-                med_cnt = supabase.table("media").select("id", count="exact").eq("vault_id", vid).execute().count or 0
+                med_cnt = supabase.table("media").select("id", count=cast(Any, CountMethod.exact)).eq("vault_id", vid).execute().count or 0
             except Exception:
                 med_cnt = 0
             return (vid, mem_cnt, med_cnt)

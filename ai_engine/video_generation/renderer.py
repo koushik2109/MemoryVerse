@@ -16,6 +16,23 @@ try:
 except ImportError:
     HAS_MOVIEPY = False
 
+    class _DummyClip:
+        def __init__(self, *args: Any, **kwargs: Any) -> None:
+            pass
+
+        def __call__(self, *args: Any, **kwargs: Any) -> Any:
+            return self
+
+        def __getattr__(self, name: str) -> Any:
+            return self
+
+    VideoClip: Any = _DummyClip
+    VideoFileClip: Any = _DummyClip
+    AudioArrayClip: Any = _DummyClip
+
+    def concatenate_videoclips(*args: Any, **kwargs: Any) -> Any:
+        return _DummyClip()
+
 from ai_engine.video_generation.ken_burns import get_crop_window
 from ai_engine.video_generation.subtitles import render_subtitle_frame
 from ai_engine.video_generation.audio_synth import synthesize_ambient_soundtrack

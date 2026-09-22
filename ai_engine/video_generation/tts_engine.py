@@ -23,6 +23,7 @@ try:
     import edge_tts
     HAS_EDGE_TTS = True
 except ImportError:
+    edge_tts = None
     HAS_EDGE_TTS = False
     logger.warning("edge-tts not installed; EmotionTTSEngine will use procedural acoustic fallback.")
 
@@ -44,18 +45,18 @@ EMOTION_PROFILES: Dict[str, Dict[str, Any]] = {
         "description": "Peaceful, meditative, gentle cadence",
     },
     "nostalgic": {
-        "voice": "en-US-GuyNeural",
-        "rate": "-8%",
-        "pitch": "-4Hz",
+        "voice": "en-US-ChristopherNeural",
+        "rate": "-5%",
+        "pitch": "-2Hz",
         "volume": "+0%",
-        "description": "Reflective, sentimental, evocative storytelling",
+        "description": "Reflective, warm, evocative documentary storytelling",
     },
     "reflective": {
-        "voice": "en-US-GuyNeural",
-        "rate": "-7%",
-        "pitch": "-3Hz",
+        "voice": "en-US-AndrewNeural",
+        "rate": "-4%",
+        "pitch": "-1Hz",
         "volume": "+0%",
-        "description": "Contemplative, warm memory reflection",
+        "description": "Contemplative, warm natural memory reflection",
     },
     "energetic": {
         "voice": "en-US-AriaNeural",
@@ -112,6 +113,27 @@ EMOTION_PROFILES: Dict[str, Dict[str, Any]] = {
         "pitch": "+0Hz",
         "volume": "+0%",
         "description": "Clear, balanced narrative voice",
+    },
+    "joy": {
+        "voice": "en-US-AriaNeural",
+        "rate": "+5%",
+        "pitch": "+4Hz",
+        "volume": "+0%",
+        "description": "Cheerful, warm personal joy",
+    },
+    "love": {
+        "voice": "en-US-JennyNeural",
+        "rate": "-5%",
+        "pitch": "-1Hz",
+        "volume": "+0%",
+        "description": "Affectionate, intimate, gentle cadence",
+    },
+    "sadness": {
+        "voice": "en-US-ChristopherNeural",
+        "rate": "-10%",
+        "pitch": "-4Hz",
+        "volume": "-5%",
+        "description": "Somber, quiet, emotional gravitas",
     },
 }
 
@@ -223,7 +245,7 @@ class EmotionTTSEngine:
             tmp_path = tmp_mp3.name
 
         try:
-            if HAS_EDGE_TTS:
+            if HAS_EDGE_TTS and edge_tts is not None:
                 try:
                     communicate = edge_tts.Communicate(
                         text=clean_text,
