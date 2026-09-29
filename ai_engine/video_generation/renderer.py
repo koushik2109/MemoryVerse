@@ -90,7 +90,7 @@ class VideoRenderer:
         narration: Optional[str] = None,
     ) -> Any:
         """
-        Renders a cinematic Ken Burns pan-and-zoom clip with subtitle overlay.
+        Renders a cinematic Ken Burns pan-and-zoom clip without subtitle overlay.
         Pre-computes start and end keyframes for high-performance vectorized rendering.
         """
         if not HAS_MOVIEPY:
@@ -140,11 +140,8 @@ class VideoRenderer:
         canvas1 = bg_base.copy()
         canvas1.paste(fg1, ((tw - w1) // 2 + sx1, (th - h1) // 2 + sy1), fg1)
 
-        # Subtitle overlay if present
-        if narration and narration.strip():
-            sub_text = narration.strip()
-            canvas0 = render_subtitle_frame(canvas0, sub_text, font_size=28, bottom_margin=int(th * 0.12))
-            canvas1 = render_subtitle_frame(canvas1, sub_text, font_size=28, bottom_margin=int(th * 0.12))
+        # Subtitle overlay disabled — clean cinematic look
+        # (subtitles.py is preserved for future use)
 
         arr0 = np.array(canvas0, dtype=np.float32)
         arr1 = np.array(canvas1, dtype=np.float32)
@@ -295,20 +292,8 @@ class VideoRenderer:
             motion_type = motion_info.get("motion_type", "zoom_in") if isinstance(motion_info, dict) else str(motion_info or "zoom_in")
             narration = (shot.get("narration") or "").strip()
             asset_type = shot.get("asset_type", "image")
-
-            # Synthesize emotion-aware speech for narration
-            if narration:
-                try:
-                    speech_arr, speech_dur, _ = tts_engine.synthesize_sync(
-                        text=narration,
-                        emotion=audio_mood,
-                    )
-                    if speech_dur > 0:
-                        # Ensure shot is long enough for the speech to complete naturally
-                        duration = max(duration, speech_dur + 0.6)
-                        speech_segments.append((current_timeline + 0.2, speech_arr))
-                except Exception as tts_err:
-                    logger.warning(f"Shot {idx + 1} TTS synthesis failed: {tts_err}")
+            # Voiceover/TTS disabled — BGM-only audio
+            # (tts_engine.py and speech segments are preserved for future re-enable)
 
             try:
                 if asset_type == "video" or asset_path.lower().endswith((".mp4", ".mov", ".avi", ".webm")):
@@ -340,6 +325,7 @@ class VideoRenderer:
             raise RuntimeError("No clips could be successfully rendered.")
 
         final_clip = concatenate_videoclips(clips, method="compose")
+        # Content-driven duration — no truncation; length is determined by shots
         total_duration = float(final_clip.duration or current_timeline)
         sr = 44100
         total_samples = max(1, int(total_duration * sr))

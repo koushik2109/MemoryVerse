@@ -12,6 +12,8 @@ import 'package:memory_verse/features/memories/presentation/ai_director_screen.d
 import 'package:memory_verse/features/memories/presentation/memory_media_viewer.dart';
 import 'package:memory_verse/features/memories/presentation/edit_memory_screen.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:memory_verse/core/providers/upload_controller.dart';
+import 'package:memory_verse/features/memories/presentation/widgets/movie_card.dart';
 import 'package:memory_verse/core/theme/app_design_tokens.dart' as adt;
 
 class MemoryDetailScreen extends ConsumerStatefulWidget {
@@ -82,13 +84,13 @@ class _MemoryDetailScreenState extends ConsumerState<MemoryDetailScreen> {
   }
 
   MediaModel? _getCoverMedia(MemoryModel memory) {
-    if (memory.media.isEmpty) return null;
     if (memory.coverMediaId != null) {
       try {
         return memory.media.firstWhere((m) => m.id == memory.coverMediaId);
       } catch (_) {}
     }
-    return memory.media.first;
+    // "use the coverpage with the intro if not given else give it the picture the person has given , dont make any picture default choosen"
+    return null;
   }
 
   Widget _buildContextualBanner(MemoryModel memory, AppColors c) {
@@ -252,6 +254,12 @@ class _MemoryDetailScreenState extends ConsumerState<MemoryDetailScreen> {
         ),
         data: (memory) {
           final coverMedia = _getCoverMedia(memory);
+          final activeUploads = ref
+              .watch(uploadControllerProvider)
+              .where((t) =>
+                  t.memoryId == memory.id &&
+                  t.status != UploadStatus.completed)
+              .toList();
 
           return CustomScrollView(
             physics: const BouncingScrollPhysics(
@@ -447,29 +455,36 @@ class _MemoryDetailScreenState extends ConsumerState<MemoryDetailScreen> {
               // Contextual Banner
               SliverToBoxAdapter(child: _buildContextualBanner(memory, c)),
 
-              // Gallery Title
-              if (memory.media.isNotEmpty)
+              // Active Uploads Immediate Preview Section
+              if (activeUploads.isNotEmpty) ...[
                 SliverToBoxAdapter(
                   child: Padding(
                     padding: const EdgeInsets.fromLTRB(
                       AppSpacing.s24,
                       AppSpacing.s16,
                       AppSpacing.s24,
-                      AppSpacing.s16,
+                      AppSpacing.s8,
                     ),
-                    child: Text(
-                      'Gallery',
-                      style: TextStyle(
-                        color: c.text,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w700,
-                      ),
+                    child: Row(
+                      children: [
+                        const SizedBox(
+                          width: 14,
+                          height: 14,
+                          child: CircularProgressIndicator(strokeWidth: 2),
+                        ),
+                        const SizedBox(width: 8),
+                        Text(
+                          'Uploading ${activeUploads.length} ${activeUploads.length == 1 ? "item" : "items"}...',
+                          style: TextStyle(
+                            color: c.primary,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
-
-              // Gallery Grid
-              if (memory.media.isNotEmpty)
                 SliverPadding(
                   padding: const EdgeInsets.symmetric(
                     horizontal: AppSpacing.s16,
@@ -480,13 +495,200 @@ class _MemoryDetailScreenState extends ConsumerState<MemoryDetailScreen> {
                           crossAxisCount: 3,
                           crossAxisSpacing: 8,
                           mainAxisSpacing: 8,
-                          childAspectRatio: 0.8, // Slightly taller than wide for a modern look
+                          childAspectRatio: 0.8,
                         ),
                     delegate: SliverChildBuilderDelegate((context, index) {
-                      final mediaItem = memory.media[index];
+                      final task = activeUploads[index];
+                      return Container(
+                        decoration: BoxDecoration(
+                          color: c.surfaceElevated,
+                          borderRadius: BorderRadius.circular(AppRadii.sm),
+                          border: Border.all(
+                            color: c.primary.withValues(alpha: 0.5),
+                          ),
+                        ),
+                        clipBehavior: Clip.antiAlias,
+                        child: Stack(
+                          fit: StackFit.expand,
+                          children: [
+                            AppFileImage(file: task.file, fit: BoxFit.cover),
+                            Container(
+                              color: Colors.black.withValues(alpha: 0.45),
+                              child: Center(
+                                child: task.status == UploadStatus.error
+                                    ? const Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Icon(
+                                            Icons.error_outline,
+                                            color: Colors.redAccent,
+                                            size: 24,
+                                          ),
+                                          SizedBox(height: 4),
+                                          Text(
+                                            'Failed',
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 11,
+                                            ),
+                                          ),
+                                        ],
+                                      )
+                                    : Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          CircularProgressIndicator(
+                                            value: task.progress > 0
+                                                ? task.progress
+                                                : null,
+                                            strokeWidth: 2.5,
+                                            valueColor:
+                                                AlwaysStoppedAnimation<Color>(
+                                              c.primary,
+                                            ),
+                                          ),
+                                          const SizedBox(height: 6),
+                                          Text(
+                                            '${(task.progress * 100).toInt()}%',
+                                            style: const TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 11,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      );
+                    }, childCount: activeUploads.length),
+                  ),
+                ),
+              ],
+
+              // ── Movies Section (AI Generated Reels / Movies) ──
+              if (memory.media.any((m) => m.isGeneratedMovie)) ...[
+                SliverToBoxAdapter(
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(
+                      AppSpacing.s24,
+                      AppSpacing.s20,
+                      AppSpacing.s24,
+                      AppSpacing.s8,
+                    ),
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.movie_creation_rounded,
+                          color: c.primary,
+                          size: 22,
+                        ),
+                        const SizedBox(width: AppSpacing.s8),
+                        Text(
+                          'Movies (${memory.media.where((m) => m.isGeneratedMovie).length})',
+                          style: TextStyle(
+                            color: c.text,
+                            fontSize: 20,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                        const Spacer(),
+                        Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 8,
+                            vertical: 4,
+                          ),
+                          decoration: BoxDecoration(
+                            color: c.primary.withValues(alpha: 0.15),
+                            borderRadius: BorderRadius.circular(12),
+                            border: Border.all(
+                              color: c.primary.withValues(alpha: 0.3),
+                            ),
+                          ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Icon(Icons.auto_awesome, color: c.primary, size: 12),
+                              const SizedBox(width: 4),
+                              Text(
+                                'AI Generated',
+                                style: TextStyle(
+                                  color: c.primary,
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                SliverPadding(
+                  padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s16),
+                  sliver: SliverList(
+                    delegate: SliverChildBuilderDelegate(
+                      (context, index) {
+                        final movies = memory.media.where((m) => m.isGeneratedMovie).toList();
+                        return MovieCard(
+                          movie: movies[index],
+                          memoryTitle: memory.title,
+                        );
+                      },
+                      childCount: memory.media.where((m) => m.isGeneratedMovie).length,
+                    ),
+                  ),
+                ),
+              ],
+
+              // ── Gallery Section (Original Photos & Clips) ──
+              if (memory.media.any((m) => !m.isGeneratedMovie)) ...[
+                SliverToBoxAdapter(
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(
+                      AppSpacing.s24,
+                      AppSpacing.s20,
+                      AppSpacing.s24,
+                      AppSpacing.s16,
+                    ),
+                    child: Text(
+                      'Gallery (${memory.media.where((m) => !m.isGeneratedMovie).length})',
+                      style: TextStyle(
+                        color: c.text,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                  ),
+                ),
+                SliverPadding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: AppSpacing.s16,
+                  ),
+                  sliver: SliverGrid(
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 3,
+                          crossAxisSpacing: 8,
+                          mainAxisSpacing: 8,
+                          childAspectRatio: 0.8,
+                        ),
+                    delegate: SliverChildBuilderDelegate((context, index) {
+                      final galleryMedia = memory.media.where((m) => !m.isGeneratedMovie).toList();
+                      final mediaItem = galleryMedia[index];
                       return GestureDetector(
                         onTap: () {
-                          MemoryMediaViewer.open(context, memory, index);
+                          final origIdx = memory.media.indexOf(mediaItem);
+                          MemoryMediaViewer.open(
+                            context,
+                            memory,
+                            origIdx >= 0 ? origIdx : index,
+                          );
                         },
                         child: Container(
                           decoration: BoxDecoration(
@@ -525,11 +727,12 @@ class _MemoryDetailScreenState extends ConsumerState<MemoryDetailScreen> {
                           ),
                         ),
                       );
-                    }, childCount: memory.media.length),
+                    }, childCount: memory.media.where((m) => !m.isGeneratedMovie).length),
                   ),
                 ),
+              ],
 
-              if (memory.media.isEmpty)
+              if (memory.media.isEmpty && activeUploads.isEmpty)
                 const SliverPadding(
                   padding: EdgeInsets.symmetric(horizontal: AppSpacing.s24),
                   sliver: SliverToBoxAdapter(

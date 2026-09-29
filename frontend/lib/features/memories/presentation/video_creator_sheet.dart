@@ -86,11 +86,15 @@ class _VideoCreatorSheetState extends ConsumerState<VideoCreatorSheet> {
     ref.invalidate(memoryDetailProvider(widget.memory.id));
 
     if (job.resultUrl != null) {
+      final safeTitle = (widget.memory.title)
+          .replaceAll(RegExp(r'[^a-zA-Z0-9 ]'), '')
+          .trim()
+          .replaceAll(' ', '_');
       final mediaItem = MediaModel(
         id: job.resultMediaId ?? job.id,
         memoryId: widget.memory.id,
         ownerId: job.userId ?? '',
-        filename: 'memory_reel_${job.id}.mp4',
+        filename: '$safeTitle.mp4',
         storagePath: 'reels/${job.id}.mp4',
         url: job.resultUrl!,
         thumbnailUrl: null,

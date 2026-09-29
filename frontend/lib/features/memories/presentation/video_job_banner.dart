@@ -14,7 +14,7 @@ class VideoJobBanner extends ConsumerWidget {
     try {
       final uiState = ref.watch(videoJobControllerProvider);
       final job = uiState.job;
-
+      final memoryTitle = uiState.memoryTitle;
       final isDirectorActive = ref.watch(aiDirectorActiveProvider);
       if (job == null || uiState.isSheetOpen == true || uiState.isDirectorOpen == true || isDirectorActive) {
         return const SizedBox.shrink();
@@ -62,7 +62,7 @@ class VideoJobBanner extends ConsumerWidget {
             borderRadius: BorderRadius.circular(AppRadii.lg),
             onTap: () {
               if (isCompleted && job.resultUrl != null) {
-                _openCompletedVideo(context, job);
+                _openCompletedVideo(context, job, memoryTitle);
               }
             },
             child: Padding(
@@ -152,7 +152,7 @@ class VideoJobBanner extends ConsumerWidget {
                           ),
                           icon: const Icon(Icons.play_arrow_rounded, size: 16),
                           label: const Text('Watch', style: TextStyle(fontSize: 12)),
-                          onPressed: () => _openCompletedVideo(context, job),
+                          onPressed: () => _openCompletedVideo(context, job, memoryTitle),
                         ),
                       ] else if (isProcessing) ...[
                         IconButton(
@@ -203,13 +203,18 @@ class VideoJobBanner extends ConsumerWidget {
     }
   }
 
-  void _openCompletedVideo(BuildContext context, VideoJobModel job) {
+  void _openCompletedVideo(BuildContext context, VideoJobModel job, String? memoryTitle) {
     if (job.resultUrl != null) {
+      // Build a clean, human-readable filename from memory title
+      final safeTitle = (memoryTitle ?? 'Memory Reel')
+          .replaceAll(RegExp(r'[^a-zA-Z0-9 ]'), '')
+          .trim()
+          .replaceAll(' ', '_');
       final dummyMedia = MediaModel(
         id: job.resultMediaId ?? job.id,
         memoryId: job.memoryId ?? '',
         ownerId: job.userId ?? '',
-        filename: 'memory_reel_${job.id}.mp4',
+        filename: '$safeTitle.mp4',
         storagePath: 'reels/${job.id}.mp4',
         url: job.resultUrl!,
         thumbnailUrl: null,

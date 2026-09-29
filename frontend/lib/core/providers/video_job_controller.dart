@@ -15,6 +15,7 @@ class VideoJobUIState {
   final String? clientError;
   final bool isSheetOpen;
   final bool isDirectorOpen;
+  final String? memoryTitle;
 
   const VideoJobUIState({
     this.job,
@@ -23,6 +24,7 @@ class VideoJobUIState {
     this.clientError,
     this.isSheetOpen = false,
     this.isDirectorOpen = false,
+    this.memoryTitle,
   });
 
   bool get hasActiveJob => job != null && (job?.isProcessing == true);
@@ -35,6 +37,7 @@ class VideoJobUIState {
     String? clientError,
     bool? isSheetOpen,
     bool? isDirectorOpen,
+    String? memoryTitle,
     bool clearJob = false,
   }) {
     return VideoJobUIState(
@@ -44,6 +47,7 @@ class VideoJobUIState {
       clientError: clientError,
       isSheetOpen: isSheetOpen ?? this.isSheetOpen,
       isDirectorOpen: isDirectorOpen ?? this.isDirectorOpen,
+      memoryTitle: memoryTitle ?? this.memoryTitle,
     );
   }
 }
@@ -76,6 +80,7 @@ class VideoJobController extends StateNotifier<VideoJobUIState> {
   /// Enqueue a new video job and commence background tracking.
   Future<String?> startJob({
     required String memoryId,
+    String? memoryTitle,
     String? dimension,
     String? mood,
     List<String>? mediaIds,
@@ -96,7 +101,7 @@ class VideoJobController extends StateNotifier<VideoJobUIState> {
         memoryId: memoryId,
         currentTask: 'Waiting for available background worker...',
       );
-      state = state.copyWith(job: initialJob, isTracking: true);
+      state = state.copyWith(job: initialJob, isTracking: true, memoryTitle: memoryTitle);
 
       _startSSEStream(jobId);
       return jobId;

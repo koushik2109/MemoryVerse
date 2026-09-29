@@ -397,12 +397,16 @@ def _generate_ai_story_plan(
         reverse=True,
     )
 
-    motions = ["zoom_in", "pan_left", "zoom_out", "pan_right", "slow_zoom_in"]
+    motions = [
+        "zoom_in", "pan_left", "zoom_out", "pan_right", "slow_zoom_in",
+        "drift_left", "drift_right", "tilt_up", "tilt_down", "diagonal_tl",
+    ]
     scenes_fb: list[dict[str, Any]] = []
     total = len(editorial_candidates)
     title_dur = 2.5
-    avail_scene_dur = max(5.0, float(target_duration) - title_dur)
-    base_dur = max(2.5, min(8.0, avail_scene_dur / max(1, total))) if total > 0 else 4.0
+    # Duration is CONTENT-DRIVEN: each scene gets 3–7s scaled to the number of shots.
+    # No target_duration clamp — video length is determined by the actual content.
+    base_dur = max(3.0, min(7.0, 40.0 / max(1, total))) if total > 0 else 4.5
 
     raw_durations: list[float] = []
     for i, item in enumerate(editorial_candidates):
@@ -468,12 +472,8 @@ def _generate_ai_story_plan(
             "narration":        narration,
         })
 
-    # Duration normalization: enforce exact target duration alignment
-    total_raw = sum(raw_durations)
-    if total_raw > 0 and abs(total_raw - avail_scene_dur) > 0.5:
-        norm_factor = avail_scene_dur / total_raw
-        for sc in scenes_fb:
-            sc["duration_seconds"] = max(2.0, round(sc["duration_seconds"] * norm_factor, 2))
+    # No duration normalization against target_duration — video length is content-driven.
+    # Each scene already has a meaningful duration based on its purpose and quality score.
 
     loc_desc = f" at {location}" if location else ""
     return {
@@ -489,7 +489,8 @@ def _create_ai_cinematic_scene_clip(
     duration: float = 3.5,
     target_size: tuple[int, int] = (1280, 720),
     motion_type: str = "zoom_in",
-    caption: str | None = None
+    caption: str | None = None,
+    bg_strategy: str = BackgroundStrategy.ADAPTIVE_CINEMATIC.value,
 ) -> VideoClip:
     """
     Ultra-Fast AI Motion Synthesizer:
@@ -501,7 +502,7 @@ def _create_ai_cinematic_scene_clip(
 
     # 1. Adaptive cinematic background (never stretch or distort)
     bg_base = AspectRatioComposer.generate_background(
-        orig_img, tw, th, strategy=BackgroundStrategy.ADAPTIVE_CINEMATIC.value
+        orig_img, tw, th, strategy=bg_strategy
     )
 
     # 2. Foreground base with aspect-ratio preservation & cinematic grading
@@ -524,19 +525,44 @@ def _create_ai_cinematic_scene_clip(
     border_img.paste(cast(Any, fg_base), (4, 4))
 
     # Pre-render Start Keyframe (p = 0.0)
-    z0 = 1.00 if "zoom_in" in motion_type else (1.10 if "zoom_out" in motion_type else 1.05)
-    sx0 = -15 if "pan_right" in motion_type else (15 if "pan_left" in motion_type else 0)
-    sy0 = -8 if "zoom_in" in motion_type else (8 if "zoom_out" in motion_type else 0)
+    # Extended motion type table: zoom, pan, drift, tilt, diagonal
+    _MOTION_START: dict[str, tuple[float, int, int]] = {
+        # (scale, shift_x, shift_y)
+        "zoom_in":    (1.00, 0,    -8),
+        "zoom_out":   (1.10, 0,     8),
+        "pan_left":   (1.05, 15,    0),
+        "pan_right":  (1.05, -15,   0),
+        "slow_zoom_in": (1.00, 0,  -5),
+        "drift_left": (1.05, 20,   0),
+        "drift_right":(1.05, -20,   0),
+        "tilt_up":    (1.05, 0,   20),
+        "tilt_down":  (1.05, 0,  -20),
+        "diagonal_tl":(1.05, 14,  12),
+        "diagonal_br":(1.05, -14, -12),
+        "static":     (1.00, 0,    0),
+    }
+    _MOTION_END: dict[str, tuple[float, int, int]] = {
+        "zoom_in":    (1.10, 0,    8),
+        "zoom_out":   (1.00, 0,   -8),
+        "pan_left":   (1.05, -15,  0),
+        "pan_right":  (1.05, 15,   0),
+        "slow_zoom_in": (1.06, 0,  5),
+        "drift_left": (1.05, -20,  0),
+        "drift_right":(1.05, 20,   0),
+        "tilt_up":    (1.05, 0,  -20),
+        "tilt_down":  (1.05, 0,   20),
+        "diagonal_tl":(1.05, -14, -12),
+        "diagonal_br":(1.05, 14,  12),
+        "static":     (1.00, 0,    0),
+    }
+    m_key = motion_type if motion_type in _MOTION_START else "zoom_in"
+    z0, sx0, sy0 = _MOTION_START[m_key]
+    z1, sx1, sy1 = _MOTION_END[m_key]
 
     w0, h0 = int(border_img.width * z0), int(border_img.height * z0)
     fg0 = border_img.resize((w0, h0), cast(Any, Image.Resampling.BILINEAR)) if z0 != 1.0 else border_img
     canvas0 = bg_base.copy()
     canvas0.paste(fg0, ((tw - w0) // 2 + sx0, (th - h0) // 2 + sy0), fg0)
-    # Pre-render End Keyframe (p = 1.0)
-    z1 = 1.10 if "zoom_in" in motion_type else (1.00 if "zoom_out" in motion_type else 1.05)
-    sx1 = 15 if "pan_right" in motion_type else (-15 if "pan_left" in motion_type else 0)
-    sy1 = 8 if "zoom_in" in motion_type else (-8 if "zoom_out" in motion_type else 0)
-
     w1, h1 = int(border_img.width * z1), int(border_img.height * z1)
     fg1 = border_img.resize((w1, h1), cast(Any, Image.Resampling.BILINEAR)) if z1 != 1.0 else border_img
     canvas1 = bg_base.copy()
@@ -690,6 +716,7 @@ def _create_ai_title_card_clip(
     target_size: tuple[int, int] = (1280, 720),
     bg_img_path: str | None = None,
     emotion: str = "nostalgic",
+    export_cover_path: str | None = None,
 ) -> VideoClip:
     """
     Ultra-Cinematic Opening Title Card Clip with animated Ken Burns zoom,
@@ -824,6 +851,11 @@ def _create_ai_title_card_clip(
 
     card0 = draw_elements(bg, accent_progress=0.15, drift=0)
     card1 = draw_elements(bg1, accent_progress=1.0, drift=8)
+    if export_cover_path:
+        try:
+            card1.convert("RGB").save(export_cover_path, "JPEG", quality=95)
+        except Exception as save_err:
+            logger.warning(f"Could not save intro cover card to {export_cover_path}: {save_err}")
     arr0 = np.array(card0, dtype=np.float32)
     arr1 = np.array(card1, dtype=np.float32)
 
@@ -1144,51 +1176,75 @@ class VideoService:
             cluster_map = mi.detect_near_duplicates(all_media_ids, embeddings_map, threshold=0.92)
 
             # ── 5. Download only the pre-selected candidates ──────────────────────────
-            # We download all items first to enable actual quality scoring,
-            # then let the intelligence pipeline make its final selection.
+            # We download all items concurrently to enable fast quality scoring
             downloaded: dict[str, str] = {}  # media_id → local file path
+            from concurrent.futures import ThreadPoolExecutor, as_completed
 
-            with httpx.Client(timeout=25.0) as http_client:
-                for idx, item in enumerate(all_media):
-                    mid = str(item.get("id", ""))
-                    mtype = (item.get("media_type") or "image").lower()
-                    ext = ".mp4" if mtype == "video" else ".jpg"
-                    file_path = os.path.join(tmp_dir, f"media_{idx:03d}_{mid[:8]}{ext}")
+            def _download_single_media(idx_item: tuple[int, dict[str, Any]]) -> tuple[str, str | None]:
+                idx, item = idx_item
+                mid = str(item.get("id", ""))
+                mtype = (item.get("media_type") or "image").lower()
+                ext = ".mp4" if mtype == "video" else ".jpg"
+                file_path = os.path.join(tmp_dir, f"media_{idx:03d}_{mid[:8]}{ext}")
 
-                    saved = False
-                    storage_path = item.get("storage_path") or ""
-                    if storage_path:
+                # Check if it was already cached in MEDIA_STREAM_CACHE_DIR
+                storage_path = item.get("storage_path") or ""
+                if storage_path:
+                    safe_base = "".join(c if c.isalnum() or c in "._-" else "_" for c in os.path.basename(storage_path))
+                    from app.api.media import MEDIA_STREAM_CACHE_DIR
+                    stream_cached = os.path.join(MEDIA_STREAM_CACHE_DIR, f"{mid}_{safe_base}")
+                    if os.path.exists(stream_cached) and os.path.getsize(stream_cached) > 0:
                         try:
-                            file_bytes = supabase.storage.from_("memories").download(storage_path)
-                            if file_bytes:
-                                with open(file_path, "wb") as f:
-                                    f.write(file_bytes)
-                                saved = True
-                        except Exception as dl_err:
-                            logger.warning(f"Storage download failed ({storage_path}): {dl_err}")
+                            shutil.copyfile(stream_cached, file_path)
+                            return mid, file_path
+                        except Exception:
+                            pass
 
-                    if not saved:
-                        url = item.get("url") or item.get("thumbnail_url") or ""
-                        if url:
-                            try:
-                                r = http_client.get(url)
-                                r.raise_for_status()
-                                with open(file_path, "wb") as f:
-                                    f.write(r.content)
-                                saved = True
-                            except Exception as http_err:
-                                logger.warning(f"HTTP download failed ({url}): {http_err}")
+                # Try Supabase storage download
+                if storage_path:
+                    try:
+                        file_bytes = supabase.storage.from_("memories").download(storage_path)
+                        if file_bytes:
+                            with open(file_path, "wb") as f:
+                                f.write(file_bytes)
+                            return mid, file_path
+                    except Exception as dl_err:
+                        logger.debug(f"Storage download failed ({storage_path}): {dl_err}")
 
-                    if saved:
-                        downloaded[mid] = file_path
-                    else:
-                        logger.warning(f"Skipping media {mid} — could not download")
+                # Fallback to HTTP URL
+                url = item.get("url") or item.get("thumbnail_url") or ""
+                if url:
+                    try:
+                        with httpx.Client(timeout=15.0) as http_client:
+                            r = http_client.get(url)
+                            r.raise_for_status()
+                            with open(file_path, "wb") as f:
+                                f.write(r.content)
+                            return mid, file_path
+                    except Exception as http_err:
+                        logger.warning(f"HTTP download failed ({url}): {http_err}")
+
+                return mid, None
+
+            max_dl_workers = min(8, max(2, len(all_media)))
+            with ThreadPoolExecutor(max_workers=max_dl_workers) as executor:
+                futures = [executor.submit(_download_single_media, (idx, item)) for idx, item in enumerate(all_media)]
+                for fut in as_completed(futures):
+                    try:
+                        mid, fpath = fut.result()
+                        if fpath:
+                            downloaded[mid] = fpath
+                    except Exception as res_err:
+                        logger.warning(f"Media download worker failed: {res_err}")
 
             if not downloaded:
                 update_job_status("failed", "No media could be downloaded.")
                 return
 
             # ── 6. Score quality & analyze video segments for each item ───────────────
+            job_state_manager.transition_stage(
+                job_id, "analyzing_media", task_description=f"Analyzing quality & visual metrics for {len(downloaded)} media items..."
+            )
             quality_scores: dict[str, dict[str, float]] = {}
             candidate_pool: list[dict[str, Any]] = []
 
@@ -1234,6 +1290,12 @@ class VideoService:
                         })
 
             # ── 7. Intelligence pipeline: select best candidates ──────────────────────
+            job_state_manager.transition_stage(
+                job_id, "detecting_emotion", task_description=f"Inferring emotional tone & mood parameters ('{mood}')..."
+            )
+            job_state_manager.transition_stage(
+                job_id, "selecting_media", task_description="Selecting top story candidates with diversity ranking..."
+            )
             selected_media = mi.select_story_candidates(
                 media_items=candidate_pool,
                 quality_scores=quality_scores,
@@ -1258,6 +1320,9 @@ class VideoService:
             TARGET_SIZE = TargetAspectRatio.get_dimensions(dimension or "16:9", high_res=is_high_res)
 
             # ── 9. Generate AI story plan ─────────────────────────────────────────────
+            job_state_manager.transition_stage(
+                job_id, "planning_story", task_description="Directing narrative arc and Ken Burns choreography..."
+            )
             story_plan = _generate_ai_story_plan(
                 title=memory_title,
                 date_str=memory_date,
@@ -1278,15 +1343,28 @@ class VideoService:
             }
 
             # ── 10. Render: story plan drives every clip ──────────────────────────────
+            job_state_manager.transition_stage(
+                job_id, "generating_motion", task_description=f"Synthesizing Ken Burns dynamic pan & zoom for {len(scenes)} scenes..."
+            )
             clips: list[Any] = []
 
-            # Opening title card — background from first selected image, if any
-            first_img_path: str | None = None
-            for item in selected_media:
-                if (item.get("media_type") or "image").lower() == "image":
-                    mid = str(item.get("id", ""))
-                    first_img_path = downloaded.get(mid)
-                    break
+            # Opening title card & coverpage setup:
+            # "use the coverpage with the intro if not given else give it the picture the person has given, dont make any picture default choosen"
+            user_cover_id = spec.get("cover_media_id") or (mem.get("cover_media_id") if mem else None)
+            user_cover_img_path: str | None = None
+            user_cover_thumb_url: str | None = None
+
+            if user_cover_id:
+                user_cover_img_path = downloaded.get(str(user_cover_id))
+                for item in all_media:
+                    if str(item.get("id")) == str(user_cover_id):
+                        user_cover_thumb_url = item.get("thumbnail_url") or item.get("url")
+                        break
+
+            # If user has explicitly given a picture, use it as intro background;
+            # otherwise None (clean cinematic abstract aurora background — no picture default-chosen!)
+            intro_bg_path = user_cover_img_path
+            intro_cover_path = os.path.join(tmp_dir, f"intro_cover_{job_id}.jpg")
 
             title_duration = 2.5
             title_clip = _create_ai_title_card_clip(
@@ -1294,8 +1372,9 @@ class VideoService:
                 subtitle=memory_date,
                 duration=title_duration,
                 target_size=TARGET_SIZE,
-                bg_img_path=first_img_path,
+                bg_img_path=intro_bg_path,
                 emotion=mood or "nostalgic",
+                export_cover_path=intro_cover_path,
             )
             clips.append(title_clip)
 
@@ -1318,19 +1397,8 @@ class VideoService:
                 mtype     = (item_data.get("media_type") or "image").lower()
                 narration = (scene.get("narration") or "").strip()
 
-                # Synthesize emotion-aware speech voiceover for this scene
-                if narration:
-                    try:
-                        speech_arr, speech_dur, _ = tts_engine.synthesize_sync(
-                            text=narration,
-                            emotion=mood or "calm",
-                        )
-                        if speech_dur > 0:
-                            # Adjust scene duration so spoken narration finishes naturally
-                            dur = max(dur, speech_dur + 0.6)
-                            speech_segments.append((current_timeline + 0.2, speech_arr))
-                    except Exception as tts_err:
-                        logger.warning(f"Scene {scene.get('scene_id')} TTS synthesis failed: {tts_err}")
+                # Voiceover/TTS disabled — BGM-only audio pipeline
+                # (TTS files and engine are preserved for future use)
 
                 try:
                     if mtype == "image":
@@ -1348,12 +1416,16 @@ class VideoService:
                                 .with_audio(None)
                             )
                         else:
+                            # Pick rotating background strategy for visual variety
+                            bg_strategies = BackgroundStrategy.rotation_sequence()
+                            bg_strategy = bg_strategies[len(clips) % len(bg_strategies)]
                             scene_clip = _create_ai_cinematic_scene_clip(
                                 img_path=scene_path,
                                 duration=dur,
                                 target_size=TARGET_SIZE,
                                 motion_type=motion,
-                                caption=narration,
+                                caption=None,  # Captions disabled — clean cinematic look
+                                bg_strategy=bg_strategy,
                             )
                         clips.append(scene_clip)
                         current_timeline += dur
@@ -1393,24 +1465,21 @@ class VideoService:
                 update_job_status("failed", "All clip rendering failed.")
                 return
 
+            job_state_manager.transition_stage(
+                job_id, "composing_video", task_description="Composing video scenes and transitions..."
+            )
             final_clip = concatenate_videoclips(clips, method="compose")
-            target_dur = float(target_duration or 20.0)
-            rendered_dur = float(final_clip.duration or current_timeline)
-            if rendered_dur > (target_dur + 0.3):
-                final_clip = final_clip.subclipped(0, target_dur)
-                reel_total_dur = target_dur
-            elif rendered_dur < (target_dur - 0.5):
-                deficit = target_dur - rendered_dur
-                outro_clip = _create_ai_outro_card_clip(duration=deficit, target_size=TARGET_SIZE)
-                final_clip = concatenate_videoclips([final_clip, outro_clip], method="compose")
-                reel_total_dur = target_dur
-            else:
-                reel_total_dur = rendered_dur
+            # Content-driven duration: video is as long as the content demands.
+            # No truncation — target_duration is an advisory hint, not a hard cap.
+            reel_total_dur = float(final_clip.duration or current_timeline)
 
             sr = 44100
             total_samples = max(1, int(reel_total_dur * sr))
 
             # ── 11. Audio: Ambient BGM + Emotion-Aware TTS Narration with Audio Ducking ──
+            job_state_manager.transition_stage(
+                job_id, "generating_audio", task_description="Synthesizing emotion-tuned soundtrack & narration with audio ducking..."
+            )
             try:
                 if music_style in ("none", "mute", "off"):
                     # Only speech track (or silent background)
@@ -1559,12 +1628,29 @@ class VideoService:
             job_state_manager.transition_stage(
                 job_id, "finalizing", task_description="Finalizing database record and video stream URL..."
             )
-            first_media_thumb: str | None = None
-            if selected_media:
-                first_media_thumb = (
-                    selected_media[0].get("thumbnail_url")
-                    or selected_media[0].get("url")
-                )
+            # Determine coverpage thumbnail:
+            # "use the coverpage with the intro if not given else give it the picture the person has given, dont make any picture default choosen"
+            movie_thumbnail_url: str | None = None
+            if user_cover_thumb_url:
+                movie_thumbnail_url = user_cover_thumb_url
+            elif os.path.exists(intro_cover_path):
+                # Upload intro coverpage to storage as thumbnail for the movie
+                thumb_storage_path = f"reels/thumbs/{job_id}_cover.jpg"
+                try:
+                    with open(intro_cover_path, "rb") as f_thumb:
+                        thumb_bytes = f_thumb.read()
+                    supabase.storage.from_("memories").upload(
+                        thumb_storage_path,
+                        thumb_bytes,
+                        file_options={"content-type": "image/jpeg", "upsert": "true"},
+                    )
+                    movie_thumbnail_url = supabase.storage.from_("memories").get_public_url(thumb_storage_path)
+                except Exception as up_err:
+                    logger.warning(f"Could not upload intro cover to cloud storage: {up_err}")
+                    local_thumb_dir = os.path.join("backend", "storage", "staging", "thumbs")
+                    os.makedirs(local_thumb_dir, exist_ok=True)
+                    shutil.copyfile(intro_cover_path, os.path.join(local_thumb_dir, f"{job_id}_cover.jpg"))
+                    movie_thumbnail_url = f"/api/media/stream/{job_id}_cover"
 
             media_data = {
                 "memory_id":    memory_id,
@@ -1573,11 +1659,18 @@ class VideoService:
                 "filename":     output_filename,
                 "storage_path": reel_storage_path,
                 "url":          public_url,
-                "thumbnail_url":first_media_thumb,
+                "thumbnail_url":movie_thumbnail_url,
                 "media_type":   "video",
                 "file_size":    os.path.getsize(staged_path),
                 "mime_type":    "video/mp4",
                 "duration":     int(reel_duration),
+                "metadata": {
+                    "is_generated": True,
+                    "type": "generated_movie",
+                    "title": memory_title,
+                    "job_id": job_id,
+                    "cover_source": "user_picture" if user_cover_thumb_url else "intro_coverpage",
+                },
                 "created_at":   datetime.now(timezone.utc).isoformat(),
             }
 

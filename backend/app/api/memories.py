@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, Query, status
+from fastapi import APIRouter, Depends, Query, status, HTTPException
 from typing import List, Optional
 from datetime import datetime
 import logging
@@ -8,6 +8,7 @@ from app.schemas.domain import (
     MemoryNarrativeResponse, AnalyzeMemoryRequest
 )
 from app.services.memory_service import MemoryService
+from app.services.memory_readiness_service import memory_readiness_service, MemoryReadinessResponse
 from app.core.security import get_current_user, CurrentUser
 from app.core.db import get_supabase_client
 
@@ -56,6 +57,22 @@ async def get_memory(
     data = await service.get_memory(user.id, memory_id)
     data['media_count'] = len(data.get('media', []))
     return data
+
+@router.get("/{memory_id}/readiness", response_model=MemoryReadinessResponse)
+async def get_memory_readiness(
+    memory_id: str,
+    user: CurrentUser = Depends(get_current_user),
+):
+    """Inspect memory readiness for video generation."""
+    try:
+        return memory_readiness_service.evaluate_memory_readiness(user.id, memory_id)
+    except ValueError as ve:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=str(ve))
+    except PermissionError as pe:
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail=str(pe))
+    except Exception as e:
+        logger.exception(f"Error checking readiness for {memory_id}: {e}")
+        raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Failed to evaluate readiness")
 
 @router.put("/{memory_id}", response_model=MemoryResponse)
 async def update_memory(

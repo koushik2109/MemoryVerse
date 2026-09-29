@@ -267,6 +267,16 @@ class MediaRepository {
     await _api.post('/media/jobs/$jobId/cancel');
   }
 
+  Future<Map<String, dynamic>> getMemoryReadiness(String memoryId) async {
+    final res = await _api.get('/memories/$memoryId/readiness');
+    return res.data as Map<String, dynamic>;
+  }
+
+  Future<List<VideoJobModel>> listUserJobs({int limit = 10}) async {
+    final res = await _api.get('/media/jobs?limit=$limit');
+    return (res.data as List).map((x) => VideoJobModel.fromJson(x)).toList();
+  }
+
   Future<void> reorderMedia(List<String> mediaIds) async {
     await _api.put('/media/reorder', data: {'media_ids': mediaIds});
   }
@@ -453,6 +463,20 @@ class AiRepository {
     final res = await _api.post(
       '/ai/curate-local-media',
       data: formData,
+    );
+    return res.data as Map<String, dynamic>;
+  }
+
+  Future<Map<String, dynamic>> askHomeAssistant({
+    required String message,
+    Map<String, dynamic>? clientContext,
+  }) async {
+    final res = await _api.post(
+      '/ai/home-assistant',
+      data: {
+        'message': message,
+        if (clientContext != null) 'client_context': clientContext,
+      },
     );
     return res.data as Map<String, dynamic>;
   }

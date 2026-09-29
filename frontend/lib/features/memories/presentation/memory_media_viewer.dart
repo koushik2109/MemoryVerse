@@ -1,7 +1,11 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
+import 'package:dio/dio.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:memory_verse/contracts/models.dart';
+import 'package:memory_verse/core/api/api_client.dart';
 import 'package:memory_verse/core/design/tokens.dart';
 import 'package:memory_verse/core/providers/app_providers.dart';
 import 'package:memory_verse/core/repositories/app_repositories.dart';
@@ -142,9 +146,127 @@ class _MemoryMediaViewerState extends ConsumerState<MemoryMediaViewer> {
     }
   }
 
-  void _shareCurrentMedia() {
+  bool _isDownloading = false;
+
+  Future<String?> _downloadCurrentMedia() async {
     final media = widget.memory.media[_currentIndex];
-    Share.share('Check out this moment: ${media.url}');
+    if (_isDownloading) return null;
+
+    setState(() => _isDownloading = true);
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text('Downloading media to offline storage...'),
+        duration: Duration(seconds: 2),
+      ),
+    );
+
+    try {
+      final dir = await getApplicationDocumentsDirectory();
+      final isVideo = media.mediaType == 'video';
+      final safeName = media.filename.replaceAll(RegExp(r'[^a-zA-Z0-9._-]'), '_');
+      final savePath = '${dir.path}/$safeName';
+
+      final downloadUrl = media.url.isNotEmpty
+          ? media.url
+          : '${ApiClient.baseUrl}/media/stream/${media.id}';
+
+      final dio = Dio();
+      await dio.download(downloadUrl, savePath);
+
+      String? publicFolder;
+      try {
+        if (Platform.isAndroid) {
+          final targetFolderName = isVideo ? 'Movies' : 'Pictures';
+          final publicDir = Directory('/storage/emulated/0/$targetFolderName');
+          if (publicDir.existsSync()) {
+            final publicFile = File('${publicDir.path}/$safeName');
+            await File(savePath).copy(publicFile.path);
+            publicFolder = targetFolderName;
+          } else {
+            final extDirs = await getExternalStorageDirectories(
+              type: isVideo ? StorageDirectory.movies : StorageDirectory.pictures,
+            );
+            if (extDirs != null && extDirs.isNotEmpty) {
+              final publicFile = File('${extDirs.first.path}/$safeName');
+              await File(savePath).copy(publicFile.path);
+              publicFolder = targetFolderName;
+            }
+          }
+        } else {
+          final dlDir = await getDownloadsDirectory();
+          if (dlDir != null) {
+            final publicFile = File('${dlDir.path}/$safeName');
+            await File(savePath).copy(publicFile.path);
+            publicFolder = 'Downloads';
+          }
+        }
+      } catch (copyErr) {
+        debugPrint('Could not copy to public folder: $copyErr');
+      }
+
+      if (mounted) {
+        setState(() => _isDownloading = false);
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(publicFolder != null
+                ? '${isVideo ? "Video" : "Photo"} saved to device $publicFolder folder: $safeName'
+                : 'Saved locally: $safeName'),
+            backgroundColor: const Color(0xFF4CAF50),
+            duration: const Duration(seconds: 4),
+            action: SnackBarAction(
+              label: 'Share',
+              textColor: Colors.white,
+              onPressed: _shareCurrentMedia,
+            ),
+          ),
+        );
+      }
+      return savePath;
+    } catch (e) {
+      debugPrint("Download media error: $e");
+      if (mounted) {
+        setState(() => _isDownloading = false);
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Download failed: $e'),
+            backgroundColor: Colors.red,
+          ),
+        );
+      }
+      return null;
+    }
+  }
+
+  Future<void> _shareCurrentMedia() async {
+    final media = widget.memory.media[_currentIndex];
+    try {
+      final dir = await getApplicationDocumentsDirectory();
+      final safeName = media.filename.replaceAll(RegExp(r'[^a-zA-Z0-9._-]'), '_');
+      final localPath = '${dir.path}/$safeName';
+
+      if (!File(localPath).existsSync()) {
+        final downloaded = await _downloadCurrentMedia();
+        if (downloaded != null && File(downloaded).existsSync()) {
+          await Share.shareXFiles(
+            [XFile(downloaded)],
+            text: 'Check out this moment from "${widget.memory.title}"',
+          );
+          return;
+        }
+      } else {
+        await Share.shareXFiles(
+          [XFile(localPath)],
+          text: 'Check out this moment from "${widget.memory.title}"',
+        );
+        return;
+      }
+    } catch (shareErr) {
+      debugPrint("Error sharing local file: $shareErr");
+    }
+
+    if (media.url.isNotEmpty) {
+      await Share.share('Check out this moment: ${media.url}');
+    }
   }
 
   @override
@@ -304,7 +426,22 @@ class _MemoryMediaViewerState extends ConsumerState<MemoryMediaViewer> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     IconButton(
+                      icon: _isDownloading
+                          ? const SizedBox(
+                              width: 20,
+                              height: 20,
+                              child: CircularProgressIndicator(
+                                strokeWidth: 2,
+                                color: adt.AppColors.onDarkPrimary,
+                              ),
+                            )
+                          : const Icon(Icons.download_rounded, color: adt.AppColors.onDarkPrimary),
+                      tooltip: 'Download offline',
+                      onPressed: _isDownloading ? null : _downloadCurrentMedia,
+                    ),
+                    IconButton(
                       icon: const Icon(Icons.ios_share, color: adt.AppColors.onDarkPrimary),
+                      tooltip: 'Share',
                       onPressed: _shareCurrentMedia,
                     ),
                     if (currentMedia.mediaType == 'image')

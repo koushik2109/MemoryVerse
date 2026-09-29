@@ -34,6 +34,25 @@ class BackgroundStrategy(str, Enum):
     COLOR_GRADIENT = "color_gradient"
     DARKENED_DUPLICATE = "darkened_duplicate"
     ADAPTIVE_CINEMATIC = "adaptive_cinematic"
+    WARM_BOKEH = "warm_bokeh"           # Warm golden-toned blur with soft bokeh vignette
+    SPLIT_TONED = "split_toned"         # Cool shadows / warm highlights split-tone
+    VIGNETTE_DARK = "vignette_dark"     # Dark edges, bright center — classic cinema look
+    MIRROR_REFLECT = "mirror_reflect"   # Horizontally mirrored blur — elegant symmetry
+    CINEMATIC_GRADE = "cinematic_grade" # Desaturated blur with colour-grade overlay
+
+    @classmethod
+    def rotation_sequence(cls) -> list[str]:
+        """Returns a varied sequence so consecutive shots never look the same."""
+        return [
+            cls.ADAPTIVE_CINEMATIC.value,
+            cls.WARM_BOKEH.value,
+            cls.SPLIT_TONED.value,
+            cls.VIGNETTE_DARK.value,
+            cls.COLOR_GRADIENT.value,
+            cls.MIRROR_REFLECT.value,
+            cls.CINEMATIC_GRADE.value,
+            cls.DARKENED_DUPLICATE.value,
+        ]
 
 
 class CompositionFitMode(str, Enum):
@@ -157,6 +176,79 @@ class AspectRatioComposer:
             bg = bg.filter(ImageFilter.GaussianBlur(radius=15))
             dark = Image.new("RGBA", (target_w, target_h), (10, 10, 15, 180))
             return Image.alpha_composite(bg.convert("RGBA"), dark).convert("RGB")
+
+        elif strategy == BackgroundStrategy.WARM_BOKEH.value:
+            # Warm golden bokeh: strong blur with a warm amber-rose vignette overlay
+            bg = src_small.resize((target_w, target_h), Image.Resampling.BILINEAR)
+            bg = bg.filter(ImageFilter.GaussianBlur(radius=30))
+            warm = Image.new("RGBA", (target_w, target_h), (60, 28, 8, 130))
+            bg = Image.alpha_composite(bg.convert("RGBA"), warm).convert("RGB")
+            # Radial vignette via centre-bright, edge-dark NumPy mask
+            np_bg = np.array(bg, dtype=np.float32)
+            cx, cy = target_w / 2.0, target_h / 2.0
+            ys, xs = np.ogrid[:target_h, :target_w]
+            dist = np.sqrt(((xs - cx) / max(1, target_w)) ** 2 + ((ys - cy) / max(1, target_h)) ** 2)
+            vignette_mask = np.clip(1.0 - dist * 1.8, 0.25, 1.0)
+            np_bg *= vignette_mask[:, :, None]
+            return Image.fromarray(np.clip(np_bg, 0, 255).astype(np.uint8))
+
+        elif strategy == BackgroundStrategy.SPLIT_TONED.value:
+            # Cool-blue shadows / warm-amber highlights split-tone
+            bg = src_small.resize((target_w, target_h), Image.Resampling.BILINEAR)
+            bg = bg.filter(ImageFilter.GaussianBlur(radius=22))
+            np_bg = np.array(bg, dtype=np.float32)
+            lum = np_bg.mean(axis=2, keepdims=True) / 255.0  # 0–1 luminance
+            # Cool shadow tint: darken blues in low-lum areas
+            shadow_tint = np.array([10, 18, 42], dtype=np.float32)  # blue-indigo
+            # Warm highlight tint: amber in high-lum areas
+            highlight_tint = np.array([42, 24, 8], dtype=np.float32)  # amber-warm
+            tint = (1.0 - lum) * shadow_tint + lum * highlight_tint
+            np_bg = np.clip(np_bg * 0.55 + tint, 0, 255)
+            return Image.fromarray(np_bg.astype(np.uint8))
+
+        elif strategy == BackgroundStrategy.VIGNETTE_DARK.value:
+            # Dark radial vignette: bright center, very dark edges — classic cinematic
+            bg = src_small.resize((target_w, target_h), Image.Resampling.BILINEAR)
+            bg = bg.filter(ImageFilter.GaussianBlur(radius=18))
+            np_bg = np.array(bg, dtype=np.float32)
+            cx, cy = target_w / 2.0, target_h / 2.0
+            ys, xs = np.ogrid[:target_h, :target_w]
+            dist = np.sqrt(((xs - cx) / max(1, target_w)) ** 2 + ((ys - cy) / max(1, target_h)) ** 2)
+            # Center gets ~60% brightness, edges go near-black
+            factor = np.clip(0.65 - dist * 1.1, 0.04, 0.65)
+            np_bg *= factor[:, :, None]
+            return Image.fromarray(np.clip(np_bg, 0, 255).astype(np.uint8))
+
+        elif strategy == BackgroundStrategy.MIRROR_REFLECT.value:
+            # Horizontally mirrored and blurred — elegant symmetry
+            bg = src_small.resize((target_w, target_h), Image.Resampling.BILINEAR)
+            mirrored = bg.transpose(Image.Transpose.FLIP_LEFT_RIGHT)
+            # Blend original and mirrored 50/50 then blur
+            np_orig = np.array(bg, dtype=np.float32)
+            np_mir = np.array(mirrored, dtype=np.float32)
+            blended = np.clip((np_orig + np_mir) * 0.5, 0, 255).astype(np.uint8)
+            result = Image.fromarray(blended).filter(ImageFilter.GaussianBlur(radius=20))
+            dark = Image.new("RGBA", (target_w, target_h), (8, 8, 16, 160))
+            return Image.alpha_composite(result.convert("RGBA"), dark).convert("RGB")
+
+        elif strategy == BackgroundStrategy.CINEMATIC_GRADE.value:
+            # Desaturated + blue-teal colour-grade with vignette — film look
+            bg = src_small.resize((target_w, target_h), Image.Resampling.BILINEAR)
+            bg = bg.filter(ImageFilter.GaussianBlur(radius=24))
+            np_bg = np.array(bg, dtype=np.float32)
+            # Partial desaturation: mix with greyscale
+            grey = np_bg.mean(axis=2, keepdims=True)
+            np_bg = np.clip(np_bg * 0.35 + grey * 0.50, 0, 255)
+            # Teal-blue overlay (cinematic LUT approximation)
+            teal = np.array([0, 12, 28], dtype=np.float32)
+            np_bg = np.clip(np_bg + teal, 0, 255)
+            # Edge vignette
+            cx, cy = target_w / 2.0, target_h / 2.0
+            ys, xs = np.ogrid[:target_h, :target_w]
+            dist = np.sqrt(((xs - cx) / max(1, target_w)) ** 2 + ((ys - cy) / max(1, target_h)) ** 2)
+            factor = np.clip(1.0 - dist * 0.9, 0.15, 1.0)
+            np_bg *= factor[:, :, None]
+            return Image.fromarray(np.clip(np_bg, 0, 255).astype(np.uint8))
 
         else:
             # ADAPTIVE_CINEMATIC and BLURRED_DUPLICATE:

@@ -150,6 +150,16 @@ class VideoWorkerPool:
         watchdog.start()
         self._threads.append(watchdog)
 
+        # Startup crash recovery: recover uncompleted jobs left in queue/processing state
+        try:
+            pending_jobs = job_state_manager.get_pending_or_stale_jobs()
+            if pending_jobs:
+                logger.info(f"Startup crash recovery found {len(pending_jobs)} uncompleted jobs. Re-queueing...")
+                for p_job in pending_jobs:
+                    self.submit_job(p_job.id)
+        except Exception as rec_err:
+            logger.warning(f"Error during startup job recovery: {rec_err}")
+
     def stop(self) -> None:
         self._running = False
         logger.info(f"VideoWorkerPool [{self.worker_id}] shutting down.")
@@ -241,6 +251,16 @@ class VideoWorkerPool:
 
                 with job_state_manager._lock:
                     all_jobs = list(job_state_manager._jobs.values())
+
+                # Also supplement with DB records to catch jobs orphaned by process crashes
+                try:
+                    db_stale = job_state_manager.get_pending_or_stale_jobs()
+                    known_ids = {j.id for j in all_jobs}
+                    for db_job in db_stale:
+                        if db_job.id not in known_ids:
+                            all_jobs.append(db_job)
+                except Exception:
+                    pass
 
                 for job in all_jobs:
                     if job.status not in ("processing", "initializing"):

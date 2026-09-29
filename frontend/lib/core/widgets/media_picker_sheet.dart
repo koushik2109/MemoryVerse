@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:file_picker/file_picker.dart';
@@ -34,49 +35,108 @@ class _MediaPickerSheetState extends ConsumerState<MediaPickerSheet> {
   final List<File> _selectedFiles = [];
   final List<String> _mediaTypes = []; // 'image' or 'video'
   bool _isUploading = false;
+  bool _isPicking = false;
   String? _uploadStatus;
 
   Future<void> _pickImages() async {
-    final images = await _picker.pickMultiImage(
-      imageQuality: 80,
-      maxWidth: 1920,
-      maxHeight: 1080,
-    );
-    if (images.isNotEmpty) {
-      setState(() {
-        _selectedFiles.addAll(images.map((x) => File(x.path)));
-        _mediaTypes.addAll(List.generate(images.length, (_) => 'image'));
-      });
+    if (_isPicking) return;
+    setState(() => _isPicking = true);
+    try {
+      final images = await _picker.pickMultiImage(
+        imageQuality: 85,
+      );
+      if (images.isNotEmpty && mounted) {
+        setState(() {
+          _selectedFiles.addAll(images.map((x) => File(x.path)));
+          _mediaTypes.addAll(List.generate(images.length, (_) => 'image'));
+        });
+      }
+    } on PlatformException catch (e) {
+      if (e.code != 'already_active' && mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Failed to pick images: ${e.message}')),
+        );
+      }
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Error picking images: $e')),
+        );
+      }
+    } finally {
+      if (mounted) {
+        setState(() => _isPicking = false);
+      }
     }
   }
 
   Future<void> _pickVideo() async {
-    final video = await _picker.pickVideo(source: ImageSource.gallery);
-    if (video != null) {
-      setState(() {
-        _selectedFiles.add(File(video.path));
-        _mediaTypes.add('video');
-      });
+    if (_isPicking) return;
+    setState(() => _isPicking = true);
+    try {
+      final video = await _picker.pickVideo(source: ImageSource.gallery);
+      if (video != null && mounted) {
+        setState(() {
+          _selectedFiles.add(File(video.path));
+          _mediaTypes.add('video');
+        });
+      }
+    } on PlatformException catch (e) {
+      if (e.code != 'already_active' && mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Failed to pick video: ${e.message}')),
+        );
+      }
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Error picking video: $e')),
+        );
+      }
+    } finally {
+      if (mounted) {
+        setState(() => _isPicking = false);
+      }
     }
   }
 
   Future<void> _pickFiles() async {
-    final result = await FilePicker.platform.pickFiles(
-      type: FileType.custom,
-      allowedExtensions: ['jpg', 'jpeg', 'png', 'mp4', 'mov', 'avi'],
-      allowMultiple: true,
-    );
-    if (result != null && result.files.isNotEmpty) {
-      setState(() {
-        for (var file in result.files) {
-          if (file.path != null) {
-            final ext = (file.extension ?? '').toLowerCase();
-            final isVideo = ['mp4', 'mov', 'avi'].contains(ext);
-            _selectedFiles.add(File(file.path!));
-            _mediaTypes.add(isVideo ? 'video' : 'image');
+    if (_isPicking) return;
+    setState(() => _isPicking = true);
+    try {
+      final result = await FilePicker.platform.pickFiles(
+        type: FileType.custom,
+        allowedExtensions: ['jpg', 'jpeg', 'png', 'mp4', 'mov', 'avi'],
+        allowMultiple: true,
+      );
+      if (result != null && result.files.isNotEmpty && mounted) {
+        setState(() {
+          for (var file in result.files) {
+            if (file.path != null) {
+              final ext = (file.extension ?? '').toLowerCase();
+              final isVideo = ['mp4', 'mov', 'avi'].contains(ext);
+              _selectedFiles.add(File(file.path!));
+              _mediaTypes.add(isVideo ? 'video' : 'image');
+            }
           }
-        }
-      });
+        });
+      }
+    } on PlatformException catch (e) {
+      if (e.code != 'already_active' && mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Failed to pick files: ${e.message}')),
+        );
+      }
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Error picking files: $e')),
+        );
+      }
+    } finally {
+      if (mounted) {
+        setState(() => _isPicking = false);
+      }
     }
   }
 
@@ -192,7 +252,7 @@ class _MediaPickerSheetState extends ConsumerState<MediaPickerSheet> {
                     child: _OptionTile(
                       icon: Icons.photo_library_outlined,
                       label: 'Photos',
-                      onTap: _pickImages,
+                      onTap: _isPicking ? null : _pickImages,
                     ),
                   ),
                   const SizedBox(width: AppSpacing.s12),
@@ -200,7 +260,7 @@ class _MediaPickerSheetState extends ConsumerState<MediaPickerSheet> {
                     child: _OptionTile(
                       icon: Icons.videocam_outlined,
                       label: 'Video',
-                      onTap: _pickVideo,
+                      onTap: _isPicking ? null : _pickVideo,
                     ),
                   ),
                   const SizedBox(width: AppSpacing.s12),
@@ -208,7 +268,7 @@ class _MediaPickerSheetState extends ConsumerState<MediaPickerSheet> {
                     child: _OptionTile(
                       icon: Icons.folder_open_outlined,
                       label: 'Files',
-                      onTap: _pickFiles,
+                      onTap: _isPicking ? null : _pickFiles,
                     ),
                   ),
                 ],
@@ -310,7 +370,7 @@ class _MediaPickerSheetState extends ConsumerState<MediaPickerSheet> {
 class _OptionTile extends StatelessWidget {
   final IconData icon;
   final String label;
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
 
   const _OptionTile({
     required this.icon,
@@ -321,30 +381,34 @@ class _OptionTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final c = context.colors;
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        padding: const EdgeInsets.symmetric(
-          vertical: AppSpacing.s20,
-          horizontal: AppSpacing.s8,
-        ),
-        decoration: BoxDecoration(
-          color: c.surface,
-          borderRadius: BorderRadius.circular(AppRadii.lg),
-          border: Border.all(color: c.border),
-        ),
-        child: Column(
-          children: [
-            Icon(icon, size: 28, color: c.text),
-            const SizedBox(height: AppSpacing.s8),
-            Text(
-              label,
-              textAlign: TextAlign.center,
-              style: context.text.labelSmall?.copyWith(
-                fontWeight: FontWeight.w600,
+    final bool isEnabled = onTap != null;
+    return Opacity(
+      opacity: isEnabled ? 1.0 : 0.45,
+      child: GestureDetector(
+        onTap: onTap,
+        child: Container(
+          padding: const EdgeInsets.symmetric(
+            vertical: AppSpacing.s20,
+            horizontal: AppSpacing.s8,
+          ),
+          decoration: BoxDecoration(
+            color: c.surface,
+            borderRadius: BorderRadius.circular(AppRadii.lg),
+            border: Border.all(color: c.border),
+          ),
+          child: Column(
+            children: [
+              Icon(icon, size: 28, color: c.text),
+              const SizedBox(height: AppSpacing.s8),
+              Text(
+                label,
+                textAlign: TextAlign.center,
+                style: context.text.labelSmall?.copyWith(
+                  fontWeight: FontWeight.w600,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

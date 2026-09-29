@@ -11,6 +11,7 @@ class AppFileImage extends StatelessWidget {
   final BoxFit fit;
   final double? width;
   final double? height;
+  final int? memCacheWidth;
   final Widget? errorWidget;
 
   const AppFileImage({
@@ -19,6 +20,7 @@ class AppFileImage extends StatelessWidget {
     this.fit = BoxFit.cover,
     this.width,
     this.height,
+    this.memCacheWidth = 300,
     this.errorWidget,
   });
 
@@ -30,6 +32,7 @@ class AppFileImage extends StatelessWidget {
         fit: fit,
         width: width,
         height: height,
+        cacheWidth: memCacheWidth,
         errorBuilder: (context, error, stackTrace) =>
             errorWidget ??
             Container(
@@ -46,6 +49,7 @@ class AppFileImage extends StatelessWidget {
       fit: fit,
       width: width,
       height: height,
+      cacheWidth: memCacheWidth,
       errorBuilder: (context, error, stackTrace) =>
           errorWidget ??
           Container(

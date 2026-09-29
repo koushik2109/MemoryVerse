@@ -3,6 +3,7 @@ import 'dart:ui';
 
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
@@ -215,21 +216,33 @@ class _CreateMemorySheetState extends ConsumerState<CreateMemorySheet> {
 
   // ── Manual Fallback Methods ──
 
+  bool _isPicking = false;
+
   Future<void> _pickImages() async {
+    if (_isPicking) return;
+    setState(() => _isPicking = true);
     try {
-      final images = await _picker.pickMultiImage(imageQuality: 80);
+      final images = await _picker.pickMultiImage(imageQuality: 85);
       if (images.isNotEmpty && mounted) {
         setState(() {
           _selectedFiles.addAll(images.map((x) => File(x.path)));
           _mediaTypes.addAll(List.generate(images.length, (_) => 'image'));
         });
       }
+    } on PlatformException catch (e) {
+      if (e.code != 'already_active' && mounted) {
+        setState(() => _error = 'Failed to pick images: ${e.message}');
+      }
     } catch (e) {
-      setState(() => _error = 'Failed to pick images: $e');
+      if (mounted) setState(() => _error = 'Failed to pick images: $e');
+    } finally {
+      if (mounted) setState(() => _isPicking = false);
     }
   }
 
   Future<void> _pickVideo() async {
+    if (_isPicking) return;
+    setState(() => _isPicking = true);
     try {
       final video = await _picker.pickVideo(source: ImageSource.gallery);
       if (video != null && mounted) {
@@ -238,28 +251,46 @@ class _CreateMemorySheetState extends ConsumerState<CreateMemorySheet> {
           _mediaTypes.add('video');
         });
       }
+    } on PlatformException catch (e) {
+      if (e.code != 'already_active' && mounted) {
+        setState(() => _error = 'Failed to pick video: ${e.message}');
+      }
     } catch (e) {
-      setState(() => _error = 'Failed to pick video: $e');
+      if (mounted) setState(() => _error = 'Failed to pick video: $e');
+    } finally {
+      if (mounted) setState(() => _isPicking = false);
     }
   }
 
   Future<void> _pickFiles() async {
-    final result = await FilePicker.platform.pickFiles(
-      type: FileType.custom,
-      allowedExtensions: ['jpg', 'jpeg', 'png', 'mp4', 'mov', 'heic'],
-      allowMultiple: true,
-    );
-    if (result != null && result.files.isNotEmpty && mounted) {
-      setState(() {
-        for (var file in result.files) {
-          if (file.path != null) {
-            final ext = (file.extension ?? '').toLowerCase();
-            final isVideo = ['mp4', 'mov'].contains(ext);
-            _selectedFiles.add(File(file.path!));
-            _mediaTypes.add(isVideo ? 'video' : 'image');
+    if (_isPicking) return;
+    setState(() => _isPicking = true);
+    try {
+      final result = await FilePicker.platform.pickFiles(
+        type: FileType.custom,
+        allowedExtensions: ['jpg', 'jpeg', 'png', 'mp4', 'mov', 'heic'],
+        allowMultiple: true,
+      );
+      if (result != null && result.files.isNotEmpty && mounted) {
+        setState(() {
+          for (var file in result.files) {
+            if (file.path != null) {
+              final ext = (file.extension ?? '').toLowerCase();
+              final isVideo = ['mp4', 'mov'].contains(ext);
+              _selectedFiles.add(File(file.path!));
+              _mediaTypes.add(isVideo ? 'video' : 'image');
+            }
           }
-        }
-      });
+        });
+      }
+    } on PlatformException catch (e) {
+      if (e.code != 'already_active' && mounted) {
+        setState(() => _error = 'Failed to pick files: ${e.message}');
+      }
+    } catch (e) {
+      if (mounted) setState(() => _error = 'Failed to pick files: $e');
+    } finally {
+      if (mounted) setState(() => _isPicking = false);
     }
   }
 

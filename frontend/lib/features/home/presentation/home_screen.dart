@@ -12,6 +12,7 @@ import 'package:memory_verse/features/memories/presentation/create_memory_sheet.
 import 'package:memory_verse/features/vaults/presentation/create_vault_dialog.dart';
 import 'package:memory_verse/features/vaults/presentation/join_vault_dialog.dart';
 import 'package:memory_verse/features/vaults/presentation/vault_detail_screen.dart';
+import 'package:memory_verse/features/home/presentation/home_ai_assistant_bar.dart';
 import 'package:memory_verse/core/presentation/widgets/stacked_carousel.dart';
 import 'package:memory_verse/core/theme/app_design_tokens.dart' as design;
 
@@ -46,6 +47,10 @@ class HomeScreen extends ConsumerWidget {
           slivers: [
             // Header
             _buildHeader(context, c, profileAsync),
+            const SliverToBoxAdapter(child: SizedBox(height: AppSpacing.s16)),
+
+            // Home AI Assistant Bar
+            const SliverToBoxAdapter(child: HomeAiAssistantBar()),
             const SliverToBoxAdapter(child: SizedBox(height: AppSpacing.s24)),
 
             // Hero / CTA

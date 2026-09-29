@@ -12,10 +12,12 @@ Upload pipeline:
 
 import io
 import os
+import shutil
 import tempfile
 import logging
 import asyncio
 import json
+import httpx
 
 from fastapi import APIRouter, Depends, Query, UploadFile, File, Form, HTTPException, status, BackgroundTasks, Request, Response
 from fastapi.responses import JSONResponse, FileResponse, StreamingResponse, RedirectResponse
@@ -158,13 +160,63 @@ async def stream_media(media_id: str, request: Request):
     cached_file_path = os.path.join(MEDIA_STREAM_CACHE_DIR, f"{media_id}_{safe_base}")
 
     try:
-        # 1. Download to local disk cache if not already present
+        # 1. Check local staging / ratio storage / disk cache first before remote download
         if not os.path.exists(cached_file_path) or os.path.getsize(cached_file_path) == 0:
-            file_bytes = supabase.storage.from_("memories").download(storage_path)
-            if not file_bytes:
-                raise ValueError("Empty file returned from storage")
-            with open(cached_file_path, "wb") as f:
-                f.write(file_bytes)
+            found_local = False
+            base_fname = os.path.basename(storage_path)
+
+            # Check staging reels and thumbs directories
+            for staged_dir in ["backend/storage/staging/reels", "storage/staging/reels", "backend/storage/staging/thumbs", "storage/staging/thumbs"]:
+                if os.path.exists(staged_dir):
+                    for f in os.listdir(staged_dir):
+                        if f.endswith(base_fname) or base_fname in f:
+                            candidate = os.path.join(staged_dir, f)
+                            if os.path.isfile(candidate) and os.path.getsize(candidate) > 0:
+                                shutil.copyfile(candidate, cached_file_path)
+                                found_local = True
+                                break
+                if found_local:
+                    break
+
+            # Check ratio storage (storage/videos/*)
+            if not found_local:
+                for vids_dir in ["backend/storage/videos", "storage/videos"]:
+                    if os.path.exists(vids_dir):
+                        for root, _, files in os.walk(vids_dir):
+                            if base_fname in files:
+                                candidate = os.path.join(root, base_fname)
+                                if os.path.isfile(candidate) and os.path.getsize(candidate) > 0:
+                                    shutil.copyfile(candidate, cached_file_path)
+                                    found_local = True
+                                    break
+                    if found_local:
+                        break
+
+            # If not found locally, download from Supabase storage or HTTP fallback
+            if not found_local:
+                downloaded = False
+                try:
+                    file_bytes = supabase.storage.from_("memories").download(storage_path)
+                    if file_bytes:
+                        with open(cached_file_path, "wb") as f:
+                            f.write(file_bytes)
+                        downloaded = True
+                except Exception as dl_err:
+                    logger.warning(f"Storage download failed for stream ({storage_path}): {dl_err}")
+
+                if not downloaded and m.get("url"):
+                    try:
+                        with httpx.Client(timeout=30.0) as client:
+                            r = client.get(m["url"])
+                            r.raise_for_status()
+                            with open(cached_file_path, "wb") as f:
+                                f.write(r.content)
+                            downloaded = True
+                    except Exception as http_err:
+                        logger.warning(f"HTTP URL download failed for stream ({m.get('url')}): {http_err}")
+
+                if not downloaded and (not os.path.exists(cached_file_path) or os.path.getsize(cached_file_path) == 0):
+                    raise ValueError("Could not retrieve media file from local storage or cloud")
 
         total_size = os.path.getsize(cached_file_path)
         range_header = request.headers.get("Range")
@@ -344,6 +396,17 @@ async def generate_video(
     logger.info(f"Video job {job_id} submitted to durable queue for user {current_user.id}")
 
     return {"job_id": job_id, "status": "queued"}
+
+@router.get("/jobs", response_model=List[VideoJobResponse])
+async def list_user_video_jobs(
+    current_user: CurrentUser = Depends(get_current_user),
+    limit: int = 10,
+):
+    """
+    List recent video creation jobs for the current user.
+    """
+    jobs = job_state_manager.get_user_jobs(current_user.id)
+    return [VideoJobResponse(**j.to_dict()) for j in jobs[:limit]]
 
 
 @router.get("/jobs/{job_id}", response_model=VideoJobResponse)

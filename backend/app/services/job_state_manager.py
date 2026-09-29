@@ -133,6 +133,7 @@ class VideoJobState:
     ):
         now_iso = datetime.now(timezone.utc).isoformat()
         self.id: str = job_id
+        self.job_id: str = job_id
         self.memory_id: str = memory_id
         self.user_id: str = user_id
         self.dimension: str = dimension
@@ -282,16 +283,49 @@ class JobStateManager:
             res = supabase.table("video_jobs").select("*").eq("id", job_id).execute()
             if res.data and isinstance(res.data, list) and len(res.data) > 0:
                 row = cast(Dict[str, Any], res.data[0])
+                meta = row.get("script_metadata") or {}
+                if not isinstance(meta, dict):
+                    meta = {}
                 state = VideoJobState(
                     job_id=str(row.get("id") or job_id),
                     memory_id=str(row.get("memory_id") or ""),
                     user_id=str(row.get("user_id") or ""),
+                    dimension=meta.get("dimension", "9:16"),
+                    mood=meta.get("mood", "calm"),
+                    selected_media_ids=meta.get("selected_media_ids") or [],
+                    specification=meta.get("specification"),
                 )
                 state.status = str(row.get("status") or "queued")
                 err_msg = row.get("error_message")
                 state.error_message = str(err_msg) if err_msg is not None else None
                 res_media_id = row.get("result_media_id")
                 state.result_media_id = str(res_media_id) if res_media_id is not None else None
+                if state.result_media_id and not state.result_url:
+                    try:
+                        m_res = supabase.table("media").select("url").eq("id", state.result_media_id).execute()
+                        if m_res.data:
+                            state.result_url = str(m_res.data[0].get("url") or "")
+                    except Exception:
+                        pass
+
+                # Restore stage, task description, and monotonic progress from script_metadata
+                if "stage" in meta:
+                    state.stage = str(meta["stage"])
+                    if state.stage in PIPELINE_STAGES_ORDER:
+                        state.stage_index = PIPELINE_STAGES_ORDER.index(state.stage)
+                if "current_task" in meta:
+                    state.current_task = str(meta["current_task"])
+                elif state.stage in STAGE_DESCRIPTIONS:
+                    state.current_task = STAGE_DESCRIPTIONS[state.stage]
+                if "overall_progress" in meta:
+                    state.overall_progress = int(meta["overall_progress"])
+                if "stage_progress" in meta:
+                    state.stage_progress = int(meta["stage_progress"])
+                if row.get("created_at"):
+                    state.created_at = str(row["created_at"])
+                if row.get("updated_at"):
+                    state.updated_at = str(row["updated_at"])
+
                 with self._lock:
                     self._jobs[job_id] = state
                 return state
@@ -299,6 +333,61 @@ class JobStateManager:
             logger.debug(f"Could not recover job {job_id} from DB: {e}")
 
         return None
+
+    def get_pending_or_stale_jobs(self) -> List[VideoJobState]:
+        """
+        Retrieves all jobs from the database that are in 'queued', 'processing', or 'retrying' status.
+        Used on server startup and by watchdog to ensure zero orphaned video generation tasks.
+        """
+        try:
+            supabase = get_supabase_client()
+            res = supabase.table("video_jobs").select("*").in_("status", ["queued", "processing", "retrying"]).execute()
+            jobs = []
+            for row in (res.data or []):
+                jid = str(row.get("id"))
+                job = self.get_job(jid)
+                if job:
+                    jobs.append(job)
+            return jobs
+        except Exception as e:
+            logger.warning(f"Could not query pending/stale jobs from DB: {e}")
+            return []
+
+    def get_user_jobs(self, user_id: str, limit: int = 10) -> List[VideoJobState]:
+        """
+        Retrieves all active and recent jobs belonging to a specific user.
+        """
+        user_jobs_dict = {}
+
+        # 1. In-memory check
+        with self._lock:
+            for j in self._jobs.values():
+                if j.user_id == user_id:
+                    user_jobs_dict[j.job_id] = j
+
+        # 2. Database check
+        try:
+            supabase = get_supabase_client()
+            res = (
+                supabase.table("video_jobs")
+                .select("*")
+                .eq("user_id", user_id)
+                .order("created_at", desc=True)
+                .limit(limit)
+                .execute()
+            )
+            for row in (res.data or []):
+                jid = str(row.get("id"))
+                if jid not in user_jobs_dict:
+                    j = self.get_job(jid)
+                    if j:
+                        user_jobs_dict[jid] = j
+        except Exception as e:
+            logger.debug(f"Could not query user jobs from DB: {e}")
+
+        # Return sorted by started_at/created_at descending
+        return sorted(user_jobs_dict.values(), key=lambda x: str(x.started_at or ""), reverse=True)
+
 
     def transition_stage(
         self,

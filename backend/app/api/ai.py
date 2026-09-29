@@ -9,6 +9,11 @@ from app.schemas.domain import (
 )
 from app.services.ai_service import AIService
 from app.services.tts_service import TTSService
+from app.services.home_assistant_service import (
+    home_assistant_service,
+    HomeAssistantRequest,
+    HomeAssistantResponse,
+)
 from ai_engine.video_generation.tts_engine import EMOTION_PROFILES
 from app.core.security import get_current_user, CurrentUser
 from typing import List, Optional, Dict, Any
@@ -33,6 +38,23 @@ async def chat(
         user_id=current_user.id,
         message=payload.message,
         conversation_id=payload.conversation_id,
+    )
+
+
+@router.post(
+    "/home-assistant",
+    response_model=HomeAssistantResponse,
+    summary="Home AI Assistant: Natural-language operations and navigation",
+    description="Processes application commands ('Create memory...', 'Is memory ready...', 'Open vault...') and returns structured actions.",
+)
+async def home_assistant(
+    payload: HomeAssistantRequest,
+    current_user: CurrentUser = Depends(get_current_user),
+):
+    return home_assistant_service.process_command(
+        user_id=current_user.id,
+        query=payload.get_query(),
+        context={"memory_id": payload.context_memory_id, "vault_id": payload.context_vault_id},
     )
 
 

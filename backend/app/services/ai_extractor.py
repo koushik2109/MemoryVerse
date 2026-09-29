@@ -1,5 +1,6 @@
 import io
 import logging
+import hashlib
 import numpy as np
 from datetime import datetime, timezone
 from typing import Any, Dict, List, Optional, Tuple, cast
@@ -181,14 +182,37 @@ class AIExtractor:
         logger.info(f"Processing uploaded media {media_id} for metadata and embeddings...")
         
         with _extraction_semaphore:
+            content_hash = hashlib.sha256(file_bytes).hexdigest()
             # 1. Extract EXIF tags
             meta = AIExtractor.extract_metadata(file_bytes, mime_type)
+            meta["content_hash"] = content_hash
 
-            # 2. Generate CLIP embedding & label tags
-            embedding, tags = AIExtractor.extract_features(file_bytes, mime_type)
+            # 2. Check if identical content hash was already indexed
+            supabase = get_supabase_client()
+            reused = False
+            embedding, tags = None, None
+            try:
+                hash_match = supabase.table("media").select("id, metadata").neq("id", media_id).limit(20).execute()
+                for row in (hash_match.data or []):
+                    m_data = row.get("metadata") or {}
+                    if m_data.get("content_hash") == content_hash:
+                        prev_id = row["id"]
+                        prev_emb = supabase.table("media_embeddings").select("clip_embedding, embedding").eq("media_id", prev_id).execute()
+                        if prev_emb.data:
+                            embedding = prev_emb.data[0].get("clip_embedding") or prev_emb.data[0].get("embedding")
+                            tags = m_data.get("ai_tags")
+                            if embedding and tags:
+                                reused = True
+                                logger.info(f"Reused precomputed embeddings & tags for {media_id} from hash match {prev_id}")
+                                break
+            except Exception as hash_err:
+                logger.debug(f"Hash deduplication lookup skipped: {hash_err}")
+
+            if not reused or not embedding or not tags:
+                # Generate CLIP embedding & label tags
+                embedding, tags = AIExtractor.extract_features(file_bytes, mime_type)
 
             # 3. Save to database
-            supabase = get_supabase_client()
             try:
                 # Check for near-duplicates in the same vault / memory (threshold >= 0.92)
                 duplicate_info: Dict[str, Any] = {"is_alternate": False, "label": "Original", "alternate_media_ids": []}

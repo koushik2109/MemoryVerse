@@ -219,6 +219,19 @@ class MediaModel {
   });
 
   bool get isVideo => mediaType == 'video';
+  bool get isGeneratedMovie =>
+      isVideo &&
+      ((metadata?['is_generated'] == true) ||
+          (metadata?['type'] == 'generated_movie') ||
+          (metadata?['type'] == 'generated_reel') ||
+          storagePath.contains('reels/') ||
+          filename.startsWith('reel_') ||
+          filename.contains('_reel'));
+
+  String get displayTitle =>
+      (metadata?['title'] as String?)?.isNotEmpty == true
+          ? (metadata!['title'] as String)
+          : filename.replaceAll('.mp4', '').replaceAll('_', ' ');
   bool get isAlternate =>
       metadata?['duplicate_info']?['is_alternate'] == true;
   String? get duplicateLabel =>
