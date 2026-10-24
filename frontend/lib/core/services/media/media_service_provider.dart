@@ -20,12 +20,14 @@ final mediaServiceProvider = Provider<MediaService>((ref) {
 });
 
 /// StateNotifier/Notifier for current permission state and reactive updates
-final mediaPermissionStateProvider = StateNotifierProvider<MediaPermissionNotifier, AsyncValue<MediaPermissionState>>((ref) {
+final mediaPermissionStateProvider = StateNotifierProvider<
+    MediaPermissionNotifier, AsyncValue<MediaPermissionState>>((ref) {
   final service = ref.watch(mediaServiceProvider);
   return MediaPermissionNotifier(service);
 });
 
-class MediaPermissionNotifier extends StateNotifier<AsyncValue<MediaPermissionState>> {
+class MediaPermissionNotifier
+    extends StateNotifier<AsyncValue<MediaPermissionState>> {
   final MediaService _service;
 
   MediaPermissionNotifier(this._service) : super(const AsyncValue.loading()) {
@@ -56,5 +58,15 @@ class MediaPermissionNotifier extends StateNotifier<AsyncValue<MediaPermissionSt
 
   Future<void> openSettings() async {
     await _service.openSettings();
+  }
+
+  Future<void> openLimitedAccessPicker() async {
+    try {
+      await _service.openLimitedAccessPicker();
+    } finally {
+      // The native picker may change the grant from limited to full (or back
+      // to denied), so make the UI reflect the result when it closes.
+      await checkPermission();
+    }
   }
 }

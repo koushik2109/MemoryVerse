@@ -17,6 +17,7 @@ from app.services.home_assistant_service import (
 from ai_engine.video_generation.tts_engine import EMOTION_PROFILES
 from app.core.security import get_current_user, CurrentUser
 from typing import List, Optional, Dict, Any
+import json
 
 router = APIRouter(prefix="/ai", tags=["AI Memory Assistant"])
 
@@ -87,17 +88,30 @@ async def curate_local_media(
     title: Optional[str] = Form(None),
     description: Optional[str] = Form(None),
     threshold: Optional[float] = Form(0.50),
+    candidate_metadata: Optional[str] = Form(None),
     files: List[UploadFile] = File(...),
     current_user: CurrentUser = Depends(get_current_user),
 ):
+    metadata_rows: list[dict[str, Any]] = []
+    if candidate_metadata:
+        try:
+            decoded = json.loads(candidate_metadata)
+            if isinstance(decoded, list):
+                metadata_rows = [row if isinstance(row, dict) else {} for row in decoded]
+        except Exception:
+            metadata_rows = []
+
     files_data = []
-    for f in files:
+    for index, f in enumerate(files):
         content = await f.read()
+        candidate = metadata_rows[index] if index < len(metadata_rows) else {}
         files_data.append({
-            "id": f.filename,
+            "id": candidate.get("id") or f.filename,
             "filename": f.filename,
             "bytes": content,
             "mime_type": f.content_type or "image/jpeg",
+            "timestamp": candidate.get("timestamp"),
+            "metadata": candidate,
         })
 
     import asyncio

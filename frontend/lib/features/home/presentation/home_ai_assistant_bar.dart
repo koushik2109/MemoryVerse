@@ -142,7 +142,8 @@ class _HomeAiAssistantBarState extends ConsumerState<HomeAiAssistantBar> {
                           fontWeight: FontWeight.w500,
                         ),
                       ),
-                      backgroundColor: design.AppColors.plum900.withValues(alpha: 0.6),
+                      backgroundColor:
+                          design.AppColors.plum900.withValues(alpha: 0.6),
                       side: BorderSide(
                         color: _purple500.withValues(alpha: 0.25),
                       ),
@@ -158,7 +159,8 @@ class _HomeAiAssistantBarState extends ConsumerState<HomeAiAssistantBar> {
           ),
 
           // Expanded Assistant response card
-          if (state.isExpanded && (state.responseMessage != null || state.error != null)) ...[
+          if (state.isExpanded &&
+              (state.responseMessage != null || state.error != null)) ...[
             const Divider(color: Colors.white12, height: 1),
             Container(
               padding: const EdgeInsets.all(16),
@@ -225,7 +227,8 @@ class _HomeAiAssistantBarState extends ConsumerState<HomeAiAssistantBar> {
                         style: ElevatedButton.styleFrom(
                           backgroundColor: _purple600,
                           foregroundColor: Colors.white,
-                          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 16, vertical: 8),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12),
                           ),

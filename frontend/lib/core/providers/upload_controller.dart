@@ -22,6 +22,7 @@ class UploadTask {
   final UploadStatus status;
   final CancelToken? cancelToken;
   final String? error;
+  final String? mediaId;
 
   UploadTask({
     required this.id,
@@ -35,6 +36,7 @@ class UploadTask {
     this.status = UploadStatus.waiting,
     this.cancelToken,
     this.error,
+    this.mediaId,
   });
 
   UploadTask copyWith({
@@ -42,6 +44,7 @@ class UploadTask {
     UploadStatus? status,
     CancelToken? cancelToken,
     String? error,
+    String? mediaId,
   }) {
     return UploadTask(
       id: id,
@@ -55,6 +58,7 @@ class UploadTask {
       status: status ?? this.status,
       cancelToken: cancelToken ?? this.cancelToken,
       error: error,
+      mediaId: mediaId ?? this.mediaId,
     );
   }
 }
@@ -65,7 +69,7 @@ class UploadController extends Notifier<List<UploadTask>> {
     return [];
   }
 
-  void addUploads({
+  List<String> addUploads({
     required List<File> files,
     required List<String> mediaTypes,
     required String memoryId,
@@ -89,6 +93,45 @@ class UploadController extends Notifier<List<UploadTask>> {
 
     state = [...state, ...newTasks];
     _processQueue();
+    return newTasks.map((task) => task.id).toList(growable: false);
+  }
+
+  /// Wait until selected uploads are terminal. Video generation uses this
+  /// boundary so it never starts while curated source files are still queued.
+  Future<bool> waitForUploads(
+    Iterable<String> taskIds, {
+    Duration timeout = const Duration(minutes: 10),
+  }) async {
+    final ids = taskIds.toSet();
+    if (ids.isEmpty) return true;
+    final deadline = DateTime.now().add(timeout);
+
+    while (DateTime.now().isBefore(deadline)) {
+      final tasks = state.where((task) => ids.contains(task.id)).toList();
+      if (tasks.length == ids.length &&
+          tasks.every((task) => task.status == UploadStatus.completed)) {
+        return true;
+      }
+      if (tasks.any((task) =>
+          task.status == UploadStatus.error ||
+          task.status == UploadStatus.canceled)) {
+        return false;
+      }
+      await Future.delayed(const Duration(milliseconds: 150));
+    }
+    return false;
+  }
+
+  List<String> completedMediaIds(Iterable<String> taskIds) {
+    final ids = taskIds.toSet();
+    return state
+        .where((task) =>
+            ids.contains(task.id) &&
+            task.status == UploadStatus.completed &&
+            task.mediaId != null &&
+            task.mediaId!.isNotEmpty)
+        .map((task) => task.mediaId!)
+        .toList(growable: false);
   }
 
   bool _isProcessingQueue = false;
@@ -191,9 +234,11 @@ class UploadController extends Notifier<List<UploadTask>> {
 
       _updateTask(
         taskId,
-        state
-            .firstWhere((t) => t.id == taskId)
-            .copyWith(status: UploadStatus.completed, progress: 1.0),
+        state.firstWhere((t) => t.id == taskId).copyWith(
+              status: UploadStatus.completed,
+              progress: 1.0,
+              mediaId: mediaResult?.id?.toString(),
+            ),
       );
 
       // Invalidate relevant providers to refresh UI
@@ -258,5 +303,5 @@ class UploadController extends Notifier<List<UploadTask>> {
 
 final uploadControllerProvider =
     NotifierProvider<UploadController, List<UploadTask>>(() {
-      return UploadController();
-    });
+  return UploadController();
+});

@@ -220,6 +220,7 @@ class VideoJobState:
             "error_message": self.error_message,
             "dimension": self.dimension,
             "mood": self.mood,
+            "selected_media_ids": list(self.selected_media_ids),
             "specification": self.specification,
             "telemetry": self.telemetry,
         }
@@ -699,6 +700,7 @@ class JobStateManager:
                     "stage_progress": job.stage_progress,
                     "dimension": job.dimension,
                     "mood": job.mood,
+                    "selected_media_ids": list(job.selected_media_ids),
                     "specification": job.specification,
                 }
 

@@ -1,0 +1,51 @@
+audit_id,faithfulness_label,relevance_label,correctness_label,notes
+AUDIT-001,supported,direct,correct,Marathon date December 17 2023 matched.
+AUDIT-002,supported,direct,correct,Putuo Mountain coast first half 2024 verified.
+AUDIT-003,supported,direct,correct,22nd milestone birthday confirmed.
+AUDIT-004,supported,direct,correct,Yinzhou district location confirmed.
+AUDIT-005,supported,direct,correct,Pingyao town correctly identified.
+AUDIT-006,supported,direct,correct,Recognized absence of figurine animal detail.
+AUDIT-007,supported,direct,correct,Abstention is supported; model correctly noted absence of drone light formation in context.
+AUDIT-008,supported,direct,correct,Direct hit on landmark target.
+AUDIT-009,supported,direct,correct,Accurate event date extraction.
+AUDIT-010,supported,direct,correct,Identified Karon township accurately from retrieved text snippet.
+AUDIT-011,supported,direct,correct,Concert support verified.
+AUDIT-012,supported,direct,correct,Target confirmed in context.
+AUDIT-013,supported,direct,correct,Matching event retrieved.
+AUDIT-014,supported,direct,correct,Directly matches cartoon deer context; chocolate popsicle answer is supported and correct.
+AUDIT-015,mixed,direct,correct,Retrieved subway photo is directly relevant; car moment partially answered.
+AUDIT-016,mixed,partial,uncertain,"Dry pot dish present, district tag missing."
+AUDIT-017,supported,direct,correct,Full match on query entity.
+AUDIT-018,mixed,partial,uncertain,"Pet photo found, animal vocalization audio absent."
+AUDIT-019,mixed,partial,uncertain,"Forest context present, bird audio absent."
+AUDIT-020,unsupported,off_topic,uncertain,Kitchen scene retrieved; vacuum cleaner domestic motor sound is absent.
+AUDIT-021,mixed,partial,uncertain,Context lacks secondary attribute.
+AUDIT-022,mixed,partial,uncertain,Target visual entity missing in retrieved context.
+AUDIT-023,mixed,partial,uncertain,Secondary hop failed to ground.
+AUDIT-024,mixed,partial,uncertain,Bridge topic drifted from initial entity.
+AUDIT-025,mixed,partial,uncertain,Partial match on primary entity only.
+AUDIT-026,supported,direct,correct,Single-hop target verified.
+AUDIT-027,mixed,partial,uncertain,Target keyword unconfirmed in snippet.
+AUDIT-028,supported,direct,correct,Accurate direct answer.
+AUDIT-029,mixed,partial,uncertain,Context lacks required attribute.
+AUDIT-030,supported,direct,correct,Single-hop entity confirmed.
+AUDIT-031,mixed,partial,uncertain,Partial semantic overlap only.
+AUDIT-032,mixed,partial,uncertain,Attribute missing in retrieved items.
+AUDIT-033,supported,direct,correct,Direct visual target retrieved.
+AUDIT-034,mixed,partial,uncertain,Secondary hop keyword unretrieved.
+AUDIT-035,supported,direct,correct,Correct single-hop answer.
+AUDIT-036,supported,direct,correct,Single-hop match verified.
+AUDIT-037,supported,direct,correct,Acoustic label door_wood_knock directly satisfies the knocking sound query.
+AUDIT-038,supported,direct,correct,Cocktail drink reference confirmed.
+AUDIT-039,mixed,partial,uncertain,"Pingyao text present, image absent."
+AUDIT-040,mixed,partial,uncertain,Incomplete query grounding.
+AUDIT-041,supported,direct,correct,Negative control correctly ungrounded.
+AUDIT-042,mixed,partial,uncertain,Context lacks visual match.
+AUDIT-043,mixed,partial,uncertain,Croissant retrieved instead of intended target.
+AUDIT-044,mixed,partial,uncertain,Target entity absent in top results.
+AUDIT-045,supported,direct,correct,Direct single-hop confirmation.
+AUDIT-046,mixed,partial,uncertain,Context insufficient to verify target.
+AUDIT-047,supported,direct,correct,Target verified in catalog.
+AUDIT-048,mixed,partial,uncertain,Bridge query missed entity.
+AUDIT-049,supported,direct,correct,Single-hop hit confirmed.
+AUDIT-050,mixed,partial,uncertain,Acoustic event not matched in context.

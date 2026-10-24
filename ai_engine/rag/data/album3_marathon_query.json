@@ -1,0 +1,350 @@
+{
+  "album_dir": "/Users/anuragkrishnavennela/Projects/MemoryVerse/ai_engine/rag/data/raw_media/l10/album3",
+  "model": "google/siglip-base-patch16-224",
+  "query": "marathon volunteers handing water",
+  "raw_media_used": true,
+  "results": [
+    {
+      "annotations": [
+        {
+          "Concept": null,
+          "Genre": null,
+          "Location": null,
+          "Object": "cognitive",
+          "Person": null,
+          "Source": "V",
+          "Time": null,
+          "ground_truth": [
+            "2018-06-28 121602.jpg",
+            "IMG_20230404_080916.jpg",
+            "IMG_20230523_101625.jpg"
+          ],
+          "ground_truth_count": 3,
+          "query_cn": "确认车钥匙细节",
+          "query_en": "checking car key details"
+        }
+      ],
+      "filename": "images/IMG_20230404_080916.jpg",
+      "path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/ai_engine/rag/data/raw_media/l10/album3/images/IMG_20230404_080916.jpg",
+      "score": 0.007845140993595123
+    },
+    {
+      "annotations": [
+        {
+          "Concept": null,
+          "Genre": null,
+          "Location": "fact",
+          "Object": null,
+          "Person": null,
+          "Source": "M",
+          "Time": null,
+          "ground_truth": [
+            "2017-11-05 145421.jpg",
+            "2017-11-05 164059.jpg",
+            "2017-11-05 150002.jpg",
+            "2017-11-05 164457.jpg",
+            "2017-11-05 151308.jpg",
+            "2017-11-05 151838.jpg",
+            "2017-11-05 153546.jpg",
+            "2017-11-05 145912.jpg",
+            "2017-11-05 151340.jpg",
+            "2017-11-05 164041.jpg",
+            "2017-11-05 155740.jpg",
+            "2017-11-05 155728.jpg",
+            "2017-11-05 151427.jpg",
+            "2017-11-05 152200.jpg",
+            "2017-11-05 150808.jpg",
+            "2017-11-05 150513.jpg",
+            "2017-11-05 145018.jpg",
+            "2017-11-05 164429.jpg",
+            "2017-11-05 153809.jpg",
+            "2017-11-05 152623.jpg",
+            "2017-11-05 145407.jpg",
+            "2017-11-05 150755.jpg",
+            "2017-11-05 153533.jpg",
+            "2017-11-05 161103.jpg",
+            "2017-11-05 130529.jpg",
+            "2017-11-05 152724.jpg",
+            "2017-11-05 152601.jpg",
+            "2017-11-05 151451.jpg"
+          ],
+          "ground_truth_count": 28,
+          "query_cn": "在夷陵区的照片",
+          "query_en": "photos in Yiling District"
+        }
+      ],
+      "filename": "images/2017-11-05 151308.jpg",
+      "path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/ai_engine/rag/data/raw_media/l10/album3/images/2017-11-05 151308.jpg",
+      "score": 0.00734230550006032
+    },
+    {
+      "annotations": [
+        {
+          "Concept": null,
+          "Genre": null,
+          "Location": "cognitive",
+          "Object": "cognitive",
+          "Person": null,
+          "Source": "V",
+          "Time": null,
+          "ground_truth": [
+            "IMG_0185.JPG",
+            "IMG_0219.JPG",
+            "IMG_0220.JPG"
+          ],
+          "ground_truth_count": 3,
+          "query_cn": "一床的娃娃",
+          "query_en": "bed full of dolls"
+        }
+      ],
+      "filename": "images/IMG_0219.JPG",
+      "path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/ai_engine/rag/data/raw_media/l10/album3/images/IMG_0219.JPG",
+      "score": 0.005750725045800209
+    },
+    {
+      "annotations": [
+        {
+          "Concept": null,
+          "Genre": null,
+          "Location": "fact",
+          "Object": null,
+          "Person": null,
+          "Source": "M",
+          "Time": null,
+          "ground_truth": [
+            "2017-11-05 145421.jpg",
+            "2017-11-05 164059.jpg",
+            "2017-11-05 150002.jpg",
+            "2017-11-05 164457.jpg",
+            "2017-11-05 151308.jpg",
+            "2017-11-05 151838.jpg",
+            "2017-11-05 153546.jpg",
+            "2017-11-05 145912.jpg",
+            "2017-11-05 151340.jpg",
+            "2017-11-05 164041.jpg",
+            "2017-11-05 155740.jpg",
+            "2017-11-05 155728.jpg",
+            "2017-11-05 151427.jpg",
+            "2017-11-05 152200.jpg",
+            "2017-11-05 150808.jpg",
+            "2017-11-05 150513.jpg",
+            "2017-11-05 145018.jpg",
+            "2017-11-05 164429.jpg",
+            "2017-11-05 153809.jpg",
+            "2017-11-05 152623.jpg",
+            "2017-11-05 145407.jpg",
+            "2017-11-05 150755.jpg",
+            "2017-11-05 153533.jpg",
+            "2017-11-05 161103.jpg",
+            "2017-11-05 130529.jpg",
+            "2017-11-05 152724.jpg",
+            "2017-11-05 152601.jpg",
+            "2017-11-05 151451.jpg"
+          ],
+          "ground_truth_count": 28,
+          "query_cn": "在夷陵区的照片",
+          "query_en": "photos in Yiling District"
+        }
+      ],
+      "filename": "images/2017-11-05 150755.jpg",
+      "path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/ai_engine/rag/data/raw_media/l10/album3/images/2017-11-05 150755.jpg",
+      "score": 0.00474169198423624
+    },
+    {
+      "annotations": [
+        {
+          "Concept": null,
+          "Genre": null,
+          "Location": null,
+          "Object": "fact",
+          "Person": null,
+          "Source": "V",
+          "Time": null,
+          "ground_truth": [
+            "IMG_3726.JPG"
+          ],
+          "ground_truth_count": 1,
+          "query_cn": "银色心形手镯",
+          "query_en": "silver heart-shaped bracelet"
+        }
+      ],
+      "filename": "images/IMG_3726.JPG",
+      "path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/ai_engine/rag/data/raw_media/l10/album3/images/IMG_3726.JPG",
+      "score": 0.003125961869955063
+    },
+    {
+      "annotations": [
+        {
+          "Concept": null,
+          "Genre": null,
+          "Location": "cognitive",
+          "Object": null,
+          "Person": null,
+          "Source": "VM",
+          "Time": null,
+          "ground_truth": [
+            "IMG_4790.JPG"
+          ],
+          "ground_truth_count": 1,
+          "query_cn": "氹仔酒店楼道",
+          "query_en": "Taipa hotel hallway"
+        }
+      ],
+      "filename": "images/IMG_4790.JPG",
+      "path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/ai_engine/rag/data/raw_media/l10/album3/images/IMG_4790.JPG",
+      "score": 0.002334313001483679
+    },
+    {
+      "annotations": [
+        {
+          "Concept": "cognitive",
+          "Genre": null,
+          "Location": null,
+          "Object": null,
+          "Person": null,
+          "Source": "V",
+          "Time": "fact",
+          "ground_truth": [
+            "2019-01-01 164619.jpg",
+            "IMG_0085.JPG",
+            "IMG_0191.JPG",
+            "IMG_0542.JPG",
+            "IMG_0548.JPG",
+            "IMG_0555.JPG",
+            "IMG_0556.JPG",
+            "IMG_7658.JPG"
+          ],
+          "ground_truth_count": 9,
+          "query_cn": "春天花开",
+          "query_en": "spring flowers blooming"
+        }
+      ],
+      "filename": "images/IMG_0555.JPG",
+      "path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/ai_engine/rag/data/raw_media/l10/album3/images/IMG_0555.JPG",
+      "score": -0.0004368424415588379
+    },
+    {
+      "annotations": [
+        {
+          "Concept": null,
+          "Genre": null,
+          "Location": null,
+          "Object": "cognitive",
+          "Person": "cognitive",
+          "Source": "V",
+          "Time": null,
+          "ground_truth": [
+            "2018-04-01 200541.jpg",
+            "2018-04-01 201022.jpg",
+            "2018-04-01 201025.jpg"
+          ],
+          "ground_truth_count": 3,
+          "query_cn": "乘客与幼鹿近距离接触",
+          "query_en": "passengers interacting with fawn"
+        }
+      ],
+      "filename": "images/2018-04-01 200541.jpg",
+      "path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/ai_engine/rag/data/raw_media/l10/album3/images/2018-04-01 200541.jpg",
+      "score": -0.0015552975237369537
+    },
+    {
+      "annotations": [
+        {
+          "Concept": null,
+          "Genre": null,
+          "Location": "fact",
+          "Object": null,
+          "Person": null,
+          "Source": "M",
+          "Time": null,
+          "ground_truth": [
+            "2017-11-05 145421.jpg",
+            "2017-11-05 164059.jpg",
+            "2017-11-05 150002.jpg",
+            "2017-11-05 164457.jpg",
+            "2017-11-05 151308.jpg",
+            "2017-11-05 151838.jpg",
+            "2017-11-05 153546.jpg",
+            "2017-11-05 145912.jpg",
+            "2017-11-05 151340.jpg",
+            "2017-11-05 164041.jpg",
+            "2017-11-05 155740.jpg",
+            "2017-11-05 155728.jpg",
+            "2017-11-05 151427.jpg",
+            "2017-11-05 152200.jpg",
+            "2017-11-05 150808.jpg",
+            "2017-11-05 150513.jpg",
+            "2017-11-05 145018.jpg",
+            "2017-11-05 164429.jpg",
+            "2017-11-05 153809.jpg",
+            "2017-11-05 152623.jpg",
+            "2017-11-05 145407.jpg",
+            "2017-11-05 150755.jpg",
+            "2017-11-05 153533.jpg",
+            "2017-11-05 161103.jpg",
+            "2017-11-05 130529.jpg",
+            "2017-11-05 152724.jpg",
+            "2017-11-05 152601.jpg",
+            "2017-11-05 151451.jpg"
+          ],
+          "ground_truth_count": 28,
+          "query_cn": "在夷陵区的照片",
+          "query_en": "photos in Yiling District"
+        }
+      ],
+      "filename": "images/2017-11-05 145407.jpg",
+      "path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/ai_engine/rag/data/raw_media/l10/album3/images/2017-11-05 145407.jpg",
+      "score": -0.0071934242732822895
+    },
+    {
+      "annotations": [
+        {
+          "Concept": null,
+          "Genre": null,
+          "Location": "fact",
+          "Object": null,
+          "Person": null,
+          "Source": "M",
+          "Time": null,
+          "ground_truth": [
+            "2017-11-05 145421.jpg",
+            "2017-11-05 164059.jpg",
+            "2017-11-05 150002.jpg",
+            "2017-11-05 164457.jpg",
+            "2017-11-05 151308.jpg",
+            "2017-11-05 151838.jpg",
+            "2017-11-05 153546.jpg",
+            "2017-11-05 145912.jpg",
+            "2017-11-05 151340.jpg",
+            "2017-11-05 164041.jpg",
+            "2017-11-05 155740.jpg",
+            "2017-11-05 155728.jpg",
+            "2017-11-05 151427.jpg",
+            "2017-11-05 152200.jpg",
+            "2017-11-05 150808.jpg",
+            "2017-11-05 150513.jpg",
+            "2017-11-05 145018.jpg",
+            "2017-11-05 164429.jpg",
+            "2017-11-05 153809.jpg",
+            "2017-11-05 152623.jpg",
+            "2017-11-05 145407.jpg",
+            "2017-11-05 150755.jpg",
+            "2017-11-05 153533.jpg",
+            "2017-11-05 161103.jpg",
+            "2017-11-05 130529.jpg",
+            "2017-11-05 152724.jpg",
+            "2017-11-05 152601.jpg",
+            "2017-11-05 151451.jpg"
+          ],
+          "ground_truth_count": 28,
+          "query_cn": "在夷陵区的照片",
+          "query_en": "photos in Yiling District"
+        }
+      ],
+      "filename": "images/2017-11-05 153533.jpg",
+      "path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/ai_engine/rag/data/raw_media/l10/album3/images/2017-11-05 153533.jpg",
+      "score": -0.009721418842673302
+    }
+  ],
+  "top_k": 10
+}

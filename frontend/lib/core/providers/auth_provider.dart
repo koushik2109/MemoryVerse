@@ -34,7 +34,7 @@ class AuthNotifier extends AsyncNotifier<void> {
     state = const AsyncLoading();
     state = await AsyncValue.guard(() async {
       await _client.auth.signInWithPassword(email: email, password: password);
-      
+
       // Invalidate all cached data providers so they fetch fresh data
       ref.invalidate(userProfileProvider);
       ref.invalidate(vaultsListProvider);
@@ -114,12 +114,16 @@ class AuthNotifier extends AsyncNotifier<void> {
   Future<void> signInWithGoogle() async {
     state = const AsyncLoading();
     state = await AsyncValue.guard(() async {
-      final googleClientId = dotenv.env['GOOGLE_CLIENT_ID'] ?? '413763126044-jgj0jq3s55pemg1jj4f53ratglvmv662.apps.googleusercontent.com';
+      final googleIosClientId = dotenv.env['GOOGLE_IOS_CLIENT_ID'] ??
+          dotenv.env['GOOGLE_CLIENT_ID'] ??
+          '413763126044-jgj0jq3s55pemg1jj4f53ratglvmv662.apps.googleusercontent.com';
+      final googleWebClientId = dotenv.env['GOOGLE_WEB_CLIENT_ID'] ??
+          '413763126044-4b8dfpk2ecpdirs0s2uln8mo5nulakan.apps.googleusercontent.com';
 
       try {
         final googleSignIn = GoogleSignIn(
-          clientId: googleClientId,
-          serverClientId: googleClientId,
+          clientId: googleIosClientId,
+          serverClientId: googleWebClientId,
         );
         final googleUser = await googleSignIn.signIn();
         if (googleUser == null) throw Exception('Google sign-in cancelled');
@@ -144,7 +148,7 @@ class AuthNotifier extends AsyncNotifier<void> {
           rethrow;
         }
       }
-      
+
       // Invalidate all cached data providers so they fetch fresh data
       ref.invalidate(userProfileProvider);
       ref.invalidate(vaultsListProvider);
@@ -160,7 +164,7 @@ class AuthNotifier extends AsyncNotifier<void> {
     state = const AsyncLoading();
     state = await AsyncValue.guard(() async {
       await _client.auth.signOut();
-      
+
       // Invalidate all cached data providers so the new user doesn't see them
       ref.invalidate(userProfileProvider);
       ref.invalidate(vaultsListProvider);

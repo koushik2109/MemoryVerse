@@ -1,0 +1,456 @@
+{
+  "source_results_sha256": "0c203350dd4f8410cfe4cf2d98bed1617745b3106604cd75578bb01c96605e16",
+  "rubric_version": "rag-answer-audit-v1",
+  "rows": [
+    {
+      "audit_id": "AUDIT-001",
+      "source_case_id": "mh_01",
+      "source_config": "Proposed MM-RAG (Full with Multi-Hop)",
+      "original_judge": {
+        "faithfulness": 1.0,
+        "relevance": 1.0
+      }
+    },
+    {
+      "audit_id": "AUDIT-002",
+      "source_case_id": "mh_02",
+      "source_config": "Proposed MM-RAG (Full with Multi-Hop)",
+      "original_judge": {
+        "faithfulness": 1.0,
+        "relevance": 1.0
+      }
+    },
+    {
+      "audit_id": "AUDIT-003",
+      "source_case_id": "mh_03",
+      "source_config": "Proposed MM-RAG (Full with Multi-Hop)",
+      "original_judge": {
+        "faithfulness": 1.0,
+        "relevance": 1.0
+      }
+    },
+    {
+      "audit_id": "AUDIT-004",
+      "source_case_id": "mh_04",
+      "source_config": "Proposed MM-RAG (Full with Multi-Hop)",
+      "original_judge": {
+        "faithfulness": 1.0,
+        "relevance": 1.0
+      }
+    },
+    {
+      "audit_id": "AUDIT-005",
+      "source_case_id": "mh_05",
+      "source_config": "Proposed MM-RAG (Full with Multi-Hop)",
+      "original_judge": {
+        "faithfulness": 1.0,
+        "relevance": 1.0
+      }
+    },
+    {
+      "audit_id": "AUDIT-006",
+      "source_case_id": "mh_06",
+      "source_config": "Proposed MM-RAG (Full with Multi-Hop)",
+      "original_judge": {
+        "faithfulness": 1.0,
+        "relevance": 0.5
+      }
+    },
+    {
+      "audit_id": "AUDIT-007",
+      "source_case_id": "mh_07",
+      "source_config": "Proposed MM-RAG (Full with Multi-Hop)",
+      "original_judge": {
+        "faithfulness": 1.0,
+        "relevance": 0.5
+      }
+    },
+    {
+      "audit_id": "AUDIT-008",
+      "source_case_id": "mh_08",
+      "source_config": "Proposed MM-RAG (Full with Multi-Hop)",
+      "original_judge": {
+        "faithfulness": 1.0,
+        "relevance": 0.7
+      }
+    },
+    {
+      "audit_id": "AUDIT-009",
+      "source_case_id": "mh_09",
+      "source_config": "Proposed MM-RAG (Full with Multi-Hop)",
+      "original_judge": {
+        "faithfulness": 0.5,
+        "relevance": 0.5
+      }
+    },
+    {
+      "audit_id": "AUDIT-010",
+      "source_case_id": "mh_10",
+      "source_config": "Proposed MM-RAG (Full with Multi-Hop)",
+      "original_judge": {
+        "faithfulness": 0.8,
+        "relevance": 1.0
+      }
+    },
+    {
+      "audit_id": "AUDIT-011",
+      "source_case_id": "mh_11",
+      "source_config": "Proposed MM-RAG (Full with Multi-Hop)",
+      "original_judge": {
+        "faithfulness": 0.5,
+        "relevance": 0.7
+      }
+    },
+    {
+      "audit_id": "AUDIT-012",
+      "source_case_id": "mh_12",
+      "source_config": "Proposed MM-RAG (Full with Multi-Hop)",
+      "original_judge": {
+        "faithfulness": 0.8,
+        "relevance": 0.6
+      }
+    },
+    {
+      "audit_id": "AUDIT-013",
+      "source_case_id": "mh_13",
+      "source_config": "Proposed MM-RAG (Full with Multi-Hop)",
+      "original_judge": {
+        "faithfulness": 1.0,
+        "relevance": 0.5
+      }
+    },
+    {
+      "audit_id": "AUDIT-014",
+      "source_case_id": "mh_14",
+      "source_config": "Proposed MM-RAG (Full with Multi-Hop)",
+      "original_judge": {
+        "faithfulness": 1.0,
+        "relevance": 1.0
+      }
+    },
+    {
+      "audit_id": "AUDIT-015",
+      "source_case_id": "mh_15",
+      "source_config": "Proposed MM-RAG (Full with Multi-Hop)",
+      "original_judge": {
+        "faithfulness": 0.8,
+        "relevance": 0.7
+      }
+    },
+    {
+      "audit_id": "AUDIT-016",
+      "source_case_id": "mh_16",
+      "source_config": "Proposed MM-RAG (Full with Multi-Hop)",
+      "original_judge": {
+        "faithfulness": 1.0,
+        "relevance": 0.8
+      }
+    },
+    {
+      "audit_id": "AUDIT-017",
+      "source_case_id": "mh_17",
+      "source_config": "Proposed MM-RAG (Full with Multi-Hop)",
+      "original_judge": {
+        "faithfulness": 0.5,
+        "relevance": 0.8
+      }
+    },
+    {
+      "audit_id": "AUDIT-018",
+      "source_case_id": "mh_18",
+      "source_config": "Proposed MM-RAG (Full with Multi-Hop)",
+      "original_judge": {
+        "faithfulness": 1.0,
+        "relevance": 0.8
+      }
+    },
+    {
+      "audit_id": "AUDIT-019",
+      "source_case_id": "mh_19",
+      "source_config": "Proposed MM-RAG (Full with Multi-Hop)",
+      "original_judge": {
+        "faithfulness": 0.8,
+        "relevance": 0.7
+      }
+    },
+    {
+      "audit_id": "AUDIT-020",
+      "source_case_id": "mh_20",
+      "source_config": "Proposed MM-RAG (Full with Multi-Hop)",
+      "original_judge": {
+        "faithfulness": 1.0,
+        "relevance": 0.0
+      }
+    },
+    {
+      "audit_id": "AUDIT-021",
+      "source_case_id": "mh_21",
+      "source_config": "Proposed MM-RAG (Full with Multi-Hop)",
+      "original_judge": {
+        "faithfulness": 1.0,
+        "relevance": 0.0
+      }
+    },
+    {
+      "audit_id": "AUDIT-022",
+      "source_case_id": "mh_22",
+      "source_config": "Proposed MM-RAG (Full with Multi-Hop)",
+      "original_judge": {
+        "faithfulness": 1.0,
+        "relevance": 1.0
+      }
+    },
+    {
+      "audit_id": "AUDIT-023",
+      "source_case_id": "mh_23",
+      "source_config": "Proposed MM-RAG (Full with Multi-Hop)",
+      "original_judge": {
+        "faithfulness": 1.0,
+        "relevance": 0.8
+      }
+    },
+    {
+      "audit_id": "AUDIT-024",
+      "source_case_id": "mh_24",
+      "source_config": "Proposed MM-RAG (Full with Multi-Hop)",
+      "original_judge": {
+        "faithfulness": 1.0,
+        "relevance": 0.5
+      }
+    },
+    {
+      "audit_id": "AUDIT-025",
+      "source_case_id": "mh_25",
+      "source_config": "Proposed MM-RAG (Full with Multi-Hop)",
+      "original_judge": {
+        "faithfulness": 1.0,
+        "relevance": 0.5
+      }
+    },
+    {
+      "audit_id": "AUDIT-026",
+      "source_case_id": "sh_01",
+      "source_config": "Proposed MM-RAG (Full with Multi-Hop)",
+      "original_judge": {
+        "faithfulness": 1.0,
+        "relevance": 1.0
+      }
+    },
+    {
+      "audit_id": "AUDIT-027",
+      "source_case_id": "sh_02",
+      "source_config": "Proposed MM-RAG (Full with Multi-Hop)",
+      "original_judge": {
+        "faithfulness": 1.0,
+        "relevance": 0.5
+      }
+    },
+    {
+      "audit_id": "AUDIT-028",
+      "source_case_id": "sh_03",
+      "source_config": "Proposed MM-RAG (Full with Multi-Hop)",
+      "original_judge": {
+        "faithfulness": 0.8,
+        "relevance": 0.7
+      }
+    },
+    {
+      "audit_id": "AUDIT-029",
+      "source_case_id": "sh_04",
+      "source_config": "Proposed MM-RAG (Full with Multi-Hop)",
+      "original_judge": {
+        "faithfulness": 1.0,
+        "relevance": 0.5
+      }
+    },
+    {
+      "audit_id": "AUDIT-030",
+      "source_case_id": "sh_05",
+      "source_config": "Proposed MM-RAG (Full with Multi-Hop)",
+      "original_judge": {
+        "faithfulness": 0.5,
+        "relevance": 0.7
+      }
+    },
+    {
+      "audit_id": "AUDIT-031",
+      "source_case_id": "sh_06",
+      "source_config": "Proposed MM-RAG (Full with Multi-Hop)",
+      "original_judge": {
+        "faithfulness": 1.0,
+        "relevance": 0.5
+      }
+    },
+    {
+      "audit_id": "AUDIT-032",
+      "source_case_id": "sh_07",
+      "source_config": "Proposed MM-RAG (Full with Multi-Hop)",
+      "original_judge": {
+        "faithfulness": 1.0,
+        "relevance": 0.8
+      }
+    },
+    {
+      "audit_id": "AUDIT-033",
+      "source_case_id": "sh_08",
+      "source_config": "Proposed MM-RAG (Full with Multi-Hop)",
+      "original_judge": {
+        "faithfulness": 1.0,
+        "relevance": 1.0
+      }
+    },
+    {
+      "audit_id": "AUDIT-034",
+      "source_case_id": "sh_09",
+      "source_config": "Proposed MM-RAG (Full with Multi-Hop)",
+      "original_judge": {
+        "faithfulness": 1.0,
+        "relevance": 0.5
+      }
+    },
+    {
+      "audit_id": "AUDIT-035",
+      "source_case_id": "sh_10",
+      "source_config": "Proposed MM-RAG (Full with Multi-Hop)",
+      "original_judge": {
+        "faithfulness": 0.5,
+        "relevance": 0.7
+      }
+    },
+    {
+      "audit_id": "AUDIT-036",
+      "source_case_id": "sh_11",
+      "source_config": "Proposed MM-RAG (Full with Multi-Hop)",
+      "original_judge": {
+        "faithfulness": 0.8,
+        "relevance": 0.7
+      }
+    },
+    {
+      "audit_id": "AUDIT-037",
+      "source_case_id": "sh_12",
+      "source_config": "Proposed MM-RAG (Full with Multi-Hop)",
+      "original_judge": {
+        "faithfulness": 0.0,
+        "relevance": 0.5
+      }
+    },
+    {
+      "audit_id": "AUDIT-038",
+      "source_case_id": "sh_13",
+      "source_config": "Proposed MM-RAG (Full with Multi-Hop)",
+      "original_judge": {
+        "faithfulness": 1.0,
+        "relevance": 0.8
+      }
+    },
+    {
+      "audit_id": "AUDIT-039",
+      "source_case_id": "sh_14",
+      "source_config": "Proposed MM-RAG (Full with Multi-Hop)",
+      "original_judge": {
+        "faithfulness": 1.0,
+        "relevance": 1.0
+      }
+    },
+    {
+      "audit_id": "AUDIT-040",
+      "source_case_id": "sh_15",
+      "source_config": "Proposed MM-RAG (Full with Multi-Hop)",
+      "original_judge": {
+        "faithfulness": 0.8,
+        "relevance": 0.9
+      }
+    },
+    {
+      "audit_id": "AUDIT-041",
+      "source_case_id": "sh_16",
+      "source_config": "Proposed MM-RAG (Full with Multi-Hop)",
+      "original_judge": {
+        "faithfulness": 1.0,
+        "relevance": 0.5
+      }
+    },
+    {
+      "audit_id": "AUDIT-042",
+      "source_case_id": "sh_17",
+      "source_config": "Proposed MM-RAG (Full with Multi-Hop)",
+      "original_judge": {
+        "faithfulness": 0.5,
+        "relevance": 0.7
+      }
+    },
+    {
+      "audit_id": "AUDIT-043",
+      "source_case_id": "sh_18",
+      "source_config": "Proposed MM-RAG (Full with Multi-Hop)",
+      "original_judge": {
+        "faithfulness": 1.0,
+        "relevance": 0.8
+      }
+    },
+    {
+      "audit_id": "AUDIT-044",
+      "source_case_id": "sh_19",
+      "source_config": "Proposed MM-RAG (Full with Multi-Hop)",
+      "original_judge": {
+        "faithfulness": 1.0,
+        "relevance": 0.5
+      }
+    },
+    {
+      "audit_id": "AUDIT-045",
+      "source_case_id": "sh_20",
+      "source_config": "Proposed MM-RAG (Full with Multi-Hop)",
+      "original_judge": {
+        "faithfulness": 1.0,
+        "relevance": 1.0
+      }
+    },
+    {
+      "audit_id": "AUDIT-046",
+      "source_case_id": "sh_21",
+      "source_config": "Proposed MM-RAG (Full with Multi-Hop)",
+      "original_judge": {
+        "faithfulness": 1.0,
+        "relevance": 0.5
+      }
+    },
+    {
+      "audit_id": "AUDIT-047",
+      "source_case_id": "sh_22",
+      "source_config": "Proposed MM-RAG (Full with Multi-Hop)",
+      "original_judge": {
+        "faithfulness": 1.0,
+        "relevance": 0.5
+      }
+    },
+    {
+      "audit_id": "AUDIT-048",
+      "source_case_id": "sh_23",
+      "source_config": "Proposed MM-RAG (Full with Multi-Hop)",
+      "original_judge": {
+        "faithfulness": 0.0,
+        "relevance": 0.5
+      }
+    },
+    {
+      "audit_id": "AUDIT-049",
+      "source_case_id": "sh_24",
+      "source_config": "Proposed MM-RAG (Full with Multi-Hop)",
+      "original_judge": {
+        "faithfulness": 1.0,
+        "relevance": 1.0
+      }
+    },
+    {
+      "audit_id": "AUDIT-050",
+      "source_case_id": "sh_25",
+      "source_config": "Proposed MM-RAG (Full with Multi-Hop)",
+      "original_judge": {
+        "faithfulness": 0.5,
+        "relevance": 0.7
+      }
+    }
+  ]
+}

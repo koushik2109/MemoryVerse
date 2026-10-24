@@ -1,0 +1,649 @@
+{
+  "timestamp_utc": "2026-10-24T11:45:20Z",
+  "architecture": "RAMP-RAG (Reliability-Aware Multi-Proxy Adaptive Fusion + Cascade)",
+  "protocol": "Strict 50% Dev / 50% Test Partition; Observable Reliability (Zero Oracle); Multi-Seed Robustness",
+  "dev_tuning": {
+    "alpha_sweep": {
+      "coco_dev": {
+        "0.1": {
+          "hit10": 0.492,
+          "mrr": 0.2744
+        },
+        "0.25": {
+          "hit10": 0.512,
+          "mrr": 0.2934
+        },
+        "0.5": {
+          "hit10": 0.596,
+          "mrr": 0.3448
+        },
+        "0.7": {
+          "hit10": 0.644,
+          "mrr": 0.3829
+        },
+        "0.85": {
+          "hit10": 0.672,
+          "mrr": 0.407
+        },
+        "0.95": {
+          "hit10": 0.672,
+          "mrr": 0.4257
+        }
+      },
+      "ocr_dev": {
+        "0.1": {
+          "hit10": 1.0,
+          "mrr": 0.9
+        },
+        "0.25": {
+          "hit10": 1.0,
+          "mrr": 0.9
+        },
+        "0.5": {
+          "hit10": 1.0,
+          "mrr": 0.9
+        },
+        "0.7": {
+          "hit10": 1.0,
+          "mrr": 0.8333
+        },
+        "0.85": {
+          "hit10": 0.9333,
+          "mrr": 0.5752
+        },
+        "0.95": {
+          "hit10": 0.6,
+          "mrr": 0.4329
+        }
+      }
+    }
+  },
+  "router_evaluation": {
+    "training_samples": 265,
+    "test_samples": 265,
+    "train_performance": {
+      "train_accuracy": 0.9622641509433962,
+      "train_f1": 0.9803149606299213
+    },
+    "test_performance": {
+      "test_accuracy": 0.9735849056603774,
+      "test_f1": 0.9861932938856016
+    },
+    "alpha_sparse_target": 0.25,
+    "alpha_dense_target": 0.85
+  },
+  "benchmarks": {
+    "coco_held_out_test": {
+      "BM25 Baseline": {
+        "hit1": 0.176,
+        "hit5": 0.344,
+        "hit10": 0.428,
+        "hit10_ci95": [
+          0.368,
+          0.488
+        ],
+        "mrr": 0.259,
+        "mrr_ci95": [
+          0.2144,
+          0.3059
+        ],
+        "ndcg10": 0.2892,
+        "latency_ms": 5.62,
+        "escalation_rate": 0.0
+      },
+      "Dense Baseline": {
+        "hit1": 0.28,
+        "hit5": 0.54,
+        "hit10": 0.652,
+        "hit10_ci95": [
+          0.592,
+          0.708
+        ],
+        "mrr": 0.4025,
+        "mrr_ci95": [
+          0.3551,
+          0.4547
+        ],
+        "ndcg10": 0.4522,
+        "latency_ms": 5.47,
+        "escalation_rate": 0.0
+      },
+      "Hybrid Convex (Fixed alpha=0.7)": {
+        "hit1": 0.248,
+        "hit5": 0.504,
+        "hit10": 0.636,
+        "hit10_ci95": [
+          0.576,
+          0.696
+        ],
+        "mrr": 0.3767,
+        "mrr_ci95": [
+          0.3292,
+          0.4252
+        ],
+        "ndcg10": 0.4283,
+        "latency_ms": 5.76,
+        "escalation_rate": 0.0
+      },
+      "MM-RAG (Fixed alpha=0.7, beta=0.65)": {
+        "hit1": 0.256,
+        "hit5": 0.52,
+        "hit10": 0.636,
+        "hit10_ci95": [
+          0.576,
+          0.696
+        ],
+        "mrr": 0.3833,
+        "mrr_ci95": [
+          0.3364,
+          0.4319
+        ],
+        "ndcg10": 0.4336,
+        "latency_ms": 5.5,
+        "escalation_rate": 0.0
+      },
+      "Cross-Encoder (100% Escalate)": {
+        "hit1": 0.22,
+        "hit5": 0.504,
+        "hit10": 0.636,
+        "hit10_ci95": [
+          0.576,
+          0.696
+        ],
+        "mrr": 0.3543,
+        "mrr_ci95": [
+          0.3089,
+          0.4009
+        ],
+        "ndcg10": 0.4112,
+        "latency_ms": 18.64,
+        "escalation_rate": 1.0
+      },
+      "Proposed RAMP-RAG": {
+        "hit1": 0.26,
+        "hit5": 0.532,
+        "hit10": 0.648,
+        "hit10_ci95": [
+          0.588,
+          0.708
+        ],
+        "mrr": 0.3821,
+        "mrr_ci95": [
+          0.3344,
+          0.4322
+        ],
+        "ndcg10": 0.4351,
+        "latency_ms": 10.61,
+        "escalation_rate": 0.544
+      }
+    },
+    "scene_text_ocr_test": {
+      "BM25 Baseline": {
+        "hit1": 0.8,
+        "hit5": 1.0,
+        "hit10": 1.0,
+        "hit10_ci95": [
+          1.0,
+          1.0
+        ],
+        "mrr": 0.88,
+        "mrr_ci95": [
+          0.74,
+          1.0
+        ],
+        "ndcg10": 0.8068,
+        "latency_ms": 4.5,
+        "escalation_rate": 0.0
+      },
+      "Dense Baseline": {
+        "hit1": 0.4667,
+        "hit5": 0.6,
+        "hit10": 0.6,
+        "hit10_ci95": [
+          0.3333,
+          0.8667
+        ],
+        "mrr": 0.5381,
+        "mrr_ci95": [
+          0.3154,
+          0.7648
+        ],
+        "ndcg10": 0.5238,
+        "latency_ms": 4.43,
+        "escalation_rate": 0.0
+      },
+      "Hybrid Convex (Fixed alpha=0.7)": {
+        "hit1": 0.6667,
+        "hit5": 1.0,
+        "hit10": 1.0,
+        "hit10_ci95": [
+          1.0,
+          1.0
+        ],
+        "mrr": 0.8056,
+        "mrr_ci95": [
+          0.65,
+          0.9333
+        ],
+        "ndcg10": 0.7822,
+        "latency_ms": 4.79,
+        "escalation_rate": 0.0
+      },
+      "MM-RAG (Fixed alpha=0.7, beta=0.65)": {
+        "hit1": 0.6,
+        "hit5": 0.9333,
+        "hit10": 1.0,
+        "hit10_ci95": [
+          1.0,
+          1.0
+        ],
+        "mrr": 0.7244,
+        "mrr_ci95": [
+          0.5433,
+          0.8967
+        ],
+        "ndcg10": 0.7342,
+        "latency_ms": 4.75,
+        "escalation_rate": 0.0
+      },
+      "Cross-Encoder (100% Escalate)": {
+        "hit1": 0.8,
+        "hit5": 1.0,
+        "hit10": 1.0,
+        "hit10_ci95": [
+          1.0,
+          1.0
+        ],
+        "mrr": 0.9,
+        "mrr_ci95": [
+          0.8,
+          1.0
+        ],
+        "ndcg10": 0.8488,
+        "latency_ms": 37.23,
+        "escalation_rate": 1.0
+      },
+      "Proposed RAMP-RAG": {
+        "hit1": 0.7333,
+        "hit5": 0.8667,
+        "hit10": 0.8667,
+        "hit10_ci95": [
+          0.6667,
+          1.0
+        ],
+        "mrr": 0.8026,
+        "mrr_ci95": [
+          0.6062,
+          0.9667
+        ],
+        "ndcg10": 0.7266,
+        "latency_ms": 10.43,
+        "escalation_rate": 0.2667
+      }
+    },
+    "noise_injection_multi_seed": {
+      "noise_0pct": {
+        "unweighted_hybrid": [
+          {
+            "seed": 42,
+            "hit10": 1.0,
+            "mrr": 0.8194
+          },
+          {
+            "seed": 43,
+            "hit10": 1.0,
+            "mrr": 0.8194
+          },
+          {
+            "seed": 44,
+            "hit10": 1.0,
+            "mrr": 0.8194
+          }
+        ],
+        "ramp_rag": [
+          {
+            "seed": 42,
+            "hit10": 0.9,
+            "mrr": 0.8102
+          },
+          {
+            "seed": 43,
+            "hit10": 0.9,
+            "mrr": 0.8102
+          },
+          {
+            "seed": 44,
+            "hit10": 0.9,
+            "mrr": 0.8102
+          }
+        ],
+        "summary": {
+          "unweighted_hybrid": {
+            "hit10_mean": 1.0,
+            "hit10_std": 0.0,
+            "mrr_mean": 0.8194,
+            "mrr_std": 0.0
+          },
+          "ramp_rag": {
+            "hit10_mean": 0.9,
+            "hit10_std": 0.0,
+            "mrr_mean": 0.8102,
+            "mrr_std": 0.0
+          }
+        }
+      },
+      "noise_10pct": {
+        "unweighted_hybrid": [
+          {
+            "seed": 42,
+            "hit10": 0.8333,
+            "mrr": 0.7107
+          },
+          {
+            "seed": 43,
+            "hit10": 0.7,
+            "mrr": 0.5504
+          },
+          {
+            "seed": 44,
+            "hit10": 0.8,
+            "mrr": 0.6478
+          }
+        ],
+        "ramp_rag": [
+          {
+            "seed": 42,
+            "hit10": 0.8667,
+            "mrr": 0.7443
+          },
+          {
+            "seed": 43,
+            "hit10": 0.6333,
+            "mrr": 0.504
+          },
+          {
+            "seed": 44,
+            "hit10": 0.7667,
+            "mrr": 0.7101
+          }
+        ],
+        "summary": {
+          "unweighted_hybrid": {
+            "hit10_mean": 0.7778,
+            "hit10_std": 0.0566,
+            "mrr_mean": 0.6363,
+            "mrr_std": 0.0659
+          },
+          "ramp_rag": {
+            "hit10_mean": 0.7556,
+            "hit10_std": 0.0956,
+            "mrr_mean": 0.6528,
+            "mrr_std": 0.1061
+          }
+        }
+      },
+      "noise_20pct": {
+        "unweighted_hybrid": [
+          {
+            "seed": 42,
+            "hit10": 0.4,
+            "mrr": 0.3298
+          },
+          {
+            "seed": 43,
+            "hit10": 0.4667,
+            "mrr": 0.366
+          },
+          {
+            "seed": 44,
+            "hit10": 0.6333,
+            "mrr": 0.4082
+          }
+        ],
+        "ramp_rag": [
+          {
+            "seed": 42,
+            "hit10": 0.3,
+            "mrr": 0.3109
+          },
+          {
+            "seed": 43,
+            "hit10": 0.3,
+            "mrr": 0.237
+          },
+          {
+            "seed": 44,
+            "hit10": 0.4,
+            "mrr": 0.2961
+          }
+        ],
+        "summary": {
+          "unweighted_hybrid": {
+            "hit10_mean": 0.5,
+            "hit10_std": 0.0981,
+            "mrr_mean": 0.368,
+            "mrr_std": 0.032
+          },
+          "ramp_rag": {
+            "hit10_mean": 0.3333,
+            "hit10_std": 0.0471,
+            "mrr_mean": 0.2813,
+            "mrr_std": 0.0319
+          }
+        }
+      },
+      "noise_40pct": {
+        "unweighted_hybrid": [
+          {
+            "seed": 42,
+            "hit10": 0.2667,
+            "mrr": 0.204
+          },
+          {
+            "seed": 43,
+            "hit10": 0.3333,
+            "mrr": 0.1117
+          },
+          {
+            "seed": 44,
+            "hit10": 0.2667,
+            "mrr": 0.21
+          }
+        ],
+        "ramp_rag": [
+          {
+            "seed": 42,
+            "hit10": 0.1333,
+            "mrr": 0.152
+          },
+          {
+            "seed": 43,
+            "hit10": 0.1667,
+            "mrr": 0.0665
+          },
+          {
+            "seed": 44,
+            "hit10": 0.1667,
+            "mrr": 0.0811
+          }
+        ],
+        "summary": {
+          "unweighted_hybrid": {
+            "hit10_mean": 0.2889,
+            "hit10_std": 0.0314,
+            "mrr_mean": 0.1752,
+            "mrr_std": 0.045
+          },
+          "ramp_rag": {
+            "hit10_mean": 0.1556,
+            "hit10_std": 0.0157,
+            "mrr_mean": 0.0999,
+            "mrr_std": 0.0373
+          }
+        }
+      }
+    }
+  },
+  "ablation_study": {
+    "Baseline (Fixed alpha=0.7)": {
+      "coco_test": {
+        "hit10": 0.636,
+        "hit10_ci95": [
+          0.576,
+          0.696
+        ],
+        "mrr": 0.3767,
+        "latency_ms": 5.54,
+        "escalation_rate": 0.0
+      },
+      "ocr_test_clean": {
+        "hit10": 1.0,
+        "hit10_ci95": [
+          1.0,
+          1.0
+        ],
+        "mrr": 0.8056,
+        "latency_ms": 4.36,
+        "escalation_rate": 0.0
+      },
+      "ocr_test_noise20": {
+        "hit10": 0.4667,
+        "hit10_ci95": [
+          0.2,
+          0.7333
+        ],
+        "mrr": 0.3914,
+        "latency_ms": 4.22,
+        "escalation_rate": 0.0
+      }
+    },
+    "+ Router (Learned alpha_q)": {
+      "coco_test": {
+        "hit10": 0.648,
+        "hit10_ci95": [
+          0.588,
+          0.708
+        ],
+        "mrr": 0.3975,
+        "latency_ms": 5.79,
+        "escalation_rate": 0.0
+      },
+      "ocr_test_clean": {
+        "hit10": 0.8667,
+        "hit10_ci95": [
+          0.6667,
+          1.0
+        ],
+        "mrr": 0.8359,
+        "latency_ms": 4.46,
+        "escalation_rate": 0.0
+      },
+      "ocr_test_noise20": {
+        "hit10": 0.4667,
+        "hit10_ci95": [
+          0.2,
+          0.7333
+        ],
+        "mrr": 0.3773,
+        "latency_ms": 4.48,
+        "escalation_rate": 0.0
+      }
+    },
+    "+ Cascade (tau=0.065)": {
+      "coco_test": {
+        "hit10": 0.636,
+        "hit10_ci95": [
+          0.576,
+          0.696
+        ],
+        "mrr": 0.3697,
+        "latency_ms": 9.62,
+        "escalation_rate": 0.484
+      },
+      "ocr_test_clean": {
+        "hit10": 1.0,
+        "hit10_ci95": [
+          1.0,
+          1.0
+        ],
+        "mrr": 0.8556,
+        "latency_ms": 10.35,
+        "escalation_rate": 0.2
+      },
+      "ocr_test_noise20": {
+        "hit10": 0.4667,
+        "hit10_ci95": [
+          0.2,
+          0.7333
+        ],
+        "mrr": 0.478,
+        "latency_ms": 19.13,
+        "escalation_rate": 0.6
+      }
+    },
+    "+ Reliability (Observable r_m)": {
+      "coco_test": {
+        "hit10": 0.648,
+        "hit10_ci95": [
+          0.588,
+          0.708
+        ],
+        "mrr": 0.3975,
+        "latency_ms": 5.87,
+        "escalation_rate": 0.0
+      },
+      "ocr_test_clean": {
+        "hit10": 0.8667,
+        "hit10_ci95": [
+          0.6667,
+          1.0
+        ],
+        "mrr": 0.8359,
+        "latency_ms": 5.38,
+        "escalation_rate": 0.0
+      },
+      "ocr_test_noise20": {
+        "hit10": 0.4,
+        "hit10_ci95": [
+          0.1333,
+          0.6667
+        ],
+        "mrr": 0.3561,
+        "latency_ms": 4.98,
+        "escalation_rate": 0.0
+      }
+    },
+    "Full RAMP-RAG": {
+      "coco_test": {
+        "hit10": 0.648,
+        "hit10_ci95": [
+          0.588,
+          0.708
+        ],
+        "mrr": 0.3821,
+        "latency_ms": 10.34,
+        "escalation_rate": 0.544
+      },
+      "ocr_test_clean": {
+        "hit10": 0.8667,
+        "hit10_ci95": [
+          0.6667,
+          1.0
+        ],
+        "mrr": 0.8026,
+        "latency_ms": 9.97,
+        "escalation_rate": 0.2667
+      },
+      "ocr_test_noise20": {
+        "hit10": 0.4,
+        "hit10_ci95": [
+          0.1333,
+          0.6667
+        ],
+        "mrr": 0.4094,
+        "latency_ms": 15.68,
+        "escalation_rate": 0.4667
+      }
+    }
+  }
+}

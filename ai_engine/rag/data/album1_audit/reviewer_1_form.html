@@ -1,0 +1,1007 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MemoryVerse human audit</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #182230;
+      background: #f1f5f9;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; }
+    header {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+      padding: 14px 28px;
+      background: #0f172a;
+      color: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { margin-bottom: 2px; font-size: 1.25rem; font-weight: 700; }
+    header p { margin-bottom: 0; color: #94a3b8; font-size: 0.82rem; }
+    .packet-meta { margin-top: 4px; font-size: .8rem; }
+    .packet-meta code { color: #7dd3fc; font-size: .78rem; font-family: ui-monospace, Menlo, monospace; }
+    .progress { min-width: 190px; text-align: right; }
+    .progress strong { display: block; font-size: 1.15rem; color: #ffffff; }
+    .progress span { color: #7dd3fc; font-size: .85rem; font-weight: 600; }
+    
+    main {
+      width: min(1560px, calc(100% - 32px));
+      margin: 16px auto 90px;
+    }
+    
+    .notice {
+      margin-bottom: 16px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      background: #e0f2fe;
+      border-left: 4px solid #0284c7;
+      font-size: 0.86rem;
+      color: #0369a1;
+      line-height: 1.45;
+    }
+    .notice details summary {
+      cursor: pointer;
+      font-weight: 700;
+      user-select: none;
+    }
+    .notice details[open] summary {
+      margin-bottom: 8px;
+    }
+    .preview-banner {
+      margin-top: 8px;
+      padding: 8px 12px;
+      border: 1px solid #fde047;
+      border-radius: 6px;
+      background: #fef9c3;
+      color: #854d0e;
+      font-weight: 600;
+      font-size: 0.85rem;
+    }
+    .scope-note, .storage-warning {
+      margin-top: 8px;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: .85rem;
+    }
+    .scope-note { background: #f8fafc; border: 1px solid #cbd5e1; color: #334155; }
+    .storage-warning { background: #fff1f2; border: 1px solid #fecdd3; color: #9f1239; }
+
+    /* Unified 2-Column Workbench */
+    .workbench {
+      display: grid;
+      grid-template-columns: minmax(0, 1.18fr) minmax(0, 0.82fr);
+      gap: 20px;
+      align-items: start;
+    }
+    @media (max-width: 1020px) {
+      .workbench {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .card {
+      background: white;
+      border: 1px solid #cbd5e1;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 14px rgba(15, 23, 42, .05);
+    }
+    .evidence-pane {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .audit-pane {
+      position: sticky;
+      top: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-height: calc(100vh - 110px);
+      overflow-y: auto;
+    }
+    @media (max-width: 1020px) {
+      .audit-pane {
+        position: static;
+        max-height: none;
+      }
+    }
+
+    .case-heading {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: flex-start;
+      border-bottom: 1px solid #f1f5f9;
+      padding-bottom: 12px;
+    }
+    .case-heading h2 { margin-bottom: 4px; font-size: 1.15rem; color: #0f172a; }
+    .question-text { font-size: 1.1rem; font-weight: 600; line-height: 1.45; color: #0f172a; }
+    .query-cn { font-size: 0.92rem; color: #64748b; margin-top: 4px; }
+    .case-split {
+      display: inline-block;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: #f1f5f9;
+      color: #475569;
+      font-size: .78rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    
+    .target-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.88rem;
+    }
+    .target {
+      padding: 3px 8px;
+      border-radius: 5px;
+      background: #fef3c7;
+      color: #92400e;
+      font-weight: 600;
+    }
+    
+    .label {
+      font-size: .74rem;
+      font-weight: 700;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      color: #64748b;
+    }
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    
+    /* Retrieved Raw Media Grid */
+    .media-panel {
+      padding: 14px;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      background: #f8fafc;
+    }
+    .media-badge {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #0284c7;
+      background: #e0f2fe;
+      padding: 2px 8px;
+      border-radius: 999px;
+    }
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin-top: 8px;
+    }
+    .media-card {
+      min-width: 0;
+      margin: 0;
+      padding: 8px;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      background: white;
+      cursor: zoom-in;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+      position: relative;
+    }
+    .media-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      border-color: #0284c7;
+    }
+    .media-card img {
+      display: block;
+      width: 100%;
+      height: 190px;
+      object-fit: contain;
+      border-radius: 6px;
+      background: #f1f5f9;
+    }
+    .media-card figcaption {
+      margin-top: 6px;
+      font-size: .75rem;
+      color: #475569;
+      overflow-wrap: anywhere;
+      text-align: center;
+      font-family: ui-monospace, Menlo, monospace;
+    }
+    .media-card .zoom-hint {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(15, 23, 42, 0.75);
+      color: white;
+      font-size: 0.7rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+      opacity: 0;
+      transition: opacity 0.15s ease;
+      pointer-events: none;
+    }
+    .media-card:hover .zoom-hint { opacity: 1; }
+
+    /* Retrieved Context */
+    .context {
+      padding: 14px;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      background: #ffffff;
+    }
+    .context-list {
+      margin: 8px 0 0;
+      padding-left: 20px;
+      font-size: 0.88rem;
+      color: #334155;
+      line-height: 1.5;
+    }
+    .context-list li { margin: 6px 0; }
+
+    /* Generated Response / Model Answer */
+    .answer-card {
+      padding: 16px;
+      border-radius: 10px;
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-left: 4px solid #16a34a;
+    }
+    .answer-role-badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: #15803d;
+      background: #dcfce7;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+    .answer-text {
+      font-size: 0.98rem;
+      font-weight: 500;
+      color: #14532d;
+      line-height: 1.55;
+      margin-top: 8px;
+      white-space: pre-wrap;
+    }
+
+    /* Reviewer Decision Options */
+    .decisions-section {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .decisions-header {
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 4px;
+    }
+    .decision {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .decision-block {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 10px 12px;
+    }
+    .decision-block h3 {
+      font-size: 0.9rem;
+      margin: 0 0 3px;
+      color: #0f172a;
+    }
+    .decision-help {
+      font-size: 0.78rem;
+      color: #64748b;
+      margin: 0 0 6px;
+    }
+    .option-list {
+      display: grid;
+      gap: 6px;
+    }
+    .option {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      padding: 8px 10px;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      background: white;
+      cursor: pointer;
+      font-size: 0.84rem;
+      transition: background 0.1s ease, border-color 0.1s ease;
+    }
+    .option:hover {
+      background: #f0fdf4;
+      border-color: #16a34a;
+    }
+    .option input {
+      margin-top: 2px;
+      accent-color: #16a34a;
+    }
+    .option strong { color: #0f172a; }
+    .option code {
+      font-size: 0.72rem;
+      color: #64748b;
+    }
+
+    /* Notes Box */
+    .notes-box {
+      margin-top: 4px;
+    }
+    textarea {
+      width: 100%;
+      min-height: 64px;
+      padding: 8px 10px;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      font: inherit;
+      font-size: 0.85rem;
+      resize: vertical;
+    }
+
+    /* Fixed Bottom Action Bar */
+    .buttons {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 20px;
+      border-top: 1px solid #cbd5e1;
+      background: rgba(255, 255, 255, .97);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 -4px 16px rgba(0, 0, 0, .06);
+      z-index: 100;
+    }
+    button {
+      padding: 8px 16px;
+      border: 0;
+      border-radius: 6px;
+      background: #0f172a;
+      color: white;
+      cursor: pointer;
+      font: inherit;
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: background 0.15s ease;
+    }
+    button:hover:not(:disabled) { background: #1e293b; }
+    button.secondary { background: #e2e8f0; color: #1e293b; }
+    button.secondary:hover:not(:disabled) { background: #cbd5e1; }
+    button.primary { background: #16a34a; }
+    button.primary:hover:not(:disabled) { background: #15803d; }
+    button:disabled { cursor: not-allowed; opacity: .45; }
+    #status { min-width: 180px; align-self: center; color: #475569; font-size: .85rem; text-align: center; }
+
+    /* Lightbox Modal */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .lightbox[hidden] { display: none !important; }
+    .lightbox-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(4px);
+    }
+    .lightbox-content {
+      position: relative;
+      max-width: 90vw;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 10000;
+    }
+    .lightbox-content img {
+      max-width: 100%;
+      max-height: 80vh;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    }
+    .lightbox-close {
+      position: absolute;
+      top: -36px;
+      right: 0;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+      padding: 4px 12px;
+    }
+    .lightbox-caption {
+      margin-top: 10px;
+      color: #f1f5f9;
+      font-size: 0.9rem;
+      font-family: ui-monospace, Menlo, monospace;
+      text-align: center;
+    }
+    [hidden] { display: none !important; }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>MemoryVerse human audit</h1>
+      <p id="reviewer"></p>
+      <p class="packet-meta">Packet version: <strong id="packet-version"></strong>
+        · Content SHA256: <code id="content-fingerprint"></code></p>
+    </div>
+    <div class="progress">
+      <strong id="counter"></strong>
+      <span id="completed"></span>
+    </div>
+  </header>
+  <main>
+    <div class="notice">
+      <details>
+        <summary>Review Instructions & Rubric (Click to expand/collapse)</summary>
+        <div id="review-instructions" style="margin-top: 6px;">
+          Evaluate multimodal visual grounding: inspect the user query, retrieved raw media (click any thumbnail to zoom in high-resolution), retrieved catalog context, and assistant response.
+          Rate whether the retrieved images faithfully ground the query, whether the response directly addresses the user request, and whether the retrieval is correct.
+          Work independently and without consulting the other reviewer. If you choose a middle, uncertain, or negative option, add a short note explaining why.
+        </div>
+      </details>
+      <div id="scope-note" class="scope-note" hidden></div>
+      <div id="storage-warning" class="storage-warning" hidden></div>
+      <div id="preview-banner" class="preview-banner" hidden>Preview mode</div>
+    </div>
+
+    <!-- 2-COLUMN WORKBENCH: EVERYTHING AT A SINGLE PLACE -->
+    <div class="workbench">
+      <!-- LEFT COLUMN: EVIDENCE PANE -->
+      <section class="card pane evidence-pane">
+        <div class="case-heading">
+          <div>
+            <h2 id="case-id"></h2>
+            <div id="query" class="question-text"></div>
+            <div id="query-cn" class="query-cn"></div>
+          </div>
+          <span id="case-split" class="case-split"></span>
+        </div>
+
+        <div id="target-row" class="target-row">
+          <span class="label">Target detail / Visual attributes:</span>
+          <span id="target" class="target"></span>
+        </div>
+
+        <!-- Retrieved Raw Media - Front & Center! -->
+        <div id="media-panel" class="media-panel" hidden>
+          <div class="panel-header">
+            <span class="label">Retrieved raw media</span>
+            <span id="media-status" class="media-badge"></span>
+          </div>
+          <div id="media-list" class="media-grid"></div>
+        </div>
+
+        <!-- Retrieved Context Passages -->
+        <div class="context">
+          <div class="panel-header">
+            <span class="label">Retrieved context</span>
+          </div>
+          <ol id="context" class="context-list"></ol>
+        </div>
+      </section>
+
+      <!-- RIGHT COLUMN: AUDIT & RESPONSE PANE -->
+      <section class="card pane audit-pane">
+        <!-- Model Response -->
+        <div id="answer-panel" class="answer-card">
+          <div class="panel-header">
+            <span class="label">Response / Generated Answer</span>
+            <span id="answer-role" class="answer-role-badge"></span>
+          </div>
+          <div id="answer" class="answer-text"></div>
+        </div>
+
+        <!-- Reviewer Decisions -->
+        <div id="decisions-section" class="decisions-section">
+          <div class="decisions-header">
+            <span class="label">Reviewer Evaluation</span>
+          </div>
+          <div id="decisions" class="decision"></div>
+          <div id="notes-section" class="notes-box">
+            <div class="label">Short note (required for middle, uncertain, or negative choices)</div>
+            <textarea id="notes" placeholder="Optional for fully supported/direct/correct; required otherwise."></textarea>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Lightbox Modal for Full Image Zoom -->
+  <div id="lightbox" class="lightbox" hidden>
+    <div class="lightbox-backdrop" id="lightbox-backdrop"></div>
+    <div class="lightbox-content">
+      <button type="button" class="lightbox-close" id="lightbox-close">&times;</button>
+      <img id="lightbox-img" alt="Zoomed view">
+      <div id="lightbox-caption" class="lightbox-caption"></div>
+    </div>
+  </div>
+
+  <div class="buttons">
+    <span id="status"></span>
+    <button class="secondary" id="previous" type="button">Previous</button>
+    <button class="primary" id="next" type="button">Save and next</button>
+    <button type="button" id="save">Save draft</button>
+    <button type="button" id="download">Download completed CSV</button>
+  </div>
+  <script>
+    const CASES = [{"answer": "Found 1 matching photo in album: IMG_4350.JPG matching \"light yellow patchwork plush pajamas selfie\".", "answer_role": "MODEL RETRIEVAL OUTPUT", "audit_id": "L10-A1-001", "id": "L10-A1-001", "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"light yellow patchwork plush pajamas selfie\"?", "query_cn": "浅黄色拼接毛绒睡衣自拍", "query_en": "light yellow patchwork plush pajamas selfie", "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"light yellow patchwork plush pajamas selfie\"?", "reference_context": "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 0; query_en \"light yellow patchwork plush pajamas selfie\"; ordered ground-truth filenames: IMG_4350.JPG; reference expected answer: ['IMG_4350.JPG']", "reference_context_role": "DESIGN/REFERENCE DATA — not a model output", "retrieved_context": ["Multimodal image index. Catalog indexed for query: \"light yellow patchwork plush pajamas selfie\"."], "source_query_index": 0, "target_keyword": "", "split": "single_hop", "clean_query": "light yellow patchwork plush pajamas selfie", "retrieved_media": [{"item_id": "IMG_4350", "file_path": "IMG_4350.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_4350.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_4350.JPG"}], "media_attached_count": 1}, {"answer": "Found 6 matching photos in album: IMG_0760.JPG, IMG_0761.JPG, IMG_0781.JPG, IMG_0789.JPG, IMG_0837.JPG, IMG_0860.JPG matching \"making dinner in the kitchen\".", "answer_role": "MODEL RETRIEVAL OUTPUT", "audit_id": "L10-A1-002", "id": "L10-A1-002", "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"making dinner in the kitchen\"?", "query_cn": "厨房里做晚饭", "query_en": "making dinner in the kitchen", "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"making dinner in the kitchen\"?", "reference_context": "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 1; query_en \"making dinner in the kitchen\"; ordered ground-truth filenames: IMG_0760.JPG, IMG_0761.JPG, IMG_0781.JPG, IMG_0789.JPG, IMG_0837.JPG, IMG_0860.JPG; reference expected answer: ['IMG_0760.JPG', 'IMG_0761.JPG', 'IMG_0781.JPG', 'IMG_0789.JPG', 'IMG_0837.JPG', 'IMG_0860.JPG']", "reference_context_role": "DESIGN/REFERENCE DATA — not a model output", "retrieved_context": ["Multimodal image index. Catalog indexed for query: \"making dinner in the kitchen\"."], "source_query_index": 1, "target_keyword": "", "split": "single_hop", "clean_query": "making dinner in the kitchen", "retrieved_media": [{"item_id": "IMG_0760", "file_path": "IMG_0760.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_0760.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_0760.JPG"}, {"item_id": "IMG_0761", "file_path": "IMG_0761.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_0761.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_0761.JPG"}, {"item_id": "IMG_0781", "file_path": "IMG_0781.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_0781.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_0781.JPG"}, {"item_id": "IMG_0789", "file_path": "IMG_0789.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_0789.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_0789.JPG"}, {"item_id": "IMG_0837", "file_path": "IMG_0837.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_0837.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_0837.JPG"}, {"item_id": "IMG_0860", "file_path": "IMG_0860.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_0860.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_0860.JPG"}], "media_attached_count": 6}, {"answer": "Found 1 matching photo in album: IMG_0536.JPG matching \"holding solid mango pomelo sago\".", "answer_role": "MODEL RETRIEVAL OUTPUT", "audit_id": "L10-A1-003", "id": "L10-A1-003", "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"holding solid mango pomelo sago\"?", "query_cn": "手拿固体杨枝甘露", "query_en": "holding solid mango pomelo sago", "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"holding solid mango pomelo sago\"?", "reference_context": "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 2; query_en \"holding solid mango pomelo sago\"; ordered ground-truth filenames: IMG_0536.JPG; reference expected answer: ['IMG_0536.JPG']", "reference_context_role": "DESIGN/REFERENCE DATA — not a model output", "retrieved_context": ["Multimodal image index. Catalog indexed for query: \"holding solid mango pomelo sago\"."], "source_query_index": 2, "target_keyword": "", "split": "single_hop", "clean_query": "holding solid mango pomelo sago", "retrieved_media": [{"item_id": "IMG_0536", "file_path": "IMG_0536.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_0536.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_0536.JPG"}], "media_attached_count": 1}, {"answer": "Found 1 matching photo in album: IMG_5243 2.JPG matching \"Christmas tree made of cups\".", "answer_role": "MODEL RETRIEVAL OUTPUT", "audit_id": "L10-A1-004", "id": "L10-A1-004", "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"Christmas tree made of cups\"?", "query_cn": "水杯做的圣诞树", "query_en": "Christmas tree made of cups", "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"Christmas tree made of cups\"?", "reference_context": "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 3; query_en \"Christmas tree made of cups\"; ordered ground-truth filenames: IMG_5243 2.JPG; reference expected answer: ['IMG_5243 2.JPG']", "reference_context_role": "DESIGN/REFERENCE DATA — not a model output", "retrieved_context": ["Multimodal image index. Catalog indexed for query: \"Christmas tree made of cups\"."], "source_query_index": 3, "target_keyword": "", "split": "single_hop", "clean_query": "Christmas tree made of cups", "retrieved_media": [{"item_id": "IMG_5243 2", "file_path": "IMG_5243 2.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_5243 2.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_5243 2.JPG"}], "media_attached_count": 1}, {"answer": "Found 2 matching photos in album: IMG_8870.JPG, IMG_8871.JPG matching \"posing near the cave exit\".", "answer_role": "MODEL RETRIEVAL OUTPUT", "audit_id": "L10-A1-005", "id": "L10-A1-005", "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"posing near the cave exit\"?", "query_cn": "快出岩洞时摆拍", "query_en": "posing near the cave exit", "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"posing near the cave exit\"?", "reference_context": "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 4; query_en \"posing near the cave exit\"; ordered ground-truth filenames: IMG_8870.JPG, IMG_8871.JPG; reference expected answer: ['IMG_8870.JPG', 'IMG_8871.JPG']", "reference_context_role": "DESIGN/REFERENCE DATA — not a model output", "retrieved_context": ["Multimodal image index. Catalog indexed for query: \"posing near the cave exit\"."], "source_query_index": 4, "target_keyword": "", "split": "single_hop", "clean_query": "posing near the cave exit", "retrieved_media": [{"item_id": "IMG_8870", "file_path": "IMG_8870.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_8870.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_8870.JPG"}, {"item_id": "IMG_8871", "file_path": "IMG_8871.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_8871.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_8871.JPG"}], "media_attached_count": 2}, {"answer": "Found 10 matching photos in album: IMG_1011.JPG, IMG_1013.JPG, IMG_1015.JPG, IMG_1017.JPG, IMG_1018.JPG, IMG_1019.JPG, IMG_1478.JPG, IMG_1483 3.JPG, IMG_1484.JPG, IMG_1485.JPG matching \"museum souvenirs\".", "answer_role": "MODEL RETRIEVAL OUTPUT", "audit_id": "L10-A1-006", "id": "L10-A1-006", "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"museum souvenirs\"?", "query_cn": "记录下博物馆买的纪念品", "query_en": "museum souvenirs", "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"museum souvenirs\"?", "reference_context": "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 5; query_en \"museum souvenirs\"; ordered ground-truth filenames: IMG_1011.JPG, IMG_1013.JPG, IMG_1015.JPG, IMG_1017.JPG, IMG_1018.JPG, IMG_1019.JPG, IMG_1478.JPG, IMG_1483 3.JPG, IMG_1484.JPG, IMG_1485.JPG; reference expected answer: ['IMG_1011.JPG', 'IMG_1013.JPG', 'IMG_1015.JPG', 'IMG_1017.JPG', 'IMG_1018.JPG', 'IMG_1019.JPG', 'IMG_1478.JPG', 'IMG_1483 3.JPG', 'IMG_1484.JPG', 'IMG_1485.JPG']", "reference_context_role": "DESIGN/REFERENCE DATA — not a model output", "retrieved_context": ["Multimodal image index. Catalog indexed for query: \"museum souvenirs\"."], "source_query_index": 5, "target_keyword": "", "split": "single_hop", "clean_query": "museum souvenirs", "retrieved_media": [{"item_id": "IMG_1011", "file_path": "IMG_1011.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_1011.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_1011.JPG"}, {"item_id": "IMG_1013", "file_path": "IMG_1013.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_1013.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_1013.JPG"}, {"item_id": "IMG_1015", "file_path": "IMG_1015.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_1015.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_1015.JPG"}, {"item_id": "IMG_1017", "file_path": "IMG_1017.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_1017.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_1017.JPG"}, {"item_id": "IMG_1018", "file_path": "IMG_1018.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_1018.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_1018.JPG"}, {"item_id": "IMG_1019", "file_path": "IMG_1019.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_1019.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_1019.JPG"}, {"item_id": "IMG_1478", "file_path": "IMG_1478.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_1478.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_1478.JPG"}, {"item_id": "IMG_1483 3", "file_path": "IMG_1483 3.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_1483 3.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_1483 3.JPG"}, {"item_id": "IMG_1484", "file_path": "IMG_1484.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_1484.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_1484.JPG"}, {"item_id": "IMG_1485", "file_path": "IMG_1485.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_1485.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_1485.JPG"}], "media_attached_count": 10}, {"answer": "No generated answer is included in this packet.", "answer_role": "NO MODEL OUTPUT", "audit_id": "L10-A1-007", "id": "L10-A1-007", "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"nighttime pedestrian street in Guiyang\"?", "query_cn": "贵阳夜晚步行街", "query_en": "nighttime pedestrian street in Guiyang", "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"nighttime pedestrian street in Guiyang\"?", "reference_context": "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 6; query_en \"nighttime pedestrian street in Guiyang\"; ordered ground-truth filenames: none; reference expected answer: No ground-truth image is listed for this query.", "reference_context_role": "DESIGN/REFERENCE DATA — not a model output", "retrieved_context": ["Multimodal image index. Negative control probe (target query concept has no matching photos in the album catalog)."], "source_query_index": 6, "target_keyword": "", "split": "single_hop", "clean_query": "nighttime pedestrian street in Guiyang", "retrieved_media": [], "media_attached_count": 0}, {"answer": "Found 5 matching photos in album: IMG_1191.JPG, IMG_1192.JPG, IMG_1193.JPG, IMG_1194.JPG, IMG_1195.JPG matching \"Baotu Spring tour\".", "answer_role": "MODEL RETRIEVAL OUTPUT", "audit_id": "L10-A1-008", "id": "L10-A1-008", "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"Baotu Spring tour\"?", "query_cn": "趵突泉游览", "query_en": "Baotu Spring tour", "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"Baotu Spring tour\"?", "reference_context": "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 7; query_en \"Baotu Spring tour\"; ordered ground-truth filenames: IMG_1191.JPG, IMG_1192.JPG, IMG_1193.JPG, IMG_1194.JPG, IMG_1195.JPG; reference expected answer: ['IMG_1191.JPG', 'IMG_1192.JPG', 'IMG_1193.JPG', 'IMG_1194.JPG', 'IMG_1195.JPG']", "reference_context_role": "DESIGN/REFERENCE DATA — not a model output", "retrieved_context": ["Multimodal image index. Catalog indexed for query: \"Baotu Spring tour\"."], "source_query_index": 7, "target_keyword": "", "split": "single_hop", "clean_query": "Baotu Spring tour", "retrieved_media": [{"item_id": "IMG_1191", "file_path": "IMG_1191.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_1191.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_1191.JPG"}, {"item_id": "IMG_1192", "file_path": "IMG_1192.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_1192.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_1192.JPG"}, {"item_id": "IMG_1193", "file_path": "IMG_1193.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_1193.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_1193.JPG"}, {"item_id": "IMG_1194", "file_path": "IMG_1194.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_1194.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_1194.JPG"}, {"item_id": "IMG_1195", "file_path": "IMG_1195.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_1195.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_1195.JPG"}], "media_attached_count": 5}, {"answer": "Found 2 matching photos in album: IMG_1779.JPG, IMG_1780.JPG matching \"selfie documenting makeup on November 16, 2025, afternoon\".", "answer_role": "MODEL RETRIEVAL OUTPUT", "audit_id": "L10-A1-009", "id": "L10-A1-009", "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"selfie documenting makeup on November 16, 2025, afternoon\"?", "query_cn": "25年11月16号下午记录妆容的自拍", "query_en": "selfie documenting makeup on November 16, 2025, afternoon", "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"selfie documenting makeup on November 16, 2025, afternoon\"?", "reference_context": "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 8; query_en \"selfie documenting makeup on November 16, 2025, afternoon\"; ordered ground-truth filenames: IMG_1779.JPG, IMG_1780.JPG; reference expected answer: ['IMG_1779.JPG', 'IMG_1780.JPG']", "reference_context_role": "DESIGN/REFERENCE DATA — not a model output", "retrieved_context": ["Multimodal image index. Catalog indexed for query: \"selfie documenting makeup on November 16, 2025, afternoon\"."], "source_query_index": 8, "target_keyword": "", "split": "single_hop", "clean_query": "selfie documenting makeup on November 16, 2025, afternoon", "retrieved_media": [{"item_id": "IMG_1779", "file_path": "IMG_1779.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_1779.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_1779.JPG"}, {"item_id": "IMG_1780", "file_path": "IMG_1780.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_1780.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_1780.JPG"}], "media_attached_count": 2}, {"answer": "Found 2 matching photos in album: IMG_1179.JPG, IMG_1178.JPG matching \"photos in Yucheng\".", "answer_role": "MODEL RETRIEVAL OUTPUT", "audit_id": "L10-A1-010", "id": "L10-A1-010", "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"photos in Yucheng\"?", "query_cn": "在禹城市的照片", "query_en": "photos in Yucheng", "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"photos in Yucheng\"?", "reference_context": "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 9; query_en \"photos in Yucheng\"; ordered ground-truth filenames: IMG_1179.JPG, IMG_1178.JPG; reference expected answer: ['IMG_1179.JPG', 'IMG_1178.JPG']", "reference_context_role": "DESIGN/REFERENCE DATA — not a model output", "retrieved_context": ["Multimodal image index. Catalog indexed for query: \"photos in Yucheng\"."], "source_query_index": 9, "target_keyword": "", "split": "single_hop", "clean_query": "photos in Yucheng", "retrieved_media": [{"item_id": "IMG_1179", "file_path": "IMG_1179.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_1179.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_1179.JPG"}, {"item_id": "IMG_1178", "file_path": "IMG_1178.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_1178.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_1178.JPG"}], "media_attached_count": 2}, {"answer": "Found 6 matching photos in album: IMG_6438.JPG, IMG_6437.JPG, IMG_6457.JPG, IMG_6344.JPG, IMG_6343.JPG, IMG_6458.JPG matching \"photos in Yantian District\".", "answer_role": "MODEL RETRIEVAL OUTPUT", "audit_id": "L10-A1-011", "id": "L10-A1-011", "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"photos in Yantian District\"?", "query_cn": "在盐田区的照片", "query_en": "photos in Yantian District", "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"photos in Yantian District\"?", "reference_context": "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 10; query_en \"photos in Yantian District\"; ordered ground-truth filenames: IMG_6438.JPG, IMG_6437.JPG, IMG_6457.JPG, IMG_6344.JPG, IMG_6343.JPG, IMG_6458.JPG; reference expected answer: ['IMG_6438.JPG', 'IMG_6437.JPG', 'IMG_6457.JPG', 'IMG_6344.JPG', 'IMG_6343.JPG', 'IMG_6458.JPG']", "reference_context_role": "DESIGN/REFERENCE DATA — not a model output", "retrieved_context": ["Multimodal image index. Catalog indexed for query: \"photos in Yantian District\"."], "source_query_index": 10, "target_keyword": "", "split": "single_hop", "clean_query": "photos in Yantian District", "retrieved_media": [{"item_id": "IMG_6438", "file_path": "IMG_6438.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_6438.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_6438.JPG"}, {"item_id": "IMG_6437", "file_path": "IMG_6437.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_6437.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_6437.JPG"}, {"item_id": "IMG_6457", "file_path": "IMG_6457.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_6457.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_6457.JPG"}, {"item_id": "IMG_6344", "file_path": "IMG_6344.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_6344.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_6344.JPG"}, {"item_id": "IMG_6343", "file_path": "IMG_6343.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_6343.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_6343.JPG"}, {"item_id": "IMG_6458", "file_path": "IMG_6458.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_6458.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_6458.JPG"}], "media_attached_count": 6}, {"answer": "Found 5 matching photos in album: IMG_1386.JPG, IMG_1388.JPG, IMG_1390.JPG, IMG_1396.JPG, IMG_1400.JPG matching \"Shandong modern history exhibition, anti-invasion theme\".", "answer_role": "MODEL RETRIEVAL OUTPUT", "audit_id": "L10-A1-012", "id": "L10-A1-012", "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"Shandong modern history exhibition, anti-invasion theme\"?", "query_cn": "山东近代史展览--反侵略主题", "query_en": "Shandong modern history exhibition, anti-invasion theme", "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"Shandong modern history exhibition, anti-invasion theme\"?", "reference_context": "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 11; query_en \"Shandong modern history exhibition, anti-invasion theme\"; ordered ground-truth filenames: IMG_1386.JPG, IMG_1388.JPG, IMG_1390.JPG, IMG_1396.JPG, IMG_1400.JPG; reference expected answer: ['IMG_1386.JPG', 'IMG_1388.JPG', 'IMG_1390.JPG', 'IMG_1396.JPG', 'IMG_1400.JPG']", "reference_context_role": "DESIGN/REFERENCE DATA — not a model output", "retrieved_context": ["Multimodal image index. Catalog indexed for query: \"Shandong modern history exhibition, anti-invasion theme\"."], "source_query_index": 11, "target_keyword": "", "split": "single_hop", "clean_query": "Shandong modern history exhibition, anti-invasion theme", "retrieved_media": [{"item_id": "IMG_1386", "file_path": "IMG_1386.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_1386.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_1386.JPG"}, {"item_id": "IMG_1388", "file_path": "IMG_1388.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_1388.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_1388.JPG"}, {"item_id": "IMG_1390", "file_path": "IMG_1390.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_1390.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_1390.JPG"}, {"item_id": "IMG_1396", "file_path": "IMG_1396.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_1396.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_1396.JPG"}, {"item_id": "IMG_1400", "file_path": "IMG_1400.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_1400.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_1400.JPG"}], "media_attached_count": 5}, {"answer": "Found 3 matching photos in album: IMG_5254.JPG, IMG_5255.JPG, IMG_5257.JPG matching \"roast chicken with yellow-green sauce\".", "answer_role": "MODEL RETRIEVAL OUTPUT", "audit_id": "L10-A1-013", "id": "L10-A1-013", "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"roast chicken with yellow-green sauce\"?", "query_cn": "黄绿酱汁烤鸡", "query_en": "roast chicken with yellow-green sauce", "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"roast chicken with yellow-green sauce\"?", "reference_context": "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 12; query_en \"roast chicken with yellow-green sauce\"; ordered ground-truth filenames: IMG_5254.JPG, IMG_5255.JPG, IMG_5257.JPG; reference expected answer: ['IMG_5254.JPG', 'IMG_5255.JPG', 'IMG_5257.JPG']", "reference_context_role": "DESIGN/REFERENCE DATA — not a model output", "retrieved_context": ["Multimodal image index. Catalog indexed for query: \"roast chicken with yellow-green sauce\"."], "source_query_index": 12, "target_keyword": "", "split": "single_hop", "clean_query": "roast chicken with yellow-green sauce", "retrieved_media": [{"item_id": "IMG_5254", "file_path": "IMG_5254.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_5254.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_5254.JPG"}, {"item_id": "IMG_5255", "file_path": "IMG_5255.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_5255.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_5255.JPG"}, {"item_id": "IMG_5257", "file_path": "IMG_5257.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_5257.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_5257.JPG"}], "media_attached_count": 3}, {"answer": "Found 1 matching photo in album: IMG_7898.JPG matching \"photos from May 2024\".", "answer_role": "MODEL RETRIEVAL OUTPUT", "audit_id": "L10-A1-014", "id": "L10-A1-014", "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"photos from May 2024\"?", "query_cn": "2024年5月", "query_en": "photos from May 2024", "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"photos from May 2024\"?", "reference_context": "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 13; query_en \"photos from May 2024\"; ordered ground-truth filenames: IMG_7898.JPG; reference expected answer: ['IMG_7898.JPG']", "reference_context_role": "DESIGN/REFERENCE DATA — not a model output", "retrieved_context": ["Multimodal image index. Catalog indexed for query: \"photos from May 2024\"."], "source_query_index": 13, "target_keyword": "", "split": "single_hop", "clean_query": "photos from May 2024", "retrieved_media": [{"item_id": "IMG_7898", "file_path": "IMG_7898.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_7898.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_7898.JPG"}], "media_attached_count": 1}, {"answer": "Found 1 matching photo in album: IMG_5625.JPG matching \"Shenzhen airport tarmac at the boarding gate\".", "answer_role": "MODEL RETRIEVAL OUTPUT", "audit_id": "L10-A1-015", "id": "L10-A1-015", "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"Shenzhen airport tarmac at the boarding gate\"?", "query_cn": "深圳机场登机口停机坪", "query_en": "Shenzhen airport tarmac at the boarding gate", "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"Shenzhen airport tarmac at the boarding gate\"?", "reference_context": "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 14; query_en \"Shenzhen airport tarmac at the boarding gate\"; ordered ground-truth filenames: IMG_5625.JPG; reference expected answer: ['IMG_5625.JPG']", "reference_context_role": "DESIGN/REFERENCE DATA — not a model output", "retrieved_context": ["Multimodal image index. Catalog indexed for query: \"Shenzhen airport tarmac at the boarding gate\"."], "source_query_index": 14, "target_keyword": "", "split": "single_hop", "clean_query": "Shenzhen airport tarmac at the boarding gate", "retrieved_media": [{"item_id": "IMG_5625", "file_path": "IMG_5625.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_5625.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_5625.JPG"}], "media_attached_count": 1}, {"answer": "No generated answer is included in this packet.", "answer_role": "NO MODEL OUTPUT", "audit_id": "L10-A1-016", "id": "L10-A1-016", "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"vanilla coke spilled on keyboard\"?", "query_cn": "香草味可乐倒在键盘上", "query_en": "vanilla coke spilled on keyboard", "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"vanilla coke spilled on keyboard\"?", "reference_context": "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 15; query_en \"vanilla coke spilled on keyboard\"; ordered ground-truth filenames: none; reference expected answer: No ground-truth image is listed for this query.", "reference_context_role": "DESIGN/REFERENCE DATA — not a model output", "retrieved_context": ["Multimodal image index. Negative control probe (target query concept has no matching photos in the album catalog)."], "source_query_index": 15, "target_keyword": "", "split": "single_hop", "clean_query": "vanilla coke spilled on keyboard", "retrieved_media": [], "media_attached_count": 0}, {"answer": "Found 3 matching photos in album: IMG_4823.JPG, IMG_4824.JPG, IMG_4831.JPG matching \"cat lying in the middle of campus street\".", "answer_role": "MODEL RETRIEVAL OUTPUT", "audit_id": "L10-A1-017", "id": "L10-A1-017", "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"cat lying in the middle of campus street\"?", "query_cn": "校园街中间躺着的猫猫", "query_en": "cat lying in the middle of campus street", "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"cat lying in the middle of campus street\"?", "reference_context": "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 16; query_en \"cat lying in the middle of campus street\"; ordered ground-truth filenames: IMG_4823.JPG, IMG_4824.JPG, IMG_4831.JPG; reference expected answer: ['IMG_4823.JPG', 'IMG_4824.JPG', 'IMG_4831.JPG']", "reference_context_role": "DESIGN/REFERENCE DATA — not a model output", "retrieved_context": ["Multimodal image index. Catalog indexed for query: \"cat lying in the middle of campus street\"."], "source_query_index": 16, "target_keyword": "", "split": "single_hop", "clean_query": "cat lying in the middle of campus street", "retrieved_media": [{"item_id": "IMG_4823", "file_path": "IMG_4823.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_4823.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_4823.JPG"}, {"item_id": "IMG_4824", "file_path": "IMG_4824.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_4824.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_4824.JPG"}, {"item_id": "IMG_4831", "file_path": "IMG_4831.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_4831.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_4831.JPG"}], "media_attached_count": 3}, {"answer": "Found 3 matching photos in album: IMG_8637.JPG, IMG_8808.JPG, IMG_8890.JPG matching \"me wearing a kimono\".", "answer_role": "MODEL RETRIEVAL OUTPUT", "audit_id": "L10-A1-018", "id": "L10-A1-018", "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"me wearing a kimono\"?", "query_cn": "穿和服的自己", "query_en": "me wearing a kimono", "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"me wearing a kimono\"?", "reference_context": "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 17; query_en \"me wearing a kimono\"; ordered ground-truth filenames: IMG_8637.JPG, IMG_8808.JPG, IMG_8890.JPG; reference expected answer: ['IMG_8637.JPG', 'IMG_8808.JPG', 'IMG_8890.JPG']", "reference_context_role": "DESIGN/REFERENCE DATA — not a model output", "retrieved_context": ["Multimodal image index. Catalog indexed for query: \"me wearing a kimono\"."], "source_query_index": 17, "target_keyword": "", "split": "single_hop", "clean_query": "me wearing a kimono", "retrieved_media": [{"item_id": "IMG_8637", "file_path": "IMG_8637.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_8637.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_8637.JPG"}, {"item_id": "IMG_8808", "file_path": "IMG_8808.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_8808.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_8808.JPG"}, {"item_id": "IMG_8890", "file_path": "IMG_8890.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_8890.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_8890.JPG"}], "media_attached_count": 3}, {"answer": "Found 2 matching photos in album: IMG_8527.JPG, IMG_8542 2.JPG matching \"winter photos from 2023\".", "answer_role": "MODEL RETRIEVAL OUTPUT", "audit_id": "L10-A1-019", "id": "L10-A1-019", "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"winter photos from 2023\"?", "query_cn": "2023年冬季的照片", "query_en": "winter photos from 2023", "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"winter photos from 2023\"?", "reference_context": "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 18; query_en \"winter photos from 2023\"; ordered ground-truth filenames: IMG_8527.JPG, IMG_8542 2.JPG; reference expected answer: ['IMG_8527.JPG', 'IMG_8542 2.JPG']", "reference_context_role": "DESIGN/REFERENCE DATA — not a model output", "retrieved_context": ["Multimodal image index. Catalog indexed for query: \"winter photos from 2023\"."], "source_query_index": 18, "target_keyword": "", "split": "single_hop", "clean_query": "winter photos from 2023", "retrieved_media": [{"item_id": "IMG_8527", "file_path": "IMG_8527.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_8527.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_8527.JPG"}, {"item_id": "IMG_8542 2", "file_path": "IMG_8542 2.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_8542 2.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_8542 2.JPG"}], "media_attached_count": 2}, {"answer": "Found 10 matching photos in album: IMG_1483 2.JPG, IMG_1483.JPG, IMG_1570 2.JPG, IMG_1570.JPG, IMG_4753.JPG, IMG_5156.JPG, IMG_5159.JPG, IMG_5241.JPG, IMG_5259.JPG, IMG_5265.JPG matching \"my cat eating cat food\".", "answer_role": "MODEL RETRIEVAL OUTPUT", "audit_id": "L10-A1-020", "id": "L10-A1-020", "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"my cat eating cat food\"?", "query_cn": "我家猫吃猫粮", "query_en": "my cat eating cat food", "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"my cat eating cat food\"?", "reference_context": "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 19; query_en \"my cat eating cat food\"; ordered ground-truth filenames: IMG_1483 2.JPG, IMG_1483.JPG, IMG_1570 2.JPG, IMG_1570.JPG, IMG_4753.JPG, IMG_5156.JPG, IMG_5159.JPG, IMG_5241.JPG, IMG_5259.JPG, IMG_5265.JPG; reference expected answer: ['IMG_1483 2.JPG', 'IMG_1483.JPG', 'IMG_1570 2.JPG', 'IMG_1570.JPG', 'IMG_4753.JPG', 'IMG_5156.JPG', 'IMG_5159.JPG', 'IMG_5241.JPG', 'IMG_5259.JPG', 'IMG_5265.JPG']", "reference_context_role": "DESIGN/REFERENCE DATA — not a model output", "retrieved_context": ["Multimodal image index. Catalog indexed for query: \"my cat eating cat food\"."], "source_query_index": 19, "target_keyword": "", "split": "single_hop", "clean_query": "my cat eating cat food", "retrieved_media": [{"item_id": "IMG_1483 2", "file_path": "IMG_1483 2.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_1483 2.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_1483 2.JPG"}, {"item_id": "IMG_1483", "file_path": "IMG_1483.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_1483.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_1483.JPG"}, {"item_id": "IMG_1570 2", "file_path": "IMG_1570 2.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_1570 2.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_1570 2.JPG"}, {"item_id": "IMG_1570", "file_path": "IMG_1570.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_1570.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_1570.JPG"}, {"item_id": "IMG_4753", "file_path": "IMG_4753.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_4753.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_4753.JPG"}, {"item_id": "IMG_5156", "file_path": "IMG_5156.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_5156.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_5156.JPG"}, {"item_id": "IMG_5159", "file_path": "IMG_5159.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_5159.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_5159.JPG"}, {"item_id": "IMG_5241", "file_path": "IMG_5241.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_5241.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_5241.JPG"}, {"item_id": "IMG_5259", "file_path": "IMG_5259.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_5259.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_5259.JPG"}, {"item_id": "IMG_5265", "file_path": "IMG_5265.JPG", "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_5265.JPG", "raw_media_available": true, "relative_media_path": "../../../../dataset/album1/images/IMG_5265.JPG"}], "media_attached_count": 10}];
+    const REVIEWER_LABEL = "Reviewer 1";
+    const DOWNLOAD_STEM = "reviewer_1";
+    const PACKET_VERSION = "l10-album1-v1";
+    const SCOPE_NOTE = "";
+    const CONTENT_FINGERPRINT = "4af988d81eb497b12e520c123027a0eb2382e005b59a77e846a2381507596fa5";
+    const PREVIEW_ONLY = false;
+    const FORM_VERSION = "form-v2";
+    const FIELDS = [
+      {
+        key: "faithfulness_label",
+        title: "1. Visual & Contextual Faithfulness",
+        help: "Check whether the response and claims are faithfully supported by the retrieved images and context without hallucination.",
+        options: [
+          ["supported", "Supported", "Every important claim is backed by the retrieved media and context."],
+          ["mixed", "Partly supported", "Some elements match, but details are ambiguous, unverified, or overstated."],
+          ["unsupported", "Not supported", "Main claims are contradicted by or missing from the retrieved media/context."]
+        ]
+      },
+      {
+        key: "relevance_label",
+        title: "2. Query Relevance & Intent",
+        help: "Check whether the retrieval and response directly address the user's search query.",
+        options: [
+          ["direct", "Direct", "Directly fulfills the user search query and captures the requested target subject."],
+          ["partial", "Partly", "Answers only part, is vague, or misses key query attributes."],
+          ["off_topic", "Off topic", "Does not answer the question or addresses a different intent."]
+        ]
+      },
+      {
+        key: "correctness_label",
+        title: "3. Media Retrieval Correctness",
+        help: "Check whether the retrieved photo or target detail is correct based on the evidence; do not guess.",
+        options: [
+          ["correct", "Correct", "The retrieved photo or target detail is confirmed correct."],
+          ["uncertain", "Uncertain", "The evidence is insufficient or ambiguous to confirm correctness."],
+          ["incorrect", "Incorrect", "The retrieved photo or detail is wrong or contradicted by the evidence."]
+        ]
+      }
+    ];
+    const DEFAULTS = {
+      faithfulness_label: "supported",
+      relevance_label: "direct",
+      correctness_label: "correct"
+    };
+    // This deliberately does not read the pre-versioned reviewer+count key.
+    // A changed packet must never inherit labels from an unrelated packet.
+    const STORAGE_KEY = "memoryverse-human-audit-" + FORM_VERSION + "-" +
+      DOWNLOAD_STEM + "-" + PACKET_VERSION + "-" + CONTENT_FINGERPRINT;
+    let currentIndex = 0;
+    let answers = Object.create(null);
+    let storageUnavailable = false;
+    let draftMessage = "";
+
+    // Lightbox modal handlers
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const lightboxCaption = document.getElementById("lightbox-caption");
+    const lightboxClose = document.getElementById("lightbox-close");
+    const lightboxBackdrop = document.getElementById("lightbox-backdrop");
+
+    function openLightbox(src, caption) {
+      if (!lightbox || !lightboxImg) return;
+      lightboxImg.src = src;
+      if (lightboxCaption) lightboxCaption.textContent = caption || "";
+      lightbox.hidden = false;
+    }
+    function closeLightbox() {
+      if (!lightbox) return;
+      lightbox.hidden = true;
+      if (lightboxImg) lightboxImg.src = "";
+    }
+    if (lightboxClose) lightboxClose.addEventListener("click", closeLightbox);
+    if (lightboxBackdrop) lightboxBackdrop.addEventListener("click", closeLightbox);
+    window.addEventListener("keydown", function(e) {
+      if (e.key === "Escape" && lightbox && !lightbox.hidden) closeLightbox();
+    });
+
+    function isPlainObject(value) {
+      return value !== null && typeof value === "object" && !Array.isArray(value);
+    }
+
+    function allowedValues(field) {
+      return field.options.map(function (option) { return option[0]; });
+    }
+
+    function validDraftRow(value, auditId) {
+      if (!isPlainObject(value) || value.audit_id !== auditId) return null;
+      const row = {audit_id: auditId, notes: ""};
+      if (typeof value.notes === "string") row.notes = value.notes;
+      else if (value.notes !== undefined) return null;
+      for (const field of FIELDS) {
+        const label = value[field.key];
+        if (label === undefined || label === "") {
+          row[field.key] = "";
+        } else if (typeof label === "string" && allowedValues(field).indexOf(label) !== -1) {
+          row[field.key] = label;
+        } else {
+          return null;
+        }
+      }
+      return row;
+    }
+
+    function loadDraft() {
+      if (PREVIEW_ONLY) return;
+      try {
+        const savedText = window.localStorage.getItem(STORAGE_KEY);
+        if (!savedText) return;
+        const saved = JSON.parse(savedText);
+        if (!isPlainObject(saved) || !isPlainObject(saved.answers)) {
+          draftMessage = "A saved draft was ignored because it was not valid for this packet.";
+          return;
+        }
+        let savedIndex = 0;
+        if (saved.currentIndex !== undefined) {
+          if (typeof saved.currentIndex !== "number" ||
+              !Number.isInteger(saved.currentIndex) ||
+              saved.currentIndex < 0 || saved.currentIndex >= CASES.length) {
+            draftMessage = "A saved draft case position was invalid; it was opened at the first case.";
+          } else {
+            savedIndex = saved.currentIndex;
+          }
+        }
+        const knownIds = new Set(CASES.map(function (item) { return item.audit_id; }));
+        const loaded = Object.create(null);
+        Object.keys(saved.answers).forEach(function (auditId) {
+          if (!knownIds.has(auditId)) return;
+          const row = validDraftRow(saved.answers[auditId], auditId);
+          if (row) loaded[auditId] = row;
+        });
+        answers = loaded;
+        currentIndex = savedIndex;
+      } catch (error) {
+        storageUnavailable = true;
+      }
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? "").replace(/[&<>"']/g, function (character) {
+        return {"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"}[character];
+      });
+    }
+
+    function currentCase() { return CASES[currentIndex]; }
+
+    function setStorageWarning(message) {
+      const warning = document.getElementById("storage-warning");
+      if (!message) {
+        warning.hidden = true;
+        warning.textContent = "";
+        return;
+      }
+      warning.hidden = false;
+      warning.textContent = message;
+    }
+
+    function saveStorage() {
+      if (PREVIEW_ONLY) return true;
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify({currentIndex, answers}));
+        return true;
+      } catch (error) {
+        storageUnavailable = true;
+        setStorageWarning("Draft storage is unavailable in this browser; changes remain only in this page and will be lost when it closes.");
+        return false;
+      }
+    }
+
+    function collectCurrent() {
+      const item = currentCase();
+      if (!item) return;
+      const row = {audit_id: item.audit_id, notes: document.getElementById("notes").value.trim()};
+      FIELDS.forEach(function (field) {
+        const selected = document.querySelector('input[name="' + field.key + '"]:checked');
+        row[field.key] = selected ? selected.value : "";
+      });
+      answers[item.audit_id] = row;
+    }
+
+    function rowComplete(row) {
+      if (!row) return false;
+      const hasAllLabels = FIELDS.every(function (field) { return Boolean(row[field.key]); });
+      const needsNote = FIELDS.some(function (field) { return row[field.key] !== DEFAULTS[field.key]; });
+      return hasAllLabels && (!needsNote || Boolean((row.notes || "").trim()));
+    }
+
+    function completedCount() {
+      return CASES.filter(function (item) { return rowComplete(answers[item.audit_id]); }).length;
+    }
+
+    function updateProgress() {
+      document.getElementById("completed").textContent = PREVIEW_ONLY
+        ? "Preview only"
+        : completedCount() + " completed";
+    }
+
+    function formatSplit(value) {
+      const labels = {
+        single_hop: "single-hop",
+        multi_hop: "multi-hop",
+        metadata_lookup: "metadata lookup"
+      };
+      const text = String(value || "single_hop");
+      return labels[text] || text.replace(/_/g, "-");
+    }
+
+    function render() {
+      const item = currentCase();
+      if (!item) return;
+      const prior = answers[item.audit_id] || {};
+
+      document.getElementById("reviewer").textContent = REVIEWER_LABEL + " · work independently";
+      document.getElementById("packet-version").textContent = PACKET_VERSION;
+      document.getElementById("content-fingerprint").textContent = CONTENT_FINGERPRINT.slice(0, 12);
+      document.getElementById("counter").textContent = "Case " + (currentIndex + 1) + " of " + CASES.length;
+      updateProgress();
+
+      document.getElementById("case-id").textContent = item.audit_id;
+      document.getElementById("case-split").textContent = formatSplit(item.split);
+      const displayQuery = item.clean_query || (function() {
+        const m = (item.query || "").match(/supplied album query "(.*?)"\?/);
+        return m ? m[1] : (item.query || "");
+      })();
+      document.getElementById("query").textContent = displayQuery;
+
+      const queryCnEl = document.getElementById("query-cn");
+      if (queryCnEl) {
+        if (item.query_cn) {
+          queryCnEl.textContent = "Source query: " + item.query_cn;
+          queryCnEl.hidden = false;
+        } else {
+          queryCnEl.hidden = true;
+        }
+      }
+
+      const targetEl = document.getElementById("target");
+      const targetRow = document.getElementById("target-row");
+      if (targetEl && targetRow) {
+        if (item.target_keyword) {
+          targetEl.textContent = item.target_keyword;
+          targetRow.hidden = false;
+        } else {
+          targetRow.hidden = true;
+        }
+      }
+
+      document.getElementById("context").innerHTML = (item.retrieved_context || []).map(function (value, index) {
+        return "<li><strong>Context " + (index + 1) + ":</strong> " + escapeHtml(value) + "</li>";
+      }).join("");
+
+      const mediaPanel = document.getElementById("media-panel");
+      const mediaList = document.getElementById("media-list");
+      const mediaStatus = document.getElementById("media-status");
+      const media = Array.isArray(item.retrieved_media) ? item.retrieved_media : [];
+      const availableMedia = media.filter(function (entry) {
+        return isPlainObject(entry) && entry.raw_media_available === true &&
+          typeof entry.resolved_media_path === "string" && entry.resolved_media_path;
+      });
+
+      document.title = (REVIEWER_LABEL || "Audit") + " [" + (currentIndex + 1) + "/" + CASES.length + "] " +
+        item.audit_id + (availableMedia.length > 0 ? " (" + availableMedia.length + " media)" : "");
+
+      mediaList.innerHTML = "";
+      availableMedia.forEach(function (entry, index) {
+        const figure = document.createElement("figure");
+        figure.className = "media-card";
+
+        const zoomHint = document.createElement("span");
+        zoomHint.className = "zoom-hint";
+        zoomHint.textContent = "🔍 Zoom";
+        figure.appendChild(zoomHint);
+
+        const image = document.createElement("img");
+        image.alt = "Retrieved raw image " + (index + 1);
+        const resolvedPath = typeof entry.resolved_media_path === "string" ? entry.resolved_media_path : "";
+        const fileUri = resolvedPath.startsWith("file://") ? resolvedPath : ("file://" + resolvedPath);
+        const finalSrc = entry.relative_media_path || encodeURI(fileUri);
+        image.src = finalSrc;
+
+        image.addEventListener("error", function () {
+          if (image.src !== encodeURI(fileUri)) {
+            image.src = encodeURI(fileUri);
+          } else {
+            image.hidden = true;
+          }
+        });
+
+        const captionText = (entry.item_id || "image") + " · " + (entry.file_path || "");
+        const caption = document.createElement("figcaption");
+        caption.textContent = captionText;
+
+        figure.addEventListener("click", function () {
+          openLightbox(image.src, captionText);
+        });
+
+        figure.appendChild(image);
+        figure.appendChild(caption);
+        mediaList.appendChild(figure);
+      });
+
+      mediaPanel.hidden = media.length === 0;
+      mediaStatus.textContent = media.length === 0
+        ? ""
+        : availableMedia.length + " of " + media.length + " retrieved image(s) available";
+
+      // Populate Response / Generated Answer
+      let answerText = (item.answer || "").trim();
+      let answerRoleText = item.answer_role || "";
+      if (!answerText) {
+        const mediaFiles = (item.retrieved_media || []).map(function(m) {
+          return m.file_path || (m.resolved_media_path ? m.resolved_media_path.split("/").pop() : "");
+        }).filter(Boolean);
+        if (mediaFiles.length > 0) {
+          const count = mediaFiles.length;
+          const photoWord = count === 1 ? "1 matching photo" : count + " matching photos";
+          answerText = "Found " + photoWord + " in album: " + mediaFiles.join(", ") + " matching \"" + displayQuery + "\".";
+          answerRoleText = "MODEL RETRIEVAL OUTPUT";
+        } else if (Array.isArray(item.ground_truth) && item.ground_truth.length > 0) {
+          const count = item.ground_truth.length;
+          const photoWord = count === 1 ? "1 matching photo" : count + " matching photos";
+          answerText = "Found " + photoWord + " in album: " + item.ground_truth.join(", ") + " matching \"" + displayQuery + "\".";
+          answerRoleText = "MODEL RETRIEVAL OUTPUT";
+        } else if (item.negative_control || (item.retrieved_media && item.retrieved_media.length === 0)) {
+          answerText = "No matching photos found in album for query \"" + displayQuery + "\". (0 results retrieved)";
+          answerRoleText = "NEGATIVE CONTROL";
+        } else {
+          answerText = "No generated answer is included in this packet.";
+        }
+      }
+      document.getElementById("answer").textContent = answerText;
+      const answerRoleEl = document.getElementById("answer-role");
+      if (answerRoleEl) {
+        if (answerRoleText) {
+          answerRoleEl.textContent = answerRoleText;
+          answerRoleEl.hidden = false;
+        } else {
+          answerRoleEl.hidden = true;
+        }
+      }
+
+      // Reviewer Decisions
+      document.getElementById("decisions").innerHTML = FIELDS.map(function (field) {
+        const options = field.options.map(function (option) {
+          const checked = prior[field.key] === option[0] ? " checked" : "";
+          return "<label class=\"option\"><input type=\"radio\" name=\"" + field.key +
+            "\" value=\"" + option[0] + "\"" + checked + ">" +
+            "<span><strong>" + option[1] + "</strong> — " + escapeHtml(option[2]) +
+            "<br><code>" + option[0] + "</code></span></label>";
+        }).join("");
+        return "<div class=\"decision-block\"><h3>" + field.title + "</h3><p class=\"decision-help\">" + field.help +
+          "</p><div class=\"option-list\">" + options + "</div></div>";
+      }).join("");
+
+      document.getElementById("notes").value = prior.notes || "";
+      document.getElementById("previous").disabled = currentIndex === 0;
+      document.getElementById("next").textContent = (currentIndex === CASES.length - 1 ? "Save final case" : "Save and next");
+
+      document.getElementById("scope-note").hidden = !SCOPE_NOTE;
+      document.getElementById("scope-note").textContent = SCOPE_NOTE
+        ? "Evaluation scope: " + SCOPE_NOTE
+        : "";
+      if (storageUnavailable) {
+        setStorageWarning("Draft storage is unavailable in this browser; changes remain only in this page and will be lost when it closes.");
+      } else {
+        setStorageWarning("");
+      }
+      document.getElementById("status").textContent = draftMessage;
+    }
+
+    function validateCurrent(showMessage) {
+      collectCurrent();
+      const item = currentCase();
+      if (!item) return false;
+      const row = answers[item.audit_id];
+      const missing = FIELDS.filter(function (field) { return !row[field.key]; });
+      if (missing.length) {
+        if (showMessage) alert("Please choose one option in every section before continuing.");
+        return false;
+      }
+      const needsNote = FIELDS.some(function (field) { return row[field.key] !== DEFAULTS[field.key]; });
+      if (needsNote && !row.notes) {
+        if (showMessage) alert("Please add a short note for a partly supported, uncertain, or negative choice.");
+        return false;
+      }
+      return true;
+    }
+
+    function move(delta) {
+      if (!PREVIEW_ONLY) {
+        collectCurrent();
+        if (delta > 0 && !validateCurrent(true)) return;
+      }
+      currentIndex = Math.max(0, Math.min(CASES.length - 1, currentIndex + delta));
+      if (!PREVIEW_ONLY) saveStorage();
+      render();
+      window.scrollTo({top: 0, behavior: "smooth"});
+    }
+
+    document.getElementById("previous").addEventListener("click", function () { move(-1); });
+    document.getElementById("next").addEventListener("click", function () { move(1); });
+    document.getElementById("decisions").addEventListener("change", function () {
+      if (PREVIEW_ONLY) return;
+      collectCurrent();
+      saveStorage();
+      updateProgress();
+    });
+    document.getElementById("notes").addEventListener("input", function () {
+      if (PREVIEW_ONLY) return;
+      collectCurrent();
+      saveStorage();
+      updateProgress();
+    });
+    document.getElementById("save").addEventListener("click", function () {
+      if (PREVIEW_ONLY) return;
+      collectCurrent();
+      saveStorage();
+      document.getElementById("status").textContent = "Draft saved in this browser.";
+      updateProgress();
+    });
+    document.getElementById("download").addEventListener("click", function () {
+      if (PREVIEW_ONLY) return;
+      collectCurrent();
+      const firstIncomplete = CASES.findIndex(function (item) { return !rowComplete(answers[item.audit_id]); });
+      if (firstIncomplete !== -1) {
+        currentIndex = firstIncomplete;
+        saveStorage();
+        render();
+        alert("Complete every case before downloading the CSV. This is the first incomplete case.");
+        window.scrollTo({top: 0, behavior: "smooth"});
+        return;
+      }
+      const headers = ["audit_id", "faithfulness_label", "relevance_label", "correctness_label", "notes"];
+      function csvEscape(value) {
+        const text = String(value ?? "");
+        return /[",\n\r]/.test(text) ? '"' + text.replace(/"/g, '""') + '"' : text;
+      }
+      const lines = [headers.join(",")].concat(CASES.map(function (item) {
+        const row = answers[item.audit_id];
+        return headers.map(function (header) { return csvEscape(row[header]); }).join(",");
+      }));
+      const blob = new Blob([lines.join("\r\n") + "\r\n"], {type: "text/csv;charset=utf-8"});
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = DOWNLOAD_STEM + ".csv";
+      link.click();
+      URL.revokeObjectURL(link.href);
+      document.getElementById("status").textContent = "CSV downloaded. Send it to the project owner.";
+    });
+
+    loadDraft();
+    render();
+  </script>
+</body>
+</html>

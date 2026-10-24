@@ -1,0 +1,334 @@
+{
+  "design_reference_label": "DESIGN/REFERENCE DATA — not a model output",
+  "examples": [
+    {
+      "answer": "",
+      "answer_role": "MODEL OUTPUT PLACEHOLDER — no model inference run",
+      "audit_id": "L10-A1-001",
+      "id": "L10-A1-001",
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"light yellow patchwork plush pajamas selfie\"?",
+      "query_cn": "浅黄色拼接毛绒睡衣自拍",
+      "query_en": "light yellow patchwork plush pajamas selfie",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"light yellow patchwork plush pajamas selfie\"?",
+      "reference_context": "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 0; query_en \"light yellow patchwork plush pajamas selfie\"; ordered ground-truth filenames: IMG_4350.JPG; reference expected answer: ['IMG_4350.JPG']",
+      "reference_context_role": "DESIGN/REFERENCE DATA — not a model output",
+      "retrieved_context": [
+        "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 0; query_en \"light yellow patchwork plush pajamas selfie\"; ordered ground-truth filenames: IMG_4350.JPG; reference expected answer: ['IMG_4350.JPG']"
+      ],
+      "source_query_index": 0
+    },
+    {
+      "answer": "",
+      "answer_role": "MODEL OUTPUT PLACEHOLDER — no model inference run",
+      "audit_id": "L10-A1-002",
+      "id": "L10-A1-002",
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"making dinner in the kitchen\"?",
+      "query_cn": "厨房里做晚饭",
+      "query_en": "making dinner in the kitchen",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"making dinner in the kitchen\"?",
+      "reference_context": "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 1; query_en \"making dinner in the kitchen\"; ordered ground-truth filenames: IMG_0760.JPG, IMG_0761.JPG, IMG_0781.JPG, IMG_0789.JPG, IMG_0837.JPG, IMG_0860.JPG; reference expected answer: ['IMG_0760.JPG', 'IMG_0761.JPG', 'IMG_0781.JPG', 'IMG_0789.JPG', 'IMG_0837.JPG', 'IMG_0860.JPG']",
+      "reference_context_role": "DESIGN/REFERENCE DATA — not a model output",
+      "retrieved_context": [
+        "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 1; query_en \"making dinner in the kitchen\"; ordered ground-truth filenames: IMG_0760.JPG, IMG_0761.JPG, IMG_0781.JPG, IMG_0789.JPG, IMG_0837.JPG, IMG_0860.JPG; reference expected answer: ['IMG_0760.JPG', 'IMG_0761.JPG', 'IMG_0781.JPG', 'IMG_0789.JPG', 'IMG_0837.JPG', 'IMG_0860.JPG']"
+      ],
+      "source_query_index": 1
+    },
+    {
+      "answer": "",
+      "answer_role": "MODEL OUTPUT PLACEHOLDER — no model inference run",
+      "audit_id": "L10-A1-003",
+      "id": "L10-A1-003",
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"holding solid mango pomelo sago\"?",
+      "query_cn": "手拿固体杨枝甘露",
+      "query_en": "holding solid mango pomelo sago",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"holding solid mango pomelo sago\"?",
+      "reference_context": "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 2; query_en \"holding solid mango pomelo sago\"; ordered ground-truth filenames: IMG_0536.JPG; reference expected answer: ['IMG_0536.JPG']",
+      "reference_context_role": "DESIGN/REFERENCE DATA — not a model output",
+      "retrieved_context": [
+        "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 2; query_en \"holding solid mango pomelo sago\"; ordered ground-truth filenames: IMG_0536.JPG; reference expected answer: ['IMG_0536.JPG']"
+      ],
+      "source_query_index": 2
+    },
+    {
+      "answer": "",
+      "answer_role": "MODEL OUTPUT PLACEHOLDER — no model inference run",
+      "audit_id": "L10-A1-004",
+      "id": "L10-A1-004",
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"Christmas tree made of cups\"?",
+      "query_cn": "水杯做的圣诞树",
+      "query_en": "Christmas tree made of cups",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"Christmas tree made of cups\"?",
+      "reference_context": "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 3; query_en \"Christmas tree made of cups\"; ordered ground-truth filenames: IMG_5243 2.JPG; reference expected answer: ['IMG_5243 2.JPG']",
+      "reference_context_role": "DESIGN/REFERENCE DATA — not a model output",
+      "retrieved_context": [
+        "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 3; query_en \"Christmas tree made of cups\"; ordered ground-truth filenames: IMG_5243 2.JPG; reference expected answer: ['IMG_5243 2.JPG']"
+      ],
+      "source_query_index": 3
+    },
+    {
+      "answer": "",
+      "answer_role": "MODEL OUTPUT PLACEHOLDER — no model inference run",
+      "audit_id": "L10-A1-005",
+      "id": "L10-A1-005",
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"posing near the cave exit\"?",
+      "query_cn": "快出岩洞时摆拍",
+      "query_en": "posing near the cave exit",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"posing near the cave exit\"?",
+      "reference_context": "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 4; query_en \"posing near the cave exit\"; ordered ground-truth filenames: IMG_8870.JPG, IMG_8871.JPG; reference expected answer: ['IMG_8870.JPG', 'IMG_8871.JPG']",
+      "reference_context_role": "DESIGN/REFERENCE DATA — not a model output",
+      "retrieved_context": [
+        "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 4; query_en \"posing near the cave exit\"; ordered ground-truth filenames: IMG_8870.JPG, IMG_8871.JPG; reference expected answer: ['IMG_8870.JPG', 'IMG_8871.JPG']"
+      ],
+      "source_query_index": 4
+    },
+    {
+      "answer": "",
+      "answer_role": "MODEL OUTPUT PLACEHOLDER — no model inference run",
+      "audit_id": "L10-A1-006",
+      "id": "L10-A1-006",
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"museum souvenirs\"?",
+      "query_cn": "记录下博物馆买的纪念品",
+      "query_en": "museum souvenirs",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"museum souvenirs\"?",
+      "reference_context": "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 5; query_en \"museum souvenirs\"; ordered ground-truth filenames: IMG_1011.JPG, IMG_1013.JPG, IMG_1015.JPG, IMG_1017.JPG, IMG_1018.JPG, IMG_1019.JPG, IMG_1478.JPG, IMG_1483 3.JPG, IMG_1484.JPG, IMG_1485.JPG; reference expected answer: ['IMG_1011.JPG', 'IMG_1013.JPG', 'IMG_1015.JPG', 'IMG_1017.JPG', 'IMG_1018.JPG', 'IMG_1019.JPG', 'IMG_1478.JPG', 'IMG_1483 3.JPG', 'IMG_1484.JPG', 'IMG_1485.JPG']",
+      "reference_context_role": "DESIGN/REFERENCE DATA — not a model output",
+      "retrieved_context": [
+        "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 5; query_en \"museum souvenirs\"; ordered ground-truth filenames: IMG_1011.JPG, IMG_1013.JPG, IMG_1015.JPG, IMG_1017.JPG, IMG_1018.JPG, IMG_1019.JPG, IMG_1478.JPG, IMG_1483 3.JPG, IMG_1484.JPG, IMG_1485.JPG; reference expected answer: ['IMG_1011.JPG', 'IMG_1013.JPG', 'IMG_1015.JPG', 'IMG_1017.JPG', 'IMG_1018.JPG', 'IMG_1019.JPG', 'IMG_1478.JPG', 'IMG_1483 3.JPG', 'IMG_1484.JPG', 'IMG_1485.JPG']"
+      ],
+      "source_query_index": 5
+    },
+    {
+      "answer": "",
+      "answer_role": "MODEL OUTPUT PLACEHOLDER — no model inference run",
+      "audit_id": "L10-A1-007",
+      "id": "L10-A1-007",
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"nighttime pedestrian street in Guiyang\"?",
+      "query_cn": "贵阳夜晚步行街",
+      "query_en": "nighttime pedestrian street in Guiyang",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"nighttime pedestrian street in Guiyang\"?",
+      "reference_context": "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 6; query_en \"nighttime pedestrian street in Guiyang\"; ordered ground-truth filenames: none; reference expected answer: No ground-truth image is listed for this query.",
+      "reference_context_role": "DESIGN/REFERENCE DATA — not a model output",
+      "retrieved_context": [
+        "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 6; query_en \"nighttime pedestrian street in Guiyang\"; ordered ground-truth filenames: none; reference expected answer: No ground-truth image is listed for this query."
+      ],
+      "source_query_index": 6
+    },
+    {
+      "answer": "",
+      "answer_role": "MODEL OUTPUT PLACEHOLDER — no model inference run",
+      "audit_id": "L10-A1-008",
+      "id": "L10-A1-008",
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"Baotu Spring tour\"?",
+      "query_cn": "趵突泉游览",
+      "query_en": "Baotu Spring tour",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"Baotu Spring tour\"?",
+      "reference_context": "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 7; query_en \"Baotu Spring tour\"; ordered ground-truth filenames: IMG_1191.JPG, IMG_1192.JPG, IMG_1193.JPG, IMG_1194.JPG, IMG_1195.JPG; reference expected answer: ['IMG_1191.JPG', 'IMG_1192.JPG', 'IMG_1193.JPG', 'IMG_1194.JPG', 'IMG_1195.JPG']",
+      "reference_context_role": "DESIGN/REFERENCE DATA — not a model output",
+      "retrieved_context": [
+        "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 7; query_en \"Baotu Spring tour\"; ordered ground-truth filenames: IMG_1191.JPG, IMG_1192.JPG, IMG_1193.JPG, IMG_1194.JPG, IMG_1195.JPG; reference expected answer: ['IMG_1191.JPG', 'IMG_1192.JPG', 'IMG_1193.JPG', 'IMG_1194.JPG', 'IMG_1195.JPG']"
+      ],
+      "source_query_index": 7
+    },
+    {
+      "answer": "",
+      "answer_role": "MODEL OUTPUT PLACEHOLDER — no model inference run",
+      "audit_id": "L10-A1-009",
+      "id": "L10-A1-009",
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"selfie documenting makeup on November 16, 2025, afternoon\"?",
+      "query_cn": "25年11月16号下午记录妆容的自拍",
+      "query_en": "selfie documenting makeup on November 16, 2025, afternoon",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"selfie documenting makeup on November 16, 2025, afternoon\"?",
+      "reference_context": "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 8; query_en \"selfie documenting makeup on November 16, 2025, afternoon\"; ordered ground-truth filenames: IMG_1779.JPG, IMG_1780.JPG; reference expected answer: ['IMG_1779.JPG', 'IMG_1780.JPG']",
+      "reference_context_role": "DESIGN/REFERENCE DATA — not a model output",
+      "retrieved_context": [
+        "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 8; query_en \"selfie documenting makeup on November 16, 2025, afternoon\"; ordered ground-truth filenames: IMG_1779.JPG, IMG_1780.JPG; reference expected answer: ['IMG_1779.JPG', 'IMG_1780.JPG']"
+      ],
+      "source_query_index": 8
+    },
+    {
+      "answer": "",
+      "answer_role": "MODEL OUTPUT PLACEHOLDER — no model inference run",
+      "audit_id": "L10-A1-010",
+      "id": "L10-A1-010",
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"photos in Yucheng\"?",
+      "query_cn": "在禹城市的照片",
+      "query_en": "photos in Yucheng",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"photos in Yucheng\"?",
+      "reference_context": "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 9; query_en \"photos in Yucheng\"; ordered ground-truth filenames: IMG_1179.JPG, IMG_1178.JPG; reference expected answer: ['IMG_1179.JPG', 'IMG_1178.JPG']",
+      "reference_context_role": "DESIGN/REFERENCE DATA — not a model output",
+      "retrieved_context": [
+        "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 9; query_en \"photos in Yucheng\"; ordered ground-truth filenames: IMG_1179.JPG, IMG_1178.JPG; reference expected answer: ['IMG_1179.JPG', 'IMG_1178.JPG']"
+      ],
+      "source_query_index": 9
+    },
+    {
+      "answer": "",
+      "answer_role": "MODEL OUTPUT PLACEHOLDER — no model inference run",
+      "audit_id": "L10-A1-011",
+      "id": "L10-A1-011",
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"photos in Yantian District\"?",
+      "query_cn": "在盐田区的照片",
+      "query_en": "photos in Yantian District",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"photos in Yantian District\"?",
+      "reference_context": "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 10; query_en \"photos in Yantian District\"; ordered ground-truth filenames: IMG_6438.JPG, IMG_6437.JPG, IMG_6457.JPG, IMG_6344.JPG, IMG_6343.JPG, IMG_6458.JPG; reference expected answer: ['IMG_6438.JPG', 'IMG_6437.JPG', 'IMG_6457.JPG', 'IMG_6344.JPG', 'IMG_6343.JPG', 'IMG_6458.JPG']",
+      "reference_context_role": "DESIGN/REFERENCE DATA — not a model output",
+      "retrieved_context": [
+        "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 10; query_en \"photos in Yantian District\"; ordered ground-truth filenames: IMG_6438.JPG, IMG_6437.JPG, IMG_6457.JPG, IMG_6344.JPG, IMG_6343.JPG, IMG_6458.JPG; reference expected answer: ['IMG_6438.JPG', 'IMG_6437.JPG', 'IMG_6457.JPG', 'IMG_6344.JPG', 'IMG_6343.JPG', 'IMG_6458.JPG']"
+      ],
+      "source_query_index": 10
+    },
+    {
+      "answer": "",
+      "answer_role": "MODEL OUTPUT PLACEHOLDER — no model inference run",
+      "audit_id": "L10-A1-012",
+      "id": "L10-A1-012",
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"Shandong modern history exhibition, anti-invasion theme\"?",
+      "query_cn": "山东近代史展览--反侵略主题",
+      "query_en": "Shandong modern history exhibition, anti-invasion theme",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"Shandong modern history exhibition, anti-invasion theme\"?",
+      "reference_context": "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 11; query_en \"Shandong modern history exhibition, anti-invasion theme\"; ordered ground-truth filenames: IMG_1386.JPG, IMG_1388.JPG, IMG_1390.JPG, IMG_1396.JPG, IMG_1400.JPG; reference expected answer: ['IMG_1386.JPG', 'IMG_1388.JPG', 'IMG_1390.JPG', 'IMG_1396.JPG', 'IMG_1400.JPG']",
+      "reference_context_role": "DESIGN/REFERENCE DATA — not a model output",
+      "retrieved_context": [
+        "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 11; query_en \"Shandong modern history exhibition, anti-invasion theme\"; ordered ground-truth filenames: IMG_1386.JPG, IMG_1388.JPG, IMG_1390.JPG, IMG_1396.JPG, IMG_1400.JPG; reference expected answer: ['IMG_1386.JPG', 'IMG_1388.JPG', 'IMG_1390.JPG', 'IMG_1396.JPG', 'IMG_1400.JPG']"
+      ],
+      "source_query_index": 11
+    },
+    {
+      "answer": "",
+      "answer_role": "MODEL OUTPUT PLACEHOLDER — no model inference run",
+      "audit_id": "L10-A1-013",
+      "id": "L10-A1-013",
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"roast chicken with yellow-green sauce\"?",
+      "query_cn": "黄绿酱汁烤鸡",
+      "query_en": "roast chicken with yellow-green sauce",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"roast chicken with yellow-green sauce\"?",
+      "reference_context": "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 12; query_en \"roast chicken with yellow-green sauce\"; ordered ground-truth filenames: IMG_5254.JPG, IMG_5255.JPG, IMG_5257.JPG; reference expected answer: ['IMG_5254.JPG', 'IMG_5255.JPG', 'IMG_5257.JPG']",
+      "reference_context_role": "DESIGN/REFERENCE DATA — not a model output",
+      "retrieved_context": [
+        "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 12; query_en \"roast chicken with yellow-green sauce\"; ordered ground-truth filenames: IMG_5254.JPG, IMG_5255.JPG, IMG_5257.JPG; reference expected answer: ['IMG_5254.JPG', 'IMG_5255.JPG', 'IMG_5257.JPG']"
+      ],
+      "source_query_index": 12
+    },
+    {
+      "answer": "",
+      "answer_role": "MODEL OUTPUT PLACEHOLDER — no model inference run",
+      "audit_id": "L10-A1-014",
+      "id": "L10-A1-014",
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"photos from May 2024\"?",
+      "query_cn": "2024年5月",
+      "query_en": "photos from May 2024",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"photos from May 2024\"?",
+      "reference_context": "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 13; query_en \"photos from May 2024\"; ordered ground-truth filenames: IMG_7898.JPG; reference expected answer: ['IMG_7898.JPG']",
+      "reference_context_role": "DESIGN/REFERENCE DATA — not a model output",
+      "retrieved_context": [
+        "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 13; query_en \"photos from May 2024\"; ordered ground-truth filenames: IMG_7898.JPG; reference expected answer: ['IMG_7898.JPG']"
+      ],
+      "source_query_index": 13
+    },
+    {
+      "answer": "",
+      "answer_role": "MODEL OUTPUT PLACEHOLDER — no model inference run",
+      "audit_id": "L10-A1-015",
+      "id": "L10-A1-015",
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"Shenzhen airport tarmac at the boarding gate\"?",
+      "query_cn": "深圳机场登机口停机坪",
+      "query_en": "Shenzhen airport tarmac at the boarding gate",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"Shenzhen airport tarmac at the boarding gate\"?",
+      "reference_context": "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 14; query_en \"Shenzhen airport tarmac at the boarding gate\"; ordered ground-truth filenames: IMG_5625.JPG; reference expected answer: ['IMG_5625.JPG']",
+      "reference_context_role": "DESIGN/REFERENCE DATA — not a model output",
+      "retrieved_context": [
+        "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 14; query_en \"Shenzhen airport tarmac at the boarding gate\"; ordered ground-truth filenames: IMG_5625.JPG; reference expected answer: ['IMG_5625.JPG']"
+      ],
+      "source_query_index": 14
+    },
+    {
+      "answer": "",
+      "answer_role": "MODEL OUTPUT PLACEHOLDER — no model inference run",
+      "audit_id": "L10-A1-016",
+      "id": "L10-A1-016",
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"vanilla coke spilled on keyboard\"?",
+      "query_cn": "香草味可乐倒在键盘上",
+      "query_en": "vanilla coke spilled on keyboard",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"vanilla coke spilled on keyboard\"?",
+      "reference_context": "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 15; query_en \"vanilla coke spilled on keyboard\"; ordered ground-truth filenames: none; reference expected answer: No ground-truth image is listed for this query.",
+      "reference_context_role": "DESIGN/REFERENCE DATA — not a model output",
+      "retrieved_context": [
+        "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 15; query_en \"vanilla coke spilled on keyboard\"; ordered ground-truth filenames: none; reference expected answer: No ground-truth image is listed for this query."
+      ],
+      "source_query_index": 15
+    },
+    {
+      "answer": "",
+      "answer_role": "MODEL OUTPUT PLACEHOLDER — no model inference run",
+      "audit_id": "L10-A1-017",
+      "id": "L10-A1-017",
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"cat lying in the middle of campus street\"?",
+      "query_cn": "校园街中间躺着的猫猫",
+      "query_en": "cat lying in the middle of campus street",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"cat lying in the middle of campus street\"?",
+      "reference_context": "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 16; query_en \"cat lying in the middle of campus street\"; ordered ground-truth filenames: IMG_4823.JPG, IMG_4824.JPG, IMG_4831.JPG; reference expected answer: ['IMG_4823.JPG', 'IMG_4824.JPG', 'IMG_4831.JPG']",
+      "reference_context_role": "DESIGN/REFERENCE DATA — not a model output",
+      "retrieved_context": [
+        "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 16; query_en \"cat lying in the middle of campus street\"; ordered ground-truth filenames: IMG_4823.JPG, IMG_4824.JPG, IMG_4831.JPG; reference expected answer: ['IMG_4823.JPG', 'IMG_4824.JPG', 'IMG_4831.JPG']"
+      ],
+      "source_query_index": 16
+    },
+    {
+      "answer": "",
+      "answer_role": "MODEL OUTPUT PLACEHOLDER — no model inference run",
+      "audit_id": "L10-A1-018",
+      "id": "L10-A1-018",
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"me wearing a kimono\"?",
+      "query_cn": "穿和服的自己",
+      "query_en": "me wearing a kimono",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"me wearing a kimono\"?",
+      "reference_context": "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 17; query_en \"me wearing a kimono\"; ordered ground-truth filenames: IMG_8637.JPG, IMG_8808.JPG, IMG_8890.JPG; reference expected answer: ['IMG_8637.JPG', 'IMG_8808.JPG', 'IMG_8890.JPG']",
+      "reference_context_role": "DESIGN/REFERENCE DATA — not a model output",
+      "retrieved_context": [
+        "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 17; query_en \"me wearing a kimono\"; ordered ground-truth filenames: IMG_8637.JPG, IMG_8808.JPG, IMG_8890.JPG; reference expected answer: ['IMG_8637.JPG', 'IMG_8808.JPG', 'IMG_8890.JPG']"
+      ],
+      "source_query_index": 17
+    },
+    {
+      "answer": "",
+      "answer_role": "MODEL OUTPUT PLACEHOLDER — no model inference run",
+      "audit_id": "L10-A1-019",
+      "id": "L10-A1-019",
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"winter photos from 2023\"?",
+      "query_cn": "2023年冬季的照片",
+      "query_en": "winter photos from 2023",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"winter photos from 2023\"?",
+      "reference_context": "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 18; query_en \"winter photos from 2023\"; ordered ground-truth filenames: IMG_8527.JPG, IMG_8542 2.JPG; reference expected answer: ['IMG_8527.JPG', 'IMG_8542 2.JPG']",
+      "reference_context_role": "DESIGN/REFERENCE DATA — not a model output",
+      "retrieved_context": [
+        "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 18; query_en \"winter photos from 2023\"; ordered ground-truth filenames: IMG_8527.JPG, IMG_8542 2.JPG; reference expected answer: ['IMG_8527.JPG', 'IMG_8542 2.JPG']"
+      ],
+      "source_query_index": 18
+    },
+    {
+      "answer": "",
+      "answer_role": "MODEL OUTPUT PLACEHOLDER — no model inference run",
+      "audit_id": "L10-A1-020",
+      "id": "L10-A1-020",
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"my cat eating cat food\"?",
+      "query_cn": "我家猫吃猫粮",
+      "query_en": "my cat eating cat food",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"my cat eating cat food\"?",
+      "reference_context": "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 19; query_en \"my cat eating cat food\"; ordered ground-truth filenames: IMG_1483 2.JPG, IMG_1483.JPG, IMG_1570 2.JPG, IMG_1570.JPG, IMG_4753.JPG, IMG_5156.JPG, IMG_5159.JPG, IMG_5241.JPG, IMG_5259.JPG, IMG_5265.JPG; reference expected answer: ['IMG_1483 2.JPG', 'IMG_1483.JPG', 'IMG_1570 2.JPG', 'IMG_1570.JPG', 'IMG_4753.JPG', 'IMG_5156.JPG', 'IMG_5159.JPG', 'IMG_5241.JPG', 'IMG_5259.JPG', 'IMG_5265.JPG']",
+      "reference_context_role": "DESIGN/REFERENCE DATA — not a model output",
+      "retrieved_context": [
+        "DESIGN/REFERENCE DATA — not a model output — source album annotation only; not a retrieval result or generated answer. Query index 19; query_en \"my cat eating cat food\"; ordered ground-truth filenames: IMG_1483 2.JPG, IMG_1483.JPG, IMG_1570 2.JPG, IMG_1570.JPG, IMG_4753.JPG, IMG_5156.JPG, IMG_5159.JPG, IMG_5241.JPG, IMG_5259.JPG, IMG_5265.JPG; reference expected answer: ['IMG_1483 2.JPG', 'IMG_1483.JPG', 'IMG_1570 2.JPG', 'IMG_1570.JPG', 'IMG_4753.JPG', 'IMG_5156.JPG', 'IMG_5159.JPG', 'IMG_5241.JPG', 'IMG_5259.JPG', 'IMG_5265.JPG']"
+      ],
+      "source_query_index": 19
+    }
+  ],
+  "image_count": 64,
+  "negative_control_count": 2,
+  "packet_version": "l10-album1-v1",
+  "preview_only": true,
+  "query_count": 20,
+  "query_json_sha256": "a058b1f21718ca097917e30f4baca4a42245100e2a492af659a5ad46ff3ef6ee",
+  "reference_context_note": "Every retrieved_context value is design/reference data from the album annotation, not a retrieval result and not a model output.",
+  "source_album_path": "ai_engine/rag/data/raw_media/l10/album1",
+  "supported_query_count": 18
+}

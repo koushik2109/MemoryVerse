@@ -1,0 +1,436 @@
+{
+  "total_clips": 52,
+  "categories": [
+    "airplane",
+    "chainsaw",
+    "chirping_birds",
+    "clapping",
+    "dog",
+    "door_wood_knock",
+    "fireworks",
+    "pouring_water",
+    "rooster",
+    "sheep",
+    "thunderstorm",
+    "train",
+    "vacuum_cleaner"
+  ],
+  "clips": [
+    {
+      "filename": "1-11687-A-47.wav",
+      "file_path": "dataset/audio/esc50/1-11687-A-47.wav",
+      "category": "airplane",
+      "fold": "1",
+      "target": "47",
+      "size_bytes": 441044
+    },
+    {
+      "filename": "1-24796-A-47.wav",
+      "file_path": "dataset/audio/esc50/1-24796-A-47.wav",
+      "category": "airplane",
+      "fold": "1",
+      "target": "47",
+      "size_bytes": 441044
+    },
+    {
+      "filename": "1-36929-A-47.wav",
+      "file_path": "dataset/audio/esc50/1-36929-A-47.wav",
+      "category": "airplane",
+      "fold": "1",
+      "target": "47",
+      "size_bytes": 441044
+    },
+    {
+      "filename": "1-43807-A-47.wav",
+      "file_path": "dataset/audio/esc50/1-43807-A-47.wav",
+      "category": "airplane",
+      "fold": "1",
+      "target": "47",
+      "size_bytes": 441044
+    },
+    {
+      "filename": "1-116765-A-41.wav",
+      "file_path": "dataset/audio/esc50/1-116765-A-41.wav",
+      "category": "chainsaw",
+      "fold": "1",
+      "target": "41",
+      "size_bytes": 441044
+    },
+    {
+      "filename": "1-19898-A-41.wav",
+      "file_path": "dataset/audio/esc50/1-19898-A-41.wav",
+      "category": "chainsaw",
+      "fold": "1",
+      "target": "41",
+      "size_bytes": 441044
+    },
+    {
+      "filename": "1-19898-B-41.wav",
+      "file_path": "dataset/audio/esc50/1-19898-B-41.wav",
+      "category": "chainsaw",
+      "fold": "1",
+      "target": "41",
+      "size_bytes": 441044
+    },
+    {
+      "filename": "1-19898-C-41.wav",
+      "file_path": "dataset/audio/esc50/1-19898-C-41.wav",
+      "category": "chainsaw",
+      "fold": "1",
+      "target": "41",
+      "size_bytes": 441044
+    },
+    {
+      "filename": "1-100038-A-14.wav",
+      "file_path": "dataset/audio/esc50/1-100038-A-14.wav",
+      "category": "chirping_birds",
+      "fold": "1",
+      "target": "14",
+      "size_bytes": 441044
+    },
+    {
+      "filename": "1-34495-A-14.wav",
+      "file_path": "dataset/audio/esc50/1-34495-A-14.wav",
+      "category": "chirping_birds",
+      "fold": "1",
+      "target": "14",
+      "size_bytes": 441044
+    },
+    {
+      "filename": "1-34497-A-14.wav",
+      "file_path": "dataset/audio/esc50/1-34497-A-14.wav",
+      "category": "chirping_birds",
+      "fold": "1",
+      "target": "14",
+      "size_bytes": 441044
+    },
+    {
+      "filename": "1-38559-A-14.wav",
+      "file_path": "dataset/audio/esc50/1-38559-A-14.wav",
+      "category": "chirping_birds",
+      "fold": "1",
+      "target": "14",
+      "size_bytes": 441044
+    },
+    {
+      "filename": "1-104089-A-22.wav",
+      "file_path": "dataset/audio/esc50/1-104089-A-22.wav",
+      "category": "clapping",
+      "fold": "1",
+      "target": "22",
+      "size_bytes": 441044
+    },
+    {
+      "filename": "1-104089-B-22.wav",
+      "file_path": "dataset/audio/esc50/1-104089-B-22.wav",
+      "category": "clapping",
+      "fold": "1",
+      "target": "22",
+      "size_bytes": 441044
+    },
+    {
+      "filename": "1-105224-A-22.wav",
+      "file_path": "dataset/audio/esc50/1-105224-A-22.wav",
+      "category": "clapping",
+      "fold": "1",
+      "target": "22",
+      "size_bytes": 441044
+    },
+    {
+      "filename": "1-110537-A-22.wav",
+      "file_path": "dataset/audio/esc50/1-110537-A-22.wav",
+      "category": "clapping",
+      "fold": "1",
+      "target": "22",
+      "size_bytes": 441044
+    },
+    {
+      "filename": "1-100032-A-0.wav",
+      "file_path": "dataset/audio/esc50/1-100032-A-0.wav",
+      "category": "dog",
+      "fold": "1",
+      "target": "0",
+      "size_bytes": 441044
+    },
+    {
+      "filename": "1-110389-A-0.wav",
+      "file_path": "dataset/audio/esc50/1-110389-A-0.wav",
+      "category": "dog",
+      "fold": "1",
+      "target": "0",
+      "size_bytes": 441044
+    },
+    {
+      "filename": "1-30226-A-0.wav",
+      "file_path": "dataset/audio/esc50/1-30226-A-0.wav",
+      "category": "dog",
+      "fold": "1",
+      "target": "0",
+      "size_bytes": 441044
+    },
+    {
+      "filename": "1-30344-A-0.wav",
+      "file_path": "dataset/audio/esc50/1-30344-A-0.wav",
+      "category": "dog",
+      "fold": "1",
+      "target": "0",
+      "size_bytes": 441044
+    },
+    {
+      "filename": "1-101336-A-30.wav",
+      "file_path": "dataset/audio/esc50/1-101336-A-30.wav",
+      "category": "door_wood_knock",
+      "fold": "1",
+      "target": "30",
+      "size_bytes": 441044
+    },
+    {
+      "filename": "1-103995-A-30.wav",
+      "file_path": "dataset/audio/esc50/1-103995-A-30.wav",
+      "category": "door_wood_knock",
+      "fold": "1",
+      "target": "30",
+      "size_bytes": 441044
+    },
+    {
+      "filename": "1-103999-A-30.wav",
+      "file_path": "dataset/audio/esc50/1-103999-A-30.wav",
+      "category": "door_wood_knock",
+      "fold": "1",
+      "target": "30",
+      "size_bytes": 441044
+    },
+    {
+      "filename": "1-26188-A-30.wav",
+      "file_path": "dataset/audio/esc50/1-26188-A-30.wav",
+      "category": "door_wood_knock",
+      "fold": "1",
+      "target": "30",
+      "size_bytes": 441044
+    },
+    {
+      "filename": "1-115545-A-48.wav",
+      "file_path": "dataset/audio/esc50/1-115545-A-48.wav",
+      "category": "fireworks",
+      "fold": "1",
+      "target": "48",
+      "size_bytes": 441044
+    },
+    {
+      "filename": "1-115545-B-48.wav",
+      "file_path": "dataset/audio/esc50/1-115545-B-48.wav",
+      "category": "fireworks",
+      "fold": "1",
+      "target": "48",
+      "size_bytes": 441044
+    },
+    {
+      "filename": "1-115545-C-48.wav",
+      "file_path": "dataset/audio/esc50/1-115545-C-48.wav",
+      "category": "fireworks",
+      "fold": "1",
+      "target": "48",
+      "size_bytes": 441044
+    },
+    {
+      "filename": "1-115546-A-48.wav",
+      "file_path": "dataset/audio/esc50/1-115546-A-48.wav",
+      "category": "fireworks",
+      "fold": "1",
+      "target": "48",
+      "size_bytes": 441044
+    },
+    {
+      "filename": "1-118559-A-17.wav",
+      "file_path": "dataset/audio/esc50/1-118559-A-17.wav",
+      "category": "pouring_water",
+      "fold": "1",
+      "target": "17",
+      "size_bytes": 441044
+    },
+    {
+      "filename": "1-50625-A-17.wav",
+      "file_path": "dataset/audio/esc50/1-50625-A-17.wav",
+      "category": "pouring_water",
+      "fold": "1",
+      "target": "17",
+      "size_bytes": 441044
+    },
+    {
+      "filename": "1-50688-A-17.wav",
+      "file_path": "dataset/audio/esc50/1-50688-A-17.wav",
+      "category": "pouring_water",
+      "fold": "1",
+      "target": "17",
+      "size_bytes": 441044
+    },
+    {
+      "filename": "1-51433-A-17.wav",
+      "file_path": "dataset/audio/esc50/1-51433-A-17.wav",
+      "category": "pouring_water",
+      "fold": "1",
+      "target": "17",
+      "size_bytes": 441044
+    },
+    {
+      "filename": "1-26806-A-1.wav",
+      "file_path": "dataset/audio/esc50/1-26806-A-1.wav",
+      "category": "rooster",
+      "fold": "1",
+      "target": "1",
+      "size_bytes": 441044
+    },
+    {
+      "filename": "1-27724-A-1.wav",
+      "file_path": "dataset/audio/esc50/1-27724-A-1.wav",
+      "category": "rooster",
+      "fold": "1",
+      "target": "1",
+      "size_bytes": 441044
+    },
+    {
+      "filename": "1-34119-A-1.wav",
+      "file_path": "dataset/audio/esc50/1-34119-A-1.wav",
+      "category": "rooster",
+      "fold": "1",
+      "target": "1",
+      "size_bytes": 441044
+    },
+    {
+      "filename": "1-34119-B-1.wav",
+      "file_path": "dataset/audio/esc50/1-34119-B-1.wav",
+      "category": "rooster",
+      "fold": "1",
+      "target": "1",
+      "size_bytes": 441044
+    },
+    {
+      "filename": "1-121951-A-8.wav",
+      "file_path": "dataset/audio/esc50/1-121951-A-8.wav",
+      "category": "sheep",
+      "fold": "1",
+      "target": "8",
+      "size_bytes": 441044
+    },
+    {
+      "filename": "1-196660-A-8.wav",
+      "file_path": "dataset/audio/esc50/1-196660-A-8.wav",
+      "category": "sheep",
+      "fold": "1",
+      "target": "8",
+      "size_bytes": 441044
+    },
+    {
+      "filename": "1-196660-B-8.wav",
+      "file_path": "dataset/audio/esc50/1-196660-B-8.wav",
+      "category": "sheep",
+      "fold": "1",
+      "target": "8",
+      "size_bytes": 441044
+    },
+    {
+      "filename": "1-49409-A-8.wav",
+      "file_path": "dataset/audio/esc50/1-49409-A-8.wav",
+      "category": "sheep",
+      "fold": "1",
+      "target": "8",
+      "size_bytes": 441044
+    },
+    {
+      "filename": "1-101296-A-19.wav",
+      "file_path": "dataset/audio/esc50/1-101296-A-19.wav",
+      "category": "thunderstorm",
+      "fold": "1",
+      "target": "19",
+      "size_bytes": 441044
+    },
+    {
+      "filename": "1-101296-B-19.wav",
+      "file_path": "dataset/audio/esc50/1-101296-B-19.wav",
+      "category": "thunderstorm",
+      "fold": "1",
+      "target": "19",
+      "size_bytes": 441044
+    },
+    {
+      "filename": "1-115521-A-19.wav",
+      "file_path": "dataset/audio/esc50/1-115521-A-19.wav",
+      "category": "thunderstorm",
+      "fold": "1",
+      "target": "19",
+      "size_bytes": 441044
+    },
+    {
+      "filename": "1-23222-A-19.wav",
+      "file_path": "dataset/audio/esc50/1-23222-A-19.wav",
+      "category": "thunderstorm",
+      "fold": "1",
+      "target": "19",
+      "size_bytes": 441044
+    },
+    {
+      "filename": "1-119125-A-45.wav",
+      "file_path": "dataset/audio/esc50/1-119125-A-45.wav",
+      "category": "train",
+      "fold": "1",
+      "target": "45",
+      "size_bytes": 441044
+    },
+    {
+      "filename": "1-54065-A-45.wav",
+      "file_path": "dataset/audio/esc50/1-54065-A-45.wav",
+      "category": "train",
+      "fold": "1",
+      "target": "45",
+      "size_bytes": 441044
+    },
+    {
+      "filename": "1-54065-B-45.wav",
+      "file_path": "dataset/audio/esc50/1-54065-B-45.wav",
+      "category": "train",
+      "fold": "1",
+      "target": "45",
+      "size_bytes": 441044
+    },
+    {
+      "filename": "1-62509-A-45.wav",
+      "file_path": "dataset/audio/esc50/1-62509-A-45.wav",
+      "category": "train",
+      "fold": "1",
+      "target": "45",
+      "size_bytes": 441044
+    },
+    {
+      "filename": "1-100210-A-36.wav",
+      "file_path": "dataset/audio/esc50/1-100210-A-36.wav",
+      "category": "vacuum_cleaner",
+      "fold": "1",
+      "target": "36",
+      "size_bytes": 441044
+    },
+    {
+      "filename": "1-100210-B-36.wav",
+      "file_path": "dataset/audio/esc50/1-100210-B-36.wav",
+      "category": "vacuum_cleaner",
+      "fold": "1",
+      "target": "36",
+      "size_bytes": 441044
+    },
+    {
+      "filename": "1-19840-A-36.wav",
+      "file_path": "dataset/audio/esc50/1-19840-A-36.wav",
+      "category": "vacuum_cleaner",
+      "fold": "1",
+      "target": "36",
+      "size_bytes": 441044
+    },
+    {
+      "filename": "1-19872-A-36.wav",
+      "file_path": "dataset/audio/esc50/1-19872-A-36.wav",
+      "category": "vacuum_cleaner",
+      "fold": "1",
+      "target": "36",
+      "size_bytes": 441044
+    }
+  ]
+}

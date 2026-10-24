@@ -59,7 +59,8 @@ class HomeAssistantState {
       responseMessage: responseMessage ?? this.responseMessage,
       intent: intent ?? this.intent,
       action: clearAction ? null : (action ?? this.action),
-      actionParams: clearAction ? const {} : (actionParams ?? this.actionParams),
+      actionParams:
+          clearAction ? const {} : (actionParams ?? this.actionParams),
       suggestedChips: suggestedChips ?? this.suggestedChips,
       error: clearError ? null : (error ?? this.error),
       isExpanded: isExpanded ?? this.isExpanded,
@@ -99,7 +100,8 @@ class HomeAssistantController extends StateNotifier<HomeAssistantState> {
       final intent = res['intent'] as String?;
       final rawAction = res['structured_action'] as Map<String, dynamic>?;
       final actionType = rawAction?['action'] as String?;
-      final actionParams = (rawAction?['params'] as Map<String, dynamic>?) ?? {};
+      final actionParams =
+          (rawAction?['params'] as Map<String, dynamic>?) ?? {};
       final chips = (res['suggested_chips'] as List<dynamic>?)
               ?.map((e) => e.toString())
               .toList() ??
@@ -148,7 +150,11 @@ class HomeAssistantController extends StateNotifier<HomeAssistantState> {
         break;
 
       case 'CREATE_MEMORY':
-        CreateMemorySheet.show(context);
+        CreateMemorySheet.show(
+          context,
+          initialPrompt: params['initial_prompt']?.toString(),
+          autoStartDiscovery: params['auto_start_discovery'] == true,
+        );
         break;
 
       case 'OPEN_VAULT':
@@ -172,7 +178,9 @@ class HomeAssistantController extends StateNotifier<HomeAssistantState> {
         final jobId = params['job_id']?.toString();
         final memoryId = params['memory_id']?.toString();
         if (jobId != null) {
-          _ref.read(videoJobControllerProvider.notifier).trackExistingJob(jobId);
+          _ref
+              .read(videoJobControllerProvider.notifier)
+              .trackExistingJob(jobId);
         }
         if (memoryId != null && memoryId.isNotEmpty) {
           final memories = _ref.read(memoriesListProvider).valueOrNull ?? [];
@@ -212,18 +220,21 @@ class HomeAssistantController extends StateNotifier<HomeAssistantState> {
 
   Future<void> _openMemoryById(BuildContext context, String memoryId) async {
     try {
-      final memory =
-          await _ref.read(memoryRepositoryProvider).fetchMemoryDetails(memoryId);
+      final memory = await _ref
+          .read(memoryRepositoryProvider)
+          .fetchMemoryDetails(memoryId);
       if (context.mounted) {
         MemoryDetailScreen.open(context, memory);
       }
     } catch (_) {}
   }
 
-  Future<void> _openAiDirectorById(BuildContext context, String memoryId) async {
+  Future<void> _openAiDirectorById(
+      BuildContext context, String memoryId) async {
     try {
-      final memory =
-          await _ref.read(memoryRepositoryProvider).fetchMemoryDetails(memoryId);
+      final memory = await _ref
+          .read(memoryRepositoryProvider)
+          .fetchMemoryDetails(memoryId);
       if (context.mounted) {
         AiDirectorScreen.open(context, memory);
       }

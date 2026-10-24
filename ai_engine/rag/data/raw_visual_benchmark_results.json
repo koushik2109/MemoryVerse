@@ -1,0 +1,34 @@
+{
+  "Zero-Shot Visual Retrieval (CLIP Raw Pixels)": {
+    "hit@1": 0.5472,
+    "hit@5": 0.6981,
+    "hit@10": 0.7925,
+    "mrr": 0.6176,
+    "ndcg@10": 0.5969,
+    "latency_ms": 39.09
+  },
+  "Scene-Text OCR Lexical Retrieval (BM25)": {
+    "hit@1": 0.1887,
+    "hit@5": 0.2264,
+    "hit@10": 0.283,
+    "mrr": 0.2059,
+    "ndcg@10": 0.1683,
+    "latency_ms": 0.08
+  },
+  "Multimodal Hybrid Fusion (CLIP + OCR BM25)": {
+    "hit@1": 0.5472,
+    "hit@5": 0.6792,
+    "hit@10": 0.7736,
+    "mrr": 0.6045,
+    "ndcg@10": 0.6,
+    "latency_ms": 39.07
+  },
+  "Proposed MM-RAG (Stage 1+2)": {
+    "hit@1": 0.5472,
+    "hit@5": 0.6981,
+    "hit@10": 0.7925,
+    "mrr": 0.6182,
+    "ndcg@10": 0.6059,
+    "latency_ms": 39.06
+  }
+}

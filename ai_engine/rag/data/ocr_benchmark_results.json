@@ -1,0 +1,42 @@
+{
+  "BM25 Baseline": {
+    "hit@1": 0.8333,
+    "hit@5": 0.9667,
+    "hit@10": 0.9667,
+    "mrr": 0.89,
+    "ndcg@10": 0.8062,
+    "latency_ms": 0.06
+  },
+  "Dense Only Baseline": {
+    "hit@1": 0.4,
+    "hit@5": 0.5333,
+    "hit@10": 0.5333,
+    "mrr": 0.4611,
+    "ndcg@10": 0.4706,
+    "latency_ms": 6.95
+  },
+  "Hybrid (Convex a=0.7)": {
+    "hit@1": 0.6667,
+    "hit@5": 1.0,
+    "hit@10": 1.0,
+    "mrr": 0.8194,
+    "ndcg@10": 0.7875,
+    "latency_ms": 6.95
+  },
+  "Hybrid (RRF k=60)": {
+    "hit@1": 0.5333,
+    "hit@5": 0.8667,
+    "hit@10": 0.8667,
+    "mrr": 0.6706,
+    "ndcg@10": 0.6659,
+    "latency_ms": 6.98
+  },
+  "Proposed MM-RAG (Stage 1+2)": {
+    "hit@1": 0.5667,
+    "hit@5": 0.9667,
+    "hit@10": 1.0,
+    "mrr": 0.7244,
+    "ndcg@10": 0.7291,
+    "latency_ms": 6.97
+  }
+}

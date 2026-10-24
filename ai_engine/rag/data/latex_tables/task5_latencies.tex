@@ -1,0 +1,20 @@
+\begin{table}[t]
+\centering
+\caption{End-to-End Retrieval and Reranking Latency Benchmarks (Query Encoding Included, Warm Cache, Mean and P95 Over 3 Runs).}
+\label{tab:latencies}
+\small
+\begin{tabular}{l c c}
+\hline
+\textbf{Retrieval Architecture} & \textbf{Mean (ms)} & \textbf{P95 (ms)} \\
+\hline
+BM25 & 0.02 & 0.04 \\
+Dense (all-MiniLM-L6-v2) & 4.38 & 6.24 \\
+Dense (BGE-base-en-v1.5) & 13.17 & 13.72 \\
+CLIP Zero-Shot Visual & 7.89 & 10.36 \\
+Hybrid Convex (Fixed alpha=0.7) & 4.30 & 6.40 \\
+Original RAMP-RAG & 17.54 & 40.65 \\
+Proposed RAMP-RAG (+ Clean Stream) & 17.80 & 40.77 \\
+Cross-Encoder (100% Cascade) & 39.56 & 54.40 \\
+\hline
+\end{tabular}
+\end{table}

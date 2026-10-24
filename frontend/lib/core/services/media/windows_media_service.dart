@@ -54,6 +54,11 @@ class WindowsMediaService implements MediaService {
     return true;
   }
 
+  @override
+  Future<bool> openLimitedAccessPicker() async {
+    return false;
+  }
+
   List<Directory> _getWindowsMediaDirectories() {
     final dirs = <Directory>[];
 
@@ -89,7 +94,7 @@ class WindowsMediaService implements MediaService {
 
   @override
   Future<List<DiscoveredMediaItem>> discoverMedia({
-    int limit = 200,
+    int? limit,
     DateTime? since,
   }) async {
     if (_customFolderPath == null) {
@@ -97,8 +102,17 @@ class WindowsMediaService implements MediaService {
     }
 
     final items = <DiscoveredMediaItem>[];
+    final seenPaths = <String>{};
     final allowedExtensions = {
-      '.jpg', '.jpeg', '.png', '.webp', '.bmp', '.mp4', '.mov', '.avi', '.mkv'
+      '.jpg',
+      '.jpeg',
+      '.png',
+      '.webp',
+      '.bmp',
+      '.mp4',
+      '.mov',
+      '.avi',
+      '.mkv'
     };
 
     final dirs = _getWindowsMediaDirectories();
@@ -107,48 +121,64 @@ class WindowsMediaService implements MediaService {
       if (!dir.existsSync()) continue;
 
       try {
-        // Recursively inspect folder up to reasonable depth (2 levels)
+        // Recursively inspect the selected folder without truncating its tree.
         final entities = dir.listSync(recursive: true, followLinks: false);
         for (final entity in entities) {
-          if (items.length >= limit) break;
+          if (limit != null && items.length >= limit) break;
           if (entity is! File) continue;
 
           final ext = entity.path.toLowerCase().split('.').last;
           if (!allowedExtensions.contains('.$ext')) continue;
+          if (!seenPaths.add(entity.path)) continue;
 
-          final stat = entity.statSync();
-          final isVideo = {'.mp4', '.mov', '.avi', '.mkv'}.contains('.$ext');
-          final modified = stat.modified;
+          try {
+            final stat = entity.statSync();
+            final isVideo = {'.mp4', '.mov', '.avi', '.mkv'}.contains('.$ext');
+            final modified = stat.modified;
 
-          if (since != null && modified.isBefore(since)) continue;
+            if (since != null && modified.isBefore(since)) continue;
 
-          final pathParts = entity.path.split(Platform.pathSeparator);
-          final fname = pathParts.last;
-          final parentFolder = pathParts.length > 1 ? pathParts[pathParts.length - 2] : '';
+            final pathParts = entity.path.split(Platform.pathSeparator);
+            final fname = pathParts.last;
+            final parentFolder =
+                pathParts.length > 1 ? pathParts[pathParts.length - 2] : '';
 
-          // Extract lightweight tags from folder name and file name
-          final folderTag = parentFolder.replaceAll(RegExp(r'[^a-zA-Z0-9]'), ' ').trim();
-          final tags = <String>[];
-          if (folderTag.isNotEmpty && folderTag.toLowerCase() != 'pictures' && folderTag.toLowerCase() != 'videos') {
-            tags.add(folderTag);
+            // Extract lightweight tags from folder name and file name
+            final folderTag =
+                parentFolder.replaceAll(RegExp(r'[^a-zA-Z0-9]'), ' ').trim();
+            final tags = <String>[];
+            if (folderTag.isNotEmpty &&
+                folderTag.toLowerCase() != 'pictures' &&
+                folderTag.toLowerCase() != 'videos') {
+              tags.add(folderTag);
+            }
+
+            final relativePath = entity.path.startsWith(dir.path)
+                ? entity.path
+                    .substring(dir.path.length)
+                    .replaceFirst(RegExp(r'^[/\\]'), '')
+                : entity.path;
+            items.add(DiscoveredMediaItem(
+              id: 'win_${entity.path.hashCode}',
+              type: isVideo ? MediaItemType.video : MediaItemType.image,
+              mediaReference: entity.path,
+              timestamp: modified,
+              file: entity,
+              thumbnailPath: isVideo ? null : entity.path,
+              metadata: {
+                'filename': fname,
+                'file_size': stat.size,
+                'extension': ext,
+                'folder': parentFolder,
+                'relative_path': relativePath,
+                'modified_at': modified.toIso8601String(),
+                'tags': tags,
+                'source': 'windows_filesystem',
+              },
+            ));
+          } catch (_) {
+            // Skip files that disappear or cannot be stat-ed during a scan.
           }
-
-          items.add(DiscoveredMediaItem(
-            id: 'win_${entity.path.hashCode}',
-            type: isVideo ? MediaItemType.video : MediaItemType.image,
-            mediaReference: entity.path,
-            timestamp: modified,
-            file: entity,
-            thumbnailPath: isVideo ? null : entity.path,
-            metadata: {
-              'filename': fname,
-              'file_size': stat.size,
-              'extension': ext,
-              'folder': parentFolder,
-              'tags': tags,
-              'source': 'windows_filesystem',
-            },
-          ));
         }
       } catch (_) {
         // Skip unreadable files/folders
@@ -157,12 +187,12 @@ class WindowsMediaService implements MediaService {
 
     // Sort newest first
     items.sort((a, b) => b.timestamp.compareTo(a.timestamp));
-    return items.take(limit).toList();
+    return limit == null ? items : items.take(limit).toList();
   }
 
   @override
   Future<List<DiscoveredMediaItem>> queryMedia(MediaFilterQuery query) async {
-    final all = await discoverMedia(limit: 300);
+    final all = await discoverMedia();
     return all;
   }
 }

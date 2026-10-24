@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MemoryVerse human audit</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: #182230;
+      background: #f4f7fb;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    header {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: flex-start;
+      padding: 24px max(20px, calc((100vw - 980px) / 2));
+      background: #17324d;
+      color: white;
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { margin-bottom: 6px; font-size: 1.45rem; }
+    header p { margin-bottom: 0; color: #d7e6f5; }
+    .packet-meta { margin-top: 8px; font-size: .82rem; }
+    .packet-meta code { color: #fff; font-size: .8rem; }
+    .progress { min-width: 190px; text-align: right; }
+    .progress strong { display: block; font-size: 1.1rem; }
+    .progress span { color: #d7e6f5; font-size: .9rem; }
+    main {
+      width: min(980px, calc(100% - 32px));
+      margin: 22px auto 100px;
+    }
+    .notice {
+      padding: 14px 16px;
+      border-left: 4px solid #2f80ed;
+      border-radius: 8px;
+      background: #eaf3ff;
+      line-height: 1.45;
+    }
+    .notice p:last-child { margin-bottom: 0; }
+    .preview-banner {
+      margin-top: 12px;
+      padding: 11px 13px;
+      border: 1px solid #e0b84a;
+      border-radius: 8px;
+      background: #fff8df;
+      color: #604b00;
+      font-weight: 700;
+    }
+    .scope-note {
+      margin-top: 12px;
+      padding: 10px 12px;
+      border-radius: 8px;
+      background: #f5f8fb;
+      white-space: pre-wrap;
+      font-size: .9rem;
+    }
+    .storage-warning {
+      margin-top: 12px;
+      padding: 10px 12px;
+      border: 1px solid #e0b84a;
+      border-radius: 8px;
+      background: #fff8df;
+      color: #604b00;
+    }
+    .card {
+      margin-top: 18px;
+      padding: 22px;
+      border: 1px solid #d8e0ea;
+      border-radius: 12px;
+      background: white;
+      box-shadow: 0 4px 14px rgba(21, 47, 76, .06);
+    }
+    .case-heading {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: baseline;
+      border-bottom: 1px solid #e4eaf1;
+      padding-bottom: 12px;
+    }
+    .case-heading h2 { margin-bottom: 0; font-size: 1.15rem; }
+    .case-split {
+      display: inline-block;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: #eef2f7;
+      color: #526274;
+      font-size: .82rem;
+      white-space: nowrap;
+    }
+    .question, .answer, .context {
+      margin-top: 18px;
+      line-height: 1.5;
+    }
+    .label {
+      margin-bottom: 5px;
+      color: #526274;
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+    .question-text { font-size: 1.05rem; font-weight: 600; }
+    .target {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 5px;
+      background: #fff3cd;
+      color: #604b00;
+      font-weight: 600;
+    }
+    .context-list {
+      margin: 8px 0 0;
+      padding-left: 22px;
+    }
+    .context-list li { margin: 8px 0; }
+    .answer {
+      padding: 13px 15px;
+      border-radius: 8px;
+      background: #f5f8fb;
+      white-space: pre-wrap;
+    }
+    [hidden] { display: none !important; }
+    .decision {
+      margin-top: 22px;
+      padding-top: 4px;
+      border-top: 1px solid #e4eaf1;
+    }
+    .decision h3 { margin: 18px 0 7px; font-size: 1rem; }
+    .decision-help { margin-bottom: 9px; color: #526274; font-size: .9rem; }
+    .option-list { display: grid; gap: 8px; }
+    .option {
+      display: flex;
+      gap: 9px;
+      align-items: flex-start;
+      padding: 10px 12px;
+      border: 1px solid #d8e0ea;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .option:hover { border-color: #2f80ed; background: #f7fbff; }
+    .option input { margin-top: 3px; accent-color: #2f80ed; }
+    .option code { color: #526274; font-size: .78rem; }
+    textarea {
+      width: 100%;
+      min-height: 82px;
+      padding: 10px;
+      border: 1px solid #c9d4e0;
+      border-radius: 8px;
+      font: inherit;
+      resize: vertical;
+    }
+    .buttons {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 16px;
+      border-top: 1px solid #d8e0ea;
+      background: rgba(255, 255, 255, .96);
+      box-shadow: 0 -3px 14px rgba(21, 47, 76, .08);
+    }
+    button {
+      padding: 10px 16px;
+      border: 0;
+      border-radius: 8px;
+      background: #17324d;
+      color: white;
+      cursor: pointer;
+      font: inherit;
+      font-weight: 600;
+    }
+    button.secondary { background: #e7edf4; color: #24384d; }
+    button.primary { background: #2474c6; }
+    button:disabled { cursor: not-allowed; opacity: .45; }
+    #status { min-width: 180px; align-self: center; color: #526274; font-size: .9rem; }
+    @media (max-width: 650px) {
+      header { display: block; }
+      .progress { margin-top: 14px; text-align: left; }
+      .card { padding: 16px; }
+      .case-heading { display: block; }
+      .case-split { margin-top: 8px; }
+      .buttons { flex-wrap: wrap; }
+      #status { order: -1; width: 100%; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+      <div>
+        <h1>MemoryVerse human audit</h1>
+        <p id="reviewer"></p>
+        <p class="packet-meta">Packet version: <strong id="packet-version"></strong>
+          · Content SHA256: <code id="content-fingerprint"></code></p>
+      </div>
+    <div class="progress">
+      <strong id="counter"></strong>
+      <span id="completed"></span>
+    </div>
+  </header>
+  <main>
+    <div class="notice">
+      <div id="review-instructions"><strong>How to review:</strong> Read only the query, target, retrieved context,
+      and answer. Choose one option in each of the three sections. If you choose a
+      middle, uncertain, or negative option, add a short note explaining why. Work
+      independently and do not look at the other reviewer’s labels. A truthful
+      answer saying “the context is insufficient” is usually <strong>supported</strong>
+      for faithfulness, <strong>partial</strong> for relevance, and
+      <strong>uncertain</strong> for correctness—not automatically unsupported or incorrect.</div>
+      <div id="scope-note" class="scope-note" hidden></div>
+      <div id="storage-warning" class="storage-warning" hidden></div>
+      <div id="preview-banner" class="preview-banner">Question preview — answers have not been generated.</div>
+    </div>
+    <section class="card">
+      <div class="case-heading">
+        <h2 id="case-id"></h2>
+        <span id="case-split" class="case-split"></span>
+      </div>
+      <div class="question">
+        <div class="label">Question</div>
+        <div id="query" class="question-text"></div>
+      </div>
+      <div class="question">
+        <div class="label">Target detail to check</div>
+        <span id="target" class="target"></span>
+      </div>
+      <div class="context">
+        <div class="label">Retrieved context</div>
+        <ol id="context" class="context-list"></ol>
+      </div>
+      <div id="answer-panel" class="answer">
+        <div class="label">Generated answer</div>
+        <div id="answer"></div>
+      </div>
+      <div id="decisions" class="decision"></div>
+      <div id="notes-section" class="question">
+        <div class="label">Short note (required for middle, uncertain, or negative choices)</div>
+        <textarea id="notes" placeholder="Optional for fully supported/direct/correct; required otherwise."></textarea>
+      </div>
+    </section>
+  </main>
+  <div class="buttons">
+    <span id="status"></span>
+    <button class="secondary" id="previous" type="button">Previous</button>
+    <button class="primary" id="next" type="button">Save and next</button>
+    <button type="button" id="save">Save draft</button>
+    <button type="button" id="download">Download completed CSV</button>
+  </div>
+  <script>
+    const CASES = [{"audit_id": "IMG-V2-001", "query": "According to the image annotation, what date is associated with the marathon volunteers handing water?", "target_keyword": "December 17, 2023", "target_keyword_role": "DESIGN REFERENCE — not a generated model output", "split": "single_hop", "retrieved_context": ["marathon volunteers handing water December 17, 2023 photos", "May 2018 photos", "May 2018 photos", "May 2018 photos", "May 2018 photos"], "answer": "The date associated with the marathon volunteers handing water is December 17, 2023 (Document 1). The retrieved context does not provide any additional information regarding the image annotation itself."}, {"audit_id": "IMG-V2-002", "query": "What time period is explicitly named in the image annotation for the Putuo Mountain coast photos?", "target_keyword": "first half of 2024", "target_keyword_role": "DESIGN REFERENCE — not a generated model output", "split": "single_hop", "retrieved_context": ["Putuo Mountain coast first half of 2024 photos", "photos from May 2024", "May 2018 photos", "May 2018 photos", "May 2018 photos"], "answer": "The time period explicitly named in the image annotation for the Putuo Mountain coast photos is the first half of 2024 (Document 1). The retrieved context does not establish any other specific time periods for the Putuo Mountain coast photos beyond this."}, {"audit_id": "IMG-V2-003", "query": "What action is described for the image annotation about the bridge at sunset?", "target_keyword": "driving over bridge at sunset", "target_keyword_role": "DESIGN REFERENCE — not a generated model output", "split": "single_hop", "retrieved_context": ["driving over bridge at sunset", "peaceful sunset by the lake", "peaceful sunset by the lake", "peaceful sunset by the lake", "dam machinery stretching to the horizon Three Gorges Dam sunset view photos in Yiling District"], "answer": "The action described for the image annotation is \"driving over bridge at sunset\" (Document 1). The retrieved context does not establish any additional details about the bridge or the nature of the sunset beyond this action."}, {"audit_id": "IMG-V2-004", "query": "What action is described in the party image annotation?", "target_keyword": "friends toasting at party", "target_keyword_role": "DESIGN REFERENCE — not a generated model output", "split": "single_hop", "retrieved_context": ["friends toasting at party Qiantang photos", "friends toasting at party Qiantang photos", "May 2018 photos", "May 2018 photos", "May 2018 photos"], "answer": "The action described in the party image annotation is friends toasting. This is supported by Document 1 and Document 2. The retrieved context does not provide any additional details about the specific image or its content beyond the action of toasting."}, {"audit_id": "IMG-V2-005", "query": "What celebration detail is explicitly named in the birthday image annotation?", "target_keyword": "22nd birthday celebration", "target_keyword_role": "DESIGN REFERENCE — not a generated model output", "split": "single_hop", "retrieved_context": ["22nd birthday celebration", "22nd birthday celebration", "green grape cake 22nd birthday celebration", "green grape cake 22nd birthday celebration", "green grape cake 22nd birthday celebration"], "answer": "The celebration detail explicitly named in the birthday image annotation is \"22nd birthday celebration\" (Document 1, Document 2). The retrieved context does not establish any specific details about the image itself or its content beyond the celebration name. There are no verified raw media or descriptive text proxies provided in the context."}, {"audit_id": "IMG-V2-006", "query": "Which place tag is explicitly present in the annotation for the toasting photo?", "target_keyword": "Qiantang", "target_keyword_role": "DESIGN REFERENCE — not a generated model output", "split": "single_hop", "retrieved_context": ["friends toasting at party Qiantang photos", "friends toasting at party Qiantang photos", "friends toasting at party 22nd birthday celebration", "friends toasting at party", "Western winter meal in Hangzhou Qiantang photos"], "answer": "The place tag explicitly present in the annotation for the toasting photo is \"Qiantang,\" as mentioned in Documents 1 and 2. The retrieved context does not establish any other specific place tags associated with the toasting photo."}, {"audit_id": "IMG-V2-007", "query": "What object is described in the art image annotation?", "target_keyword": "art studio wall decor", "target_keyword_role": "DESIGN REFERENCE — not a generated model output", "split": "single_hop", "retrieved_context": ["Black Myth Yellow Wind Demon concept art", "handmade sculpture before painting", "handmade sculpture before painting", "cute ceramic figurine handmade sculpture before painting", "Big Head Son and Small Head Dad sand sculpture photos with Mingming Lele and Xiaoming group photo Qinhuangdao photos summer 2019"], "answer": "The retrieved context does not provide a specific description of the object in the art image annotation. It mentions \"Black Myth Yellow Wind Demon concept art\" (Document 1), but does not elaborate on the object itself. Therefore, the context does not establish what object is described in the art image annotation."}, {"audit_id": "IMG-V2-008", "query": "Which place name is explicitly included in the quiet-beach image annotation?", "target_keyword": "Phuket's Karon", "target_keyword_role": "DESIGN REFERENCE — not a generated model output", "split": "single_hop", "retrieved_context": ["quiet beach in Phuket's Karon", "quiet beach in Phuket's Karon", "cold blue beach photos in Yantian District", "cold blue beach photos in Yantian District", "my vintage seaside outfit cold blue beach photos including me photos in Yantian District"], "answer": "The place name explicitly included in the quiet-beach image annotation is \"Phuket's Karon\" (Document 1 and Document 2). The retrieved context does not establish any additional details about the image annotation beyond this place name."}, {"audit_id": "IMG-V2-009", "query": "What drink is explicitly described in the fancy-drink image annotation?", "target_keyword": "layered cocktail", "target_keyword_role": "DESIGN REFERENCE — not a generated model output", "split": "single_hop", "retrieved_context": ["fancy drink before Christmas Qiantang photos", "fancy drink before Christmas", "fancy drink before Christmas", "fancy drink before Christmas", "fancy drink before Christmas Qiantang photos first half of 2024 photos"], "answer": "The retrieved context does not explicitly describe any specific drink in the fancy-drink image annotation. Therefore, the query about the specific drink remains unresolved as the context does not establish it."}, {"audit_id": "IMG-V2-010", "query": "Which place is explicitly named for the driverless-car image annotation?", "target_keyword": "Pingyao", "target_keyword_role": "DESIGN REFERENCE — not a generated model output", "split": "single_hop", "retrieved_context": ["driverless car in Pingyao", "Nandaihe cable car Qinhuangdao photos summer 2019", "cat under the car", "cat under the car", "cozy car moment Summer 2025 Ming's photos"], "answer": "The place explicitly named for the driverless-car image annotation is Pingyao (Document 1). The retrieved context does not establish any additional details about the driverless car or its surroundings."}, {"audit_id": "IMG-V2-011", "query": "What material is explicitly named for the figurine in the image annotation?", "target_keyword": "ceramic", "target_keyword_role": "DESIGN REFERENCE — not a generated model output", "split": "single_hop", "retrieved_context": ["cute ceramic figurine", "cute ceramic figurine handmade sculpture before painting", "handmade sculpture before painting", "handmade sculpture before painting", "Big Head Son and Small Head Dad sand sculpture photos with Mingming Lele and Xiaoming group photo Qinhuangdao photos summer 2019"], "answer": "The retrieved context does not explicitly name the material for the figurine in the image annotation. It mentions \"cute ceramic figurine\" (Document 1) but does not provide specific details about the material used. Therefore, the query remains unresolved regarding the explicit material name."}, {"audit_id": "IMG-V2-012", "query": "What state is explicitly described for the sculpture annotation?", "target_keyword": "handmade sculpture before painting", "target_keyword_role": "DESIGN REFERENCE — not a generated model output", "split": "single_hop", "retrieved_context": ["handmade sculpture before painting", "handmade sculpture before painting", "ancient ceramic horse sculpture details", "cute ceramic figurine handmade sculpture before painting", "Wukong statue details"], "answer": "The retrieved context does not explicitly describe the state of the sculpture annotation."}, {"audit_id": "IMG-V2-013", "query": "What object is explicitly described in the couple-photo annotation?", "target_keyword": "matching rings", "target_keyword_role": "DESIGN REFERENCE — not a generated model output", "split": "single_hop", "retrieved_context": ["wedding group photo with friends 2017 Mid-Autumn Festival photos", "Xiaobao at the aquarium photos with Mingming Lele and Xiaoming group photo", "matching rings with boyfriend subway photo with boyfriend cozy car moment", "subway photo with boyfriend me and boyfriend cuddling Ming and me couple outfit selfie", "wedding group photo with friends"], "answer": "The retrieved context does not explicitly describe any specific object in the couple-photo annotation. It mentions a \"subway photo with boyfriend\" and \"couple outfit selfie,\" but does not provide details about any objects. Therefore, the specific object in the couple-photo annotation is unresolved."}, {"audit_id": "IMG-V2-014", "query": "What snack is explicitly described next to the deer statue?", "target_keyword": "chocolate popsicle", "target_keyword_role": "DESIGN REFERENCE — not a generated model output", "split": "single_hop", "retrieved_context": ["chocolate popsicle by cartoon deer statue", "Black Myth Four Sisters life-size statue", "Christmas tree made of cups", "ancient ceramic horse sculpture details", "pig-like museum exhibit"], "answer": "The retrieved context does not establish what snack is explicitly described next to the deer statue."}, {"audit_id": "IMG-V2-015", "query": "What food is explicitly described in the noodle image annotation?", "target_keyword": "handmade noodles", "target_keyword_role": "DESIGN REFERENCE — not a generated model output", "split": "single_hop", "retrieved_context": ["handmade noodles", "Summer 2025 Ming's photos preparing ingredients in the kitchen", "Western winter meal in Hangzhou Qiantang photos", "Puji noodles", "Puji noodles"], "answer": "The food explicitly described in the noodle image annotation is \"Puji noodles\" (Document 4 and Document 5). The retrieved context does not provide any specific image annotations or descriptions beyond the mention of Puji noodles."}, {"audit_id": "IMG-V2-016", "query": "What hand gesture is explicitly described with the dry-pot dish?", "target_keyword": "peace sign", "target_keyword_role": "DESIGN REFERENCE — not a generated model output", "split": "single_hop", "retrieved_context": ["dry pot dish with peace sign Qiantang photos", "making dinner in the kitchen", "making dinner in the kitchen", "making dinner in the kitchen", "making dinner in the kitchen"], "answer": "The hand gesture explicitly described with the dry-pot dish is a peace sign (Document 1). The retrieved context does not establish any additional details about the gesture or its significance."}, {"audit_id": "IMG-V2-017", "query": "Which place is explicitly named in the New Year's Eve image annotation?", "target_keyword": "Hangzhou", "target_keyword_role": "DESIGN REFERENCE — not a generated model output", "split": "single_hop", "retrieved_context": ["2019 New Year's Day photos", "2019 New Year's Day photos", "2019 New Year's Day photos", "2019 New Year's Day photos", "New Year’s Eve Hangzhou"], "answer": "The place explicitly named in the New Year's Eve image annotation is Hangzhou (Document 5). The retrieved context does not provide any additional information about other locations or details related to the New Year's Day photos."}, {"audit_id": "IMG-V2-018", "query": "What month and year are explicitly named in the concert-support image annotation?", "target_keyword": "April 2023", "target_keyword_role": "DESIGN REFERENCE — not a generated model output", "split": "single_hop", "retrieved_context": ["concert fan support moments April 2023 photos", "concert fan support moments April 2023 photos", "concert fan support moments April 2023 photos", "New Year’s Eve Hangzhou concert fan support moments Qiantang photos", "concert fan support moments Binjiang District photos first half of 2024 photos"], "answer": "The explicitly named month and year in the concert-support image annotation is April 2023, as stated in Documents 1, 2, and 3. The retrieved context does not establish any other specific months or years mentioned in the annotations."}, {"audit_id": "IMG-V2-019", "query": "Which district tag is explicitly present in the Ningbo night-bridge image annotation?", "target_keyword": "Yinzhou District", "target_keyword_role": "DESIGN REFERENCE — not a generated model output", "split": "single_hop", "retrieved_context": ["night art light installation dreamy Ningbo cyberpunk night bridge Yinzhou District photos", "dam machinery stretching to the horizon photos in Yiling District", "dam machinery stretching to the horizon photos in Yiling District", "dam machinery stretching to the horizon photos in Yiling District", "dam machinery stretching to the horizon photos in Yiling District"], "answer": "The district tag explicitly present in the Ningbo night-bridge image annotation is Yinzhou District (Document 1). The retrieved context does not establish any other district tags related to the Ningbo night-bridge image."}, {"audit_id": "IMG-V2-020", "query": "Which place is explicitly named in the night boat-ride image annotation?", "target_keyword": "West Lake", "target_keyword_role": "DESIGN REFERENCE — not a generated model output", "split": "single_hop", "retrieved_context": ["West Lake night boat ride", "West Lake night boat ride", "West Lake night boat ride", "night art light installation dreamy West Lake night boat ride", "night art light installation dreamy West Lake night boat ride"], "answer": "The place explicitly named in the night boat-ride image annotation is West Lake (Document 1, Document 2, Document 3, Document 4, Document 5). The retrieved context does not establish any additional details about the image annotation itself."}, {"audit_id": "IMG-V2-021", "query": "Which district tag is explicitly present in this night-installation image annotation?", "target_keyword": "Binjiang District", "target_keyword_role": "DESIGN REFERENCE — not a generated model output", "split": "single_hop", "retrieved_context": ["night art light installation dreamy Binjiang District photos", "night art light installation dreamy Ningbo cyberpunk night bridge Yinzhou District photos", "photos in Yiling District", "photos in Yiling District", "photos in Yiling District"], "answer": "The district tag explicitly present in the night-installation image annotation is \"Binjiang District,\" as mentioned in Document 1. The retrieved context does not establish any other district tags related to the night-installation images."}, {"audit_id": "IMG-V2-022", "query": "What place name is explicitly present in the subway-at-sunset image annotation?", "target_keyword": "Hangzhou Qingchun Road", "target_keyword_role": "DESIGN REFERENCE — not a generated model output", "split": "single_hop", "retrieved_context": ["Hangzhou Qingchun Road subway sunset", "Hangzhou Qingchun Road subway sunset", "subway photo with boyfriend", "subway photo with boyfriend", "subway photo with boyfriend"], "answer": "The place name explicitly present in the subway-at-sunset image annotation is \"Hangzhou Qingchun Road\" (Document 1 and Document 2). The retrieved context does not establish any additional place names related to the subway-at-sunset image."}, {"audit_id": "IMG-V2-023", "query": "What activity is described in the April 2023 image annotation?", "target_keyword": "concert fan support moments", "target_keyword_role": "DESIGN REFERENCE — not a generated model output", "split": "single_hop", "retrieved_context": ["April 2023 photos", "2023 Chinese New Year photos January 23, 2023", "2023 Chinese New Year photos January 23, 2023", "December 17, 2023 photos", "December 17, 2023 photos"], "answer": "The retrieved context does not provide any specific information about the activity described in the April 2023 image annotation. Therefore, that part of the query remains unresolved."}, {"audit_id": "IMG-V2-024", "query": "What place is explicitly named in the riverside image annotation?", "target_keyword": "Anqiao Port", "target_keyword_role": "DESIGN REFERENCE — not a generated model output", "split": "single_hop", "retrieved_context": ["Binjiang District photos", "Binjiang District photos", "Binjiang District photos", "Gongshu riverside", "Gongshu riverside"], "answer": "The retrieved context does not explicitly name any place in the riverside image annotation. Therefore, the specific part of the query regarding the name of the place is unresolved, as the context does not establish it."}, {"audit_id": "IMG-V2-025", "query": "What date is explicitly named in the black-pigeon image annotation?", "target_keyword": "November 15, 2025", "target_keyword_role": "DESIGN REFERENCE — not a generated model output", "split": "single_hop", "retrieved_context": ["interacting with black pigeons in early autumn photos from November 15, 2025", "interacting with black pigeons in early autumn photos from November 15, 2025", "April 2023 photos", "May 2018 photos", "May 2018 photos"], "answer": "The date explicitly named in the black-pigeon image annotation is November 15, 2025 (Document 1 and Document 2). The retrieved context does not establish any other specific dates related to the black-pigeon images."}];
+    const REVIEWER_LABEL = "Reviewer 1";
+    const DOWNLOAD_STEM = "reviewer_1";
+    const PACKET_VERSION = "image-descriptions-v2";
+    const SCOPE_NOTE = "Annotation-derived single-hop design over image text proxies only. The 3,356-row corpus contains 2,000 ESC-50 category-only audio metadata rows and 1,356 image annotation/text-proxy rows; no audio files/recordings or raw image media are available to this audit. Audio labels are not presented as real recordings, and image descriptions are not raw-image understanding. These questions are not independent held-out evaluation items.";
+    const CONTENT_FINGERPRINT = "0355225f2538676f9d8dce3b5d4e3bdd31b34dd0d3a626ee7dab3a1e90c791e5";
+    const PREVIEW_ONLY = false;
+    const FORM_VERSION = "form-v2";
+    const FIELDS = [
+      {
+        key: "faithfulness_label",
+        title: "1. Is the answer supported by the context?",
+        help: "Check whether the answer’s factual claims are supported by the retrieved text.",
+        options: [
+          ["supported", "Supported", "Every important claim is backed by the context."],
+          ["mixed", "Partly supported", "Some claims are supported, but another is overstated or unclear."],
+          ["unsupported", "Not supported", "The main claims are missing from or contradicted by the context."]
+        ]
+      },
+      {
+        key: "relevance_label",
+        title: "2. Does the answer address the question?",
+        help: "Check whether it answers the question and addresses the requested target detail.",
+        options: [
+          ["direct", "Direct", "It answers the question and addresses the target detail."],
+          ["partial", "Partly", "It answers only part, is vague, or misses the target detail."],
+          ["off_topic", "Off topic", "It does not answer the question or answers a different task."]
+        ]
+      },
+      {
+        key: "correctness_label",
+        title: "3. Is the target detail correct?",
+        help: "Check only what can be supported by the retrieved context; do not guess.",
+        options: [
+          ["correct", "Correct", "The target detail is supported by the context."],
+          ["uncertain", "Uncertain", "The context is insufficient or ambiguous."],
+          ["incorrect", "Incorrect", "The target detail is wrong or contradicted by the context."]
+        ]
+      }
+    ];
+    const DEFAULTS = {
+      faithfulness_label: "supported",
+      relevance_label: "direct",
+      correctness_label: "correct"
+    };
+    // This deliberately does not read the pre-versioned reviewer+count key.
+    // A changed packet must never inherit labels from an unrelated packet.
+    const STORAGE_KEY = "memoryverse-human-audit-" + FORM_VERSION + "-" +
+      DOWNLOAD_STEM + "-" + PACKET_VERSION + "-" + CONTENT_FINGERPRINT;
+    let currentIndex = 0;
+    let answers = Object.create(null);
+    let storageUnavailable = false;
+    let draftMessage = "";
+
+    function isPlainObject(value) {
+      return value !== null && typeof value === "object" && !Array.isArray(value);
+    }
+
+    function allowedValues(field) {
+      return field.options.map(function (option) { return option[0]; });
+    }
+
+    function validDraftRow(value, auditId) {
+      if (!isPlainObject(value) || value.audit_id !== auditId) return null;
+      const row = {audit_id: auditId, notes: ""};
+      if (typeof value.notes === "string") row.notes = value.notes;
+      else if (value.notes !== undefined) return null;
+      for (const field of FIELDS) {
+        const label = value[field.key];
+        if (label === undefined || label === "") {
+          row[field.key] = "";
+        } else if (typeof label === "string" && allowedValues(field).indexOf(label) !== -1) {
+          row[field.key] = label;
+        } else {
+          return null;
+        }
+      }
+      return row;
+    }
+
+    function loadDraft() {
+      if (PREVIEW_ONLY) return;
+      try {
+        const savedText = window.localStorage.getItem(STORAGE_KEY);
+        if (!savedText) return;
+        const saved = JSON.parse(savedText);
+        if (!isPlainObject(saved) || !isPlainObject(saved.answers)) {
+          draftMessage = "A saved draft was ignored because it was not valid for this packet.";
+          return;
+        }
+        let savedIndex = 0;
+        if (saved.currentIndex !== undefined) {
+          if (typeof saved.currentIndex !== "number" ||
+              !Number.isInteger(saved.currentIndex) ||
+              saved.currentIndex < 0 || saved.currentIndex >= CASES.length) {
+            draftMessage = "A saved draft case position was invalid; it was opened at the first case.";
+          } else {
+            savedIndex = saved.currentIndex;
+          }
+        }
+        const knownIds = new Set(CASES.map(function (item) { return item.audit_id; }));
+        const loaded = Object.create(null);
+        Object.keys(saved.answers).forEach(function (auditId) {
+          if (!knownIds.has(auditId)) return;
+          const row = validDraftRow(saved.answers[auditId], auditId);
+          if (row) loaded[auditId] = row;
+        });
+        answers = loaded;
+        currentIndex = savedIndex;
+      } catch (error) {
+        storageUnavailable = true;
+      }
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? "").replace(/[&<>"']/g, function (character) {
+        return {"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"}[character];
+      });
+    }
+
+    function currentCase() { return CASES[currentIndex]; }
+
+    function setStorageWarning(message) {
+      const warning = document.getElementById("storage-warning");
+      if (!message) {
+        warning.hidden = true;
+        warning.textContent = "";
+        return;
+      }
+      warning.hidden = false;
+      warning.textContent = message;
+    }
+
+    function saveStorage() {
+      if (PREVIEW_ONLY) return true;
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify({currentIndex, answers}));
+        return true;
+      } catch (error) {
+        storageUnavailable = true;
+        setStorageWarning("Draft storage is unavailable in this browser; changes remain only in this page and will be lost when it closes.");
+        return false;
+      }
+    }
+
+    function collectCurrent() {
+      const item = currentCase();
+      if (!item) return;
+      const row = {audit_id: item.audit_id, notes: document.getElementById("notes").value.trim()};
+      FIELDS.forEach(function (field) {
+        const selected = document.querySelector('input[name="' + field.key + '"]:checked');
+        row[field.key] = selected ? selected.value : "";
+      });
+      answers[item.audit_id] = row;
+    }
+
+    function rowComplete(row) {
+      if (!row) return false;
+      const hasAllLabels = FIELDS.every(function (field) { return Boolean(row[field.key]); });
+      const needsNote = FIELDS.some(function (field) { return row[field.key] !== DEFAULTS[field.key]; });
+      return hasAllLabels && (!needsNote || Boolean((row.notes || "").trim()));
+    }
+
+    function completedCount() {
+      return CASES.filter(function (item) { return rowComplete(answers[item.audit_id]); }).length;
+    }
+
+    function updateProgress() {
+      document.getElementById("completed").textContent = PREVIEW_ONLY
+        ? "Preview only"
+        : completedCount() + " completed";
+    }
+
+    function formatSplit(value) {
+      const labels = {
+        single_hop: "single-hop",
+        multi_hop: "multi-hop",
+        metadata_lookup: "metadata lookup"
+      };
+      const text = String(value || "single_hop");
+      return labels[text] || text.replace(/_/g, "-");
+    }
+
+    function render() {
+      const item = currentCase();
+      if (!item) return;
+      const prior = answers[item.audit_id] || {};
+      document.getElementById("reviewer").textContent = REVIEWER_LABEL + " · work independently";
+      document.getElementById("packet-version").textContent = PACKET_VERSION;
+      document.getElementById("content-fingerprint").textContent = CONTENT_FINGERPRINT.slice(0, 12);
+      document.getElementById("counter").textContent = "Case " + (currentIndex + 1) + " of " + CASES.length;
+      updateProgress();
+      document.getElementById("case-id").textContent = item.audit_id;
+      document.getElementById("case-split").textContent = formatSplit(item.split);
+      document.getElementById("query").textContent = item.query;
+      document.getElementById("target").textContent = item.target_keyword;
+      document.querySelector("#context").previousElementSibling.textContent = PREVIEW_ONLY
+        ? "Available reference context"
+        : "Retrieved context";
+      document.getElementById("context").innerHTML = item.retrieved_context.map(function (value, index) {
+        return "<li><strong>Context " + (index + 1) + ":</strong> " + escapeHtml(value) + "</li>";
+      }).join("");
+      document.getElementById("answer").textContent = item.answer || "No generated answer is included in this packet.";
+      document.getElementById("decisions").innerHTML = FIELDS.map(function (field) {
+        const options = field.options.map(function (option) {
+          const checked = prior[field.key] === option[0] ? " checked" : "";
+          return "<label class=\"option\"><input type=\"radio\" name=\"" + field.key +
+            "\" value=\"" + option[0] + "\"" + checked + ">" +
+            "<span><strong>" + option[1] + "</strong> — " + escapeHtml(option[2]) +
+            "<br><code>" + option[0] + "</code></span></label>";
+        }).join("");
+        return "<h3>" + field.title + "</h3><p class=\"decision-help\">" + field.help +
+          "</p><div class=\"option-list\">" + options + "</div>";
+      }).join("");
+      document.getElementById("notes").value = prior.notes || "";
+      document.getElementById("previous").disabled = currentIndex === 0;
+      document.getElementById("next").disabled = PREVIEW_ONLY && currentIndex === CASES.length - 1;
+      document.getElementById("next").textContent = PREVIEW_ONLY
+        ? "Next"
+        : (currentIndex === CASES.length - 1 ? "Save final case" : "Save and next");
+      document.getElementById("decisions").hidden = PREVIEW_ONLY;
+      document.getElementById("notes-section").hidden = PREVIEW_ONLY;
+      document.getElementById("answer-panel").hidden = PREVIEW_ONLY;
+      document.getElementById("save").hidden = PREVIEW_ONLY;
+      document.getElementById("download").hidden = PREVIEW_ONLY;
+      document.getElementById("preview-banner").hidden = !PREVIEW_ONLY;
+      if (PREVIEW_ONLY) {
+        document.getElementById("review-instructions").textContent =
+          "Read the question and available reference context. This preview contains no generated answer and does not collect ratings.";
+      }
+      document.getElementById("scope-note").hidden = !SCOPE_NOTE;
+      document.getElementById("scope-note").textContent = SCOPE_NOTE
+        ? "Evaluation scope: " + SCOPE_NOTE
+        : "";
+      if (storageUnavailable) {
+        setStorageWarning("Draft storage is unavailable in this browser; changes remain only in this page and will be lost when it closes.");
+      } else {
+        setStorageWarning("");
+      }
+      document.getElementById("status").textContent = draftMessage;
+    }
+
+    function validateCurrent(showMessage) {
+      collectCurrent();
+      const item = currentCase();
+      if (!item) return false;
+      const row = answers[item.audit_id];
+      const missing = FIELDS.filter(function (field) { return !row[field.key]; });
+      if (missing.length) {
+        if (showMessage) alert("Please choose one option in every section before continuing.");
+        return false;
+      }
+      const needsNote = FIELDS.some(function (field) { return row[field.key] !== DEFAULTS[field.key]; });
+      if (needsNote && !row.notes) {
+        if (showMessage) alert("Please add a short note for a partly supported, uncertain, or negative choice.");
+        return false;
+      }
+      return true;
+    }
+
+    function move(delta) {
+      if (!PREVIEW_ONLY) {
+        collectCurrent();
+        if (delta > 0 && !validateCurrent(true)) return;
+      }
+      currentIndex = Math.max(0, Math.min(CASES.length - 1, currentIndex + delta));
+      if (!PREVIEW_ONLY) saveStorage();
+      render();
+      window.scrollTo({top: 0, behavior: "smooth"});
+    }
+
+    document.getElementById("previous").addEventListener("click", function () { move(-1); });
+    document.getElementById("next").addEventListener("click", function () { move(1); });
+    document.getElementById("decisions").addEventListener("change", function () {
+      if (PREVIEW_ONLY) return;
+      collectCurrent();
+      saveStorage();
+      updateProgress();
+    });
+    document.getElementById("notes").addEventListener("input", function () {
+      if (PREVIEW_ONLY) return;
+      collectCurrent();
+      saveStorage();
+      updateProgress();
+    });
+    document.getElementById("save").addEventListener("click", function () {
+      if (PREVIEW_ONLY) return;
+      collectCurrent();
+      saveStorage();
+      document.getElementById("status").textContent = "Draft saved in this browser.";
+      updateProgress();
+    });
+    document.getElementById("download").addEventListener("click", function () {
+      if (PREVIEW_ONLY) return;
+      collectCurrent();
+      const firstIncomplete = CASES.findIndex(function (item) { return !rowComplete(answers[item.audit_id]); });
+      if (firstIncomplete !== -1) {
+        currentIndex = firstIncomplete;
+        saveStorage();
+        render();
+        alert("Complete every case before downloading the CSV. This is the first incomplete case.");
+        window.scrollTo({top: 0, behavior: "smooth"});
+        return;
+      }
+      const headers = ["audit_id", "faithfulness_label", "relevance_label", "correctness_label", "notes"];
+      function csvEscape(value) {
+        const text = String(value ?? "");
+        return /[",\n\r]/.test(text) ? '"' + text.replace(/"/g, '""') + '"' : text;
+      }
+      const lines = [headers.join(",")].concat(CASES.map(function (item) {
+        const row = answers[item.audit_id];
+        return headers.map(function (header) { return csvEscape(row[header]); }).join(",");
+      }));
+      const blob = new Blob([lines.join("\r\n") + "\r\n"], {type: "text/csv;charset=utf-8"});
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = DOWNLOAD_STEM + ".csv";
+      link.click();
+      URL.revokeObjectURL(link.href);
+      document.getElementById("status").textContent = "CSV downloaded. Send it to the project owner.";
+    });
+
+    loadDraft();
+    render();
+  </script>
+</body>
+</html>

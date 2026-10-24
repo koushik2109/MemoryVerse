@@ -187,6 +187,29 @@ class AIExtractor:
             meta = AIExtractor.extract_metadata(file_bytes, mime_type)
             meta["content_hash"] = content_hash
 
+            # 1b. Resolve location with an EXIF-first policy.  Exact EXIF GPS
+            # values are retained as-is; visual inference only supplies a
+            # candidate name when GPS is absent and a configured VLM is usable.
+            try:
+                from app.services.location_inference import LocationInferenceService
+
+                location_inference = LocationInferenceService.infer(
+                    file_bytes,
+                    mime_type,
+                    exif_metadata=meta,
+                )
+            except Exception as location_err:
+                logger.warning(f"Location inference skipped safely: {location_err}")
+                location_inference = {
+                    "candidate_location": None,
+                    "confidence": 0.0,
+                    "evidence": "Location inference failed; existing media metadata was preserved.",
+                    "decision_status": "error",
+                    "source": "none",
+                    "latitude": meta.get("latitude"),
+                    "longitude": meta.get("longitude"),
+                }
+
             # 2. Check if identical content hash was already indexed
             supabase = get_supabase_client()
             reused = False
@@ -287,16 +310,39 @@ class AIExtractor:
                 combined_metadata = {
                     "exif": meta,
                     "ai_tags": tags,
+                    "location_inference": location_inference,
                     "duplicate_info": duplicate_info,
                     "processed_at": datetime.now(timezone.utc).isoformat()
                 }
+
+                # Keep inferred names separate from the existing EXIF object,
+                # while making a grounded candidate available to the existing
+                # top-level location field used by search and timeline views.
+                inferred_location = location_inference.get("candidate_location")
+                inferred_status = location_inference.get("decision_status")
+                try:
+                    inferred_confidence = float(location_inference.get("confidence") or 0.0)
+                except (TypeError, ValueError):
+                    inferred_confidence = 0.0
+                trusted_inferred_location = (
+                    inferred_location
+                    if inferred_location
+                    and inferred_confidence >= 0.65
+                    and inferred_status in {"exif_confirmed", "vlm_candidate"}
+                    else None
+                )
+                location_name = (
+                    meta.get("location_name")
+                    or trusted_inferred_location
+                    or (combined_metadata["ai_tags"]["scenes"][0] if combined_metadata["ai_tags"]["scenes"] else None)
+                )
 
                 # Update PostgreSQL media table with extracted details
                 supabase.table("media").update({
                     "taken_at": meta.get("taken_at"),
                     "latitude": meta.get("latitude"),
                     "longitude": meta.get("longitude"),
-                    "location_name": meta.get("location_name") or (combined_metadata["ai_tags"]["scenes"][0] if combined_metadata["ai_tags"]["scenes"] else None),
+                    "location_name": location_name,
                     "metadata": combined_metadata
                 }).eq("id", media_id).execute()
 

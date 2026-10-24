@@ -1,0 +1,485 @@
+{
+  "packet_version": "image-descriptions-v2",
+  "question_set_sha256": "18ea0056c984c01f996e5d54c743d8ba0ab88a34aa973c07e69c942ab13813f2",
+  "corpus_sha256": "899acf2311721f7ac7e764213c255cf7a2de28cd532ae6ca75864a2deaf24e52",
+  "model": "gpt-4o-mini",
+  "model_sha256": "8a43428062692d369599bd00272fd529aa5949ba715361e20f54e63c444ccea1",
+  "config_sha256": "85dbf069ff69db969e1f049701da9c3af1c080d40b98ed671ccf35388a8cdc39",
+  "receipts": {
+    "IMG-V2-001": {
+      "identity": {
+        "question_id": "IMG-V2-001",
+        "question_set_sha256": "18ea0056c984c01f996e5d54c743d8ba0ab88a34aa973c07e69c942ab13813f2",
+        "corpus_sha256": "899acf2311721f7ac7e764213c255cf7a2de28cd532ae6ca75864a2deaf24e52",
+        "prompt_sha256": "41b43ed7c0eb9efffa93785051e43c642968fa92a7bf3b9ef577a5d7a5757526",
+        "model_sha256": "8a43428062692d369599bd00272fd529aa5949ba715361e20f54e63c444ccea1",
+        "model": "gpt-4o-mini",
+        "config_sha256": "85dbf069ff69db969e1f049701da9c3af1c080d40b98ed671ccf35388a8cdc39"
+      },
+      "retrieved_context": [
+        "marathon volunteers handing water December 17, 2023 photos",
+        "May 2018 photos",
+        "May 2018 photos",
+        "May 2018 photos",
+        "May 2018 photos"
+      ],
+      "answer": "The date associated with the marathon volunteers handing water is December 17, 2023 (Document 1). The retrieved context does not provide any additional information regarding the image annotation itself."
+    },
+    "IMG-V2-002": {
+      "identity": {
+        "question_id": "IMG-V2-002",
+        "question_set_sha256": "18ea0056c984c01f996e5d54c743d8ba0ab88a34aa973c07e69c942ab13813f2",
+        "corpus_sha256": "899acf2311721f7ac7e764213c255cf7a2de28cd532ae6ca75864a2deaf24e52",
+        "prompt_sha256": "ee0f3966a471972bab06879048a76373b1f6b6ab65f631f3b0fe83424bcd8af3",
+        "model_sha256": "8a43428062692d369599bd00272fd529aa5949ba715361e20f54e63c444ccea1",
+        "model": "gpt-4o-mini",
+        "config_sha256": "85dbf069ff69db969e1f049701da9c3af1c080d40b98ed671ccf35388a8cdc39"
+      },
+      "retrieved_context": [
+        "Putuo Mountain coast first half of 2024 photos",
+        "photos from May 2024",
+        "May 2018 photos",
+        "May 2018 photos",
+        "May 2018 photos"
+      ],
+      "answer": "The time period explicitly named in the image annotation for the Putuo Mountain coast photos is the first half of 2024 (Document 1). The retrieved context does not establish any other specific time periods for the Putuo Mountain coast photos beyond this."
+    },
+    "IMG-V2-003": {
+      "identity": {
+        "question_id": "IMG-V2-003",
+        "question_set_sha256": "18ea0056c984c01f996e5d54c743d8ba0ab88a34aa973c07e69c942ab13813f2",
+        "corpus_sha256": "899acf2311721f7ac7e764213c255cf7a2de28cd532ae6ca75864a2deaf24e52",
+        "prompt_sha256": "ac7078cafd0cc93dae9442948b658cb0de9e0fc9a178e73de35ddf71ec241320",
+        "model_sha256": "8a43428062692d369599bd00272fd529aa5949ba715361e20f54e63c444ccea1",
+        "model": "gpt-4o-mini",
+        "config_sha256": "85dbf069ff69db969e1f049701da9c3af1c080d40b98ed671ccf35388a8cdc39"
+      },
+      "retrieved_context": [
+        "driving over bridge at sunset",
+        "peaceful sunset by the lake",
+        "peaceful sunset by the lake",
+        "peaceful sunset by the lake",
+        "dam machinery stretching to the horizon Three Gorges Dam sunset view photos in Yiling District"
+      ],
+      "answer": "The action described for the image annotation is \"driving over bridge at sunset\" (Document 1). The retrieved context does not establish any additional details about the bridge or the nature of the sunset beyond this action."
+    },
+    "IMG-V2-004": {
+      "identity": {
+        "question_id": "IMG-V2-004",
+        "question_set_sha256": "18ea0056c984c01f996e5d54c743d8ba0ab88a34aa973c07e69c942ab13813f2",
+        "corpus_sha256": "899acf2311721f7ac7e764213c255cf7a2de28cd532ae6ca75864a2deaf24e52",
+        "prompt_sha256": "aea42bc8d4d443d32d07aa80f39640b821c270ffbf79c20a8779d083e81f42f9",
+        "model_sha256": "8a43428062692d369599bd00272fd529aa5949ba715361e20f54e63c444ccea1",
+        "model": "gpt-4o-mini",
+        "config_sha256": "85dbf069ff69db969e1f049701da9c3af1c080d40b98ed671ccf35388a8cdc39"
+      },
+      "retrieved_context": [
+        "friends toasting at party Qiantang photos",
+        "friends toasting at party Qiantang photos",
+        "May 2018 photos",
+        "May 2018 photos",
+        "May 2018 photos"
+      ],
+      "answer": "The action described in the party image annotation is friends toasting. This is supported by Document 1 and Document 2. The retrieved context does not provide any additional details about the specific image or its content beyond the action of toasting."
+    },
+    "IMG-V2-005": {
+      "identity": {
+        "question_id": "IMG-V2-005",
+        "question_set_sha256": "18ea0056c984c01f996e5d54c743d8ba0ab88a34aa973c07e69c942ab13813f2",
+        "corpus_sha256": "899acf2311721f7ac7e764213c255cf7a2de28cd532ae6ca75864a2deaf24e52",
+        "prompt_sha256": "7dbb2590f6468f626edd697d22ccd1650527b2756c8617dec2649abde4b0db23",
+        "model_sha256": "8a43428062692d369599bd00272fd529aa5949ba715361e20f54e63c444ccea1",
+        "model": "gpt-4o-mini",
+        "config_sha256": "85dbf069ff69db969e1f049701da9c3af1c080d40b98ed671ccf35388a8cdc39"
+      },
+      "retrieved_context": [
+        "22nd birthday celebration",
+        "22nd birthday celebration",
+        "green grape cake 22nd birthday celebration",
+        "green grape cake 22nd birthday celebration",
+        "green grape cake 22nd birthday celebration"
+      ],
+      "answer": "The celebration detail explicitly named in the birthday image annotation is \"22nd birthday celebration\" (Document 1, Document 2). The retrieved context does not establish any specific details about the image itself or its content beyond the celebration name. There are no verified raw media or descriptive text proxies provided in the context."
+    },
+    "IMG-V2-006": {
+      "identity": {
+        "question_id": "IMG-V2-006",
+        "question_set_sha256": "18ea0056c984c01f996e5d54c743d8ba0ab88a34aa973c07e69c942ab13813f2",
+        "corpus_sha256": "899acf2311721f7ac7e764213c255cf7a2de28cd532ae6ca75864a2deaf24e52",
+        "prompt_sha256": "acf7d997e5e13868a08963581e5ec0ae510daa17db2d1c459e67ef48beeea018",
+        "model_sha256": "8a43428062692d369599bd00272fd529aa5949ba715361e20f54e63c444ccea1",
+        "model": "gpt-4o-mini",
+        "config_sha256": "85dbf069ff69db969e1f049701da9c3af1c080d40b98ed671ccf35388a8cdc39"
+      },
+      "retrieved_context": [
+        "friends toasting at party Qiantang photos",
+        "friends toasting at party Qiantang photos",
+        "friends toasting at party 22nd birthday celebration",
+        "friends toasting at party",
+        "Western winter meal in Hangzhou Qiantang photos"
+      ],
+      "answer": "The place tag explicitly present in the annotation for the toasting photo is \"Qiantang,\" as mentioned in Documents 1 and 2. The retrieved context does not establish any other specific place tags associated with the toasting photo."
+    },
+    "IMG-V2-007": {
+      "identity": {
+        "question_id": "IMG-V2-007",
+        "question_set_sha256": "18ea0056c984c01f996e5d54c743d8ba0ab88a34aa973c07e69c942ab13813f2",
+        "corpus_sha256": "899acf2311721f7ac7e764213c255cf7a2de28cd532ae6ca75864a2deaf24e52",
+        "prompt_sha256": "4fd928354f72d7d6b6db87bd972f5da6e94fec0e96c97a9ed4e24fe44b38255c",
+        "model_sha256": "8a43428062692d369599bd00272fd529aa5949ba715361e20f54e63c444ccea1",
+        "model": "gpt-4o-mini",
+        "config_sha256": "85dbf069ff69db969e1f049701da9c3af1c080d40b98ed671ccf35388a8cdc39"
+      },
+      "retrieved_context": [
+        "Black Myth Yellow Wind Demon concept art",
+        "handmade sculpture before painting",
+        "handmade sculpture before painting",
+        "cute ceramic figurine handmade sculpture before painting",
+        "Big Head Son and Small Head Dad sand sculpture photos with Mingming Lele and Xiaoming group photo Qinhuangdao photos summer 2019"
+      ],
+      "answer": "The retrieved context does not provide a specific description of the object in the art image annotation. It mentions \"Black Myth Yellow Wind Demon concept art\" (Document 1), but does not elaborate on the object itself. Therefore, the context does not establish what object is described in the art image annotation."
+    },
+    "IMG-V2-008": {
+      "identity": {
+        "question_id": "IMG-V2-008",
+        "question_set_sha256": "18ea0056c984c01f996e5d54c743d8ba0ab88a34aa973c07e69c942ab13813f2",
+        "corpus_sha256": "899acf2311721f7ac7e764213c255cf7a2de28cd532ae6ca75864a2deaf24e52",
+        "prompt_sha256": "c004143fdb3c57460733fcc38479b1fc797ee73ac6b7966359d9708429d64db1",
+        "model_sha256": "8a43428062692d369599bd00272fd529aa5949ba715361e20f54e63c444ccea1",
+        "model": "gpt-4o-mini",
+        "config_sha256": "85dbf069ff69db969e1f049701da9c3af1c080d40b98ed671ccf35388a8cdc39"
+      },
+      "retrieved_context": [
+        "quiet beach in Phuket's Karon",
+        "quiet beach in Phuket's Karon",
+        "cold blue beach photos in Yantian District",
+        "cold blue beach photos in Yantian District",
+        "my vintage seaside outfit cold blue beach photos including me photos in Yantian District"
+      ],
+      "answer": "The place name explicitly included in the quiet-beach image annotation is \"Phuket's Karon\" (Document 1 and Document 2). The retrieved context does not establish any additional details about the image annotation beyond this place name."
+    },
+    "IMG-V2-009": {
+      "identity": {
+        "question_id": "IMG-V2-009",
+        "question_set_sha256": "18ea0056c984c01f996e5d54c743d8ba0ab88a34aa973c07e69c942ab13813f2",
+        "corpus_sha256": "899acf2311721f7ac7e764213c255cf7a2de28cd532ae6ca75864a2deaf24e52",
+        "prompt_sha256": "43f0acc0bf588df52bd4f88e110c25c14b08aa9123662b3d1270303304884cf3",
+        "model_sha256": "8a43428062692d369599bd00272fd529aa5949ba715361e20f54e63c444ccea1",
+        "model": "gpt-4o-mini",
+        "config_sha256": "85dbf069ff69db969e1f049701da9c3af1c080d40b98ed671ccf35388a8cdc39"
+      },
+      "retrieved_context": [
+        "fancy drink before Christmas Qiantang photos",
+        "fancy drink before Christmas",
+        "fancy drink before Christmas",
+        "fancy drink before Christmas",
+        "fancy drink before Christmas Qiantang photos first half of 2024 photos"
+      ],
+      "answer": "The retrieved context does not explicitly describe any specific drink in the fancy-drink image annotation. Therefore, the query about the specific drink remains unresolved as the context does not establish it."
+    },
+    "IMG-V2-010": {
+      "identity": {
+        "question_id": "IMG-V2-010",
+        "question_set_sha256": "18ea0056c984c01f996e5d54c743d8ba0ab88a34aa973c07e69c942ab13813f2",
+        "corpus_sha256": "899acf2311721f7ac7e764213c255cf7a2de28cd532ae6ca75864a2deaf24e52",
+        "prompt_sha256": "3c36f52c5c0ee4ce2bf191cbcfd8643addea086b28d8fe3fa639daec067e2a34",
+        "model_sha256": "8a43428062692d369599bd00272fd529aa5949ba715361e20f54e63c444ccea1",
+        "model": "gpt-4o-mini",
+        "config_sha256": "85dbf069ff69db969e1f049701da9c3af1c080d40b98ed671ccf35388a8cdc39"
+      },
+      "retrieved_context": [
+        "driverless car in Pingyao",
+        "Nandaihe cable car Qinhuangdao photos summer 2019",
+        "cat under the car",
+        "cat under the car",
+        "cozy car moment Summer 2025 Ming's photos"
+      ],
+      "answer": "The place explicitly named for the driverless-car image annotation is Pingyao (Document 1). The retrieved context does not establish any additional details about the driverless car or its surroundings."
+    },
+    "IMG-V2-011": {
+      "identity": {
+        "question_id": "IMG-V2-011",
+        "question_set_sha256": "18ea0056c984c01f996e5d54c743d8ba0ab88a34aa973c07e69c942ab13813f2",
+        "corpus_sha256": "899acf2311721f7ac7e764213c255cf7a2de28cd532ae6ca75864a2deaf24e52",
+        "prompt_sha256": "92ca4e26ca7b778876a16f9955feed95b5353459f125fb3a617329cf872d952f",
+        "model_sha256": "8a43428062692d369599bd00272fd529aa5949ba715361e20f54e63c444ccea1",
+        "model": "gpt-4o-mini",
+        "config_sha256": "85dbf069ff69db969e1f049701da9c3af1c080d40b98ed671ccf35388a8cdc39"
+      },
+      "retrieved_context": [
+        "cute ceramic figurine",
+        "cute ceramic figurine handmade sculpture before painting",
+        "handmade sculpture before painting",
+        "handmade sculpture before painting",
+        "Big Head Son and Small Head Dad sand sculpture photos with Mingming Lele and Xiaoming group photo Qinhuangdao photos summer 2019"
+      ],
+      "answer": "The retrieved context does not explicitly name the material for the figurine in the image annotation. It mentions \"cute ceramic figurine\" (Document 1) but does not provide specific details about the material used. Therefore, the query remains unresolved regarding the explicit material name."
+    },
+    "IMG-V2-012": {
+      "identity": {
+        "question_id": "IMG-V2-012",
+        "question_set_sha256": "18ea0056c984c01f996e5d54c743d8ba0ab88a34aa973c07e69c942ab13813f2",
+        "corpus_sha256": "899acf2311721f7ac7e764213c255cf7a2de28cd532ae6ca75864a2deaf24e52",
+        "prompt_sha256": "5acca07aa43dbd6e35a85e1400bc604997b7681dee5615f2ffee3a4e5e939140",
+        "model_sha256": "8a43428062692d369599bd00272fd529aa5949ba715361e20f54e63c444ccea1",
+        "model": "gpt-4o-mini",
+        "config_sha256": "85dbf069ff69db969e1f049701da9c3af1c080d40b98ed671ccf35388a8cdc39"
+      },
+      "retrieved_context": [
+        "handmade sculpture before painting",
+        "handmade sculpture before painting",
+        "ancient ceramic horse sculpture details",
+        "cute ceramic figurine handmade sculpture before painting",
+        "Wukong statue details"
+      ],
+      "answer": "The retrieved context does not explicitly describe the state of the sculpture annotation."
+    },
+    "IMG-V2-013": {
+      "identity": {
+        "question_id": "IMG-V2-013",
+        "question_set_sha256": "18ea0056c984c01f996e5d54c743d8ba0ab88a34aa973c07e69c942ab13813f2",
+        "corpus_sha256": "899acf2311721f7ac7e764213c255cf7a2de28cd532ae6ca75864a2deaf24e52",
+        "prompt_sha256": "e06cc0d3c772db8e59ff66746f576592dd835a256bad92ed3fad8f31e5faf25d",
+        "model_sha256": "8a43428062692d369599bd00272fd529aa5949ba715361e20f54e63c444ccea1",
+        "model": "gpt-4o-mini",
+        "config_sha256": "85dbf069ff69db969e1f049701da9c3af1c080d40b98ed671ccf35388a8cdc39"
+      },
+      "retrieved_context": [
+        "wedding group photo with friends 2017 Mid-Autumn Festival photos",
+        "Xiaobao at the aquarium photos with Mingming Lele and Xiaoming group photo",
+        "matching rings with boyfriend subway photo with boyfriend cozy car moment",
+        "subway photo with boyfriend me and boyfriend cuddling Ming and me couple outfit selfie",
+        "wedding group photo with friends"
+      ],
+      "answer": "The retrieved context does not explicitly describe any specific object in the couple-photo annotation. It mentions a \"subway photo with boyfriend\" and \"couple outfit selfie,\" but does not provide details about any objects. Therefore, the specific object in the couple-photo annotation is unresolved."
+    },
+    "IMG-V2-014": {
+      "identity": {
+        "question_id": "IMG-V2-014",
+        "question_set_sha256": "18ea0056c984c01f996e5d54c743d8ba0ab88a34aa973c07e69c942ab13813f2",
+        "corpus_sha256": "899acf2311721f7ac7e764213c255cf7a2de28cd532ae6ca75864a2deaf24e52",
+        "prompt_sha256": "00e7dcc9893c405b89651c2a6b325ddfbe2550c88197a739e32ed038990e9321",
+        "model_sha256": "8a43428062692d369599bd00272fd529aa5949ba715361e20f54e63c444ccea1",
+        "model": "gpt-4o-mini",
+        "config_sha256": "85dbf069ff69db969e1f049701da9c3af1c080d40b98ed671ccf35388a8cdc39"
+      },
+      "retrieved_context": [
+        "chocolate popsicle by cartoon deer statue",
+        "Black Myth Four Sisters life-size statue",
+        "Christmas tree made of cups",
+        "ancient ceramic horse sculpture details",
+        "pig-like museum exhibit"
+      ],
+      "answer": "The retrieved context does not establish what snack is explicitly described next to the deer statue."
+    },
+    "IMG-V2-015": {
+      "identity": {
+        "question_id": "IMG-V2-015",
+        "question_set_sha256": "18ea0056c984c01f996e5d54c743d8ba0ab88a34aa973c07e69c942ab13813f2",
+        "corpus_sha256": "899acf2311721f7ac7e764213c255cf7a2de28cd532ae6ca75864a2deaf24e52",
+        "prompt_sha256": "52d1f392abde0198bdb7277c1e3c33474135a5289a0804a44e1ef41f9640c4fc",
+        "model_sha256": "8a43428062692d369599bd00272fd529aa5949ba715361e20f54e63c444ccea1",
+        "model": "gpt-4o-mini",
+        "config_sha256": "85dbf069ff69db969e1f049701da9c3af1c080d40b98ed671ccf35388a8cdc39"
+      },
+      "retrieved_context": [
+        "handmade noodles",
+        "Summer 2025 Ming's photos preparing ingredients in the kitchen",
+        "Western winter meal in Hangzhou Qiantang photos",
+        "Puji noodles",
+        "Puji noodles"
+      ],
+      "answer": "The food explicitly described in the noodle image annotation is \"Puji noodles\" (Document 4 and Document 5). The retrieved context does not provide any specific image annotations or descriptions beyond the mention of Puji noodles."
+    },
+    "IMG-V2-016": {
+      "identity": {
+        "question_id": "IMG-V2-016",
+        "question_set_sha256": "18ea0056c984c01f996e5d54c743d8ba0ab88a34aa973c07e69c942ab13813f2",
+        "corpus_sha256": "899acf2311721f7ac7e764213c255cf7a2de28cd532ae6ca75864a2deaf24e52",
+        "prompt_sha256": "f831ad407dfc2ff19b5f8312d43539a63b3e382c6575b319d39dc672fd814cc0",
+        "model_sha256": "8a43428062692d369599bd00272fd529aa5949ba715361e20f54e63c444ccea1",
+        "model": "gpt-4o-mini",
+        "config_sha256": "85dbf069ff69db969e1f049701da9c3af1c080d40b98ed671ccf35388a8cdc39"
+      },
+      "retrieved_context": [
+        "dry pot dish with peace sign Qiantang photos",
+        "making dinner in the kitchen",
+        "making dinner in the kitchen",
+        "making dinner in the kitchen",
+        "making dinner in the kitchen"
+      ],
+      "answer": "The hand gesture explicitly described with the dry-pot dish is a peace sign (Document 1). The retrieved context does not establish any additional details about the gesture or its significance."
+    },
+    "IMG-V2-017": {
+      "identity": {
+        "question_id": "IMG-V2-017",
+        "question_set_sha256": "18ea0056c984c01f996e5d54c743d8ba0ab88a34aa973c07e69c942ab13813f2",
+        "corpus_sha256": "899acf2311721f7ac7e764213c255cf7a2de28cd532ae6ca75864a2deaf24e52",
+        "prompt_sha256": "734acdd63ddead4c2cbe8e63e7c5c268b883cfe98f1cd4fc24bd1a9c3b447650",
+        "model_sha256": "8a43428062692d369599bd00272fd529aa5949ba715361e20f54e63c444ccea1",
+        "model": "gpt-4o-mini",
+        "config_sha256": "85dbf069ff69db969e1f049701da9c3af1c080d40b98ed671ccf35388a8cdc39"
+      },
+      "retrieved_context": [
+        "2019 New Year's Day photos",
+        "2019 New Year's Day photos",
+        "2019 New Year's Day photos",
+        "2019 New Year's Day photos",
+        "New Year’s Eve Hangzhou"
+      ],
+      "answer": "The place explicitly named in the New Year's Eve image annotation is Hangzhou (Document 5). The retrieved context does not provide any additional information about other locations or details related to the New Year's Day photos."
+    },
+    "IMG-V2-018": {
+      "identity": {
+        "question_id": "IMG-V2-018",
+        "question_set_sha256": "18ea0056c984c01f996e5d54c743d8ba0ab88a34aa973c07e69c942ab13813f2",
+        "corpus_sha256": "899acf2311721f7ac7e764213c255cf7a2de28cd532ae6ca75864a2deaf24e52",
+        "prompt_sha256": "9b0a722ce6e10b78a88b60b8506822a55f4047c29e9ba1fa523d646b163002e1",
+        "model_sha256": "8a43428062692d369599bd00272fd529aa5949ba715361e20f54e63c444ccea1",
+        "model": "gpt-4o-mini",
+        "config_sha256": "85dbf069ff69db969e1f049701da9c3af1c080d40b98ed671ccf35388a8cdc39"
+      },
+      "retrieved_context": [
+        "concert fan support moments April 2023 photos",
+        "concert fan support moments April 2023 photos",
+        "concert fan support moments April 2023 photos",
+        "New Year’s Eve Hangzhou concert fan support moments Qiantang photos",
+        "concert fan support moments Binjiang District photos first half of 2024 photos"
+      ],
+      "answer": "The explicitly named month and year in the concert-support image annotation is April 2023, as stated in Documents 1, 2, and 3. The retrieved context does not establish any other specific months or years mentioned in the annotations."
+    },
+    "IMG-V2-019": {
+      "identity": {
+        "question_id": "IMG-V2-019",
+        "question_set_sha256": "18ea0056c984c01f996e5d54c743d8ba0ab88a34aa973c07e69c942ab13813f2",
+        "corpus_sha256": "899acf2311721f7ac7e764213c255cf7a2de28cd532ae6ca75864a2deaf24e52",
+        "prompt_sha256": "af6bb51aef56cdfe1e00d9484696e38f7702f80ca64962a4d7ec32d179fb23ac",
+        "model_sha256": "8a43428062692d369599bd00272fd529aa5949ba715361e20f54e63c444ccea1",
+        "model": "gpt-4o-mini",
+        "config_sha256": "85dbf069ff69db969e1f049701da9c3af1c080d40b98ed671ccf35388a8cdc39"
+      },
+      "retrieved_context": [
+        "night art light installation dreamy Ningbo cyberpunk night bridge Yinzhou District photos",
+        "dam machinery stretching to the horizon photos in Yiling District",
+        "dam machinery stretching to the horizon photos in Yiling District",
+        "dam machinery stretching to the horizon photos in Yiling District",
+        "dam machinery stretching to the horizon photos in Yiling District"
+      ],
+      "answer": "The district tag explicitly present in the Ningbo night-bridge image annotation is Yinzhou District (Document 1). The retrieved context does not establish any other district tags related to the Ningbo night-bridge image."
+    },
+    "IMG-V2-020": {
+      "identity": {
+        "question_id": "IMG-V2-020",
+        "question_set_sha256": "18ea0056c984c01f996e5d54c743d8ba0ab88a34aa973c07e69c942ab13813f2",
+        "corpus_sha256": "899acf2311721f7ac7e764213c255cf7a2de28cd532ae6ca75864a2deaf24e52",
+        "prompt_sha256": "9d525c6cbeff5095359d1f4d7c38347a4a8600c7e1e9e8889c2dcbe3acba7906",
+        "model_sha256": "8a43428062692d369599bd00272fd529aa5949ba715361e20f54e63c444ccea1",
+        "model": "gpt-4o-mini",
+        "config_sha256": "85dbf069ff69db969e1f049701da9c3af1c080d40b98ed671ccf35388a8cdc39"
+      },
+      "retrieved_context": [
+        "West Lake night boat ride",
+        "West Lake night boat ride",
+        "West Lake night boat ride",
+        "night art light installation dreamy West Lake night boat ride",
+        "night art light installation dreamy West Lake night boat ride"
+      ],
+      "answer": "The place explicitly named in the night boat-ride image annotation is West Lake (Document 1, Document 2, Document 3, Document 4, Document 5). The retrieved context does not establish any additional details about the image annotation itself."
+    },
+    "IMG-V2-021": {
+      "identity": {
+        "question_id": "IMG-V2-021",
+        "question_set_sha256": "18ea0056c984c01f996e5d54c743d8ba0ab88a34aa973c07e69c942ab13813f2",
+        "corpus_sha256": "899acf2311721f7ac7e764213c255cf7a2de28cd532ae6ca75864a2deaf24e52",
+        "prompt_sha256": "2eb7d625db262d05eef556827e59a765c59ab9358f0f8017d8190e804a2c9eaf",
+        "model_sha256": "8a43428062692d369599bd00272fd529aa5949ba715361e20f54e63c444ccea1",
+        "model": "gpt-4o-mini",
+        "config_sha256": "85dbf069ff69db969e1f049701da9c3af1c080d40b98ed671ccf35388a8cdc39"
+      },
+      "retrieved_context": [
+        "night art light installation dreamy Binjiang District photos",
+        "night art light installation dreamy Ningbo cyberpunk night bridge Yinzhou District photos",
+        "photos in Yiling District",
+        "photos in Yiling District",
+        "photos in Yiling District"
+      ],
+      "answer": "The district tag explicitly present in the night-installation image annotation is \"Binjiang District,\" as mentioned in Document 1. The retrieved context does not establish any other district tags related to the night-installation images."
+    },
+    "IMG-V2-022": {
+      "identity": {
+        "question_id": "IMG-V2-022",
+        "question_set_sha256": "18ea0056c984c01f996e5d54c743d8ba0ab88a34aa973c07e69c942ab13813f2",
+        "corpus_sha256": "899acf2311721f7ac7e764213c255cf7a2de28cd532ae6ca75864a2deaf24e52",
+        "prompt_sha256": "6f689653d2eaecd8b78c45620219374bb8d56c7b14c8aa58bd3b08346e96cba7",
+        "model_sha256": "8a43428062692d369599bd00272fd529aa5949ba715361e20f54e63c444ccea1",
+        "model": "gpt-4o-mini",
+        "config_sha256": "85dbf069ff69db969e1f049701da9c3af1c080d40b98ed671ccf35388a8cdc39"
+      },
+      "retrieved_context": [
+        "Hangzhou Qingchun Road subway sunset",
+        "Hangzhou Qingchun Road subway sunset",
+        "subway photo with boyfriend",
+        "subway photo with boyfriend",
+        "subway photo with boyfriend"
+      ],
+      "answer": "The place name explicitly present in the subway-at-sunset image annotation is \"Hangzhou Qingchun Road\" (Document 1 and Document 2). The retrieved context does not establish any additional place names related to the subway-at-sunset image."
+    },
+    "IMG-V2-023": {
+      "identity": {
+        "question_id": "IMG-V2-023",
+        "question_set_sha256": "18ea0056c984c01f996e5d54c743d8ba0ab88a34aa973c07e69c942ab13813f2",
+        "corpus_sha256": "899acf2311721f7ac7e764213c255cf7a2de28cd532ae6ca75864a2deaf24e52",
+        "prompt_sha256": "45fb2089b400e2952de23269d4869b6061756a0fc474a414789f45accdfcfd57",
+        "model_sha256": "8a43428062692d369599bd00272fd529aa5949ba715361e20f54e63c444ccea1",
+        "model": "gpt-4o-mini",
+        "config_sha256": "85dbf069ff69db969e1f049701da9c3af1c080d40b98ed671ccf35388a8cdc39"
+      },
+      "retrieved_context": [
+        "April 2023 photos",
+        "2023 Chinese New Year photos January 23, 2023",
+        "2023 Chinese New Year photos January 23, 2023",
+        "December 17, 2023 photos",
+        "December 17, 2023 photos"
+      ],
+      "answer": "The retrieved context does not provide any specific information about the activity described in the April 2023 image annotation. Therefore, that part of the query remains unresolved."
+    },
+    "IMG-V2-024": {
+      "identity": {
+        "question_id": "IMG-V2-024",
+        "question_set_sha256": "18ea0056c984c01f996e5d54c743d8ba0ab88a34aa973c07e69c942ab13813f2",
+        "corpus_sha256": "899acf2311721f7ac7e764213c255cf7a2de28cd532ae6ca75864a2deaf24e52",
+        "prompt_sha256": "c8aa2a441ba2e214640c4c993ce6a0ff91fc76227892354510cd3948c40641f6",
+        "model_sha256": "8a43428062692d369599bd00272fd529aa5949ba715361e20f54e63c444ccea1",
+        "model": "gpt-4o-mini",
+        "config_sha256": "85dbf069ff69db969e1f049701da9c3af1c080d40b98ed671ccf35388a8cdc39"
+      },
+      "retrieved_context": [
+        "Binjiang District photos",
+        "Binjiang District photos",
+        "Binjiang District photos",
+        "Gongshu riverside",
+        "Gongshu riverside"
+      ],
+      "answer": "The retrieved context does not explicitly name any place in the riverside image annotation. Therefore, the specific part of the query regarding the name of the place is unresolved, as the context does not establish it."
+    },
+    "IMG-V2-025": {
+      "identity": {
+        "question_id": "IMG-V2-025",
+        "question_set_sha256": "18ea0056c984c01f996e5d54c743d8ba0ab88a34aa973c07e69c942ab13813f2",
+        "corpus_sha256": "899acf2311721f7ac7e764213c255cf7a2de28cd532ae6ca75864a2deaf24e52",
+        "prompt_sha256": "16496c79f4bf23e055bc1c57892fc366cb47dd11f7c06c3eb2b2c1ef17f203f3",
+        "model_sha256": "8a43428062692d369599bd00272fd529aa5949ba715361e20f54e63c444ccea1",
+        "model": "gpt-4o-mini",
+        "config_sha256": "85dbf069ff69db969e1f049701da9c3af1c080d40b98ed671ccf35388a8cdc39"
+      },
+      "retrieved_context": [
+        "interacting with black pigeons in early autumn photos from November 15, 2025",
+        "interacting with black pigeons in early autumn photos from November 15, 2025",
+        "April 2023 photos",
+        "May 2018 photos",
+        "May 2018 photos"
+      ],
+      "answer": "The date explicitly named in the black-pigeon image annotation is November 15, 2025 (Document 1 and Document 2). The retrieved context does not establish any other specific dates related to the black-pigeon images."
+    }
+  }
+}

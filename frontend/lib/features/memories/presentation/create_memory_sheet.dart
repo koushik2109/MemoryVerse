@@ -31,9 +31,22 @@ enum _SheetMode {
 
 class CreateMemorySheet extends ConsumerStatefulWidget {
   final String? vaultId;
-  const CreateMemorySheet({super.key, this.vaultId});
+  final String? initialPrompt;
+  final bool autoStartDiscovery;
 
-  static void show(BuildContext context, {String? vaultId}) {
+  const CreateMemorySheet({
+    super.key,
+    this.vaultId,
+    this.initialPrompt,
+    this.autoStartDiscovery = false,
+  });
+
+  static void show(
+    BuildContext context, {
+    String? vaultId,
+    String? initialPrompt,
+    bool autoStartDiscovery = false,
+  }) {
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
@@ -41,7 +54,11 @@ class CreateMemorySheet extends ConsumerStatefulWidget {
       barrierColor: adt.AppColors.plum900.withValues(alpha: 0.2),
       builder: (ctx) => Theme(
         data: Theme.of(ctx).copyWith(extensions: const [AppColors.dark]),
-        child: CreateMemorySheet(vaultId: vaultId),
+        child: CreateMemorySheet(
+          vaultId: vaultId,
+          initialPrompt: initialPrompt,
+          autoStartDiscovery: autoStartDiscovery,
+        ),
       ),
     );
   }
@@ -76,6 +93,19 @@ class _CreateMemorySheetState extends ConsumerState<CreateMemorySheet> {
   ];
 
   @override
+  void initState() {
+    super.initState();
+    if (widget.initialPrompt?.trim().isNotEmpty == true) {
+      _promptCtrl.text = widget.initialPrompt!.trim();
+    }
+    if (widget.autoStartDiscovery) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted) _startDiscoveryFlow();
+      });
+    }
+  }
+
+  @override
   void dispose() {
     _promptCtrl.dispose();
     _titleCtrl.dispose();
@@ -102,15 +132,16 @@ class _CreateMemorySheetState extends ConsumerState<CreateMemorySheet> {
       final mediaService = ref.read(mediaServiceProvider);
       var permState = await mediaService.checkPermission();
       if (permState == MediaPermissionState.notDetermined) {
-        setState(() => _discoveryStepText = 'Requesting access to photos & videos...');
+        setState(() =>
+            _discoveryStepText = 'Requesting access to photos & videos...');
         permState = await mediaService.requestPermission();
       }
 
-      if (permState == MediaPermissionState.denied ||
-          permState == MediaPermissionState.permanentlyDenied) {
+      if (!permState.hasMediaAccess) {
         setState(() {
           _mode = _SheetMode.promptEntry;
-          _error = 'Media permission was not granted. You can grant access or add photos manually.';
+          _error =
+              'Media permission was not granted. You can grant access or add photos manually.';
         });
         return;
       }
@@ -119,7 +150,8 @@ class _CreateMemorySheetState extends ConsumerState<CreateMemorySheet> {
       setState(() => _discoveryStepText = 'Discovering accessible media...');
       await Future.delayed(const Duration(milliseconds: 300));
 
-      setState(() => _discoveryStepText = 'RAG filtering memories matching "$prompt"...');
+      setState(() =>
+          _discoveryStepText = 'RAG filtering memories matching "$prompt"...');
       final ragService = ref.read(ragRetrievalServiceProvider);
       final result = await ragService.retrieveMemoriesForPrompt(prompt: prompt);
 
@@ -180,8 +212,9 @@ class _CreateMemorySheetState extends ConsumerState<CreateMemorySheet> {
       }
 
       // Enqueue upload of only the curated memories
+      var uploadTaskIds = <String>[];
       if (filesToUpload.isNotEmpty) {
-        ref.read(uploadControllerProvider.notifier).addUploads(
+        uploadTaskIds = ref.read(uploadControllerProvider.notifier).addUploads(
               files: filesToUpload,
               mediaTypes: mediaTypes,
               memoryId: memory.id,
@@ -193,7 +226,19 @@ class _CreateMemorySheetState extends ConsumerState<CreateMemorySheet> {
       // Auto-generate video reel if selected
       if (autoGenerateVideo && filesToUpload.length >= 2) {
         try {
-          await ref.read(mediaRepositoryProvider).generateVideo(memory.id);
+          final uploadController = ref.read(uploadControllerProvider.notifier);
+          final uploadsReady =
+              await uploadController.waitForUploads(uploadTaskIds);
+          if (uploadsReady) {
+            final uploadedMediaIds =
+                uploadController.completedMediaIds(uploadTaskIds);
+            if (uploadedMediaIds.length >= 2) {
+              await ref.read(mediaRepositoryProvider).generateVideo(
+                    memory.id,
+                    mediaIds: uploadedMediaIds,
+                  );
+            }
+          }
         } catch (_) {}
       }
 
@@ -308,9 +353,11 @@ class _CreateMemorySheetState extends ConsumerState<CreateMemorySheet> {
       final repo = ref.read(memoryRepositoryProvider);
       final memory = await repo.createMemory(
         title: _titleCtrl.text.trim(),
-        description: _descCtrl.text.trim().isNotEmpty ? _descCtrl.text.trim() : null,
+        description:
+            _descCtrl.text.trim().isNotEmpty ? _descCtrl.text.trim() : null,
         vaultId: widget.vaultId,
-        locationName: _locCtrl.text.trim().isNotEmpty ? _locCtrl.text.trim() : null,
+        locationName:
+            _locCtrl.text.trim().isNotEmpty ? _locCtrl.text.trim() : null,
         memoryDate: _date,
       );
 
@@ -512,7 +559,8 @@ class _CreateMemorySheetState extends ConsumerState<CreateMemorySheet> {
                 _promptCtrl.text = p;
               },
               child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                 decoration: BoxDecoration(
                   color: adt.AppColors.onDarkPrimary.withValues(alpha: 0.06),
                   borderRadius: BorderRadius.circular(AppRadii.pill),
@@ -639,7 +687,8 @@ class _CreateMemorySheetState extends ConsumerState<CreateMemorySheet> {
               children: [
                 IconButton(
                   icon: const Icon(Icons.arrow_back_rounded),
-                  onPressed: () => setState(() => _mode = _SheetMode.promptEntry),
+                  onPressed: () =>
+                      setState(() => _mode = _SheetMode.promptEntry),
                 ),
                 Text(
                   'Manual Upload',
@@ -694,15 +743,19 @@ class _CreateMemorySheetState extends ConsumerState<CreateMemorySheet> {
                 },
                 child: Container(
                   height: 52,
-                  padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s16),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: AppSpacing.s16),
                   decoration: BoxDecoration(
                     color: adt.AppColors.onDarkPrimary.withValues(alpha: 0.06),
                     borderRadius: BorderRadius.circular(AppRadii.lg),
-                    border: Border.all(color: adt.AppColors.onDarkPrimary.withValues(alpha: 0.15)),
+                    border: Border.all(
+                        color: adt.AppColors.onDarkPrimary
+                            .withValues(alpha: 0.15)),
                   ),
                   child: Row(
                     children: [
-                      Icon(Icons.calendar_today_rounded, size: 16, color: c.textMuted),
+                      Icon(Icons.calendar_today_rounded,
+                          size: 16, color: c.textMuted),
                       const SizedBox(width: AppSpacing.s8),
                       Expanded(
                         child: Text(
@@ -726,13 +779,15 @@ class _CreateMemorySheetState extends ConsumerState<CreateMemorySheet> {
           children: [
             Text(
               'Selected Files (${_selectedFiles.length})',
-              style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600, color: c.text),
+              style: TextStyle(
+                  fontSize: 14, fontWeight: FontWeight.w600, color: c.text),
             ),
             Row(
               children: [
                 TextButton.icon(
                   onPressed: _pickImages,
-                  icon: const Icon(Icons.add_photo_alternate_outlined, size: 18),
+                  icon:
+                      const Icon(Icons.add_photo_alternate_outlined, size: 18),
                   label: const Text('Photos'),
                 ),
                 TextButton.icon(
@@ -769,7 +824,8 @@ class _CreateMemorySheetState extends ConsumerState<CreateMemorySheet> {
                         child: isVideo
                             ? Container(
                                 color: adt.AppColors.plum900,
-                                child: const Icon(Icons.videocam, color: Colors.white),
+                                child: const Icon(Icons.videocam,
+                                    color: Colors.white),
                               )
                             : AppFileImage(file: file, fit: BoxFit.cover),
                       ),
@@ -789,7 +845,8 @@ class _CreateMemorySheetState extends ConsumerState<CreateMemorySheet> {
                               color: Colors.black54,
                               shape: BoxShape.circle,
                             ),
-                            child: const Icon(Icons.close, size: 14, color: Colors.white),
+                            child: const Icon(Icons.close,
+                                size: 14, color: Colors.white),
                           ),
                         ),
                       ),
@@ -807,7 +864,9 @@ class _CreateMemorySheetState extends ConsumerState<CreateMemorySheet> {
         ],
         const SizedBox(height: AppSpacing.s24),
         PrimaryButton(
-          label: _selectedFiles.isEmpty ? 'Create Memory' : 'Create & Upload (${_selectedFiles.length})',
+          label: _selectedFiles.isEmpty
+              ? 'Create Memory'
+              : 'Create & Upload (${_selectedFiles.length})',
           isLoading: _isLoading,
           onPressed: _submitManual,
         ),

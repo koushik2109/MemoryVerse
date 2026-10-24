@@ -1,0 +1,3205 @@
+{
+  "design_reference_label": "DESIGN/REFERENCE DATA — not a model output",
+  "image_count": 64,
+  "negative_control_count": 2,
+  "packet_version": "l10-album1-v1",
+  "query_count": 20,
+  "query_json_sha256": "a058b1f21718ca097917e30f4baca4a42245100e2a492af659a5ad46ff3ef6ee",
+  "question_specification": [
+    {
+      "audit_id": "L10-A1-001",
+      "dimensions": {
+        "Concept": null,
+        "Genre": null,
+        "Location": null,
+        "Object": "fact",
+        "Person": "cognitive",
+        "Time": null
+      },
+      "expected_answer": [
+        "IMG_4350.JPG"
+      ],
+      "expected_answer_role": "DESIGN/REFERENCE DATA — not a model output",
+      "ground_truth": [
+        "IMG_4350.JPG"
+      ],
+      "id": "L10-A1-001",
+      "media": [
+        {
+          "filename": "IMG_4350.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_4350.JPG"
+        }
+      ],
+      "media_references": [
+        {
+          "filename": "IMG_4350.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_4350.JPG"
+        }
+      ],
+      "negative_control": false,
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"light yellow patchwork plush pajamas selfie\"?",
+      "query_cn": "浅黄色拼接毛绒睡衣自拍",
+      "query_en": "light yellow patchwork plush pajamas selfie",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"light yellow patchwork plush pajamas selfie\"?",
+      "question_specification_role": "DESIGN/REFERENCE DATA — not a model output",
+      "question_type": "album_ground_truth_image_file_match",
+      "raw_media_availability": [
+        true
+      ],
+      "raw_media_available": true,
+      "reference_data_role": "DESIGN/REFERENCE DATA — not a model output",
+      "relative_media_paths": [
+        "images/IMG_4350.JPG"
+      ],
+      "source": "VF",
+      "source_query_index": 0
+    },
+    {
+      "audit_id": "L10-A1-002",
+      "dimensions": {
+        "Concept": null,
+        "Genre": null,
+        "Location": "cognitive",
+        "Object": "cognitive",
+        "Person": null,
+        "Time": null
+      },
+      "expected_answer": [
+        "IMG_0760.JPG",
+        "IMG_0761.JPG",
+        "IMG_0781.JPG",
+        "IMG_0789.JPG",
+        "IMG_0837.JPG",
+        "IMG_0860.JPG"
+      ],
+      "expected_answer_role": "DESIGN/REFERENCE DATA — not a model output",
+      "ground_truth": [
+        "IMG_0760.JPG",
+        "IMG_0761.JPG",
+        "IMG_0781.JPG",
+        "IMG_0789.JPG",
+        "IMG_0837.JPG",
+        "IMG_0860.JPG"
+      ],
+      "id": "L10-A1-002",
+      "media": [
+        {
+          "filename": "IMG_0760.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_0760.JPG"
+        },
+        {
+          "filename": "IMG_0761.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_0761.JPG"
+        },
+        {
+          "filename": "IMG_0781.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_0781.JPG"
+        },
+        {
+          "filename": "IMG_0789.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_0789.JPG"
+        },
+        {
+          "filename": "IMG_0837.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_0837.JPG"
+        },
+        {
+          "filename": "IMG_0860.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_0860.JPG"
+        }
+      ],
+      "media_references": [
+        {
+          "filename": "IMG_0760.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_0760.JPG"
+        },
+        {
+          "filename": "IMG_0761.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_0761.JPG"
+        },
+        {
+          "filename": "IMG_0781.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_0781.JPG"
+        },
+        {
+          "filename": "IMG_0789.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_0789.JPG"
+        },
+        {
+          "filename": "IMG_0837.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_0837.JPG"
+        },
+        {
+          "filename": "IMG_0860.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_0860.JPG"
+        }
+      ],
+      "negative_control": false,
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"making dinner in the kitchen\"?",
+      "query_cn": "厨房里做晚饭",
+      "query_en": "making dinner in the kitchen",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"making dinner in the kitchen\"?",
+      "question_specification_role": "DESIGN/REFERENCE DATA — not a model output",
+      "question_type": "album_ground_truth_image_file_match",
+      "raw_media_availability": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "raw_media_available": true,
+      "reference_data_role": "DESIGN/REFERENCE DATA — not a model output",
+      "relative_media_paths": [
+        "images/IMG_0760.JPG",
+        "images/IMG_0761.JPG",
+        "images/IMG_0781.JPG",
+        "images/IMG_0789.JPG",
+        "images/IMG_0837.JPG",
+        "images/IMG_0860.JPG"
+      ],
+      "source": "V",
+      "source_query_index": 1
+    },
+    {
+      "audit_id": "L10-A1-003",
+      "dimensions": {
+        "Concept": null,
+        "Genre": null,
+        "Location": null,
+        "Object": "fact",
+        "Person": "cognitive",
+        "Time": null
+      },
+      "expected_answer": [
+        "IMG_0536.JPG"
+      ],
+      "expected_answer_role": "DESIGN/REFERENCE DATA — not a model output",
+      "ground_truth": [
+        "IMG_0536.JPG"
+      ],
+      "id": "L10-A1-003",
+      "media": [
+        {
+          "filename": "IMG_0536.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_0536.JPG"
+        }
+      ],
+      "media_references": [
+        {
+          "filename": "IMG_0536.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_0536.JPG"
+        }
+      ],
+      "negative_control": false,
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"holding solid mango pomelo sago\"?",
+      "query_cn": "手拿固体杨枝甘露",
+      "query_en": "holding solid mango pomelo sago",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"holding solid mango pomelo sago\"?",
+      "question_specification_role": "DESIGN/REFERENCE DATA — not a model output",
+      "question_type": "album_ground_truth_image_file_match",
+      "raw_media_availability": [
+        true
+      ],
+      "raw_media_available": true,
+      "reference_data_role": "DESIGN/REFERENCE DATA — not a model output",
+      "relative_media_paths": [
+        "images/IMG_0536.JPG"
+      ],
+      "source": "V",
+      "source_query_index": 2
+    },
+    {
+      "audit_id": "L10-A1-004",
+      "dimensions": {
+        "Concept": null,
+        "Genre": null,
+        "Location": null,
+        "Object": "cognitive",
+        "Person": null,
+        "Time": "cognitive"
+      },
+      "expected_answer": [
+        "IMG_5243 2.JPG"
+      ],
+      "expected_answer_role": "DESIGN/REFERENCE DATA — not a model output",
+      "ground_truth": [
+        "IMG_5243 2.JPG"
+      ],
+      "id": "L10-A1-004",
+      "media": [
+        {
+          "filename": "IMG_5243 2.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_5243 2.JPG"
+        }
+      ],
+      "media_references": [
+        {
+          "filename": "IMG_5243 2.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_5243 2.JPG"
+        }
+      ],
+      "negative_control": false,
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"Christmas tree made of cups\"?",
+      "query_cn": "水杯做的圣诞树",
+      "query_en": "Christmas tree made of cups",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"Christmas tree made of cups\"?",
+      "question_specification_role": "DESIGN/REFERENCE DATA — not a model output",
+      "question_type": "album_ground_truth_image_file_match",
+      "raw_media_availability": [
+        true
+      ],
+      "raw_media_available": true,
+      "reference_data_role": "DESIGN/REFERENCE DATA — not a model output",
+      "relative_media_paths": [
+        "images/IMG_5243 2.JPG"
+      ],
+      "source": "V",
+      "source_query_index": 3
+    },
+    {
+      "audit_id": "L10-A1-005",
+      "dimensions": {
+        "Concept": null,
+        "Genre": "cognitive",
+        "Location": "cognitive",
+        "Object": null,
+        "Person": null,
+        "Time": null
+      },
+      "expected_answer": [
+        "IMG_8870.JPG",
+        "IMG_8871.JPG"
+      ],
+      "expected_answer_role": "DESIGN/REFERENCE DATA — not a model output",
+      "ground_truth": [
+        "IMG_8870.JPG",
+        "IMG_8871.JPG"
+      ],
+      "id": "L10-A1-005",
+      "media": [
+        {
+          "filename": "IMG_8870.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_8870.JPG"
+        },
+        {
+          "filename": "IMG_8871.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_8871.JPG"
+        }
+      ],
+      "media_references": [
+        {
+          "filename": "IMG_8870.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_8870.JPG"
+        },
+        {
+          "filename": "IMG_8871.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_8871.JPG"
+        }
+      ],
+      "negative_control": false,
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"posing near the cave exit\"?",
+      "query_cn": "快出岩洞时摆拍",
+      "query_en": "posing near the cave exit",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"posing near the cave exit\"?",
+      "question_specification_role": "DESIGN/REFERENCE DATA — not a model output",
+      "question_type": "album_ground_truth_image_file_match",
+      "raw_media_availability": [
+        true,
+        true
+      ],
+      "raw_media_available": true,
+      "reference_data_role": "DESIGN/REFERENCE DATA — not a model output",
+      "relative_media_paths": [
+        "images/IMG_8870.JPG",
+        "images/IMG_8871.JPG"
+      ],
+      "source": "VF",
+      "source_query_index": 4
+    },
+    {
+      "audit_id": "L10-A1-006",
+      "dimensions": {
+        "Concept": null,
+        "Genre": null,
+        "Location": "cognitive",
+        "Object": "cognitive",
+        "Person": null,
+        "Time": null
+      },
+      "expected_answer": [
+        "IMG_1011.JPG",
+        "IMG_1013.JPG",
+        "IMG_1015.JPG",
+        "IMG_1017.JPG",
+        "IMG_1018.JPG",
+        "IMG_1019.JPG",
+        "IMG_1478.JPG",
+        "IMG_1483 3.JPG",
+        "IMG_1484.JPG",
+        "IMG_1485.JPG"
+      ],
+      "expected_answer_role": "DESIGN/REFERENCE DATA — not a model output",
+      "ground_truth": [
+        "IMG_1011.JPG",
+        "IMG_1013.JPG",
+        "IMG_1015.JPG",
+        "IMG_1017.JPG",
+        "IMG_1018.JPG",
+        "IMG_1019.JPG",
+        "IMG_1478.JPG",
+        "IMG_1483 3.JPG",
+        "IMG_1484.JPG",
+        "IMG_1485.JPG"
+      ],
+      "id": "L10-A1-006",
+      "media": [
+        {
+          "filename": "IMG_1011.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1011.JPG"
+        },
+        {
+          "filename": "IMG_1013.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1013.JPG"
+        },
+        {
+          "filename": "IMG_1015.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1015.JPG"
+        },
+        {
+          "filename": "IMG_1017.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1017.JPG"
+        },
+        {
+          "filename": "IMG_1018.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1018.JPG"
+        },
+        {
+          "filename": "IMG_1019.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1019.JPG"
+        },
+        {
+          "filename": "IMG_1478.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1478.JPG"
+        },
+        {
+          "filename": "IMG_1483 3.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1483 3.JPG"
+        },
+        {
+          "filename": "IMG_1484.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1484.JPG"
+        },
+        {
+          "filename": "IMG_1485.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1485.JPG"
+        }
+      ],
+      "media_references": [
+        {
+          "filename": "IMG_1011.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1011.JPG"
+        },
+        {
+          "filename": "IMG_1013.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1013.JPG"
+        },
+        {
+          "filename": "IMG_1015.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1015.JPG"
+        },
+        {
+          "filename": "IMG_1017.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1017.JPG"
+        },
+        {
+          "filename": "IMG_1018.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1018.JPG"
+        },
+        {
+          "filename": "IMG_1019.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1019.JPG"
+        },
+        {
+          "filename": "IMG_1478.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1478.JPG"
+        },
+        {
+          "filename": "IMG_1483 3.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1483 3.JPG"
+        },
+        {
+          "filename": "IMG_1484.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1484.JPG"
+        },
+        {
+          "filename": "IMG_1485.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1485.JPG"
+        }
+      ],
+      "negative_control": false,
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"museum souvenirs\"?",
+      "query_cn": "记录下博物馆买的纪念品",
+      "query_en": "museum souvenirs",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"museum souvenirs\"?",
+      "question_specification_role": "DESIGN/REFERENCE DATA — not a model output",
+      "question_type": "album_ground_truth_image_file_match",
+      "raw_media_availability": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "raw_media_available": true,
+      "reference_data_role": "DESIGN/REFERENCE DATA — not a model output",
+      "relative_media_paths": [
+        "images/IMG_1011.JPG",
+        "images/IMG_1013.JPG",
+        "images/IMG_1015.JPG",
+        "images/IMG_1017.JPG",
+        "images/IMG_1018.JPG",
+        "images/IMG_1019.JPG",
+        "images/IMG_1478.JPG",
+        "images/IMG_1483 3.JPG",
+        "images/IMG_1484.JPG",
+        "images/IMG_1485.JPG"
+      ],
+      "source": "VM",
+      "source_query_index": 5
+    },
+    {
+      "audit_id": "L10-A1-007",
+      "dimensions": {
+        "Concept": "cognitive",
+        "Genre": null,
+        "Location": "fact",
+        "Object": null,
+        "Person": null,
+        "Time": "cognitive"
+      },
+      "expected_answer": "No ground-truth image is listed for this query.",
+      "expected_answer_role": "DESIGN/REFERENCE DATA — not a model output",
+      "ground_truth": [],
+      "id": "L10-A1-007",
+      "media": [],
+      "media_references": [],
+      "negative_control": true,
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"nighttime pedestrian street in Guiyang\"?",
+      "query_cn": "贵阳夜晚步行街",
+      "query_en": "nighttime pedestrian street in Guiyang",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"nighttime pedestrian street in Guiyang\"?",
+      "question_specification_role": "DESIGN/REFERENCE DATA — not a model output",
+      "question_type": "album_ground_truth_image_file_match",
+      "raw_media_availability": [],
+      "raw_media_available": false,
+      "reference_data_role": "DESIGN/REFERENCE DATA — not a model output",
+      "relative_media_paths": [],
+      "source": "VM",
+      "source_query_index": 6
+    },
+    {
+      "audit_id": "L10-A1-008",
+      "dimensions": {
+        "Concept": null,
+        "Genre": null,
+        "Location": "cognitive",
+        "Object": null,
+        "Person": null,
+        "Time": null
+      },
+      "expected_answer": [
+        "IMG_1191.JPG",
+        "IMG_1192.JPG",
+        "IMG_1193.JPG",
+        "IMG_1194.JPG",
+        "IMG_1195.JPG"
+      ],
+      "expected_answer_role": "DESIGN/REFERENCE DATA — not a model output",
+      "ground_truth": [
+        "IMG_1191.JPG",
+        "IMG_1192.JPG",
+        "IMG_1193.JPG",
+        "IMG_1194.JPG",
+        "IMG_1195.JPG"
+      ],
+      "id": "L10-A1-008",
+      "media": [
+        {
+          "filename": "IMG_1191.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1191.JPG"
+        },
+        {
+          "filename": "IMG_1192.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1192.JPG"
+        },
+        {
+          "filename": "IMG_1193.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1193.JPG"
+        },
+        {
+          "filename": "IMG_1194.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1194.JPG"
+        },
+        {
+          "filename": "IMG_1195.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1195.JPG"
+        }
+      ],
+      "media_references": [
+        {
+          "filename": "IMG_1191.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1191.JPG"
+        },
+        {
+          "filename": "IMG_1192.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1192.JPG"
+        },
+        {
+          "filename": "IMG_1193.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1193.JPG"
+        },
+        {
+          "filename": "IMG_1194.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1194.JPG"
+        },
+        {
+          "filename": "IMG_1195.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1195.JPG"
+        }
+      ],
+      "negative_control": false,
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"Baotu Spring tour\"?",
+      "query_cn": "趵突泉游览",
+      "query_en": "Baotu Spring tour",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"Baotu Spring tour\"?",
+      "question_specification_role": "DESIGN/REFERENCE DATA — not a model output",
+      "question_type": "album_ground_truth_image_file_match",
+      "raw_media_availability": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "raw_media_available": true,
+      "reference_data_role": "DESIGN/REFERENCE DATA — not a model output",
+      "relative_media_paths": [
+        "images/IMG_1191.JPG",
+        "images/IMG_1192.JPG",
+        "images/IMG_1193.JPG",
+        "images/IMG_1194.JPG",
+        "images/IMG_1195.JPG"
+      ],
+      "source": "VM",
+      "source_query_index": 7
+    },
+    {
+      "audit_id": "L10-A1-009",
+      "dimensions": {
+        "Concept": null,
+        "Genre": null,
+        "Location": null,
+        "Object": null,
+        "Person": "cognitive",
+        "Time": "fact"
+      },
+      "expected_answer": [
+        "IMG_1779.JPG",
+        "IMG_1780.JPG"
+      ],
+      "expected_answer_role": "DESIGN/REFERENCE DATA — not a model output",
+      "ground_truth": [
+        "IMG_1779.JPG",
+        "IMG_1780.JPG"
+      ],
+      "id": "L10-A1-009",
+      "media": [
+        {
+          "filename": "IMG_1779.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1779.JPG"
+        },
+        {
+          "filename": "IMG_1780.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1780.JPG"
+        }
+      ],
+      "media_references": [
+        {
+          "filename": "IMG_1779.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1779.JPG"
+        },
+        {
+          "filename": "IMG_1780.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1780.JPG"
+        }
+      ],
+      "negative_control": false,
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"selfie documenting makeup on November 16, 2025, afternoon\"?",
+      "query_cn": "25年11月16号下午记录妆容的自拍",
+      "query_en": "selfie documenting makeup on November 16, 2025, afternoon",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"selfie documenting makeup on November 16, 2025, afternoon\"?",
+      "question_specification_role": "DESIGN/REFERENCE DATA — not a model output",
+      "question_type": "album_ground_truth_image_file_match",
+      "raw_media_availability": [
+        true,
+        true
+      ],
+      "raw_media_available": true,
+      "reference_data_role": "DESIGN/REFERENCE DATA — not a model output",
+      "relative_media_paths": [
+        "images/IMG_1779.JPG",
+        "images/IMG_1780.JPG"
+      ],
+      "source": "MF",
+      "source_query_index": 8
+    },
+    {
+      "audit_id": "L10-A1-010",
+      "dimensions": {
+        "Concept": null,
+        "Genre": null,
+        "Location": "fact",
+        "Object": null,
+        "Person": null,
+        "Time": null
+      },
+      "expected_answer": [
+        "IMG_1179.JPG",
+        "IMG_1178.JPG"
+      ],
+      "expected_answer_role": "DESIGN/REFERENCE DATA — not a model output",
+      "ground_truth": [
+        "IMG_1179.JPG",
+        "IMG_1178.JPG"
+      ],
+      "id": "L10-A1-010",
+      "media": [
+        {
+          "filename": "IMG_1179.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1179.JPG"
+        },
+        {
+          "filename": "IMG_1178.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1178.JPG"
+        }
+      ],
+      "media_references": [
+        {
+          "filename": "IMG_1179.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1179.JPG"
+        },
+        {
+          "filename": "IMG_1178.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1178.JPG"
+        }
+      ],
+      "negative_control": false,
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"photos in Yucheng\"?",
+      "query_cn": "在禹城市的照片",
+      "query_en": "photos in Yucheng",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"photos in Yucheng\"?",
+      "question_specification_role": "DESIGN/REFERENCE DATA — not a model output",
+      "question_type": "album_ground_truth_image_file_match",
+      "raw_media_availability": [
+        true,
+        true
+      ],
+      "raw_media_available": true,
+      "reference_data_role": "DESIGN/REFERENCE DATA — not a model output",
+      "relative_media_paths": [
+        "images/IMG_1179.JPG",
+        "images/IMG_1178.JPG"
+      ],
+      "source": "M",
+      "source_query_index": 9
+    },
+    {
+      "audit_id": "L10-A1-011",
+      "dimensions": {
+        "Concept": null,
+        "Genre": null,
+        "Location": "fact",
+        "Object": null,
+        "Person": null,
+        "Time": null
+      },
+      "expected_answer": [
+        "IMG_6438.JPG",
+        "IMG_6437.JPG",
+        "IMG_6457.JPG",
+        "IMG_6344.JPG",
+        "IMG_6343.JPG",
+        "IMG_6458.JPG"
+      ],
+      "expected_answer_role": "DESIGN/REFERENCE DATA — not a model output",
+      "ground_truth": [
+        "IMG_6438.JPG",
+        "IMG_6437.JPG",
+        "IMG_6457.JPG",
+        "IMG_6344.JPG",
+        "IMG_6343.JPG",
+        "IMG_6458.JPG"
+      ],
+      "id": "L10-A1-011",
+      "media": [
+        {
+          "filename": "IMG_6438.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_6438.JPG"
+        },
+        {
+          "filename": "IMG_6437.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_6437.JPG"
+        },
+        {
+          "filename": "IMG_6457.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_6457.JPG"
+        },
+        {
+          "filename": "IMG_6344.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_6344.JPG"
+        },
+        {
+          "filename": "IMG_6343.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_6343.JPG"
+        },
+        {
+          "filename": "IMG_6458.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_6458.JPG"
+        }
+      ],
+      "media_references": [
+        {
+          "filename": "IMG_6438.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_6438.JPG"
+        },
+        {
+          "filename": "IMG_6437.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_6437.JPG"
+        },
+        {
+          "filename": "IMG_6457.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_6457.JPG"
+        },
+        {
+          "filename": "IMG_6344.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_6344.JPG"
+        },
+        {
+          "filename": "IMG_6343.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_6343.JPG"
+        },
+        {
+          "filename": "IMG_6458.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_6458.JPG"
+        }
+      ],
+      "negative_control": false,
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"photos in Yantian District\"?",
+      "query_cn": "在盐田区的照片",
+      "query_en": "photos in Yantian District",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"photos in Yantian District\"?",
+      "question_specification_role": "DESIGN/REFERENCE DATA — not a model output",
+      "question_type": "album_ground_truth_image_file_match",
+      "raw_media_availability": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "raw_media_available": true,
+      "reference_data_role": "DESIGN/REFERENCE DATA — not a model output",
+      "relative_media_paths": [
+        "images/IMG_6438.JPG",
+        "images/IMG_6437.JPG",
+        "images/IMG_6457.JPG",
+        "images/IMG_6344.JPG",
+        "images/IMG_6343.JPG",
+        "images/IMG_6458.JPG"
+      ],
+      "source": "M",
+      "source_query_index": 10
+    },
+    {
+      "audit_id": "L10-A1-012",
+      "dimensions": {
+        "Concept": null,
+        "Genre": null,
+        "Location": "cognitive",
+        "Object": "cognitive",
+        "Person": null,
+        "Time": "cognitive"
+      },
+      "expected_answer": [
+        "IMG_1386.JPG",
+        "IMG_1388.JPG",
+        "IMG_1390.JPG",
+        "IMG_1396.JPG",
+        "IMG_1400.JPG"
+      ],
+      "expected_answer_role": "DESIGN/REFERENCE DATA — not a model output",
+      "ground_truth": [
+        "IMG_1386.JPG",
+        "IMG_1388.JPG",
+        "IMG_1390.JPG",
+        "IMG_1396.JPG",
+        "IMG_1400.JPG"
+      ],
+      "id": "L10-A1-012",
+      "media": [
+        {
+          "filename": "IMG_1386.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1386.JPG"
+        },
+        {
+          "filename": "IMG_1388.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1388.JPG"
+        },
+        {
+          "filename": "IMG_1390.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1390.JPG"
+        },
+        {
+          "filename": "IMG_1396.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1396.JPG"
+        },
+        {
+          "filename": "IMG_1400.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1400.JPG"
+        }
+      ],
+      "media_references": [
+        {
+          "filename": "IMG_1386.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1386.JPG"
+        },
+        {
+          "filename": "IMG_1388.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1388.JPG"
+        },
+        {
+          "filename": "IMG_1390.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1390.JPG"
+        },
+        {
+          "filename": "IMG_1396.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1396.JPG"
+        },
+        {
+          "filename": "IMG_1400.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1400.JPG"
+        }
+      ],
+      "negative_control": false,
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"Shandong modern history exhibition, anti-invasion theme\"?",
+      "query_cn": "山东近代史展览--反侵略主题",
+      "query_en": "Shandong modern history exhibition, anti-invasion theme",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"Shandong modern history exhibition, anti-invasion theme\"?",
+      "question_specification_role": "DESIGN/REFERENCE DATA — not a model output",
+      "question_type": "album_ground_truth_image_file_match",
+      "raw_media_availability": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "raw_media_available": true,
+      "reference_data_role": "DESIGN/REFERENCE DATA — not a model output",
+      "relative_media_paths": [
+        "images/IMG_1386.JPG",
+        "images/IMG_1388.JPG",
+        "images/IMG_1390.JPG",
+        "images/IMG_1396.JPG",
+        "images/IMG_1400.JPG"
+      ],
+      "source": "V",
+      "source_query_index": 11
+    },
+    {
+      "audit_id": "L10-A1-013",
+      "dimensions": {
+        "Concept": null,
+        "Genre": null,
+        "Location": null,
+        "Object": "fact",
+        "Person": null,
+        "Time": null
+      },
+      "expected_answer": [
+        "IMG_5254.JPG",
+        "IMG_5255.JPG",
+        "IMG_5257.JPG"
+      ],
+      "expected_answer_role": "DESIGN/REFERENCE DATA — not a model output",
+      "ground_truth": [
+        "IMG_5254.JPG",
+        "IMG_5255.JPG",
+        "IMG_5257.JPG"
+      ],
+      "id": "L10-A1-013",
+      "media": [
+        {
+          "filename": "IMG_5254.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_5254.JPG"
+        },
+        {
+          "filename": "IMG_5255.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_5255.JPG"
+        },
+        {
+          "filename": "IMG_5257.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_5257.JPG"
+        }
+      ],
+      "media_references": [
+        {
+          "filename": "IMG_5254.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_5254.JPG"
+        },
+        {
+          "filename": "IMG_5255.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_5255.JPG"
+        },
+        {
+          "filename": "IMG_5257.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_5257.JPG"
+        }
+      ],
+      "negative_control": false,
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"roast chicken with yellow-green sauce\"?",
+      "query_cn": "黄绿酱汁烤鸡",
+      "query_en": "roast chicken with yellow-green sauce",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"roast chicken with yellow-green sauce\"?",
+      "question_specification_role": "DESIGN/REFERENCE DATA — not a model output",
+      "question_type": "album_ground_truth_image_file_match",
+      "raw_media_availability": [
+        true,
+        true,
+        true
+      ],
+      "raw_media_available": true,
+      "reference_data_role": "DESIGN/REFERENCE DATA — not a model output",
+      "relative_media_paths": [
+        "images/IMG_5254.JPG",
+        "images/IMG_5255.JPG",
+        "images/IMG_5257.JPG"
+      ],
+      "source": "V",
+      "source_query_index": 12
+    },
+    {
+      "audit_id": "L10-A1-014",
+      "dimensions": {
+        "Concept": null,
+        "Genre": null,
+        "Location": null,
+        "Object": null,
+        "Person": null,
+        "Time": "fact"
+      },
+      "expected_answer": [
+        "IMG_7898.JPG"
+      ],
+      "expected_answer_role": "DESIGN/REFERENCE DATA — not a model output",
+      "ground_truth": [
+        "IMG_7898.JPG"
+      ],
+      "id": "L10-A1-014",
+      "media": [
+        {
+          "filename": "IMG_7898.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_7898.JPG"
+        }
+      ],
+      "media_references": [
+        {
+          "filename": "IMG_7898.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_7898.JPG"
+        }
+      ],
+      "negative_control": false,
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"photos from May 2024\"?",
+      "query_cn": "2024年5月",
+      "query_en": "photos from May 2024",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"photos from May 2024\"?",
+      "question_specification_role": "DESIGN/REFERENCE DATA — not a model output",
+      "question_type": "album_ground_truth_image_file_match",
+      "raw_media_availability": [
+        true
+      ],
+      "raw_media_available": true,
+      "reference_data_role": "DESIGN/REFERENCE DATA — not a model output",
+      "relative_media_paths": [
+        "images/IMG_7898.JPG"
+      ],
+      "source": "M",
+      "source_query_index": 13
+    },
+    {
+      "audit_id": "L10-A1-015",
+      "dimensions": {
+        "Concept": null,
+        "Genre": null,
+        "Location": "fact",
+        "Object": null,
+        "Person": null,
+        "Time": null
+      },
+      "expected_answer": [
+        "IMG_5625.JPG"
+      ],
+      "expected_answer_role": "DESIGN/REFERENCE DATA — not a model output",
+      "ground_truth": [
+        "IMG_5625.JPG"
+      ],
+      "id": "L10-A1-015",
+      "media": [
+        {
+          "filename": "IMG_5625.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_5625.JPG"
+        }
+      ],
+      "media_references": [
+        {
+          "filename": "IMG_5625.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_5625.JPG"
+        }
+      ],
+      "negative_control": false,
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"Shenzhen airport tarmac at the boarding gate\"?",
+      "query_cn": "深圳机场登机口停机坪",
+      "query_en": "Shenzhen airport tarmac at the boarding gate",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"Shenzhen airport tarmac at the boarding gate\"?",
+      "question_specification_role": "DESIGN/REFERENCE DATA — not a model output",
+      "question_type": "album_ground_truth_image_file_match",
+      "raw_media_availability": [
+        true
+      ],
+      "raw_media_available": true,
+      "reference_data_role": "DESIGN/REFERENCE DATA — not a model output",
+      "relative_media_paths": [
+        "images/IMG_5625.JPG"
+      ],
+      "source": "VM",
+      "source_query_index": 14
+    },
+    {
+      "audit_id": "L10-A1-016",
+      "dimensions": {
+        "Concept": null,
+        "Genre": null,
+        "Location": null,
+        "Object": "cognitive",
+        "Person": null,
+        "Time": null
+      },
+      "expected_answer": "No ground-truth image is listed for this query.",
+      "expected_answer_role": "DESIGN/REFERENCE DATA — not a model output",
+      "ground_truth": [],
+      "id": "L10-A1-016",
+      "media": [],
+      "media_references": [],
+      "negative_control": true,
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"vanilla coke spilled on keyboard\"?",
+      "query_cn": "香草味可乐倒在键盘上",
+      "query_en": "vanilla coke spilled on keyboard",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"vanilla coke spilled on keyboard\"?",
+      "question_specification_role": "DESIGN/REFERENCE DATA — not a model output",
+      "question_type": "album_ground_truth_image_file_match",
+      "raw_media_availability": [],
+      "raw_media_available": false,
+      "reference_data_role": "DESIGN/REFERENCE DATA — not a model output",
+      "relative_media_paths": [],
+      "source": "V",
+      "source_query_index": 15
+    },
+    {
+      "audit_id": "L10-A1-017",
+      "dimensions": {
+        "Concept": null,
+        "Genre": null,
+        "Location": "cognitive",
+        "Object": "fact",
+        "Person": null,
+        "Time": null
+      },
+      "expected_answer": [
+        "IMG_4823.JPG",
+        "IMG_4824.JPG",
+        "IMG_4831.JPG"
+      ],
+      "expected_answer_role": "DESIGN/REFERENCE DATA — not a model output",
+      "ground_truth": [
+        "IMG_4823.JPG",
+        "IMG_4824.JPG",
+        "IMG_4831.JPG"
+      ],
+      "id": "L10-A1-017",
+      "media": [
+        {
+          "filename": "IMG_4823.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_4823.JPG"
+        },
+        {
+          "filename": "IMG_4824.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_4824.JPG"
+        },
+        {
+          "filename": "IMG_4831.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_4831.JPG"
+        }
+      ],
+      "media_references": [
+        {
+          "filename": "IMG_4823.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_4823.JPG"
+        },
+        {
+          "filename": "IMG_4824.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_4824.JPG"
+        },
+        {
+          "filename": "IMG_4831.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_4831.JPG"
+        }
+      ],
+      "negative_control": false,
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"cat lying in the middle of campus street\"?",
+      "query_cn": "校园街中间躺着的猫猫",
+      "query_en": "cat lying in the middle of campus street",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"cat lying in the middle of campus street\"?",
+      "question_specification_role": "DESIGN/REFERENCE DATA — not a model output",
+      "question_type": "album_ground_truth_image_file_match",
+      "raw_media_availability": [
+        true,
+        true,
+        true
+      ],
+      "raw_media_available": true,
+      "reference_data_role": "DESIGN/REFERENCE DATA — not a model output",
+      "relative_media_paths": [
+        "images/IMG_4823.JPG",
+        "images/IMG_4824.JPG",
+        "images/IMG_4831.JPG"
+      ],
+      "source": "V",
+      "source_query_index": 16
+    },
+    {
+      "audit_id": "L10-A1-018",
+      "dimensions": {
+        "Concept": null,
+        "Genre": "cognitive",
+        "Location": null,
+        "Object": null,
+        "Person": "cognitive",
+        "Time": null
+      },
+      "expected_answer": [
+        "IMG_8637.JPG",
+        "IMG_8808.JPG",
+        "IMG_8890.JPG"
+      ],
+      "expected_answer_role": "DESIGN/REFERENCE DATA — not a model output",
+      "ground_truth": [
+        "IMG_8637.JPG",
+        "IMG_8808.JPG",
+        "IMG_8890.JPG"
+      ],
+      "id": "L10-A1-018",
+      "media": [
+        {
+          "filename": "IMG_8637.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_8637.JPG"
+        },
+        {
+          "filename": "IMG_8808.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_8808.JPG"
+        },
+        {
+          "filename": "IMG_8890.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_8890.JPG"
+        }
+      ],
+      "media_references": [
+        {
+          "filename": "IMG_8637.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_8637.JPG"
+        },
+        {
+          "filename": "IMG_8808.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_8808.JPG"
+        },
+        {
+          "filename": "IMG_8890.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_8890.JPG"
+        }
+      ],
+      "negative_control": false,
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"me wearing a kimono\"?",
+      "query_cn": "穿和服的自己",
+      "query_en": "me wearing a kimono",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"me wearing a kimono\"?",
+      "question_specification_role": "DESIGN/REFERENCE DATA — not a model output",
+      "question_type": "album_ground_truth_image_file_match",
+      "raw_media_availability": [
+        true,
+        true,
+        true
+      ],
+      "raw_media_available": true,
+      "reference_data_role": "DESIGN/REFERENCE DATA — not a model output",
+      "relative_media_paths": [
+        "images/IMG_8637.JPG",
+        "images/IMG_8808.JPG",
+        "images/IMG_8890.JPG"
+      ],
+      "source": "V",
+      "source_query_index": 17
+    },
+    {
+      "audit_id": "L10-A1-019",
+      "dimensions": {
+        "Concept": null,
+        "Genre": null,
+        "Location": null,
+        "Object": null,
+        "Person": null,
+        "Time": "fact"
+      },
+      "expected_answer": [
+        "IMG_8527.JPG",
+        "IMG_8542 2.JPG"
+      ],
+      "expected_answer_role": "DESIGN/REFERENCE DATA — not a model output",
+      "ground_truth": [
+        "IMG_8527.JPG",
+        "IMG_8542 2.JPG"
+      ],
+      "id": "L10-A1-019",
+      "media": [
+        {
+          "filename": "IMG_8527.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_8527.JPG"
+        },
+        {
+          "filename": "IMG_8542 2.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_8542 2.JPG"
+        }
+      ],
+      "media_references": [
+        {
+          "filename": "IMG_8527.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_8527.JPG"
+        },
+        {
+          "filename": "IMG_8542 2.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_8542 2.JPG"
+        }
+      ],
+      "negative_control": false,
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"winter photos from 2023\"?",
+      "query_cn": "2023年冬季的照片",
+      "query_en": "winter photos from 2023",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"winter photos from 2023\"?",
+      "question_specification_role": "DESIGN/REFERENCE DATA — not a model output",
+      "question_type": "album_ground_truth_image_file_match",
+      "raw_media_availability": [
+        true,
+        true
+      ],
+      "raw_media_available": true,
+      "reference_data_role": "DESIGN/REFERENCE DATA — not a model output",
+      "relative_media_paths": [
+        "images/IMG_8527.JPG",
+        "images/IMG_8542 2.JPG"
+      ],
+      "source": "M",
+      "source_query_index": 18
+    },
+    {
+      "audit_id": "L10-A1-020",
+      "dimensions": {
+        "Concept": null,
+        "Genre": null,
+        "Location": "cognitive",
+        "Object": "cognitive",
+        "Person": null,
+        "Time": null
+      },
+      "expected_answer": [
+        "IMG_1483 2.JPG",
+        "IMG_1483.JPG",
+        "IMG_1570 2.JPG",
+        "IMG_1570.JPG",
+        "IMG_4753.JPG",
+        "IMG_5156.JPG",
+        "IMG_5159.JPG",
+        "IMG_5241.JPG",
+        "IMG_5259.JPG",
+        "IMG_5265.JPG"
+      ],
+      "expected_answer_role": "DESIGN/REFERENCE DATA — not a model output",
+      "ground_truth": [
+        "IMG_1483 2.JPG",
+        "IMG_1483.JPG",
+        "IMG_1570 2.JPG",
+        "IMG_1570.JPG",
+        "IMG_4753.JPG",
+        "IMG_5156.JPG",
+        "IMG_5159.JPG",
+        "IMG_5241.JPG",
+        "IMG_5259.JPG",
+        "IMG_5265.JPG"
+      ],
+      "id": "L10-A1-020",
+      "media": [
+        {
+          "filename": "IMG_1483 2.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1483 2.JPG"
+        },
+        {
+          "filename": "IMG_1483.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1483.JPG"
+        },
+        {
+          "filename": "IMG_1570 2.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1570 2.JPG"
+        },
+        {
+          "filename": "IMG_1570.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1570.JPG"
+        },
+        {
+          "filename": "IMG_4753.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_4753.JPG"
+        },
+        {
+          "filename": "IMG_5156.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_5156.JPG"
+        },
+        {
+          "filename": "IMG_5159.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_5159.JPG"
+        },
+        {
+          "filename": "IMG_5241.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_5241.JPG"
+        },
+        {
+          "filename": "IMG_5259.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_5259.JPG"
+        },
+        {
+          "filename": "IMG_5265.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_5265.JPG"
+        }
+      ],
+      "media_references": [
+        {
+          "filename": "IMG_1483 2.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1483 2.JPG"
+        },
+        {
+          "filename": "IMG_1483.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1483.JPG"
+        },
+        {
+          "filename": "IMG_1570 2.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1570 2.JPG"
+        },
+        {
+          "filename": "IMG_1570.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1570.JPG"
+        },
+        {
+          "filename": "IMG_4753.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_4753.JPG"
+        },
+        {
+          "filename": "IMG_5156.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_5156.JPG"
+        },
+        {
+          "filename": "IMG_5159.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_5159.JPG"
+        },
+        {
+          "filename": "IMG_5241.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_5241.JPG"
+        },
+        {
+          "filename": "IMG_5259.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_5259.JPG"
+        },
+        {
+          "filename": "IMG_5265.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_5265.JPG"
+        }
+      ],
+      "negative_control": false,
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"my cat eating cat food\"?",
+      "query_cn": "我家猫吃猫粮",
+      "query_en": "my cat eating cat food",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"my cat eating cat food\"?",
+      "question_specification_role": "DESIGN/REFERENCE DATA — not a model output",
+      "question_type": "album_ground_truth_image_file_match",
+      "raw_media_availability": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "raw_media_available": true,
+      "reference_data_role": "DESIGN/REFERENCE DATA — not a model output",
+      "relative_media_paths": [
+        "images/IMG_1483 2.JPG",
+        "images/IMG_1483.JPG",
+        "images/IMG_1570 2.JPG",
+        "images/IMG_1570.JPG",
+        "images/IMG_4753.JPG",
+        "images/IMG_5156.JPG",
+        "images/IMG_5159.JPG",
+        "images/IMG_5241.JPG",
+        "images/IMG_5259.JPG",
+        "images/IMG_5265.JPG"
+      ],
+      "source": "VF",
+      "source_query_index": 19
+    }
+  ],
+  "question_specification_note": "Expected answers and reference contexts are copied from the source album annotation for audit design; they are not model outputs.",
+  "questions": [
+    {
+      "audit_id": "L10-A1-001",
+      "dimensions": {
+        "Concept": null,
+        "Genre": null,
+        "Location": null,
+        "Object": "fact",
+        "Person": "cognitive",
+        "Time": null
+      },
+      "expected_answer": [
+        "IMG_4350.JPG"
+      ],
+      "expected_answer_role": "DESIGN/REFERENCE DATA — not a model output",
+      "ground_truth": [
+        "IMG_4350.JPG"
+      ],
+      "id": "L10-A1-001",
+      "media": [
+        {
+          "filename": "IMG_4350.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_4350.JPG"
+        }
+      ],
+      "media_references": [
+        {
+          "filename": "IMG_4350.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_4350.JPG"
+        }
+      ],
+      "negative_control": false,
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"light yellow patchwork plush pajamas selfie\"?",
+      "query_cn": "浅黄色拼接毛绒睡衣自拍",
+      "query_en": "light yellow patchwork plush pajamas selfie",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"light yellow patchwork plush pajamas selfie\"?",
+      "question_type": "album_ground_truth_image_file_match",
+      "raw_media_availability": [
+        true
+      ],
+      "raw_media_available": true,
+      "reference_data_role": "DESIGN/REFERENCE DATA — not a model output",
+      "relative_media_paths": [
+        "images/IMG_4350.JPG"
+      ],
+      "source": "VF",
+      "source_query_index": 0
+    },
+    {
+      "audit_id": "L10-A1-002",
+      "dimensions": {
+        "Concept": null,
+        "Genre": null,
+        "Location": "cognitive",
+        "Object": "cognitive",
+        "Person": null,
+        "Time": null
+      },
+      "expected_answer": [
+        "IMG_0760.JPG",
+        "IMG_0761.JPG",
+        "IMG_0781.JPG",
+        "IMG_0789.JPG",
+        "IMG_0837.JPG",
+        "IMG_0860.JPG"
+      ],
+      "expected_answer_role": "DESIGN/REFERENCE DATA — not a model output",
+      "ground_truth": [
+        "IMG_0760.JPG",
+        "IMG_0761.JPG",
+        "IMG_0781.JPG",
+        "IMG_0789.JPG",
+        "IMG_0837.JPG",
+        "IMG_0860.JPG"
+      ],
+      "id": "L10-A1-002",
+      "media": [
+        {
+          "filename": "IMG_0760.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_0760.JPG"
+        },
+        {
+          "filename": "IMG_0761.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_0761.JPG"
+        },
+        {
+          "filename": "IMG_0781.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_0781.JPG"
+        },
+        {
+          "filename": "IMG_0789.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_0789.JPG"
+        },
+        {
+          "filename": "IMG_0837.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_0837.JPG"
+        },
+        {
+          "filename": "IMG_0860.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_0860.JPG"
+        }
+      ],
+      "media_references": [
+        {
+          "filename": "IMG_0760.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_0760.JPG"
+        },
+        {
+          "filename": "IMG_0761.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_0761.JPG"
+        },
+        {
+          "filename": "IMG_0781.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_0781.JPG"
+        },
+        {
+          "filename": "IMG_0789.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_0789.JPG"
+        },
+        {
+          "filename": "IMG_0837.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_0837.JPG"
+        },
+        {
+          "filename": "IMG_0860.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_0860.JPG"
+        }
+      ],
+      "negative_control": false,
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"making dinner in the kitchen\"?",
+      "query_cn": "厨房里做晚饭",
+      "query_en": "making dinner in the kitchen",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"making dinner in the kitchen\"?",
+      "question_type": "album_ground_truth_image_file_match",
+      "raw_media_availability": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "raw_media_available": true,
+      "reference_data_role": "DESIGN/REFERENCE DATA — not a model output",
+      "relative_media_paths": [
+        "images/IMG_0760.JPG",
+        "images/IMG_0761.JPG",
+        "images/IMG_0781.JPG",
+        "images/IMG_0789.JPG",
+        "images/IMG_0837.JPG",
+        "images/IMG_0860.JPG"
+      ],
+      "source": "V",
+      "source_query_index": 1
+    },
+    {
+      "audit_id": "L10-A1-003",
+      "dimensions": {
+        "Concept": null,
+        "Genre": null,
+        "Location": null,
+        "Object": "fact",
+        "Person": "cognitive",
+        "Time": null
+      },
+      "expected_answer": [
+        "IMG_0536.JPG"
+      ],
+      "expected_answer_role": "DESIGN/REFERENCE DATA — not a model output",
+      "ground_truth": [
+        "IMG_0536.JPG"
+      ],
+      "id": "L10-A1-003",
+      "media": [
+        {
+          "filename": "IMG_0536.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_0536.JPG"
+        }
+      ],
+      "media_references": [
+        {
+          "filename": "IMG_0536.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_0536.JPG"
+        }
+      ],
+      "negative_control": false,
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"holding solid mango pomelo sago\"?",
+      "query_cn": "手拿固体杨枝甘露",
+      "query_en": "holding solid mango pomelo sago",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"holding solid mango pomelo sago\"?",
+      "question_type": "album_ground_truth_image_file_match",
+      "raw_media_availability": [
+        true
+      ],
+      "raw_media_available": true,
+      "reference_data_role": "DESIGN/REFERENCE DATA — not a model output",
+      "relative_media_paths": [
+        "images/IMG_0536.JPG"
+      ],
+      "source": "V",
+      "source_query_index": 2
+    },
+    {
+      "audit_id": "L10-A1-004",
+      "dimensions": {
+        "Concept": null,
+        "Genre": null,
+        "Location": null,
+        "Object": "cognitive",
+        "Person": null,
+        "Time": "cognitive"
+      },
+      "expected_answer": [
+        "IMG_5243 2.JPG"
+      ],
+      "expected_answer_role": "DESIGN/REFERENCE DATA — not a model output",
+      "ground_truth": [
+        "IMG_5243 2.JPG"
+      ],
+      "id": "L10-A1-004",
+      "media": [
+        {
+          "filename": "IMG_5243 2.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_5243 2.JPG"
+        }
+      ],
+      "media_references": [
+        {
+          "filename": "IMG_5243 2.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_5243 2.JPG"
+        }
+      ],
+      "negative_control": false,
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"Christmas tree made of cups\"?",
+      "query_cn": "水杯做的圣诞树",
+      "query_en": "Christmas tree made of cups",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"Christmas tree made of cups\"?",
+      "question_type": "album_ground_truth_image_file_match",
+      "raw_media_availability": [
+        true
+      ],
+      "raw_media_available": true,
+      "reference_data_role": "DESIGN/REFERENCE DATA — not a model output",
+      "relative_media_paths": [
+        "images/IMG_5243 2.JPG"
+      ],
+      "source": "V",
+      "source_query_index": 3
+    },
+    {
+      "audit_id": "L10-A1-005",
+      "dimensions": {
+        "Concept": null,
+        "Genre": "cognitive",
+        "Location": "cognitive",
+        "Object": null,
+        "Person": null,
+        "Time": null
+      },
+      "expected_answer": [
+        "IMG_8870.JPG",
+        "IMG_8871.JPG"
+      ],
+      "expected_answer_role": "DESIGN/REFERENCE DATA — not a model output",
+      "ground_truth": [
+        "IMG_8870.JPG",
+        "IMG_8871.JPG"
+      ],
+      "id": "L10-A1-005",
+      "media": [
+        {
+          "filename": "IMG_8870.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_8870.JPG"
+        },
+        {
+          "filename": "IMG_8871.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_8871.JPG"
+        }
+      ],
+      "media_references": [
+        {
+          "filename": "IMG_8870.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_8870.JPG"
+        },
+        {
+          "filename": "IMG_8871.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_8871.JPG"
+        }
+      ],
+      "negative_control": false,
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"posing near the cave exit\"?",
+      "query_cn": "快出岩洞时摆拍",
+      "query_en": "posing near the cave exit",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"posing near the cave exit\"?",
+      "question_type": "album_ground_truth_image_file_match",
+      "raw_media_availability": [
+        true,
+        true
+      ],
+      "raw_media_available": true,
+      "reference_data_role": "DESIGN/REFERENCE DATA — not a model output",
+      "relative_media_paths": [
+        "images/IMG_8870.JPG",
+        "images/IMG_8871.JPG"
+      ],
+      "source": "VF",
+      "source_query_index": 4
+    },
+    {
+      "audit_id": "L10-A1-006",
+      "dimensions": {
+        "Concept": null,
+        "Genre": null,
+        "Location": "cognitive",
+        "Object": "cognitive",
+        "Person": null,
+        "Time": null
+      },
+      "expected_answer": [
+        "IMG_1011.JPG",
+        "IMG_1013.JPG",
+        "IMG_1015.JPG",
+        "IMG_1017.JPG",
+        "IMG_1018.JPG",
+        "IMG_1019.JPG",
+        "IMG_1478.JPG",
+        "IMG_1483 3.JPG",
+        "IMG_1484.JPG",
+        "IMG_1485.JPG"
+      ],
+      "expected_answer_role": "DESIGN/REFERENCE DATA — not a model output",
+      "ground_truth": [
+        "IMG_1011.JPG",
+        "IMG_1013.JPG",
+        "IMG_1015.JPG",
+        "IMG_1017.JPG",
+        "IMG_1018.JPG",
+        "IMG_1019.JPG",
+        "IMG_1478.JPG",
+        "IMG_1483 3.JPG",
+        "IMG_1484.JPG",
+        "IMG_1485.JPG"
+      ],
+      "id": "L10-A1-006",
+      "media": [
+        {
+          "filename": "IMG_1011.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1011.JPG"
+        },
+        {
+          "filename": "IMG_1013.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1013.JPG"
+        },
+        {
+          "filename": "IMG_1015.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1015.JPG"
+        },
+        {
+          "filename": "IMG_1017.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1017.JPG"
+        },
+        {
+          "filename": "IMG_1018.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1018.JPG"
+        },
+        {
+          "filename": "IMG_1019.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1019.JPG"
+        },
+        {
+          "filename": "IMG_1478.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1478.JPG"
+        },
+        {
+          "filename": "IMG_1483 3.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1483 3.JPG"
+        },
+        {
+          "filename": "IMG_1484.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1484.JPG"
+        },
+        {
+          "filename": "IMG_1485.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1485.JPG"
+        }
+      ],
+      "media_references": [
+        {
+          "filename": "IMG_1011.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1011.JPG"
+        },
+        {
+          "filename": "IMG_1013.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1013.JPG"
+        },
+        {
+          "filename": "IMG_1015.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1015.JPG"
+        },
+        {
+          "filename": "IMG_1017.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1017.JPG"
+        },
+        {
+          "filename": "IMG_1018.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1018.JPG"
+        },
+        {
+          "filename": "IMG_1019.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1019.JPG"
+        },
+        {
+          "filename": "IMG_1478.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1478.JPG"
+        },
+        {
+          "filename": "IMG_1483 3.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1483 3.JPG"
+        },
+        {
+          "filename": "IMG_1484.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1484.JPG"
+        },
+        {
+          "filename": "IMG_1485.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1485.JPG"
+        }
+      ],
+      "negative_control": false,
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"museum souvenirs\"?",
+      "query_cn": "记录下博物馆买的纪念品",
+      "query_en": "museum souvenirs",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"museum souvenirs\"?",
+      "question_type": "album_ground_truth_image_file_match",
+      "raw_media_availability": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "raw_media_available": true,
+      "reference_data_role": "DESIGN/REFERENCE DATA — not a model output",
+      "relative_media_paths": [
+        "images/IMG_1011.JPG",
+        "images/IMG_1013.JPG",
+        "images/IMG_1015.JPG",
+        "images/IMG_1017.JPG",
+        "images/IMG_1018.JPG",
+        "images/IMG_1019.JPG",
+        "images/IMG_1478.JPG",
+        "images/IMG_1483 3.JPG",
+        "images/IMG_1484.JPG",
+        "images/IMG_1485.JPG"
+      ],
+      "source": "VM",
+      "source_query_index": 5
+    },
+    {
+      "audit_id": "L10-A1-007",
+      "dimensions": {
+        "Concept": "cognitive",
+        "Genre": null,
+        "Location": "fact",
+        "Object": null,
+        "Person": null,
+        "Time": "cognitive"
+      },
+      "expected_answer": "No ground-truth image is listed for this query.",
+      "expected_answer_role": "DESIGN/REFERENCE DATA — not a model output",
+      "ground_truth": [],
+      "id": "L10-A1-007",
+      "media": [],
+      "media_references": [],
+      "negative_control": true,
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"nighttime pedestrian street in Guiyang\"?",
+      "query_cn": "贵阳夜晚步行街",
+      "query_en": "nighttime pedestrian street in Guiyang",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"nighttime pedestrian street in Guiyang\"?",
+      "question_type": "album_ground_truth_image_file_match",
+      "raw_media_availability": [],
+      "raw_media_available": false,
+      "reference_data_role": "DESIGN/REFERENCE DATA — not a model output",
+      "relative_media_paths": [],
+      "source": "VM",
+      "source_query_index": 6
+    },
+    {
+      "audit_id": "L10-A1-008",
+      "dimensions": {
+        "Concept": null,
+        "Genre": null,
+        "Location": "cognitive",
+        "Object": null,
+        "Person": null,
+        "Time": null
+      },
+      "expected_answer": [
+        "IMG_1191.JPG",
+        "IMG_1192.JPG",
+        "IMG_1193.JPG",
+        "IMG_1194.JPG",
+        "IMG_1195.JPG"
+      ],
+      "expected_answer_role": "DESIGN/REFERENCE DATA — not a model output",
+      "ground_truth": [
+        "IMG_1191.JPG",
+        "IMG_1192.JPG",
+        "IMG_1193.JPG",
+        "IMG_1194.JPG",
+        "IMG_1195.JPG"
+      ],
+      "id": "L10-A1-008",
+      "media": [
+        {
+          "filename": "IMG_1191.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1191.JPG"
+        },
+        {
+          "filename": "IMG_1192.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1192.JPG"
+        },
+        {
+          "filename": "IMG_1193.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1193.JPG"
+        },
+        {
+          "filename": "IMG_1194.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1194.JPG"
+        },
+        {
+          "filename": "IMG_1195.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1195.JPG"
+        }
+      ],
+      "media_references": [
+        {
+          "filename": "IMG_1191.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1191.JPG"
+        },
+        {
+          "filename": "IMG_1192.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1192.JPG"
+        },
+        {
+          "filename": "IMG_1193.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1193.JPG"
+        },
+        {
+          "filename": "IMG_1194.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1194.JPG"
+        },
+        {
+          "filename": "IMG_1195.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1195.JPG"
+        }
+      ],
+      "negative_control": false,
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"Baotu Spring tour\"?",
+      "query_cn": "趵突泉游览",
+      "query_en": "Baotu Spring tour",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"Baotu Spring tour\"?",
+      "question_type": "album_ground_truth_image_file_match",
+      "raw_media_availability": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "raw_media_available": true,
+      "reference_data_role": "DESIGN/REFERENCE DATA — not a model output",
+      "relative_media_paths": [
+        "images/IMG_1191.JPG",
+        "images/IMG_1192.JPG",
+        "images/IMG_1193.JPG",
+        "images/IMG_1194.JPG",
+        "images/IMG_1195.JPG"
+      ],
+      "source": "VM",
+      "source_query_index": 7
+    },
+    {
+      "audit_id": "L10-A1-009",
+      "dimensions": {
+        "Concept": null,
+        "Genre": null,
+        "Location": null,
+        "Object": null,
+        "Person": "cognitive",
+        "Time": "fact"
+      },
+      "expected_answer": [
+        "IMG_1779.JPG",
+        "IMG_1780.JPG"
+      ],
+      "expected_answer_role": "DESIGN/REFERENCE DATA — not a model output",
+      "ground_truth": [
+        "IMG_1779.JPG",
+        "IMG_1780.JPG"
+      ],
+      "id": "L10-A1-009",
+      "media": [
+        {
+          "filename": "IMG_1779.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1779.JPG"
+        },
+        {
+          "filename": "IMG_1780.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1780.JPG"
+        }
+      ],
+      "media_references": [
+        {
+          "filename": "IMG_1779.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1779.JPG"
+        },
+        {
+          "filename": "IMG_1780.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1780.JPG"
+        }
+      ],
+      "negative_control": false,
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"selfie documenting makeup on November 16, 2025, afternoon\"?",
+      "query_cn": "25年11月16号下午记录妆容的自拍",
+      "query_en": "selfie documenting makeup on November 16, 2025, afternoon",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"selfie documenting makeup on November 16, 2025, afternoon\"?",
+      "question_type": "album_ground_truth_image_file_match",
+      "raw_media_availability": [
+        true,
+        true
+      ],
+      "raw_media_available": true,
+      "reference_data_role": "DESIGN/REFERENCE DATA — not a model output",
+      "relative_media_paths": [
+        "images/IMG_1779.JPG",
+        "images/IMG_1780.JPG"
+      ],
+      "source": "MF",
+      "source_query_index": 8
+    },
+    {
+      "audit_id": "L10-A1-010",
+      "dimensions": {
+        "Concept": null,
+        "Genre": null,
+        "Location": "fact",
+        "Object": null,
+        "Person": null,
+        "Time": null
+      },
+      "expected_answer": [
+        "IMG_1179.JPG",
+        "IMG_1178.JPG"
+      ],
+      "expected_answer_role": "DESIGN/REFERENCE DATA — not a model output",
+      "ground_truth": [
+        "IMG_1179.JPG",
+        "IMG_1178.JPG"
+      ],
+      "id": "L10-A1-010",
+      "media": [
+        {
+          "filename": "IMG_1179.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1179.JPG"
+        },
+        {
+          "filename": "IMG_1178.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1178.JPG"
+        }
+      ],
+      "media_references": [
+        {
+          "filename": "IMG_1179.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1179.JPG"
+        },
+        {
+          "filename": "IMG_1178.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1178.JPG"
+        }
+      ],
+      "negative_control": false,
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"photos in Yucheng\"?",
+      "query_cn": "在禹城市的照片",
+      "query_en": "photos in Yucheng",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"photos in Yucheng\"?",
+      "question_type": "album_ground_truth_image_file_match",
+      "raw_media_availability": [
+        true,
+        true
+      ],
+      "raw_media_available": true,
+      "reference_data_role": "DESIGN/REFERENCE DATA — not a model output",
+      "relative_media_paths": [
+        "images/IMG_1179.JPG",
+        "images/IMG_1178.JPG"
+      ],
+      "source": "M",
+      "source_query_index": 9
+    },
+    {
+      "audit_id": "L10-A1-011",
+      "dimensions": {
+        "Concept": null,
+        "Genre": null,
+        "Location": "fact",
+        "Object": null,
+        "Person": null,
+        "Time": null
+      },
+      "expected_answer": [
+        "IMG_6438.JPG",
+        "IMG_6437.JPG",
+        "IMG_6457.JPG",
+        "IMG_6344.JPG",
+        "IMG_6343.JPG",
+        "IMG_6458.JPG"
+      ],
+      "expected_answer_role": "DESIGN/REFERENCE DATA — not a model output",
+      "ground_truth": [
+        "IMG_6438.JPG",
+        "IMG_6437.JPG",
+        "IMG_6457.JPG",
+        "IMG_6344.JPG",
+        "IMG_6343.JPG",
+        "IMG_6458.JPG"
+      ],
+      "id": "L10-A1-011",
+      "media": [
+        {
+          "filename": "IMG_6438.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_6438.JPG"
+        },
+        {
+          "filename": "IMG_6437.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_6437.JPG"
+        },
+        {
+          "filename": "IMG_6457.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_6457.JPG"
+        },
+        {
+          "filename": "IMG_6344.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_6344.JPG"
+        },
+        {
+          "filename": "IMG_6343.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_6343.JPG"
+        },
+        {
+          "filename": "IMG_6458.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_6458.JPG"
+        }
+      ],
+      "media_references": [
+        {
+          "filename": "IMG_6438.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_6438.JPG"
+        },
+        {
+          "filename": "IMG_6437.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_6437.JPG"
+        },
+        {
+          "filename": "IMG_6457.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_6457.JPG"
+        },
+        {
+          "filename": "IMG_6344.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_6344.JPG"
+        },
+        {
+          "filename": "IMG_6343.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_6343.JPG"
+        },
+        {
+          "filename": "IMG_6458.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_6458.JPG"
+        }
+      ],
+      "negative_control": false,
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"photos in Yantian District\"?",
+      "query_cn": "在盐田区的照片",
+      "query_en": "photos in Yantian District",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"photos in Yantian District\"?",
+      "question_type": "album_ground_truth_image_file_match",
+      "raw_media_availability": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "raw_media_available": true,
+      "reference_data_role": "DESIGN/REFERENCE DATA — not a model output",
+      "relative_media_paths": [
+        "images/IMG_6438.JPG",
+        "images/IMG_6437.JPG",
+        "images/IMG_6457.JPG",
+        "images/IMG_6344.JPG",
+        "images/IMG_6343.JPG",
+        "images/IMG_6458.JPG"
+      ],
+      "source": "M",
+      "source_query_index": 10
+    },
+    {
+      "audit_id": "L10-A1-012",
+      "dimensions": {
+        "Concept": null,
+        "Genre": null,
+        "Location": "cognitive",
+        "Object": "cognitive",
+        "Person": null,
+        "Time": "cognitive"
+      },
+      "expected_answer": [
+        "IMG_1386.JPG",
+        "IMG_1388.JPG",
+        "IMG_1390.JPG",
+        "IMG_1396.JPG",
+        "IMG_1400.JPG"
+      ],
+      "expected_answer_role": "DESIGN/REFERENCE DATA — not a model output",
+      "ground_truth": [
+        "IMG_1386.JPG",
+        "IMG_1388.JPG",
+        "IMG_1390.JPG",
+        "IMG_1396.JPG",
+        "IMG_1400.JPG"
+      ],
+      "id": "L10-A1-012",
+      "media": [
+        {
+          "filename": "IMG_1386.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1386.JPG"
+        },
+        {
+          "filename": "IMG_1388.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1388.JPG"
+        },
+        {
+          "filename": "IMG_1390.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1390.JPG"
+        },
+        {
+          "filename": "IMG_1396.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1396.JPG"
+        },
+        {
+          "filename": "IMG_1400.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1400.JPG"
+        }
+      ],
+      "media_references": [
+        {
+          "filename": "IMG_1386.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1386.JPG"
+        },
+        {
+          "filename": "IMG_1388.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1388.JPG"
+        },
+        {
+          "filename": "IMG_1390.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1390.JPG"
+        },
+        {
+          "filename": "IMG_1396.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1396.JPG"
+        },
+        {
+          "filename": "IMG_1400.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1400.JPG"
+        }
+      ],
+      "negative_control": false,
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"Shandong modern history exhibition, anti-invasion theme\"?",
+      "query_cn": "山东近代史展览--反侵略主题",
+      "query_en": "Shandong modern history exhibition, anti-invasion theme",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"Shandong modern history exhibition, anti-invasion theme\"?",
+      "question_type": "album_ground_truth_image_file_match",
+      "raw_media_availability": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "raw_media_available": true,
+      "reference_data_role": "DESIGN/REFERENCE DATA — not a model output",
+      "relative_media_paths": [
+        "images/IMG_1386.JPG",
+        "images/IMG_1388.JPG",
+        "images/IMG_1390.JPG",
+        "images/IMG_1396.JPG",
+        "images/IMG_1400.JPG"
+      ],
+      "source": "V",
+      "source_query_index": 11
+    },
+    {
+      "audit_id": "L10-A1-013",
+      "dimensions": {
+        "Concept": null,
+        "Genre": null,
+        "Location": null,
+        "Object": "fact",
+        "Person": null,
+        "Time": null
+      },
+      "expected_answer": [
+        "IMG_5254.JPG",
+        "IMG_5255.JPG",
+        "IMG_5257.JPG"
+      ],
+      "expected_answer_role": "DESIGN/REFERENCE DATA — not a model output",
+      "ground_truth": [
+        "IMG_5254.JPG",
+        "IMG_5255.JPG",
+        "IMG_5257.JPG"
+      ],
+      "id": "L10-A1-013",
+      "media": [
+        {
+          "filename": "IMG_5254.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_5254.JPG"
+        },
+        {
+          "filename": "IMG_5255.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_5255.JPG"
+        },
+        {
+          "filename": "IMG_5257.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_5257.JPG"
+        }
+      ],
+      "media_references": [
+        {
+          "filename": "IMG_5254.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_5254.JPG"
+        },
+        {
+          "filename": "IMG_5255.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_5255.JPG"
+        },
+        {
+          "filename": "IMG_5257.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_5257.JPG"
+        }
+      ],
+      "negative_control": false,
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"roast chicken with yellow-green sauce\"?",
+      "query_cn": "黄绿酱汁烤鸡",
+      "query_en": "roast chicken with yellow-green sauce",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"roast chicken with yellow-green sauce\"?",
+      "question_type": "album_ground_truth_image_file_match",
+      "raw_media_availability": [
+        true,
+        true,
+        true
+      ],
+      "raw_media_available": true,
+      "reference_data_role": "DESIGN/REFERENCE DATA — not a model output",
+      "relative_media_paths": [
+        "images/IMG_5254.JPG",
+        "images/IMG_5255.JPG",
+        "images/IMG_5257.JPG"
+      ],
+      "source": "V",
+      "source_query_index": 12
+    },
+    {
+      "audit_id": "L10-A1-014",
+      "dimensions": {
+        "Concept": null,
+        "Genre": null,
+        "Location": null,
+        "Object": null,
+        "Person": null,
+        "Time": "fact"
+      },
+      "expected_answer": [
+        "IMG_7898.JPG"
+      ],
+      "expected_answer_role": "DESIGN/REFERENCE DATA — not a model output",
+      "ground_truth": [
+        "IMG_7898.JPG"
+      ],
+      "id": "L10-A1-014",
+      "media": [
+        {
+          "filename": "IMG_7898.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_7898.JPG"
+        }
+      ],
+      "media_references": [
+        {
+          "filename": "IMG_7898.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_7898.JPG"
+        }
+      ],
+      "negative_control": false,
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"photos from May 2024\"?",
+      "query_cn": "2024年5月",
+      "query_en": "photos from May 2024",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"photos from May 2024\"?",
+      "question_type": "album_ground_truth_image_file_match",
+      "raw_media_availability": [
+        true
+      ],
+      "raw_media_available": true,
+      "reference_data_role": "DESIGN/REFERENCE DATA — not a model output",
+      "relative_media_paths": [
+        "images/IMG_7898.JPG"
+      ],
+      "source": "M",
+      "source_query_index": 13
+    },
+    {
+      "audit_id": "L10-A1-015",
+      "dimensions": {
+        "Concept": null,
+        "Genre": null,
+        "Location": "fact",
+        "Object": null,
+        "Person": null,
+        "Time": null
+      },
+      "expected_answer": [
+        "IMG_5625.JPG"
+      ],
+      "expected_answer_role": "DESIGN/REFERENCE DATA — not a model output",
+      "ground_truth": [
+        "IMG_5625.JPG"
+      ],
+      "id": "L10-A1-015",
+      "media": [
+        {
+          "filename": "IMG_5625.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_5625.JPG"
+        }
+      ],
+      "media_references": [
+        {
+          "filename": "IMG_5625.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_5625.JPG"
+        }
+      ],
+      "negative_control": false,
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"Shenzhen airport tarmac at the boarding gate\"?",
+      "query_cn": "深圳机场登机口停机坪",
+      "query_en": "Shenzhen airport tarmac at the boarding gate",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"Shenzhen airport tarmac at the boarding gate\"?",
+      "question_type": "album_ground_truth_image_file_match",
+      "raw_media_availability": [
+        true
+      ],
+      "raw_media_available": true,
+      "reference_data_role": "DESIGN/REFERENCE DATA — not a model output",
+      "relative_media_paths": [
+        "images/IMG_5625.JPG"
+      ],
+      "source": "VM",
+      "source_query_index": 14
+    },
+    {
+      "audit_id": "L10-A1-016",
+      "dimensions": {
+        "Concept": null,
+        "Genre": null,
+        "Location": null,
+        "Object": "cognitive",
+        "Person": null,
+        "Time": null
+      },
+      "expected_answer": "No ground-truth image is listed for this query.",
+      "expected_answer_role": "DESIGN/REFERENCE DATA — not a model output",
+      "ground_truth": [],
+      "id": "L10-A1-016",
+      "media": [],
+      "media_references": [],
+      "negative_control": true,
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"vanilla coke spilled on keyboard\"?",
+      "query_cn": "香草味可乐倒在键盘上",
+      "query_en": "vanilla coke spilled on keyboard",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"vanilla coke spilled on keyboard\"?",
+      "question_type": "album_ground_truth_image_file_match",
+      "raw_media_availability": [],
+      "raw_media_available": false,
+      "reference_data_role": "DESIGN/REFERENCE DATA — not a model output",
+      "relative_media_paths": [],
+      "source": "V",
+      "source_query_index": 15
+    },
+    {
+      "audit_id": "L10-A1-017",
+      "dimensions": {
+        "Concept": null,
+        "Genre": null,
+        "Location": "cognitive",
+        "Object": "fact",
+        "Person": null,
+        "Time": null
+      },
+      "expected_answer": [
+        "IMG_4823.JPG",
+        "IMG_4824.JPG",
+        "IMG_4831.JPG"
+      ],
+      "expected_answer_role": "DESIGN/REFERENCE DATA — not a model output",
+      "ground_truth": [
+        "IMG_4823.JPG",
+        "IMG_4824.JPG",
+        "IMG_4831.JPG"
+      ],
+      "id": "L10-A1-017",
+      "media": [
+        {
+          "filename": "IMG_4823.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_4823.JPG"
+        },
+        {
+          "filename": "IMG_4824.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_4824.JPG"
+        },
+        {
+          "filename": "IMG_4831.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_4831.JPG"
+        }
+      ],
+      "media_references": [
+        {
+          "filename": "IMG_4823.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_4823.JPG"
+        },
+        {
+          "filename": "IMG_4824.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_4824.JPG"
+        },
+        {
+          "filename": "IMG_4831.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_4831.JPG"
+        }
+      ],
+      "negative_control": false,
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"cat lying in the middle of campus street\"?",
+      "query_cn": "校园街中间躺着的猫猫",
+      "query_en": "cat lying in the middle of campus street",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"cat lying in the middle of campus street\"?",
+      "question_type": "album_ground_truth_image_file_match",
+      "raw_media_availability": [
+        true,
+        true,
+        true
+      ],
+      "raw_media_available": true,
+      "reference_data_role": "DESIGN/REFERENCE DATA — not a model output",
+      "relative_media_paths": [
+        "images/IMG_4823.JPG",
+        "images/IMG_4824.JPG",
+        "images/IMG_4831.JPG"
+      ],
+      "source": "V",
+      "source_query_index": 16
+    },
+    {
+      "audit_id": "L10-A1-018",
+      "dimensions": {
+        "Concept": null,
+        "Genre": "cognitive",
+        "Location": null,
+        "Object": null,
+        "Person": "cognitive",
+        "Time": null
+      },
+      "expected_answer": [
+        "IMG_8637.JPG",
+        "IMG_8808.JPG",
+        "IMG_8890.JPG"
+      ],
+      "expected_answer_role": "DESIGN/REFERENCE DATA — not a model output",
+      "ground_truth": [
+        "IMG_8637.JPG",
+        "IMG_8808.JPG",
+        "IMG_8890.JPG"
+      ],
+      "id": "L10-A1-018",
+      "media": [
+        {
+          "filename": "IMG_8637.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_8637.JPG"
+        },
+        {
+          "filename": "IMG_8808.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_8808.JPG"
+        },
+        {
+          "filename": "IMG_8890.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_8890.JPG"
+        }
+      ],
+      "media_references": [
+        {
+          "filename": "IMG_8637.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_8637.JPG"
+        },
+        {
+          "filename": "IMG_8808.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_8808.JPG"
+        },
+        {
+          "filename": "IMG_8890.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_8890.JPG"
+        }
+      ],
+      "negative_control": false,
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"me wearing a kimono\"?",
+      "query_cn": "穿和服的自己",
+      "query_en": "me wearing a kimono",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"me wearing a kimono\"?",
+      "question_type": "album_ground_truth_image_file_match",
+      "raw_media_availability": [
+        true,
+        true,
+        true
+      ],
+      "raw_media_available": true,
+      "reference_data_role": "DESIGN/REFERENCE DATA — not a model output",
+      "relative_media_paths": [
+        "images/IMG_8637.JPG",
+        "images/IMG_8808.JPG",
+        "images/IMG_8890.JPG"
+      ],
+      "source": "V",
+      "source_query_index": 17
+    },
+    {
+      "audit_id": "L10-A1-019",
+      "dimensions": {
+        "Concept": null,
+        "Genre": null,
+        "Location": null,
+        "Object": null,
+        "Person": null,
+        "Time": "fact"
+      },
+      "expected_answer": [
+        "IMG_8527.JPG",
+        "IMG_8542 2.JPG"
+      ],
+      "expected_answer_role": "DESIGN/REFERENCE DATA — not a model output",
+      "ground_truth": [
+        "IMG_8527.JPG",
+        "IMG_8542 2.JPG"
+      ],
+      "id": "L10-A1-019",
+      "media": [
+        {
+          "filename": "IMG_8527.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_8527.JPG"
+        },
+        {
+          "filename": "IMG_8542 2.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_8542 2.JPG"
+        }
+      ],
+      "media_references": [
+        {
+          "filename": "IMG_8527.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_8527.JPG"
+        },
+        {
+          "filename": "IMG_8542 2.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_8542 2.JPG"
+        }
+      ],
+      "negative_control": false,
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"winter photos from 2023\"?",
+      "query_cn": "2023年冬季的照片",
+      "query_en": "winter photos from 2023",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"winter photos from 2023\"?",
+      "question_type": "album_ground_truth_image_file_match",
+      "raw_media_availability": [
+        true,
+        true
+      ],
+      "raw_media_available": true,
+      "reference_data_role": "DESIGN/REFERENCE DATA — not a model output",
+      "relative_media_paths": [
+        "images/IMG_8527.JPG",
+        "images/IMG_8542 2.JPG"
+      ],
+      "source": "M",
+      "source_query_index": 18
+    },
+    {
+      "audit_id": "L10-A1-020",
+      "dimensions": {
+        "Concept": null,
+        "Genre": null,
+        "Location": "cognitive",
+        "Object": "cognitive",
+        "Person": null,
+        "Time": null
+      },
+      "expected_answer": [
+        "IMG_1483 2.JPG",
+        "IMG_1483.JPG",
+        "IMG_1570 2.JPG",
+        "IMG_1570.JPG",
+        "IMG_4753.JPG",
+        "IMG_5156.JPG",
+        "IMG_5159.JPG",
+        "IMG_5241.JPG",
+        "IMG_5259.JPG",
+        "IMG_5265.JPG"
+      ],
+      "expected_answer_role": "DESIGN/REFERENCE DATA — not a model output",
+      "ground_truth": [
+        "IMG_1483 2.JPG",
+        "IMG_1483.JPG",
+        "IMG_1570 2.JPG",
+        "IMG_1570.JPG",
+        "IMG_4753.JPG",
+        "IMG_5156.JPG",
+        "IMG_5159.JPG",
+        "IMG_5241.JPG",
+        "IMG_5259.JPG",
+        "IMG_5265.JPG"
+      ],
+      "id": "L10-A1-020",
+      "media": [
+        {
+          "filename": "IMG_1483 2.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1483 2.JPG"
+        },
+        {
+          "filename": "IMG_1483.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1483.JPG"
+        },
+        {
+          "filename": "IMG_1570 2.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1570 2.JPG"
+        },
+        {
+          "filename": "IMG_1570.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1570.JPG"
+        },
+        {
+          "filename": "IMG_4753.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_4753.JPG"
+        },
+        {
+          "filename": "IMG_5156.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_5156.JPG"
+        },
+        {
+          "filename": "IMG_5159.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_5159.JPG"
+        },
+        {
+          "filename": "IMG_5241.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_5241.JPG"
+        },
+        {
+          "filename": "IMG_5259.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_5259.JPG"
+        },
+        {
+          "filename": "IMG_5265.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_5265.JPG"
+        }
+      ],
+      "media_references": [
+        {
+          "filename": "IMG_1483 2.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1483 2.JPG"
+        },
+        {
+          "filename": "IMG_1483.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1483.JPG"
+        },
+        {
+          "filename": "IMG_1570 2.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1570 2.JPG"
+        },
+        {
+          "filename": "IMG_1570.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_1570.JPG"
+        },
+        {
+          "filename": "IMG_4753.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_4753.JPG"
+        },
+        {
+          "filename": "IMG_5156.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_5156.JPG"
+        },
+        {
+          "filename": "IMG_5159.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_5159.JPG"
+        },
+        {
+          "filename": "IMG_5241.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_5241.JPG"
+        },
+        {
+          "filename": "IMG_5259.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_5259.JPG"
+        },
+        {
+          "filename": "IMG_5265.JPG",
+          "raw_media_available": true,
+          "relative_media_path": "images/IMG_5265.JPG"
+        }
+      ],
+      "negative_control": false,
+      "query": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"my cat eating cat food\"?",
+      "query_cn": "我家猫吃猫粮",
+      "query_en": "my cat eating cat food",
+      "question": "Which image file(s), if any, are the ground-truth matches for the supplied album query \"my cat eating cat food\"?",
+      "question_type": "album_ground_truth_image_file_match",
+      "raw_media_availability": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "raw_media_available": true,
+      "reference_data_role": "DESIGN/REFERENCE DATA — not a model output",
+      "relative_media_paths": [
+        "images/IMG_1483 2.JPG",
+        "images/IMG_1483.JPG",
+        "images/IMG_1570 2.JPG",
+        "images/IMG_1570.JPG",
+        "images/IMG_4753.JPG",
+        "images/IMG_5156.JPG",
+        "images/IMG_5159.JPG",
+        "images/IMG_5241.JPG",
+        "images/IMG_5259.JPG",
+        "images/IMG_5265.JPG"
+      ],
+      "source": "VF",
+      "source_query_index": 19
+    }
+  ],
+  "source_album_path": "ai_engine/rag/data/raw_media/l10/album1",
+  "source_query_json_sha256": "a058b1f21718ca097917e30f4baca4a42245100e2a492af659a5ad46ff3ef6ee",
+  "source_query_path": "ai_engine/rag/data/raw_media/l10/album1/query.json",
+  "supported_query_count": 18
+}

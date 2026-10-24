@@ -2,6 +2,7 @@
 # IDEs
 .idea/
 .vscode/
+.opencode/
 
 # Environment files
 *.env
@@ -38,3 +39,6 @@ PROJECT_EXPLAINER.md
 # Image files
 *.jpg
 *.jpeg
+
+# Locally supplied raw benchmark media
+ai_engine/rag/data/raw_media/

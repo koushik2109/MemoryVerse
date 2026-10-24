@@ -27,6 +27,8 @@
 	<string>MemoryVerse needs access to your photos and videos to automatically discover and create memories.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>MemoryVerse needs permission to save generated memories to your photo library.</string>
+	<key>PHPhotoLibraryPreventAutomaticLimitedAccessAlert</key>
+	<true/>
 	<key>CFBundleIdentifier</key>
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>

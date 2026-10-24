@@ -30,7 +30,7 @@ class MediaIndexingService {
   /// Otherwise, discovers items modified since the last scan.
   Future<List<DiscoveredMediaItem>> syncMediaIndex({
     bool forceFullScan = false,
-    int limit = 300,
+    int? limit,
   }) async {
     final since = forceFullScan ? null : _lastFullScanTime;
     final newlyDiscovered = await _mediaService.discoverMedia(
@@ -47,7 +47,7 @@ class MediaIndexingService {
     }
 
     _lastFullScanTime = now;
-    
+
     // Sort all indexed items newest first
     final sorted = _index.values.map((e) => e.item).toList();
     sorted.sort((a, b) => b.timestamp.compareTo(a.timestamp));

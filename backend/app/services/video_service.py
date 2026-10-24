@@ -34,6 +34,23 @@ from ai_engine.video_generation.quality_validator import QualityValidator
 logger = logging.getLogger(__name__)
 
 
+def _filter_media_to_selected_ids(
+    media_items: list[dict[str, Any]],
+    selected_media_ids: list[str] | None,
+) -> list[dict[str, Any]]:
+    """Restrict a memory's source pool to the IDs explicitly selected by the user.
+
+    An explicit selection must never silently broaden back to every media item
+    when an ID is stale or missing.  The caller handles an empty result as a
+    failed job rather than rendering unselected media.
+    """
+    if not selected_media_ids:
+        return media_items
+
+    selected_set = {str(media_id) for media_id in selected_media_ids}
+    return [item for item in media_items if str(item.get("id", "")) in selected_set]
+
+
 def _create_ambient_audio(duration: float, sample_rate: int = 44100) -> AudioArrayClip:
     """
     Synthesizes a soothing, warm ambient chord progression (Cmaj7 -> Am7 -> Fmaj7 -> G)
@@ -1071,6 +1088,7 @@ class VideoService:
         # Resolve full specification from job_state_manager or DB script_metadata
         cached_job = job_state_manager.get_job(job_id)
         spec: dict[str, Any] = {}
+        persisted_selected_media_ids: list[str] | None = None
         if cached_job and cached_job.specification:
             spec = cached_job.specification
         else:
@@ -1080,6 +1098,11 @@ class VideoService:
                     first_record = cast(dict[str, Any], db_job.data[0])
                     meta = first_record.get("script_metadata")
                     if isinstance(meta, dict):
+                        raw_selected_media_ids = meta.get("selected_media_ids")
+                        if isinstance(raw_selected_media_ids, list):
+                            persisted_selected_media_ids = [
+                                str(media_id) for media_id in raw_selected_media_ids
+                            ]
                         found_spec = meta.get("specification")
                         if isinstance(found_spec, dict):
                             spec = cast(dict[str, Any], found_spec)
@@ -1092,8 +1115,12 @@ class VideoService:
             dimension = spec.get("dimension")
         if (not mood or mood == "calm") and spec.get("mood"):
             mood = spec.get("mood")
-        if not selected_media_ids and spec.get("selected_media_ids"):
-            selected_media_ids = spec.get("selected_media_ids")
+        if not selected_media_ids:
+            selected_media_ids = (
+                spec.get("selected_media_ids")
+                or spec.get("media_selection")
+                or persisted_selected_media_ids
+            )
 
         target_duration = float(spec.get("target_duration") or spec.get("duration_seconds") or 30.0)
         quality_profile = str(spec.get("quality_profile") or "balanced").lower()
@@ -1122,16 +1149,22 @@ class VideoService:
                 job_id, "retrieving_memory", task_description=f"Retrieving source assets for '{memory_title}'..."
             )
 
-            # ── 2. Fetch ALL source media (with retry grace period for concurrent uploads) ────
+            # ── 2. Fetch source media (with retry grace period for concurrent uploads) ────
             import time
             all_media: list[dict[str, Any]] = []
             for attempt in range(5):
-                res = supabase.table("media")\
+                media_query = supabase.table("media")\
                     .select("*")\
                     .eq("memory_id", memory_id)\
-                    .order("created_at", desc=False)\
-                    .limit(60)\
-                    .execute()
+                    .order("created_at", desc=False)
+                if selected_media_ids:
+                    # Query the selected IDs directly so an older selected
+                    # asset cannot be lost behind the default 60-item cap.
+                    media_query = media_query.in_(
+                        "id",
+                        [str(media_id) for media_id in selected_media_ids],
+                    )
+                res = media_query.limit(max(60, len(selected_media_ids or []))).execute()
 
                 all_media = [
                     item for item in cast(list[dict[str, Any]], res.data or [])
@@ -1149,10 +1182,12 @@ class VideoService:
 
             # If user selected specific pictures/media IDs, filter to those
             if selected_media_ids:
-                selected_set = {mid for mid in selected_media_ids}
-                filtered = [m for m in all_media if str(m.get("id")) in selected_set]
-                if filtered:
-                    all_media = filtered
+                all_media = _filter_media_to_selected_ids(all_media, selected_media_ids)
+                if not all_media:
+                    message = "None of the selected media items could be found in this memory."
+                    job_state_manager.fail_job(job_id, "SELECTED_MEDIA_NOT_FOUND", message)
+                    update_job_status("failed", message)
+                    return
 
             all_media_ids = [str(item.get("id", "")) for item in all_media]
 
@@ -1259,6 +1294,7 @@ class VideoService:
                     candidate_pool.append({
                         **item,
                         "quality_score": q.get("overall_score", 0.5),
+                        "is_noisy": q.get("is_noisy", False),
                         "selection_score": q.get("overall_score", 0.5),
                     })
                 else:

@@ -89,6 +89,32 @@ class HomeAssistantService:
         # 1. CREATE MEMORY
         # Examples: "Create a memory Summer Trip", "Create memory Birthday 2026"
         # -------------------------------------------------------------
+        create_journal_match = re.search(
+            r"^(?:create|make|new)\s+(?:a\s+)?(?:journal|memory)\s+(?:of|about|for|called|named|titled)\s+[\"']?(.+?)[\"']?$",
+            q,
+            re.IGNORECASE,
+        )
+        if create_journal_match:
+            prompt = create_journal_match.group(1).strip(" .\"'")
+            if prompt:
+                return HomeAssistantResponse(
+                    message=(
+                        f"I’ll scan your accessible media for evidence of '{prompt}', "
+                        "then let you review the grounded matches before creating the journal."
+                    ),
+                    intent="CREATE_MEMORY_DISCOVERY",
+                    actions=[
+                        AssistantAction(
+                            type="CREATE_MEMORY",
+                            data={
+                                "initial_prompt": f"Create journal of {prompt}",
+                                "auto_start_discovery": True,
+                            },
+                        )
+                    ],
+                    suggested_chips=["Grant Media Access", "Add Photos Manually"],
+                )
+
         create_mem_match = re.search(
             r"^(?:create|make|add|new)\s+(?:a\s+)?memory(?:\s+(?:called|named|for|about|titled))?\s+[\"']?(.+?)[\"']?$",
             q,

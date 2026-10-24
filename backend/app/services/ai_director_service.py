@@ -208,6 +208,7 @@ class AIDirectorService:
             "dimension": spec.aspect_ratio,
             "mood": spec.emotion.primary,
             "duration_seconds": spec.duration_target_seconds,
+            "selected_media_ids": spec.media_selection or context.media_ids,
             "current_task": "Waiting for available background worker...",
             "stage": "queued",
             "overall_progress": 0,

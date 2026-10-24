@@ -187,6 +187,7 @@ class VideoJobResponse(BaseModel):
     elapsed_seconds: int = 0
     error_code: Optional[str] = None
     retry_count: int = 0
+    selected_media_ids: List[str] = Field(default_factory=list)
     upload_speed_mbps: Optional[float] = None
     upload_progress: Optional[int] = None
     created_at: datetime
@@ -293,6 +294,12 @@ class MediaCandidate(BaseModel):
     duration: Optional[int] = None
     width: Optional[int] = None
     height: Optional[int] = None
+    latitude: Optional[float] = None
+    longitude: Optional[float] = None
+    location: Optional[str] = None
+    folder: Optional[str] = None
+    relative_path: Optional[str] = None
+    metadata: Dict[str, Any] = Field(default_factory=dict)
 
 class FilterMediaRequest(BaseModel):
     prompt: str = Field(..., min_length=1, max_length=1000)
@@ -308,6 +315,9 @@ class FilteredMediaItem(BaseModel):
     matched_tags: List[str] = []
     recommended: bool = True
     visual_description: Optional[str] = None
+    location_candidate: Optional[str] = None
+    location_confidence: float = 0.0
+    location_decision_status: Optional[str] = None
 
 class FilterMediaResponse(BaseModel):
     prompt: str
@@ -383,6 +393,3 @@ class AnalyzeMemoryRequest(BaseModel):
     force_regenerate: bool = False
 
 MemoryResponse.model_rebuild()
-
-
-

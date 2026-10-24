@@ -49,10 +49,12 @@ class _MemoryRagReviewViewState extends State<MemoryRagReviewView> {
   void initState() {
     super.initState();
     _titleCtrl = TextEditingController(text: widget.ragResult.suggestedTitle);
-    _descCtrl = TextEditingController(text: widget.ragResult.suggestedDescription ?? '');
-    _locCtrl = TextEditingController(text: widget.ragResult.suggestedLocation ?? '');
+    _descCtrl = TextEditingController(
+        text: widget.ragResult.suggestedDescription ?? '');
+    _locCtrl =
+        TextEditingController(text: widget.ragResult.suggestedLocation ?? '');
     _selectedDate = widget.ragResult.suggestedDate ?? DateTime.now();
-    
+
     _items = widget.ragResult.matchedItems;
     // ONLY pre-select items that the AI recommended as relevant
     for (final match in widget.ragResult.matches) {
@@ -124,7 +126,8 @@ class _MemoryRagReviewViewState extends State<MemoryRagReviewView> {
               top: AppSpacing.s32,
               right: AppSpacing.s16,
               child: IconButton(
-                icon: const Icon(Icons.close, color: adt.AppColors.onDarkPrimary, size: 32),
+                icon: const Icon(Icons.close,
+                    color: adt.AppColors.onDarkPrimary, size: 32),
                 onPressed: () => Navigator.pop(ctx),
               ),
             ),
@@ -222,22 +225,30 @@ class _MemoryRagReviewViewState extends State<MemoryRagReviewView> {
                 children: [
                   Text(
                     'Date',
-                    style: Theme.of(context).textTheme.labelSmall?.copyWith(color: c.textMuted),
+                    style: Theme.of(context)
+                        .textTheme
+                        .labelSmall
+                        ?.copyWith(color: c.textMuted),
                   ),
                   const SizedBox(height: AppSpacing.s8),
                   GestureDetector(
                     onTap: _pickDate,
                     child: Container(
                       height: 52,
-                      padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s12),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: AppSpacing.s12),
                       decoration: BoxDecoration(
-                        color: adt.AppColors.onDarkPrimary.withValues(alpha: 0.06),
+                        color:
+                            adt.AppColors.onDarkPrimary.withValues(alpha: 0.06),
                         borderRadius: BorderRadius.circular(AppRadii.lg),
-                        border: Border.all(color: adt.AppColors.onDarkPrimary.withValues(alpha: 0.15)),
+                        border: Border.all(
+                            color: adt.AppColors.onDarkPrimary
+                                .withValues(alpha: 0.15)),
                       ),
                       child: Row(
                         children: [
-                          Icon(Icons.calendar_today_rounded, size: 16, color: c.textMuted),
+                          Icon(Icons.calendar_today_rounded,
+                              size: 16, color: c.textMuted),
                           const SizedBox(width: 8),
                           Expanded(
                             child: Text(
@@ -263,7 +274,8 @@ class _MemoryRagReviewViewState extends State<MemoryRagReviewView> {
           children: [
             Text(
               'Selected Media ($selectedCount / ${_items.length})',
-              style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600, color: c.text),
+              style: TextStyle(
+                  fontSize: 14, fontWeight: FontWeight.w600, color: c.text),
             ),
             Row(
               children: [
@@ -278,7 +290,9 @@ class _MemoryRagReviewViewState extends State<MemoryRagReviewView> {
                     });
                   },
                   child: Text(
-                    _selectedItemIds.length == _items.length ? 'Deselect All' : 'Select All',
+                    _selectedItemIds.length == _items.length
+                        ? 'Deselect All'
+                        : 'Select All',
                     style: const TextStyle(fontSize: 12),
                   ),
                 ),
@@ -304,9 +318,11 @@ class _MemoryRagReviewViewState extends State<MemoryRagReviewView> {
             ),
             child: Column(
               children: [
-                Icon(Icons.image_not_supported_outlined, size: 40, color: c.textMuted),
+                Icon(Icons.image_not_supported_outlined,
+                    size: 40, color: c.textMuted),
                 const SizedBox(height: 8),
-                Text('No media found matching this prompt', style: TextStyle(color: c.textMuted, fontSize: 13)),
+                Text('No media found matching this prompt',
+                    style: TextStyle(color: c.textMuted, fontSize: 13)),
                 const SizedBox(height: 8),
                 TextButton.icon(
                   onPressed: widget.onAddManualMedia,
@@ -321,7 +337,9 @@ class _MemoryRagReviewViewState extends State<MemoryRagReviewView> {
             height: 140,
             child: Builder(
               builder: (context) {
-                final matchMap = {for (final m in widget.ragResult.matches) m.item.id: m};
+                final matchMap = {
+                  for (final m in widget.ragResult.matches) m.item.id: m
+                };
                 return ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: _items.length,
@@ -331,7 +349,9 @@ class _MemoryRagReviewViewState extends State<MemoryRagReviewView> {
                     final isCover = _coverIndex == i;
                     final match = matchMap[item.id];
                     final isRecommended = match?.recommended ?? false;
-                    final scorePct = match != null ? (match.relevanceScore * 100).toInt() : null;
+                    final scorePct = match != null
+                        ? (match.relevanceScore * 100).toInt()
+                        : null;
 
                     return GestureDetector(
                       onTap: () {
@@ -355,7 +375,11 @@ class _MemoryRagReviewViewState extends State<MemoryRagReviewView> {
                                 : isSelected
                                     ? c.primary.withValues(alpha: 0.6)
                                     : c.border.withValues(alpha: 0.4),
-                            width: isCover ? 2.5 : isSelected ? 1.5 : 1,
+                            width: isCover
+                                ? 2.5
+                                : isSelected
+                                    ? 1.5
+                                    : 1,
                           ),
                         ),
                         child: Stack(
@@ -364,18 +388,22 @@ class _MemoryRagReviewViewState extends State<MemoryRagReviewView> {
                             // Image or Video Thumbnail
                             ClipRRect(
                               borderRadius: BorderRadius.circular(AppRadii.md),
-                              child: item.file != null && (kIsWeb || item.file!.existsSync())
+                              child: item.file != null &&
+                                      (kIsWeb || item.file!.existsSync())
                                   ? (item.isVideo
                                       ? Container(
                                           color: adt.AppColors.plum900,
                                           child: const Center(
-                                            child: Icon(Icons.videocam_rounded, color: Colors.white, size: 28),
+                                            child: Icon(Icons.videocam_rounded,
+                                                color: Colors.white, size: 28),
                                           ),
                                         )
-                                      : AppFileImage(file: item.file!, fit: BoxFit.cover))
+                                      : AppFileImage(
+                                          file: item.file!, fit: BoxFit.cover))
                                   : Container(
                                       color: adt.AppColors.plum900,
-                                      child: Icon(Icons.broken_image, color: c.textMuted),
+                                      child: Icon(Icons.broken_image,
+                                          color: c.textMuted),
                                     ),
                             ),
 
@@ -384,7 +412,8 @@ class _MemoryRagReviewViewState extends State<MemoryRagReviewView> {
                               Container(
                                 decoration: BoxDecoration(
                                   color: Colors.black.withValues(alpha: 0.6),
-                                  borderRadius: BorderRadius.circular(AppRadii.md),
+                                  borderRadius:
+                                      BorderRadius.circular(AppRadii.md),
                                 ),
                               ),
 
@@ -394,7 +423,8 @@ class _MemoryRagReviewViewState extends State<MemoryRagReviewView> {
                                 top: 4,
                                 left: 24,
                                 child: Container(
-                                  padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 4, vertical: 2),
                                   decoration: BoxDecoration(
                                     color: Colors.green.shade700,
                                     borderRadius: BorderRadius.circular(4),
@@ -417,16 +447,45 @@ class _MemoryRagReviewViewState extends State<MemoryRagReviewView> {
                               child: Container(
                                 padding: const EdgeInsets.all(2),
                                 decoration: BoxDecoration(
-                                  color: isSelected ? c.primary : Colors.black54,
+                                  color:
+                                      isSelected ? c.primary : Colors.black54,
                                   shape: BoxShape.circle,
                                 ),
                                 child: Icon(
-                                  isSelected ? Icons.check : Icons.circle_outlined,
+                                  isSelected
+                                      ? Icons.check
+                                      : Icons.circle_outlined,
                                   size: 14,
                                   color: Colors.white,
                                 ),
                               ),
                             ),
+
+                            if (match?.locationCandidate != null &&
+                                (match?.locationConfidence ?? 0.0) >= 0.65)
+                              Positioned(
+                                left: 4,
+                                right: 4,
+                                bottom: 24,
+                                child: Container(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 4, vertical: 2),
+                                  decoration: BoxDecoration(
+                                    color: Colors.blueGrey.shade800,
+                                    borderRadius: BorderRadius.circular(4),
+                                  ),
+                                  child: Text(
+                                    'LOCATION ${match!.locationCandidate}',
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: const TextStyle(
+                                      fontSize: 7.5,
+                                      fontWeight: FontWeight.w700,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ),
+                              ),
 
                             // Cover Badge / Button
                             Positioned(
@@ -434,7 +493,8 @@ class _MemoryRagReviewViewState extends State<MemoryRagReviewView> {
                               left: 4,
                               child: isCover
                                   ? Container(
-                                      padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 5, vertical: 2),
                                       decoration: BoxDecoration(
                                         color: c.primary,
                                         borderRadius: BorderRadius.circular(4),
@@ -449,12 +509,15 @@ class _MemoryRagReviewViewState extends State<MemoryRagReviewView> {
                                       ),
                                     )
                                   : GestureDetector(
-                                      onTap: () => setState(() => _coverIndex = i),
+                                      onTap: () =>
+                                          setState(() => _coverIndex = i),
                                       child: Container(
-                                        padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 5, vertical: 2),
                                         decoration: BoxDecoration(
                                           color: Colors.black54,
-                                          borderRadius: BorderRadius.circular(4),
+                                          borderRadius:
+                                              BorderRadius.circular(4),
                                         ),
                                         child: const Text(
                                           'Set Cover',
@@ -479,7 +542,8 @@ class _MemoryRagReviewViewState extends State<MemoryRagReviewView> {
                                     color: Colors.black54,
                                     shape: BoxShape.circle,
                                   ),
-                                  child: const Icon(Icons.fullscreen, size: 12, color: Colors.white),
+                                  child: const Icon(Icons.fullscreen,
+                                      size: 12, color: Colors.white),
                                 ),
                               ),
                             ),
@@ -496,11 +560,13 @@ class _MemoryRagReviewViewState extends State<MemoryRagReviewView> {
 
         // 5. Video reel option
         Container(
-          padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s12, vertical: AppSpacing.s8),
+          padding: const EdgeInsets.symmetric(
+              horizontal: AppSpacing.s12, vertical: AppSpacing.s8),
           decoration: BoxDecoration(
             color: adt.AppColors.onDarkPrimary.withValues(alpha: 0.04),
             borderRadius: BorderRadius.circular(AppRadii.md),
-            border: Border.all(color: adt.AppColors.onDarkPrimary.withValues(alpha: 0.08)),
+            border: Border.all(
+                color: adt.AppColors.onDarkPrimary.withValues(alpha: 0.08)),
           ),
           child: Row(
             children: [
@@ -512,7 +578,10 @@ class _MemoryRagReviewViewState extends State<MemoryRagReviewView> {
                   children: [
                     Text(
                       'Stitch into Cinematic Video Reel',
-                      style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600, color: c.text),
+                      style: TextStyle(
+                          fontSize: 13,
+                          fontWeight: FontWeight.w600,
+                          color: c.text),
                     ),
                     Text(
                       'Automatically compile these memories into an MP4 video',
@@ -558,7 +627,9 @@ class _MemoryRagReviewViewState extends State<MemoryRagReviewView> {
                         ? _descCtrl.text.trim()
                         : widget.ragResult.suggestedDescription,
                     date: _selectedDate,
-                    location: _locCtrl.text.trim().isNotEmpty ? _locCtrl.text.trim() : null,
+                    location: _locCtrl.text.trim().isNotEmpty
+                        ? _locCtrl.text.trim()
+                        : null,
                     selectedMedia: _selectedItems,
                     coverIndex: _coverIndex.clamp(0, _selectedItems.length - 1),
                     autoGenerateVideo: _autoGenerateVideo,

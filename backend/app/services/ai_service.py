@@ -22,6 +22,8 @@ from fastapi import HTTPException, status
 from datetime import datetime, timezone
 from typing import Any, cast, Optional, List, Dict, Tuple
 import logging
+import re
+from collections.abc import Mapping
 
 logger = logging.getLogger(__name__)
 
@@ -661,7 +663,53 @@ class AIService:
                 "recommended": False,
                 "timestamp": timestamp,
                 "visual_description": None,
+                "location_candidate": None,
+                "location_confidence": 0.0,
+                "location_decision_status": "unsupported_media",
             }
+
+        # Resolve location before visual relevance.  Exact EXIF GPS is
+        # authoritative; only images without GPS are allowed to use the visual
+        # landscape/landmark fallback.  The prompt is passed as a hint so an
+        # exact coordinate can be reverse-geocoded only when a user actually
+        # asks for a place.
+        location_decision: dict[str, Any] = {}
+        try:
+            from app.services.ai_extractor import AIExtractor
+            from app.services.location_inference import LocationInferenceService
+
+            exif_metadata = AIExtractor.extract_metadata(file_bytes, mime_type)
+            candidate_metadata = item.get("metadata")
+            if isinstance(candidate_metadata, Mapping):
+                for key in ("latitude", "longitude", "location_name"):
+                    if exif_metadata.get(key) is None and candidate_metadata.get(key) is not None:
+                        exif_metadata[key] = candidate_metadata.get(key)
+            location_decision = LocationInferenceService.infer(
+                file_bytes,
+                mime_type,
+                exif_metadata=exif_metadata,
+                location_hint=prompt_intent,
+            )
+        except Exception as location_err:
+            logger.debug("Location inference skipped for local curation: %s", location_err)
+
+        location_candidate = str(location_decision.get("candidate_location") or "").strip()
+        try:
+            location_confidence = float(location_decision.get("confidence") or 0.0)
+        except (TypeError, ValueError):
+            location_confidence = 0.0
+        location_status = str(location_decision.get("decision_status") or "no_candidate")
+        prompt_terms = {
+            token.lower()
+            for token in re.findall(r"[a-z0-9]+", prompt_intent.lower())
+            if len(token) > 2
+        }
+        location_terms = {
+            token.lower()
+            for token in re.findall(r"[a-z0-9]+", location_candidate.lower())
+            if len(token) > 2
+        }
+        location_match = bool(location_terms and prompt_terms.intersection(location_terms))
 
         context_str = f"Title: {title}, Description: {description}" if (title or description) else ""
         vlm_prompt = (
@@ -721,6 +769,21 @@ class AIService:
             is_recommended = rel_score >= 0.50
             reason = evidence or f"Contextual match: {visual_desc}"
 
+        # A grounded location match is stronger than generic landscape
+        # similarity.  It can promote an otherwise uncertain image, but an
+        # uncertain/no-candidate visual guess never promotes the item.
+        if location_match and location_confidence >= 0.65 and location_status in {
+            "exif_confirmed",
+            "vlm_candidate",
+        }:
+            is_recommended = True
+            rel_score = max(rel_score, 0.90 if location_status == "exif_confirmed" else 0.78)
+            location_reason = (
+                f"Location evidence matched '{location_candidate}' "
+                f"({location_status}, confidence {location_confidence:.2f})."
+            )
+            reason = f"{location_reason} {reason}".strip()
+
         return {
             "id": item_id,
             "filename": filename,
@@ -730,6 +793,9 @@ class AIService:
             "recommended": is_recommended,
             "timestamp": timestamp,
             "visual_description": visual_desc,
+            "location_candidate": location_candidate or None,
+            "location_confidence": round(location_confidence, 4),
+            "location_decision_status": location_status,
         }
 
     @staticmethod
@@ -798,6 +864,9 @@ class AIService:
                         "matched_tags": [],
                         "recommended": False,
                         "timestamp": item.get("timestamp"),
+                        "location_candidate": None,
+                        "location_confidence": 0.0,
+                        "location_decision_status": "no_candidate",
                     })
 
         # Sort with highest relevance first
@@ -808,9 +877,18 @@ class AIService:
         suggested_title = title or prompt_clean.title()
         suggested_desc = description or f"Curated memory collection for '{prompt_clean}'."
         suggested_date = None
-        dates = [it["timestamp"] for it in scored_items if it.get("timestamp")]
-        if dates:
-            suggested_date = sorted(dates)[len(dates) // 2].isoformat()
+        raw_dates = [it["timestamp"] for it in scored_items if it.get("timestamp")]
+        parsed_dates: list[datetime] = []
+        for raw_date in raw_dates:
+            if isinstance(raw_date, datetime):
+                parsed_dates.append(raw_date)
+            elif isinstance(raw_date, str):
+                try:
+                    parsed_dates.append(datetime.fromisoformat(raw_date.replace("Z", "+00:00")))
+                except ValueError:
+                    continue
+        if parsed_dates:
+            suggested_date = sorted(parsed_dates)[len(parsed_dates) // 2].isoformat()
 
         return {
             "prompt": prompt_clean,
@@ -827,6 +905,9 @@ class AIService:
                     "matched_tags": it.get("matched_tags", []),
                     "recommended": it["recommended"],
                     "visual_description": it.get("visual_description"),
+                    "location_candidate": it.get("location_candidate"),
+                    "location_confidence": it.get("location_confidence", 0.0),
+                    "location_decision_status": it.get("location_decision_status"),
                 }
                 for it in scored_items
             ],
@@ -897,6 +978,31 @@ class AIService:
             c_id = cand_dict.get("id", "")
             fname = (cand_dict.get("filename") or "").lower()
             loc_name = (cand_dict.get("location_name") or "").lower()
+            candidate_location = (
+                cand_dict.get("location_name")
+                or cand_dict.get("location")
+                or (cand_dict.get("metadata") or {}).get("location_name")
+            )
+            location_decision: dict[str, Any] = {}
+            candidate_metadata = cand_dict.get("metadata") or {}
+            candidate_latitude = cand_dict.get("latitude") or candidate_metadata.get("latitude")
+            candidate_longitude = cand_dict.get("longitude") or candidate_metadata.get("longitude")
+            if candidate_latitude is not None and candidate_longitude is not None:
+                try:
+                    from app.services.location_inference import LocationInferenceService
+
+                    location_decision = LocationInferenceService.infer(
+                        b"",
+                        "application/octet-stream",
+                        exif_metadata={
+                            "latitude": candidate_latitude,
+                            "longitude": candidate_longitude,
+                        },
+                        location_hint=prompt,
+                    )
+                    candidate_location = candidate_location or location_decision.get("candidate_location")
+                except Exception as location_err:
+                    logger.debug("Metadata coordinate inference skipped: %s", location_err)
             tags = [t.lower() for t in (cand_dict.get("tags") or [])]
             ts = cand_dict.get("timestamp")
 
@@ -950,6 +1056,16 @@ class AIService:
             matched_tags_list = list(meaningful_common)
             if loc_name and loc_name in prompt_clean:
                 matched_tags_list.append(loc_name)
+            if candidate_location:
+                candidate_location_text = str(candidate_location).lower()
+                if any(term in candidate_location_text for term in prompt_words if len(term) > 2):
+                    matched_tags_list.append(str(candidate_location))
+                    location_status = location_decision.get("decision_status")
+                    location_confidence = float(location_decision.get("confidence") or 0.0)
+                    if location_status == "exif_confirmed" and location_confidence >= 0.65:
+                        combined_score = max(combined_score, 0.95)
+                    else:
+                        combined_score = max(combined_score, 0.80)
             for t in tags:
                 if t in prompt_clean and t not in matched_tags_list:
                     matched_tags_list.append(t)
@@ -962,7 +1078,10 @@ class AIService:
                 "matched_tags": matched_tags_list,
                 "recommended": combined_score >= 0.45,
                 "timestamp": dt_obj,
-                "location_name": loc_name or None
+                "location_name": loc_name or None,
+                "location_candidate": str(candidate_location) if candidate_location else None,
+                "location_confidence": float(location_decision.get("confidence") or (1.0 if loc_name else 0.0)),
+                "location_decision_status": location_decision.get("decision_status") or ("metadata" if candidate_location else None),
             })
 
         # 4. Sort by relevance
@@ -997,6 +1116,9 @@ class AIService:
                     "reason": it["reason"],
                     "matched_tags": it["matched_tags"],
                     "recommended": it["recommended"],
+                    "location_candidate": it.get("location_candidate"),
+                    "location_confidence": it.get("location_confidence", 0.0),
+                    "location_decision_status": it.get("location_decision_status"),
                 }
                 for it in scored_items
             ],
@@ -1057,5 +1179,3 @@ class AIService:
                 "status": "fallback",
                 "ablation_mode": ablation_mode,
             }
-
-

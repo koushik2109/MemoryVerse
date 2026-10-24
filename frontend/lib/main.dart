@@ -21,8 +21,8 @@ Future<void> main() async {
     ),
   );
 
-  String supabaseUrl = 'https://cmllsgjtgpdtzwqdnwdl.supabase.co';
-  String supabaseAnonKey = 'sb_publishable_NlSazEm5x0vevHmsc54gmw_Ipd2HKvb';
+  String supabaseUrl = 'https://lhagzawiimdueohoinhf.supabase.co';
+  String supabaseAnonKey = 'sb_publishable_YQTnq9Cn3fH5zllUpPR3GA_3vUGLwn7';
 
   try {
     await dotenv.load(fileName: '.env');
@@ -41,7 +41,7 @@ Future<void> main() async {
   try {
     await Supabase.initialize(
       url: supabaseUrl,
-      anonKey: supabaseAnonKey,
+      publishableKey: supabaseAnonKey,
       authOptions: const FlutterAuthClientOptions(
         authFlowType: AuthFlowType.pkce,
       ),

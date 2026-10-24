@@ -1,0 +1,1225 @@
+{
+  "audit_type": "blinded_human_answer_quality",
+  "rubric_version": "rag-answer-audit-v1",
+  "created_utc": "2026-10-13T10:05:42.731551+00:00",
+  "source_results_sha256": "0c203350dd4f8410cfe4cf2d98bed1617745b3106604cd75578bb01c96605e16",
+  "sample_size": 50,
+  "stratification": {
+    "single_hop": 25,
+    "multi_hop": 25
+  },
+  "blinding": "source case IDs, system labels, and original judge scores are excluded from this packet",
+  "examples": [
+    {
+      "audit_id": "AUDIT-001",
+      "query": "Find the race event where volunteers handed water to runners, and identify what exact date those photos were taken on.",
+      "target_keyword": "december 17",
+      "split": "multi_hop",
+      "retrieved_context": [
+        "marathon volunteers handing water December 17, 2023 photos",
+        "Hao at the sports event entrance",
+        "Hao at the sports event entrance",
+        "Hao at the sports event entrance",
+        "Hao at the sports event entrance"
+      ],
+      "answer": "The race event where volunteers handed water to runners is a marathon, and the photos were taken on December 17, 2023.",
+      "retrieved_media": [],
+      "media_attached_count": 0
+    },
+    {
+      "audit_id": "AUDIT-002",
+      "query": "Find the photos of Putuo Mountain coast, and determine which half of which year they were recorded.",
+      "target_keyword": "2024",
+      "split": "multi_hop",
+      "retrieved_context": [
+        "Putuo Mountain coast first half of 2024 photos",
+        "cold blue beach photos in Yantian District",
+        "cold blue beach photos in Yantian District",
+        "my vintage seaside outfit cold blue beach photos including me photos in Yantian District",
+        "Binjiang District photos first half of 2024 photos"
+      ],
+      "answer": "The photos of Putuo Mountain coast are from the first half of 2024.",
+      "retrieved_media": [
+        {
+          "item_id": "IMG_6457",
+          "modality": "image",
+          "file_path": "PhotoBench/images/IMG_6457.JPG",
+          "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_6457.JPG",
+          "raw_media_available": true,
+          "media_id": "ee049c52b38c02ba9e2ad99f66ca5d1e81f6fadda59ff30527173ebb7a56d821",
+          "relative_media_path": "../../../../dataset/album1/images/IMG_6457.JPG"
+        },
+        {
+          "item_id": "IMG_6458",
+          "modality": "image",
+          "file_path": "PhotoBench/images/IMG_6458.JPG",
+          "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_6458.JPG",
+          "raw_media_available": true,
+          "media_id": "58c537fdb51213704bb2d11d81b8b2f930a846848d3af2699de72478e6242092",
+          "relative_media_path": "../../../../dataset/album1/images/IMG_6458.JPG"
+        },
+        {
+          "item_id": "IMG_6437",
+          "modality": "image",
+          "file_path": "PhotoBench/images/IMG_6437.JPG",
+          "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_6437.JPG",
+          "raw_media_available": true,
+          "media_id": "b8e3f3dab4a137f20709afe16970fb56f40f1550a3fc06b2d7959648008174ba",
+          "relative_media_path": "../../../../dataset/album1/images/IMG_6437.JPG"
+        }
+      ],
+      "media_attached_count": 3
+    },
+    {
+      "audit_id": "AUDIT-003",
+      "query": "Locate the friends toasting party photos, and determine what milestone age birthday was being celebrated.",
+      "target_keyword": "22nd",
+      "split": "multi_hop",
+      "retrieved_context": [
+        "friends toasting at party Qiantang photos",
+        "friends toasting at party Qiantang photos",
+        "friends toasting at party",
+        "friends toasting at party 22nd birthday celebration",
+        "wedding group photo with friends 2017 Mid-Autumn Festival photos"
+      ],
+      "answer": "The friends toasting party photos can be found in Document 1, Document 2, and Document 4. The milestone age birthday being celebrated is the 22nd birthday, as mentioned in Document 4.",
+      "retrieved_media": [],
+      "media_attached_count": 0
+    },
+    {
+      "audit_id": "AUDIT-004",
+      "query": "Locate the cyberpunk style night bridge photos in Ningbo, and identify which specific district of the city they were taken in.",
+      "target_keyword": "yinzhou",
+      "split": "multi_hop",
+      "retrieved_context": [
+        "night art light installation dreamy Ningbo cyberpunk night bridge Yinzhou District photos",
+        "night art light installation dreamy Binjiang District photos",
+        "photos taken in Keqiao",
+        "photos taken in Keqiao",
+        "photos taken in Keqiao"
+      ],
+      "answer": "The cyberpunk style night bridge photos are located in Ningbo, specifically in the Yinzhou District.",
+      "retrieved_media": [],
+      "media_attached_count": 0
+    },
+    {
+      "audit_id": "AUDIT-005",
+      "query": "Find the photos of the driverless vehicle, and identify the historical town where it was encountered.",
+      "target_keyword": "pingyao",
+      "split": "multi_hop",
+      "retrieved_context": [
+        "driverless car in Pingyao",
+        "Nandaihe cable car Qinhuangdao photos summer 2019",
+        "vintage train family trip photos with nephew",
+        "my photos photos with me Guangping County photos",
+        "vintage train family trip photos with Mingming photos with nephew"
+      ],
+      "answer": "The context mentions a \"driverless car in Pingyao,\" indicating that the historical town where it was encountered is Pingyao. However, there are no specific photos of the driverless vehicle provided in the context.",
+      "retrieved_media": [],
+      "media_attached_count": 0
+    },
+    {
+      "audit_id": "AUDIT-006",
+      "query": "Find the handmade sculpture photos before painting, and retrieve what animal or character figurine was crafted.",
+      "target_keyword": "ceramic",
+      "split": "multi_hop",
+      "retrieved_context": [
+        "handmade sculpture before painting",
+        "handmade sculpture before painting",
+        "cute ceramic figurine handmade sculpture before painting",
+        "making crafts with Chenyang photos taken in Keqiao",
+        "Big Head Son and Small Head Dad sand sculpture photos with Mingming Lele and Xiaoming group photo Qinhuangdao photos summer 2019"
+      ],
+      "answer": "The context mentions \"handmade sculpture before painting\" in multiple documents, but it does not specify any details about the animal or character figurine that was crafted. Therefore, while it is known that there are handmade sculptures before painting, the specific details about the animal or character figurine are not present.",
+      "retrieved_media": [],
+      "media_attached_count": 0
+    },
+    {
+      "audit_id": "AUDIT-007",
+      "query": "Locate the West Lake night boat ride photography, and identify the unique drone light formation that appeared in the sky.",
+      "target_keyword": "monkey king",
+      "split": "multi_hop",
+      "retrieved_context": [
+        "West Lake night boat ride",
+        "West Lake night boat ride",
+        "West Lake night boat ride",
+        "West Lake boat ride view",
+        "West Lake boat ride view"
+      ],
+      "answer": "The context provided mentions the \"West Lake night boat ride\" but does not contain specific details about photography or a unique drone light formation that appeared in the sky. Therefore, I cannot provide that information.",
+      "retrieved_media": [
+        {
+          "item_id": "IMG_0354",
+          "modality": "image",
+          "file_path": "PhotoBench/images/IMG_0354.JPG",
+          "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album2/images/IMG_0354.JPG",
+          "raw_media_available": true,
+          "media_id": "3cae20ce6a3ca19ab672600e8fb3091de2358967bfe48683a56d64aa914a5069",
+          "relative_media_path": "../../../../dataset/album2/images/IMG_0354.JPG"
+        },
+        {
+          "item_id": "IMG_1366",
+          "modality": "image",
+          "file_path": "PhotoBench/images/IMG_1366.jpg",
+          "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album2/images/IMG_1366.jpg",
+          "raw_media_available": true,
+          "media_id": "c8322ddda66b20f474aaa0b0ab633047f262d4ca733018a4b6ad1501361d7cf7",
+          "relative_media_path": "../../../../dataset/album2/images/IMG_1366.jpg"
+        }
+      ],
+      "media_attached_count": 2
+    },
+    {
+      "audit_id": "AUDIT-008",
+      "query": "Find the fancy drink photos taken before Christmas, and retrieve the specific cocktail beverage style.",
+      "target_keyword": "layered cocktail",
+      "split": "multi_hop",
+      "retrieved_context": [
+        "fancy drink before Christmas Qiantang photos",
+        "fancy drink before Christmas Qiantang photos first half of 2024 photos",
+        "fancy drink before Christmas Qiantang photos March 1, 2024 photos first half of 2024 photos",
+        "fancy drink before Christmas",
+        "fancy drink before Christmas"
+      ],
+      "answer": "The context mentions \"fancy drink before Christmas\" and includes references to photos, but it does not specify the particular cocktail beverage style. Therefore, while it is known that there are photos of a fancy drink taken before Christmas, the specific detail about the cocktail beverage style is not present.",
+      "retrieved_media": [],
+      "media_attached_count": 0
+    },
+    {
+      "audit_id": "AUDIT-009",
+      "query": "Find the night art light installation photos in Hangzhou, and identify which coastal river district photos they are tagged with.",
+      "target_keyword": "binjiang",
+      "split": "multi_hop",
+      "retrieved_context": [
+        "night art light installation dreamy Binjiang District photos",
+        "night art light installation dreamy Ningbo cyberpunk night bridge Yinzhou District photos",
+        "night art light installation dreamy",
+        "night art light installation dreamy",
+        "night art light installation dreamy"
+      ],
+      "answer": "The provided context does not contain specific information about night art light installation photos in Hangzhou or any details about a coastal river district. It mentions photos related to night art light installations in the Binjiang District and the Yinzhou District, but does not specify Hangzhou or a coastal river district. Therefore, I cannot provide the requested details.",
+      "retrieved_media": [],
+      "media_attached_count": 0
+    },
+    {
+      "audit_id": "AUDIT-010",
+      "query": "Locate the quiet beach photos in Phuket, and identify the specific township name.",
+      "target_keyword": "karon",
+      "split": "multi_hop",
+      "retrieved_context": [
+        "quiet beach in Phuket's Karon",
+        "quiet beach in Phuket's Karon",
+        "cold blue beach photos in Yantian District",
+        "cold blue beach photos in Yantian District",
+        "my vintage seaside outfit cold blue beach photos including me photos in Yantian District"
+      ],
+      "answer": "The context mentions a \"quiet beach in Phuket's Karon,\" indicating that the specific township name is Karon. However, there are no photos of the quiet beach in Phuket provided in the context.",
+      "retrieved_media": [
+        {
+          "item_id": "IMG_6457",
+          "modality": "image",
+          "file_path": "PhotoBench/images/IMG_6457.JPG",
+          "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_6457.JPG",
+          "raw_media_available": true,
+          "media_id": "ee049c52b38c02ba9e2ad99f66ca5d1e81f6fadda59ff30527173ebb7a56d821",
+          "relative_media_path": "../../../../dataset/album1/images/IMG_6457.JPG"
+        },
+        {
+          "item_id": "IMG_6458",
+          "modality": "image",
+          "file_path": "PhotoBench/images/IMG_6458.JPG",
+          "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_6458.JPG",
+          "raw_media_available": true,
+          "media_id": "58c537fdb51213704bb2d11d81b8b2f930a846848d3af2699de72478e6242092",
+          "relative_media_path": "../../../../dataset/album1/images/IMG_6458.JPG"
+        },
+        {
+          "item_id": "IMG_6437",
+          "modality": "image",
+          "file_path": "PhotoBench/images/IMG_6437.JPG",
+          "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_6437.JPG",
+          "raw_media_available": true,
+          "media_id": "b8e3f3dab4a137f20709afe16970fb56f40f1550a3fc06b2d7959648008174ba",
+          "relative_media_path": "../../../../dataset/album1/images/IMG_6437.JPG"
+        }
+      ],
+      "media_attached_count": 3
+    },
+    {
+      "audit_id": "AUDIT-011",
+      "query": "Find the concert fan support photos in Hangzhou, and retrieve what audience acoustic celebration sound corresponds to cheering crowds.",
+      "target_keyword": "clapping",
+      "split": "multi_hop",
+      "retrieved_context": [
+        "New Year’s Eve Hangzhou concert fan support moments Qiantang photos",
+        "concert fan support moments Binjiang District photos",
+        "concert fan support moments Binjiang District photos first half of 2024 photos",
+        "concert fan support moments Binjiang District photos first half of 2024 photos",
+        "concert fan support moments April 2023 photos"
+      ],
+      "answer": "The context mentions \"New Year’s Eve Hangzhou concert fan support moments Qiantang photos,\" but it does not provide specific details about the audience acoustic celebration sound or the cheering crowds. Therefore, while there are photos related to the concert in Hangzhou, the specific detail regarding the sound of the cheering crowds is not present.",
+      "retrieved_media": [
+        {
+          "item_id": "IMG_8684",
+          "modality": "image",
+          "file_path": "PhotoBench/images/IMG_8684.jpg",
+          "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album2/images/IMG_8684.jpg",
+          "raw_media_available": true,
+          "media_id": "11243f1c6dd587a93caad6f2eb144215cfa2481f8656c7aca484cfca4cb4b7b4",
+          "relative_media_path": "../../../../dataset/album2/images/IMG_8684.jpg"
+        }
+      ],
+      "media_attached_count": 1
+    },
+    {
+      "audit_id": "AUDIT-012",
+      "query": "Find the outdoor weather photography depicting dark rainy skies, and retrieve the corresponding severe acoustic weather recording.",
+      "target_keyword": "thunderstorm",
+      "split": "multi_hop",
+      "retrieved_context": [
+        "rainy night parking lot photo with boyfriend in Hangzhou Summer 2025 Ming's photos",
+        "rain",
+        "rain",
+        "rain",
+        "rain"
+      ],
+      "answer": "The context provided mentions a \"rainy night parking lot photo\" but does not specify any severe acoustic weather recording or details about outdoor weather photography depicting dark rainy skies. Therefore, while it is known that there is a photo related to rain, the specific details requested are not present.",
+      "retrieved_media": [],
+      "media_attached_count": 0
+    },
+    {
+      "audit_id": "AUDIT-013",
+      "query": "Find the Hangzhou New Year's Eve celebration photos, and retrieve the acoustic sound category that matches the midnight pyrotechnic display.",
+      "target_keyword": "fireworks",
+      "split": "multi_hop",
+      "retrieved_context": [
+        "New Year’s Eve Hangzhou concert fan support moments Qiantang photos",
+        "New Year’s Eve Hangzhou",
+        "New Year’s Eve Hangzhou",
+        "New Year’s Eve Hangzhou",
+        "photos with Zhang Xiaoli mom photos 2019 New Year's Day photos"
+      ],
+      "answer": "The context provided includes mentions of \"New Year’s Eve Hangzhou\" and \"photos,\" but it does not contain specific details about the acoustic sound category that matches the midnight pyrotechnic display. Therefore, while there are references to the New Year's Eve celebration in Hangzhou, the specific information regarding the acoustic sound category is not present.",
+      "retrieved_media": [
+        {
+          "item_id": "IMG_8684",
+          "modality": "image",
+          "file_path": "PhotoBench/images/IMG_8684.jpg",
+          "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album2/images/IMG_8684.jpg",
+          "raw_media_available": true,
+          "media_id": "11243f1c6dd587a93caad6f2eb144215cfa2481f8656c7aca484cfca4cb4b7b4",
+          "relative_media_path": "../../../../dataset/album2/images/IMG_8684.jpg"
+        },
+        {
+          "item_id": "IMG_9610",
+          "modality": "image",
+          "file_path": "PhotoBench/images/IMG_9610.jpg",
+          "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album2/images/IMG_9610.jpg",
+          "raw_media_available": true,
+          "media_id": "392ff942857170a725ba621f6d6a01b155cebb0ccce84596d1579b22580cc03e",
+          "relative_media_path": "../../../../dataset/album2/images/IMG_9610.jpg"
+        },
+        {
+          "item_id": "IMG_9616",
+          "modality": "image",
+          "file_path": "PhotoBench/images/IMG_9616.jpg",
+          "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album2/images/IMG_9616.jpg",
+          "raw_media_available": true,
+          "media_id": "2844313d2be33fa9fd8d1600ac5bb48bab75c0520035a3077bdef4168ee54f4f",
+          "relative_media_path": "../../../../dataset/album2/images/IMG_9616.jpg"
+        },
+        {
+          "item_id": "IMG_8506",
+          "modality": "image",
+          "file_path": "PhotoBench/images/IMG_8506.jpg",
+          "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album2/images/IMG_8506.jpg",
+          "raw_media_available": true,
+          "media_id": "89fd3a4690ecb4a2c005e2492d99e88683becd1d2fab13337dfac22b5c8b4f14",
+          "relative_media_path": "../../../../dataset/album2/images/IMG_8506.jpg"
+        }
+      ],
+      "media_attached_count": 4
+    },
+    {
+      "audit_id": "AUDIT-014",
+      "query": "Locate the photos of cartoon deer statues with frozen treats, and identify what snack is shown next to the statue.",
+      "target_keyword": "chocolate popsicle",
+      "split": "multi_hop",
+      "retrieved_context": [
+        "chocolate popsicle by cartoon deer statue",
+        "kids with cartoon rabbit photos with dad August 2023",
+        "kids with dinosaur models photos with Mingming",
+        "kids with dinosaur models photos with Mingming September 2019 photos",
+        "kids with dinosaur models photos with Mingming September 2019 photos"
+      ],
+      "answer": "The context mentions a \"chocolate popsicle by cartoon deer statue,\" indicating that there is a photo of a chocolate popsicle next to the cartoon deer statue.",
+      "retrieved_media": [
+        {
+          "item_id": "IMG_0542",
+          "modality": "image",
+          "file_path": "PhotoBench/images/IMG_0542.JPG",
+          "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album3/images/IMG_0542.JPG",
+          "raw_media_available": true,
+          "media_id": "42057bc6bf507d410093cd58f9f80f1928ad3f9d81cb648391383c829bc16749",
+          "relative_media_path": "../../../../dataset/album3/images/IMG_0542.JPG"
+        }
+      ],
+      "media_attached_count": 1
+    },
+    {
+      "audit_id": "AUDIT-015",
+      "query": "Find the couple subway photos with matching rings, and retrieve the other transportation moment where they rested cozily.",
+      "target_keyword": "car moment",
+      "split": "multi_hop",
+      "retrieved_context": [
+        "matching rings with boyfriend subway photo with boyfriend cozy car moment",
+        "matching rings with boyfriend",
+        "subway photo with boyfriend",
+        "subway photo with boyfriend",
+        "subway photo with boyfriend"
+      ],
+      "answer": "The context contains multiple references to subway photos with the boyfriend, but it does not specify any details about matching rings in those photos. Additionally, there is a mention of a cozy car moment, but it does not provide specific details about the transportation moment where they rested cozily. Therefore, while there are subway photos and a cozy car moment mentioned, the specific details about matching rings in the subway photos and the cozy moment are not present.",
+      "retrieved_media": [
+        {
+          "item_id": "IMG_2049",
+          "modality": "image",
+          "file_path": "PhotoBench/images/IMG_2049.jpg",
+          "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album2/images/IMG_2049.jpg",
+          "raw_media_available": true,
+          "media_id": "95e2f1a68f1fb68eb94a2664ef47711e0a95ebf185f29c13f4e2aac7653925ea",
+          "relative_media_path": "../../../../dataset/album2/images/IMG_2049.jpg"
+        }
+      ],
+      "media_attached_count": 1
+    },
+    {
+      "audit_id": "AUDIT-016",
+      "query": "Find the spicy dining dish photo with the peace sign gesture, and identify which district tag is associated with that meal.",
+      "target_keyword": "qiantang",
+      "split": "multi_hop",
+      "retrieved_context": [
+        "dry pot dish with peace sign Qiantang photos",
+        "Summer 2025 Ming's photos preparing ingredients in the kitchen",
+        "restaurant marinated food display",
+        "restaurant marinated food display",
+        "restaurant marinated food display"
+      ],
+      "answer": "The context mentions a \"dry pot dish with peace sign Qiantang photos,\" but it does not provide specific information about the district tag associated with that meal. Therefore, while the dish and gesture are noted, the specific district tag is not present.",
+      "retrieved_media": [
+        {
+          "item_id": "IMG_20220801_092909",
+          "modality": "image",
+          "file_path": "PhotoBench/images/IMG_20220801_092909.jpg",
+          "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album3/images/IMG_20220801_092909.jpg",
+          "raw_media_available": true,
+          "media_id": "dccda4ef933aba32e6c19f04822e52566797e77413bc116de881c78aa562c0c2",
+          "relative_media_path": "../../../../dataset/album3/images/IMG_20220801_092909.jpg"
+        },
+        {
+          "item_id": "IMG_20220801_092920",
+          "modality": "image",
+          "file_path": "PhotoBench/images/IMG_20220801_092920.jpg",
+          "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album3/images/IMG_20220801_092920.jpg",
+          "raw_media_available": true,
+          "media_id": "e5dd240201042024b489fc8ba257f8986aecb0b4874479354c11b06a8eb1bfcb",
+          "relative_media_path": "../../../../dataset/album3/images/IMG_20220801_092920.jpg"
+        },
+        {
+          "item_id": "IMG_7333",
+          "modality": "image",
+          "file_path": "PhotoBench/images/IMG_7333.JPG",
+          "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album3/images/IMG_7333.JPG",
+          "raw_media_available": true,
+          "media_id": "8b5611831868f14f18b46a5e7271fa8ffed06f9309b1ffb718e7ea592046bb6e",
+          "relative_media_path": "../../../../dataset/album3/images/IMG_7333.JPG"
+        },
+        {
+          "item_id": "IMG_8506",
+          "modality": "image",
+          "file_path": "PhotoBench/images/IMG_8506.jpg",
+          "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album2/images/IMG_8506.jpg",
+          "raw_media_available": true,
+          "media_id": "89fd3a4690ecb4a2c005e2492d99e88683becd1d2fab13337dfac22b5c8b4f14",
+          "relative_media_path": "../../../../dataset/album2/images/IMG_8506.jpg"
+        },
+        {
+          "item_id": "2017-11-05 145421",
+          "modality": "image",
+          "file_path": "PhotoBench/images/2017-11-05 145421.jpg",
+          "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album3/images/2017-11-05 145421.jpg",
+          "raw_media_available": true,
+          "media_id": "e3ccdf8250c4f22a21670626eb50054c753fbe887c66c081f73b6ff5230b24c7",
+          "relative_media_path": "../../../../dataset/album3/images/2017-11-05 145421.jpg"
+        },
+        {
+          "item_id": "2017-11-05 150002",
+          "modality": "image",
+          "file_path": "PhotoBench/images/2017-11-05 150002.jpg",
+          "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album3/images/2017-11-05 150002.jpg",
+          "raw_media_available": true,
+          "media_id": "5c9e008b3f6111168516d9da1b3cf670940991326f4404d5fed09d8d39557fa2",
+          "relative_media_path": "../../../../dataset/album3/images/2017-11-05 150002.jpg"
+        },
+        {
+          "item_id": "2017-11-05 153546",
+          "modality": "image",
+          "file_path": "PhotoBench/images/2017-11-05 153546.jpg",
+          "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album3/images/2017-11-05 153546.jpg",
+          "raw_media_available": true,
+          "media_id": "58b59f70df76b42a8d5fcde03be5628709e78ce75fdde4cec9760adc948ca376",
+          "relative_media_path": "../../../../dataset/album3/images/2017-11-05 153546.jpg"
+        }
+      ],
+      "media_attached_count": 7
+    },
+    {
+      "audit_id": "AUDIT-017",
+      "query": "Find the April 2023 concert fan support photos, and identify the visual lighting element described in the evening setting.",
+      "target_keyword": "night art light installation",
+      "split": "multi_hop",
+      "retrieved_context": [
+        "concert fan support moments April 2023 photos",
+        "concert fan support moments April 2023 photos",
+        "concert fan support moments April 2023 photos",
+        "night art light installation dreamy concert fan support moments April 2023 photos",
+        "concert fan support moments Binjiang District photos first half of 2024 photos"
+      ],
+      "answer": "The April 2023 concert fan support photos are mentioned in multiple documents. However, the specific detail regarding the visual lighting element described in the evening setting is not present in the provided context.",
+      "retrieved_media": [
+        {
+          "item_id": "IMG_8684",
+          "modality": "image",
+          "file_path": "PhotoBench/images/IMG_8684.jpg",
+          "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album2/images/IMG_8684.jpg",
+          "raw_media_available": true,
+          "media_id": "11243f1c6dd587a93caad6f2eb144215cfa2481f8656c7aca484cfca4cb4b7b4",
+          "relative_media_path": "../../../../dataset/album2/images/IMG_8684.jpg"
+        }
+      ],
+      "media_attached_count": 1
+    },
+    {
+      "audit_id": "AUDIT-018",
+      "query": "Locate the domestic pet photo moments, and retrieve the corresponding animal vocalization sound recording.",
+      "target_keyword": "dog",
+      "split": "multi_hop",
+      "retrieved_context": [
+        "tabby cat enjoying being petted photos taken in Songjiang District",
+        "Disney ride system-captured photo",
+        "me holding a dog's head photos taken in Keqiao",
+        "me holding a dog's head photos taken in Keqiao",
+        "white cat quietly lying down photos taken in Nanjing"
+      ],
+      "answer": "The context includes photos of domestic pets: a tabby cat being petted in Songjiang District and a dog being held in Keqiao (mentioned in two documents). However, there is no information regarding any corresponding animal vocalization sound recordings. Therefore, while the pet photo moments are identified, the specific detail about sound recordings is not present.",
+      "retrieved_media": [],
+      "media_attached_count": 0
+    },
+    {
+      "audit_id": "AUDIT-019",
+      "query": "Locate outdoor forest and bird photography, and retrieve the avian nature acoustic sound recording.",
+      "target_keyword": "chirping_birds",
+      "split": "multi_hop",
+      "retrieved_context": [
+        "Yang Gong Causeway posed photo forest in Xihu District photos including me",
+        "forest in Xihu District peaceful sunset by the lake",
+        "me and boyfriend cuddling Summer 2025 Ming's photos forest in Xihu District",
+        "feeding birds with kid my photos photos with Mingming photos with me photos of Mingming with me",
+        "feeding birds with kid my photos photos with Mingming photos with me photos of Mingming with me"
+      ],
+      "answer": "The context contains information about outdoor forest photography in Xihu District, specifically mentioning photos of a forest and activities like feeding birds. However, there is no mention of an avian nature acoustic sound recording. Therefore, while outdoor forest and bird photography is noted, the specific detail regarding the sound recording is not present.",
+      "retrieved_media": [],
+      "media_attached_count": 0
+    },
+    {
+      "audit_id": "AUDIT-020",
+      "query": "Find the indoor cleaning and home maintenance photos, and retrieve the corresponding domestic motor sound effect.",
+      "target_keyword": "vacuum_cleaner",
+      "split": "multi_hop",
+      "retrieved_context": [
+        "three brothers in the kitchen me looking messy in Shanghai store my photos photos with me",
+        "me looking messy in Shanghai store my photos photos with me",
+        "photos in Yiling District",
+        "photos in Yiling District",
+        "photos in Yiling District"
+      ],
+      "answer": "The provided context does not contain any information about indoor cleaning or home maintenance photos, nor does it mention a domestic motor sound effect. Therefore, I cannot provide the specific details you are looking for.",
+      "retrieved_media": [
+        {
+          "item_id": "IMG_20220623_212642",
+          "modality": "image",
+          "file_path": "PhotoBench/images/IMG_20220623_212642.jpg",
+          "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album3/images/IMG_20220623_212642.jpg",
+          "raw_media_available": true,
+          "media_id": "8ae5aafb935073625b0d8e07dfef04d52a5d1beb521e01ba6c8cb71aa3116e68",
+          "relative_media_path": "../../../../dataset/album3/images/IMG_20220623_212642.jpg"
+        },
+        {
+          "item_id": "2017-11-05 145421",
+          "modality": "image",
+          "file_path": "PhotoBench/images/2017-11-05 145421.jpg",
+          "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album3/images/2017-11-05 145421.jpg",
+          "raw_media_available": true,
+          "media_id": "e3ccdf8250c4f22a21670626eb50054c753fbe887c66c081f73b6ff5230b24c7",
+          "relative_media_path": "../../../../dataset/album3/images/2017-11-05 145421.jpg"
+        },
+        {
+          "item_id": "2017-11-05 150002",
+          "modality": "image",
+          "file_path": "PhotoBench/images/2017-11-05 150002.jpg",
+          "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album3/images/2017-11-05 150002.jpg",
+          "raw_media_available": true,
+          "media_id": "5c9e008b3f6111168516d9da1b3cf670940991326f4404d5fed09d8d39557fa2",
+          "relative_media_path": "../../../../dataset/album3/images/2017-11-05 150002.jpg"
+        },
+        {
+          "item_id": "2017-11-05 153546",
+          "modality": "image",
+          "file_path": "PhotoBench/images/2017-11-05 153546.jpg",
+          "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album3/images/2017-11-05 153546.jpg",
+          "raw_media_available": true,
+          "media_id": "58b59f70df76b42a8d5fcde03be5628709e78ce75fdde4cec9760adc948ca376",
+          "relative_media_path": "../../../../dataset/album3/images/2017-11-05 153546.jpg"
+        }
+      ],
+      "media_attached_count": 4
+    },
+    {
+      "audit_id": "AUDIT-021",
+      "query": "Find the lumberjack and timber cutting equipment photos, and retrieve the corresponding power tool acoustic recording.",
+      "target_keyword": "chainsaw",
+      "split": "multi_hop",
+      "retrieved_context": [
+        "vintage train family trip photos with nephew",
+        "vintage train family trip photos with Mingming photos with nephew",
+        "vintage train family trip photos with Mingming photos with nephew",
+        "photos of Xiao Chen photos of Xiao Chen and Ayu together",
+        "photos of Xiao Chen photos of Xiao Chen and Ayu together"
+      ],
+      "answer": "The context provided does not contain any information about lumberjack or timber cutting equipment photos, nor does it mention any power tool acoustic recordings. Therefore, I cannot provide the specific details you are looking for.",
+      "retrieved_media": [],
+      "media_attached_count": 0
+    },
+    {
+      "audit_id": "AUDIT-022",
+      "query": "Find the aviation transport images, and retrieve the corresponding aerodynamic transportation sound effect.",
+      "target_keyword": "airplane",
+      "split": "multi_hop",
+      "retrieved_context": [
+        "Disney ride system-captured photo",
+        "vintage train family trip photos with nephew",
+        "vintage train family trip photos with Mingming photos with nephew",
+        "vintage train family trip photos with Mingming photos with nephew",
+        "my tourist photo in Vietnam corridor my photos photos with me"
+      ],
+      "answer": "The provided context does not contain any information about aviation transport images or aerodynamic transportation sound effects. It includes photos related to Disney rides, vintage train family trips, and a tourist photo in Vietnam, but no details on aviation transport.",
+      "retrieved_media": [],
+      "media_attached_count": 0
+    },
+    {
+      "audit_id": "AUDIT-023",
+      "query": "Find the railway travel and passenger transport images, and retrieve the associated locomotive sound effect.",
+      "target_keyword": "train",
+      "split": "multi_hop",
+      "retrieved_context": [
+        "vintage train family trip photos with nephew",
+        "vintage train family trip photos with Mingming photos with nephew",
+        "vintage train family trip photos with Mingming photos with nephew",
+        "vintage train family trip",
+        "Disney ride system-captured photo"
+      ],
+      "answer": "The context provided includes references to \"vintage train family trip photos\" and mentions of a nephew, but it does not contain any specific images or sound effects related to railway travel or passenger transport. Therefore, while it is known that there are photos related to a vintage train family trip, the specific details about railway travel images and associated locomotive sound effects are not present.",
+      "retrieved_media": [],
+      "media_attached_count": 0
+    },
+    {
+      "audit_id": "AUDIT-024",
+      "query": "Find the pastoral farming livestock photos, and retrieve the acoustic recording of domestic livestock bleating.",
+      "target_keyword": "sheep",
+      "split": "multi_hop",
+      "retrieved_context": [
+        "my photos photos with me Guangping County photos",
+        "sheep",
+        "sheep",
+        "sheep",
+        "sheep"
+      ],
+      "answer": "The context contains multiple mentions of \"sheep,\" which are pastoral farming livestock. However, there are no specific details about photos of pastoral farming livestock or any acoustic recordings of domestic livestock bleating. Therefore, while sheep are mentioned, the specific details requested are not present.",
+      "retrieved_media": [],
+      "media_attached_count": 0
+    },
+    {
+      "audit_id": "AUDIT-025",
+      "query": "Find the beverage preparation images involving pouring drinks, and retrieve the corresponding liquid flow acoustic sound effect.",
+      "target_keyword": "pouring_water",
+      "split": "multi_hop",
+      "retrieved_context": [
+        "fancy drink before Christmas Qiantang photos",
+        "fancy drink before Christmas Qiantang photos first half of 2024 photos",
+        "fancy drink before Christmas Qiantang photos March 1, 2024 photos first half of 2024 photos",
+        "layered cocktail Qiantang photos",
+        "boyfriend caught me photographing drinks"
+      ],
+      "answer": "The provided context does not contain specific information about beverage preparation images involving pouring drinks or any details about a corresponding liquid flow acoustic sound effect. It mentions various types of photos related to drinks but does not specify the preparation process or sound effects.",
+      "retrieved_media": [],
+      "media_attached_count": 0
+    },
+    {
+      "audit_id": "AUDIT-026",
+      "query": "photos of marathon volunteers handing water to runners",
+      "target_keyword": "marathon volunteers",
+      "split": "single_hop",
+      "retrieved_context": [
+        "marathon volunteers handing water December 17, 2023 photos",
+        "May 2018 photos",
+        "May 2018 photos",
+        "May 2018 photos",
+        "May 2018 photos"
+      ],
+      "answer": "The context mentions \"marathon volunteers handing water\" with a specific date of December 17, 2023, but does not provide any photos or further details about the event. Therefore, while it is known that there are photos related to marathon volunteers handing water, the specific photos themselves are not present in the provided context.",
+      "retrieved_media": [],
+      "media_attached_count": 0
+    },
+    {
+      "audit_id": "AUDIT-027",
+      "query": "sound recording of a barking dog in domestic environment",
+      "target_keyword": "dog",
+      "split": "single_hop",
+      "retrieved_context": [
+        "dog",
+        "dog",
+        "dog",
+        "dog",
+        "dog"
+      ],
+      "answer": "The provided context contains multiple mentions of \"dog,\" but it does not include any specific information about a sound recording of a barking dog in a domestic environment. Therefore, I cannot provide the details you are looking for.",
+      "retrieved_media": [],
+      "media_attached_count": 0
+    },
+    {
+      "audit_id": "AUDIT-028",
+      "query": "photographs taken driving over a bridge at sunset",
+      "target_keyword": "bridge at sunset",
+      "split": "single_hop",
+      "retrieved_context": [
+        "driving over bridge at sunset",
+        "peaceful sunset by the lake",
+        "peaceful sunset by the lake",
+        "peaceful sunset by the lake",
+        "night art light installation dreamy Ningbo cyberpunk night bridge Yinzhou District photos"
+      ],
+      "answer": "The context mentions \"driving over bridge at sunset\" in Document 1, but it does not provide any specific details about photographs taken during that moment. Therefore, while it is known that there is a scene of driving over a bridge at sunset, the specific detail about photographs is not present.",
+      "retrieved_media": [],
+      "media_attached_count": 0
+    },
+    {
+      "audit_id": "AUDIT-029",
+      "query": "audio recording of thunderstorm and rainfall",
+      "target_keyword": "thunderstorm",
+      "split": "single_hop",
+      "retrieved_context": [
+        "thunderstorm",
+        "thunderstorm",
+        "thunderstorm",
+        "thunderstorm",
+        "thunderstorm"
+      ],
+      "answer": "The provided context only contains the term \"thunderstorm\" repeated across multiple documents. There is no specific information regarding an audio recording of a thunderstorm and rainfall. Therefore, I cannot provide details about such an audio recording.",
+      "retrieved_media": [],
+      "media_attached_count": 0
+    },
+    {
+      "audit_id": "AUDIT-030",
+      "query": "scenic landscape photos of Putuo Mountain coast",
+      "target_keyword": "putuo mountain",
+      "split": "single_hop",
+      "retrieved_context": [
+        "Putuo Mountain coast first half of 2024 photos",
+        "cold blue beach photos in Yantian District",
+        "cold blue beach photos in Yantian District",
+        "my vintage seaside outfit cold blue beach photos including me photos in Yantian District",
+        "Binjiang District photos first half of 2024 photos"
+      ],
+      "answer": "The context mentions \"Putuo Mountain coast first half of 2024 photos,\" but does not provide specific details about scenic landscape photos. Therefore, while there are photos related to Putuo Mountain, the specific detail about scenic landscape photos is not present.",
+      "retrieved_media": [
+        {
+          "item_id": "IMG_6457",
+          "modality": "image",
+          "file_path": "PhotoBench/images/IMG_6457.JPG",
+          "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_6457.JPG",
+          "raw_media_available": true,
+          "media_id": "ee049c52b38c02ba9e2ad99f66ca5d1e81f6fadda59ff30527173ebb7a56d821",
+          "relative_media_path": "../../../../dataset/album1/images/IMG_6457.JPG"
+        },
+        {
+          "item_id": "IMG_6458",
+          "modality": "image",
+          "file_path": "PhotoBench/images/IMG_6458.JPG",
+          "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_6458.JPG",
+          "raw_media_available": true,
+          "media_id": "58c537fdb51213704bb2d11d81b8b2f930a846848d3af2699de72478e6242092",
+          "relative_media_path": "../../../../dataset/album1/images/IMG_6458.JPG"
+        },
+        {
+          "item_id": "IMG_6437",
+          "modality": "image",
+          "file_path": "PhotoBench/images/IMG_6437.JPG",
+          "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_6437.JPG",
+          "raw_media_available": true,
+          "media_id": "b8e3f3dab4a137f20709afe16970fb56f40f1550a3fc06b2d7959648008174ba",
+          "relative_media_path": "../../../../dataset/album1/images/IMG_6437.JPG"
+        }
+      ],
+      "media_attached_count": 3
+    },
+    {
+      "audit_id": "AUDIT-031",
+      "query": "acoustic recording of chirping birds in outdoor nature",
+      "target_keyword": "chirping_birds",
+      "split": "single_hop",
+      "retrieved_context": [
+        "chirping_birds",
+        "chirping_birds",
+        "chirping_birds",
+        "chirping_birds",
+        "chirping_birds"
+      ],
+      "answer": "The context provided contains multiple mentions of \"chirping_birds,\" but it does not include specific details about an acoustic recording of chirping birds in outdoor nature. Therefore, while it is known that chirping birds are referenced, the specific detail regarding an acoustic recording is not present.",
+      "retrieved_media": [],
+      "media_attached_count": 0
+    },
+    {
+      "audit_id": "AUDIT-032",
+      "query": "domestic vacuum cleaner household appliance sound",
+      "target_keyword": "vacuum_cleaner",
+      "split": "single_hop",
+      "retrieved_context": [
+        "vacuum_cleaner",
+        "vacuum_cleaner",
+        "vacuum_cleaner",
+        "vacuum_cleaner",
+        "vacuum_cleaner"
+      ],
+      "answer": "The context provided does not contain specific information about the sound of a domestic vacuum cleaner as a household appliance. It only mentions \"vacuum_cleaner\" without further details. Therefore, I cannot provide information on the sound of a domestic vacuum cleaner.",
+      "retrieved_media": [],
+      "media_attached_count": 0
+    },
+    {
+      "audit_id": "AUDIT-033",
+      "query": "photos from friends toasting at a party celebration",
+      "target_keyword": "friends toasting",
+      "split": "single_hop",
+      "retrieved_context": [
+        "friends toasting at party Qiantang photos",
+        "friends toasting at party Qiantang photos",
+        "friends toasting at party 22nd birthday celebration",
+        "friends toasting at party",
+        "wedding group photo with friends 2017 Mid-Autumn Festival photos"
+      ],
+      "answer": "The context includes multiple mentions of friends toasting at a party, specifically in Document 1, Document 2, and Document 3. However, it does not specify the details of the celebration beyond the toasting. Therefore, while there are photos of friends toasting at a party, the specific details about the celebration are not present.",
+      "retrieved_media": [],
+      "media_attached_count": 0
+    },
+    {
+      "audit_id": "AUDIT-034",
+      "query": "sound effect of fireworks explosion celebrating holiday",
+      "target_keyword": "fireworks",
+      "split": "single_hop",
+      "retrieved_context": [
+        "fireworks",
+        "fireworks",
+        "fireworks",
+        "fireworks",
+        "fireworks"
+      ],
+      "answer": "The context provided only contains the term \"fireworks\" repeated across multiple documents. It does not include specific details about the sound effect of fireworks explosions or their use in celebrating holidays. Therefore, I cannot provide the specific information requested.",
+      "retrieved_media": [],
+      "media_attached_count": 0
+    },
+    {
+      "audit_id": "AUDIT-035",
+      "query": "creative art studio wall decoration photographs",
+      "target_keyword": "art studio wall",
+      "split": "single_hop",
+      "retrieved_context": [
+        "art studio wall decor",
+        "night art light installation dreamy Ningbo cyberpunk night bridge Yinzhou District photos",
+        "night art light installation dreamy concert fan support moments April 2023 photos",
+        "night art light installation dreamy Binjiang District photos",
+        "photos with Mingming September 2019 photos"
+      ],
+      "answer": "The context includes \"art studio wall decor\" but does not provide specific details or photographs related to creative art studio wall decoration. Therefore, while it is known that there is a mention of art studio wall decor, the specific detail about photographs is not present.",
+      "retrieved_media": [],
+      "media_attached_count": 0
+    },
+    {
+      "audit_id": "AUDIT-036",
+      "query": "peaceful beach photos in Phuket Karon coastal area",
+      "target_keyword": "phuket",
+      "split": "single_hop",
+      "retrieved_context": [
+        "quiet beach in Phuket's Karon",
+        "quiet beach in Phuket's Karon",
+        "cold blue beach photos in Yantian District",
+        "cold blue beach photos in Yantian District",
+        "my vintage seaside outfit cold blue beach photos including me photos in Yantian District"
+      ],
+      "answer": "The context mentions a \"quiet beach in Phuket's Karon,\" which suggests a peaceful setting. However, there are no specific details about photos of the beach in Phuket's Karon provided in the context. Therefore, while it is known that Karon is a quiet beach, the specific detail about peaceful beach photos is not present.",
+      "retrieved_media": [
+        {
+          "item_id": "IMG_6457",
+          "modality": "image",
+          "file_path": "PhotoBench/images/IMG_6457.JPG",
+          "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_6457.JPG",
+          "raw_media_available": true,
+          "media_id": "ee049c52b38c02ba9e2ad99f66ca5d1e81f6fadda59ff30527173ebb7a56d821",
+          "relative_media_path": "../../../../dataset/album1/images/IMG_6457.JPG"
+        },
+        {
+          "item_id": "IMG_6458",
+          "modality": "image",
+          "file_path": "PhotoBench/images/IMG_6458.JPG",
+          "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_6458.JPG",
+          "raw_media_available": true,
+          "media_id": "58c537fdb51213704bb2d11d81b8b2f930a846848d3af2699de72478e6242092",
+          "relative_media_path": "../../../../dataset/album1/images/IMG_6458.JPG"
+        },
+        {
+          "item_id": "IMG_6437",
+          "modality": "image",
+          "file_path": "PhotoBench/images/IMG_6437.JPG",
+          "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_6437.JPG",
+          "raw_media_available": true,
+          "media_id": "b8e3f3dab4a137f20709afe16970fb56f40f1550a3fc06b2d7959648008174ba",
+          "relative_media_path": "../../../../dataset/album1/images/IMG_6437.JPG"
+        },
+        {
+          "item_id": "IMG_5257",
+          "modality": "image",
+          "file_path": "PhotoBench/images/IMG_5257.JPG",
+          "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_5257.JPG",
+          "raw_media_available": true,
+          "media_id": "2f4809ada5bf56f87766649649cd106809b21f7bf0329d677091cd7e651f0c72",
+          "relative_media_path": "../../../../dataset/album1/images/IMG_5257.JPG"
+        }
+      ],
+      "media_attached_count": 4
+    },
+    {
+      "audit_id": "AUDIT-037",
+      "query": "audio of wooden door knocking sound effect",
+      "target_keyword": "door_wood_knock",
+      "split": "single_hop",
+      "retrieved_context": [
+        "door_wood_knock",
+        "door_wood_knock",
+        "door_wood_knock",
+        "door_wood_knock",
+        "door_wood_knock"
+      ],
+      "answer": "The specific detail regarding an audio of a wooden door knocking sound effect is not present in the provided context. However, it is noted that \"door_wood_knock\" appears multiple times in the documents.",
+      "retrieved_media": [],
+      "media_attached_count": 0
+    },
+    {
+      "audit_id": "AUDIT-038",
+      "query": "fancy layered cocktail drink photos before Christmas",
+      "target_keyword": "layered cocktail",
+      "split": "single_hop",
+      "retrieved_context": [
+        "layered cocktail fancy drink before Christmas",
+        "layered cocktail fancy drink before Christmas",
+        "layered cocktail fancy drink before Christmas",
+        "fancy drink before Christmas Qiantang photos",
+        "fancy drink before Christmas Qiantang photos first half of 2024 photos"
+      ],
+      "answer": "The context mentions \"layered cocktail fancy drink before Christmas\" and \"fancy drink before Christmas Qiantang photos.\" However, it does not provide specific photos of the fancy layered cocktail drink before Christmas. Therefore, while it is known that there are references to such drinks and photos, the specific detail of photos is not present.",
+      "retrieved_media": [],
+      "media_attached_count": 0
+    },
+    {
+      "audit_id": "AUDIT-039",
+      "query": "photos of driverless autonomous car in Pingyao town",
+      "target_keyword": "driverless car",
+      "split": "single_hop",
+      "retrieved_context": [
+        "driverless car in Pingyao",
+        "Nandaihe cable car Qinhuangdao photos summer 2019",
+        "photos taken in Keqiao",
+        "photos taken in Keqiao",
+        "Ding Guagua fried chicken menu photos in Hongqiao Town"
+      ],
+      "answer": "The specific detail about photos of a driverless autonomous car in Pingyao town is not present. The context only mentions a driverless car in Pingyao but does not provide any photos.",
+      "retrieved_media": [
+        {
+          "item_id": "IMG_20220716_141621",
+          "modality": "image",
+          "file_path": "PhotoBench/images/IMG_20220716_141621.jpg",
+          "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album3/images/IMG_20220716_141621.jpg",
+          "raw_media_available": true,
+          "media_id": "924201ab2da9a1d8ddc1f1303e6dcb7847b6e05f094dbaa58f436320ffeec73f",
+          "relative_media_path": "../../../../dataset/album3/images/IMG_20220716_141621.jpg"
+        },
+        {
+          "item_id": "IMG_20220716_141625",
+          "modality": "image",
+          "file_path": "PhotoBench/images/IMG_20220716_141625.jpg",
+          "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album3/images/IMG_20220716_141625.jpg",
+          "raw_media_available": true,
+          "media_id": "8a182bb24b88623280728d3bcae8391a8fe12155e35c40dc72c95fae3e1ba044",
+          "relative_media_path": "../../../../dataset/album3/images/IMG_20220716_141625.jpg"
+        },
+        {
+          "item_id": "IMG_1179",
+          "modality": "image",
+          "file_path": "PhotoBench/images/IMG_1179.JPG",
+          "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_1179.JPG",
+          "raw_media_available": true,
+          "media_id": "b2026eab0e9779b1541c3d1412eec7b8dffde3fe64fc0848dcc27bcaf633ee54",
+          "relative_media_path": "../../../../dataset/album1/images/IMG_1179.JPG"
+        },
+        {
+          "item_id": "IMG_1178",
+          "modality": "image",
+          "file_path": "PhotoBench/images/IMG_1178.JPG",
+          "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album1/images/IMG_1178.JPG",
+          "raw_media_available": true,
+          "media_id": "d97168a295807a765cc7eecba1169ad8d539590695abfdedce2f57fb0100c8ed",
+          "relative_media_path": "../../../../dataset/album1/images/IMG_1178.JPG"
+        }
+      ],
+      "media_attached_count": 4
+    },
+    {
+      "audit_id": "AUDIT-040",
+      "query": "sound of applause and clapping hands in an audience",
+      "target_keyword": "clapping",
+      "split": "single_hop",
+      "retrieved_context": [
+        "clapping",
+        "clapping",
+        "clapping",
+        "clapping",
+        "clapping"
+      ],
+      "answer": "The context contains multiple mentions of \"clapping,\" which is associated with the sound of applause and clapping hands in an audience. However, specific details about the sound itself are not present.",
+      "retrieved_media": [],
+      "media_attached_count": 0
+    },
+    {
+      "audit_id": "AUDIT-041",
+      "query": "cute handcrafted ceramic figurine sculpture images",
+      "target_keyword": "ceramic figurine",
+      "split": "single_hop",
+      "retrieved_context": [
+        "cute ceramic figurine handmade sculpture before painting",
+        "cute ceramic figurine",
+        "ancient ceramic horse sculpture details",
+        "handmade sculpture before painting",
+        "handmade sculpture before painting"
+      ],
+      "answer": "The context mentions \"cute ceramic figurine\" and \"handmade sculpture before painting,\" but it does not provide any images or specific details about the images of cute handcrafted ceramic figurine sculptures. Therefore, I cannot provide images, and the specific detail about images is not present.",
+      "retrieved_media": [],
+      "media_attached_count": 0
+    },
+    {
+      "audit_id": "AUDIT-042",
+      "query": "sound recording of a chainsaw cutting wood",
+      "target_keyword": "chainsaw",
+      "split": "single_hop",
+      "retrieved_context": [
+        "chainsaw",
+        "chainsaw",
+        "chainsaw",
+        "chainsaw",
+        "chainsaw"
+      ],
+      "answer": "The specific detail about a sound recording of a chainsaw cutting wood is not present in the provided context. However, it is known that a chainsaw is a tool commonly used for cutting wood.",
+      "retrieved_media": [],
+      "media_attached_count": 0
+    },
+    {
+      "audit_id": "AUDIT-043",
+      "query": "photos of traditional handmade noodles preparation",
+      "target_keyword": "handmade noodles",
+      "split": "single_hop",
+      "retrieved_context": [
+        "handmade noodles",
+        "Puji noodles",
+        "Puji noodles",
+        "photos with Mingming photos of Da Bao with Xiaoxue",
+        "photos with Mingming photos of Da Bao with Xiaoxue"
+      ],
+      "answer": "The specific detail about photos of traditional handmade noodles preparation is not present in the provided context. The context includes mentions of handmade noodles and Puji noodles, but does not contain any information or photos related to their preparation.",
+      "retrieved_media": [
+        {
+          "item_id": "IMG_1472",
+          "modality": "image",
+          "file_path": "PhotoBench/images/IMG_1472.jpg",
+          "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album2/images/IMG_1472.jpg",
+          "raw_media_available": true,
+          "media_id": "ea3d01f0bac2667cefa0447724bc4554d3c0e892aea4f1d6a49987749062c82b",
+          "relative_media_path": "../../../../dataset/album2/images/IMG_1472.jpg"
+        }
+      ],
+      "media_attached_count": 1
+    },
+    {
+      "audit_id": "AUDIT-044",
+      "query": "audio recording of an airplane engine flying",
+      "target_keyword": "airplane",
+      "split": "single_hop",
+      "retrieved_context": [
+        "airplane",
+        "airplane",
+        "airplane",
+        "airplane",
+        "airplane"
+      ],
+      "answer": "The context provided does not contain any information about an audio recording of an airplane engine flying. It only mentions \"airplane\" in each document. Therefore, I cannot provide specific details about the audio recording.",
+      "retrieved_media": [],
+      "media_attached_count": 0
+    },
+    {
+      "audit_id": "AUDIT-045",
+      "query": "New Years Eve celebration photos in Hangzhou city",
+      "target_keyword": "hangzhou",
+      "split": "single_hop",
+      "retrieved_context": [
+        "New Year’s Eve Hangzhou concert fan support moments Qiantang photos",
+        "New Year’s Eve Hangzhou",
+        "New Year’s Eve Hangzhou",
+        "New Year’s Eve Hangzhou",
+        "Western winter meal in Hangzhou Qiantang photos"
+      ],
+      "answer": "The context mentions \"New Year’s Eve Hangzhou concert fan support moments Qiantang photos,\" which suggests that there are photos related to the New Year’s Eve celebration in Hangzhou. However, specific details about the photos themselves are not provided.",
+      "retrieved_media": [
+        {
+          "item_id": "IMG_8684",
+          "modality": "image",
+          "file_path": "PhotoBench/images/IMG_8684.jpg",
+          "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album2/images/IMG_8684.jpg",
+          "raw_media_available": true,
+          "media_id": "11243f1c6dd587a93caad6f2eb144215cfa2481f8656c7aca484cfca4cb4b7b4",
+          "relative_media_path": "../../../../dataset/album2/images/IMG_8684.jpg"
+        },
+        {
+          "item_id": "IMG_9610",
+          "modality": "image",
+          "file_path": "PhotoBench/images/IMG_9610.jpg",
+          "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album2/images/IMG_9610.jpg",
+          "raw_media_available": true,
+          "media_id": "392ff942857170a725ba621f6d6a01b155cebb0ccce84596d1579b22580cc03e",
+          "relative_media_path": "../../../../dataset/album2/images/IMG_9610.jpg"
+        },
+        {
+          "item_id": "IMG_9616",
+          "modality": "image",
+          "file_path": "PhotoBench/images/IMG_9616.jpg",
+          "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album2/images/IMG_9616.jpg",
+          "raw_media_available": true,
+          "media_id": "2844313d2be33fa9fd8d1600ac5bb48bab75c0520035a3077bdef4168ee54f4f",
+          "relative_media_path": "../../../../dataset/album2/images/IMG_9616.jpg"
+        },
+        {
+          "item_id": "IMG_8506",
+          "modality": "image",
+          "file_path": "PhotoBench/images/IMG_8506.jpg",
+          "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album2/images/IMG_8506.jpg",
+          "raw_media_available": true,
+          "media_id": "89fd3a4690ecb4a2c005e2492d99e88683becd1d2fab13337dfac22b5c8b4f14",
+          "relative_media_path": "../../../../dataset/album2/images/IMG_8506.jpg"
+        },
+        {
+          "item_id": "2019-01-01 164619",
+          "modality": "image",
+          "file_path": "PhotoBench/images/2019-01-01 164619.jpg",
+          "resolved_media_path": "/Users/anuragkrishnavennela/Projects/MemoryVerse/dataset/album3/images/2019-01-01 164619.jpg",
+          "raw_media_available": true,
+          "media_id": "eba7d0b9bf7ac12297bd94ae8c363d1c2c55da8619b050b506cbcaad48b5df67",
+          "relative_media_path": "../../../../dataset/album3/images/2019-01-01 164619.jpg"
+        }
+      ],
+      "media_attached_count": 5
+    },
+    {
+      "audit_id": "AUDIT-046",
+      "query": "sound effect of pouring liquid water into a glass",
+      "target_keyword": "pouring_water",
+      "split": "single_hop",
+      "retrieved_context": [
+        "pouring_water",
+        "pouring_water",
+        "pouring_water",
+        "pouring_water",
+        "pouring_water"
+      ],
+      "answer": "The context provided contains multiple instances of \"pouring_water,\" but it does not include specific details about the sound effect of pouring liquid water into a glass. Therefore, while it is known that the action involves pouring water, the specific sound effect detail is not present.",
+      "retrieved_media": [],
+      "media_attached_count": 0
+    },
+    {
+      "audit_id": "AUDIT-047",
+      "query": "dreamy night art light installation photography",
+      "target_keyword": "art light installation",
+      "split": "single_hop",
+      "retrieved_context": [
+        "night art light installation dreamy",
+        "night art light installation dreamy",
+        "night art light installation dreamy",
+        "night art light installation dreamy",
+        "night art light installation dreamy"
+      ],
+      "answer": "The context provided mentions \"night art light installation dreamy,\" but it does not contain specific information about photography related to this topic. Therefore, while it is known that there is a dreamy night art light installation, the specific details about photography are not present.",
+      "retrieved_media": [],
+      "media_attached_count": 0
+    },
+    {
+      "audit_id": "AUDIT-048",
+      "query": "sound recording of train moving along railroad tracks",
+      "target_keyword": "train",
+      "split": "single_hop",
+      "retrieved_context": [
+        "train",
+        "train",
+        "train",
+        "train",
+        "train"
+      ],
+      "answer": "The specific detail about a sound recording of a train moving along railroad tracks is not present in the provided context. However, it is known that the term \"train\" is mentioned multiple times in the documents.",
+      "retrieved_media": [],
+      "media_attached_count": 0
+    },
+    {
+      "audit_id": "AUDIT-049",
+      "query": "cyberpunk style night bridge photos in Ningbo Yinzhou",
+      "target_keyword": "yinzhou",
+      "split": "single_hop",
+      "retrieved_context": [
+        "night art light installation dreamy Ningbo cyberpunk night bridge Yinzhou District photos",
+        "Yinzhou District photos",
+        "night art light installation dreamy Binjiang District photos",
+        "photos in Pudong, Shanghai",
+        "photos taken in Nanjing"
+      ],
+      "answer": "The context mentions \"night art light installation dreamy Ningbo cyberpunk night bridge\" in Document 1, which suggests that there are photos related to a cyberpunk style night bridge in Ningbo's Yinzhou District. However, specific details about the photos themselves are not provided.",
+      "retrieved_media": [],
+      "media_attached_count": 0
+    },
+    {
+      "audit_id": "AUDIT-050",
+      "query": "sound recording of a rooster crowing in the morning",
+      "target_keyword": "rooster",
+      "split": "single_hop",
+      "retrieved_context": [
+        "rooster",
+        "rooster",
+        "rooster",
+        "rooster",
+        "rooster"
+      ],
+      "answer": "The specific detail about a sound recording of a rooster crowing in the morning is not present in the provided context. However, it is known that roosters are known for their crowing.",
+      "retrieved_media": [],
+      "media_attached_count": 0
+    }
+  ]
+}

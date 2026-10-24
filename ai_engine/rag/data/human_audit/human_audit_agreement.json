@@ -1,0 +1,56 @@
+{
+  "audit_type": "human_human_agreement",
+  "human_reviewers": 2,
+  "n": 50,
+  "status": "completed",
+  "dimensions": {
+    "faithfulness_label": {
+      "n": 50,
+      "observed_agreement": 0.9,
+      "cohen_kappa": 0.8054,
+      "bootstrap_ci95": [
+        0.6459,
+        0.9596
+      ],
+      "bootstrap_resamples": 2000,
+      "bootstrap_seed": 20261013,
+      "categories": [
+        "supported",
+        "mixed",
+        "unsupported"
+      ]
+    },
+    "relevance_label": {
+      "n": 50,
+      "observed_agreement": 0.92,
+      "cohen_kappa": 0.8431,
+      "bootstrap_ci95": [
+        0.6916,
+        0.9601
+      ],
+      "bootstrap_resamples": 2000,
+      "bootstrap_seed": 20261014,
+      "categories": [
+        "direct",
+        "partial",
+        "off_topic"
+      ]
+    },
+    "correctness_label": {
+      "n": 50,
+      "observed_agreement": 0.96,
+      "cohen_kappa": 0.9196,
+      "bootstrap_ci95": [
+        0.7981,
+        1.0
+      ],
+      "bootstrap_resamples": 2000,
+      "bootstrap_seed": 20261015,
+      "categories": [
+        "correct",
+        "uncertain",
+        "incorrect"
+      ]
+    }
+  }
+}

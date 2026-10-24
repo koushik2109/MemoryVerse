@@ -1,0 +1,108 @@
+{
+  "metadata": {
+    "benchmark": "MS-COCO Karpathy Test Split (Zero-Leakage)",
+    "corpus_size": 1000,
+    "query_count": 500,
+    "timestamp": "2026-10-24T15:03:36Z",
+    "seed": 42,
+    "cross_encoder_model": "cross-encoder/ms-marco-MiniLM-L-6-v2"
+  },
+  "results": {
+    "BM25 (Sparse Only)": {
+      "Hit@1": 0.174,
+      "Hit@5": 0.36,
+      "Hit@10": 0.428,
+      "Hit@10_95CI": [
+        0.386,
+        0.472
+      ],
+      "MRR": 0.26,
+      "MRR_95CI": [
+        0.2294,
+        0.2937
+      ],
+      "NDCG@10": 0.2919,
+      "latency_ms": 0.75
+    },
+    "Dense Only (all-MiniLM)": {
+      "Hit@1": 0.264,
+      "Hit@5": 0.542,
+      "Hit@10": 0.658,
+      "Hit@10_95CI": [
+        0.616,
+        0.698
+      ],
+      "MRR": 0.3907,
+      "MRR_95CI": [
+        0.3571,
+        0.4262
+      ],
+      "NDCG@10": 0.4467,
+      "latency_ms": 6.03
+    },
+    "Hybrid (Convex alpha=0.7)": {
+      "Hit@1": 0.252,
+      "Hit@5": 0.522,
+      "Hit@10": 0.654,
+      "Hit@10_95CI": [
+        0.612,
+        0.694
+      ],
+      "MRR": 0.3766,
+      "MRR_95CI": [
+        0.3439,
+        0.412
+      ],
+      "NDCG@10": 0.4355,
+      "latency_ms": 6.8
+    },
+    "Hybrid (RRF k=60)": {
+      "Hit@1": 0.24,
+      "Hit@5": 0.476,
+      "Hit@10": 0.59,
+      "Hit@10_95CI": [
+        0.55,
+        0.634
+      ],
+      "MRR": 0.3491,
+      "MRR_95CI": [
+        0.3162,
+        0.3855
+      ],
+      "NDCG@10": 0.3996,
+      "latency_ms": 6.88
+    },
+    "Proposed MM-RAG (Dual-Signal Reranker)": {
+      "Hit@1": 0.256,
+      "Hit@5": 0.514,
+      "Hit@10": 0.618,
+      "Hit@10_95CI": [
+        0.576,
+        0.66
+      ],
+      "MRR": 0.3721,
+      "MRR_95CI": [
+        0.339,
+        0.4076
+      ],
+      "NDCG@10": 0.4249,
+      "latency_ms": 6.97
+    },
+    "Trained Cross-Encoder (ms-marco-MiniLM)": {
+      "Hit@1": 0.24,
+      "Hit@5": 0.496,
+      "Hit@10": 0.6,
+      "Hit@10_95CI": [
+        0.558,
+        0.642
+      ],
+      "MRR": 0.3567,
+      "MRR_95CI": [
+        0.3232,
+        0.3909
+      ],
+      "NDCG@10": 0.4082,
+      "latency_ms": 36.79
+    }
+  }
+}

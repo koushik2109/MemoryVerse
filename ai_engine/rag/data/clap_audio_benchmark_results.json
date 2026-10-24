@@ -1,0 +1,76 @@
+{
+  "metadata": {
+    "benchmark": "Authentic ESC-50 Descriptive Audio Retrieval with CLAP",
+    "audio_clips": 52,
+    "queries": 13,
+    "clap_model": "laion/clap-htsat-unfused",
+    "timestamp": "2026-10-24T15:06:23Z",
+    "seed": 42
+  },
+  "results": {
+    "BM25 Baseline (Category Tokens)": {
+      "Hit@1": 1.0,
+      "Hit@5": 1.0,
+      "Hit@10": 1.0,
+      "Hit@10_95CI": [
+        1.0,
+        1.0
+      ],
+      "MRR": 1.0,
+      "MRR_95CI": [
+        1.0,
+        1.0
+      ],
+      "NDCG@10": 1.0,
+      "latency_ms": 0.06
+    },
+    "Dense Only Baseline (Text Proxy)": {
+      "Hit@1": 1.0,
+      "Hit@5": 1.0,
+      "Hit@10": 1.0,
+      "Hit@10_95CI": [
+        1.0,
+        1.0
+      ],
+      "MRR": 1.0,
+      "MRR_95CI": [
+        1.0,
+        1.0
+      ],
+      "NDCG@10": 1.0,
+      "latency_ms": 27.83
+    },
+    "Native CLAP Acoustic (Raw Waveform)": {
+      "Hit@1": 1.0,
+      "Hit@5": 1.0,
+      "Hit@10": 1.0,
+      "Hit@10_95CI": [
+        1.0,
+        1.0
+      ],
+      "MRR": 1.0,
+      "MRR_95CI": [
+        1.0,
+        1.0
+      ],
+      "NDCG@10": 0.9978,
+      "latency_ms": 59.55
+    },
+    "Multimodal Audio Fusion (CLAP + Text Proxy)": {
+      "Hit@1": 1.0,
+      "Hit@5": 1.0,
+      "Hit@10": 1.0,
+      "Hit@10_95CI": [
+        1.0,
+        1.0
+      ],
+      "MRR": 1.0,
+      "MRR_95CI": [
+        1.0,
+        1.0
+      ],
+      "NDCG@10": 1.0,
+      "latency_ms": 87.4
+    }
+  }
+}

@@ -1,0 +1,18 @@
+\begin{table*}[t]
+\centering
+\caption{Systematic 5-Row Component Ablation Across MS-COCO Test, Clean Scene-Text Test, and 20\% Noise Scene-Text Test (Seeds 42, 43, 44).}
+\label{tab:systematic_ablation}
+\small
+\begin{tabular}{l c c c c c c c}
+\hline
+\textbf{Configuration} & \multicolumn{2}{c}{\textbf{COCO Test}} & \multicolumn{2}{c}{\textbf{Clean Scene-Text}} & \multicolumn{3}{c}{\textbf{20\% Noise Scene-Text}} \\
+ & \textbf{Hit@10} & \textbf{MRR} & \textbf{Hit@10} & \textbf{MRR} & \textbf{Hit@10 [95\% CI]} & \textbf{MRR [95\% CI]} & \textbf{$p$ (MRR)} \\
+\hline
+Baseline (Fixed alpha=0.7) & 0.636 & 0.377 & 1.000 & 0.991 & 0.964 \scriptsize{[0.933, 0.988]} & 0.825 \scriptsize{[0.777, 0.872]} & --- \\
++ Router (Learned alpha_q) & 0.648 & 0.398 & 1.000 & 0.941 & 0.897 \scriptsize{[0.849, 0.939]} & 0.718 \scriptsize{[0.663, 0.774]} & 0.0001 \\
++ Cascade (tau=0.065) & 0.636 & 0.370 & 1.000 & 0.991 & 0.964 \scriptsize{[0.933, 0.988]} & 0.844 \scriptsize{[0.799, 0.887]} & 0.0652 \\
++ Reliability (Observable r_m) & 0.648 & 0.398 & 1.000 & 0.941 & 0.842 \scriptsize{[0.788, 0.897]} & 0.638 \scriptsize{[0.576, 0.700]} & 0.0001 \\
+Full RAMP-RAG (+ Clean Stream) & 0.648 & 0.382 & 1.000 & 0.973 & 0.994 \scriptsize{[0.976, 1.000]} & 0.862 \scriptsize{[0.821, 0.900]} & 0.1626 \\
+\hline
+\end{tabular}
+\end{table*}

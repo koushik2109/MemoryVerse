@@ -9,6 +9,7 @@ Tests:
 """
 import os
 import tempfile
+import asyncio
 import pytest
 from app.core.cache_service import CacheService
 from app.services.job_state_manager import (
@@ -18,8 +19,11 @@ from app.services.job_state_manager import (
     PIPELINE_STAGES_ORDER,
 )
 import io
+from types import SimpleNamespace
+
 from app.services.storage_service import StorageService, ProgressFileReader
 from app.services.video_queue import DurableVideoQueue
+from app.services.video_service import _filter_media_to_selected_ids
 from ai_engine.emotion.emotion_analyzer import EmotionAnalyzer, EmotionAblationMode
 
 
@@ -198,3 +202,157 @@ def test_progress_file_reader_compatibility():
     finally:
         if os.path.exists(tmp_path):
             os.unlink(tmp_path)
+
+
+def test_image_quality_exposes_noise_signal():
+    """Quality scoring must distinguish sharpness from high-frequency noise."""
+    import numpy as np
+    from PIL import Image
+    from app.services.media_intelligence import score_image_quality
+
+    with tempfile.TemporaryDirectory() as tmp_dir:
+        rng = np.random.default_rng(7)
+        clean = np.full((240, 240), 128, dtype=np.uint8)
+        noisy = np.clip(clean.astype(np.int16) + rng.normal(0, 45, clean.shape), 0, 255).astype(np.uint8)
+        clean_path = os.path.join(tmp_dir, "clean.jpg")
+        noisy_path = os.path.join(tmp_dir, "noisy.jpg")
+        Image.fromarray(clean).save(clean_path)
+        Image.fromarray(noisy).save(noisy_path)
+
+        clean_score = score_image_quality(clean_path)
+        noisy_score = score_image_quality(noisy_path)
+
+    assert "noise_score" in clean_score
+    assert "noise_score" in noisy_score
+    assert noisy_score["noise_score"] < clean_score["noise_score"]
+
+
+def test_selected_media_ids_survive_job_state_serialization(monkeypatch):
+    """Curated IDs must survive cache/worker state round-trips."""
+    import app.services.job_state_manager as job_state_module
+
+    persisted_updates = []
+
+    class FakeQuery:
+        def update(self, payload):
+            persisted_updates.append(payload)
+            return self
+
+        def eq(self, *_args):
+            return self
+
+        def execute(self):
+            return SimpleNamespace(data=[])
+
+    class FakeSupabase:
+        def table(self, _name):
+            return FakeQuery()
+
+    monkeypatch.setattr(
+        job_state_module,
+        "get_supabase_client",
+        lambda: FakeSupabase(),
+    )
+
+    manager = JobStateManager()
+    job = manager.create_job(
+        job_id="test_curated_ids",
+        memory_id="memory_1",
+        user_id="user_1",
+        selected_media_ids=["media_a", "media_b"],
+    )
+
+    snapshot = job.to_dict()
+    restored = manager._deserialize_state(snapshot)
+    manager.start_stage("test_curated_ids", "initializing")
+
+    assert snapshot["selected_media_ids"] == ["media_a", "media_b"]
+    assert restored.selected_media_ids == ["media_a", "media_b"]
+    assert persisted_updates[-1]["script_metadata"]["selected_media_ids"] == [
+        "media_a",
+        "media_b",
+    ]
+
+
+def test_selected_media_filter_does_not_fall_back_to_unselected_items():
+    """A stale curated ID must not cause the worker to render all memory media."""
+    media = [
+        {"id": "selected", "filename": "selected.jpg"},
+        {"id": "unselected", "filename": "unselected.jpg"},
+    ]
+
+    assert _filter_media_to_selected_ids(media, ["selected"]) == [media[0]]
+    assert _filter_media_to_selected_ids(media, ["missing"]) == []
+
+
+def test_generate_video_persists_selected_media_ids(monkeypatch):
+    """The API must put curated IDs in the durable video_jobs metadata."""
+    from app.api import media as media_api
+    from app.core.security import CurrentUser
+
+    inserted_payloads = []
+    created_jobs = []
+
+    class FakeQuery:
+        def __init__(self, operation):
+            self.operation = operation
+
+        def update(self, payload):
+            return self
+
+        def insert(self, payload):
+            inserted_payloads.append(payload)
+            return self
+
+        def eq(self, *_args):
+            return self
+
+        def in_(self, *_args):
+            return self
+
+        def execute(self):
+            if self.operation == "insert":
+                return SimpleNamespace(data=[{"id": "job_curated"}])
+            return SimpleNamespace(data=[])
+
+    class FakeSupabase:
+        def table(self, name):
+            return FakeQuery("insert" if name == "video_jobs" else "update")
+
+    monkeypatch.setattr(media_api, "get_supabase_client", lambda: FakeSupabase())
+    monkeypatch.setattr(
+        media_api.cache_service,
+        "compute_job_fingerprint",
+        lambda **kwargs: "fingerprint",
+    )
+    monkeypatch.setattr(
+        media_api.cache_service,
+        "get_active_job_by_fingerprint",
+        lambda _fingerprint: None,
+    )
+    monkeypatch.setattr(
+        media_api.cache_service,
+        "set_active_job_by_fingerprint",
+        lambda *_args, **_kwargs: None,
+    )
+    monkeypatch.setattr(
+        media_api.job_state_manager,
+        "create_job",
+        lambda **kwargs: created_jobs.append(kwargs),
+    )
+    monkeypatch.setattr(media_api.video_worker_pool, "submit_job", lambda _job_id: None)
+
+    response = asyncio.run(
+        media_api.generate_video(
+            memory_id="memory_curated",
+            media_ids=["media_a", "", "media_b"],
+            current_user=CurrentUser(id="user_1", email="user@example.com"),
+        )
+    )
+
+    assert response["job_id"] == "job_curated"
+    assert inserted_payloads[0]["script_metadata"]["selected_media_ids"] == [
+        "media_a",
+        "media_b",
+    ]
+    assert created_jobs[0]["selected_media_ids"] == ["media_a", "media_b"]

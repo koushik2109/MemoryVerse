@@ -1,0 +1,404 @@
+{
+  "packet_version": "image-descriptions-v2",
+  "audit_type": "image_description_answer_quality",
+  "preview_only": false,
+  "annotation_derived_design": true,
+  "independent_held_out_evaluation": false,
+  "scope_note": "Annotation-derived single-hop design over image text proxies only. The 3,356-row corpus contains 2,000 ESC-50 category-only audio metadata rows and 1,356 image annotation/text-proxy rows; no audio files/recordings or raw image media are available to this audit. Audio labels are not presented as real recordings, and image descriptions are not raw-image understanding. These questions are not independent held-out evaluation items.",
+  "source_corpus_sha256": "899acf2311721f7ac7e764213c255cf7a2de28cd532ae6ca75864a2deaf24e52",
+  "question_set_sha256": "18ea0056c984c01f996e5d54c743d8ba0ab88a34aa973c07e69c942ab13813f2",
+  "scope_counts": {
+    "total_rows": 3356,
+    "image_rows": 1356,
+    "audio_rows": 2000,
+    "other_rows": 0,
+    "selected_image_rows": 25,
+    "question_count": 25,
+    "raw_media_available": false
+  },
+  "generation": {
+    "model": "gpt-4o-mini",
+    "config_sha256": "85dbf069ff69db969e1f049701da9c3af1c080d40b98ed671ccf35388a8cdc39",
+    "retrieval_scope": "image rows only; contexts are text proxies",
+    "reference_answers_fed_to_model": false,
+    "target_keywords_fed_to_model": false,
+    "evidence_ids_fed_to_model": false
+  },
+  "examples": [
+    {
+      "audit_id": "IMG-V2-001",
+      "query": "According to the image annotation, what date is associated with the marathon volunteers handing water?",
+      "target_keyword": "December 17, 2023",
+      "target_keyword_role": "DESIGN REFERENCE — not a generated model output",
+      "split": "single_hop",
+      "retrieved_context": [
+        "marathon volunteers handing water December 17, 2023 photos",
+        "May 2018 photos",
+        "May 2018 photos",
+        "May 2018 photos",
+        "May 2018 photos"
+      ],
+      "answer": "The date associated with the marathon volunteers handing water is December 17, 2023 (Document 1). The retrieved context does not provide any additional information regarding the image annotation itself."
+    },
+    {
+      "audit_id": "IMG-V2-002",
+      "query": "What time period is explicitly named in the image annotation for the Putuo Mountain coast photos?",
+      "target_keyword": "first half of 2024",
+      "target_keyword_role": "DESIGN REFERENCE — not a generated model output",
+      "split": "single_hop",
+      "retrieved_context": [
+        "Putuo Mountain coast first half of 2024 photos",
+        "photos from May 2024",
+        "May 2018 photos",
+        "May 2018 photos",
+        "May 2018 photos"
+      ],
+      "answer": "The time period explicitly named in the image annotation for the Putuo Mountain coast photos is the first half of 2024 (Document 1). The retrieved context does not establish any other specific time periods for the Putuo Mountain coast photos beyond this."
+    },
+    {
+      "audit_id": "IMG-V2-003",
+      "query": "What action is described for the image annotation about the bridge at sunset?",
+      "target_keyword": "driving over bridge at sunset",
+      "target_keyword_role": "DESIGN REFERENCE — not a generated model output",
+      "split": "single_hop",
+      "retrieved_context": [
+        "driving over bridge at sunset",
+        "peaceful sunset by the lake",
+        "peaceful sunset by the lake",
+        "peaceful sunset by the lake",
+        "dam machinery stretching to the horizon Three Gorges Dam sunset view photos in Yiling District"
+      ],
+      "answer": "The action described for the image annotation is \"driving over bridge at sunset\" (Document 1). The retrieved context does not establish any additional details about the bridge or the nature of the sunset beyond this action."
+    },
+    {
+      "audit_id": "IMG-V2-004",
+      "query": "What action is described in the party image annotation?",
+      "target_keyword": "friends toasting at party",
+      "target_keyword_role": "DESIGN REFERENCE — not a generated model output",
+      "split": "single_hop",
+      "retrieved_context": [
+        "friends toasting at party Qiantang photos",
+        "friends toasting at party Qiantang photos",
+        "May 2018 photos",
+        "May 2018 photos",
+        "May 2018 photos"
+      ],
+      "answer": "The action described in the party image annotation is friends toasting. This is supported by Document 1 and Document 2. The retrieved context does not provide any additional details about the specific image or its content beyond the action of toasting."
+    },
+    {
+      "audit_id": "IMG-V2-005",
+      "query": "What celebration detail is explicitly named in the birthday image annotation?",
+      "target_keyword": "22nd birthday celebration",
+      "target_keyword_role": "DESIGN REFERENCE — not a generated model output",
+      "split": "single_hop",
+      "retrieved_context": [
+        "22nd birthday celebration",
+        "22nd birthday celebration",
+        "green grape cake 22nd birthday celebration",
+        "green grape cake 22nd birthday celebration",
+        "green grape cake 22nd birthday celebration"
+      ],
+      "answer": "The celebration detail explicitly named in the birthday image annotation is \"22nd birthday celebration\" (Document 1, Document 2). The retrieved context does not establish any specific details about the image itself or its content beyond the celebration name. There are no verified raw media or descriptive text proxies provided in the context."
+    },
+    {
+      "audit_id": "IMG-V2-006",
+      "query": "Which place tag is explicitly present in the annotation for the toasting photo?",
+      "target_keyword": "Qiantang",
+      "target_keyword_role": "DESIGN REFERENCE — not a generated model output",
+      "split": "single_hop",
+      "retrieved_context": [
+        "friends toasting at party Qiantang photos",
+        "friends toasting at party Qiantang photos",
+        "friends toasting at party 22nd birthday celebration",
+        "friends toasting at party",
+        "Western winter meal in Hangzhou Qiantang photos"
+      ],
+      "answer": "The place tag explicitly present in the annotation for the toasting photo is \"Qiantang,\" as mentioned in Documents 1 and 2. The retrieved context does not establish any other specific place tags associated with the toasting photo."
+    },
+    {
+      "audit_id": "IMG-V2-007",
+      "query": "What object is described in the art image annotation?",
+      "target_keyword": "art studio wall decor",
+      "target_keyword_role": "DESIGN REFERENCE — not a generated model output",
+      "split": "single_hop",
+      "retrieved_context": [
+        "Black Myth Yellow Wind Demon concept art",
+        "handmade sculpture before painting",
+        "handmade sculpture before painting",
+        "cute ceramic figurine handmade sculpture before painting",
+        "Big Head Son and Small Head Dad sand sculpture photos with Mingming Lele and Xiaoming group photo Qinhuangdao photos summer 2019"
+      ],
+      "answer": "The retrieved context does not provide a specific description of the object in the art image annotation. It mentions \"Black Myth Yellow Wind Demon concept art\" (Document 1), but does not elaborate on the object itself. Therefore, the context does not establish what object is described in the art image annotation."
+    },
+    {
+      "audit_id": "IMG-V2-008",
+      "query": "Which place name is explicitly included in the quiet-beach image annotation?",
+      "target_keyword": "Phuket's Karon",
+      "target_keyword_role": "DESIGN REFERENCE — not a generated model output",
+      "split": "single_hop",
+      "retrieved_context": [
+        "quiet beach in Phuket's Karon",
+        "quiet beach in Phuket's Karon",
+        "cold blue beach photos in Yantian District",
+        "cold blue beach photos in Yantian District",
+        "my vintage seaside outfit cold blue beach photos including me photos in Yantian District"
+      ],
+      "answer": "The place name explicitly included in the quiet-beach image annotation is \"Phuket's Karon\" (Document 1 and Document 2). The retrieved context does not establish any additional details about the image annotation beyond this place name."
+    },
+    {
+      "audit_id": "IMG-V2-009",
+      "query": "What drink is explicitly described in the fancy-drink image annotation?",
+      "target_keyword": "layered cocktail",
+      "target_keyword_role": "DESIGN REFERENCE — not a generated model output",
+      "split": "single_hop",
+      "retrieved_context": [
+        "fancy drink before Christmas Qiantang photos",
+        "fancy drink before Christmas",
+        "fancy drink before Christmas",
+        "fancy drink before Christmas",
+        "fancy drink before Christmas Qiantang photos first half of 2024 photos"
+      ],
+      "answer": "The retrieved context does not explicitly describe any specific drink in the fancy-drink image annotation. Therefore, the query about the specific drink remains unresolved as the context does not establish it."
+    },
+    {
+      "audit_id": "IMG-V2-010",
+      "query": "Which place is explicitly named for the driverless-car image annotation?",
+      "target_keyword": "Pingyao",
+      "target_keyword_role": "DESIGN REFERENCE — not a generated model output",
+      "split": "single_hop",
+      "retrieved_context": [
+        "driverless car in Pingyao",
+        "Nandaihe cable car Qinhuangdao photos summer 2019",
+        "cat under the car",
+        "cat under the car",
+        "cozy car moment Summer 2025 Ming's photos"
+      ],
+      "answer": "The place explicitly named for the driverless-car image annotation is Pingyao (Document 1). The retrieved context does not establish any additional details about the driverless car or its surroundings."
+    },
+    {
+      "audit_id": "IMG-V2-011",
+      "query": "What material is explicitly named for the figurine in the image annotation?",
+      "target_keyword": "ceramic",
+      "target_keyword_role": "DESIGN REFERENCE — not a generated model output",
+      "split": "single_hop",
+      "retrieved_context": [
+        "cute ceramic figurine",
+        "cute ceramic figurine handmade sculpture before painting",
+        "handmade sculpture before painting",
+        "handmade sculpture before painting",
+        "Big Head Son and Small Head Dad sand sculpture photos with Mingming Lele and Xiaoming group photo Qinhuangdao photos summer 2019"
+      ],
+      "answer": "The retrieved context does not explicitly name the material for the figurine in the image annotation. It mentions \"cute ceramic figurine\" (Document 1) but does not provide specific details about the material used. Therefore, the query remains unresolved regarding the explicit material name."
+    },
+    {
+      "audit_id": "IMG-V2-012",
+      "query": "What state is explicitly described for the sculpture annotation?",
+      "target_keyword": "handmade sculpture before painting",
+      "target_keyword_role": "DESIGN REFERENCE — not a generated model output",
+      "split": "single_hop",
+      "retrieved_context": [
+        "handmade sculpture before painting",
+        "handmade sculpture before painting",
+        "ancient ceramic horse sculpture details",
+        "cute ceramic figurine handmade sculpture before painting",
+        "Wukong statue details"
+      ],
+      "answer": "The retrieved context does not explicitly describe the state of the sculpture annotation."
+    },
+    {
+      "audit_id": "IMG-V2-013",
+      "query": "What object is explicitly described in the couple-photo annotation?",
+      "target_keyword": "matching rings",
+      "target_keyword_role": "DESIGN REFERENCE — not a generated model output",
+      "split": "single_hop",
+      "retrieved_context": [
+        "wedding group photo with friends 2017 Mid-Autumn Festival photos",
+        "Xiaobao at the aquarium photos with Mingming Lele and Xiaoming group photo",
+        "matching rings with boyfriend subway photo with boyfriend cozy car moment",
+        "subway photo with boyfriend me and boyfriend cuddling Ming and me couple outfit selfie",
+        "wedding group photo with friends"
+      ],
+      "answer": "The retrieved context does not explicitly describe any specific object in the couple-photo annotation. It mentions a \"subway photo with boyfriend\" and \"couple outfit selfie,\" but does not provide details about any objects. Therefore, the specific object in the couple-photo annotation is unresolved."
+    },
+    {
+      "audit_id": "IMG-V2-014",
+      "query": "What snack is explicitly described next to the deer statue?",
+      "target_keyword": "chocolate popsicle",
+      "target_keyword_role": "DESIGN REFERENCE — not a generated model output",
+      "split": "single_hop",
+      "retrieved_context": [
+        "chocolate popsicle by cartoon deer statue",
+        "Black Myth Four Sisters life-size statue",
+        "Christmas tree made of cups",
+        "ancient ceramic horse sculpture details",
+        "pig-like museum exhibit"
+      ],
+      "answer": "The retrieved context does not establish what snack is explicitly described next to the deer statue."
+    },
+    {
+      "audit_id": "IMG-V2-015",
+      "query": "What food is explicitly described in the noodle image annotation?",
+      "target_keyword": "handmade noodles",
+      "target_keyword_role": "DESIGN REFERENCE — not a generated model output",
+      "split": "single_hop",
+      "retrieved_context": [
+        "handmade noodles",
+        "Summer 2025 Ming's photos preparing ingredients in the kitchen",
+        "Western winter meal in Hangzhou Qiantang photos",
+        "Puji noodles",
+        "Puji noodles"
+      ],
+      "answer": "The food explicitly described in the noodle image annotation is \"Puji noodles\" (Document 4 and Document 5). The retrieved context does not provide any specific image annotations or descriptions beyond the mention of Puji noodles."
+    },
+    {
+      "audit_id": "IMG-V2-016",
+      "query": "What hand gesture is explicitly described with the dry-pot dish?",
+      "target_keyword": "peace sign",
+      "target_keyword_role": "DESIGN REFERENCE — not a generated model output",
+      "split": "single_hop",
+      "retrieved_context": [
+        "dry pot dish with peace sign Qiantang photos",
+        "making dinner in the kitchen",
+        "making dinner in the kitchen",
+        "making dinner in the kitchen",
+        "making dinner in the kitchen"
+      ],
+      "answer": "The hand gesture explicitly described with the dry-pot dish is a peace sign (Document 1). The retrieved context does not establish any additional details about the gesture or its significance."
+    },
+    {
+      "audit_id": "IMG-V2-017",
+      "query": "Which place is explicitly named in the New Year's Eve image annotation?",
+      "target_keyword": "Hangzhou",
+      "target_keyword_role": "DESIGN REFERENCE — not a generated model output",
+      "split": "single_hop",
+      "retrieved_context": [
+        "2019 New Year's Day photos",
+        "2019 New Year's Day photos",
+        "2019 New Year's Day photos",
+        "2019 New Year's Day photos",
+        "New Year’s Eve Hangzhou"
+      ],
+      "answer": "The place explicitly named in the New Year's Eve image annotation is Hangzhou (Document 5). The retrieved context does not provide any additional information about other locations or details related to the New Year's Day photos."
+    },
+    {
+      "audit_id": "IMG-V2-018",
+      "query": "What month and year are explicitly named in the concert-support image annotation?",
+      "target_keyword": "April 2023",
+      "target_keyword_role": "DESIGN REFERENCE — not a generated model output",
+      "split": "single_hop",
+      "retrieved_context": [
+        "concert fan support moments April 2023 photos",
+        "concert fan support moments April 2023 photos",
+        "concert fan support moments April 2023 photos",
+        "New Year’s Eve Hangzhou concert fan support moments Qiantang photos",
+        "concert fan support moments Binjiang District photos first half of 2024 photos"
+      ],
+      "answer": "The explicitly named month and year in the concert-support image annotation is April 2023, as stated in Documents 1, 2, and 3. The retrieved context does not establish any other specific months or years mentioned in the annotations."
+    },
+    {
+      "audit_id": "IMG-V2-019",
+      "query": "Which district tag is explicitly present in the Ningbo night-bridge image annotation?",
+      "target_keyword": "Yinzhou District",
+      "target_keyword_role": "DESIGN REFERENCE — not a generated model output",
+      "split": "single_hop",
+      "retrieved_context": [
+        "night art light installation dreamy Ningbo cyberpunk night bridge Yinzhou District photos",
+        "dam machinery stretching to the horizon photos in Yiling District",
+        "dam machinery stretching to the horizon photos in Yiling District",
+        "dam machinery stretching to the horizon photos in Yiling District",
+        "dam machinery stretching to the horizon photos in Yiling District"
+      ],
+      "answer": "The district tag explicitly present in the Ningbo night-bridge image annotation is Yinzhou District (Document 1). The retrieved context does not establish any other district tags related to the Ningbo night-bridge image."
+    },
+    {
+      "audit_id": "IMG-V2-020",
+      "query": "Which place is explicitly named in the night boat-ride image annotation?",
+      "target_keyword": "West Lake",
+      "target_keyword_role": "DESIGN REFERENCE — not a generated model output",
+      "split": "single_hop",
+      "retrieved_context": [
+        "West Lake night boat ride",
+        "West Lake night boat ride",
+        "West Lake night boat ride",
+        "night art light installation dreamy West Lake night boat ride",
+        "night art light installation dreamy West Lake night boat ride"
+      ],
+      "answer": "The place explicitly named in the night boat-ride image annotation is West Lake (Document 1, Document 2, Document 3, Document 4, Document 5). The retrieved context does not establish any additional details about the image annotation itself."
+    },
+    {
+      "audit_id": "IMG-V2-021",
+      "query": "Which district tag is explicitly present in this night-installation image annotation?",
+      "target_keyword": "Binjiang District",
+      "target_keyword_role": "DESIGN REFERENCE — not a generated model output",
+      "split": "single_hop",
+      "retrieved_context": [
+        "night art light installation dreamy Binjiang District photos",
+        "night art light installation dreamy Ningbo cyberpunk night bridge Yinzhou District photos",
+        "photos in Yiling District",
+        "photos in Yiling District",
+        "photos in Yiling District"
+      ],
+      "answer": "The district tag explicitly present in the night-installation image annotation is \"Binjiang District,\" as mentioned in Document 1. The retrieved context does not establish any other district tags related to the night-installation images."
+    },
+    {
+      "audit_id": "IMG-V2-022",
+      "query": "What place name is explicitly present in the subway-at-sunset image annotation?",
+      "target_keyword": "Hangzhou Qingchun Road",
+      "target_keyword_role": "DESIGN REFERENCE — not a generated model output",
+      "split": "single_hop",
+      "retrieved_context": [
+        "Hangzhou Qingchun Road subway sunset",
+        "Hangzhou Qingchun Road subway sunset",
+        "subway photo with boyfriend",
+        "subway photo with boyfriend",
+        "subway photo with boyfriend"
+      ],
+      "answer": "The place name explicitly present in the subway-at-sunset image annotation is \"Hangzhou Qingchun Road\" (Document 1 and Document 2). The retrieved context does not establish any additional place names related to the subway-at-sunset image."
+    },
+    {
+      "audit_id": "IMG-V2-023",
+      "query": "What activity is described in the April 2023 image annotation?",
+      "target_keyword": "concert fan support moments",
+      "target_keyword_role": "DESIGN REFERENCE — not a generated model output",
+      "split": "single_hop",
+      "retrieved_context": [
+        "April 2023 photos",
+        "2023 Chinese New Year photos January 23, 2023",
+        "2023 Chinese New Year photos January 23, 2023",
+        "December 17, 2023 photos",
+        "December 17, 2023 photos"
+      ],
+      "answer": "The retrieved context does not provide any specific information about the activity described in the April 2023 image annotation. Therefore, that part of the query remains unresolved."
+    },
+    {
+      "audit_id": "IMG-V2-024",
+      "query": "What place is explicitly named in the riverside image annotation?",
+      "target_keyword": "Anqiao Port",
+      "target_keyword_role": "DESIGN REFERENCE — not a generated model output",
+      "split": "single_hop",
+      "retrieved_context": [
+        "Binjiang District photos",
+        "Binjiang District photos",
+        "Binjiang District photos",
+        "Gongshu riverside",
+        "Gongshu riverside"
+      ],
+      "answer": "The retrieved context does not explicitly name any place in the riverside image annotation. Therefore, the specific part of the query regarding the name of the place is unresolved, as the context does not establish it."
+    },
+    {
+      "audit_id": "IMG-V2-025",
+      "query": "What date is explicitly named in the black-pigeon image annotation?",
+      "target_keyword": "November 15, 2025",
+      "target_keyword_role": "DESIGN REFERENCE — not a generated model output",
+      "split": "single_hop",
+      "retrieved_context": [
+        "interacting with black pigeons in early autumn photos from November 15, 2025",
+        "interacting with black pigeons in early autumn photos from November 15, 2025",
+        "April 2023 photos",
+        "May 2018 photos",
+        "May 2018 photos"
+      ],
+      "answer": "The date explicitly named in the black-pigeon image annotation is November 15, 2025 (Document 1 and Document 2). The retrieved context does not establish any other specific dates related to the black-pigeon images."
+    }
+  ]
+}

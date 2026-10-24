@@ -1,0 +1,203 @@
+{
+  "metadata": {
+    "model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+    "timestamp": "2026-10-24T15:05:38Z",
+    "seed": 42
+  },
+  "tier1_proxy_benchmark": {
+    "BM25 (Sparse Only)": {
+      "Hit@1": 0.994,
+      "Hit@5": 0.997,
+      "Hit@10": 0.997,
+      "Hit@10_95CI": [
+        0.991,
+        1.0
+      ],
+      "MRR": 0.9958,
+      "MRR_95CI": [
+        0.9888,
+        1.0
+      ],
+      "NDCG@10": 0.9898,
+      "latency_ms": 0.69
+    },
+    "Dense Only (all-MiniLM)": {
+      "Hit@1": 0.9581,
+      "Hit@5": 0.9701,
+      "Hit@10": 0.976,
+      "Hit@10_95CI": [
+        0.9581,
+        0.991
+      ],
+      "MRR": 0.9639,
+      "MRR_95CI": [
+        0.9445,
+        0.9803
+      ],
+      "NDCG@10": 0.9439,
+      "latency_ms": 5.88
+    },
+    "Hybrid (Convex alpha=0.7)": {
+      "Hit@1": 0.991,
+      "Hit@5": 0.997,
+      "Hit@10": 0.997,
+      "Hit@10_95CI": [
+        0.991,
+        1.0
+      ],
+      "MRR": 0.9935,
+      "MRR_95CI": [
+        0.9848,
+        1.0
+      ],
+      "NDCG@10": 0.9805,
+      "latency_ms": 6.6
+    },
+    "Hybrid (RRF k=60)": {
+      "Hit@1": 0.9731,
+      "Hit@5": 0.985,
+      "Hit@10": 0.988,
+      "Hit@10_95CI": [
+        0.976,
+        0.997
+      ],
+      "MRR": 0.9772,
+      "MRR_95CI": [
+        0.9614,
+        0.99
+      ],
+      "NDCG@10": 0.9642,
+      "latency_ms": 6.69
+    },
+    "Proposed MM-RAG (Dual-Signal Reranker)": {
+      "Hit@1": 0.997,
+      "Hit@5": 0.997,
+      "Hit@10": 0.997,
+      "Hit@10_95CI": [
+        0.991,
+        1.0
+      ],
+      "MRR": 0.997,
+      "MRR_95CI": [
+        0.991,
+        1.0
+      ],
+      "NDCG@10": 0.9865,
+      "latency_ms": 6.74
+    },
+    "Trained Cross-Encoder (ms-marco-MiniLM)": {
+      "Hit@1": 0.994,
+      "Hit@5": 0.997,
+      "Hit@10": 0.997,
+      "Hit@10_95CI": [
+        0.991,
+        1.0
+      ],
+      "MRR": 0.9948,
+      "MRR_95CI": [
+        0.9865,
+        1.0
+      ],
+      "NDCG@10": 0.9893,
+      "latency_ms": 30.55
+    }
+  },
+  "tier2_ocr_benchmark": {
+    "BM25 (Sparse Only)": {
+      "Hit@1": 0.8,
+      "Hit@5": 0.9667,
+      "Hit@10": 0.9667,
+      "Hit@10_95CI": [
+        0.9,
+        1.0
+      ],
+      "MRR": 0.8678,
+      "MRR_95CI": [
+        0.7688,
+        0.9667
+      ],
+      "NDCG@10": 0.7956,
+      "latency_ms": 0.21
+    },
+    "Dense Only (all-MiniLM)": {
+      "Hit@1": 0.4,
+      "Hit@5": 0.5333,
+      "Hit@10": 0.5333,
+      "Hit@10_95CI": [
+        0.3333,
+        0.7333
+      ],
+      "MRR": 0.472,
+      "MRR_95CI": [
+        0.3109,
+        0.6467
+      ],
+      "NDCG@10": 0.4706,
+      "latency_ms": 7.32
+    },
+    "Hybrid (Convex alpha=0.7)": {
+      "Hit@1": 0.6333,
+      "Hit@5": 0.9667,
+      "Hit@10": 1.0,
+      "Hit@10_95CI": [
+        1.0,
+        1.0
+      ],
+      "MRR": 0.7972,
+      "MRR_95CI": [
+        0.6999,
+        0.889
+      ],
+      "NDCG@10": 0.7704,
+      "latency_ms": 7.56
+    },
+    "Hybrid (RRF k=60)": {
+      "Hit@1": 0.5333,
+      "Hit@5": 0.9333,
+      "Hit@10": 0.9667,
+      "Hit@10_95CI": [
+        0.9,
+        1.0
+      ],
+      "MRR": 0.6918,
+      "MRR_95CI": [
+        0.5697,
+        0.8117
+      ],
+      "NDCG@10": 0.7063,
+      "latency_ms": 7.56
+    },
+    "Proposed MM-RAG (Dual-Signal Reranker)": {
+      "Hit@1": 0.5333,
+      "Hit@5": 0.9667,
+      "Hit@10": 1.0,
+      "Hit@10_95CI": [
+        1.0,
+        1.0
+      ],
+      "MRR": 0.7044,
+      "MRR_95CI": [
+        0.5867,
+        0.8295
+      ],
+      "NDCG@10": 0.7084,
+      "latency_ms": 7.96
+    },
+    "Trained Cross-Encoder (ms-marco-MiniLM)": {
+      "Hit@1": 0.7667,
+      "Hit@5": 1.0,
+      "Hit@10": 1.0,
+      "Hit@10_95CI": [
+        1.0,
+        1.0
+      ],
+      "MRR": 0.8778,
+      "MRR_95CI": [
+        0.7944,
+        0.95
+      ],
+      "NDCG@10": 0.8281,
+      "latency_ms": 137.21
+    }
+  }
+}

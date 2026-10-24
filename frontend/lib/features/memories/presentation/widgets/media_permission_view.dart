@@ -7,7 +7,7 @@ import 'package:memory_verse/core/services/media/windows_media_service.dart';
 import 'package:memory_verse/core/theme/app_design_tokens.dart' as adt;
 import 'package:memory_verse/core/widgets/buttons.dart';
 
-class MediaPermissionView extends ConsumerWidget {
+class MediaPermissionView extends ConsumerStatefulWidget {
   final VoidCallback? onManualUploadRequested;
   final VoidCallback? onPermissionGranted;
 
@@ -18,7 +18,33 @@ class MediaPermissionView extends ConsumerWidget {
   });
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<MediaPermissionView> createState() =>
+      _MediaPermissionViewState();
+}
+
+class _MediaPermissionViewState extends ConsumerState<MediaPermissionView>
+    with WidgetsBindingObserver {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed) {
+      ref.read(mediaPermissionStateProvider.notifier).checkPermission();
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final c = context.colors;
     final permStateAsync = ref.watch(mediaPermissionStateProvider);
     final mediaService = ref.watch(mediaServiceProvider);
@@ -48,7 +74,8 @@ class MediaPermissionView extends ConsumerWidget {
                     color: c.primary.withValues(alpha: 0.15),
                     borderRadius: BorderRadius.circular(AppRadii.md),
                   ),
-                  child: Icon(Icons.laptop_windows_rounded, color: c.primary, size: 20),
+                  child: Icon(Icons.laptop_windows_rounded,
+                      color: c.primary, size: 20),
                 ),
                 const SizedBox(width: AppSpacing.s12),
                 Expanded(
@@ -85,7 +112,8 @@ class MediaPermissionView extends ConsumerWidget {
                   label: const Text('Change', style: TextStyle(fontSize: 12)),
                   style: TextButton.styleFrom(
                     foregroundColor: c.primary,
-                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                   ),
                 ),
               ],
@@ -109,7 +137,8 @@ class MediaPermissionView extends ConsumerWidget {
           borderRadius: BorderRadius.circular(AppRadii.lg),
           border: Border.all(color: c.error.withValues(alpha: 0.3)),
         ),
-        child: Text('Error checking permissions: $err', style: TextStyle(color: c.error, fontSize: 13)),
+        child: Text('Error checking permissions: $err',
+            style: TextStyle(color: c.error, fontSize: 13)),
       ),
       data: (status) {
         if (status == MediaPermissionState.granted) {
@@ -129,7 +158,8 @@ class MediaPermissionView extends ConsumerWidget {
               children: [
                 Row(
                   children: [
-                    const Icon(Icons.info_outline, color: Colors.amber, size: 20),
+                    const Icon(Icons.info_outline,
+                        color: Colors.amber, size: 20),
                     const SizedBox(width: AppSpacing.s8),
                     Expanded(
                       child: Text(
@@ -145,25 +175,41 @@ class MediaPermissionView extends ConsumerWidget {
                 ),
                 const SizedBox(height: 6),
                 Text(
-                  'MemoryVerse currently has access to selected photos. To discover all memories, expand access in Settings.',
+                  'MemoryVerse currently has access to selected photos and videos. Use the selected media now, manage the selection, or expand access in Settings.',
                   style: TextStyle(fontSize: 12, color: c.textMuted),
                 ),
                 const SizedBox(height: AppSpacing.s12),
-                Row(
+                Wrap(
+                  spacing: AppSpacing.s8,
+                  runSpacing: AppSpacing.s4,
                   children: [
                     TextButton.icon(
-                      onPressed: () => ref.read(mediaPermissionStateProvider.notifier).openSettings(),
+                      onPressed: () => ref
+                          .read(mediaPermissionStateProvider.notifier)
+                          .openLimitedAccessPicker(),
+                      icon: const Icon(Icons.photo_library_outlined, size: 16),
+                      label: const Text('Manage Selection'),
+                    ),
+                    TextButton.icon(
+                      onPressed: () => ref
+                          .read(mediaPermissionStateProvider.notifier)
+                          .openSettings(),
                       icon: const Icon(Icons.settings, size: 16),
                       label: const Text('Open Settings'),
                     ),
-                    if (onManualUploadRequested != null) ...[
-                      const SizedBox(width: AppSpacing.s8),
+                    if (widget.onPermissionGranted != null)
                       TextButton.icon(
-                        onPressed: onManualUploadRequested,
-                        icon: const Icon(Icons.add_photo_alternate_outlined, size: 16),
+                        onPressed: widget.onPermissionGranted,
+                        icon: const Icon(Icons.check, size: 16),
+                        label: const Text('Use Selected Media'),
+                      ),
+                    if (widget.onManualUploadRequested != null)
+                      TextButton.icon(
+                        onPressed: widget.onManualUploadRequested,
+                        icon: const Icon(Icons.add_photo_alternate_outlined,
+                            size: 16),
                         label: const Text('Add Manually'),
                       ),
-                    ],
                   ],
                 ),
               ],
@@ -171,7 +217,9 @@ class MediaPermissionView extends ConsumerWidget {
           );
         }
 
-        if (status == MediaPermissionState.denied || status == MediaPermissionState.permanentlyDenied) {
+        if (status == MediaPermissionState.denied ||
+            status == MediaPermissionState.permanentlyDenied ||
+            status == MediaPermissionState.restricted) {
           return Container(
             padding: const EdgeInsets.all(AppSpacing.s16),
             decoration: BoxDecoration(
@@ -208,32 +256,45 @@ class MediaPermissionView extends ConsumerWidget {
                   children: [
                     Expanded(
                       child: PrimaryButton(
-                        label: status == MediaPermissionState.permanentlyDenied ? 'Open Settings' : 'Allow Access',
+                        label:
+                            status == MediaPermissionState.permanentlyDenied ||
+                                    status == MediaPermissionState.restricted
+                                ? 'Open Settings'
+                                : 'Allow Access',
                         onPressed: () async {
-                          if (status == MediaPermissionState.permanentlyDenied) {
-                            await ref.read(mediaPermissionStateProvider.notifier).openSettings();
+                          if (status ==
+                                  MediaPermissionState.permanentlyDenied ||
+                              status == MediaPermissionState.restricted) {
+                            await ref
+                                .read(mediaPermissionStateProvider.notifier)
+                                .openSettings();
                           } else {
-                            final res = await ref.read(mediaPermissionStateProvider.notifier).requestPermission();
-                            if (res == MediaPermissionState.granted && onPermissionGranted != null) {
-                              onPermissionGranted!();
+                            final res = await ref
+                                .read(mediaPermissionStateProvider.notifier)
+                                .requestPermission();
+                            if (res.hasMediaAccess &&
+                                widget.onPermissionGranted != null) {
+                              widget.onPermissionGranted!();
                             }
                           }
                         },
                       ),
                     ),
-                    if (onManualUploadRequested != null) ...[
+                    if (widget.onManualUploadRequested != null) ...[
                       const SizedBox(width: AppSpacing.s12),
                       Expanded(
                         child: OutlinedButton(
-                          onPressed: onManualUploadRequested,
+                          onPressed: widget.onManualUploadRequested,
                           style: OutlinedButton.styleFrom(
                             foregroundColor: c.text,
                             side: BorderSide(color: c.border),
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(AppRadii.pill),
+                              borderRadius:
+                                  BorderRadius.circular(AppRadii.pill),
                             ),
                           ),
-                          child: const Text('Add Manually', style: TextStyle(fontSize: 13)),
+                          child: const Text('Add Manually',
+                              style: TextStyle(fontSize: 13)),
                         ),
                       ),
                     ],
@@ -250,7 +311,8 @@ class MediaPermissionView extends ConsumerWidget {
           decoration: BoxDecoration(
             color: adt.AppColors.plum900.withValues(alpha: 0.85),
             borderRadius: BorderRadius.circular(AppRadii.lg),
-            border: Border.all(color: adt.AppColors.onDarkPrimary.withValues(alpha: 0.15)),
+            border: Border.all(
+                color: adt.AppColors.onDarkPrimary.withValues(alpha: 0.15)),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -281,7 +343,8 @@ class MediaPermissionView extends ConsumerWidget {
                         const SizedBox(height: 4),
                         Text(
                           "MemoryVerse can look through your photos and videos to find moments that match what you're creating — so you don't have to hunt for them yourself. This scan happens on your device; nothing is sent anywhere unless you choose to add it to a memory. You can allow full access, select specific albums, or skip this and upload manually.",
-                          style: TextStyle(fontSize: 12, color: c.textMuted, height: 1.35),
+                          style: TextStyle(
+                              fontSize: 12, color: c.textMuted, height: 1.35),
                         ),
                       ],
                     ),
@@ -292,9 +355,12 @@ class MediaPermissionView extends ConsumerWidget {
               PrimaryButton(
                 label: 'Give Access to Media',
                 onPressed: () async {
-                  final res = await ref.read(mediaPermissionStateProvider.notifier).requestPermission();
-                  if (res == MediaPermissionState.granted && onPermissionGranted != null) {
-                    onPermissionGranted!();
+                  final res = await ref
+                      .read(mediaPermissionStateProvider.notifier)
+                      .requestPermission();
+                  if (res.hasMediaAccess &&
+                      widget.onPermissionGranted != null) {
+                    widget.onPermissionGranted!();
                   }
                 },
               ),

@@ -1,5 +1,6 @@
 import 'dart:io';
-import 'package:permission_handler/permission_handler.dart';
+
+import 'package:photo_manager/photo_manager.dart';
 import 'package:memory_verse/core/services/media/media_service.dart';
 
 class IOSMediaService implements MediaService {
@@ -11,88 +12,148 @@ class IOSMediaService implements MediaService {
 
   @override
   Future<MediaPermissionState> checkPermission() async {
-    final status = await Permission.photos.status;
-    if (status.isGranted) return MediaPermissionState.granted;
-    if (status.isLimited) return MediaPermissionState.limited;
-    if (status.isPermanentlyDenied) return MediaPermissionState.permanentlyDenied;
-    if (status.isRestricted) return MediaPermissionState.restricted;
-    if (status.isDenied) return MediaPermissionState.denied;
-    return MediaPermissionState.notDetermined;
+    return _mapPermission(await PhotoManager.getPermissionState(
+      requestOption: const PermissionRequestOption(),
+    ));
   }
 
   @override
   Future<MediaPermissionState> requestPermission() async {
-    final status = await Permission.photos.request();
-    if (status.isGranted) return MediaPermissionState.granted;
-    if (status.isLimited) return MediaPermissionState.limited;
-    if (status.isPermanentlyDenied) return MediaPermissionState.permanentlyDenied;
-    if (status.isRestricted) return MediaPermissionState.restricted;
-    return MediaPermissionState.denied;
+    return _mapPermission(await PhotoManager.requestPermissionExtend());
+  }
+
+  @override
+  Future<bool> openLimitedAccessPicker() async {
+    try {
+      await PhotoManager.presentLimited(type: RequestType.common);
+      return true;
+    } catch (_) {
+      return false;
+    }
+  }
+
+  MediaPermissionState _mapPermission(PermissionState state) {
+    switch (state) {
+      case PermissionState.authorized:
+        return MediaPermissionState.granted;
+      case PermissionState.limited:
+        return MediaPermissionState.limited;
+      case PermissionState.restricted:
+        return MediaPermissionState.restricted;
+      case PermissionState.denied:
+        return MediaPermissionState.denied;
+      case PermissionState.notDetermined:
+        return MediaPermissionState.notDetermined;
+    }
   }
 
   @override
   Future<bool> openSettings() async {
-    return await openAppSettings();
+    await PhotoManager.openSetting();
+    return true;
   }
 
   @override
   Future<List<DiscoveredMediaItem>> discoverMedia({
-    int limit = 200,
+    int? limit,
     DateTime? since,
   }) async {
     final perm = await checkPermission();
-    if (perm != MediaPermissionState.granted && perm != MediaPermissionState.limited) {
+    if (!perm.hasMediaAccess) {
       return [];
     }
 
     final items = <DiscoveredMediaItem>[];
-    final allowedExtensions = {
-      '.jpg', '.jpeg', '.png', '.heic', '.mov', '.mp4'
-    };
-
-    // On iOS, sandboxed documents & media caches
     try {
-      final docDir = Directory.current;
-      if (docDir.existsSync()) {
-        final entities = docDir.listSync(recursive: true, followLinks: false);
-        for (final entity in entities) {
-          if (items.length >= limit) break;
-          if (entity is! File) continue;
+      final paths = await PhotoManager.getAssetPathList(
+        type: RequestType.common,
+        hasAll: true,
+        onlyAll: true,
+      );
+      if (paths.isEmpty) return [];
 
-          final ext = entity.path.toLowerCase().split('.').last;
-          if (!allowedExtensions.contains('.$ext')) continue;
+      const pageSize = 100;
+      for (var page = 0;; page++) {
+        if (limit != null && items.length >= limit) break;
+        final entities = await paths.first.getAssetListPaged(
+          page: page,
+          size: pageSize,
+        );
+        if (entities.isEmpty) break;
+        for (final asset in entities) {
+          if (limit != null && items.length >= limit) break;
+          final created = asset.createDateTime;
+          if (since != null && created.isBefore(since)) continue;
 
-          final stat = entity.statSync();
-          final isVideo = {'.mov', '.mp4'}.contains('.$ext');
-          final modified = stat.modified;
-
-          if (since != null && modified.isBefore(since)) continue;
-
-          final fname = entity.path.split(Platform.pathSeparator).last;
-          items.add(DiscoveredMediaItem(
-            id: 'ios_${entity.path.hashCode}',
-            type: isVideo ? MediaItemType.video : MediaItemType.image,
-            mediaReference: entity.path,
-            timestamp: modified,
-            file: entity,
-            thumbnailPath: isVideo ? null : entity.path,
-            metadata: {
-              'filename': fname,
-              'file_size': stat.size,
-              'extension': ext,
-              'source': 'ios_photolibrary',
-            },
-          ));
+          try {
+            items.add(await _toDiscoveredItem(asset, created));
+          } catch (_) {
+            // A single iCloud/unavailable asset must not abort the full scan.
+          }
         }
       }
     } catch (_) {}
 
     items.sort((a, b) => b.timestamp.compareTo(a.timestamp));
-    return items.take(limit).toList();
+    return limit == null ? items : items.take(limit).toList();
   }
 
   @override
   Future<List<DiscoveredMediaItem>> queryMedia(MediaFilterQuery query) async {
-    return await discoverMedia(limit: 300);
+    return await discoverMedia();
+  }
+
+  Future<DiscoveredMediaItem> _toDiscoveredItem(
+    AssetEntity asset,
+    DateTime created,
+  ) async {
+    File? file;
+    try {
+      file = await asset.file;
+    } catch (_) {
+      // Keep the metadata-only item when the original is not locally available.
+    }
+
+    int? fileSize;
+    try {
+      fileSize = await asset.fileSize;
+    } catch (_) {}
+
+    var filename = asset.title;
+    if (filename == null || filename.isEmpty) {
+      try {
+        final asyncTitle = await asset.titleAsync;
+        if (asyncTitle.isNotEmpty) filename = asyncTitle;
+      } catch (_) {}
+    }
+
+    // Use the current `latLng` API; the async fallback also handles assets
+    // whose location is resolved lazily by the native PhotoManager plugin.
+    var location = asset.latLng;
+    try {
+      location ??= await asset.latlngAsync();
+    } catch (_) {}
+
+    final isVideo = asset.type == AssetType.video;
+    return DiscoveredMediaItem(
+      id: 'ios_asset_${asset.id}',
+      type: isVideo ? MediaItemType.video : MediaItemType.image,
+      mediaReference: file?.path ?? 'asset://${asset.id}',
+      timestamp: created,
+      file: file,
+      thumbnailPath: file?.path,
+      metadata: {
+        'filename': filename ?? 'asset_${asset.id}',
+        'file_size': fileSize ?? 0,
+        'width': asset.width,
+        'height': asset.height,
+        'duration': asset.duration,
+        'relative_path': asset.relativePath,
+        'asset_id': asset.id,
+        'latitude': location?.latitude,
+        'longitude': location?.longitude,
+        'source': 'ios_photolibrary',
+      },
+    );
   }
 }

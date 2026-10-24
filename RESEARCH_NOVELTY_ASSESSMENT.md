@@ -1,4 +1,12 @@
 # MemoryVerse Research Objectives - Novelty Assessment
+
+> **Historical planning note:** The novelty ratings and "publication-ready"
+> statements below are not experimental validation. The current RAG manuscript
+> deliberately limits its claims to the evidence described in
+> `RAG_PAPER_REPRODUCIBILITY.md`; annotation-derived proxy retrieval and the
+> 50-query LLM-judge diagnostic do not establish leakage-free multimodal
+> generalization or zero hallucination.
+
 **Focus Area: Multimodal RAG for Personal Memory Systems**  
 **Date: September 22, 2026**
 

@@ -41,12 +41,13 @@ def _laplacian_variance(arr: Any) -> float:
         return float(np.var(gy2) + np.var(gx2))
 
 
-def score_image_quality(img_path: str) -> Dict[str, float]:
+def score_image_quality(img_path: str) -> Dict[str, Any]:
     """
     Compute technical quality metrics for a local image file.
 
     Returns dict with keys:
       blur_score        0.0–1.0   (1.0 = sharpest)
+      noise_score       0.0–1.0   (1.0 = least high-frequency noise)
       brightness_score  0.0–1.0   (1.0 = well exposed)
       resolution_score  0.0–1.0   (1.0 = high resolution)
       overall_score     0.0–1.0   (weighted combination)
@@ -65,7 +66,19 @@ def score_image_quality(img_path: str) -> Dict[str, float]:
         # Calibration: ~30 = blurry phone burst, ~300 = average sharp, ~3000+ = crisp
         blur_score = float(min(1.0, lap_var / 400.0))
 
-        # 2. Brightness (penalise very dark or overexposed images)
+        # 2. High-frequency noise estimate.  A median-filter residual is a
+        # conservative proxy: texture and edges remain represented by the
+        # Laplacian score, while fine sensor/compression noise lowers this
+        # separate score.
+        try:
+            from scipy.ndimage import median_filter
+            residual = arr - median_filter(arr, size=3, mode="reflect")
+            noise_std = float(np.std(residual))
+        except Exception:
+            noise_std = 0.0
+        noise_score = float(max(0.0, 1.0 - min(1.0, noise_std / 18.0)))
+
+        # 3. Brightness (penalise very dark or overexposed images)
         mean_lum = float(np.mean(arr))  # 0–255
         if mean_lum < 12.0:
             brightness_score = 0.05   # essentially black
@@ -76,7 +89,7 @@ def score_image_quality(img_path: str) -> Dict[str, float]:
             dist = abs(mean_lum - 132.0)
             brightness_score = max(0.10, 1.0 - dist / 145.0)
 
-        # 3. Resolution
+        # 4. Resolution
         pixels = w * h
         if pixels < 40_000:          # < ~200×200
             resolution_score = 0.05
@@ -90,25 +103,30 @@ def score_image_quality(img_path: str) -> Dict[str, float]:
             resolution_score = 1.00
 
         overall = (
-            0.55 * blur_score
-            + 0.30 * brightness_score
+            0.50 * blur_score
+            + 0.25 * brightness_score
             + 0.15 * resolution_score
+            + 0.10 * noise_score
         )
 
         return {
             "blur_score":       round(blur_score, 3),
+            "noise_score":      round(noise_score, 3),
             "brightness_score": round(brightness_score, 3),
             "resolution_score": round(resolution_score, 3),
             "overall_score":    round(min(1.0, overall), 3),
+            "is_noisy":         noise_score < 0.25,
         }
 
     except Exception as e:
         logger.warning(f"Image quality scoring failed for {img_path}: {e}")
         return {
             "blur_score":       0.5,
+            "noise_score":      0.5,
             "brightness_score": 0.5,
             "resolution_score": 0.5,
             "overall_score":    0.5,
+            "is_noisy":         False,
         }
 
 
@@ -570,6 +588,10 @@ def select_story_candidates(
             continue
 
         q = _get_item_score(item)
+        quality_entry = quality_scores.get(item_key, {})
+        if quality_entry.get("is_noisy") or item.get("is_noisy"):
+            logger.debug(f"Skipping high-noise candidate {item_key}")
+            continue
         mtype = (item.get("media_type") or "image").lower()
 
         if q < min_quality_threshold:

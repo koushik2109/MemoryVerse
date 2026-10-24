@@ -332,7 +332,10 @@ async def generate_video(
     """
     dim = dimension or "9:16"
     m_mood = mood or "calm"
-    m_ids = media_ids or []
+    # Keep the exact uploaded media identifiers with the durable job.  The
+    # worker may run after this request has returned (or after a restart), so
+    # the IDs must not exist only in the in-memory job object.
+    m_ids = [str(media_id).strip() for media_id in (media_ids or []) if str(media_id).strip()]
 
     # 1. Deduplication fingerprint check (idempotent submission)
     fingerprint = cache_service.compute_job_fingerprint(
@@ -370,6 +373,11 @@ async def generate_video(
         "memory_id": memory_id,
         "user_id": current_user.id,
         "status": "queued",
+        "script_metadata": {
+            "dimension": dim,
+            "mood": m_mood,
+            "selected_media_ids": m_ids,
+        },
     }).execute()
 
     if not job_res.data:

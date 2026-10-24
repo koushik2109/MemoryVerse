@@ -22,6 +22,11 @@ class Settings(BaseSettings):
     AI_ENABLED: bool = True               # set False to disable AI chat
     AI_ENGINE_URL: Optional[str] = None   # e.g. http://ai_engine:8001 when in Docker
 
+    # Optional reverse-geocoding tool used only when a prompt needs a human
+    # place name for otherwise exact EXIF coordinates.
+    LOCATION_GEOCODER_URL: str = "https://nominatim.openstreetmap.org/reverse"
+    LOCATION_GEOCODER_USER_AGENT: str = "MemoryVerse/1.0"
+
     # AI Video Generation configuration
     AI_VIDEO_PROVIDER: str = "auto"       # auto | replicate | luma | runway | local_ai
     AI_VIDEO_API_KEY: Optional[str] = None
@@ -43,4 +48,3 @@ class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=(".env", "backend/.env"), env_file_encoding="utf-8", extra="ignore")
 
 settings = Settings()
-

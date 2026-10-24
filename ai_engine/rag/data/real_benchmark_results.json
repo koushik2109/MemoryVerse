@@ -1,120 +1,145 @@
 {
-  "dataset_size": 6712,
+  "dataset_size": 3356,
+  "dataset_composition": {
+    "audio": 2000,
+    "image": 1356
+  },
+  "evaluation_scope": {
+    "proxy_only": true,
+    "image_text_source": "metadata.queries_en annotation strings",
+    "audio_text_source": "metadata.category ESC-50 label",
+    "raw_media_inference": false,
+    "document_records": 0
+  },
+  "available_query_composition": {
+    "image": 284,
+    "audio": 50
+  },
   "test_queries_count": 334,
+  "test_query_composition": {
+    "image": 284,
+    "audio": 50
+  },
+  "query_selection": {
+    "random_seed": 42,
+    "max_queries": 500,
+    "max_image_queries": 350
+  },
+  "retrieval_metric": "HitRate@K (at least one relevant document in top K)",
   "summary": {
     "BM25 (Sparse Only)": {
-      "Recall@1": 0.994,
-      "Recall@5": 0.997,
-      "Recall@10": 0.997,
-      "MRR": 0.9952,
-      "NDCG@10": 0.9959,
-      "Latency_ms": 1.29
+      "HitRate@1": 0.994,
+      "HitRate@5": 0.997,
+      "HitRate@10": 0.997,
+      "MRR": 0.9958,
+      "NDCG@10": 0.9898,
+      "Latency_ms": 0.61
     },
     "Dense Only (all-MiniLM)": {
-      "Recall@1": 0.9581,
-      "Recall@5": 0.9641,
-      "Recall@10": 0.9701,
-      "MRR": 0.9614,
-      "NDCG@10": 0.9641,
-      "Latency_ms": 6.53
+      "HitRate@1": 0.9581,
+      "HitRate@5": 0.9701,
+      "HitRate@10": 0.976,
+      "MRR": 0.9639,
+      "NDCG@10": 0.9439,
+      "Latency_ms": 5.85
     },
     "Hybrid (Convex alpha=0.7)": {
-      "Recall@1": 0.991,
-      "Recall@5": 0.994,
-      "Recall@10": 0.997,
-      "MRR": 0.9926,
-      "NDCG@10": 0.9933,
-      "Latency_ms": 7.85
+      "HitRate@1": 0.991,
+      "HitRate@5": 0.997,
+      "HitRate@10": 0.997,
+      "MRR": 0.9935,
+      "NDCG@10": 0.9805,
+      "Latency_ms": 6.48
     },
     "Hybrid (RRF k=60)": {
-      "Recall@1": 0.9731,
-      "Recall@5": 0.9731,
-      "Recall@10": 0.988,
-      "MRR": 0.9758,
-      "NDCG@10": 0.9777,
-      "Latency_ms": 8.08
+      "HitRate@1": 0.9731,
+      "HitRate@5": 0.985,
+      "HitRate@10": 0.988,
+      "MRR": 0.9772,
+      "NDCG@10": 0.9642,
+      "Latency_ms": 6.57
     },
     "Multi-Stage (Hybrid + Cross-Scorer)": {
-      "Recall@1": 0.997,
-      "Recall@5": 0.997,
-      "Recall@10": 0.997,
+      "HitRate@1": 0.997,
+      "HitRate@5": 0.997,
+      "HitRate@10": 0.997,
       "MRR": 0.997,
-      "NDCG@10": 0.9969,
-      "Latency_ms": 8.11
+      "NDCG@10": 0.9865,
+      "Latency_ms": 6.62
     }
   },
   "alpha_sweep": {
     "0.0": {
-      "Recall@10": 0.997,
-      "MRR": 0.995
+      "HitRate@10": 0.997,
+      "MRR": 0.9955
     },
     "0.1": {
-      "Recall@10": 0.997,
-      "MRR": 0.995
+      "HitRate@10": 0.997,
+      "MRR": 0.9955
     },
     "0.3": {
-      "Recall@10": 0.997,
-      "MRR": 0.995
+      "HitRate@10": 0.997,
+      "MRR": 0.9955
     },
     "0.5": {
-      "Recall@10": 0.997,
-      "MRR": 0.9924
+      "HitRate@10": 0.997,
+      "MRR": 0.9933
     },
     "0.7": {
-      "Recall@10": 0.997,
-      "MRR": 0.9924
+      "HitRate@10": 0.997,
+      "MRR": 0.9933
     },
     "0.9": {
-      "Recall@10": 0.979,
-      "MRR": 0.9738
+      "HitRate@10": 0.991,
+      "MRR": 0.976
     },
     "1.0": {
-      "Recall@10": 0.9701,
-      "MRR": 0.9605
+      "HitRate@10": 0.976,
+      "MRR": 0.9629
     }
   },
   "modality_breakdown": {
     "image": {
       "BM25 (Sparse Only)": {
-        "Recall@10": 0.9965,
-        "MRR": 0.9943
+        "HitRate@10": 0.9965,
+        "MRR": 0.995
       },
       "Dense Only (all-MiniLM)": {
-        "Recall@10": 0.9648,
-        "MRR": 0.9546
+        "HitRate@10": 0.9718,
+        "MRR": 0.9576
       },
       "Hybrid (Convex alpha=0.7)": {
-        "Recall@10": 0.9965,
-        "MRR": 0.9913
+        "HitRate@10": 0.9965,
+        "MRR": 0.9924
       },
       "Hybrid (RRF k=60)": {
-        "Recall@10": 0.9859,
-        "MRR": 0.9716
+        "HitRate@10": 0.9859,
+        "MRR": 0.9732
       },
       "Multi-Stage (Hybrid + Cross-Scorer)": {
-        "Recall@10": 0.9965,
+        "HitRate@10": 0.9965,
         "MRR": 0.9965
       }
     },
     "audio": {
       "BM25 (Sparse Only)": {
-        "Recall@10": 1.0,
+        "HitRate@10": 1.0,
         "MRR": 1.0
       },
       "Dense Only (all-MiniLM)": {
-        "Recall@10": 1.0,
+        "HitRate@10": 1.0,
         "MRR": 1.0
       },
       "Hybrid (Convex alpha=0.7)": {
-        "Recall@10": 1.0,
+        "HitRate@10": 1.0,
         "MRR": 1.0
       },
       "Hybrid (RRF k=60)": {
-        "Recall@10": 1.0,
+        "HitRate@10": 1.0,
         "MRR": 1.0
       },
       "Multi-Stage (Hybrid + Cross-Scorer)": {
-        "Recall@10": 1.0,
+        "HitRate@10": 1.0,
         "MRR": 1.0
       }
     }

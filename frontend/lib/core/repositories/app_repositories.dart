@@ -4,6 +4,7 @@ import 'package:memory_verse/contracts/models.dart';
 import 'package:memory_verse/core/api/api_client.dart';
 
 import 'dart:io';
+import 'dart:convert';
 
 // ── VAULT REPOSITORY ─────────────────────────────────────
 class VaultRepository {
@@ -214,7 +215,8 @@ class MediaRepository {
     final multipartFiles = <MultipartFile>[];
     for (final file in files) {
       final name = file.path.split('/').last.split('\\').last;
-      multipartFiles.add(await MultipartFile.fromFile(file.path, filename: name));
+      multipartFiles
+          .add(await MultipartFile.fromFile(file.path, filename: name));
     }
 
     final formData = {
@@ -436,6 +438,7 @@ class AiRepository {
   Future<Map<String, dynamic>> curateLocalMedia({
     required String prompt,
     required List<File> files,
+    List<Map<String, dynamic>>? candidateMetadata,
     String? title,
     String? description,
     double threshold = 0.50,
@@ -447,6 +450,12 @@ class AiRepository {
       formData.fields.add(MapEntry('description', description));
     }
     formData.fields.add(MapEntry('threshold', threshold.toString()));
+    if (candidateMetadata != null) {
+      formData.fields.add(MapEntry(
+        'candidate_metadata',
+        jsonEncode(candidateMetadata),
+      ));
+    }
 
     for (final f in files) {
       if (f.existsSync()) {
@@ -492,7 +501,8 @@ class AiDirectorRepository {
   final ApiClient _api;
   AiDirectorRepository(this._api);
 
-  Future<AISessionModel> createOrGetSession(String memoryId, {String? initialPrompt}) async {
+  Future<AISessionModel> createOrGetSession(String memoryId,
+      {String? initialPrompt}) async {
     final res = await _api.post('/ai-sessions', data: {
       'memory_id': memoryId,
       if (initialPrompt != null) 'initial_prompt': initialPrompt,
@@ -507,14 +517,16 @@ class AiDirectorRepository {
     return AISessionModel.fromJson(res.data as Map<String, dynamic>);
   }
 
-  Future<Map<String, dynamic>> approveAndGenerate(String sessionId, {VideoSpecificationModel? spec}) async {
+  Future<Map<String, dynamic>> approveAndGenerate(String sessionId,
+      {VideoSpecificationModel? spec}) async {
     final res = await _api.post('/ai-sessions/$sessionId/generate', data: {
       if (spec != null) 'specification': spec.toJson(),
     });
     return res.data as Map<String, dynamic>;
   }
 
-  Future<Map<String, dynamic>> requestRevision(String sessionId, String prompt) async {
+  Future<Map<String, dynamic>> requestRevision(
+      String sessionId, String prompt) async {
     final res = await _api.post('/ai-sessions/$sessionId/revision', data: {
       'prompt': prompt,
     });
@@ -525,5 +537,3 @@ class AiDirectorRepository {
 final aiDirectorRepositoryProvider = Provider<AiDirectorRepository>((ref) {
   return AiDirectorRepository(ref.watch(apiClientProvider));
 });
-
-

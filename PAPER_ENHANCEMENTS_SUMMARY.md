@@ -1,5 +1,11 @@
 # IEEE Paper Enhancement Summary
 
+> **Evidence notice (October 2026):** This is a historical planning summary,
+> not a validation record. Its earlier target metrics, novelty scores, user-study
+> claims, and "publication-ready" status are superseded by the evidence-aligned
+> manuscript and ledger in `IEEE_Paper_MemoryVerse.tex` and
+> `RAG_PAPER_REPRODUCIBILITY.md`. Do not cite this file as experimental evidence.
+
 ## Overview
 The IEEE paper has been significantly expanded from a 6-page conference paper to a comprehensive research document with in-depth coverage of 8 novel research directions.
 
@@ -342,6 +348,12 @@ pdflatex IEEE_Paper_MemoryVerse.tex
 
 ---
 
-**Status:** ✅ PUBLICATION-READY
+**Status:** Historical planning document; not evidence of publication readiness.
 
-The paper now contains in-depth technical coverage of 8 novel research directions with mathematical formulations, SOTA comparisons, and clear positioning of MemoryVerse's unique contributions to multimodal RAG for personal episodic memory systems.
+For the current evidence boundary, metric definitions, exact commands, and
+remaining submission gaps, see `RAG_PAPER_REPRODUCIBILITY.md`.
+
+The paper's current scope is intentionally narrower: a text-proxy retrieval
+pipeline with an annotation-overlap audit and a clearly labelled multi-hop
+diagnostic. Further raw-media and held-out evaluation is required before any
+strong publication claim.

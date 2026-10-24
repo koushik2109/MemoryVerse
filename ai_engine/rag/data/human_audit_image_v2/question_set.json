@@ -1,0 +1,1375 @@
+{
+  "packet_version": "image-descriptions-v2",
+  "annotation_derived_design": true,
+  "independent_held_out_evaluation": false,
+  "scope_note": "Annotation-derived single-hop design over image text proxies only. The 3,356-row corpus contains 2,000 ESC-50 category-only audio metadata rows and 1,356 image annotation/text-proxy rows; no audio files/recordings or raw image media are available to this audit. Audio labels are not presented as real recordings, and image descriptions are not raw-image understanding. These questions are not independent held-out evaluation items.",
+  "source_corpus_path": "ai_engine/rag/data/unified_rag_dataset.jsonl",
+  "source_corpus_sha256": "899acf2311721f7ac7e764213c255cf7a2de28cd532ae6ca75864a2deaf24e52",
+  "corpus_sha256": "899acf2311721f7ac7e764213c255cf7a2de28cd532ae6ca75864a2deaf24e52",
+  "scope_counts": {
+    "total_rows": 3356,
+    "image_rows": 1356,
+    "audio_rows": 2000,
+    "other_rows": 0,
+    "selected_image_rows": 25,
+    "question_count": 25,
+    "raw_media_available": false
+  },
+  "questions": [
+    {
+      "id": "IMG-V2-001",
+      "audit_id": "IMG-V2-001",
+      "query": "According to the image annotation, what date is associated with the marathon volunteers handing water?",
+      "target_keyword": "December 17, 2023",
+      "target_keyword_role": "DESIGN REFERENCE — not a generated model output",
+      "split": "single_hop",
+      "modality": "image",
+      "question_type": "date",
+      "specification_id": "IMG-V2-001"
+    },
+    {
+      "id": "IMG-V2-002",
+      "audit_id": "IMG-V2-002",
+      "query": "What time period is explicitly named in the image annotation for the Putuo Mountain coast photos?",
+      "target_keyword": "first half of 2024",
+      "target_keyword_role": "DESIGN REFERENCE — not a generated model output",
+      "split": "single_hop",
+      "modality": "image",
+      "question_type": "date",
+      "specification_id": "IMG-V2-002"
+    },
+    {
+      "id": "IMG-V2-003",
+      "audit_id": "IMG-V2-003",
+      "query": "What action is described for the image annotation about the bridge at sunset?",
+      "target_keyword": "driving over bridge at sunset",
+      "target_keyword_role": "DESIGN REFERENCE — not a generated model output",
+      "split": "single_hop",
+      "modality": "image",
+      "question_type": "described_action",
+      "specification_id": "IMG-V2-003"
+    },
+    {
+      "id": "IMG-V2-004",
+      "audit_id": "IMG-V2-004",
+      "query": "What action is described in the party image annotation?",
+      "target_keyword": "friends toasting at party",
+      "target_keyword_role": "DESIGN REFERENCE — not a generated model output",
+      "split": "single_hop",
+      "modality": "image",
+      "question_type": "described_action",
+      "specification_id": "IMG-V2-004"
+    },
+    {
+      "id": "IMG-V2-005",
+      "audit_id": "IMG-V2-005",
+      "query": "What celebration detail is explicitly named in the birthday image annotation?",
+      "target_keyword": "22nd birthday celebration",
+      "target_keyword_role": "DESIGN REFERENCE — not a generated model output",
+      "split": "single_hop",
+      "modality": "image",
+      "question_type": "described_object",
+      "specification_id": "IMG-V2-005"
+    },
+    {
+      "id": "IMG-V2-006",
+      "audit_id": "IMG-V2-006",
+      "query": "Which place tag is explicitly present in the annotation for the toasting photo?",
+      "target_keyword": "Qiantang",
+      "target_keyword_role": "DESIGN REFERENCE — not a generated model output",
+      "split": "single_hop",
+      "modality": "image",
+      "question_type": "place",
+      "specification_id": "IMG-V2-006"
+    },
+    {
+      "id": "IMG-V2-007",
+      "audit_id": "IMG-V2-007",
+      "query": "What object is described in the art image annotation?",
+      "target_keyword": "art studio wall decor",
+      "target_keyword_role": "DESIGN REFERENCE — not a generated model output",
+      "split": "single_hop",
+      "modality": "image",
+      "question_type": "described_object",
+      "specification_id": "IMG-V2-007"
+    },
+    {
+      "id": "IMG-V2-008",
+      "audit_id": "IMG-V2-008",
+      "query": "Which place name is explicitly included in the quiet-beach image annotation?",
+      "target_keyword": "Phuket's Karon",
+      "target_keyword_role": "DESIGN REFERENCE — not a generated model output",
+      "split": "single_hop",
+      "modality": "image",
+      "question_type": "place",
+      "specification_id": "IMG-V2-008"
+    },
+    {
+      "id": "IMG-V2-009",
+      "audit_id": "IMG-V2-009",
+      "query": "What drink is explicitly described in the fancy-drink image annotation?",
+      "target_keyword": "layered cocktail",
+      "target_keyword_role": "DESIGN REFERENCE — not a generated model output",
+      "split": "single_hop",
+      "modality": "image",
+      "question_type": "described_object",
+      "specification_id": "IMG-V2-009"
+    },
+    {
+      "id": "IMG-V2-010",
+      "audit_id": "IMG-V2-010",
+      "query": "Which place is explicitly named for the driverless-car image annotation?",
+      "target_keyword": "Pingyao",
+      "target_keyword_role": "DESIGN REFERENCE — not a generated model output",
+      "split": "single_hop",
+      "modality": "image",
+      "question_type": "place",
+      "specification_id": "IMG-V2-010"
+    },
+    {
+      "id": "IMG-V2-011",
+      "audit_id": "IMG-V2-011",
+      "query": "What material is explicitly named for the figurine in the image annotation?",
+      "target_keyword": "ceramic",
+      "target_keyword_role": "DESIGN REFERENCE — not a generated model output",
+      "split": "single_hop",
+      "modality": "image",
+      "question_type": "material",
+      "specification_id": "IMG-V2-011"
+    },
+    {
+      "id": "IMG-V2-012",
+      "audit_id": "IMG-V2-012",
+      "query": "What state is explicitly described for the sculpture annotation?",
+      "target_keyword": "handmade sculpture before painting",
+      "target_keyword_role": "DESIGN REFERENCE — not a generated model output",
+      "split": "single_hop",
+      "modality": "image",
+      "question_type": "described_action",
+      "specification_id": "IMG-V2-012"
+    },
+    {
+      "id": "IMG-V2-013",
+      "audit_id": "IMG-V2-013",
+      "query": "What object is explicitly described in the couple-photo annotation?",
+      "target_keyword": "matching rings",
+      "target_keyword_role": "DESIGN REFERENCE — not a generated model output",
+      "split": "single_hop",
+      "modality": "image",
+      "question_type": "described_object",
+      "specification_id": "IMG-V2-013"
+    },
+    {
+      "id": "IMG-V2-014",
+      "audit_id": "IMG-V2-014",
+      "query": "What snack is explicitly described next to the deer statue?",
+      "target_keyword": "chocolate popsicle",
+      "target_keyword_role": "DESIGN REFERENCE — not a generated model output",
+      "split": "single_hop",
+      "modality": "image",
+      "question_type": "described_object",
+      "specification_id": "IMG-V2-014"
+    },
+    {
+      "id": "IMG-V2-015",
+      "audit_id": "IMG-V2-015",
+      "query": "What food is explicitly described in the noodle image annotation?",
+      "target_keyword": "handmade noodles",
+      "target_keyword_role": "DESIGN REFERENCE — not a generated model output",
+      "split": "single_hop",
+      "modality": "image",
+      "question_type": "described_object",
+      "specification_id": "IMG-V2-015"
+    },
+    {
+      "id": "IMG-V2-016",
+      "audit_id": "IMG-V2-016",
+      "query": "What hand gesture is explicitly described with the dry-pot dish?",
+      "target_keyword": "peace sign",
+      "target_keyword_role": "DESIGN REFERENCE — not a generated model output",
+      "split": "single_hop",
+      "modality": "image",
+      "question_type": "described_action",
+      "specification_id": "IMG-V2-016"
+    },
+    {
+      "id": "IMG-V2-017",
+      "audit_id": "IMG-V2-017",
+      "query": "Which place is explicitly named in the New Year's Eve image annotation?",
+      "target_keyword": "Hangzhou",
+      "target_keyword_role": "DESIGN REFERENCE — not a generated model output",
+      "split": "single_hop",
+      "modality": "image",
+      "question_type": "place",
+      "specification_id": "IMG-V2-017"
+    },
+    {
+      "id": "IMG-V2-018",
+      "audit_id": "IMG-V2-018",
+      "query": "What month and year are explicitly named in the concert-support image annotation?",
+      "target_keyword": "April 2023",
+      "target_keyword_role": "DESIGN REFERENCE — not a generated model output",
+      "split": "single_hop",
+      "modality": "image",
+      "question_type": "date",
+      "specification_id": "IMG-V2-018"
+    },
+    {
+      "id": "IMG-V2-019",
+      "audit_id": "IMG-V2-019",
+      "query": "Which district tag is explicitly present in the Ningbo night-bridge image annotation?",
+      "target_keyword": "Yinzhou District",
+      "target_keyword_role": "DESIGN REFERENCE — not a generated model output",
+      "split": "single_hop",
+      "modality": "image",
+      "question_type": "district",
+      "specification_id": "IMG-V2-019"
+    },
+    {
+      "id": "IMG-V2-020",
+      "audit_id": "IMG-V2-020",
+      "query": "Which place is explicitly named in the night boat-ride image annotation?",
+      "target_keyword": "West Lake",
+      "target_keyword_role": "DESIGN REFERENCE — not a generated model output",
+      "split": "single_hop",
+      "modality": "image",
+      "question_type": "place",
+      "specification_id": "IMG-V2-020"
+    },
+    {
+      "id": "IMG-V2-021",
+      "audit_id": "IMG-V2-021",
+      "query": "Which district tag is explicitly present in this night-installation image annotation?",
+      "target_keyword": "Binjiang District",
+      "target_keyword_role": "DESIGN REFERENCE — not a generated model output",
+      "split": "single_hop",
+      "modality": "image",
+      "question_type": "district",
+      "specification_id": "IMG-V2-021"
+    },
+    {
+      "id": "IMG-V2-022",
+      "audit_id": "IMG-V2-022",
+      "query": "What place name is explicitly present in the subway-at-sunset image annotation?",
+      "target_keyword": "Hangzhou Qingchun Road",
+      "target_keyword_role": "DESIGN REFERENCE — not a generated model output",
+      "split": "single_hop",
+      "modality": "image",
+      "question_type": "place",
+      "specification_id": "IMG-V2-022"
+    },
+    {
+      "id": "IMG-V2-023",
+      "audit_id": "IMG-V2-023",
+      "query": "What activity is described in the April 2023 image annotation?",
+      "target_keyword": "concert fan support moments",
+      "target_keyword_role": "DESIGN REFERENCE — not a generated model output",
+      "split": "single_hop",
+      "modality": "image",
+      "question_type": "described_action",
+      "specification_id": "IMG-V2-023"
+    },
+    {
+      "id": "IMG-V2-024",
+      "audit_id": "IMG-V2-024",
+      "query": "What place is explicitly named in the riverside image annotation?",
+      "target_keyword": "Anqiao Port",
+      "target_keyword_role": "DESIGN REFERENCE — not a generated model output",
+      "split": "single_hop",
+      "modality": "image",
+      "question_type": "place",
+      "specification_id": "IMG-V2-024"
+    },
+    {
+      "id": "IMG-V2-025",
+      "audit_id": "IMG-V2-025",
+      "query": "What date is explicitly named in the black-pigeon image annotation?",
+      "target_keyword": "November 15, 2025",
+      "target_keyword_role": "DESIGN REFERENCE — not a generated model output",
+      "split": "single_hop",
+      "modality": "image",
+      "question_type": "date",
+      "specification_id": "IMG-V2-025"
+    }
+  ],
+  "question_specification": [
+    {
+      "id": "IMG-V2-001",
+      "query": "According to the image annotation, what date is associated with the marathon volunteers handing water?",
+      "split": "single_hop",
+      "modality": "image",
+      "field": "date",
+      "source_doc_idx": 2000,
+      "source_reference": {
+        "doc_idx": 2000,
+        "item_id": "IMG_8266",
+        "modality": "image"
+      },
+      "support_references": [
+        {
+          "doc_idx": 2000,
+          "item_id": "IMG_8266",
+          "modality": "image",
+          "source_proxy_type": "annotation/text-proxy",
+          "source_proxy": "marathon volunteers handing water December 17, 2023 photos",
+          "support_snippets": [
+            "marathon volunteers handing water December 17, 2023 photos"
+          ],
+          "exact_support_phrases": [
+            "marathon volunteers handing water",
+            "December 17, 2023"
+          ],
+          "raw_media_available": false
+        }
+      ],
+      "support_snippets": [
+        "marathon volunteers handing water December 17, 2023 photos"
+      ],
+      "exact_support_phrases": [
+        "marathon volunteers handing water",
+        "December 17, 2023"
+      ],
+      "expected_detail": "December 17, 2023",
+      "expected_detail_role": "DESIGN REFERENCE — not a generated model output",
+      "expected_answer": "December 17, 2023",
+      "expected_answer_role": "DESIGN REFERENCE — not a generated model output",
+      "qualification": "Use the date phrase in the annotation; this is not a verified raw-image timestamp.",
+      "source_proxy_only": true,
+      "raw_media_available": false
+    },
+    {
+      "id": "IMG-V2-002",
+      "query": "What time period is explicitly named in the image annotation for the Putuo Mountain coast photos?",
+      "split": "single_hop",
+      "modality": "image",
+      "field": "date",
+      "source_doc_idx": 2001,
+      "source_reference": {
+        "doc_idx": 2001,
+        "item_id": "IMG_2457",
+        "modality": "image"
+      },
+      "support_references": [
+        {
+          "doc_idx": 2001,
+          "item_id": "IMG_2457",
+          "modality": "image",
+          "source_proxy_type": "annotation/text-proxy",
+          "source_proxy": "Putuo Mountain coast first half of 2024 photos",
+          "support_snippets": [
+            "Putuo Mountain coast first half of 2024 photos"
+          ],
+          "exact_support_phrases": [
+            "Putuo Mountain coast",
+            "first half of 2024"
+          ],
+          "raw_media_available": false
+        }
+      ],
+      "support_snippets": [
+        "Putuo Mountain coast first half of 2024 photos"
+      ],
+      "exact_support_phrases": [
+        "Putuo Mountain coast",
+        "first half of 2024"
+      ],
+      "expected_detail": "first half of 2024",
+      "expected_detail_role": "DESIGN REFERENCE — not a generated model output",
+      "expected_answer": "first half of 2024",
+      "expected_answer_role": "DESIGN REFERENCE — not a generated model output",
+      "qualification": "Report the stated period only; do not infer a more precise capture date.",
+      "source_proxy_only": true,
+      "raw_media_available": false
+    },
+    {
+      "id": "IMG-V2-003",
+      "query": "What action is described for the image annotation about the bridge at sunset?",
+      "split": "single_hop",
+      "modality": "image",
+      "field": "described_action",
+      "source_doc_idx": 2002,
+      "source_reference": {
+        "doc_idx": 2002,
+        "item_id": "IMG_3326",
+        "modality": "image"
+      },
+      "support_references": [
+        {
+          "doc_idx": 2002,
+          "item_id": "IMG_3326",
+          "modality": "image",
+          "source_proxy_type": "annotation/text-proxy",
+          "source_proxy": "driving over bridge at sunset",
+          "support_snippets": [
+            "driving over bridge at sunset"
+          ],
+          "exact_support_phrases": [
+            "driving over bridge at sunset"
+          ],
+          "raw_media_available": false
+        }
+      ],
+      "support_snippets": [
+        "driving over bridge at sunset"
+      ],
+      "exact_support_phrases": [
+        "driving over bridge at sunset"
+      ],
+      "expected_detail": "driving over bridge at sunset",
+      "expected_detail_role": "DESIGN REFERENCE — not a generated model output",
+      "expected_answer": "driving over bridge at sunset",
+      "expected_answer_role": "DESIGN REFERENCE — not a generated model output",
+      "qualification": "Use the described action and setting, not visual inference from an unavailable image.",
+      "source_proxy_only": true,
+      "raw_media_available": false
+    },
+    {
+      "id": "IMG-V2-004",
+      "query": "What action is described in the party image annotation?",
+      "split": "single_hop",
+      "modality": "image",
+      "field": "described_action",
+      "source_doc_idx": 2003,
+      "source_reference": {
+        "doc_idx": 2003,
+        "item_id": "IMG_3076",
+        "modality": "image"
+      },
+      "support_references": [
+        {
+          "doc_idx": 2003,
+          "item_id": "IMG_3076",
+          "modality": "image",
+          "source_proxy_type": "annotation/text-proxy",
+          "source_proxy": "friends toasting at party",
+          "support_snippets": [
+            "friends toasting at party"
+          ],
+          "exact_support_phrases": [
+            "friends toasting at party"
+          ],
+          "raw_media_available": false
+        }
+      ],
+      "support_snippets": [
+        "friends toasting at party"
+      ],
+      "exact_support_phrases": [
+        "friends toasting at party"
+      ],
+      "expected_detail": "friends toasting at party",
+      "expected_detail_role": "DESIGN REFERENCE — not a generated model output",
+      "expected_answer": "friends toasting at party",
+      "expected_answer_role": "DESIGN REFERENCE — not a generated model output",
+      "qualification": "Return the action phrase supplied by the annotation, without adding identities or objects.",
+      "source_proxy_only": true,
+      "raw_media_available": false
+    },
+    {
+      "id": "IMG-V2-005",
+      "query": "What celebration detail is explicitly named in the birthday image annotation?",
+      "split": "single_hop",
+      "modality": "image",
+      "field": "described_object",
+      "source_doc_idx": 2004,
+      "source_reference": {
+        "doc_idx": 2004,
+        "item_id": "IMG_3853(1)",
+        "modality": "image"
+      },
+      "support_references": [
+        {
+          "doc_idx": 2004,
+          "item_id": "IMG_3853(1)",
+          "modality": "image",
+          "source_proxy_type": "annotation/text-proxy",
+          "source_proxy": "friends toasting at party 22nd birthday celebration",
+          "support_snippets": [
+            "friends toasting at party 22nd birthday celebration"
+          ],
+          "exact_support_phrases": [
+            "22nd birthday celebration"
+          ],
+          "raw_media_available": false
+        }
+      ],
+      "support_snippets": [
+        "friends toasting at party 22nd birthday celebration"
+      ],
+      "exact_support_phrases": [
+        "22nd birthday celebration"
+      ],
+      "expected_detail": "22nd birthday celebration",
+      "expected_detail_role": "DESIGN REFERENCE — not a generated model output",
+      "expected_answer": "22nd birthday celebration",
+      "expected_answer_role": "DESIGN REFERENCE — not a generated model output",
+      "qualification": "Report the named celebration detail; do not infer a person's identity or exact birthday date.",
+      "source_proxy_only": true,
+      "raw_media_available": false
+    },
+    {
+      "id": "IMG-V2-006",
+      "query": "Which place tag is explicitly present in the annotation for the toasting photo?",
+      "split": "single_hop",
+      "modality": "image",
+      "field": "place",
+      "source_doc_idx": 2005,
+      "source_reference": {
+        "doc_idx": 2005,
+        "item_id": "IMG_4438",
+        "modality": "image"
+      },
+      "support_references": [
+        {
+          "doc_idx": 2005,
+          "item_id": "IMG_4438",
+          "modality": "image",
+          "source_proxy_type": "annotation/text-proxy",
+          "source_proxy": "friends toasting at party Qiantang photos",
+          "support_snippets": [
+            "friends toasting at party Qiantang photos"
+          ],
+          "exact_support_phrases": [
+            "Qiantang"
+          ],
+          "raw_media_available": false
+        }
+      ],
+      "support_snippets": [
+        "friends toasting at party Qiantang photos"
+      ],
+      "exact_support_phrases": [
+        "Qiantang"
+      ],
+      "expected_detail": "Qiantang",
+      "expected_detail_role": "DESIGN REFERENCE — not a generated model output",
+      "expected_answer": "Qiantang",
+      "expected_answer_role": "DESIGN REFERENCE — not a generated model output",
+      "qualification": "Treat Qiantang as the annotation's place tag, not as an independently inferred geographic location.",
+      "source_proxy_only": true,
+      "raw_media_available": false
+    },
+    {
+      "id": "IMG-V2-007",
+      "query": "What object is described in the art image annotation?",
+      "split": "single_hop",
+      "modality": "image",
+      "field": "described_object",
+      "source_doc_idx": 2007,
+      "source_reference": {
+        "doc_idx": 2007,
+        "item_id": "IMG_4903",
+        "modality": "image"
+      },
+      "support_references": [
+        {
+          "doc_idx": 2007,
+          "item_id": "IMG_4903",
+          "modality": "image",
+          "source_proxy_type": "annotation/text-proxy",
+          "source_proxy": "art studio wall decor",
+          "support_snippets": [
+            "art studio wall decor"
+          ],
+          "exact_support_phrases": [
+            "art studio wall decor"
+          ],
+          "raw_media_available": false
+        }
+      ],
+      "support_snippets": [
+        "art studio wall decor"
+      ],
+      "exact_support_phrases": [
+        "art studio wall decor"
+      ],
+      "expected_detail": "art studio wall decor",
+      "expected_detail_role": "DESIGN REFERENCE — not a generated model output",
+      "expected_answer": "art studio wall decor",
+      "expected_answer_role": "DESIGN REFERENCE — not a generated model output",
+      "qualification": "Use the supplied object/setting phrase only; do not describe unobserved visual details.",
+      "source_proxy_only": true,
+      "raw_media_available": false
+    },
+    {
+      "id": "IMG-V2-008",
+      "query": "Which place name is explicitly included in the quiet-beach image annotation?",
+      "split": "single_hop",
+      "modality": "image",
+      "field": "place",
+      "source_doc_idx": 2008,
+      "source_reference": {
+        "doc_idx": 2008,
+        "item_id": "IMG_4595",
+        "modality": "image"
+      },
+      "support_references": [
+        {
+          "doc_idx": 2008,
+          "item_id": "IMG_4595",
+          "modality": "image",
+          "source_proxy_type": "annotation/text-proxy",
+          "source_proxy": "quiet beach in Phuket's Karon",
+          "support_snippets": [
+            "quiet beach in Phuket's Karon"
+          ],
+          "exact_support_phrases": [
+            "Phuket's Karon"
+          ],
+          "raw_media_available": false
+        }
+      ],
+      "support_snippets": [
+        "quiet beach in Phuket's Karon"
+      ],
+      "exact_support_phrases": [
+        "Phuket's Karon"
+      ],
+      "expected_detail": "Phuket's Karon",
+      "expected_detail_role": "DESIGN REFERENCE — not a generated model output",
+      "expected_answer": "Phuket's Karon",
+      "expected_answer_role": "DESIGN REFERENCE — not a generated model output",
+      "qualification": "Return the place wording in the proxy; do not infer a broader region or exact coordinates.",
+      "source_proxy_only": true,
+      "raw_media_available": false
+    },
+    {
+      "id": "IMG-V2-009",
+      "query": "What drink is explicitly described in the fancy-drink image annotation?",
+      "split": "single_hop",
+      "modality": "image",
+      "field": "described_object",
+      "source_doc_idx": 2010,
+      "source_reference": {
+        "doc_idx": 2010,
+        "item_id": "IMG_5180",
+        "modality": "image"
+      },
+      "support_references": [
+        {
+          "doc_idx": 2010,
+          "item_id": "IMG_5180",
+          "modality": "image",
+          "source_proxy_type": "annotation/text-proxy",
+          "source_proxy": "layered cocktail fancy drink before Christmas",
+          "support_snippets": [
+            "layered cocktail fancy drink before Christmas"
+          ],
+          "exact_support_phrases": [
+            "layered cocktail"
+          ],
+          "raw_media_available": false
+        }
+      ],
+      "support_snippets": [
+        "layered cocktail fancy drink before Christmas"
+      ],
+      "exact_support_phrases": [
+        "layered cocktail"
+      ],
+      "expected_detail": "layered cocktail",
+      "expected_detail_role": "DESIGN REFERENCE — not a generated model output",
+      "expected_answer": "layered cocktail",
+      "expected_answer_role": "DESIGN REFERENCE — not a generated model output",
+      "qualification": "Report the named drink only; do not infer ingredients or preparation.",
+      "source_proxy_only": true,
+      "raw_media_available": false
+    },
+    {
+      "id": "IMG-V2-010",
+      "query": "Which place is explicitly named for the driverless-car image annotation?",
+      "split": "single_hop",
+      "modality": "image",
+      "field": "place",
+      "source_doc_idx": 2014,
+      "source_reference": {
+        "doc_idx": 2014,
+        "item_id": "IMG_2668",
+        "modality": "image"
+      },
+      "support_references": [
+        {
+          "doc_idx": 2014,
+          "item_id": "IMG_2668",
+          "modality": "image",
+          "source_proxy_type": "annotation/text-proxy",
+          "source_proxy": "driverless car in Pingyao",
+          "support_snippets": [
+            "driverless car in Pingyao"
+          ],
+          "exact_support_phrases": [
+            "driverless car in Pingyao",
+            "Pingyao"
+          ],
+          "raw_media_available": false
+        }
+      ],
+      "support_snippets": [
+        "driverless car in Pingyao"
+      ],
+      "exact_support_phrases": [
+        "driverless car in Pingyao",
+        "Pingyao"
+      ],
+      "expected_detail": "Pingyao",
+      "expected_detail_role": "DESIGN REFERENCE — not a generated model output",
+      "expected_answer": "Pingyao",
+      "expected_answer_role": "DESIGN REFERENCE — not a generated model output",
+      "qualification": "Use Pingyao as the named place in the proxy; do not infer where the car was geographically beyond that phrase.",
+      "source_proxy_only": true,
+      "raw_media_available": false
+    },
+    {
+      "id": "IMG-V2-011",
+      "query": "What material is explicitly named for the figurine in the image annotation?",
+      "split": "single_hop",
+      "modality": "image",
+      "field": "material",
+      "source_doc_idx": 2015,
+      "source_reference": {
+        "doc_idx": 2015,
+        "item_id": "IMG_9087",
+        "modality": "image"
+      },
+      "support_references": [
+        {
+          "doc_idx": 2015,
+          "item_id": "IMG_9087",
+          "modality": "image",
+          "source_proxy_type": "annotation/text-proxy",
+          "source_proxy": "cute ceramic figurine",
+          "support_snippets": [
+            "cute ceramic figurine"
+          ],
+          "exact_support_phrases": [
+            "cute ceramic figurine",
+            "ceramic"
+          ],
+          "raw_media_available": false
+        }
+      ],
+      "support_snippets": [
+        "cute ceramic figurine"
+      ],
+      "exact_support_phrases": [
+        "cute ceramic figurine",
+        "ceramic"
+      ],
+      "expected_detail": "ceramic",
+      "expected_detail_role": "DESIGN REFERENCE — not a generated model output",
+      "expected_answer": "ceramic",
+      "expected_answer_role": "DESIGN REFERENCE — not a generated model output",
+      "qualification": "Answer the material as ceramic; do not identify the figurine's character or rely on raw-image inspection.",
+      "source_proxy_only": true,
+      "raw_media_available": false
+    },
+    {
+      "id": "IMG-V2-012",
+      "query": "What state is explicitly described for the sculpture annotation?",
+      "split": "single_hop",
+      "modality": "image",
+      "field": "described_action",
+      "source_doc_idx": 2016,
+      "source_reference": {
+        "doc_idx": 2016,
+        "item_id": "IMG_9088",
+        "modality": "image"
+      },
+      "support_references": [
+        {
+          "doc_idx": 2016,
+          "item_id": "IMG_9088",
+          "modality": "image",
+          "source_proxy_type": "annotation/text-proxy",
+          "source_proxy": "cute ceramic figurine handmade sculpture before painting",
+          "support_snippets": [
+            "cute ceramic figurine handmade sculpture before painting"
+          ],
+          "exact_support_phrases": [
+            "handmade sculpture before painting"
+          ],
+          "raw_media_available": false
+        }
+      ],
+      "support_snippets": [
+        "cute ceramic figurine handmade sculpture before painting"
+      ],
+      "exact_support_phrases": [
+        "handmade sculpture before painting"
+      ],
+      "expected_detail": "handmade sculpture before painting",
+      "expected_detail_role": "DESIGN REFERENCE — not a generated model output",
+      "expected_answer": "handmade sculpture before painting",
+      "expected_answer_role": "DESIGN REFERENCE — not a generated model output",
+      "qualification": "Report the stated pre-painting condition; do not infer the sculpture's character, color, or material.",
+      "source_proxy_only": true,
+      "raw_media_available": false
+    },
+    {
+      "id": "IMG-V2-013",
+      "query": "What object is explicitly described in the couple-photo annotation?",
+      "split": "single_hop",
+      "modality": "image",
+      "field": "described_object",
+      "source_doc_idx": 2017,
+      "source_reference": {
+        "doc_idx": 2017,
+        "item_id": "IMG_7951",
+        "modality": "image"
+      },
+      "support_references": [
+        {
+          "doc_idx": 2017,
+          "item_id": "IMG_7951",
+          "modality": "image",
+          "source_proxy_type": "annotation/text-proxy",
+          "source_proxy": "matching rings with boyfriend subway photo with boyfriend cozy car moment",
+          "support_snippets": [
+            "matching rings with boyfriend subway photo with boyfriend cozy car moment"
+          ],
+          "exact_support_phrases": [
+            "matching rings"
+          ],
+          "raw_media_available": false
+        }
+      ],
+      "support_snippets": [
+        "matching rings with boyfriend subway photo with boyfriend cozy car moment"
+      ],
+      "exact_support_phrases": [
+        "matching rings"
+      ],
+      "expected_detail": "matching rings",
+      "expected_detail_role": "DESIGN REFERENCE — not a generated model output",
+      "expected_answer": "matching rings",
+      "expected_answer_role": "DESIGN REFERENCE — not a generated model output",
+      "qualification": "Return the named object only; do not infer relationship details beyond the proxy wording.",
+      "source_proxy_only": true,
+      "raw_media_available": false
+    },
+    {
+      "id": "IMG-V2-014",
+      "query": "What snack is explicitly described next to the deer statue?",
+      "split": "single_hop",
+      "modality": "image",
+      "field": "described_object",
+      "source_doc_idx": 2019,
+      "source_reference": {
+        "doc_idx": 2019,
+        "item_id": "IMG_2666",
+        "modality": "image"
+      },
+      "support_references": [
+        {
+          "doc_idx": 2019,
+          "item_id": "IMG_2666",
+          "modality": "image",
+          "source_proxy_type": "annotation/text-proxy",
+          "source_proxy": "chocolate popsicle by cartoon deer statue",
+          "support_snippets": [
+            "chocolate popsicle by cartoon deer statue"
+          ],
+          "exact_support_phrases": [
+            "chocolate popsicle",
+            "cartoon deer statue"
+          ],
+          "raw_media_available": false
+        }
+      ],
+      "support_snippets": [
+        "chocolate popsicle by cartoon deer statue"
+      ],
+      "exact_support_phrases": [
+        "chocolate popsicle",
+        "cartoon deer statue"
+      ],
+      "expected_detail": "chocolate popsicle",
+      "expected_detail_role": "DESIGN REFERENCE — not a generated model output",
+      "expected_answer": "chocolate popsicle",
+      "expected_answer_role": "DESIGN REFERENCE — not a generated model output",
+      "qualification": "Use the named snack in the proxy; do not infer its size, brand, or visual appearance.",
+      "source_proxy_only": true,
+      "raw_media_available": false
+    },
+    {
+      "id": "IMG-V2-015",
+      "query": "What food is explicitly described in the noodle image annotation?",
+      "split": "single_hop",
+      "modality": "image",
+      "field": "described_object",
+      "source_doc_idx": 2020,
+      "source_reference": {
+        "doc_idx": 2020,
+        "item_id": "IMG_0428",
+        "modality": "image"
+      },
+      "support_references": [
+        {
+          "doc_idx": 2020,
+          "item_id": "IMG_0428",
+          "modality": "image",
+          "source_proxy_type": "annotation/text-proxy",
+          "source_proxy": "handmade noodles",
+          "support_snippets": [
+            "handmade noodles"
+          ],
+          "exact_support_phrases": [
+            "handmade noodles"
+          ],
+          "raw_media_available": false
+        }
+      ],
+      "support_snippets": [
+        "handmade noodles"
+      ],
+      "exact_support_phrases": [
+        "handmade noodles"
+      ],
+      "expected_detail": "handmade noodles",
+      "expected_detail_role": "DESIGN REFERENCE — not a generated model output",
+      "expected_answer": "handmade noodles",
+      "expected_answer_role": "DESIGN REFERENCE — not a generated model output",
+      "qualification": "Report the named food only; do not infer ingredients or preparation steps.",
+      "source_proxy_only": true,
+      "raw_media_available": false
+    },
+    {
+      "id": "IMG-V2-016",
+      "query": "What hand gesture is explicitly described with the dry-pot dish?",
+      "split": "single_hop",
+      "modality": "image",
+      "field": "described_action",
+      "source_doc_idx": 2021,
+      "source_reference": {
+        "doc_idx": 2021,
+        "item_id": "IMG_0403",
+        "modality": "image"
+      },
+      "support_references": [
+        {
+          "doc_idx": 2021,
+          "item_id": "IMG_0403",
+          "modality": "image",
+          "source_proxy_type": "annotation/text-proxy",
+          "source_proxy": "dry pot dish with peace sign Qiantang photos",
+          "support_snippets": [
+            "dry pot dish with peace sign Qiantang photos"
+          ],
+          "exact_support_phrases": [
+            "dry pot dish with peace sign",
+            "peace sign"
+          ],
+          "raw_media_available": false
+        }
+      ],
+      "support_snippets": [
+        "dry pot dish with peace sign Qiantang photos"
+      ],
+      "exact_support_phrases": [
+        "dry pot dish with peace sign",
+        "peace sign"
+      ],
+      "expected_detail": "peace sign",
+      "expected_detail_role": "DESIGN REFERENCE — not a generated model output",
+      "expected_answer": "peace sign",
+      "expected_answer_role": "DESIGN REFERENCE — not a generated model output",
+      "qualification": "Return the described gesture; do not infer who made it or inspect an unavailable image.",
+      "source_proxy_only": true,
+      "raw_media_available": false
+    },
+    {
+      "id": "IMG-V2-017",
+      "query": "Which place is explicitly named in the New Year's Eve image annotation?",
+      "split": "single_hop",
+      "modality": "image",
+      "field": "place",
+      "source_doc_idx": 2022,
+      "source_reference": {
+        "doc_idx": 2022,
+        "item_id": "IMG_8684",
+        "modality": "image"
+      },
+      "support_references": [
+        {
+          "doc_idx": 2022,
+          "item_id": "IMG_8684",
+          "modality": "image",
+          "source_proxy_type": "annotation/text-proxy",
+          "source_proxy": "New Year’s Eve Hangzhou concert fan support moments Qiantang photos",
+          "support_snippets": [
+            "New Year’s Eve Hangzhou concert fan support moments Qiantang photos"
+          ],
+          "exact_support_phrases": [
+            "New Year’s Eve Hangzhou",
+            "Hangzhou"
+          ],
+          "raw_media_available": false
+        }
+      ],
+      "support_snippets": [
+        "New Year’s Eve Hangzhou concert fan support moments Qiantang photos"
+      ],
+      "exact_support_phrases": [
+        "New Year’s Eve Hangzhou",
+        "Hangzhou"
+      ],
+      "expected_detail": "Hangzhou",
+      "expected_detail_role": "DESIGN REFERENCE — not a generated model output",
+      "expected_answer": "Hangzhou",
+      "expected_answer_role": "DESIGN REFERENCE — not a generated model output",
+      "qualification": "Return the place word in the annotation; do not infer a venue or event location beyond it.",
+      "source_proxy_only": true,
+      "raw_media_available": false
+    },
+    {
+      "id": "IMG-V2-018",
+      "query": "What month and year are explicitly named in the concert-support image annotation?",
+      "split": "single_hop",
+      "modality": "image",
+      "field": "date",
+      "source_doc_idx": 2026,
+      "source_reference": {
+        "doc_idx": 2026,
+        "item_id": "IMG_1148",
+        "modality": "image"
+      },
+      "support_references": [
+        {
+          "doc_idx": 2026,
+          "item_id": "IMG_1148",
+          "modality": "image",
+          "source_proxy_type": "annotation/text-proxy",
+          "source_proxy": "night art light installation dreamy concert fan support moments April 2023 photos",
+          "support_snippets": [
+            "night art light installation dreamy concert fan support moments April 2023 photos"
+          ],
+          "exact_support_phrases": [
+            "April 2023"
+          ],
+          "raw_media_available": false
+        }
+      ],
+      "support_snippets": [
+        "night art light installation dreamy concert fan support moments April 2023 photos"
+      ],
+      "exact_support_phrases": [
+        "April 2023"
+      ],
+      "expected_detail": "April 2023",
+      "expected_detail_role": "DESIGN REFERENCE — not a generated model output",
+      "expected_answer": "April 2023",
+      "expected_answer_role": "DESIGN REFERENCE — not a generated model output",
+      "qualification": "Report the month and year phrase; do not infer a specific day.",
+      "source_proxy_only": true,
+      "raw_media_available": false
+    },
+    {
+      "id": "IMG-V2-019",
+      "query": "Which district tag is explicitly present in the Ningbo night-bridge image annotation?",
+      "split": "single_hop",
+      "modality": "image",
+      "field": "district",
+      "source_doc_idx": 2027,
+      "source_reference": {
+        "doc_idx": 2027,
+        "item_id": "IMG_1438",
+        "modality": "image"
+      },
+      "support_references": [
+        {
+          "doc_idx": 2027,
+          "item_id": "IMG_1438",
+          "modality": "image",
+          "source_proxy_type": "annotation/text-proxy",
+          "source_proxy": "night art light installation dreamy Ningbo cyberpunk night bridge Yinzhou District photos",
+          "support_snippets": [
+            "night art light installation dreamy Ningbo cyberpunk night bridge Yinzhou District photos"
+          ],
+          "exact_support_phrases": [
+            "Yinzhou District"
+          ],
+          "raw_media_available": false
+        }
+      ],
+      "support_snippets": [
+        "night art light installation dreamy Ningbo cyberpunk night bridge Yinzhou District photos"
+      ],
+      "exact_support_phrases": [
+        "Yinzhou District"
+      ],
+      "expected_detail": "Yinzhou District",
+      "expected_detail_role": "DESIGN REFERENCE — not a generated model output",
+      "expected_answer": "Yinzhou District",
+      "expected_answer_role": "DESIGN REFERENCE — not a generated model output",
+      "qualification": "Answer the explicit district tag, not a geographic inference from the image description.",
+      "source_proxy_only": true,
+      "raw_media_available": false
+    },
+    {
+      "id": "IMG-V2-020",
+      "query": "Which place is explicitly named in the night boat-ride image annotation?",
+      "split": "single_hop",
+      "modality": "image",
+      "field": "place",
+      "source_doc_idx": 2028,
+      "source_reference": {
+        "doc_idx": 2028,
+        "item_id": "IMG_2277 2",
+        "modality": "image"
+      },
+      "support_references": [
+        {
+          "doc_idx": 2028,
+          "item_id": "IMG_2277 2",
+          "modality": "image",
+          "source_proxy_type": "annotation/text-proxy",
+          "source_proxy": "night art light installation dreamy West Lake night boat ride",
+          "support_snippets": [
+            "night art light installation dreamy West Lake night boat ride"
+          ],
+          "exact_support_phrases": [
+            "West Lake night boat ride",
+            "West Lake"
+          ],
+          "raw_media_available": false
+        }
+      ],
+      "support_snippets": [
+        "night art light installation dreamy West Lake night boat ride"
+      ],
+      "exact_support_phrases": [
+        "West Lake night boat ride",
+        "West Lake"
+      ],
+      "expected_detail": "West Lake",
+      "expected_detail_role": "DESIGN REFERENCE — not a generated model output",
+      "expected_answer": "West Lake",
+      "expected_answer_role": "DESIGN REFERENCE — not a generated model output",
+      "qualification": "Return the named place only; do not infer the boat route or surrounding geography.",
+      "source_proxy_only": true,
+      "raw_media_available": false
+    },
+    {
+      "id": "IMG-V2-021",
+      "query": "Which district tag is explicitly present in this night-installation image annotation?",
+      "split": "single_hop",
+      "modality": "image",
+      "field": "district",
+      "source_doc_idx": 2039,
+      "source_reference": {
+        "doc_idx": 2039,
+        "item_id": "IMG_8300",
+        "modality": "image"
+      },
+      "support_references": [
+        {
+          "doc_idx": 2039,
+          "item_id": "IMG_8300",
+          "modality": "image",
+          "source_proxy_type": "annotation/text-proxy",
+          "source_proxy": "night art light installation dreamy Binjiang District photos",
+          "support_snippets": [
+            "night art light installation dreamy Binjiang District photos"
+          ],
+          "exact_support_phrases": [
+            "Binjiang District"
+          ],
+          "raw_media_available": false
+        }
+      ],
+      "support_snippets": [
+        "night art light installation dreamy Binjiang District photos"
+      ],
+      "exact_support_phrases": [
+        "Binjiang District"
+      ],
+      "expected_detail": "Binjiang District",
+      "expected_detail_role": "DESIGN REFERENCE — not a generated model output",
+      "expected_answer": "Binjiang District",
+      "expected_answer_role": "DESIGN REFERENCE — not a generated model output",
+      "qualification": "Treat this as an explicit district tag, not as a location inferred from visual content.",
+      "source_proxy_only": true,
+      "raw_media_available": false
+    },
+    {
+      "id": "IMG-V2-022",
+      "query": "What place name is explicitly present in the subway-at-sunset image annotation?",
+      "split": "single_hop",
+      "modality": "image",
+      "field": "place",
+      "source_doc_idx": 2048,
+      "source_reference": {
+        "doc_idx": 2048,
+        "item_id": "IMG_1518",
+        "modality": "image"
+      },
+      "support_references": [
+        {
+          "doc_idx": 2048,
+          "item_id": "IMG_1518",
+          "modality": "image",
+          "source_proxy_type": "annotation/text-proxy",
+          "source_proxy": "Hangzhou Qingchun Road subway sunset",
+          "support_snippets": [
+            "Hangzhou Qingchun Road subway sunset"
+          ],
+          "exact_support_phrases": [
+            "Hangzhou Qingchun Road"
+          ],
+          "raw_media_available": false
+        }
+      ],
+      "support_snippets": [
+        "Hangzhou Qingchun Road subway sunset"
+      ],
+      "exact_support_phrases": [
+        "Hangzhou Qingchun Road"
+      ],
+      "expected_detail": "Hangzhou Qingchun Road",
+      "expected_detail_role": "DESIGN REFERENCE — not a generated model output",
+      "expected_answer": "Hangzhou Qingchun Road",
+      "expected_answer_role": "DESIGN REFERENCE — not a generated model output",
+      "qualification": "Return the place wording in the proxy; do not infer a station entrance or exact coordinates.",
+      "source_proxy_only": true,
+      "raw_media_available": false
+    },
+    {
+      "id": "IMG-V2-023",
+      "query": "What activity is described in the April 2023 image annotation?",
+      "split": "single_hop",
+      "modality": "image",
+      "field": "described_action",
+      "source_doc_idx": 2178,
+      "source_reference": {
+        "doc_idx": 2178,
+        "item_id": "IMG_1051",
+        "modality": "image"
+      },
+      "support_references": [
+        {
+          "doc_idx": 2178,
+          "item_id": "IMG_1051",
+          "modality": "image",
+          "source_proxy_type": "annotation/text-proxy",
+          "source_proxy": "concert fan support moments April 2023 photos",
+          "support_snippets": [
+            "concert fan support moments April 2023 photos"
+          ],
+          "exact_support_phrases": [
+            "concert fan support moments"
+          ],
+          "raw_media_available": false
+        }
+      ],
+      "support_snippets": [
+        "concert fan support moments April 2023 photos"
+      ],
+      "exact_support_phrases": [
+        "concert fan support moments"
+      ],
+      "expected_detail": "concert fan support moments",
+      "expected_detail_role": "DESIGN REFERENCE — not a generated model output",
+      "expected_answer": "concert fan support moments",
+      "expected_answer_role": "DESIGN REFERENCE — not a generated model output",
+      "qualification": "Report the described activity; do not infer the performer, venue, or audience identities.",
+      "source_proxy_only": true,
+      "raw_media_available": false
+    },
+    {
+      "id": "IMG-V2-024",
+      "query": "What place is explicitly named in the riverside image annotation?",
+      "split": "single_hop",
+      "modality": "image",
+      "field": "place",
+      "source_doc_idx": 2166,
+      "source_reference": {
+        "doc_idx": 2166,
+        "item_id": "IMG_5016",
+        "modality": "image"
+      },
+      "support_references": [
+        {
+          "doc_idx": 2166,
+          "item_id": "IMG_5016",
+          "modality": "image",
+          "source_proxy_type": "annotation/text-proxy",
+          "source_proxy": "Gongshu riverside Anqiao Port May afternoon",
+          "support_snippets": [
+            "Gongshu riverside Anqiao Port May afternoon"
+          ],
+          "exact_support_phrases": [
+            "Anqiao Port"
+          ],
+          "raw_media_available": false
+        }
+      ],
+      "support_snippets": [
+        "Gongshu riverside Anqiao Port May afternoon"
+      ],
+      "exact_support_phrases": [
+        "Anqiao Port"
+      ],
+      "expected_detail": "Anqiao Port",
+      "expected_detail_role": "DESIGN REFERENCE — not a generated model output",
+      "expected_answer": "Anqiao Port",
+      "expected_answer_role": "DESIGN REFERENCE — not a generated model output",
+      "qualification": "Use the named place phrase; do not infer a broader district or waterway location.",
+      "source_proxy_only": true,
+      "raw_media_available": false
+    },
+    {
+      "id": "IMG-V2-025",
+      "query": "What date is explicitly named in the black-pigeon image annotation?",
+      "split": "single_hop",
+      "modality": "image",
+      "field": "date",
+      "source_doc_idx": 3154,
+      "source_reference": {
+        "doc_idx": 3154,
+        "item_id": "IMG_1619",
+        "modality": "image"
+      },
+      "support_references": [
+        {
+          "doc_idx": 3154,
+          "item_id": "IMG_1619",
+          "modality": "image",
+          "source_proxy_type": "annotation/text-proxy",
+          "source_proxy": "interacting with black pigeons in early autumn photos from November 15, 2025",
+          "support_snippets": [
+            "interacting with black pigeons in early autumn photos from November 15, 2025"
+          ],
+          "exact_support_phrases": [
+            "November 15, 2025"
+          ],
+          "raw_media_available": false
+        }
+      ],
+      "support_snippets": [
+        "interacting with black pigeons in early autumn photos from November 15, 2025"
+      ],
+      "exact_support_phrases": [
+        "November 15, 2025"
+      ],
+      "expected_detail": "November 15, 2025",
+      "expected_detail_role": "DESIGN REFERENCE — not a generated model output",
+      "expected_answer": "November 15, 2025",
+      "expected_answer_role": "DESIGN REFERENCE — not a generated model output",
+      "qualification": "Report the date phrase in the annotation; it is not independently verified file metadata.",
+      "source_proxy_only": true,
+      "raw_media_available": false
+    }
+  ],
+  "expected_answers_are_design_references": true,
+  "audio_scope": {
+    "audio_rows_in_source": 2000,
+    "audio_files_available": false,
+    "audio_recordings_used": 0,
+    "audio_labels_are_recordings": false
+  },
+  "raw_media_scope": {
+    "available": false,
+    "image_understanding_claim": false,
+    "audio_understanding_claim": false
+  }
+}

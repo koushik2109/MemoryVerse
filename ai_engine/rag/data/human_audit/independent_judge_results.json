@@ -1,0 +1,365 @@
+{
+  "audit_type": "independent_llm_judge",
+  "rubric_version": "rag-answer-audit-v1",
+  "source_packet_sha256": "3151e9908e4aaa574f7167d9086cee4b1418cfc44a77ed7001bb1fbfe909468a",
+  "provenance": {
+    "model": "qwen/qwen3.6-27b",
+    "provider": "OpenAI-compatible chat completions",
+    "temperature": 0.0,
+    "run_utc": "2026-10-13T08:35:55.277963+00:00",
+    "original_generator_and_judge_model": "gpt-4o-mini",
+    "human_labels_present": false
+  },
+  "labels": [
+    {
+      "audit_id": "AUDIT-001",
+      "faithfulness_label": "supported",
+      "relevance_label": "direct",
+      "correctness_label": "correct",
+      "rationale": "Context 1 explicitly states 'marathon volunteers handing water December 17, 2023 photos', which directly supports both the identification of the event as a marathon and the date December 17, 2023. The answer accurately reflects the retrieved context and addresses both parts of the query (event type and exact date). The target keyword 'december 17' is present and supported."
+    },
+    {
+      "audit_id": "AUDIT-002",
+      "faithfulness_label": "supported",
+      "relevance_label": "direct",
+      "correctness_label": "correct",
+      "rationale": "Context 1 explicitly states 'Putuo Mountain coast first half of 2024 photos,' which directly supports the answer's claim that the photos are from the first half of 2024. The answer addresses the query's request about which half of which year, and the target keyword 2024 is correctly identified."
+    },
+    {
+      "audit_id": "AUDIT-003",
+      "faithfulness_label": "supported",
+      "relevance_label": "direct",
+      "correctness_label": "correct",
+      "rationale": "Documents 1, 2, and 4 all contain 'friends toasting at party' text, supporting the location claim. Document 4 explicitly states '22nd birthday celebration,' which directly supports the milestone age claim. The answer addresses both parts of the query (locating photos and identifying the age) and correctly identifies the target keyword '22nd' as supported by context."
+    },
+    {
+      "audit_id": "AUDIT-004",
+      "faithfulness_label": "supported",
+      "relevance_label": "direct",
+      "correctness_label": "correct",
+      "rationale": "Context 1 explicitly states 'Ningbo cyberpunk night bridge Yinzhou District photos,' which directly supports the answer's claim that the cyberpunk style night bridge photos are in Ningbo's Yinzhou District. The answer addresses both parts of the query (location and specific district) and matches the target keyword 'yinzhou'."
+    },
+    {
+      "audit_id": "AUDIT-005",
+      "faithfulness_label": "supported",
+      "relevance_label": "direct",
+      "correctness_label": "correct",
+      "rationale": "Context 1 explicitly states 'driverless car in Pingyao,' which directly supports the answer's identification of Pingyao as the historical town. The answer also accurately notes that no specific photos are provided in the retrieved context (only a text caption). All material claims are entailed by the context, the answer addresses both parts of the query (photos and town identification), and the target keyword 'pingyao' is correctly identified."
+    },
+    {
+      "audit_id": "AUDIT-006",
+      "faithfulness_label": "mixed",
+      "relevance_label": "partial",
+      "correctness_label": "incorrect",
+      "rationale": "Context 3 explicitly states 'cute ceramic figurine handmade sculpture before painting,' which provides the target keyword 'ceramic' and identifies the figurine as ceramic. The answer incorrectly claims 'it does not specify any details about the animal or character figurine that was crafted,' contradicting the context. While the answer correctly notes the specific animal/character name is absent, it overlooks the 'ceramic figurine' detail, making the faithfulness mixed (partially supported, partially contradicted), relevance partial (omits the target keyword), and correctness incorrect (contradicts context by denying any figurine detail exists)."
+    },
+    {
+      "audit_id": "AUDIT-007",
+      "faithfulness_label": "supported",
+      "relevance_label": "partial",
+      "correctness_label": "uncertain",
+      "rationale": "The answer accurately reflects the retrieved contexts, which only contain the phrases 'West Lake night boat ride' and 'West Lake boat ride view' with no mention of photography, drone light formations, or a monkey king. The answer faithfully states the context lacks these details. However, it does not provide the target keyword 'monkey king' or any specific drone formation, making relevance partial. Since the context is entirely insufficient to confirm or deny the monkey king drone formation, correctness is uncertain."
+    },
+    {
+      "audit_id": "AUDIT-008",
+      "faithfulness_label": "supported",
+      "relevance_label": "direct",
+      "correctness_label": "uncertain",
+      "rationale": "The answer accurately reflects the retrieved contexts: all five contexts mention 'fancy drink before Christmas' and some include photo references, but none contain the target keyword 'layered cocktail' or any specific cocktail beverage style. The answer's claims are fully entailed by the context (faithfulness=supported). It directly addresses the query by confirming the photos exist and explicitly noting the absence of the target detail (relevance=direct). However, since the context provides no information to verify or contradict 'layered cocktail,' the target detail remains unverifiable (correctness=uncertain)."
+    },
+    {
+      "audit_id": "AUDIT-009",
+      "faithfulness_label": "supported",
+      "relevance_label": "partial",
+      "correctness_label": "correct",
+      "rationale": "The answer's factual claims are all entailed by the context: it correctly notes Binjiang District (context 1) and Yinzhou District (context 2) are mentioned, and correctly states Hangzhou and 'coastal river district' are absent from the context. However, relevance is partial because while the answer does reference Binjiang District (the target keyword), it frames the response as 'I cannot provide the requested details' rather than directly confirming the tag. Correctness is correct because context 1 explicitly tags the night art light installation photos with 'Binjiang District,' matching the target keyword 'binjiang.'"
+    },
+    {
+      "audit_id": "AUDIT-010",
+      "faithfulness_label": "supported",
+      "relevance_label": "direct",
+      "correctness_label": "correct",
+      "rationale": "The answer correctly identifies Karon as the township name, directly supported by contexts 1 and 2 ('quiet beach in Phuket's Karon'). The observation that no explicit photos are provided in the context is accurate—the contexts reference the beach but do not contain photo content. The answer addresses both parts of the query (locating photos and identifying the township), and the target keyword 'karon' is correctly and fully supported."
+    },
+    {
+      "audit_id": "AUDIT-011",
+      "faithfulness_label": "supported",
+      "relevance_label": "partial",
+      "correctness_label": "uncertain",
+      "rationale": "The answer accurately reflects the retrieved contexts: context 1 does mention 'New Year's Eve Hangzhou concert fan support moments Qiantang photos,' and none of the five contexts contain the word 'clapping' or any specific acoustic celebration sound. The answer is faithful in stating what is and isn't present. It is partially relevant because it acknowledges the Hangzhou concert photos but cannot supply the target keyword 'clapping' since it is absent from all contexts. Correctness is uncertain because the context is insufficient to confirm or deny that 'clapping' is the corresponding sound."
+    },
+    {
+      "audit_id": "AUDIT-012",
+      "faithfulness_label": "supported",
+      "relevance_label": "direct",
+      "correctness_label": "uncertain",
+      "rationale": "The answer accurately reflects the retrieved contexts: context 1 mentions a 'rainy night parking lot photo' and contexts 2-5 only say 'rain.' No context mentions thunderstorm, severe acoustic weather, or dark rainy skies specifically. The answer faithfully reports what is and isn't present. It directly addresses the query by acknowledging the photo reference and correctly noting the absence of the thunderstorm recording. However, the target keyword 'thunderstorm' is entirely absent from all contexts, making the context insufficient to verify or support the target detail, hence 'uncertain' for correctness."
+    },
+    {
+      "audit_id": "AUDIT-013",
+      "faithfulness_label": "supported",
+      "relevance_label": "partial",
+      "correctness_label": "uncertain",
+      "rationale": "The answer accurately reflects the retrieved contexts: it correctly notes that 'New Year's Eve Hangzhou' and 'photos' appear in the context, and correctly states that no acoustic sound category or pyrotechnic display details are present. All factual claims in the answer are entailed by the context (faithfulness=supported). However, the answer does not provide the target keyword 'fireworks' or any acoustic sound category, only explaining the gap, so it addresses only part of the query (relevance=partial). The context contains no mention of fireworks or any acoustic sound category, making it insufficient to verify the target detail (correctness=uncertain)."
+    },
+    {
+      "audit_id": "AUDIT-014",
+      "faithfulness_label": "supported",
+      "relevance_label": "direct",
+      "correctness_label": "correct",
+      "rationale": "Context 1 explicitly states 'chocolate popsicle by cartoon deer statue,' which directly supports the answer's claim that a chocolate popsicle is shown next to the cartoon deer statue. The answer accurately identifies the snack (chocolate popsicle) as requested by the query, and all factual claims are entailed by the retrieved context."
+    },
+    {
+      "audit_id": "AUDIT-015",
+      "faithfulness_label": "mixed",
+      "relevance_label": "partial",
+      "correctness_label": "correct",
+      "rationale": "Context 1 explicitly links 'matching rings' with 'subway photo with boyfriend' and 'cozy car moment' in a single tag string, so the answer's claim that matching rings are not specified in the subway photos is contradicted. However, the answer correctly notes the presence of subway photos and the cozy car moment. For relevance, the answer addresses both parts of the query but frames them as meta-observations rather than clearly retrieving/identifying the car moment as the answer. For correctness, the target keyword 'car moment' is directly supported by context 1 ('cozy car moment') and the answer does reference it."
+    },
+    {
+      "audit_id": "AUDIT-016",
+      "faithfulness_label": "mixed",
+      "relevance_label": "partial",
+      "correctness_label": "incorrect",
+      "rationale": "Context 1 explicitly states 'dry pot dish with peace sign Qiantang photos,' directly associating the district tag 'Qiantang' with the dish. The answer correctly identifies the dish and gesture (supported), but then claims the district tag is 'not present,' which is contradicted by the context. The answer fails to identify the target keyword 'qiantang' as the associated district tag, making it incorrect on the target detail and only partially relevant since it addresses the dish but omits the requested district identification."
+    },
+    {
+      "audit_id": "AUDIT-017",
+      "faithfulness_label": "mixed",
+      "relevance_label": "partial",
+      "correctness_label": "incorrect",
+      "rationale": "The answer correctly notes that April 2023 concert fan support photos appear in multiple contexts (1-4), which is supported. However, it claims the visual lighting element 'is not present in the provided context,' which is contradicted by context 4 that explicitly contains 'night art light installation dreamy concert fan support moments April 2023 photos.' The target keyword 'night art light installation' is clearly present in the retrieved context, so the answer's denial of its presence is factually wrong. The answer addresses the photo portion of the query but fails to identify the target lighting element, making relevance partial and correctness incorrect."
+    },
+    {
+      "audit_id": "AUDIT-018",
+      "faithfulness_label": "supported",
+      "relevance_label": "direct",
+      "correctness_label": "correct",
+      "rationale": "The answer correctly identifies the domestic pet photo moments from the context: a tabby cat in Songjiang District (context 1) and a dog in Keqiao (contexts 3 and 4). It accurately states that no animal vocalization sound recordings are present in any of the retrieved contexts. All factual claims are entailed by the provided context, the target keyword 'dog' is addressed, and the answer directly responds to both parts of the query (locating pet photos and noting the absence of sound recordings)."
+    },
+    {
+      "audit_id": "AUDIT-019",
+      "faithfulness_label": "supported",
+      "relevance_label": "direct",
+      "correctness_label": "correct",
+      "rationale": "The answer accurately reflects the retrieved contexts: forest photography in Xihu District is confirmed (contexts 1-3), bird-related activity (feeding birds) is noted (contexts 4-5), and the absence of any avian acoustic sound recording or 'chirping_birds' keyword is correctly identified. All material claims in the answer are entailed by the context, the answer directly addresses both parts of the query (photography and sound recording), and the target detail's absence is correctly stated."
+    },
+    {
+      "audit_id": "AUDIT-020",
+      "faithfulness_label": "supported",
+      "relevance_label": "partial",
+      "correctness_label": "uncertain",
+      "rationale": "The answer accurately states that the retrieved contexts (which mention photos in Shanghai store, Yiling District, and three brothers in a kitchen) contain no information about indoor cleaning, home maintenance, or domestic motor sound effects. This claim is fully supported by the context. However, the answer does not provide the target keyword 'vacuum_cleaner' or any related detail, making relevance only partial. The context is insufficient to confirm or deny the existence of vacuum cleaner photos or sound effects, so correctness is uncertain."
+    },
+    {
+      "audit_id": "AUDIT-021",
+      "faithfulness_label": "supported",
+      "relevance_label": "direct",
+      "correctness_label": "uncertain",
+      "rationale": "The answer accurately states that none of the five retrieved contexts mention lumberjack, timber cutting equipment, chainsaw, or power tool acoustic recordings; all contexts are about family trip photos and photos of Xiao Chen/Ayu. The answer's factual claims about the absence of relevant information are fully entailed by the context (faithfulness=supported). It directly addresses the query by explaining why the requested items cannot be retrieved (relevance=direct). However, the target keyword 'chainsaw' is entirely absent from the context, making it impossible to confirm or deny the target detail, so correctness is uncertain due to insufficient context."
+    },
+    {
+      "audit_id": "AUDIT-022",
+      "faithfulness_label": "supported",
+      "relevance_label": "direct",
+      "correctness_label": "uncertain",
+      "rationale": "The answer accurately summarizes the retrieved contexts (Disney ride photo, vintage train family trip photos, Vietnam tourist photo) and correctly states that no aviation transport images or aerodynamic transportation sound effects are present. All factual claims in the answer are entailed by the context. The answer directly addresses the query by explaining the absence of relevant information. However, the target keyword 'airplane' is not supported by any context, making correctness uncertain due to insufficient context."
+    },
+    {
+      "audit_id": "AUDIT-023",
+      "faithfulness_label": "supported",
+      "relevance_label": "direct",
+      "correctness_label": "correct",
+      "rationale": "The answer accurately reflects the retrieved context: contexts 1-4 mention 'vintage train family trip photos' (supporting the train keyword), and no actual images or locomotive sound effects are present in any context. The answer directly addresses the query by acknowledging the train-related text references while correctly noting the absence of specific images and sound effects. All factual claims in the answer are entailed by the provided context."
+    },
+    {
+      "audit_id": "AUDIT-024",
+      "faithfulness_label": "supported",
+      "relevance_label": "direct",
+      "correctness_label": "correct",
+      "rationale": "The answer accurately reflects the retrieved context: contexts 2-5 contain only the word 'sheep,' and context 1 mentions 'photos' but not pastoral farming livestock photos specifically. No context mentions acoustic recordings of bleating. The answer correctly identifies that sheep are mentioned (matching the target keyword) while noting the absence of the specific photos and acoustic recordings requested. All material claims about what is and isn't present in the context are entailed by the retrieved data."
+    },
+    {
+      "audit_id": "AUDIT-025",
+      "faithfulness_label": "supported",
+      "relevance_label": "direct",
+      "correctness_label": "uncertain",
+      "rationale": "The answer accurately reflects the retrieved contexts, which mention 'fancy drink,' 'layered cocktail,' and 'photographing drinks' but contain no reference to pouring, beverage preparation processes, or liquid flow acoustic sound effects. All factual claims in the answer (no pouring info, no sound effect details, various drink photos mentioned) are entailed by the context. The answer directly addresses the query by explaining the absence of the requested information. However, the target keyword 'pouring_water' is entirely absent from the context, making it insufficient to verify or support the target detail, hence correctness is uncertain."
+    },
+    {
+      "audit_id": "AUDIT-026",
+      "faithfulness_label": "supported",
+      "relevance_label": "direct",
+      "correctness_label": "correct",
+      "rationale": "The answer accurately reflects context 1, which states 'marathon volunteers handing water December 17, 2023 photos.' It correctly identifies the date and the subject matter, and reasonably notes that actual photo content is not present in the text-only context. The target keyword 'marathon volunteers' is directly supported by context 1. The answer addresses the query's topic of marathon volunteers handing water to runners."
+    },
+    {
+      "audit_id": "AUDIT-027",
+      "faithfulness_label": "supported",
+      "relevance_label": "direct",
+      "correctness_label": "correct",
+      "rationale": "The answer accurately states that the context contains multiple mentions of 'dog' (all 5 contexts say 'dog') and correctly notes the absence of specific information about a sound recording of a barking dog in a domestic environment. No factual claims are contradicted or overstated. The answer directly addresses the query by acknowledging the target keyword and explaining why the specific detail cannot be provided from the given context."
+    },
+    {
+      "audit_id": "AUDIT-028",
+      "faithfulness_label": "supported",
+      "relevance_label": "direct",
+      "correctness_label": "correct",
+      "rationale": "The answer accurately reflects that context 1 contains 'driving over bridge at sunset' and correctly notes that no specific mention of 'photographs' appears in any retrieved context. All factual claims in the answer are entailed by the provided contexts. The answer directly addresses the query's target keyword 'bridge at sunset' and explains the gap regarding 'photographs,' making it both relevant and correct."
+    },
+    {
+      "audit_id": "AUDIT-029",
+      "faithfulness_label": "supported",
+      "relevance_label": "partial",
+      "correctness_label": "correct",
+      "rationale": "The answer accurately describes the retrieved context, which contains only the word 'thunderstorm' repeated five times with no additional information. It correctly states that no details about an audio recording are available. The target keyword 'thunderstorm' is present in all context snippets, so the answer's assessment is factually aligned with the context. Relevance is partial because while the answer addresses the query, it cannot provide the specific target detail (audio recording information) due to the minimal context."
+    },
+    {
+      "audit_id": "AUDIT-030",
+      "faithfulness_label": "supported",
+      "relevance_label": "direct",
+      "correctness_label": "correct",
+      "rationale": "The answer accurately quotes context 1 ('Putuo Mountain coast first half of 2024 photos') and correctly notes that the context does not specify 'scenic landscape' as a descriptor. All factual claims in the answer are entailed by the retrieved context. The answer directly addresses the query about scenic landscape photos of Putuo Mountain coast and the target keyword 'putuo mountain' is confirmed present in context 1."
+    },
+    {
+      "audit_id": "AUDIT-031",
+      "faithfulness_label": "supported",
+      "relevance_label": "direct",
+      "correctness_label": "correct",
+      "rationale": "The answer accurately states that all five retrieved contexts contain only the keyword 'chirping_birds' and no additional details about an acoustic recording or outdoor nature setting. Every factual claim in the answer (multiple mentions of chirping_birds, absence of specific recording details) is directly entailed by the context. The answer directly addresses the query and target keyword, correctly identifying what is and is not present in the retrieved passages."
+    },
+    {
+      "audit_id": "AUDIT-032",
+      "faithfulness_label": "supported",
+      "relevance_label": "direct",
+      "correctness_label": "correct",
+      "rationale": "All five retrieved contexts contain only the string 'vacuum_cleaner' with no additional information about sound, noise levels, or acoustic properties. The answer accurately states that the context lacks specific information about the sound of a domestic vacuum cleaner and correctly identifies that only 'vacuum_cleaner' is mentioned. The answer directly addresses the query by transparently reporting the insufficiency of the retrieved context, and its factual claims about the context's contents are fully entailed by the provided passages."
+    },
+    {
+      "audit_id": "AUDIT-033",
+      "faithfulness_label": "mixed",
+      "relevance_label": "partial",
+      "correctness_label": "correct",
+      "rationale": "The answer correctly identifies that 'friends toasting at a party' appears in multiple documents (1, 2, 3, and also 4, which is omitted). However, it incorrectly claims 'the specific details about the celebration are not present' when Document 3 explicitly states '22nd birthday celebration,' making that claim contradicted by context. The target keyword 'friends toasting' is directly supported by all four relevant contexts. Relevance is partial because the answer is a meta-commentary rather than a direct description of the photos, and it omits the available celebration detail (22nd birthday)."
+    },
+    {
+      "audit_id": "AUDIT-034",
+      "faithfulness_label": "supported",
+      "relevance_label": "partial",
+      "correctness_label": "uncertain",
+      "rationale": "The answer accurately reflects that all five retrieved contexts contain only the word 'fireworks' with no additional detail. It makes no unsupported factual claims, so faithfulness is supported. It addresses the query topic but cannot provide the specific sound-effect detail requested, making relevance partial. Since the context contains no information about the actual sound of a fireworks explosion or holiday celebration, the target detail is neither confirmed nor contradicted, yielding uncertain correctness."
+    },
+    {
+      "audit_id": "AUDIT-035",
+      "faithfulness_label": "supported",
+      "relevance_label": "direct",
+      "correctness_label": "correct",
+      "rationale": "The answer accurately reflects the retrieved context: context 1 contains 'art studio wall decor' which matches the target keyword 'art studio wall', and the remaining contexts (night art light installations, photos with Mingming) do not provide photographs specifically about creative art studio wall decoration. The answer correctly identifies what is and isn't present in the context without overreaching."
+    },
+    {
+      "audit_id": "AUDIT-036",
+      "faithfulness_label": "supported",
+      "relevance_label": "direct",
+      "correctness_label": "correct",
+      "rationale": "The answer accurately reflects the retrieved context: contexts 1 and 2 mention 'quiet beach in Phuket's Karon,' which the answer correctly cites. The answer rightly notes that no specific 'photos' detail for Phuket's Karon appears in the context (the photo-related contexts 3-5 refer to Yantian District, not Phuket). All factual claims in the answer are entailed by the context, the response directly addresses the query about peaceful beach photos in Phuket's Karon, and the target keyword 'phuket' is correctly handled."
+    },
+    {
+      "audit_id": "AUDIT-037",
+      "faithfulness_label": "supported",
+      "relevance_label": "partial",
+      "correctness_label": "correct",
+      "rationale": "The answer accurately states that 'door_wood_knock' appears multiple times in the context, which is factually true (all 5 contexts contain it). It also correctly notes that no additional descriptive detail about the audio is present. All claims are entailed by the context. Relevance is partial because while the answer acknowledges the target keyword's presence, it does not provide substantive information about the wooden door knocking sound effect itself. Correctness is correct because the target keyword 'door_wood_knock' is indeed present in the retrieved context and the answer accurately reflects this."
+    },
+    {
+      "audit_id": "AUDIT-038",
+      "faithfulness_label": "supported",
+      "relevance_label": "direct",
+      "correctness_label": "correct",
+      "rationale": "The answer accurately reflects the retrieved contexts: contexts 1-3 contain 'layered cocktail fancy drink before Christmas' and contexts 4-5 mention 'fancy drink before Christmas Qiantang photos.' The answer correctly notes that while these phrases appear, no actual photo content is provided in the text-based contexts. All material claims in the answer are entailed by the context, the target keyword 'layered cocktail' is addressed, and the response directly addresses the query about photos of layered cocktails before Christmas."
+    },
+    {
+      "audit_id": "AUDIT-039",
+      "faithfulness_label": "supported",
+      "relevance_label": "direct",
+      "correctness_label": "correct",
+      "rationale": "Context 1 contains only the text 'driverless car in Pingyao' with no actual photos. The answer accurately states that the context mentions a driverless car in Pingyao but does not provide photos. This is a faithful, direct, and correct assessment of the retrieved context relative to the query asking for photos of a driverless autonomous car in Pingyao town."
+    },
+    {
+      "audit_id": "AUDIT-040",
+      "faithfulness_label": "supported",
+      "relevance_label": "partial",
+      "correctness_label": "correct",
+      "rationale": "The answer accurately reports that the retrieved contexts contain multiple mentions of 'clapping' (all five contexts say exactly 'clapping'), and correctly notes that no specific details about the sound are present. The target keyword 'clapping' is directly supported by the context. However, the answer only partially addresses the query because it acknowledges the keyword without providing substantive information about the sound of applause or clapping hands in an audience, which is limited by the extremely minimal retrieved context."
+    },
+    {
+      "audit_id": "AUDIT-041",
+      "faithfulness_label": "supported",
+      "relevance_label": "direct",
+      "correctness_label": "correct",
+      "rationale": "The answer accurately reflects the retrieved contexts: contexts 1 and 2 do mention 'cute ceramic figurine' and contexts 4/5 mention 'handmade sculpture before painting.' The contexts are text-only captions with no actual images, so the answer's claim that no images are provided is faithful. The answer directly addresses the query's request for images of ceramic figurines and correctly identifies the target keyword 'ceramic figurine' as present in the context while noting the absence of actual image content."
+    },
+    {
+      "audit_id": "AUDIT-042",
+      "faithfulness_label": "mixed",
+      "relevance_label": "partial",
+      "correctness_label": "uncertain",
+      "rationale": "The answer correctly notes that the context does not contain information about a sound recording of a chainsaw cutting wood (supported by the contexts, which only contain the word 'chainsaw'). However, the additional claim that 'a chainsaw is a tool commonly used for cutting wood' is general knowledge not entailed by the retrieved context, making faithfulness mixed. Relevance is partial because the answer acknowledges the query topic but does not provide the specific sound-recording detail requested. Correctness is uncertain because the context (only the word 'chainsaw') is insufficient to verify or support the specific scenario of a sound recording of a chainsaw cutting wood."
+    },
+    {
+      "audit_id": "AUDIT-043",
+      "faithfulness_label": "supported",
+      "relevance_label": "direct",
+      "correctness_label": "correct",
+      "rationale": "The answer accurately states that the context contains mentions of 'handmade noodles' (context 1) and 'Puji noodles' (contexts 2-3), but no information about preparation or photos of preparation. All factual claims in the answer are entailed by the retrieved contexts. The answer directly addresses the query by confirming the requested detail (photos of preparation) is absent from the context, which is a correct and relevant response."
+    },
+    {
+      "audit_id": "AUDIT-044",
+      "faithfulness_label": "supported",
+      "relevance_label": "direct",
+      "correctness_label": "correct",
+      "rationale": "The answer accurately reflects the retrieved context, which consists solely of the word 'airplane' repeated five times with no additional information. The answer correctly states that no details about an audio recording of an airplane engine flying are present. It directly addresses the query by explaining the limitation of the context and references the target keyword 'airplane.' All factual claims in the answer (that the context only mentions 'airplane' and lacks audio recording details) are entailed by the provided context."
+    },
+    {
+      "audit_id": "AUDIT-045",
+      "faithfulness_label": "supported",
+      "relevance_label": "direct",
+      "correctness_label": "correct",
+      "rationale": "The answer accurately quotes context 1 ('New Year's Eve Hangzhou concert fan support moments Qiantang photos') and correctly notes that specific details about the photos are not provided in the retrieved contexts. All claims are directly entailed by the context. The answer addresses the query about New Year's Eve celebration photos in Hangzhou and includes the target keyword 'hangzhou.' The correctness is supported because the context does confirm the existence of New Year's Eve photos in Hangzhou (Qiantang photos, concert fan support moments)."
+    },
+    {
+      "audit_id": "AUDIT-046",
+      "faithfulness_label": "supported",
+      "relevance_label": "partial",
+      "correctness_label": "uncertain",
+      "rationale": "The answer accurately describes the retrieved context: all five contexts contain only the keyword 'pouring_water' with no elaboration. The answer correctly notes the absence of specific sound effect details. However, it does not provide the actual sound effect information requested by the query, making it only partially relevant. The target keyword 'pouring_water' is present in the context, but the context is insufficient to determine or confirm any specific sound effect detail, so correctness is uncertain."
+    },
+    {
+      "audit_id": "AUDIT-047",
+      "faithfulness_label": "supported",
+      "relevance_label": "partial",
+      "correctness_label": "correct",
+      "rationale": "The answer accurately reflects the retrieved context, which only contains the phrase 'night art light installation dreamy' with no photography details. All factual claims in the answer (that the context mentions the art light installation, that it is dreamy/night-related, and that photography details are absent) are directly entailed by the context. The target keyword 'art light installation' is present in the context, supporting correctness. However, the answer is only partially relevant because it is a meta-commentary on the context's limitations rather than providing substantive information about the art light installation or photography, making it vague and incomplete relative to the query."
+    },
+    {
+      "audit_id": "AUDIT-048",
+      "faithfulness_label": "supported",
+      "relevance_label": "partial",
+      "correctness_label": "correct",
+      "rationale": "The answer accurately states that the specific detail about a sound recording of a train on railroad tracks is absent from the context (all five contexts contain only the word 'train'), and correctly notes that 'train' is mentioned multiple times. No factual claims are contradicted. Relevance is partial because while the target keyword 'train' is addressed, the broader query about a sound recording cannot be fulfilled given the minimal context. Correctness is correct because the target keyword 'train' is indeed present in the retrieved contexts."
+    },
+    {
+      "audit_id": "AUDIT-049",
+      "faithfulness_label": "supported",
+      "relevance_label": "direct",
+      "correctness_label": "correct",
+      "rationale": "The answer accurately quotes context 1 ('night art light installation dreamy Ningbo cyberpunk night bridge Yinzhou District photos') and correctly infers that photos of a cyberpunk-style night bridge exist in Ningbo's Yinzhou District. The target keyword 'yinzhou' is explicitly addressed. The caveat that specific photo details are not provided is also faithful to the context, which only contains keyword-style tags. All material claims are entailed by the retrieved context."
+    },
+    {
+      "audit_id": "AUDIT-050",
+      "faithfulness_label": "mixed",
+      "relevance_label": "partial",
+      "correctness_label": "correct",
+      "rationale": "The answer correctly notes that the context (which only contains the word 'rooster') does not include details about a sound recording or morning crowing. However, the added claim that 'roosters are known for their crowing' is external knowledge not entailed by the retrieved context, making faithfulness mixed. Relevance is partial because the answer acknowledges the topic but provides no substantive information about the requested sound recording. Correctness is correct because the target keyword 'rooster' is indeed present in the context and the answer does not contradict it."
+    }
+  ]
+}
