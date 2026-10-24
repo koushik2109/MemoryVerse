@@ -1,0 +1,22 @@
+% Table: Mixed-Intent Router Evaluation (Hypothesis H2)
+\begin{table*}[t]
+\centering\small
+\caption{Retrieval Performance and Calibration across 5 Query Intents on the Unified 1,193-Item Multimodal Index. Evaluated on the held-out test split (600 queries).}
+\label{tab:mixed_intent_routing}
+\begin{tabular}{lccccccc}
+\toprule
+System & Overall MRR [95\% CI] & H@10 & Paraphrase & Scene-Text & Identifier & CJK & Numeric \\
+\midrule
+BM25 & 0.3386 [0.302, 0.376] & 0.447 & 0.280 & 0.805 & 0.013 & 0.980 & 0.117 \\
+Dense MiniLM & 0.3466 [0.317, 0.379] & 0.537 & 0.457 & 0.707 & 0.071 & 0.231 & 0.114 \\
+CLIP Visual & 0.2615 [0.238, 0.287] & 0.550 & 0.304 & 0.660 & 0.021 & 0.271 & 0.073 \\
+Hybrid fixed (alpha=0.7) & 0.4116 [0.378, 0.446] & 0.598 & 0.432 & 0.931 & 0.066 & 0.722 & 0.135 \\
+All-Stream RRF & 0.4214 [0.386, 0.455] & 0.605 & 0.481 & 0.858 & 0.029 & 0.817 & 0.116 \\
+Router R1 (Surface Features) & 0.3920 [0.360, 0.426] & 0.609 & 0.354 & 0.848 & 0.058 & 0.980 & 0.162 \\
+Router R2 (Dense Embedding) & 0.3924 [0.358, 0.426] & 0.600 & 0.345 & 0.850 & 0.071 & 0.980 & 0.171 \\
+Router R3 (QPP + GBDT) & 0.4070 [0.373, 0.441] & 0.609 & 0.391 & 0.810 & 0.069 & 0.980 & 0.173 \\
+Router R4 (Combined Embedding+QPP) & 0.3972 [0.363, 0.431] & 0.607 & 0.354 & 0.860 & 0.065 & 0.980 & 0.173 \\
+Oracle Selector (Upper Bound) & 0.5213 [0.486, 0.555] & 0.694 & 0.588 & 1.000 & 0.076 & 0.980 & 0.185 \\
+\bottomrule
+\end{tabular}
+\end{table*}

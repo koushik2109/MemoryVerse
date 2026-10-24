@@ -1,0 +1,19 @@
+\begin{table*}[t]
+\centering
+\caption{Ablation Matrix across COCO Test ($N=250$), Clean Scene-Text ($N=55$), and 20\% Noise ($N=55\times 3$). $p_{\text{Holm}}$ computed via paired permutation tests ($m=7$).}
+\label{tab:ablation_a1}
+\begin{tabular}{lcccccc}
+\hline
+\textbf{Ablation Configuration} & \textbf{COCO H@10} & \textbf{COCO MRR} & \textbf{Clean H@10} & \textbf{Clean MRR} & \textbf{20\% Noise MRR [95\% CI]} & \textbf{$p_{\text{Holm}}$} \\
+\hline
+Baseline (Fixed alpha=0.7) & 0.6360 & 0.3767 & 1.0000 & 0.9909 & 0.8254 [0.771, 0.879] & --- \\
+Hybrid + clean stream & 0.6480 & 0.3975 & 1.0000 & 0.9606 & 0.9029 [0.847, 0.951] & 0.1056 \\
+BM25 + clean stream & 0.6000 & 0.3443 & 1.0000 & 0.9818 & 0.9450 [0.896, 0.982] & 0.0012 \\
+Dense + clean stream & 0.6520 & 0.4025 & 0.9818 & 0.8001 & 0.7867 [0.702, 0.866] & 0.4375 \\
++ Router & 0.6480 & 0.3975 & 1.0000 & 0.9500 & 0.7393 [0.668, 0.807] & 0.0080 \\
++ Cascade & 0.6360 & 0.3697 & 1.0000 & 0.9909 & 0.8442 [0.795, 0.893] & 0.1056 \\
++ Reliability & 0.6480 & 0.3975 & 1.0000 & 0.9500 & 0.6671 [0.580, 0.747] & 0.0007 \\
+Full RAMP-RAG (+ Clean Stream) & 0.6480 & 0.3821 & 1.0000 & 0.9727 & 0.8770 [0.814, 0.931] & 0.2834 \\
+\hline
+\end{tabular}
+\end{table*}

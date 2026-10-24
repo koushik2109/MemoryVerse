@@ -1,0 +1,22 @@
+% Table: Retrieval Performance under Heterogeneous Corpus Corruption (Hypothesis H1)
+\begin{table*}[t]
+\centering\small
+\caption{Retrieval MRR and Hit@10 across varying corpus corruption fractions $f_{\text{bad}}$ ($40\%$ character noise on corrupted subset). Evaluated over 55 held-out probes across Seeds 42, 43, 44 with cluster bootstrap $95\%$ CIs and step-down Holm-Bonferroni correction vs. BM25.}
+\label{tab:heterogeneous_noise}
+\begin{tabular}{lcccccccc}
+\toprule
+Method & \multicolumn{2}{c}{$f_{\text{bad}}=0.10$} & \multicolumn{2}{c}{$f_{\text{bad}}=0.30$} & \multicolumn{2}{c}{$f_{\text{bad}}=0.50$} & \multicolumn{2}{c}{$f_{\text{bad}}=0.70$} \\
+ & MRR [95\% CI] & H@10 & MRR [95\% CI] & H@10 & MRR [95\% CI] & H@10 & MRR [95\% CI] & H@10 \\
+\midrule
+BM25 & 0.9576 & 1.000 & 0.9639 & 0.988 & 0.9462 & 0.982 & 0.8961 & 0.958 \\
+Dense MiniLM & 0.7040 & 0.867 & 0.8184 & 0.976 & 0.6852 & 0.885 & 0.5407 & 0.794 \\
+Dense BGE-base & 0.7594 & 0.915 & 0.7973 & 0.903 & 0.7545 & 0.903 & 0.7067 & 0.867 \\
+Hybrid fixed (alpha=0.7) & 0.9001 & 0.958 & 0.9742 & 1.000 & 0.8679 & 0.964 & 0.7835 & 0.952 \\
+Hybrid + Clean (CLIP) & 0.9677 & 0.994 & 0.9758 & 1.000 & 0.9314 & 0.994 & 0.9058 & 0.994 \\
+BM25 + Clean & 0.9747 & 1.000 & 0.9654 & 1.000 & 0.9492 & 1.000 & 0.9211 & 0.994 \\
+Reliability-Weighted Fusion & 0.8415 & 1.000 & 0.8876 & 0.994 & 0.7945 & 0.964 & 0.7347 & 0.976 \\
+Oracle-Reliability (Upper Bound) & 0.8532 & 0.946 & 0.8599 & 0.867 & 0.7112 & 0.794 & 0.5964 & 0.758 \\
+All-Stream RRF (BM25+Dense+CLIP) & 0.7476 & 1.000 & 0.8031 & 1.000 & 0.7539 & 0.988 & 0.6944 & 0.994 \\
+\bottomrule
+\end{tabular}
+\end{table*}

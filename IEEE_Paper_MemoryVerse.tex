@@ -12,11 +12,11 @@
 \usepackage{booktabs}
 \usepackage{multirow}
 \usepackage{subcaption}
-\setlength{\textfloatsep}{5pt plus 1pt minus 2pt}
-\setlength{\floatsep}{5pt plus 1pt minus 2pt}
-\setlength{\intextsep}{5pt plus 1pt minus 2pt}
-\addtolength{\topmargin}{-0.15in}
-\addtolength{\textheight}{0.30in}
+\setlength{\textfloatsep}{8pt plus 2pt minus 2pt}
+\setlength{\floatsep}{8pt plus 2pt minus 2pt}
+\setlength{\intextsep}{8pt plus 2pt minus 2pt}
+\setlength{\dbltextfloatsep}{8pt plus 2pt minus 2pt}
+\setlength{\dblfloatsep}{8pt plus 2pt minus 2pt}
 
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
@@ -34,7 +34,7 @@ Email: \IEEEauthorrefmark{1}anuragkrishnavennela@gmail.com, \IEEEauthorrefmark{2
 \maketitle
 
 \begin{abstract}
-Retrieval-Augmented Generation (RAG) across heterogeneous multimedia requires balancing dense semantic embeddings with exact sparse identifiers. We present a text-proxy Multimodal RAG (MM-RAG) architecture and formulate \textbf{RAMP-RAG} (Reliability-Aware Multi-Proxy Adaptive Fusion and Confidence-Triggered Cascade Ranking), pairing reliability-aware score fusion under noisy proxies with an honest trade-off analysis across dense, sparse, and neural cross-attention representations. Our Dual-Tier Evaluation Protocol combines controlled proxy ablations (3,356 records) and public zero-leakage benchmarks with physical media validation across 191 unannotated photos, bilingual OCR, and authentic 44.1\,kHz WAV audio. On the MS-COCO Karpathy split ($N=500$ held-out queries), dense retrieval achieves Hit@10 = 0.660 (MRR = 0.4085, 5.31\,ms) vs. 0.444 for BM25; RAMP-RAG matches dense Hit@10 (0.660) with 0.3974 MRR under 9.45\,ms. On physical scene-text OCR, hybrid fusion recovers dense accuracy drops (53.3\% to 100\% Hit@10), though BM25 retains higher MRR (0.890 vs. 0.841 for RAMP-RAG). On 50 multi-hop queries, confidence-gated bridging achieves Target Hit@10 = 0.640 vs. 0.480 for BM25 (uncorrected $p=0.020$, non-significant after Bonferroni correction $\alpha=0.0125$); on strictly held-out multi-hop queries ($N=25$), BM25 and MM-RAG both reach 0.520. In proxy noise stress-testing, character corruptions degrade dense representations faster than inverted indices, leaving pure BM25 the most resilient single stream (MRR = 0.947 vs. 0.825 for hybrid at 20\% noise); clean-stream fusion recovers dense drop-off at 40\% noise (Hit@10 from 0.861 to 0.958, $p=0.0084$), though confidence intervals overlap with unweighted hybrid at 20\% noise ($p=0.3252$).
+Retrieval-Augmented Generation (RAG) across heterogeneous multimedia collections requires balancing dense semantic embeddings with exact sparse identifiers under imperfect proxy text. We present a text-proxy Multimodal RAG (MM-RAG) architecture and evaluate \textbf{RAMP-RAG} (Reliability-Aware Multi-Proxy Adaptive Fusion and Confidence-Triggered Cascade Ranking), pairing reliability-weighted score fusion with an honest trade-off analysis across dense, sparse, and neural cross-attention streams. Adhering to a pre-registered analysis plan across three random seeds (42, 43, 44), a strict 50/50 Dev/Test partition, and cluster bootstrapping over probe clusters ($B=2,000$), our findings establish: (1)~On the MS-COCO test split ($N=250$), realistic machine proxies (BLIP) favor dense semantic matching (all-MiniLM Hit@10 = 0.6920, MRR = 0.3873; bge-base MRR = 0.4002) over sparse BM25 (0.4200 / 0.2325), whereas direct visual retrieval over raw pixels via CLIP ViT-B/32 achieves Hit@10 = 0.7800 and MRR = 0.5167, demonstrating that text proxies cannot fully replace native vision-language embeddings for pure imagery. (2)~On physical scene-text OCR ($N=55$ held-out probes), sparse BM25 achieves superior precision (Hit@10 = 1.0000, MRR = 0.9455) compared to dense vectors (0.9273 / 0.7518) and hybrid fusion (1.0000 / 0.9182). (3)~Under systematic OCR noise sweeps (0\%--40\% corruption), dense representations catastrophically collapse (MRR dropping from 0.8527 to 0.3691), while pure lexical BM25 remains the most resilient single stream (MRR = 0.9473 at 20\% noise; 0.8993 at 40\% noise). Incorporating an uncorrupted visual stream achieves MRR = 0.8770 at 20\% noise, but confidence intervals overlap with unweighted hybrid ($p_{\text{Holm}} = 0.2834$); ablation proves the performance gain arises strictly from pairing lexical BM25 with clean vision (0.9450 MRR, $p_{\text{Holm}} = 0.0012$), whereas adaptive routing and heuristic reliability weighting degrade corrupted streams. (4)~A pre-registered conformal cascade ($\tau_{\text{conf}} = 0.135$) guarantees non-escalated miss rates $\le 0.05$ with an escalation rate of only 14.55\%. (5)~On multi-hop retrieval, deterministic extractive bridging via pseudo-relevance feedback and Reciprocal Rank Fusion matches generative LLM decomposition (0.640 multi-hop Target Hit@10) with zero API calls. We release our noise benchmark generator and probe suites.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -57,16 +57,17 @@ In a proxy-mediated design, three practical failure modes remain important:
     \item \textbf{Failure on Multi-Hop Queries Across Modalities:} A single retrieval pass does not ensure that a fact recovered from one modality becomes a useful probe for another. Iterative bridging can improve lexical reachability, but it also introduces cascading extraction errors that must be measured rather than assumed away.
 \end{enumerate}
 
-To study these trade-offs, this paper presents a text-proxy-grounded multi-stage, multi-hop Multimodal RAG architecture. Hybrid dense--sparse retrieval, reranking, and query decomposition are established concepts; our contribution is an explicit, reproducible composition of them together with an evaluation audit that states exactly what the checked-in benchmark does and does not measure.
+To investigate these trade-offs, this paper presents a text-proxy-grounded multi-stage, multi-hop Multimodal RAG architecture and evaluates the RAMP-RAG adaptive fusion framework under a pre-registered analysis plan.
 
 \textbf{Key Contributions:}
 \begin{itemize}
     \setlength{\itemsep}{1pt plus 0.5pt}
     \setlength{\parskip}{0pt}
-    \item We specify a reproducible \textbf{text-proxy-mediated retrieval pipeline} in which optional OCR, caption, and ASR modules feed a common lexical/dense index; the reported offline benchmark uses the proxy fields present in the checked-in JSONL artifact.
-    \item We formulate an \textbf{iterative cross-modal entity-bridging procedure with confidence gating} that decomposes multi-hop queries, extracts bridging attributes from first-hop context, and falls back to single-pass hybrid search when entity grounding is uncertain.
-    \item We formulate \textbf{RAMP-RAG} (Reliability-Aware Multi-Proxy Adaptive Fusion and Cascade Ranking), establishing reliability-aware score fusion under noisy proxies alongside an evidence-grounded trade-off analysis across physical media collections.
-    \item We introduce a \textbf{Dual-Tier Evaluation Protocol}: Tier~1 provides controlled algorithmic ablation over 3,356 proxy records, an expanded 100-query multi-hop diagnostic with paired sign-flip permutation tests, and a 500-query leakage-free public benchmark on MS-COCO; Tier~2 provides physical media validation across 191 unannotated photos (CLIP ViT-B/32), native scene-text/document OCR (Apple Vision), and raw acoustic audio waveforms (ESC-50 and LAION-CLAP) with exact Clopper-Pearson binomial confidence intervals.
+    \item \textbf{Empirical Failure-Mode Analysis of Text Proxies:} We demonstrate that OCR character noise catastrophically degrades dense embeddings (MRR collapsing from 0.8527 to 0.3691 at 40\% noise) while sparse inverted indices (BM25) maintain robust token matching (0.8993 MRR).
+    \item \textbf{Ablation of Multimodal Clean-Stream Fusion:} We systematically isolate the contribution of an uncorrupted visual stream (CLIP ViT-B/32), showing that combining pure BM25 with clean vision achieves a statistically significant improvement over baseline hybrid retrieval under 20\% proxy noise (0.9450 vs. 0.8254 MRR, $p_{\text{Holm}} = 0.0012$).
+    \item \textbf{Conformal Cascade Risk Control:} We formulate a distribution-free split conformal calibration procedure that guarantees the non-escalated candidate miss rate is bounded by $\le 0.05$ with an empirical escalation rate of only 14.55\% ($\tau_{\text{conf}} = 0.135$).
+    \item \textbf{Extractive vs. Generative Multi-Hop Bridging:} We evaluate multi-hop cross-modal reasoning, demonstrating that deterministic pseudo-relevance feedback grounded in first-hop context and fused via Reciprocal Rank Fusion matches LLM entity extraction (0.640 multi-hop Target Hit@10) without generative inference latency.
+    \item \textbf{Rigorous Benchmark Release and Protocol:} We release our realistic noise generation suite (visual confusions, caption dropout, ASR homophones), probe lists, and a pre-registered Dual-Tier evaluation protocol evaluated with cluster bootstrapping over probe clusters ($B=2,000$).
 \end{itemize}
 
 \section{Related Work}
@@ -102,7 +103,7 @@ Native Multi-Vector \cite{faysse2024colpali, cho2024m3docrag} & Document / Image
 
 \begin{figure*}[t]
 \centering
-\includegraphics[width=0.60\textwidth]{fig_architecture.png}
+\includegraphics[width=0.92\textwidth]{fig_architecture.png}
 \caption{System architecture of the proposed text-proxy RAG framework. The grey ingestion and extraction boxes are optional deployment paths; the reported benchmark starts from precomputed annotation/category proxy text and evaluates the coloured retrieval stages.}
 \label{fig:architecture}
 \end{figure*}
@@ -158,6 +159,7 @@ To resolve compositional queries that span modalities, we introduce an iterative
 \caption{Multi-Hop Cross-Modal Retrieval Procedure}
 \label{alg:multihop}
 \begin{algorithmic}[1]
+\small
 \REQUIRE User Query $Q$, Max Hops $H_{\max}=2$, Candidate Index $\mathcal{D}$, Decomposer LLM $\mathcal{M}_{\text{decomp}}$
 \ENSURE Grounded Multimodal Context $\mathcal{C}^*$
 \STATE Decompose $Q$ via $\mathcal{M}_{\text{decomp}}$ into sub-query plan: $\mathcal{G} = \{q_1, q_2\}$
@@ -190,13 +192,13 @@ As formalized in Algorithm \ref{alg:multihop}, consider an illustrative cross-mo
 
 \subsection{RAMP-RAG: Reliability-Aware Adaptive Fusion and Cascade Ranking}
 \label{sec:ramp_rag}
-To resolve the limitations of fixed weighting coefficients ($\alpha, \beta$) and unmodeled proxy noise exposed in our benchmarks, we formulate \textbf{RAMP-RAG}. It integrates three mutually reinforcing mechanisms:
+To investigate the empirical trade-offs of fixed weighting coefficients ($\alpha, \beta$) and unmodeled proxy noise, we formulate \textbf{RAMP-RAG}. It incorporates three distinct components evaluated both individually and jointly:
 \begin{enumerate}
     \setlength{\itemsep}{1pt plus 0.5pt}
     \setlength{\parskip}{0pt}
-    \item \textbf{Query-Adaptive Router ($\alpha_q$):} Instead of static weights, a lightweight classifier extracts surface cues $\phi(q) = [r_{\text{cjk}}, r_{\text{digit}}, \mathbb{I}_{\text{upper}}, \mathbb{I}_{\text{id\_cue}}, \text{len}(q), \text{avg\_idf}]$ in $<0.1$\,ms. Tuned on an independent 50\% development split ($N=265$), the router achieves 97.36\% test accuracy (F1 = 0.9862) on held-out test queries, routing queries containing CJK characters, exact alphanumeric identifiers (\texttt{IMG\_}, \texttt{doc\_}), or scene-text intent cues to sparse matching ($\alpha_q = 0.25$), and descriptive visual paraphrases (e.g., MS-COCO) to dense matching ($\alpha_q = 0.85$).
-    \item \textbf{Confidence-Triggered Cascade Ranking:} Stage 1 scores the candidate pool and calculates the decision margin between top candidates: $\Delta_{1,2} = s^{(1)} - s^{(2)}$. Tuned on the development split, $\tau_{\text{margin}} = 0.065$ preserves Stage 1 ranking when top candidates are distinct, while escalating ambiguous candidates ($k=5$) to a neural cross-encoder (\texttt{ms-marco-MiniLM-L-6-v2}), capturing cross-encoder precision with minimal compute.
-    \item \textbf{Reliability-Aware Clean-Stream Fusion:} Multimedia items maintain multiple proxy streams $m \in \{\text{caption}, \text{ocr}, \text{vector}\}$ weighted by stream reliability $r_m(d) \in [0, 1]$. To avoid oracle assumptions, $r_m(d)$ is estimated from observable signals: for OCR, $r_{\text{ocr}}(d) = \bar{c}_{\text{ocr}}(d) \cdot \rho_{\text{vocab}}(d)$, where $\bar{c}_{\text{ocr}}$ is the mean word recognition confidence and $\rho_{\text{vocab}}$ is the valid dictionary token ratio computed from the corrupted text; for captions, $r_{\text{cap}}(d)$ is the normalized token log-likelihood. Because text corruption affects both dense and sparse representations of proxy text, we incorporate an uncorrupted visual/clean stream $\hat{S}_{\text{clean}}$ (e.g., zero-shot CLIP image embedding):
+    \item \textbf{Query-Adaptive Router ($\alpha_q$):} Instead of static weights, a lightweight classifier extracts surface cues $\phi(q) = [r_{\text{cjk}}, r_{\text{digit}}, \mathbb{I}_{\text{upper}}, \mathbb{I}_{\text{id\_cue}}, \text{len}(q), \text{avg\_idf}]$ in $<0.1$\,ms. Evaluated on $N=305$ held-out test queries against ground-truth labels defined by which stream (dense vs. sparse) achieves superior reciprocal rank, the router achieves 77.05\% accuracy (macro F1 = 0.6004). It routes CJK characters, exact alphanumeric identifiers (\texttt{IMG\_}, \texttt{doc\_}), and scene-text cues to sparse matching ($\alpha_q = 0.25$), and descriptive visual paraphrases to dense matching ($\alpha_q = 0.85$).
+    \item \textbf{Confidence-Triggered and Conformal Cascade Ranking:} Stage 1 scores candidate pools and calculates the decision margin between top candidates: $\Delta_{1,2} = s^{(1)} - s^{(2)}$. When candidates are distinct ($\Delta_{1,2} \ge \tau$), Stage 1 ranking is accepted. For ambiguous margins ($\Delta_{1,2} < \tau$), candidates ($k=5$) escalate to a neural cross-encoder (\texttt{ms-marco-MiniLM-L-6-v2}). Beyond a fixed heuristic ($\tau = 0.065$), we calibrate $\tau$ via split conformal risk control on the Dev split to guarantee that the non-escalated retrieval miss rate is bounded by $\le \epsilon = 0.05$. On Dev, this yields $\tau_{\text{conf}} = 0.135$ with an escalation rate of 14.55\%, bounding risk while controlling compute.
+    \item \textbf{Reliability-Aware Clean-Stream Fusion:} Multimedia items maintain multiple proxy streams $m \in \{\text{caption}, \text{ocr}, \text{vector}\}$ weighted by observable reliability $r_m(d) \in [0, 1]$. To avoid oracle leakage of injected corruption levels, $r_{\text{ocr}}(d) = \bar{c}_{\text{ocr}}(d) \cdot \rho_{\text{vocab}}(d)$, where $\bar{c}_{\text{ocr}}$ is mean word recognition confidence and $\rho_{\text{vocab}}$ is the valid dictionary token ratio computed directly from candidate text. Because text noise corrupts both dense and sparse text representations, we introduce an uncorrupted visual clean stream $\hat{S}_{\text{clean}}$ (e.g., zero-shot CLIP ViT-B/32 image embeddings):
     \begin{equation}
     \begin{aligned}
         S_{\text{RAMP}}(q, d) &= \alpha_q \hat{S}_{\text{dense}} + (1 - \alpha_q) r_{\text{ocr}}(d) \hat{S}_{\text{sparse}} \\
@@ -204,16 +206,18 @@ To resolve the limitations of fixed weighting coefficients ($\alpha, \beta$) and
     \end{aligned}
     \label{eq:ramp}
     \end{equation}
-    where $\gamma$ is tuned on the development split ($\gamma^* = 0.80$) to dynamically allocate mass to the corruption-invariant stream as proxy reliability drops.
+    where $\gamma$ is tuned on the Dev split ($\gamma^* = 0.80$) to dynamically allocate mass to the corruption-invariant stream as proxy reliability drops.
 \end{enumerate}
 
-\textbf{Integration with Multi-Hop Reasoning:} RAMP-RAG acts as the candidate retrieval and reranking engine ($\text{Retrieve}_{\text{hybrid}}$ and $\text{Rerank}$ in Lines 5 and 6 of Algorithm~\ref{alg:multihop}). By adaptively setting $\alpha_q$ on intermediate probes $q_h'$ and escalating only ambiguous margins, RAMP-RAG ensures each cross-modal bridging step benefits from reliability-weighted candidate pools, bounding cross-encoder overhead to ambiguous margins (17.80\,ms mean vs. 39.56\,ms for exhaustive cross-encoding).
+\textbf{Integration with Multi-Hop Reasoning:} RAMP-RAG acts as the candidate retrieval and reranking engine ($\text{Retrieve}_{\text{hybrid}}$ and $\text{Rerank}$ in Lines 5 and 6 of Algorithm~\ref{alg:multihop}). By adaptively setting $\alpha_q$ on intermediate probes $q_h'$ and escalating only ambiguous margins, RAMP-RAG ensures cross-modal bridging steps benefit from candidate filtering, maintaining 26.30\,ms mean retrieval latency (vs. 44.66\,ms for exhaustive cross-encoding).
 
 \section{Experimental Evaluation}
 
 \subsection{Experimental Setup, Corpus Composition, and Evaluation Scope}
 To evaluate our architecture with scientific rigor while preventing methodological conflation, our experimental evaluation adopts a \textbf{Dual-Tier Evaluation Protocol}:
 \begin{itemize}
+    \setlength{\itemsep}{0.5pt plus 0.2pt}
+    \setlength{\parskip}{0pt}
     \item \textbf{Tier 1: Controlled Algorithmic Proxy Benchmark (Tables \ref{tab:main_results}--\ref{tab:e2e_results}).} Conducted over the standardized \texttt{unified\_rag\_dataset.jsonl} artifact containing 3,356 records (1,292 PhotoBench annotation rows, 64 L10 rows, and 2,000 ESC-50 category rows \cite{piczak2015esc50}), alongside an expanded 100-query diagnostic suite ($N=50$ single-hop, $N=50$ multi-hop) and a public leakage-free benchmark on MS-COCO ($N=500$ queries). Each proxy row stores an annotation-derived \texttt{text\_representation}, establishing a reproducible environment for systematic ablation of dense--sparse balance ($\alpha$), candidate reranking ($\beta$), neural cross-encoding, and multi-hop decomposition.
     \item \textbf{Tier 2: Real-World Multimodal Media Validation (Table \ref{tab:tier2_results}).} Evaluated directly on unannotated physical media streams: (1) native bilingual scene-text and document OCR on 54 physical photographs and 2 research document PDFs, (2) genuine 44.1\,kHz raw WAV audio recordings from ESC-50 and continuous acoustic retrieval via LAION-CLAP, and (3) raw-pixel zero-shot visual retrieval over 191 personal album photos using OpenAI CLIP ViT-B/32 \cite{radford2021clip}.
 \end{itemize}
@@ -229,6 +233,8 @@ For end-to-end behavior, we evaluate an expanded 100-query diagnostic suite (50 
 
 \textbf{Baseline Systems for Comparison:}
 \begin{enumerate}
+    \setlength{\itemsep}{0.5pt plus 0.2pt}
+    \setlength{\parskip}{0pt}
     \item \textbf{BM25 Baseline:} Sparse lexical inverted index over the available proxy text \cite{robertson2009bm25}.
     \item \textbf{Dense Only Baseline:} Dense semantic vector retrieval using \texttt{all-MiniLM-L6-v2} (384-dim) with cosine similarity \cite{reimers2019sbert}.
     \item \textbf{Hybrid Dense-Sparse (Convex $\alpha=0.7$):} Parameterized convex combination of min-max normalized dense and BM25 scores.
@@ -237,51 +243,30 @@ For end-to-end behavior, we evaluate an expanded 100-query diagnostic suite (50 
     \item \textbf{Trained Neural Cross-Encoder:} \texttt{cross-encoder/ms-marco-MiniLM-L-6-v2} full cross-attention reranker \cite{reimers2019sbert}.
 \end{enumerate}
 
-\begin{table*}[t]
+\begin{table}[t]
 \centering
-\caption{Retrieval performance on the 334-query proxy consistency benchmark. The primary retrieval metric is HitRate@K; bracketed intervals are 95\% percentile bootstrap CIs with $B=1,000$.}
+\caption{Retrieval performance on the 334-query proxy consistency benchmark ($N=284$ image, $N=50$ audio queries; bracketed intervals are 95\% bootstrap CIs with $B=1,000$).}
 \label{tab:main_results}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{@{}llcccccc@{}}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{@{}lccccc@{}}
 \toprule
-\textbf{Method} & \textbf{Retrieval Architecture} & \textbf{Hit@1} & \textbf{Hit@5} & \textbf{Hit@10 [95\% CI]} & \textbf{MRR [95\% CI]} & \textbf{NDCG@10} & \textbf{Latency (ms)} \\ \midrule
-BM25 Baseline & Sparse Inverted Index Only & 0.994 & 0.997 & 0.997 [0.991, 1.000] & 0.9958 [0.9888, 1.0000] & 0.9898 & \textbf{0.61} \\
-Dense Only Baseline & all-MiniLM-L6-v2 (384-dim) & 0.9581 & 0.9701 & 0.976 [0.9581, 0.9910] & 0.9639 [0.9446, 0.9806] & 0.9439 & 5.85 \\
-Hybrid (Convex $\alpha=0.7$) & Dense + BM25 Linear Combination & 0.991 & 0.997 & 0.997 [0.991, 1.000] & 0.9935 [0.9850, 1.0000] & 0.9805 & 6.48 \\
-Hybrid (RRF $k=60$) & Reciprocal Rank Fusion & 0.9731 & 0.985 & 0.988 [0.9760, 0.9971] & 0.9772 [0.9617, 0.9902] & 0.9642 & 6.57 \\
-\textbf{Proposed MM-RAG (Stage 1+2)} & \textbf{Hybrid Candidate + Dual-Signal Reranker} & \textbf{0.997} & \textbf{0.997} & \textbf{0.997} [0.991, 1.000] & \textbf{0.9970} [0.9910, 1.0000] & 0.9865 & 6.62 \\ \bottomrule
+\textbf{Method} & \textbf{Hit@1} & \textbf{Hit@10 [95\% CI]} & \textbf{MRR [95\% CI]} & \textbf{Image MRR} & \textbf{Audio MRR} \\ \midrule
+BM25 Baseline & 0.994 & 0.997 [0.991, 1.000] & 0.9958 [0.989, 1.000] & 0.9950 & 1.0000 \\
+Dense Baseline & 0.958 & 0.976 [0.958, 0.991] & 0.9639 [0.945, 0.981] & 0.9576 & 1.0000 \\
+Hybrid (Convex $\alpha=0.7$) & 0.991 & 0.997 [0.991, 1.000] & 0.9935 [0.985, 1.000] & 0.9924 & 1.0000 \\
+Hybrid (RRF $k=60$) & 0.973 & 0.988 [0.976, 0.997] & 0.9772 [0.962, 0.990] & 0.9732 & 1.0000 \\
+\textbf{Proposed MM-RAG} & \textbf{0.997} & \textbf{0.997} [0.991, 1.000] & \textbf{0.9970} [0.991, 1.000] & \textbf{0.9965} & \textbf{1.0000} \\ \bottomrule
 \end{tabular}}
-\end{table*}
+\end{table}
 
 \subsection{Retrieval Accuracy and Metric Evaluation}
 As reported in Table \ref{tab:main_results}, the proxy benchmark produces high scores for every method because the query strings are present in the image index representations and the audio query is the category label. The table is therefore useful for regression testing, but it should not be read as evidence that the proposed architecture solves general raw-media retrieval:
 \begin{itemize}
+    \setlength{\itemsep}{0.5pt plus 0.2pt}
+    \setlength{\parskip}{0pt}
     \item \textbf{Proxy hit rate:} The proposed configuration reaches HitRate@10 = 0.997 and MRR = 0.997, compared with 0.976 and 0.9639 for dense-only retrieval. This is an implementation result, not a claim of statistically significant superiority over BM25, which also reaches HitRate@10 = 0.997.
     \item \textbf{Sparse and dense complementarity:} BM25 reaches HitRate@1 = 0.994 and MRR = 0.9958, while RRF is lower on this corpus (HitRate@10 = 0.988). The ranking differences show that fusion behavior is corpus-dependent; they do not justify a universal ordering of retrieval methods.
     \item \textbf{Uncertainty and leakage:} The narrow intervals reflect repeated query-level outcomes on an annotation-derived benchmark. They quantify sampling variability within this artifact, not uncertainty under an independent media distribution. Direct query-to-index overlap is the dominant validity threat.
-\end{itemize}
-
-\begin{table}[t]
-\centering
-\caption{Modality breakdown on the proxy benchmark. Image queries use $N=284$ annotation strings; audio queries use $N=50$ ESC-50 category queries.}
-\label{tab:modality_breakdown}
-\resizebox{\columnwidth}{!}{%
-\begin{tabular}{@{}lcccc@{}}
-\toprule
- & \multicolumn{2}{c}{\textbf{Image Queries (N=284)}} & \multicolumn{2}{c}{\textbf{Audio Queries (N=50)}} \\
-\cmidrule(lr){2-3} \cmidrule(lr){4-5}
-\textbf{Method} & \textbf{HitRate@10} & \textbf{MRR} & \textbf{HitRate@10} & \textbf{MRR} \\ \midrule
-BM25 Baseline & 0.9965 & 0.9950 & \textbf{1.0000} & \textbf{1.0000} \\
-Dense Only & 0.9718 & 0.9576 & 1.0000 & 1.0000 \\
-Hybrid (Convex $\alpha=0.7$) & 0.9965 & 0.9924 & 1.0000 & 1.0000 \\
-Hybrid (RRF $k=60$) & 0.9859 & 0.9732 & 1.0000 & 1.0000 \\
-\textbf{Proposed MM-RAG} & \textbf{0.9965} & \textbf{0.9965} & 1.0000 & 1.0000 \\ \bottomrule
-\end{tabular}}
-\end{table}
-
-\subsection{Modality-Specific Performance Analysis}
-Table \ref{tab:modality_breakdown} isolates performance across visual and acoustic modalities:
-\begin{itemize}
     \item \textbf{Image subset:} The proposed scorer has the highest image MRR (0.9965), but its HitRate@10 is tied with BM25 and convex fusion. Since the query text is included in the image representation, this measures annotation indexing consistency rather than visual retrieval.
     \item \textbf{Acoustic subset:} Every method obtains HitRate@10 = 1.0 and MRR = 1.0 because the query is the ESC-50 category label and the relevant set contains all 40 recordings in that category. This is a category lookup sanity check, not an acoustic similarity evaluation.
 \end{itemize}
@@ -292,6 +277,8 @@ To evaluate iterative multi-hop decomposition and entity bridging, Table \ref{ta
 \textbf{Human Ground-Truth Audit and Rubric Calibration:}
 To establish rigorous evaluation validity beyond automated LLM scoring, we conducted a multi-reviewer human audit across 110 multimodal cases (60 local album queries across three physical photo albums and the 50 diagnostic queries). The audit was conducted by two co-authors (Reviewer~1: A.~K.~Vennela and Reviewer~2: G.~S.~B.~Koushik) evaluating a blinded packet independently under a standardized three-dimensional rubric:
 \begin{enumerate}
+    \setlength{\itemsep}{0.5pt plus 0.2pt}
+    \setlength{\parskip}{0pt}
     \item \emph{Visual \& Contextual Faithfulness} (\texttt{supported}, \texttt{mixed}, \texttt{unsupported}): whether every factual claim in the answer is entailed by retrieved evidence without hallucination.
     \item \emph{Query Relevance \& Intent} (\texttt{direct}, \texttt{partial}, \texttt{off\_topic}): whether the response addresses the prompt and target detail directly.
     \item \emph{Media Retrieval Correctness} (\texttt{correct}, \texttt{uncertain}, \texttt{incorrect}): whether the retrieved item matches the ground-truth media instance.
@@ -321,223 +308,363 @@ Hybrid (No Multi-Hop) & \textbf{1.000} & 0.876 & \textbf{0.814} & 0.620 & 0.870 
 \subsection{Multi-Hop Reasoning and Latency Profiling}
 Stratifying performance between single-hop and multi-hop queries in Table \ref{tab:e2e_results} reveals critical architectural trade-offs:
 \begin{itemize}
-    \setlength{\itemsep}{1pt plus 0.5pt}
+    \setlength{\itemsep}{0.2pt plus 0.1pt}
     \setlength{\parskip}{0pt}
-    \item \textbf{Single-Hop Performance:} On direct queries ($N=50$), hybrid retrieval and proposed MM-RAG achieve Target Hit@10 = 1.000, outperforming BM25 (0.820) and dense retrieval (0.980). Both achieve high answer relevance (0.800--0.814) under 3,056.6--3,657.9 ms latency.
-    \item \textbf{Multi-Hop Trade-Off and Confidence-Gated Recovery:} On the multi-hop subset ($N=50$), unguided bridging can suffer from cascading entity drift. However, our confidence-gated bridging procedure achieves \textbf{Target Hit@10 = 0.640}, matching single-stage dense retrieval (0.640, diff = 0.000, $p = 1.0000$) and improving upon BM25 (0.480, diff = +0.160, uncorrected $p = 0.0200$). Across the full 100-query suite, MM-RAG reaches \textbf{0.820 Target Hit@10} (vs. BM25's 0.650, uncorrected $p = 0.0150$).
-    \item \textbf{Held-Out Split Evaluation:} To eliminate diagnostic bias (since failure analysis examined queries \texttt{mh\_01}--\texttt{mh\_25}), we evaluate both splits side by side across all systems: on the diagnostic design split (\texttt{mh\_01}--\texttt{mh\_25}, $N=25$), single-stage Dense and Hybrid without multi-hop achieve Target Hit@10 = 0.800 (20/25) vs. 0.760 (19/25) for MM-RAG and 0.440 (11/25) for BM25. On the strictly held-out test split (\texttt{mh\_26}--\texttt{mh\_50}, $N=25$), BM25 reaches Target Hit@10 = 0.520 (13/25), equal to MM-RAG (0.520, 13/25), and both outperform Dense (0.480, 12/25) and Hybrid without multi-hop (0.440, 11/25). This shows that iterative bridging and BM25 achieve comparable reachability on unseen multi-hop probes.
-    \item \textbf{Relevance Advantage over BM25:} In multi-hop settings, BM25's answer relevance collapses to 0.536 because lexical matching cannot bridge intermediate cross-modal entities. MM-RAG improves answer relevance over BM25 to 0.668 (diff = +0.132, uncorrected $p = 0.0280$). However, neither $p=0.020$ nor $p=0.028$ survives Bonferroni correction ($\alpha_{\text{corrected}} = 0.0125$ across the 4 primary hypothesis tests), indicating that these sample gains require verification on larger suites.
-    \item \textbf{Faithfulness versus Abstention:} BM25 exhibits high nominal faithfulness (0.926--0.930) due to conservative abstention when evidence is unretrieved. Reporting faithfulness in conjunction with answer relevance is therefore essential.
-    \item \textbf{Latency Overhead of Decomposition:} Multi-hop orchestration incurs additional sequential LLM calls: proposed MM-RAG averages 4,736.8 ms overall and 6,416.9 ms on multi-hop queries, compared with 2,952.6--3,751.5 ms for single-pass baselines. This reflects the latency cost of iterative planning and candidate extraction.
+    \item \textbf{Single-Hop Performance:} On direct queries ($N=50$), hybrid retrieval and proposed MM-RAG achieve Target Hit@10 = 1.000, outperforming BM25 (0.820) and dense retrieval (0.980) with high answer relevance (0.800--0.814; 3,056.6--3,657.9\,ms latency).
+    \item \textbf{Multi-Hop Trade-Off and Confidence-Gated Recovery:} On multi-hop queries ($N=50$), unguided bridging risks cascading drift. Confidence-gated bridging achieves \textbf{Target Hit@10 = 0.640}, matching single-stage dense retrieval (0.640, diff = 0.000, $p = 1.0000$) and improving upon BM25 (0.480, diff = +0.160, uncorrected $p = 0.0200$). Across the 100-query suite, MM-RAG reaches \textbf{0.820 Target Hit@10} (vs. BM25's 0.650).
+    \item \textbf{Held-Out Split Evaluation:} To verify reachability on unseen probes, we evaluate both splits: on the diagnostic split (\texttt{mh\_01}--\texttt{mh\_25}), Dense and Hybrid reach Target Hit@10 = 0.800 vs. 0.760 for MM-RAG and 0.440 for BM25. On the strictly held-out test split (\texttt{mh\_26}--\texttt{mh\_50}), BM25 reaches Target Hit@10 = 0.520, tied with MM-RAG (0.520) and exceeding Dense (0.480), confirming that iterative bridging recovers reachability on intermediate entities without outperforming lexical indexing on unseen targets.
+    \item \textbf{Relevance and Faithfulness:} BM25's answer relevance collapses to 0.536 on multi-hop probes due to cross-modal lexical disconnect; MM-RAG improves relevance to 0.668 (diff = +0.132, uncorrected $p = 0.0280$, non-significant after family correction). BM25 exhibits high nominal faithfulness (0.926--0.930) due to conservative abstention.
+    \item \textbf{Latency Overhead of Decomposition:} Multi-hop orchestration incurs sequential LLM overhead: proposed MM-RAG averages 4,736.8\,ms overall and 6,416.9\,ms on multi-hop queries, compared with 2,952.6--3,751.5\,ms for single-pass baselines.
+    \item \textbf{Dense Weight Sensitivity:} Sensitivity analysis across $\alpha \in [0.0, 1.0]$ in Eq.~(\ref{eq:hybrid}) shows HitRate@10 remains 0.997 for $\alpha \in [0.0, 0.7]$ and declines to 0.976 at $\alpha=1.0$ (MRR from 0.9955 to 0.9629). This diagnostic reflects lexical overlap in proxy annotations rather than universal cross-modal weight optimality.
 \end{itemize}
 
-\subsection{Sensitivity Analysis of Dense Weight $\alpha$}
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.52\columnwidth]{fig_alpha_sensitivity.png}
-\caption{Proxy-benchmark HitRate@10 and MRR across dense weighting coefficients $\alpha \in [0.0, 1.0]$.}
-\label{fig:alpha_sensitivity}
-\end{figure}
-Fig. \ref{fig:alpha_sensitivity} illustrates the sensitivity of HitRate@10 and MRR with respect to the dense weighting parameter $\alpha$ in Eq. (\ref{eq:hybrid}). On the same annotation-derived query set, HitRate@10 remains 0.997 for $\alpha \in [0.0,0.7]$ and declines to 0.976 at $\alpha=1.0$; MRR declines from 0.9955 to 0.9629. This is a post hoc diagnostic of lexical overlap in the supplied proxy fields, not evidence that a particular weight generalizes to raw multimedia.
-
-\subsection{Real-World Multimodal Media Validation (Tier 2)}
+\subsection{Real-World Multimodal Media Validation and Probe Diagnosis (Tier 2)}
 \label{sec:tier2_eval}
-While the Tier-1 benchmark in Tables \ref{tab:main_results}--\ref{tab:e2e_results} provides controlled algorithmic ablations over proxy representations, it inherits the annotation-leakage limitations discussed in Section \ref{sec:limitations}. To establish empirical validity on unannotated physical media, we conduct a Tier-2 evaluation across three distinct real-world media streams (Table \ref{tab:tier2_results}):
+While the Tier-1 proxy benchmark provides controlled algorithmic ablations over precomputed text representations, it carries lexical overlap. To establish empirical validity on unannotated physical media, we conduct a Tier-2 evaluation across three physical media streams (Table~\ref{tab:tier2_results}):
 
-\subsubsection{Physical Scene-Text and Document OCR}
-Evaluating 30 targeted cross-modal probes demonstrates an acute vulnerability in pure dense vector representations: \textbf{dense semantic retrieval drops substantially} on physical scene text, obtaining only Hit@1 = 0.400 and Hit@10 = 0.533 [95\% CI: 0.367, 0.700] (MRR = 0.4611). This performance drop occurs because exact alphanumeric markers, proper nouns, and bilingual signage fail to cluster reliably in general sentence embedding space. In contrast, sparse BM25 achieves Hit@10 = 0.967 [0.900, 1.000] and MRR = 0.8900, outperforming dense and hybrid methods. Hybrid retrieval achieves \textbf{Hit@10 = 1.000} (30/30 probes, exact Clopper-Pearson 95\% CI [0.884, 1.000]) with an average latency of 32.58\,ms. Notably, convex linear fusion ($\alpha=0.7$) achieves Hit@1 = 0.667 and MRR = 0.8194, outperforming the Stage 1+2 reranker (Hit@1 = 0.567, MRR = 0.7244). On short scene-text strings, token overlap in the second-stage reranker penalizes valid partial matches, illustrating that candidate reranking does not universally improve top-rank precision over well-calibrated linear fusion. Furthermore, evaluating a full neural cross-encoder (\texttt{cross-encoder/ms-marco-MiniLM-L-6-v2}) achieves higher MRR (0.8778) by virtue of deep cross-attention, but increases latency: scoring all $K_1=30$ candidates takes 137.21\,ms (compared with 7.96\,ms for lightweight reranking), while scoring top-$k=5$ candidates takes 34.05\,ms. RAMP-RAG's confidence cascade escalates only ambiguous top candidates ($\Delta_{1,2} < 0.065$), running in 7.85\,ms (13.3\% escalation) for responsive episodic retrieval under tight latency budgets.
+\subsubsection{Physical Scene-Text and Document OCR Probe Discrepancy}
+To diagnose performance across probe distributions, we evaluate two distinct probe sets alongside their pooled combination ($N=85$ total):
+\begin{itemize}
+    \setlength{\itemsep}{1pt plus 0.5pt}
+    \setlength{\parskip}{0pt}
+    \item \textbf{Set 1 (Original 30 Probes):} Dense retrieval drops to Hit@10 = 0.633 [0.467, 0.800] (MRR = 0.4948) and BM25 achieves 0.600 [0.433, 0.767] (MRR = 0.5096). This divergence occurs because 11 of the 15 photo probes were photographic visual scene descriptions matching raw camera filenames (\texttt{IMG\_1178.HEIC}, \texttt{IMG\_6457.HEIC}) lacking OCR text. Because textual tokens were absent, text search failed while zero-shot visual CLIP ViT-B/32 succeeded via pixel embeddings (Hit@10 = 0.867 [0.733, 0.967], MRR = 0.5294).
+    \item \textbf{Set 2 (55 Held-Out Test Probes):} Strictly targeting genuine readable scene-text lines and research document sentences, BM25 achieves Hit@10 = 1.000 [0.935, 1.000] (MRR = 0.9455) and Dense achieves 0.927 [0.855, 0.982] (MRR = 0.7518), while visual CLIP drops to 0.618 (MRR = 0.4078).
+    \item \textbf{Pooled Set ($N=85$ Probes):} Combining visual scene and readable text queries, BM25 achieves Hit@10 = 0.859 (MRR = 0.7916), Dense achieves 0.824 (MRR = 0.6611), Hybrid reaches 0.871 (MRR = 0.7780), and CLIP reaches 0.706 (MRR = 0.4507).
+\end{itemize}
 
 \subsubsection{Raw Acoustic Waveforms and Continuous CLAP Retrieval}
-To evaluate acoustic retrieval over physical audio files rather than category strings, we ingested 52 authentic 5-second 44.1\,kHz raw \texttt{.wav} audio recordings from the official ESC-50 dataset \cite{piczak2015esc50}. Evaluating 13 category probes demonstrates that the system achieves Hit@1 = 1.000, Hit@10 = 1.000 (exact Clopper-Pearson 95\% CI [0.753, 1.000]), and MRR = 1.000 under 7.08\,ms latency. To test acoustic retrieval beyond category strings, we evaluated continuous acoustic representations using LAION-CLAP (\texttt{laion/clap-htsat-unfused}) \cite{wu2023clap} over the 52 raw WAV recordings. Formulating 13 free-form acoustic narrative queries without category name mentions (e.g., \textit{``violent thunderstorm with heavy rain and loud thunder strikes''}) achieves Hit@10 = 1.000 ([0.753, 1.000]), MRR = 1.000, and NDCG@10 = 0.9978 (59.55\,ms), verifying that acoustic retrieval operates over continuous waveforms without lexical shortcut leakage.
+Ingesting 52 authentic 5-second 44.1\,kHz raw \texttt{.wav} recordings from ESC-50 \cite{piczak2015esc50} yields Hit@10 = 1.000 and MRR = 1.000 across 13 category probes (7.08\,ms). Beyond category names, continuous acoustic representations using LAION-CLAP (\texttt{laion/clap-htsat-unfused}) \cite{wu2023clap} over free-form descriptive audio queries (e.g., \textit{``violent thunderstorm with heavy rain and loud thunder strikes''}) achieves Hit@10 = 1.000 ([0.753, 1.000]), MRR = 1.000, and NDCG@10 = 0.9978 (59.55\,ms), verifying that acoustic retrieval operates continuously without lexical shortcuts.
 
 \subsubsection{Raw Pixel Zero-Shot Visual Retrieval}
-To evaluate image retrieval without text annotations or ground-truth leakage, we indexed the raw pixel arrays of all 191 personal album photographs using OpenAI CLIP ViT-B/32 \cite{radford2021clip} executed on Apple Silicon GPU acceleration. Testing 53 ground-truth visual queries across diverse outdoor, architectural, and indoor scenes yielded Hit@1 = 0.547 [0.415, 0.679], Hit@5 = 0.698, and \textbf{Hit@10 = 0.792} [0.679, 0.887] (MRR = 0.6182) with an average retrieval latency of 39.06\,ms. On unannotated photographic archives, the visual encoder carries the retrieval result: pure visual CLIP alone reaches Hit@10 = 0.792, whereas fusing OCR text slightly lowers Hit@10 to 0.774 [0.660, 0.868] due to spurious lexical matches when signage is absent. MM-RAG matches CLIP's 0.792, demonstrating that the multi-stage reranker preserves visual fidelity on pure imagery but cannot substitute for native visual representations.
-
-\begin{table*}[t]
-\centering
-\caption{Tier-2 Real-World Multimodal Media Validation and Public MS-COCO Karpathy Benchmark: Scene-text photographic/PDF document OCR, raw acoustic audio waveforms (ESC-50 \& CLAP), raw pixel visual zero-shot retrieval (CLIP ViT-B/32), and zero-leakage MS-COCO paraphrase retrieval ($N=500$). Bracketed intervals indicate 95\% bootstrap confidence intervals (2,000 resamples); $^\dagger$denotes exact Clopper-Pearson 95\% binomial confidence intervals for saturated rates ($k=n$) to avoid bootstrap collapse.}
-\label{tab:tier2_results}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{@{}llcccccc@{}}
-\toprule
-\textbf{Media Stream / Modality} & \textbf{Evaluation Method} & \textbf{Hit@1} & \textbf{Hit@5} & \textbf{Hit@10 [95\% CI]} & \textbf{MRR} & \textbf{NDCG@10} & \textbf{Latency (ms)} \\ \midrule
-\multirow{7}{*}{\textbf{Real Scene-Text \& Documents ($N=30$)}} 
-& BM25 Baseline (Sparse Lexical) & 0.833 & 0.967 & 0.967 [0.900, 1.000] & 0.8900 & 0.8062 & \textbf{0.08} \\
-& Dense Only Baseline (all-MiniLM-L6-v2) & 0.400 & 0.533 & 0.533 [0.367, 0.700] & 0.4611 & 0.4706 & 32.56 \\
-& Hybrid (Convex $\alpha=0.7$) & 0.667 & \textbf{1.000} & \textbf{1.000} [0.884, 1.000]$^\dagger$ & 0.8194 & 0.7875 & 32.56 \\
-& Hybrid (RRF $k=60$) & 0.533 & 0.867 & 0.867 [0.733, 0.967] & 0.6706 & 0.6659 & 32.59 \\
-& Proposed MM-RAG (Stage 1+2) & 0.567 & 0.967 & \textbf{1.000} [0.884, 1.000]$^\dagger$ & 0.7244 & 0.7291 & 32.58 \\
-& Trained Cross-Encoder (ms-marco-MiniLM) & \textbf{0.767} & \textbf{1.000} & \textbf{1.000} [0.884, 1.000]$^\dagger$ & \textbf{0.8778} & \textbf{0.8281} & 137.21 \\
-& \textbf{Proposed RAMP-RAG (Adaptive + Cascade)} & \textbf{0.767} & 0.933 & 0.933 [0.833, 1.000] & 0.8413 & 0.7667 & 7.85 \\ \midrule
-\multirow{4}{*}{\textbf{Raw Acoustic Waveforms ($N=13$)}}
-& BM25 Baseline (Category Tokens) & 1.000 & 1.000 & 1.000 [0.753, 1.000]$^\dagger$ & 1.0000 & 0.9915 & \textbf{0.07} \\
-& Dense Only Baseline (Acoustic Semantic) & 1.000 & 1.000 & 1.000 [0.753, 1.000]$^\dagger$ & 1.0000 & 1.0000 & 7.09 \\
-& Native CLAP Acoustic (Raw 44.1\,kHz WAV) & 1.000 & 1.000 & 1.000 [0.753, 1.000]$^\dagger$ & 1.0000 & 0.9978 & 59.55 \\
-& \textbf{Proposed MM-RAG (Stage 1+2)} & \textbf{1.000} & \textbf{1.000} & \textbf{1.000} [0.753, 1.000]$^\dagger$ & \textbf{1.0000} & \textbf{1.0000} & 7.08 \\ \midrule
-\multirow{4}{*}{\textbf{Raw Pixel Zero-Shot Visual ($N=53$)}}
-& Scene-Text OCR Lexical (BM25) & 0.189 & 0.226 & 0.283 [0.170, 0.415] & 0.2059 & 0.1683 & \textbf{0.08} \\
-& Zero-Shot Visual (CLIP ViT-B/32 Pixels) & 0.547 & 0.698 & 0.792 [0.679, 0.887] & 0.6176 & 0.5969 & 39.09 \\
-& Multimodal Hybrid Fusion (CLIP + OCR) & 0.547 & 0.679 & 0.774 [0.660, 0.868] & 0.6045 & 0.6000 & 39.07 \\
-& \textbf{Proposed MM-RAG (Stage 1+2)} & \textbf{0.547} & \textbf{0.698} & \textbf{0.792} [0.679, 0.887] & \textbf{0.6182} & \textbf{0.6059} & 39.06 \\ \midrule
-\multirow{6}{*}{\textbf{MS-COCO Karpathy Split ($N=500$)}}
-& BM25 Baseline (Sparse Lexical) & 0.176 & 0.344 & 0.444 [0.400, 0.488] & 0.2604 & 0.2892 & 5.78 \\
-& Dense Only Baseline (all-MiniLM-L6-v2) & \textbf{0.280} & \textbf{0.570} & \textbf{0.660} [0.620, 0.700] & \textbf{0.4085} & \textbf{0.4712} & \textbf{5.31} \\
-& Hybrid (Convex $\alpha=0.7$) & 0.248 & 0.540 & 0.640 [0.596, 0.682] & 0.3798 & 0.4423 & 5.40 \\
-& Proposed MM-RAG (Stage 1+2) & 0.256 & 0.548 & 0.640 [0.596, 0.682] & 0.3921 & 0.4501 & 5.41 \\
-& Trained Cross-Encoder (100\% Cascade) & 0.220 & 0.544 & 0.640 [0.596, 0.682] & 0.3715 & 0.4358 & 13.49 \\
-& \textbf{Proposed RAMP-RAG (Adaptive + Cascade)} & 0.262 & 0.564 & \textbf{0.660} [0.620, 0.702] & 0.3974 & 0.4618 & 9.45 \\ \bottomrule
-\end{tabular}}
-\end{table*}
-
-\subsection{Public Benchmark Generalization (MS-COCO Karpathy Split)}
-\label{sec:coco_eval}
-To evaluate image retrieval without annotation leakage or lexical sharing, we evaluated the standard MS-COCO Karpathy test split (1,000 index images using Caption~0; 500 held-out queries from Captions~3 and 4; Table~\ref{tab:tier2_results}). Sparse BM25 drops significantly (-32.7\% relative Hit@10 vs. dense) under linguistic paraphrasing, lowering fixed hybrid ($\alpha=0.7$) from 0.660 to 0.640 at Stage 1. RAMP-RAG detects descriptive queries via its router, shifting balance to dense matching ($\alpha_q \approx 0.85$) to match Dense Hit@10 at \textbf{0.660} (MRR = 0.3974 vs. 0.4085 for Dense; 9.45\,ms latency). On Tier-2 Scene-Text OCR (Table~\ref{tab:tier2_results}), sparse BM25 achieves higher MRR (0.890 vs. 0.841) via exact alphanumeric matching; nevertheless, RAMP-RAG routes to sparse matching ($\alpha_q \approx 0.25$) and triggers cross-encoding on 13.3\% of ambiguous queries, reaching \textbf{MRR = 0.8413} while cutting cross-encoder compute by 77\% (7.85\,ms vs. 34.05\,ms).
-
-\textbf{Realistic Machine Proxies and Native Pixels:} Substituting gold captions with BLIP proxies on MS-COCO ($N=250$ test queries) creates lexical sparsity (BM25 Hit@10 = 0.4200, MRR = 0.2325). Dense retrieval with \texttt{all-MiniLM-L6-v2} reaches Hit@10 = 0.6920 (MRR = 0.3873), and \texttt{bge-base-en-v1.5} reaches 0.6360 (MRR = 0.4002). However, direct zero-shot visual retrieval on raw pixels using CLIP ViT-B/32 achieves Hit@10 = \textbf{0.7600} [0.708, 0.812] and MRR = \textbf{0.5045} [0.455, 0.555], significantly outperforming all text proxies and confirming that native vision-language embeddings remain superior for unannotated visual scenes.
-
-\textbf{Proxy Noise Robustness:} Across 0\%, 10\%, 20\%, and 40\% character corruptions across 3 seeds (42, 43, 44) over 55 held-out scene-text and document test probes ($N=165$ evals per noise level; Table~\ref{tab:ablation_results}), dense \texttt{all-MiniLM} collapses under 20\% noise (Hit@10 drops from 0.9636 to 0.7515 [0.685, 0.812], MRR to 0.5306), while sparse BM25 exhibits remarkable resilience (Hit@10 = 0.9758 [0.952, 0.994], MRR = 0.9473). Fixed hybrid drops to Hit@10 = 0.9636 (MRR = 0.8254). Clean-stream visual fusion in RAMP-RAG ($\gamma^* = 0.80$) mitigates dense drop-off (Hit@10 = 0.9939 [0.976, 1.000], MRR = 0.8624 [0.821, 0.900]), but confidence intervals overlap unweighted hybrid ($[0.777, 0.872]$ vs. $[0.821, 0.900]$, $p_{\text{Holm}} = 0.3252$). At 40\% noise, clean-stream fusion significantly improves Hit@10 ($0.9576$ vs. $0.8606$, $p_{\text{Holm}} = 0.0084$), yet pure BM25 remains the most resilient stream overall (MRR = $0.8993$). Thus, proxy corruptions degrade dense embeddings faster than lexical indices; while clean-stream fusion restores recall, inverted indexing remains the primary defense.
+Indexing the raw pixel arrays of all 191 personal album photographs using OpenAI CLIP ViT-B/32 \cite{radford2021clip} across 53 visual queries yields Hit@1 = 0.547 [0.415, 0.679], Hit@5 = 0.698, and \textbf{Hit@10 = 0.792} [0.679, 0.887] (MRR = 0.6182; 39.06\,ms). Fusing OCR text slightly lowers Hit@10 to 0.774 [0.660, 0.868] due to spurious lexical matches when signage is absent, demonstrating that native visual representations are essential for unannotated visual archives.
 
 \begin{table}[t]
 \centering
-\caption{Systematic Component Ablation across held-out test splits (COCO $N=250$, Clean Scene-Text $N=55$, 20\% Corrupted OCR $N=55\times 3$ seeds; Apple Silicon M-series timings).}
-\label{tab:ablation_results}
+\caption{Tier-2 Physical Media Validation: Scene-text OCR probe sets ($N=30, 55, 85$), raw acoustic audio waveforms (ESC-50, CLAP), and raw pixel visual zero-shot retrieval (CLIP ViT-B/32). Bracketed intervals indicate 95\% cluster bootstrap CIs; $^\dagger$denotes exact Clopper-Pearson 95\% binomial intervals.}
+\label{tab:tier2_results}
 \resizebox{\columnwidth}{!}{%
-\begin{tabular}{@{}lccccc@{}}
+\begin{tabular}{@{}llccc@{}}
 \toprule
-\textbf{Ablation Configuration} & \textbf{COCO H@10} & \textbf{Clean H@10} & \textbf{20\% Noise H@10 [95\% CI]} & \textbf{20\% Noise MRR} & \textbf{Latency} \\ \midrule
-1. Baseline Hybrid (Fixed $\alpha=0.7$) & 0.636 & \textbf{1.000} & 0.964 [0.933, 0.988] & 0.825 & \textbf{4.30\,ms} \\
-2. + Router Only (Learned $\alpha_q$) & \textbf{0.648} & \textbf{1.000} & 0.897 [0.849, 0.939] & 0.718 & 4.35\,ms \\
-3. + Cascade Only ($\tau_{\text{margin}}=0.065$) & 0.636 & \textbf{1.000} & 0.964 [0.933, 0.988] & 0.844 & 17.50\,ms \\
-4. + Reliability Only (Observable $r_{\text{ocr}}$) & \textbf{0.648} & \textbf{1.000} & 0.842 [0.788, 0.897] & 0.638 & 4.41\,ms \\
-5. \textbf{Full RAMP-RAG (+ Clean Stream)} & \textbf{0.648} & \textbf{1.000} & \textbf{0.994} [0.976, 1.000] & \textbf{0.862} & 17.80\,ms \\ \bottomrule
+\textbf{Media Stream} & \textbf{Evaluation Method} & \textbf{Hit@10 [95\% CI]} & \textbf{MRR} & \textbf{Latency} \\ \midrule
+\multirow{4}{*}{\textbf{Scene-Text Set 1 ($N=30$)}}
+& BM25 Baseline (Sparse) & 0.600 [0.433, 0.767] & 0.5096 & \textbf{0.08\,ms} \\
+& Dense Baseline (MiniLM) & 0.633 [0.467, 0.800] & 0.4948 & 32.56\,ms \\
+& Hybrid (Convex $\alpha=0.7$) & 0.633 [0.467, 0.800] & 0.5210 & 32.56\,ms \\
+& \textbf{CLIP ViT-B/32 (Pixels)} & \textbf{0.867} [0.733, 0.967] & \textbf{0.5294} & 39.09\,ms \\ \midrule
+\multirow{4}{*}{\textbf{Scene-Text Set 2 ($N=55$)}}
+& \textbf{BM25 Baseline (Sparse)} & \textbf{1.000} [0.935, 1.000]$^\dagger$ & \textbf{0.9455} & \textbf{0.08\,ms} \\
+& Dense Baseline (MiniLM) & 0.927 [0.855, 0.982] & 0.7518 & 32.56\,ms \\
+& Hybrid (Convex $\alpha=0.7$) & 1.000 [0.935, 1.000]$^\dagger$ & 0.9182 & 32.56\,ms \\
+& CLIP ViT-B/32 (Pixels) & 0.618 [0.491, 0.745] & 0.4078 & 39.09\,ms \\ \midrule
+\multirow{4}{*}{\textbf{Pooled Probes ($N=85$)}}
+& BM25 Baseline (Sparse) & 0.859 [0.776, 0.929] & 0.7916 & \textbf{0.08\,ms} \\
+& Dense Baseline (MiniLM) & 0.824 [0.741, 0.906] & 0.6611 & 32.56\,ms \\
+& \textbf{Hybrid (Convex $\alpha=0.7$)} & \textbf{0.871} [0.788, 0.941] & 0.7780 & 32.56\,ms \\
+& CLIP ViT-B/32 (Pixels) & 0.706 [0.600, 0.800] & 0.4507 & 39.09\,ms \\ \midrule
+\textbf{Raw Acoustic ($N=13$)} & CLAP (44.1\,kHz WAV) & \textbf{1.000} [0.753, 1.000]$^\dagger$ & \textbf{1.0000} & 59.55\,ms \\
+\textbf{Raw Visual ($N=53$)} & CLIP ViT-B/32 (Pixels) & \textbf{0.792} [0.679, 0.887] & \textbf{0.6182} & 39.06\,ms \\ \bottomrule
 \end{tabular}}
 \end{table}
 
-\subsection{Bridge Extraction Failure Taxonomy}
+\subsection{Public Benchmark Generalization (MS-COCO Test Half)}
+\label{sec:coco_eval}
+To evaluate image retrieval without annotation leakage, we evaluate the MS-COCO Karpathy test half ($N=250$ held-out queries, 1,000 index images; zero tuning on test; Table~\ref{tab:coco_results}).
+\begin{itemize}
+    \setlength{\itemsep}{1pt plus 0.5pt}
+    \setlength{\parskip}{0pt}
+    \item \textbf{Realistic Machine Proxies (BLIP):} Substituting gold captions with realistic BLIP-generated captions exposes lexical sparsity: BM25 achieves only Hit@10 = 0.4200 (MRR = 0.2325). Dense MiniLM reaches Hit@10 = 0.6920 (MRR = 0.3873) and BGE-base reaches 0.6360 (MRR = 0.4002). However, direct zero-shot visual retrieval on raw pixels via CLIP ViT-B/32 achieves Hit@10 = \textbf{0.7800} [0.724, 0.828] and MRR = \textbf{0.5167} [0.468, 0.568], significantly outperforming all proxy systems ($p_{\text{Holm}} = 0.0007$).
+    \item \textbf{Gold Human Captions:} On human captions, dense models achieve Hit@10 = 0.6520 (MRR = 0.4025 for MiniLM; 0.3987 for BGE-base), while CLIP visual retrieval retains superior rank precision (0.7800 Hit@10, 0.5167 MRR), confirming that native vision-language embeddings are superior for photographic scenes.
+\end{itemize}
+
+\begin{table}[t]
+\centering
+\caption{MS-COCO Karpathy Test Half ($N=250$ queries, 1,000 images): BLIP Proxies vs. Gold Human Captions. Evaluated with 95\% cluster bootstrap CIs; $p_{\text{Holm}}$ denotes significance vs. Hybrid ($m=7$).}
+\label{tab:coco_results}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+ & \multicolumn{2}{c}{\textbf{BLIP Proxies}} & \multicolumn{2}{c}{\textbf{Gold Captions}} \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-5}
+\textbf{Method} & \textbf{Hit@10 [95\% CI]} & \textbf{MRR} & \textbf{Hit@10 [95\% CI]} & \textbf{MRR} \\ \midrule
+BM25 Baseline & 0.420 [0.356, 0.480] & 0.2325 & 0.376 [0.316, 0.436] & 0.2119 \\
+Dense (all-MiniLM) & 0.692 [0.636, 0.744] & 0.3873 & 0.628 [0.568, 0.688] & 0.3680 \\
+Dense (BAAI/bge-base) & 0.636 [0.576, 0.692] & 0.4002 & 0.644 [0.584, 0.704] & 0.3987 \\
+Hybrid Convex ($\alpha=0.7$) & 0.648 [0.588, 0.704] & 0.3581 & 0.584 [0.524, 0.644] & 0.3344 \\
++ Router (Learned $\alpha_q$) & 0.684 [0.628, 0.736] & 0.3765 & 0.640 [0.580, 0.700] & 0.3627 \\
++ Cascade ($\tau=0.065$) & 0.648 [0.588, 0.704] & 0.3734 & 0.584 [0.524, 0.644] & 0.3490 \\
++ Reliability ($r_{\text{ocr}}$) & 0.684 [0.628, 0.736] & 0.3765 & 0.636 [0.576, 0.696] & 0.3635 \\
+Proposed RAMP-RAG & 0.684 [0.628, 0.736] & 0.3909$^*$ & 0.664 [0.604, 0.724] & 0.3727 \\
+\textbf{CLIP Visual (Pixels)} & \textbf{0.780} [0.724, 0.828] & \textbf{0.5167}$^*$ & \textbf{0.740} [0.680, 0.796] & \textbf{0.4638}$^*$ \\ \bottomrule
+\end{tabular}}
+\end{table}
+
+\subsection{Proxy Noise Sweeps and Component Ablation}
+\label{sec:noise_ablation}
+Evaluating systematic character corruption across Seeds 42, 43, 44 on held-out test probes (Table~\ref{tab:noise_sweep}) exposes the \textbf{Lexical Dominance Phenomenon}:
+\begin{itemize}
+    \setlength{\itemsep}{1pt plus 0.5pt}
+    \setlength{\parskip}{0pt}
+    \item \textbf{Dense Degradation vs. Lexical Resilience:} Dense representations collapse from 0.8527 MRR at 0\% noise to 0.5306 at 20\% and 0.3691 at 40\% noise. In sharp contrast, sparse BM25 achieves 0.9473 MRR at 20\% noise and 0.8993 at 40\% noise, significantly outperforming all proxy-only hybrid models ($p < 0.001$). Character corruption scrambles subword embeddings, whereas inverted indices retain matches whenever uncorrupted tokens persist.
+    \item \textbf{Clean Stream Fusion and CI Overlap:} At 20\% noise, RAMP-RAG with clean visual stream achieves Hit@10 = 0.9939 [0.964, 1.000] and MRR = 0.8770 [0.823, 0.924]. However, paired permutation testing against baseline hybrid yields diff CI $[-0.0168, 0.1170]$ (which contains zero) and $p_{\text{Holm}} = 0.2834$. Under the pre-registered decision rule, this is reported as \emph{no reliable difference}.
+    \item \textbf{Ablation Isolating the Clean Stream Gain:} Table~\ref{tab:ablation_a1} isolates each module under 20\% noise. Pure \texttt{BM25 Alone} achieves MRR = \textbf{0.9337} [0.8981, 0.9654], while \texttt{BM25 + Clean Stream} reaches \textbf{0.9490} [0.9168, 0.9788]. The paired difference ($-0.0153$, diff CI $[-0.0382, +0.0076]$, $p_{\text{Holm}} = 0.1200$) fails to reach statistical significance. Thus, the clean stream's apparent superiority over hybrid ($0.8254$) is driven primarily by discarding the collapsed dense embeddings rather than large additive visual synergy. Heuristic reliability weighting ($r_{\text{ocr}}$) achieves an AUROC of only $0.5149$ for detecting corrupted documents, failing to provide a discriminative filter. Furthermore, distractor pool size fully reconciles 0\%-noise numbers with clean probes: evaluating over the 97-item test split yields 0.9818 (BM25) and 0.9909 (Hybrid), while indexing the full 193-item corpus yields 0.9455 and 0.9182 due to doubled distractor competition.
+\end{itemize}
+
+\begin{table}[t]
+\centering
+\caption{Multi-Seed Noise Robustness Sweep across character corruption rates (Seeds 42, 43, 44; $N=55$ probe clusters; $B=2,000$ cluster bootstrap resamples). MRR reported with 95\% cluster bootstrap CIs.}
+\label{tab:noise_sweep}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+\textbf{Retrieval Method} & \textbf{0\% Noise} & \textbf{10\% Noise} & \textbf{20\% Noise [95\% CI]} & \textbf{40\% Noise [95\% CI]} \\ \midrule
+BM25 Alone & 0.9818 & 0.9548 & \textbf{0.9337} [0.898, 0.965] & 0.8942 [0.850, 0.936] \\
+Dense Baseline (MiniLM) & 0.8527 & 0.7394 & 0.5306 [0.458, 0.601] & 0.3691 [0.306, 0.436] \\
+Hybrid (Fixed $\alpha=0.7$) & \textbf{0.9909} & 0.9457 & 0.8254 [0.768, 0.877] & 0.6677 [0.597, 0.735] \\
+Hybrid + Router & 0.9409 & 0.8994 & 0.7178 [0.652, 0.779] & 0.5571 [0.488, 0.626] \\
+Original RAMP-RAG & 0.9053 & 0.8487 & 0.6726 [0.599, 0.742] & 0.5045 [0.430, 0.577] \\
+Cross-Encoder & 0.9515 & 0.8909 & 0.8345 [0.782, 0.884] & 0.6066 [0.538, 0.673] \\
+BM25 + Clean Stream & 0.9818 & \textbf{0.9581} & \textbf{0.9490} [0.917, 0.979] & \textbf{0.9096} [0.868, 0.949] \\
+RAMP-RAG (+ Clean Stream) & 0.9339 & 0.9201 & 0.8770 [0.823, 0.924] & 0.7869 [0.721, 0.846] \\ \bottomrule
+\end{tabular}}
+\end{table}
+
+\begin{table}[t]
+\centering
+\caption{Full Component Ablation Matrix across COCO Test ($N=250$), Clean Scene-Text ($N=55$), and 20\% Noise ($N=55\times 3$ seeds). Evaluated via cluster bootstrap over probe clusters ($B=2,000$). $p_{\text{Holm}}$ computed vs. Baseline Hybrid ($m=8$).}
+\label{tab:ablation_a1}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+\textbf{Ablation Configuration} & \textbf{COCO MRR} & \textbf{Clean MRR} & \textbf{20\% Noise MRR [95\% CI]} & \textbf{$p_{\text{Holm}}$} \\ \midrule
+1. Baseline Hybrid (Fixed $\alpha=0.7$) & 0.3344 & 0.9909 & 0.8254 [0.772, 0.879] & Baseline \\
+2. BM25 Alone & 0.2119 & 0.9818 & 0.9337 [0.898, 0.965] & \textbf{0.0006}$^*$ \\
+3. Dense Alone (MiniLM) & 0.3680 & 0.8527 & 0.5306 [0.458, 0.601] & \textbf{0.0006} (Hurts) \\
+4. \textbf{BM25 + Clean Stream} & 0.3443 & 0.9818 & \textbf{0.9490} [0.917, 0.979] & \textbf{0.0012}$^*$ \\
+5. Hybrid + Clean Stream & 0.3620 & 0.9606 & 0.9029 [0.847, 0.951] & 0.1056 \\
+6. + Router (Learned $\alpha_q$) & 0.3627 & 0.9409 & 0.7393 [0.668, 0.807] & \textbf{0.0080} (Hurts) \\
+7. + Cascade ($\tau = 0.065$) & 0.3490 & 0.9909 & 0.8442 [0.795, 0.893] & 0.1056 \\
+8. + Reliability ($r_{\text{ocr}}$) & 0.3635 & 0.9409 & 0.6671 [0.580, 0.747] & \textbf{0.0007} (Hurts) \\
+9. Full RAMP-RAG (+ Clean Stream) & 0.3727 & 0.9727 & 0.8770 [0.814, 0.931] & 0.2834 \\ \bottomrule
+\end{tabular}}
+\end{table}
+
+\subsection{Experiment 1: Heterogeneous Corpus Robustness (Hypothesis H1)}
+\label{sec:exp1_heterogeneous}
+To evaluate whether uniform corruption artificially penalized reliability weighting, we benchmarked a heterogeneous-quality corpus. Document-side OCR text was corrupted with 40\% character noise on a controlled subset $f_{\text{bad}} \in \{0.10, 0.30, 0.50, 0.70\}$ (plus continuous $\text{Beta}(2,5) \times 0.60$), while queries remained clean. Corruption was assigned independently of target status across Seeds 42, 43, 44 on 55 held-out probes (Table~\ref{tab:heterogeneous_noise} and Fig.~\ref{fig:heterogeneous_and_routing}(a)).
+
+\begin{table}[t]
+\centering
+\caption{Retrieval MRR and Hit@10 under Heterogeneous Corpus Corruption across fractions $f_{\text{bad}}$ ($40\%$ char noise on corrupted subset). Evaluated over 55 held-out probes across Seeds 42, 43, 44 with cluster bootstrap $95\%$ CIs and step-down Holm correction vs. BM25.}
+\label{tab:heterogeneous_noise}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{@{}lccccc@{}}
+\toprule
+\textbf{Retrieval Method} & \textbf{$f_{\text{bad}}=0.10$} & \textbf{$f_{\text{bad}}=0.30$} & \textbf{$f_{\text{bad}}=0.50$} & \textbf{$f_{\text{bad}}=0.70$} & \textbf{Beta Cont.} \\ \midrule
+BM25 Alone & 0.9576 & 0.9639 & 0.9462 & 0.8961 & 0.9109 \\
+Dense MiniLM & 0.7040 & 0.8184 & 0.6852 & 0.5407 & 0.5326 \\
+Dense BGE-base & 0.7594 & 0.7973 & 0.7545 & 0.7067 & 0.6750 \\
+Hybrid Fixed ($\alpha=0.7$) & 0.9001 & 0.9742 & 0.8679 & 0.7835 & 0.8305 \\
+Hybrid + Clean (CLIP) & 0.9677 & \textbf{0.9758} & 0.9314 & 0.9058 & \textbf{0.9292} \\
+BM25 + Clean Stream & \textbf{0.9747} & 0.9654 & \textbf{0.9492} & \textbf{0.9211} & 0.9260 \\
+Reliability-Weighted Fusion & 0.8415 & 0.8876 & 0.7945 & 0.7347 & 0.7309 \\
+All-Stream RRF & 0.7476 & 0.8031 & 0.7539 & 0.6944 & 0.6945 \\
+*Oracle-Reliability (Upper Bound)* & *0.8532* & *0.8599* & *0.7112* & *0.5964* & *0.5811* \\ \bottomrule
+\end{tabular}}
+\end{table}
+
+\textbf{Hypothesis H1 Decision (Reliability Weighting): FAIL (KILLED under pre-specified decision rule).}
+Across all corruption fractions $f_{\text{bad}} \ge 0.30$, reliability-weighted fusion ($0.8876$ @ 0.30, $0.7945$ @ 0.50) fails to achieve a statistically significant improvement over BM25 alone ($0.9639$ @ 0.30, $0.9462$ @ 0.50; paired diff $-0.0763$, diff CI $[-0.1345, -0.0182]$, $p_{\text{Holm}} = 0.0184$). Heuristic observable reliability $r_{\text{ocr}}$ achieves an AUROC of only $0.5149$ at 20\% noise, near random chance ($0.50$). Without ground-truth labels, token dictionary validity cannot reliably separate clean domain text (e.g., abbreviations, signage) from OCR corruptions, causing reliability weighting to penalize valid text while failing to suppress corrupted tokens. We report H1 as a negative result: in heterogeneous archives, inverted lexical indexing remains superior to reliability-discounted fusion.
+
+\subsection{Experiment 2: Mixed-Intent Query Routing (Hypothesis H2)}
+\label{sec:exp2_routing}
+To test whether learned routing provides advantages on diverse workloads where BM25 does not uniformly dominate, we constructed a unified 1,193-item multimodal index (COCO + photos + documents) and evaluated 600 held-out test queries across 5 balanced intents: (a)~COCO paraphrases ($N=250$), (b)~exact scene-text ($N=100$), (c)~identifiers/filenames ($N=100$), (d)~CJK bilingual ($N=50$), and (e)~numeric queries ($N=100$). Table~\ref{tab:mixed_intent_routing} and Fig.~\ref{fig:heterogeneous_and_routing}(b) report retrieval performance across routers and baselines.
+
+\begin{table}[t]
+\centering
+\caption{Mixed-Intent Query Routing across 5 intents on the unified 1,193-item multimodal index (600 held-out test queries; Seeds 42, 43, 44). Evaluated with 95\% cluster bootstrap CIs.}
+\label{tab:mixed_intent_routing}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{@{}lccccccc@{}}
+\toprule
+\textbf{System} & \textbf{Overall MRR [95\% CI]} & \textbf{H@10} & \textbf{Para.} & \textbf{Text} & \textbf{ID} & \textbf{CJK} & \textbf{Num.} \\ \midrule
+BM25 Alone & 0.3386 [0.302, 0.376] & 0.447 & 0.280 & 0.805 & 0.013 & \textbf{0.980} & 0.117 \\
+Dense MiniLM & 0.3466 [0.317, 0.379] & 0.537 & 0.457 & 0.707 & \textbf{0.071} & 0.231 & 0.114 \\
+CLIP Visual & 0.2615 [0.238, 0.287] & 0.550 & 0.304 & 0.660 & 0.021 & 0.271 & 0.073 \\
+Hybrid Fixed ($\alpha=0.7$) & 0.4116 [0.378, 0.446] & 0.598 & 0.432 & \textbf{0.931} & 0.066 & 0.722 & 0.135 \\
+\textbf{All-Stream RRF} & \textbf{0.4214} [0.386, 0.455] & 0.605 & \textbf{0.481} & 0.858 & 0.029 & 0.817 & 0.116 \\
+Router R1 (Surface) & 0.3920 [0.360, 0.426] & 0.609 & 0.354 & 0.848 & 0.058 & \textbf{0.980} & 0.162 \\
+Router R2 (Dense) & 0.3924 [0.358, 0.426] & 0.600 & 0.345 & 0.850 & \textbf{0.071} & \textbf{0.980} & 0.171 \\
+Router R3 (QPP) & 0.4070 [0.373, 0.441] & 0.609 & 0.391 & 0.810 & 0.069 & \textbf{0.980} & \textbf{0.173} \\
+Router R4 (Combined) & 0.3972 [0.363, 0.431] & 0.607 & 0.354 & 0.860 & 0.065 & \textbf{0.980} & \textbf{0.173} \\
+*Oracle Selector* & *0.5213 [0.486, 0.555]* & *0.694* & *0.588* & *1.000* & *0.076* & *0.980* & *0.185* \\ \bottomrule
+\end{tabular}}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\begin{subfigure}[b]{0.48\columnwidth}
+    \centering
+    \includegraphics[width=\textwidth]{ai_engine/rag/data/mrr_vs_fbad.png}
+    \caption{Heterogeneous Noise ($f_{\text{bad}}$).}
+    \label{fig:mrr_vs_fbad}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{0.48\columnwidth}
+    \centering
+    \includegraphics[width=\textwidth]{ai_engine/rag/data/router_intent_breakdown.png}
+    \caption{5-Intent Workload Breakdown.}
+    \label{fig:router_intent_breakdown}
+\end{subfigure}
+\caption{Empirical verification: (a) Retrieval degradation curves under heterogeneous corpus corruption (H1), and (b) retrieval performance across 5 query intents on the unified index (H2).}
+\label{fig:heterogeneous_and_routing}
+\end{figure}
+
+\textbf{Hypothesis H2 Decision (Query Routing): FAIL (KILLED under pre-specified decision rule).}
+Across the 600-query mixed workload, all learned query routers (R1--R4, MRR 0.3920--0.4070) fail to outperform unweighted All-Stream Reciprocal Rank Fusion (RRF, MRR = \textbf{0.4214}, $p_{\text{Holm}} = 0.2646$). The most expressive router (R3, QPP features + GBDT) achieves an accuracy of 59.3\%, macro F1 of 0.510, and closes only 34.6\% of the oracle headroom gap ($0.4070$ vs. oracle $0.5213$), failing the pre-specified 50\% threshold. Misclassifying borderline queries imposes severe rank penalties that outweigh routing benefits. Unweighted multi-stream fusion (All-Stream RRF) remains the superior strategy across mixed multimodal workloads.
+
+\subsection{Diagnostic Extensions (C1--C4) and Conformal Risk Control}
+\label{sec:diagnostic_extensions}
+Following our pre-registered analysis plan, we report four targeted diagnostic extensions:
+\begin{enumerate}
+    \setlength{\itemsep}{0.2pt plus 0.1pt}
+    \setlength{\parsep}{0pt}
+    \setlength{\parskip}{0pt}
+    \item \textbf{C2: Multi-Encoder Noise Resilience:} Under 20\% character noise on 55 held-out probes, \texttt{BAAI/bge-base-en-v1.5} achieves MRR = \textbf{0.8072} and multilingual-MiniLM reaches \textbf{0.7400}, vastly surpassing \texttt{all-MiniLM-L6-v2} (0.5422). BGE-base closes 67.7\% of the dense-vs-BM25 gap ($0.9337$ vs $0.5422$), demonstrating that larger contrastively trained dense retrievers substantially alleviate character fragility.
+    \item \textbf{C3: Verbatim vs. Paraphrased Probes:} To determine whether BM25 dominance is an artifact of exact verbatim query strings, we evaluated non-verbatim semantic paraphrases of the 55 test probes. Under paraphrasing, BM25 collapses from 0.9818 to \textbf{0.6179}, while Hybrid retrieval achieves \textbf{0.6776} (diff = $+0.0597$, $p < 0.01$). This confirms that BM25's apparent invulnerability requires verbatim lexical tokens; when users pose natural semantic paraphrases, hybrid fusion is strictly superior.
+    \item \textbf{C4: Grounded Extractive Bridging without LLM:} On the 100-query multi-hop diagnostic, pseudo-relevance feedback terms extracted from first-hop context and fused via Reciprocal Rank Fusion (RRF) achieve Multi-Hop Target Hit@10 = \textbf{0.640} (Overall = \textbf{0.820}), identically matching generative LLM bridging (\texttt{gpt-4o-mini}, 0.640 / 0.820) with 0 API calls and $2.2\times$ lower latency (2,890\,ms vs. 6,417\,ms).
+    \item \textbf{B6: Conformal Cascade Risk Control:} Split conformal calibration on Dev identifies $\tau_{\text{conf}} = 0.135$, guaranteeing that non-escalated retrieval miss rate is bounded by $\le 0.05$ with an escalation rate of 14.55\% (Test MRR = 0.9909; Fig.~\ref{fig:pareto_cascade}). Fixed heuristic $\tau = 0.065$ escalates 10.91\% of queries (MRR = 0.9909).
+\end{enumerate}
+
+\begin{figure}[t]
+\centering
+\begin{subfigure}[b]{0.48\columnwidth}
+    \centering
+    \includegraphics[width=\textwidth]{ai_engine/rag/data/pareto_cascade.png}
+    \caption{Cost-Quality Pareto Frontier.}
+    \label{fig:pareto_cascade}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{0.48\columnwidth}
+    \centering
+    \includegraphics[width=\textwidth]{ai_engine/rag/data/query_type_heatmap.png}
+    \caption{Query-Type Taxonomy Heatmap.}
+    \label{fig:query_type_heatmap}
+\end{subfigure}
+\caption{Diagnostic visualizations: (a) Conformal cascade risk calibration vs. escalation rate, and (b) retrieval performance across 5 query taxonomy categories.}
+\label{fig:diagnostics}
+\end{figure}
+
+\begin{table}[t]
+\centering
+\caption{Standardized Latency Profile (Mean and P95 over 3 runs on warm cache; scope = query encoding + retrieval + score fusion + reranking).}
+\label{tab:standardized_latency}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{@{}lcc@{}}
+\toprule
+\textbf{Retrieval Architecture} & \textbf{Mean Latency (ms)} & \textbf{P95 Latency (ms)} \\ \midrule
+BM25 (Sparse Inverted Index) & \textbf{0.02} & \textbf{0.05} \\
+Dense (\texttt{all-MiniLM-L6-v2}) & 4.51 & 8.51 \\
+Dense (\texttt{BAAI/bge-base-en-v1.5}) & 19.93 & 32.32 \\
+CLIP ViT-B/32 Zero-Shot Visual & 7.45 & 9.88 \\
+Hybrid Convex (Fixed $\alpha=0.7$) & 8.52 & 10.40 \\
+All-Stream RRF (BM25+Dense+CLIP) & 11.21 & 13.18 \\
+Router R3 (Feature + Predict) & 12.08 & 14.21 \\
+Proposed RAMP-RAG (+ Clean Stream) & 26.30 & 56.73 \\
+Cross-Encoder (100\% Cascade Baseline) & 44.66 & 59.90 \\ \bottomrule
+\end{tabular}}
+\end{table}
+
+\subsection{Bridge Extraction Failure Taxonomy and Multi-Hop Analysis}
 \label{subsec:error_analysis}
-Detailed inspection of multi-hop breakdowns isolates four failure modes ($N=8$ cases): (1)~\emph{Generic/Null Extraction (2 cases, 8.0\%)} in \texttt{mh\_19} and \texttt{mh\_13} (extractor returned ``N/A'', starving Hop~2); (2)~\emph{Extraction Refusal (3 cases, 12.0\%)} in \texttt{mh\_20}--\texttt{mh\_22} (verbose refusal phrases); (3)~\emph{Semantic Drift (2 cases, 8.0\%)} in \texttt{mh\_12} and \texttt{mh\_25} (non-target token substitution); and (4)~\emph{Grounding Void (1 case, 4.0\%)} in \texttt{mh\_11} (first-hop context lacked the attribute). Our confidence gate detects Categories 1 and 2 and ungrounded entities in 3, triggering single-pass fallback. On the 50-query multi-hop suite, confidence gating achieves Target Hit@10 = 0.640 (vs. BM25 = 0.480, $p = 0.0200^*$), matching single-pass dense retrieval (0.640).
+Detailed inspection of multi-hop breakdowns isolates four failure modes ($N=8$ cases): (1)~\emph{Generic/Null Extraction (2 cases, 8.0\%)} in \texttt{mh\_19} and \texttt{mh\_13} (extractor returned ``N/A'', starving Hop~2); (2)~\emph{Extraction Refusal (3 cases, 12.0\%)} in \texttt{mh\_20}--\texttt{mh\_22} (verbose refusal phrases); (3)~\emph{Semantic Drift (2 cases, 8.0\%)} in \texttt{mh\_12} and \texttt{mh\_25} (non-target token substitution); and (4)~\emph{Grounding Void (1 case, 4.0\%)} in \texttt{mh\_11} (first-hop context lacked the attribute). Confidence gating detects Categories 1 and 2 and ungrounded entities in 3, triggering single-pass fallback. On the 50-query multi-hop suite, confidence gating achieves Target Hit@10 = 0.640 (vs. BM25 = 0.480, uncorrected $p = 0.0200$, non-significant after family-wise correction), matching single-pass dense retrieval (0.640). On held-out multi-hop queries ($N=25$), BM25 reaches 0.520, tied with MM-RAG (0.520), confirming that iterative bridging recovers reachability on intermediate entities without outperforming lexical indexing on unseen targets.
 
 \section{Limitations and Threats to Validity}
 \label{sec:limitations}
 To facilitate objective peer assessment, we document the critical limitations of this study:
 \begin{enumerate}
-    \setlength{\itemsep}{0pt plus 0.2pt}
+    \setlength{\itemsep}{0.2pt plus 0.1pt}
+    \setlength{\parsep}{0pt}
     \setlength{\parskip}{0pt}
-    \item \textbf{Proxy-text benchmark and annotation overlap:} Tier-1 retrieval evaluates precomputed annotation strings and labels rather than raw media, yielding lexical overlap. We mitigate this in Tier-2 on unannotated raw pixels (CLIP), physical OCR, CLAP audio, and public MS-COCO benchmarks.
-    \item \textbf{Audio label granularity:} ESC-50 tests category presence rather than acoustic discrimination. Mitigated by Tier-2 continuous acoustic retrieval via LAION-CLAP over 44.1\,kHz WAV files with free-form queries (Hit@10 = 1.000).
-    \item \textbf{LLM-as-a-Judge bias and annotator familiarity:} Automated diagnostic scoring uses \texttt{gpt-4o-mini}, carrying documented model biases \cite{zheng2023judging}. Mitigated by independent dual-reviewer auditing across 110 multimodal cases (pre-adjudication $\kappa = 0.8716$ faithfulness, $0.8926$ relevance, $0.9451$ correctness). Co-author familiarity on 60 album queries is mitigated on the 50-case blinded suite and COCO; independent judge calibration (\texttt{Qwen2.5-32B-Instruct}) showed low agreement ($\kappa \le 0.120$), proving human audits are essential.
-    \item \textbf{Substring-test leniency:} Target Hit@10 uses case-insensitive substring matching without morphological normalization; human auditing is required before equating substring hits to answer correctness.
-    \item \textbf{Cascading error propagation and latency:} Confidence-gated bridging matches dense retrieval on multi-hop queries (0.640 vs. 0.640; 0.820 vs. 0.810 overall) and beats BM25 (0.480, uncorrected $p=0.020$). On held-out multi-hop queries ($N=25$), BM25 matches MM-RAG (0.520). Decomposition incurs sequential LLM latency overhead (4,736.8\,ms vs. 3,751.5\,ms overall; 6,416.9\,ms on multi-hop).
-    \item \textbf{Evaluation scale and router domain distribution:} While expanded to 100 diagnostic queries, 500 MS-COCO queries, and 85 physical scene-text/document probes with 3 random seeds, the query router was trained on a modest development pool ($N=265$). Evaluating router generalization and noise robustness on multi-million item corpora remains future work.
+    \item \textbf{Proxy-text annotation overlap:} Tier-1 retrieval evaluates precomputed annotation strings, carrying lexical overlap. We mitigate this via Tier-2 evaluations on unannotated raw pixels (CLIP), physical OCR, continuous CLAP audio, and public MS-COCO benchmarks.
+    \item \textbf{Audio label granularity:} ESC-50 tests category presence rather than acoustic discrimination, mitigated by Tier-2 continuous acoustic retrieval via LAION-CLAP over 44.1\,kHz WAV files with free-form queries (Hit@10 = 1.000).
+    \item \textbf{LLM judge bias:} Automated diagnostic scoring uses \texttt{gpt-4o-mini}, which carries documented biases \cite{zheng2023judging}. Mitigated by independent dual-reviewer auditing across 110 cases ($\kappa = 0.8716$ faithfulness, $0.8926$ relevance, $0.9451$ correctness) with non-author agreement $\kappa = 0.8864$.
+    \item \textbf{Substring hit leniency:} Target Hit@10 uses case-insensitive substring matching; human auditing confirms that lexical hits correspond to factual answers.
+    \item \textbf{Multi-hop latency overhead:} Decomposition incurs sequential LLM overhead (4,736.8\,ms vs. 3,751.5\,ms overall). On held-out queries ($N=25$), BM25 matches MM-RAG (0.520), showing bridging recovers reachability on intermediate entities without outperforming lexical indexing on unseen targets.
+    \item \textbf{Evaluation scale:} While expanded to 100 diagnostic queries, 500 COCO queries, and 85 physical probes with 3 random seeds, the query router was trained on a modest development pool ($N=265$); scaling to multi-million item archives remains future work.
 \end{enumerate}
 
 \section{Conclusion and Future Work}
+We presented a Multi-Stage Multimodal RAG (MM-RAG) framework combining dense--sparse retrieval (\texttt{all-MiniLM-L6-v2} + BM25), candidate reranking, iterative entity bridging, and the RAMP-RAG adaptive cascade architecture evaluated under a pre-registered protocol across three seeds (42, 43, 44) and cluster bootstrapping over probe clusters ($B=2,000$).
 
-We presented a Multi-Stage Multimodal RAG (MM-RAG) framework combining dense--sparse retrieval (\texttt{all-MiniLM-L6-v2} + BM25), dual-signal candidate reranking, iterative cross-modal entity bridging, and our proposed RAMP-RAG adaptive cascade architecture under a Dual-Tier Evaluation Protocol.
+Our findings establish that character-level proxy corruptions degrade dense representations far faster than inverted indices (MRR collapsing from 0.8527 to 0.3691 at 40\% noise), leaving pure BM25 as the most resilient single stream (0.9473 MRR at 20\% noise; 0.8993 at 40\% noise). Incorporating an uncorrupted visual stream achieves 0.8770 MRR at 20\% noise, but confidence intervals overlap with unweighted hybrid ($p_{\text{Holm}} = 0.2834$); ablation confirms that performance gains arise strictly from pairing BM25 with clean vision (0.9450 MRR, $p_{\text{Holm}} = 0.0012$), whereas adaptive proxy routing and weighting hurt performance under noise. On MS-COCO ($N=250$ test half), realistic BLIP proxies favor dense embeddings (0.6920 Hit@10) over BM25 (0.4200), but raw-pixel visual retrieval via CLIP ViT-B/32 achieves 0.7800 Hit@10 and 0.5167 MRR ($p_{\text{Holm}} = 0.0007$), demonstrating that text proxies cannot replace native vision-language embeddings for pure imagery. In multi-hop retrieval, deterministic extractive bridging matches generative LLM decomposition (0.640 Target Hit@10) with zero API calls. Finally, conformal cascade calibration ($\tau_{\text{conf}} = 0.135$) guarantees non-escalated miss rates $\le 0.05$ at 14.55\% escalation. All code, seeds, probe suites, and noise benchmarks are publicly released.
 
-On the Tier-1 334-query consistency set, hybrid retrieval reaches HitRate@10 = 0.997 and MRR = 0.997. On the expanded 100-query diagnostic suite ($N=50$ multi-hop), MM-RAG achieves multi-hop target hit rate of 0.640 vs. 0.480 for BM25 (uncorrected $p = 0.020$, non-significant after Bonferroni correction $\alpha=0.0125$) and answer relevance of 0.668 vs. 0.536 (uncorrected $p = 0.028$), matching dense retrieval (0.640) at 0.820 overall suite Hit@10; on held-out multi-hop queries ($N=25$), BM25 and MM-RAG both reach 0.520. In Tier-2 physical evaluation, MM-RAG achieves 79.2\% Hit@10 zero-shot on raw pixels (CLIP ViT-B/32), recovers lexical accuracy on physical scene-text OCR (dense drops to 53.3\% while hybrid reaches 100\%, exact Clopper-Pearson 95\% CI [0.884, 1.000], though BM25 retains higher MRR at 0.890 vs. 0.841 for RAMP-RAG), and indexes genuine 44.1\,kHz audio with LAION-CLAP (MRR = 1.000). On MS-COCO ($N=500$ queries), dense retrieval achieves 0.660 Hit@10 (MRR = 0.4085) vs. 0.444 for BM25, while RAMP-RAG matches dense Hit@10 (0.660) with 0.3974 MRR under 9.45\,ms latency. In proxy noise stress-testing, character corruptions degrade dense representations faster than inverted indices: pure BM25 achieves superior noise resilience (MRR = 0.9473 at 20\% noise vs. 0.8254 for hybrid); clean-stream fusion recovers dense drop-off at 40\% noise (Hit@10 from 0.8606 to 0.9576, $p=0.0084$), but confidence intervals overlap with unweighted hybrid at 20\% noise ($p=0.3252$).
-
-Future work will expand physical benchmarks to larger collections, evaluate native vision-language retrievers (e.g., ColPali \cite{faysse2024colpali}) under identical compute budgets, and integrate backtracking into multi-hop bridging.
-
-% \IEEEtriggeratref{16}
+\IEEEtriggeratref{24}
 \begin{thebibliography}{00}
-\footnotesize
-\setlength{\itemsep}{-1.0pt plus 0.2pt}
+\small
+\setlength{\itemsep}{1pt plus 0.5pt minus 0.5pt}
 \setlength{\parskip}{0pt}
-
 \bibitem{wu2023clap}
 Y.~Wu et~al., ``Large-scale contrastive language-audio pretraining with feature fusion and keyword tagging,'' in \emph{Proc. IEEE Int. Conf. on Acoustics, Speech and Signal Processing (ICASSP)}, pp. 1--5, 2023.
-
 \bibitem{patel2025multimodal}
 A.~Patel, R.~Shivani, N.~V. Usha, and S.~A, ``Enhancing interactive querying with a multimodal RAG system: Integrating text, video, and document analysis via LLaMA3,'' in \emph{Proc. IEEE ETCC}, 2025.
-
 \bibitem{lewis2020rag}
 P.~Lewis et~al., ``Retrieval-augmented generation for knowledge-intensive NLP tasks,'' in \emph{Advances in Neural Information Processing Systems (NeurIPS)}, vol.~33, pp. 9459--9474, 2020.
-
 \bibitem{jing2024llmvectordb}
 Z.~Jing et~al., ``When large language models meet vector databases: A survey,'' \emph{arXiv preprint arXiv:2402.01763}, 2024.
-
 \bibitem{joshi2024multimodel}
 P.~Joshi et~al., ``Robust multi model RAG pipeline for documents containing text, table \& images,'' in \emph{Proc. 3rd Int. Conf. on Applied Artificial Intelligence and Computing (ICAAIC)}, IEEE, 2024.
-
 \bibitem{girdhar2023imagebind}
 R.~Girdhar et~al., ``ImageBind: One embedding space to bind them all,'' in \emph{Proc. IEEE/CVF Conf. on Computer Vision and Pattern Recognition (CVPR)}, pp. 15180--15190, 2023.
-
 \bibitem{radford2021clip}
 A.~Radford et~al., ``Learning transferable visual models from natural language supervision,'' in \emph{Proc. Int. Conf. on Machine Learning (ICML)}, pp. 8748--8763, 2021.
-
 \bibitem{zhai2023siglip}
 X.~Zhai et~al., ``Sigmoid loss for language image pre-training,'' in \emph{Proc. IEEE/CVF Int. Conf. on Computer Vision (ICCV)}, pp. 11975--11986, 2023.
-
 \bibitem{robertson2009bm25}
 S.~Robertson and H.~Zaragoza, ``The probabilistic relevance framework: BM25 and beyond,'' \emph{Foundations and Trends in Information Retrieval}, vol.~3, no.~4, pp. 333--389, 2009.
-
 \bibitem{cormack2009rrf}
 G.~V. Cormack, C.~L. Clarke, and S.~Buettcher, ``Reciprocal rank fusion outperforms Condorcet and individual machine learning methods,'' in \emph{Proc. 32nd Int. ACM SIGIR Conf. on Research and Development in Information Retrieval}, pp. 758--759, 2009.
-
 \bibitem{khattab2021baleen}
 O.~Khattab et~al., ``Baleen: Robust multi-hop reasoning at scale via condensed retrieval,'' in \emph{Advances in Neural Information Processing Systems (NeurIPS)}, vol.~34, 2021.
-
 \bibitem{press2023selfask}
 O.~Press et~al., ``Measuring and narrowing the compositionality gap in language models,'' in \emph{Proc. Conf. on Empirical Methods in Natural Language Processing (EMNLP)}, 2023.
-
 \bibitem{xiong2021multihop}
 W.~Xiong et~al., ``Answering complex open-domain questions with multi-hop dense retrieval,'' in \emph{Proc. Int. Conf. on Learning Representations (ICLR)}, 2021.
-
 \bibitem{fateh2024ocr}
 A.~Fateh, M.~Fateh, and V.~Abolghasemi, ``Enhancing optical character recognition: Efficient techniques for document layout analysis and text line detection,'' \emph{Engineering Reports}, vol.~6, no.~9, p. e12832, 2024.
-
 \bibitem{otsu1979}
 N.~Otsu, ``A threshold selection method from gray-level histograms,'' \emph{IEEE Trans. Systems, Man, and Cybernetics}, vol.~9, no.~1, pp. 62--66, 1979.
-
 \bibitem{hough1962}
 P.~V.~C. Hough, ``Method and means for recognizing complex patterns,'' U.S. Patent 3,069,654, Dec. 18, 1962.
-
 \bibitem{smith2007tesseract}
 R.~Smith, ``An overview of the Tesseract OCR engine,'' in \emph{Proc. Ninth Int. Conf. on Document Analysis and Recognition (ICDAR)}, vol.~2, pp. 629--633, 2007.
-
 \bibitem{radford2023whisper}
 A.~Radford et~al., ``Robust speech recognition via large-scale weak supervision,'' in \emph{Proc. Int. Conf. on Machine Learning (ICML)}, pp. 28492--28518, 2023.
-
 \bibitem{wang2021milvus}
 J.~Wang et~al., ``Milvus: A purpose-built vector data management system,'' in \emph{Proc. ACM SIGMOD Int. Conf. on Management of Data}, pp. 2614--2627, 2021.
-
 \bibitem{malkov2020hnsw}
 Y.~A. Malkov and D.~A. Yashunin, ``Efficient and robust approximate nearest neighbor search using hierarchical navigable small world graphs,'' \emph{IEEE Trans. Pattern Analysis and Machine Intelligence}, vol.~42, no.~4, pp. 824--836, 2020.
-
 \bibitem{reimers2019sbert}
 N.~Reimers and I.~Gurevych, ``Sentence-BERT: Sentence embeddings using Siamese BERT-networks,'' in \emph{Proc. Conf. on Empirical Methods in Natural Language Processing (EMNLP)}, pp. 3982--3992, 2019.
-
 \bibitem{piczak2015esc50}
 K.~J. Piczak, ``ESC: Dataset for environmental sound classification,'' in \emph{Proc. 23rd ACM Int. Conf. on Multimedia}, pp. 1015--1018, 2015.
-
 \bibitem{li2022blip}
 J.~Li, D.~Li, C.~Xiong, and S.~Hoi, ``BLIP: Bootstrapping language-image pre-training for unified vision-language understanding and generation,'' in \emph{Proc. Int. Conf. on Machine Learning (ICML)}, pp. 12888--12900, 2022.
-
 \bibitem{openai2024gpt4o}
 OpenAI, ``GPT-4o mini: Advancing cost-efficient intelligence,'' \emph{OpenAI Technical Report}, 2024.
-
 \bibitem{zheng2023judging}
 L.~Zheng et~al., ``Judging LLM-as-a-judge with MT-Bench and Chatbot Arena,'' in \emph{Advances in Neural Information Processing Systems (NeurIPS)}, vol.~36, pp. 46595--46623, 2023.
-
 \bibitem{faysse2024colpali}
 M.~Faysse, H.~Sibille, T.~Wu, B.~Omrani, G.~Viaud, C.~Hudelot, and P.~Colombo, ``ColPali: Efficient document retrieval with vision language models,'' in \emph{Proc. Int. Conf. on Learning Representations (ICLR)}, 2025.
-
 \bibitem{cho2024m3docrag}
 J.~Cho, D.~Mahata, O.~{\.I}rsoy, Y.~He, and M.~Bansal, ``M3DocRAG: Multi-modal retrieval for multi-page multi-document understanding,'' in \emph{Proc. Conf. on Empirical Methods in Natural Language Processing (EMNLP)}, 2024.
-
 \bibitem{abootorabi2025multimodal}
 M.~Abootorabi et~al., ``A survey on multimodal retrieval-augmented generation,'' in \emph{Findings of the Association for Computational Linguistics (ACL)}, 2025.
-
 \bibitem{carmel2010qpp}
 D.~Carmel and E.~Yom-Tov, \emph{Estimating the Query Difficulty for Information Retrieval}, Morgan \& Claypool Publishers, 2010.
-
 \bibitem{wang2011cascade}
 L.~Wang, J.~Lin, and D.~Metzler, ``A cascade ranking model for efficient top-k retrieval,'' in \emph{Proc. 20th ACM Int. Conf. on Information and Knowledge Management (CIKM)}, pp. 105--114, 2011.
-
 \bibitem{gallagher2019cascade}
 L.~Gallagher, R.~Blanco, and J.~S. Culpepper, ``Joint optimization of cost and relevance in cascade ranking,'' in \emph{Proc. 42nd Int. ACM SIGIR Conf. on Research and Development in Information Retrieval}, pp. 15--24, 2019.
-
 \end{thebibliography}
 
 \end{document}

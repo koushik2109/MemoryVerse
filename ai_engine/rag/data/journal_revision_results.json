@@ -1,0 +1,2067 @@
+{
+  "timestamp": "2026-10-24 21:54:35",
+  "protocol": {
+    "dev_items": 96,
+    "test_items": 97,
+    "dev_probes": 30,
+    "test_probes": 55,
+    "seeds": [
+      42,
+      43,
+      44
+    ],
+    "bootstrap_resamples": 2000,
+    "gamma_optimal": 0.8
+  },
+  "part_a": {
+    "a1_ablation": {
+      "coco_test": {
+        "Baseline (Fixed alpha=0.7)": {
+          "hit10": 0.636,
+          "hit10_ci95": [
+            0.576,
+            0.696
+          ],
+          "mrr": 0.3767,
+          "mrr_ci95": [
+            0.3292,
+            0.4252
+          ]
+        },
+        "Hybrid + clean stream": {
+          "hit10": 0.648,
+          "hit10_ci95": [
+            0.588,
+            0.708
+          ],
+          "mrr": 0.3975,
+          "mrr_ci95": [
+            0.3499,
+            0.4481
+          ]
+        },
+        "BM25 + clean stream": {
+          "hit10": 0.6,
+          "hit10_ci95": [
+            0.54,
+            0.66
+          ],
+          "mrr": 0.3443,
+          "mrr_ci95": [
+            0.2954,
+            0.3918
+          ]
+        },
+        "Dense + clean stream": {
+          "hit10": 0.652,
+          "hit10_ci95": [
+            0.592,
+            0.708
+          ],
+          "mrr": 0.4025,
+          "mrr_ci95": [
+            0.3551,
+            0.4547
+          ]
+        },
+        "+ Router": {
+          "hit10": 0.648,
+          "hit10_ci95": [
+            0.588,
+            0.708
+          ],
+          "mrr": 0.3975,
+          "mrr_ci95": [
+            0.3499,
+            0.4481
+          ]
+        },
+        "+ Cascade": {
+          "hit10": 0.636,
+          "hit10_ci95": [
+            0.576,
+            0.696
+          ],
+          "mrr": 0.3697,
+          "mrr_ci95": [
+            0.3224,
+            0.4187
+          ]
+        },
+        "+ Reliability": {
+          "hit10": 0.648,
+          "hit10_ci95": [
+            0.588,
+            0.708
+          ],
+          "mrr": 0.3975,
+          "mrr_ci95": [
+            0.3499,
+            0.4481
+          ]
+        },
+        "Full RAMP-RAG (+ Clean Stream)": {
+          "hit10": 0.648,
+          "hit10_ci95": [
+            0.588,
+            0.708
+          ],
+          "mrr": 0.3821,
+          "mrr_ci95": [
+            0.3344,
+            0.4322
+          ]
+        }
+      },
+      "ocr_clean_test": {
+        "Baseline (Fixed alpha=0.7)": {
+          "hit10": 1.0,
+          "hit10_ci95": [
+            0.9351,
+            1.0
+          ],
+          "mrr": 0.9909,
+          "mrr_ci95": [
+            0.9727,
+            1.0
+          ]
+        },
+        "Hybrid + clean stream": {
+          "hit10": 1.0,
+          "hit10_ci95": [
+            0.9351,
+            1.0
+          ],
+          "mrr": 0.9606,
+          "mrr_ci95": [
+            0.9182,
+            0.9909
+          ]
+        },
+        "BM25 + clean stream": {
+          "hit10": 1.0,
+          "hit10_ci95": [
+            0.9351,
+            1.0
+          ],
+          "mrr": 0.9818,
+          "mrr_ci95": [
+            0.9545,
+            1.0
+          ]
+        },
+        "Dense + clean stream": {
+          "hit10": 0.9818,
+          "hit10_ci95": [
+            0.9273,
+            1.0
+          ],
+          "mrr": 0.8001,
+          "mrr_ci95": [
+            0.7106,
+            0.8819
+          ]
+        },
+        "+ Router": {
+          "hit10": 1.0,
+          "hit10_ci95": [
+            0.9351,
+            1.0
+          ],
+          "mrr": 0.95,
+          "mrr_ci95": [
+            0.9045,
+            0.9909
+          ]
+        },
+        "+ Cascade": {
+          "hit10": 1.0,
+          "hit10_ci95": [
+            0.9351,
+            1.0
+          ],
+          "mrr": 0.9909,
+          "mrr_ci95": [
+            0.9727,
+            1.0
+          ]
+        },
+        "+ Reliability": {
+          "hit10": 1.0,
+          "hit10_ci95": [
+            0.9351,
+            1.0
+          ],
+          "mrr": 0.95,
+          "mrr_ci95": [
+            0.9045,
+            0.9909
+          ]
+        },
+        "Full RAMP-RAG (+ Clean Stream)": {
+          "hit10": 1.0,
+          "hit10_ci95": [
+            0.9351,
+            1.0
+          ],
+          "mrr": 0.9727,
+          "mrr_ci95": [
+            0.9364,
+            1.0
+          ]
+        }
+      },
+      "ocr_noise20_test": {
+        "Baseline (Fixed alpha=0.7)": {
+          "hit10": 0.9636,
+          "hit10_ci95": [
+            0.9333,
+            0.9879
+          ],
+          "mrr": 0.8254,
+          "mrr_ci95": [
+            0.7715,
+            0.8786
+          ],
+          "diff_ci_mrr_vs_base": [
+            0.0,
+            0.0
+          ],
+          "ci_diff_excludes_zero": false,
+          "p_val_mrr_holm": 1.0,
+          "p_val_hit10_holm": 1.0
+        },
+        "Hybrid + clean stream": {
+          "hit10": 1.0,
+          "hit10_ci95": [
+            0.9351,
+            1.0
+          ],
+          "mrr": 0.9029,
+          "mrr_ci95": [
+            0.8473,
+            0.9512
+          ],
+          "diff_ci_mrr_vs_base": [
+            0.0105,
+            0.1436
+          ],
+          "ci_diff_excludes_zero": true,
+          "p_val_mrr_holm": 0.1056,
+          "p_val_hit10_holm": 0.1698
+        },
+        "BM25 + clean stream": {
+          "hit10": 0.9818,
+          "hit10_ci95": [
+            0.9455,
+            1.0
+          ],
+          "mrr": 0.945,
+          "mrr_ci95": [
+            0.8965,
+            0.9818
+          ],
+          "diff_ci_mrr_vs_base": [
+            0.054,
+            0.1844
+          ],
+          "ci_diff_excludes_zero": true,
+          "p_val_mrr_holm": 0.0012,
+          "p_val_hit10_holm": 1.0
+        },
+        "Dense + clean stream": {
+          "hit10": 0.9818,
+          "hit10_ci95": [
+            0.9455,
+            1.0
+          ],
+          "mrr": 0.7867,
+          "mrr_ci95": [
+            0.7015,
+            0.8663
+          ],
+          "diff_ci_mrr_vs_base": [
+            -0.1357,
+            0.0536
+          ],
+          "ci_diff_excludes_zero": false,
+          "p_val_mrr_holm": 0.4375,
+          "p_val_hit10_holm": 1.0
+        },
+        "+ Router": {
+          "hit10": 0.9152,
+          "hit10_ci95": [
+            0.8727,
+            0.9576
+          ],
+          "mrr": 0.7393,
+          "mrr_ci95": [
+            0.6681,
+            0.8067
+          ],
+          "diff_ci_mrr_vs_base": [
+            -0.1399,
+            -0.033
+          ],
+          "ci_diff_excludes_zero": true,
+          "p_val_mrr_holm": 0.008,
+          "p_val_hit10_holm": 0.1698
+        },
+        "+ Cascade": {
+          "hit10": 0.9636,
+          "hit10_ci95": [
+            0.9333,
+            0.9879
+          ],
+          "mrr": 0.8442,
+          "mrr_ci95": [
+            0.7946,
+            0.8934
+          ],
+          "diff_ci_mrr_vs_base": [
+            0.0045,
+            0.0369
+          ],
+          "ci_diff_excludes_zero": true,
+          "p_val_mrr_holm": 0.1056,
+          "p_val_hit10_holm": 1.0
+        },
+        "+ Reliability": {
+          "hit10": 0.8606,
+          "hit10_ci95": [
+            0.7939,
+            0.9273
+          ],
+          "mrr": 0.6671,
+          "mrr_ci95": [
+            0.5802,
+            0.7474
+          ],
+          "diff_ci_mrr_vs_base": [
+            -0.2337,
+            -0.0859
+          ],
+          "ci_diff_excludes_zero": true,
+          "p_val_mrr_holm": 0.0007,
+          "p_val_hit10_holm": 0.0028
+        },
+        "Full RAMP-RAG (+ Clean Stream)": {
+          "hit10": 0.9939,
+          "hit10_ci95": [
+            0.9817,
+            1.0
+          ],
+          "mrr": 0.877,
+          "mrr_ci95": [
+            0.8142,
+            0.9312
+          ],
+          "diff_ci_mrr_vs_base": [
+            -0.0168,
+            0.117
+          ],
+          "ci_diff_excludes_zero": false,
+          "p_val_mrr_holm": 0.2834,
+          "p_val_hit10_holm": 0.488
+        }
+      },
+      "holm_family_size": 7
+    },
+    "a3_probe_set_diagnosis": {
+      "Set 1 (Original 30 Probes)": {
+        "BM25": {
+          "hit10": 0.6,
+          "hit10_ci95": [
+            0.4333,
+            0.7667
+          ],
+          "mrr": 0.5096,
+          "mrr_ci95": [
+            0.3542,
+            0.685
+          ]
+        },
+        "Dense": {
+          "hit10": 0.6333,
+          "hit10_ci95": [
+            0.4667,
+            0.8
+          ],
+          "mrr": 0.4948,
+          "mrr_ci95": [
+            0.3413,
+            0.6632
+          ]
+        },
+        "Hybrid (fixed alpha=0.7)": {
+          "hit10": 0.6333,
+          "hit10_ci95": [
+            0.4667,
+            0.8
+          ],
+          "mrr": 0.521,
+          "mrr_ci95": [
+            0.3721,
+            0.6849
+          ]
+        },
+        "RAMP-RAG + Clean Stream": {
+          "hit10": 0.6333,
+          "hit10_ci95": [
+            0.4667,
+            0.8
+          ],
+          "mrr": 0.4985,
+          "mrr_ci95": [
+            0.3546,
+            0.6628
+          ]
+        },
+        "CLIP Visual": {
+          "hit10": 0.8667,
+          "hit10_ci95": [
+            0.7333,
+            0.9667
+          ],
+          "mrr": 0.5294,
+          "mrr_ci95": [
+            0.3963,
+            0.6611
+          ]
+        }
+      },
+      "Set 2 (55 Held-Out Test Probes)": {
+        "BM25": {
+          "hit10": 1.0,
+          "hit10_ci95": [
+            0.9351,
+            1.0
+          ],
+          "mrr": 0.9455,
+          "mrr_ci95": [
+            0.9,
+            0.9818
+          ]
+        },
+        "Dense": {
+          "hit10": 0.9273,
+          "hit10_ci95": [
+            0.8545,
+            0.9818
+          ],
+          "mrr": 0.7518,
+          "mrr_ci95": [
+            0.6527,
+            0.8423
+          ]
+        },
+        "Hybrid (fixed alpha=0.7)": {
+          "hit10": 1.0,
+          "hit10_ci95": [
+            0.9351,
+            1.0
+          ],
+          "mrr": 0.9182,
+          "mrr_ci95": [
+            0.8636,
+            0.9636
+          ]
+        },
+        "RAMP-RAG + Clean Stream": {
+          "hit10": 1.0,
+          "hit10_ci95": [
+            0.9351,
+            1.0
+          ],
+          "mrr": 0.8939,
+          "mrr_ci95": [
+            0.8333,
+            0.9485
+          ]
+        },
+        "CLIP Visual": {
+          "hit10": 0.6182,
+          "hit10_ci95": [
+            0.4909,
+            0.7455
+          ],
+          "mrr": 0.4078,
+          "mrr_ci95": [
+            0.3047,
+            0.5094
+          ]
+        }
+      },
+      "Pooled (85 Combined Probes)": {
+        "BM25": {
+          "hit10": 0.8588,
+          "hit10_ci95": [
+            0.7765,
+            0.9294
+          ],
+          "mrr": 0.7916,
+          "mrr_ci95": [
+            0.7075,
+            0.8652
+          ]
+        },
+        "Dense": {
+          "hit10": 0.8235,
+          "hit10_ci95": [
+            0.7412,
+            0.9059
+          ],
+          "mrr": 0.6611,
+          "mrr_ci95": [
+            0.5729,
+            0.7432
+          ]
+        },
+        "Hybrid (fixed alpha=0.7)": {
+          "hit10": 0.8706,
+          "hit10_ci95": [
+            0.7882,
+            0.9412
+          ],
+          "mrr": 0.778,
+          "mrr_ci95": [
+            0.6966,
+            0.8533
+          ]
+        },
+        "RAMP-RAG + Clean Stream": {
+          "hit10": 0.8706,
+          "hit10_ci95": [
+            0.7882,
+            0.9412
+          ],
+          "mrr": 0.7544,
+          "mrr_ci95": [
+            0.6727,
+            0.8277
+          ]
+        },
+        "CLIP Visual": {
+          "hit10": 0.7059,
+          "hit10_ci95": [
+            0.6,
+            0.8
+          ],
+          "mrr": 0.4507,
+          "mrr_ci95": [
+            0.3701,
+            0.5325
+          ]
+        }
+      }
+    },
+    "a4_coco_test": {
+      "BLIP Proxies": {
+        "BM25": {
+          "hit1": 0.148,
+          "hit5": 0.3,
+          "hit10": 0.42,
+          "hit10_ci95": [
+            0.356,
+            0.48
+          ],
+          "mrr": 0.2325,
+          "mrr_ci95": [
+            0.1901,
+            0.2761
+          ],
+          "ndcg10": 0.2666,
+          "p_val_mrr_holm_vs_hybrid": 0.0007
+        },
+        "Dense all-MiniLM": {
+          "hit1": 0.256,
+          "hit5": 0.528,
+          "hit10": 0.692,
+          "hit10_ci95": [
+            0.636,
+            0.744
+          ],
+          "mrr": 0.3873,
+          "mrr_ci95": [
+            0.3385,
+            0.4349
+          ],
+          "ndcg10": 0.4509,
+          "p_val_mrr_holm_vs_hybrid": 0.1752
+        },
+        "Dense BGE-base": {
+          "hit1": 0.296,
+          "hit5": 0.516,
+          "hit10": 0.636,
+          "hit10_ci95": [
+            0.576,
+            0.692
+          ],
+          "mrr": 0.4002,
+          "mrr_ci95": [
+            0.3485,
+            0.45
+          ],
+          "ndcg10": 0.4453,
+          "p_val_mrr_holm_vs_hybrid": 0.0444
+        },
+        "Hybrid Convex (MiniLM + BM25)": {
+          "hit1": 0.224,
+          "hit5": 0.512,
+          "hit10": 0.648,
+          "hit10_ci95": [
+            0.588,
+            0.704
+          ],
+          "mrr": 0.3581,
+          "mrr_ci95": [
+            0.3097,
+            0.4047
+          ],
+          "ndcg10": 0.4167,
+          "p_val_mrr_holm_vs_hybrid": 1.0
+        },
+        "MM-RAG (Stage 1+2)": {
+          "hit1": 0.24,
+          "hit5": 0.528,
+          "hit10": 0.684,
+          "hit10_ci95": [
+            0.628,
+            0.736
+          ],
+          "mrr": 0.3765,
+          "mrr_ci95": [
+            0.3284,
+            0.4226
+          ],
+          "ndcg10": 0.4405,
+          "p_val_mrr_holm_vs_hybrid": 0.1752
+        },
+        "Cross-Encoder": {
+          "hit1": 0.248,
+          "hit5": 0.512,
+          "hit10": 0.648,
+          "hit10_ci95": [
+            0.588,
+            0.704
+          ],
+          "mrr": 0.3734,
+          "mrr_ci95": [
+            0.3257,
+            0.4226
+          ],
+          "ndcg10": 0.4282,
+          "p_val_mrr_holm_vs_hybrid": 0.1825
+        },
+        "CLIP Zero-Shot Visual": {
+          "hit1": 0.388,
+          "hit5": 0.656,
+          "hit10": 0.78,
+          "hit10_ci95": [
+            0.724,
+            0.828
+          ],
+          "mrr": 0.5167,
+          "mrr_ci95": [
+            0.4678,
+            0.5675
+          ],
+          "ndcg10": 0.5713,
+          "p_val_mrr_holm_vs_hybrid": 0.0007
+        },
+        "Full RAMP-RAG": {
+          "hit1": 0.268,
+          "hit5": 0.528,
+          "hit10": 0.684,
+          "hit10_ci95": [
+            0.628,
+            0.736
+          ],
+          "mrr": 0.3909,
+          "mrr_ci95": [
+            0.3424,
+            0.4399
+          ],
+          "ndcg10": 0.4511,
+          "p_val_mrr_holm_vs_hybrid": 0.036
+        }
+      },
+      "Gold Captions": {
+        "BM25": {
+          "hit1": 0.176,
+          "hit5": 0.344,
+          "hit10": 0.428,
+          "hit10_ci95": [
+            0.368,
+            0.488
+          ],
+          "mrr": 0.259,
+          "mrr_ci95": [
+            0.2144,
+            0.3059
+          ],
+          "ndcg10": 0.2892,
+          "p_val_mrr_holm_vs_hybrid": 0.0007
+        },
+        "Dense all-MiniLM": {
+          "hit1": 0.28,
+          "hit5": 0.54,
+          "hit10": 0.652,
+          "hit10_ci95": [
+            0.592,
+            0.708
+          ],
+          "mrr": 0.4025,
+          "mrr_ci95": [
+            0.3551,
+            0.4547
+          ],
+          "ndcg10": 0.4522,
+          "p_val_mrr_holm_vs_hybrid": 0.3316
+        },
+        "Dense BGE-base": {
+          "hit1": 0.264,
+          "hit5": 0.528,
+          "hit10": 0.644,
+          "hit10_ci95": [
+            0.584,
+            0.704
+          ],
+          "mrr": 0.3987,
+          "mrr_ci95": [
+            0.352,
+            0.4457
+          ],
+          "ndcg10": 0.4471,
+          "p_val_mrr_holm_vs_hybrid": 0.4232
+        },
+        "Hybrid Convex (MiniLM + BM25)": {
+          "hit1": 0.248,
+          "hit5": 0.504,
+          "hit10": 0.636,
+          "hit10_ci95": [
+            0.576,
+            0.696
+          ],
+          "mrr": 0.3767,
+          "mrr_ci95": [
+            0.3292,
+            0.4252
+          ],
+          "ndcg10": 0.4283,
+          "p_val_mrr_holm_vs_hybrid": 1.0
+        },
+        "MM-RAG (Stage 1+2)": {
+          "hit1": 0.276,
+          "hit5": 0.532,
+          "hit10": 0.648,
+          "hit10_ci95": [
+            0.588,
+            0.708
+          ],
+          "mrr": 0.3975,
+          "mrr_ci95": [
+            0.3499,
+            0.4481
+          ],
+          "ndcg10": 0.4471,
+          "p_val_mrr_holm_vs_hybrid": 0.14
+        },
+        "Cross-Encoder": {
+          "hit1": 0.22,
+          "hit5": 0.504,
+          "hit10": 0.636,
+          "hit10_ci95": [
+            0.576,
+            0.696
+          ],
+          "mrr": 0.3543,
+          "mrr_ci95": [
+            0.3089,
+            0.4009
+          ],
+          "ndcg10": 0.4112,
+          "p_val_mrr_holm_vs_hybrid": 0.3316
+        },
+        "CLIP Zero-Shot Visual": {
+          "hit1": 0.388,
+          "hit5": 0.656,
+          "hit10": 0.78,
+          "hit10_ci95": [
+            0.724,
+            0.828
+          ],
+          "mrr": 0.5167,
+          "mrr_ci95": [
+            0.4678,
+            0.5675
+          ],
+          "ndcg10": 0.5713,
+          "p_val_mrr_holm_vs_hybrid": 0.0007
+        },
+        "Full RAMP-RAG": {
+          "hit1": 0.26,
+          "hit5": 0.532,
+          "hit10": 0.648,
+          "hit10_ci95": [
+            0.588,
+            0.708
+          ],
+          "mrr": 0.3821,
+          "mrr_ci95": [
+            0.3344,
+            0.4322
+          ],
+          "ndcg10": 0.4351,
+          "p_val_mrr_holm_vs_hybrid": 0.631
+        }
+      }
+    },
+    "a5_router_accuracy": {
+      "accuracy": 0.7704918032786885,
+      "f1": 0.6003668763102725
+    },
+    "a6_noise_sweep": {
+      "noise_0pct": {
+        "BM25": {
+          "hit10": 1.0,
+          "hit10_ci95": [
+            0.9351,
+            1.0
+          ],
+          "mrr": 0.9818,
+          "mrr_ci95": [
+            0.9545,
+            1.0
+          ],
+          "diff_ci_vs_hybrid": [
+            -0.0273,
+            0.0
+          ],
+          "p_val_mrr_holm": 1.0
+        },
+        "Dense": {
+          "hit10": 0.9636,
+          "hit10_ci95": [
+            0.9091,
+            1.0
+          ],
+          "mrr": 0.8527,
+          "mrr_ci95": [
+            0.7615,
+            0.9296
+          ],
+          "diff_ci_vs_hybrid": [
+            -0.2308,
+            -0.0603
+          ],
+          "p_val_mrr_holm": 0.0138
+        },
+        "Hybrid (fixed alpha=0.7)": {
+          "hit10": 1.0,
+          "hit10_ci95": [
+            0.9351,
+            1.0
+          ],
+          "mrr": 0.9909,
+          "mrr_ci95": [
+            0.9727,
+            1.0
+          ],
+          "diff_ci_vs_hybrid": [
+            0.0,
+            0.0
+          ],
+          "p_val_mrr_holm": 1.0
+        },
+        "Hybrid + Router": {
+          "hit10": 1.0,
+          "hit10_ci95": [
+            0.9351,
+            1.0
+          ],
+          "mrr": 0.95,
+          "mrr_ci95": [
+            0.9045,
+            0.9909
+          ],
+          "diff_ci_vs_hybrid": [
+            -0.0864,
+            -0.0091
+          ],
+          "p_val_mrr_holm": 0.363
+        },
+        "Original RAMP-RAG": {
+          "hit10": 1.0,
+          "hit10_ci95": [
+            0.9351,
+            1.0
+          ],
+          "mrr": 0.9053,
+          "mrr_ci95": [
+            0.8379,
+            0.9621
+          ],
+          "diff_ci_vs_hybrid": [
+            -0.1515,
+            -0.0295
+          ],
+          "p_val_mrr_holm": 0.0815
+        },
+        "RAMP-RAG + Clean Stream": {
+          "hit10": 1.0,
+          "hit10_ci95": [
+            0.9351,
+            1.0
+          ],
+          "mrr": 0.9339,
+          "mrr_ci95": [
+            0.8788,
+            0.9788
+          ],
+          "diff_ci_vs_hybrid": [
+            -0.1103,
+            -0.0121
+          ],
+          "p_val_mrr_holm": 0.2508
+        },
+        "Cross-Encoder": {
+          "hit10": 1.0,
+          "hit10_ci95": [
+            0.9351,
+            1.0
+          ],
+          "mrr": 0.9515,
+          "mrr_ci95": [
+            0.9015,
+            0.9909
+          ],
+          "diff_ci_vs_hybrid": [
+            -0.0894,
+            0.0
+          ],
+          "p_val_mrr_holm": 0.5132
+        }
+      },
+      "noise_10pct": {
+        "BM25": {
+          "hit10": 0.9818,
+          "hit10_ci95": [
+            0.9455,
+            1.0
+          ],
+          "mrr": 0.9502,
+          "mrr_ci95": [
+            0.9006,
+            0.9864
+          ],
+          "diff_ci_vs_hybrid": [
+            -0.0364,
+            0.04
+          ],
+          "p_val_mrr_holm": 0.8296
+        },
+        "Dense": {
+          "hit10": 0.9455,
+          "hit10_ci95": [
+            0.8848,
+            0.9879
+          ],
+          "mrr": 0.7394,
+          "mrr_ci95": [
+            0.6485,
+            0.8224
+          ],
+          "diff_ci_vs_hybrid": [
+            -0.2857,
+            -0.1345
+          ],
+          "p_val_mrr_holm": 0.0006
+        },
+        "Hybrid (fixed alpha=0.7)": {
+          "hit10": 1.0,
+          "hit10_ci95": [
+            0.9351,
+            1.0
+          ],
+          "mrr": 0.9457,
+          "mrr_ci95": [
+            0.9147,
+            0.9737
+          ],
+          "diff_ci_vs_hybrid": [
+            0.0,
+            0.0
+          ],
+          "p_val_mrr_holm": 1.0
+        },
+        "Hybrid + Router": {
+          "hit10": 1.0,
+          "hit10_ci95": [
+            0.9351,
+            1.0
+          ],
+          "mrr": 0.9049,
+          "mrr_ci95": [
+            0.8527,
+            0.9495
+          ],
+          "diff_ci_vs_hybrid": [
+            -0.0785,
+            -0.0073
+          ],
+          "p_val_mrr_holm": 0.1068
+        },
+        "Original RAMP-RAG": {
+          "hit10": 0.9939,
+          "hit10_ci95": [
+            0.9818,
+            1.0
+          ],
+          "mrr": 0.8558,
+          "mrr_ci95": [
+            0.7871,
+            0.9191
+          ],
+          "diff_ci_vs_hybrid": [
+            -0.1529,
+            -0.0355
+          ],
+          "p_val_mrr_holm": 0.01
+        },
+        "RAMP-RAG + Clean Stream": {
+          "hit10": 1.0,
+          "hit10_ci95": [
+            0.9351,
+            1.0
+          ],
+          "mrr": 0.9201,
+          "mrr_ci95": [
+            0.8713,
+            0.9606
+          ],
+          "diff_ci_vs_hybrid": [
+            -0.0694,
+            0.0138
+          ],
+          "p_val_mrr_holm": 0.5028
+        },
+        "Cross-Encoder": {
+          "hit10": 1.0,
+          "hit10_ci95": [
+            0.9351,
+            1.0
+          ],
+          "mrr": 0.8909,
+          "mrr_ci95": [
+            0.8409,
+            0.9369
+          ],
+          "diff_ci_vs_hybrid": [
+            -0.1101,
+            -0.0045
+          ],
+          "p_val_mrr_holm": 0.1608
+        }
+      },
+      "noise_20pct": {
+        "BM25": {
+          "hit10": 0.9758,
+          "hit10_ci95": [
+            0.9333,
+            1.0
+          ],
+          "mrr": 0.9473,
+          "mrr_ci95": [
+            0.8979,
+            0.9848
+          ],
+          "diff_ci_vs_hybrid": [
+            0.0569,
+            0.1832
+          ],
+          "p_val_mrr_holm": 0.0008
+        },
+        "Dense": {
+          "hit10": 0.7515,
+          "hit10_ci95": [
+            0.6667,
+            0.8303
+          ],
+          "mrr": 0.5306,
+          "mrr_ci95": [
+            0.444,
+            0.6127
+          ],
+          "diff_ci_vs_hybrid": [
+            -0.3619,
+            -0.232
+          ],
+          "p_val_mrr_holm": 0.0006
+        },
+        "Hybrid (fixed alpha=0.7)": {
+          "hit10": 0.9636,
+          "hit10_ci95": [
+            0.9333,
+            0.9879
+          ],
+          "mrr": 0.8254,
+          "mrr_ci95": [
+            0.7715,
+            0.8786
+          ],
+          "diff_ci_vs_hybrid": [
+            0.0,
+            0.0
+          ],
+          "p_val_mrr_holm": 1.0
+        },
+        "Hybrid + Router": {
+          "hit10": 0.9152,
+          "hit10_ci95": [
+            0.8727,
+            0.9576
+          ],
+          "mrr": 0.7393,
+          "mrr_ci95": [
+            0.6681,
+            0.8067
+          ],
+          "diff_ci_vs_hybrid": [
+            -0.1399,
+            -0.033
+          ],
+          "p_val_mrr_holm": 0.0048
+        },
+        "Original RAMP-RAG": {
+          "hit10": 0.8606,
+          "hit10_ci95": [
+            0.7939,
+            0.9273
+          ],
+          "mrr": 0.6885,
+          "mrr_ci95": [
+            0.6083,
+            0.7638
+          ],
+          "diff_ci_vs_hybrid": [
+            -0.2031,
+            -0.0753
+          ],
+          "p_val_mrr_holm": 0.0006
+        },
+        "RAMP-RAG + Clean Stream": {
+          "hit10": 0.9939,
+          "hit10_ci95": [
+            0.9817,
+            1.0
+          ],
+          "mrr": 0.877,
+          "mrr_ci95": [
+            0.8142,
+            0.9312
+          ],
+          "diff_ci_vs_hybrid": [
+            -0.0168,
+            0.117
+          ],
+          "p_val_mrr_holm": 0.2834
+        },
+        "Cross-Encoder": {
+          "hit10": 0.9636,
+          "hit10_ci95": [
+            0.9333,
+            0.9879
+          ],
+          "mrr": 0.8345,
+          "mrr_ci95": [
+            0.7751,
+            0.8921
+          ],
+          "diff_ci_vs_hybrid": [
+            -0.0444,
+            0.0587
+          ],
+          "p_val_mrr_holm": 0.7512
+        }
+      },
+      "noise_40pct": {
+        "BM25": {
+          "hit10": 0.9576,
+          "hit10_ci95": [
+            0.9091,
+            0.9939
+          ],
+          "mrr": 0.8993,
+          "mrr_ci95": [
+            0.8352,
+            0.9548
+          ],
+          "diff_ci_vs_hybrid": [
+            0.1345,
+            0.3314
+          ],
+          "p_val_mrr_holm": 0.0006
+        },
+        "Dense": {
+          "hit10": 0.6545,
+          "hit10_ci95": [
+            0.5455,
+            0.7576
+          ],
+          "mrr": 0.3691,
+          "mrr_ci95": [
+            0.2815,
+            0.4571
+          ],
+          "diff_ci_vs_hybrid": [
+            -0.3678,
+            -0.2346
+          ],
+          "p_val_mrr_holm": 0.0006
+        },
+        "Hybrid (fixed alpha=0.7)": {
+          "hit10": 0.8606,
+          "hit10_ci95": [
+            0.7758,
+            0.9394
+          ],
+          "mrr": 0.6677,
+          "mrr_ci95": [
+            0.576,
+            0.7568
+          ],
+          "diff_ci_vs_hybrid": [
+            0.0,
+            0.0
+          ],
+          "p_val_mrr_holm": 1.0
+        },
+        "Hybrid + Router": {
+          "hit10": 0.7879,
+          "hit10_ci95": [
+            0.6788,
+            0.8848
+          ],
+          "mrr": 0.5844,
+          "mrr_ci95": [
+            0.4836,
+            0.681
+          ],
+          "diff_ci_vs_hybrid": [
+            -0.1456,
+            -0.0231
+          ],
+          "p_val_mrr_holm": 0.0324
+        },
+        "Original RAMP-RAG": {
+          "hit10": 0.7212,
+          "hit10_ci95": [
+            0.6061,
+            0.8303
+          ],
+          "mrr": 0.504,
+          "mrr_ci95": [
+            0.4042,
+            0.607
+          ],
+          "diff_ci_vs_hybrid": [
+            -0.2376,
+            -0.0952
+          ],
+          "p_val_mrr_holm": 0.0006
+        },
+        "RAMP-RAG + Clean Stream": {
+          "hit10": 0.9576,
+          "hit10_ci95": [
+            0.9089,
+            0.9939
+          ],
+          "mrr": 0.7869,
+          "mrr_ci95": [
+            0.7095,
+            0.8576
+          ],
+          "diff_ci_vs_hybrid": [
+            -0.0006,
+            0.2398
+          ],
+          "p_val_mrr_holm": 0.1218
+        },
+        "Cross-Encoder": {
+          "hit10": 0.8606,
+          "hit10_ci95": [
+            0.7758,
+            0.9394
+          ],
+          "mrr": 0.6066,
+          "mrr_ci95": [
+            0.5162,
+            0.6988
+          ],
+          "diff_ci_vs_hybrid": [
+            -0.1271,
+            0.003
+          ],
+          "p_val_mrr_holm": 0.1218
+        }
+      }
+    },
+    "a7_latencies": {
+      "BM25": {
+        "mean_ms": 0.02,
+        "p95_ms": 0.05
+      },
+      "Dense (all-MiniLM-L6-v2)": {
+        "mean_ms": 7.78,
+        "p95_ms": 11.29
+      },
+      "Dense (BGE-base-en-v1.5)": {
+        "mean_ms": 19.93,
+        "p95_ms": 32.32
+      },
+      "CLIP Zero-Shot Visual": {
+        "mean_ms": 13.97,
+        "p95_ms": 22.08
+      },
+      "Hybrid Convex (Fixed alpha=0.7)": {
+        "mean_ms": 8.52,
+        "p95_ms": 10.4
+      },
+      "Original RAMP-RAG": {
+        "mean_ms": 27.08,
+        "p95_ms": 59.02
+      },
+      "Proposed RAMP-RAG (+ Clean Stream)": {
+        "mean_ms": 26.3,
+        "p95_ms": 56.73
+      },
+      "Cross-Encoder (100% Cascade)": {
+        "mean_ms": 44.66,
+        "p95_ms": 59.9
+      }
+    },
+    "a8_multihop": {
+      "diagnostic_scope": "100 Queries (50 Single-Hop, 50 Multi-Hop)",
+      "single_stage_dense": {
+        "overall_target_hit10": 0.81,
+        "multihop_target_hit10": 0.64
+      },
+      "bm25_baseline": {
+        "overall_target_hit10": 0.63,
+        "multihop_target_hit10": 0.44
+      },
+      "hybrid_no_bridge": {
+        "overall_target_hit10": 0.81,
+        "multihop_target_hit10": 0.62
+      },
+      "grounded_extractive_bridge_rrf": {
+        "overall_target_hit10": 0.82,
+        "multihop_target_hit10": 0.64
+      },
+      "llm_bridge_gpt4o_mini": {
+        "overall_target_hit10": 0.82,
+        "multihop_target_hit10": 0.64
+      },
+      "oracle_gold_bridge": {
+        "overall_target_hit10": 0.88,
+        "multihop_target_hit10": 0.76
+      }
+    }
+  },
+  "part_b": {
+    "b1_char_ngram": {
+      "results": {
+        "noise_0pct": {
+          "mrr_word_bm25": 0.9818,
+          "mrr_char_ngram_bm25": 0.9727,
+          "diff_ci_char_vs_word": [
+            -0.0455,
+            0.0182
+          ],
+          "p_val": 1.0,
+          "char_beats_word": false
+        },
+        "noise_10pct": {
+          "mrr_word_bm25": 0.9502,
+          "mrr_char_ngram_bm25": 0.9596,
+          "diff_ci_char_vs_word": [
+            -0.0283,
+            0.0575
+          ],
+          "p_val": 0.7464,
+          "char_beats_word": false
+        },
+        "noise_20pct": {
+          "mrr_word_bm25": 0.9473,
+          "mrr_char_ngram_bm25": 0.9426,
+          "diff_ci_char_vs_word": [
+            -0.05,
+            0.049
+          ],
+          "p_val": 0.8552,
+          "char_beats_word": false
+        },
+        "noise_40pct": {
+          "mrr_word_bm25": 0.8993,
+          "mrr_char_ngram_bm25": 0.8445,
+          "diff_ci_char_vs_word": [
+            -0.1292,
+            0.0268
+          ],
+          "p_val": 0.1616,
+          "char_beats_word": false
+        }
+      },
+      "verdict": "KILL"
+    },
+    "b2_agreement_reliability": {
+      "results": {
+        "mrr_r_ocr": 0.877,
+        "mrr_r_agree": 0.7309,
+        "mrr_r_combo": 0.8681,
+        "diff_ci_agree_vs_ocr": [
+          -0.2214,
+          -0.0688
+        ],
+        "diff_ci_combo_vs_ocr": [
+          -0.0426,
+          0.0309
+        ],
+        "p_val_agree": 0.0002,
+        "p_val_combo": 0.6548
+      },
+      "verdict": "KILL"
+    },
+    "b3_learned_reliability": {
+      "results": {
+        "dev_ece": 0.0481,
+        "test_mrr_learned_reliability": 0.8752,
+        "diff_ci_vs_r_ocr": [
+          -0.0198,
+          0.0182
+        ],
+        "p_val": 0.8485
+      },
+      "verdict": "KILL"
+    },
+    "b4_realistic_noise": {
+      "Visual OCR Confusions": {
+        "BM25": {
+          "hit10": 0.9636,
+          "mrr": 0.9095,
+          "mrr_ci95": [
+            0.8463,
+            0.9639
+          ]
+        },
+        "Dense": {
+          "hit10": 0.8,
+          "mrr": 0.4713,
+          "mrr_ci95": [
+            0.3694,
+            0.5772
+          ]
+        },
+        "Hybrid (fixed alpha=0.7)": {
+          "hit10": 0.9273,
+          "mrr": 0.81,
+          "mrr_ci95": [
+            0.7131,
+            0.8929
+          ]
+        },
+        "RAMP-RAG + Clean Stream": {
+          "hit10": 0.9818,
+          "mrr": 0.8015,
+          "mrr_ci95": [
+            0.7118,
+            0.8831
+          ]
+        }
+      },
+      "Caption Phrase Dropout & Hallucination": {
+        "BM25": {
+          "hit10": 1.0,
+          "mrr": 0.9636,
+          "mrr_ci95": [
+            0.9273,
+            0.9909
+          ]
+        },
+        "Dense": {
+          "hit10": 0.9636,
+          "mrr": 0.7877,
+          "mrr_ci95": [
+            0.6884,
+            0.8738
+          ]
+        },
+        "Hybrid (fixed alpha=0.7)": {
+          "hit10": 1.0,
+          "mrr": 0.9545,
+          "mrr_ci95": [
+            0.9091,
+            0.9909
+          ]
+        },
+        "RAMP-RAG + Clean Stream": {
+          "hit10": 1.0,
+          "mrr": 0.9273,
+          "mrr_ci95": [
+            0.8682,
+            0.9727
+          ]
+        }
+      },
+      "ASR Phonetic Homophone Substitution": {
+        "BM25": {
+          "hit10": 1.0,
+          "mrr": 0.9727,
+          "mrr_ci95": [
+            0.9364,
+            1.0
+          ]
+        },
+        "Dense": {
+          "hit10": 0.9636,
+          "mrr": 0.8161,
+          "mrr_ci95": [
+            0.7186,
+            0.8978
+          ]
+        },
+        "Hybrid (fixed alpha=0.7)": {
+          "hit10": 1.0,
+          "mrr": 0.9545,
+          "mrr_ci95": [
+            0.9091,
+            0.9909
+          ]
+        },
+        "RAMP-RAG + Clean Stream": {
+          "hit10": 1.0,
+          "mrr": 0.9242,
+          "mrr_ci95": [
+            0.8652,
+            0.9727
+          ]
+        }
+      }
+    },
+    "b5_oracle_router_gap": {
+      "best_single_stream_mrr": 0.9818,
+      "router_mrr": 0.95,
+      "oracle_stream_mrr": 0.9909,
+      "router_vs_single_stream_diff": -0.0318,
+      "oracle_router_headroom_gap": 0.0409
+    },
+    "b6_conformal_cascade": {
+      "conformal_tau": 0.135,
+      "fixed_tau": 0.065,
+      "pareto_curve": [
+        {
+          "tau": 0.0,
+          "dev_risk": 0.1667,
+          "escalation_rate": 0.0,
+          "test_mrr": 0.9909,
+          "test_hit10": 1.0
+        },
+        {
+          "tau": 0.005,
+          "dev_risk": 0.1379,
+          "escalation_rate": 0.0364,
+          "test_mrr": 0.9909,
+          "test_hit10": 1.0
+        },
+        {
+          "tau": 0.01,
+          "dev_risk": 0.1429,
+          "escalation_rate": 0.0545,
+          "test_mrr": 0.9909,
+          "test_hit10": 1.0
+        },
+        {
+          "tau": 0.015,
+          "dev_risk": 0.1111,
+          "escalation_rate": 0.1091,
+          "test_mrr": 0.9909,
+          "test_hit10": 1.0
+        },
+        {
+          "tau": 0.02,
+          "dev_risk": 0.1111,
+          "escalation_rate": 0.1091,
+          "test_mrr": 0.9909,
+          "test_hit10": 1.0
+        },
+        {
+          "tau": 0.025,
+          "dev_risk": 0.1111,
+          "escalation_rate": 0.1091,
+          "test_mrr": 0.9909,
+          "test_hit10": 1.0
+        },
+        {
+          "tau": 0.03,
+          "dev_risk": 0.1111,
+          "escalation_rate": 0.1091,
+          "test_mrr": 0.9909,
+          "test_hit10": 1.0
+        },
+        {
+          "tau": 0.035,
+          "dev_risk": 0.1111,
+          "escalation_rate": 0.1091,
+          "test_mrr": 0.9909,
+          "test_hit10": 1.0
+        },
+        {
+          "tau": 0.04,
+          "dev_risk": 0.1111,
+          "escalation_rate": 0.1091,
+          "test_mrr": 0.9909,
+          "test_hit10": 1.0
+        },
+        {
+          "tau": 0.045,
+          "dev_risk": 0.1111,
+          "escalation_rate": 0.1091,
+          "test_mrr": 0.9909,
+          "test_hit10": 1.0
+        },
+        {
+          "tau": 0.05,
+          "dev_risk": 0.1111,
+          "escalation_rate": 0.1091,
+          "test_mrr": 0.9909,
+          "test_hit10": 1.0
+        },
+        {
+          "tau": 0.055,
+          "dev_risk": 0.1111,
+          "escalation_rate": 0.1091,
+          "test_mrr": 0.9909,
+          "test_hit10": 1.0
+        },
+        {
+          "tau": 0.06,
+          "dev_risk": 0.0769,
+          "escalation_rate": 0.1091,
+          "test_mrr": 0.9909,
+          "test_hit10": 1.0
+        },
+        {
+          "tau": 0.065,
+          "dev_risk": 0.0769,
+          "escalation_rate": 0.1091,
+          "test_mrr": 0.9909,
+          "test_hit10": 1.0
+        },
+        {
+          "tau": 0.07,
+          "dev_risk": 0.0769,
+          "escalation_rate": 0.1091,
+          "test_mrr": 0.9909,
+          "test_hit10": 1.0
+        },
+        {
+          "tau": 0.075,
+          "dev_risk": 0.0769,
+          "escalation_rate": 0.1091,
+          "test_mrr": 0.9909,
+          "test_hit10": 1.0
+        },
+        {
+          "tau": 0.08,
+          "dev_risk": 0.0769,
+          "escalation_rate": 0.1091,
+          "test_mrr": 0.9909,
+          "test_hit10": 1.0
+        },
+        {
+          "tau": 0.085,
+          "dev_risk": 0.0769,
+          "escalation_rate": 0.1091,
+          "test_mrr": 0.9909,
+          "test_hit10": 1.0
+        },
+        {
+          "tau": 0.09,
+          "dev_risk": 0.0769,
+          "escalation_rate": 0.1091,
+          "test_mrr": 0.9909,
+          "test_hit10": 1.0
+        },
+        {
+          "tau": 0.095,
+          "dev_risk": 0.0769,
+          "escalation_rate": 0.1273,
+          "test_mrr": 0.9909,
+          "test_hit10": 1.0
+        },
+        {
+          "tau": 0.1,
+          "dev_risk": 0.0769,
+          "escalation_rate": 0.1273,
+          "test_mrr": 0.9909,
+          "test_hit10": 1.0
+        },
+        {
+          "tau": 0.105,
+          "dev_risk": 0.08,
+          "escalation_rate": 0.1273,
+          "test_mrr": 0.9909,
+          "test_hit10": 1.0
+        },
+        {
+          "tau": 0.11,
+          "dev_risk": 0.08,
+          "escalation_rate": 0.1273,
+          "test_mrr": 0.9909,
+          "test_hit10": 1.0
+        },
+        {
+          "tau": 0.115,
+          "dev_risk": 0.08,
+          "escalation_rate": 0.1273,
+          "test_mrr": 0.9909,
+          "test_hit10": 1.0
+        },
+        {
+          "tau": 0.12,
+          "dev_risk": 0.08,
+          "escalation_rate": 0.1455,
+          "test_mrr": 0.9909,
+          "test_hit10": 1.0
+        },
+        {
+          "tau": 0.125,
+          "dev_risk": 0.087,
+          "escalation_rate": 0.1455,
+          "test_mrr": 0.9909,
+          "test_hit10": 1.0
+        },
+        {
+          "tau": 0.13,
+          "dev_risk": 0.087,
+          "escalation_rate": 0.1455,
+          "test_mrr": 0.9909,
+          "test_hit10": 1.0
+        },
+        {
+          "tau": 0.135,
+          "dev_risk": 0.0455,
+          "escalation_rate": 0.1455,
+          "test_mrr": 0.9909,
+          "test_hit10": 1.0
+        },
+        {
+          "tau": 0.14,
+          "dev_risk": 0.0455,
+          "escalation_rate": 0.1455,
+          "test_mrr": 0.9909,
+          "test_hit10": 1.0
+        },
+        {
+          "tau": 0.145,
+          "dev_risk": 0.0455,
+          "escalation_rate": 0.1455,
+          "test_mrr": 0.9909,
+          "test_hit10": 1.0
+        },
+        {
+          "tau": 0.15,
+          "dev_risk": 0.0455,
+          "escalation_rate": 0.1455,
+          "test_mrr": 0.9909,
+          "test_hit10": 1.0
+        },
+        {
+          "tau": 0.155,
+          "dev_risk": 0.0455,
+          "escalation_rate": 0.1455,
+          "test_mrr": 0.9909,
+          "test_hit10": 1.0
+        },
+        {
+          "tau": 0.16,
+          "dev_risk": 0.0455,
+          "escalation_rate": 0.1818,
+          "test_mrr": 0.9909,
+          "test_hit10": 1.0
+        },
+        {
+          "tau": 0.165,
+          "dev_risk": 0.0455,
+          "escalation_rate": 0.1818,
+          "test_mrr": 0.9909,
+          "test_hit10": 1.0
+        },
+        {
+          "tau": 0.17,
+          "dev_risk": 0.0455,
+          "escalation_rate": 0.1818,
+          "test_mrr": 0.9909,
+          "test_hit10": 1.0
+        },
+        {
+          "tau": 0.175,
+          "dev_risk": 0.0455,
+          "escalation_rate": 0.2182,
+          "test_mrr": 0.9909,
+          "test_hit10": 1.0
+        },
+        {
+          "tau": 0.18,
+          "dev_risk": 0.0,
+          "escalation_rate": 0.2545,
+          "test_mrr": 0.9909,
+          "test_hit10": 1.0
+        },
+        {
+          "tau": 0.185,
+          "dev_risk": 0.0,
+          "escalation_rate": 0.2545,
+          "test_mrr": 0.9909,
+          "test_hit10": 1.0
+        },
+        {
+          "tau": 0.19,
+          "dev_risk": 0.0,
+          "escalation_rate": 0.2545,
+          "test_mrr": 0.9909,
+          "test_hit10": 1.0
+        },
+        {
+          "tau": 0.195,
+          "dev_risk": 0.0,
+          "escalation_rate": 0.2545,
+          "test_mrr": 0.9909,
+          "test_hit10": 1.0
+        },
+        {
+          "tau": 0.2,
+          "dev_risk": 0.0,
+          "escalation_rate": 0.2545,
+          "test_mrr": 0.9909,
+          "test_hit10": 1.0
+        },
+        {
+          "tau": 0.205,
+          "dev_risk": 0.0,
+          "escalation_rate": 0.2545,
+          "test_mrr": 0.9909,
+          "test_hit10": 1.0
+        },
+        {
+          "tau": 0.21,
+          "dev_risk": 0.0,
+          "escalation_rate": 0.2545,
+          "test_mrr": 0.9909,
+          "test_hit10": 1.0
+        },
+        {
+          "tau": 0.215,
+          "dev_risk": 0.0,
+          "escalation_rate": 0.2545,
+          "test_mrr": 0.9909,
+          "test_hit10": 1.0
+        },
+        {
+          "tau": 0.22,
+          "dev_risk": 0.0,
+          "escalation_rate": 0.2545,
+          "test_mrr": 0.9909,
+          "test_hit10": 1.0
+        },
+        {
+          "tau": 0.225,
+          "dev_risk": 0.0,
+          "escalation_rate": 0.2727,
+          "test_mrr": 0.9773,
+          "test_hit10": 1.0
+        },
+        {
+          "tau": 0.23,
+          "dev_risk": 0.0,
+          "escalation_rate": 0.2727,
+          "test_mrr": 0.9773,
+          "test_hit10": 1.0
+        },
+        {
+          "tau": 0.235,
+          "dev_risk": 0.0,
+          "escalation_rate": 0.2727,
+          "test_mrr": 0.9773,
+          "test_hit10": 1.0
+        },
+        {
+          "tau": 0.24,
+          "dev_risk": 0.0,
+          "escalation_rate": 0.2727,
+          "test_mrr": 0.9773,
+          "test_hit10": 1.0
+        },
+        {
+          "tau": 0.245,
+          "dev_risk": 0.0,
+          "escalation_rate": 0.2727,
+          "test_mrr": 0.9773,
+          "test_hit10": 1.0
+        },
+        {
+          "tau": 0.25,
+          "dev_risk": 0.0,
+          "escalation_rate": 0.2909,
+          "test_mrr": 0.9773,
+          "test_hit10": 1.0
+        }
+      ]
+    },
+    "b7_extractive_bridge": {
+      "diagnostic_scope": "100 Queries (50 Single-Hop, 50 Multi-Hop)",
+      "single_stage_dense": {
+        "overall_target_hit10": 0.81,
+        "multihop_target_hit10": 0.64
+      },
+      "bm25_baseline": {
+        "overall_target_hit10": 0.63,
+        "multihop_target_hit10": 0.44
+      },
+      "hybrid_no_bridge": {
+        "overall_target_hit10": 0.81,
+        "multihop_target_hit10": 0.62
+      },
+      "grounded_extractive_bridge_rrf": {
+        "overall_target_hit10": 0.82,
+        "multihop_target_hit10": 0.64
+      },
+      "llm_bridge_gpt4o_mini": {
+        "overall_target_hit10": 0.82,
+        "multihop_target_hit10": 0.64
+      },
+      "oracle_gold_bridge": {
+        "overall_target_hit10": 0.88,
+        "multihop_target_hit10": 0.76
+      }
+    },
+    "b8_query_type_heatmap": {
+      "Identifier": {
+        "count": 14,
+        "BM25": {
+          "hit10": 0.2143,
+          "mrr": 0.1842
+        },
+        "Dense": {
+          "hit10": 0.2143,
+          "mrr": 0.1406
+        },
+        "Hybrid": {
+          "hit10": 0.2143,
+          "mrr": 0.1522
+        },
+        "RAMP-RAG": {
+          "hit10": 0.2143,
+          "mrr": 0.1516
+        },
+        "CLIP": {
+          "hit10": 0.6429,
+          "mrr": 0.1824
+        }
+      },
+      "Proper Name": {
+        "count": 7,
+        "BM25": {
+          "hit10": 1.0,
+          "mrr": 0.9286
+        },
+        "Dense": {
+          "hit10": 1.0,
+          "mrr": 0.6964
+        },
+        "Hybrid": {
+          "hit10": 1.0,
+          "mrr": 0.9286
+        },
+        "RAMP-RAG": {
+          "hit10": 1.0,
+          "mrr": 0.8333
+        },
+        "CLIP": {
+          "hit10": 1.0,
+          "mrr": 0.5226
+        }
+      },
+      "Descriptive": {
+        "count": 31,
+        "BM25": {
+          "hit10": 0.9677,
+          "mrr": 0.8455
+        },
+        "Dense": {
+          "hit10": 1.0,
+          "mrr": 0.7903
+        },
+        "Hybrid": {
+          "hit10": 1.0,
+          "mrr": 0.8226
+        },
+        "RAMP-RAG": {
+          "hit10": 1.0,
+          "mrr": 0.8548
+        },
+        "CLIP": {
+          "hit10": 0.9355,
+          "mrr": 0.7221
+        }
+      },
+      "Bilingual/CJK": {
+        "count": 22,
+        "BM25": {
+          "hit10": 1.0,
+          "mrr": 0.9545
+        },
+        "Dense": {
+          "hit10": 0.8636,
+          "mrr": 0.6747
+        },
+        "Hybrid": {
+          "hit10": 1.0,
+          "mrr": 0.9545
+        },
+        "RAMP-RAG": {
+          "hit10": 1.0,
+          "mrr": 0.8485
+        },
+        "CLIP": {
+          "hit10": 0.2727,
+          "mrr": 0.089
+        }
+      },
+      "Numeric": {
+        "count": 11,
+        "BM25": {
+          "hit10": 1.0,
+          "mrr": 1.0
+        },
+        "Dense": {
+          "hit10": 0.9091,
+          "mrr": 0.9097
+        },
+        "Hybrid": {
+          "hit10": 1.0,
+          "mrr": 1.0
+        },
+        "RAMP-RAG": {
+          "hit10": 1.0,
+          "mrr": 1.0
+        },
+        "CLIP": {
+          "hit10": 0.8182,
+          "mrr": 0.7051
+        }
+      }
+    }
+  }
+}

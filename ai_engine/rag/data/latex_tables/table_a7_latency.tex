@@ -1,0 +1,19 @@
+\begin{table}[t]
+\centering
+\caption{Standardized Latency Profile (Mean and P95 over 3 runs on warm cache; scope = query encoding + retrieval + score fusion + reranking).}
+\label{tab:standardized_latency}
+\begin{tabular}{lcc}
+\hline
+\textbf{Retrieval Architecture} & \textbf{Mean (ms)} & \textbf{P95 (ms)} \\
+\hline
+BM25 & 0.02 & 0.05 \\
+Dense (all-MiniLM-L6-v2) & 7.78 & 11.29 \\
+Dense (BGE-base-en-v1.5) & 19.93 & 32.32 \\
+CLIP Zero-Shot Visual & 13.97 & 22.08 \\
+Hybrid Convex (Fixed alpha=0.7) & 8.52 & 10.40 \\
+Original RAMP-RAG & 27.08 & 59.02 \\
+Proposed RAMP-RAG (+ Clean Stream) & 26.30 & 56.73 \\
+Cross-Encoder (100% Cascade) & 44.66 & 59.90 \\
+\hline
+\end{tabular}
+\end{table}

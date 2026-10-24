@@ -61,7 +61,7 @@ This repository contains the official implementation, evaluation suite, and benc
 ## 3. Pre-Specified Analysis Plan (Frozen Before Test Evaluation)
 
 *Pre-specified and frozen prior to running Test split evaluations for Part 0, Experiment 1 (H1), and Experiment 2 (H2). Zero test tuning.*
-*Recorded commit hash: edf5c694a4180891c70dd271ca1a7d8a83e8a98e (October 24, 2026).*
+*Recorded pre-specified commit hashes: edf5c69 and 2e63e9e (October 24, 2026).*
 
 ### 3.1 Global Decision Rules
 A claim of improvement is admitted into the manuscript **if and only if**:

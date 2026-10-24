@@ -1,0 +1,1181 @@
+{
+  "timestamp_utc": "2026-10-24T18:14:18Z",
+  "commit_hash": "2e63e9e",
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "n_dev_records": 96,
+  "n_test_records": 97,
+  "n_dev_probes": 30,
+  "n_test_probes": 55,
+  "part0_1_bm25_vs_clean": {
+    "noise_0pct": {
+      "BM25_alone": {
+        "mrr": 0.9818,
+        "hit10": 1.0,
+        "mrr_ci95": [
+          0.9545,
+          1.0
+        ]
+      },
+      "BM25_plus_Clean": {
+        "mrr": 0.9818,
+        "hit10": 1.0,
+        "mrr_ci95": [
+          0.9545,
+          1.0
+        ]
+      },
+      "diff_mrr_bm25_minus_clean": 0.0,
+      "diff_ci95": [
+        0.0,
+        0.0
+      ],
+      "paired_p_val": 1.0
+    },
+    "noise_10pct": {
+      "BM25_alone": {
+        "mrr": 0.9548,
+        "hit10": 0.9818,
+        "mrr_ci95": [
+          0.9095,
+          0.9879
+        ]
+      },
+      "BM25_plus_Clean": {
+        "mrr": 0.9581,
+        "hit10": 0.9818,
+        "mrr_ci95": [
+          0.9132,
+          0.9909
+        ]
+      },
+      "diff_mrr_bm25_minus_clean": -0.0034000000450760126,
+      "diff_ci95": [
+        -0.0097,
+        0.0
+      ],
+      "paired_p_val": 0.0002
+    },
+    "noise_20pct": {
+      "BM25_alone": {
+        "mrr": 0.9337,
+        "hit10": 0.9758,
+        "mrr_ci95": [
+          0.8772,
+          0.9761
+        ]
+      },
+      "BM25_plus_Clean": {
+        "mrr": 0.949,
+        "hit10": 0.9818,
+        "mrr_ci95": [
+          0.9021,
+          0.9838
+        ]
+      },
+      "diff_mrr_bm25_minus_clean": -0.015300000086426735,
+      "diff_ci95": [
+        -0.0375,
+        -0.001
+      ],
+      "paired_p_val": 0.05999
+    },
+    "noise_40pct": {
+      "BM25_alone": {
+        "mrr": 0.8942,
+        "hit10": 0.9576,
+        "mrr_ci95": [
+          0.8291,
+          0.9501
+        ]
+      },
+      "BM25_plus_Clean": {
+        "mrr": 0.9096,
+        "hit10": 0.9818,
+        "mrr_ci95": [
+          0.8543,
+          0.9568
+        ]
+      },
+      "diff_mrr_bm25_minus_clean": -0.015399999916553497,
+      "diff_ci95": [
+        -0.0322,
+        -0.0024
+      ],
+      "paired_p_val": 0.0002
+    }
+  },
+  "part0_2_reconciliation": {
+    "explanation": "Distractor pool difference: Full-corpus evaluation indexes all 193 records (210 distractor items including document pages), whereas 0%-noise sweep indexes strictly the 97 test-split items. Distractor pool size accounts completely for the numerical shift.",
+    "test_split_pool_97_items": {
+      "BM25_MRR": 0.9818,
+      "Dense_MRR": 0.8527,
+      "Hybrid_MRR": 0.9909
+    },
+    "full_corpus_pool_193_items": {
+      "BM25_MRR": 0.9455,
+      "Dense_MRR": 0.7518,
+      "Hybrid_MRR": 0.9182
+    }
+  },
+  "part0_3_coco_rerun": {
+    "BM25": {
+      "mrr": 0.2119,
+      "hit10": 0.376,
+      "mrr_ci95": [
+        0.1728,
+        0.2533
+      ]
+    },
+    "Dense": {
+      "mrr": 0.368,
+      "hit10": 0.628,
+      "mrr_ci95": [
+        0.3229,
+        0.4157
+      ]
+    },
+    "CLIP Zero-Shot Visual": {
+      "mrr": 0.4638,
+      "hit10": 0.74,
+      "mrr_ci95": [
+        0.4179,
+        0.5131
+      ]
+    },
+    "Baseline (Fixed alpha=0.7)": {
+      "mrr": 0.3344,
+      "hit10": 0.584,
+      "mrr_ci95": [
+        0.2881,
+        0.3813
+      ]
+    },
+    "+ Router (Learned alpha_q)": {
+      "mrr": 0.3627,
+      "hit10": 0.64,
+      "mrr_ci95": [
+        0.3183,
+        0.4116
+      ]
+    },
+    "+ Cascade (tau=0.065)": {
+      "mrr": 0.349,
+      "hit10": 0.584,
+      "mrr_ci95": [
+        0.3027,
+        0.398
+      ]
+    },
+    "+ Reliability (Observable r_m)": {
+      "mrr": 0.3635,
+      "hit10": 0.636,
+      "mrr_ci95": [
+        0.3196,
+        0.4126
+      ]
+    },
+    "Full RAMP-RAG (+ Clean Stream)": {
+      "mrr": 0.3727,
+      "hit10": 0.664,
+      "mrr_ci95": [
+        0.3272,
+        0.4222
+      ]
+    }
+  },
+  "part0_4_auroc_r_ocr": {
+    "noise_10pct": 0.5094,
+    "noise_20pct": 0.5149,
+    "noise_40pct": 0.5196
+  },
+  "exp1_gamma_star_dev": 1.0,
+  "experiment_1_heterogeneous_results": {
+    "f_bad_0": {
+      "BM25": {
+        "mrr": 0.9818000197410583,
+        "hit10": 1.0,
+        "mrr_ci95": [
+          0.9545,
+          1.0
+        ],
+        "clean_target_mrr": 0.9818,
+        "corrupted_target_mrr": 0.0,
+        "holm_p_vs_bm25": 1.0,
+        "holm_p_vs_rrf": 0.0016
+      },
+      "Dense MiniLM": {
+        "mrr": 0.8526999950408936,
+        "hit10": 0.9636,
+        "mrr_ci95": [
+          0.7615,
+          0.9296
+        ],
+        "clean_target_mrr": 0.8527,
+        "corrupted_target_mrr": 0.0,
+        "holm_p_vs_bm25": 0.02639,
+        "holm_p_vs_rrf": 1.0
+      },
+      "Dense BGE-base": {
+        "mrr": 0.8093000054359436,
+        "hit10": 0.9091,
+        "mrr_ci95": [
+          0.7106,
+          0.8934
+        ],
+        "clean_target_mrr": 0.8093,
+        "corrupted_target_mrr": 0.0,
+        "holm_p_vs_bm25": 0.0028,
+        "holm_p_vs_rrf": 1.0
+      },
+      "Hybrid fixed (alpha=0.7)": {
+        "mrr": 0.9908999800682068,
+        "hit10": 1.0,
+        "mrr_ci95": [
+          0.9727,
+          1.0
+        ],
+        "clean_target_mrr": 0.9909,
+        "corrupted_target_mrr": 0.0,
+        "holm_p_vs_bm25": 1.0,
+        "holm_p_vs_rrf": 0.0016
+      },
+      "Hybrid + Clean (CLIP)": {
+        "mrr": 0.9908999800682068,
+        "hit10": 1.0,
+        "mrr_ci95": [
+          0.9727,
+          1.0
+        ],
+        "clean_target_mrr": 0.9909,
+        "corrupted_target_mrr": 0.0,
+        "holm_p_vs_bm25": 1.0,
+        "holm_p_vs_rrf": 0.0016
+      },
+      "BM25 + Clean": {
+        "mrr": 0.9818000197410583,
+        "hit10": 1.0,
+        "mrr_ci95": [
+          0.9545,
+          1.0
+        ],
+        "clean_target_mrr": 0.9818,
+        "corrupted_target_mrr": 0.0,
+        "holm_p_vs_bm25": 1.0,
+        "holm_p_vs_rrf": 0.0016
+      },
+      "Reliability-Weighted Fusion": {
+        "mrr": 0.9241999983787537,
+        "hit10": 1.0,
+        "mrr_ci95": [
+          0.8667,
+          0.9727
+        ],
+        "clean_target_mrr": 0.9242,
+        "corrupted_target_mrr": 0.0,
+        "holm_p_vs_bm25": 0.40392,
+        "holm_p_vs_rrf": 0.09838
+      },
+      "Oracle-Reliability (Upper Bound)": {
+        "mrr": 0.9908999800682068,
+        "hit10": 1.0,
+        "mrr_ci95": [
+          0.9727,
+          1.0
+        ],
+        "clean_target_mrr": 0.9909,
+        "corrupted_target_mrr": 0.0,
+        "holm_p_vs_bm25": 1.0,
+        "holm_p_vs_rrf": 0.0016
+      },
+      "All-Stream RRF (BM25+Dense+CLIP)": {
+        "mrr": 0.8166999816894531,
+        "hit10": 1.0,
+        "mrr_ci95": [
+          0.7247,
+          0.8981
+        ],
+        "clean_target_mrr": 0.8167,
+        "corrupted_target_mrr": 0.0,
+        "holm_p_vs_bm25": 0.0016,
+        "holm_p_vs_rrf": 1.0
+      },
+      "hypothesis_h1_test": {
+        "rel_fusion_minus_bm25": -0.0575999990105629,
+        "diff_ci95": [
+          -0.1212,
+          -0.003
+        ],
+        "holm_p_vs_bm25": 0.40392,
+        "holm_p_vs_rrf": 0.09838,
+        "beats_bm25_holm_sig": false,
+        "beats_rrf_holm_sig": false
+      }
+    },
+    "f_bad_10": {
+      "BM25": {
+        "mrr": 0.9575999975204468,
+        "hit10": 1.0,
+        "mrr_ci95": [
+          0.9273,
+          0.9818
+        ],
+        "clean_target_mrr": 0.9769,
+        "corrupted_target_mrr": 0.8857,
+        "holm_p_vs_bm25": 1.0,
+        "holm_p_vs_rrf": 0.0016
+      },
+      "Dense MiniLM": {
+        "mrr": 0.7039999961853027,
+        "hit10": 0.8667,
+        "mrr_ci95": [
+          0.6239,
+          0.7759
+        ],
+        "clean_target_mrr": 0.8452,
+        "corrupted_target_mrr": 0.1796,
+        "holm_p_vs_bm25": 0.0016,
+        "holm_p_vs_rrf": 0.85863
+      },
+      "Dense BGE-base": {
+        "mrr": 0.7594000101089478,
+        "hit10": 0.9152,
+        "mrr_ci95": [
+          0.6699,
+          0.8408
+        ],
+        "clean_target_mrr": 0.8064,
+        "corrupted_target_mrr": 0.5848,
+        "holm_p_vs_bm25": 0.0016,
+        "holm_p_vs_rrf": 0.85863
+      },
+      "Hybrid fixed (alpha=0.7)": {
+        "mrr": 0.9000999927520752,
+        "hit10": 0.9576,
+        "mrr_ci95": [
+          0.8616,
+          0.9358
+        ],
+        "clean_target_mrr": 0.9885,
+        "corrupted_target_mrr": 0.5719,
+        "holm_p_vs_bm25": 0.0168,
+        "holm_p_vs_rrf": 0.007
+      },
+      "Hybrid + Clean (CLIP)": {
+        "mrr": 0.9677000045776367,
+        "hit10": 0.9939,
+        "mrr_ci95": [
+          0.9399,
+          0.9904
+        ],
+        "clean_target_mrr": 0.9885,
+        "corrupted_target_mrr": 0.8905,
+        "holm_p_vs_bm25": 0.5083,
+        "holm_p_vs_rrf": 0.0016
+      },
+      "BM25 + Clean": {
+        "mrr": 0.9746999740600586,
+        "hit10": 1.0,
+        "mrr_ci95": [
+          0.9475,
+          0.997
+        ],
+        "clean_target_mrr": 0.9769,
+        "corrupted_target_mrr": 0.9667,
+        "holm_p_vs_bm25": 0.03279,
+        "holm_p_vs_rrf": 0.0016
+      },
+      "Reliability-Weighted Fusion": {
+        "mrr": 0.8414999842643738,
+        "hit10": 1.0,
+        "mrr_ci95": [
+          0.7813,
+          0.8939
+        ],
+        "clean_target_mrr": 0.8405,
+        "corrupted_target_mrr": 0.8455,
+        "holm_p_vs_bm25": 0.0024,
+        "holm_p_vs_rrf": 0.07499
+      },
+      "Oracle-Reliability (Upper Bound)": {
+        "mrr": 0.8532000184059143,
+        "hit10": 0.9455,
+        "mrr_ci95": [
+          0.8063,
+          0.8952
+        ],
+        "clean_target_mrr": 0.8872,
+        "corrupted_target_mrr": 0.727,
+        "holm_p_vs_bm25": 0.0016,
+        "holm_p_vs_rrf": 0.03439
+      },
+      "All-Stream RRF (BM25+Dense+CLIP)": {
+        "mrr": 0.7476000189781189,
+        "hit10": 1.0,
+        "mrr_ci95": [
+          0.6627,
+          0.8221
+        ],
+        "clean_target_mrr": 0.7875,
+        "corrupted_target_mrr": 0.5993,
+        "holm_p_vs_bm25": 0.0016,
+        "holm_p_vs_rrf": 1.0
+      },
+      "hypothesis_h1_test": {
+        "rel_fusion_minus_bm25": -0.11599999666213989,
+        "diff_ci95": [
+          -0.1795,
+          -0.0584
+        ],
+        "holm_p_vs_bm25": 0.0024,
+        "holm_p_vs_rrf": 0.07499,
+        "beats_bm25_holm_sig": false,
+        "beats_rrf_holm_sig": false
+      }
+    },
+    "f_bad_30": {
+      "BM25": {
+        "mrr": 0.9639000296592712,
+        "hit10": 0.9879,
+        "mrr_ci95": [
+          0.9337,
+          0.988
+        ],
+        "clean_target_mrr": 0.9893,
+        "corrupted_target_mrr": 0.8215,
+        "holm_p_vs_bm25": 1.0,
+        "holm_p_vs_rrf": 0.0024
+      },
+      "Dense MiniLM": {
+        "mrr": 0.8184000253677368,
+        "hit10": 0.9758,
+        "mrr_ci95": [
+          0.7317,
+          0.8921
+        ],
+        "clean_target_mrr": 0.8631,
+        "corrupted_target_mrr": 0.5679,
+        "holm_p_vs_bm25": 0.0048,
+        "holm_p_vs_rrf": 1.0
+      },
+      "Dense BGE-base": {
+        "mrr": 0.7972999811172485,
+        "hit10": 0.903,
+        "mrr_ci95": [
+          0.7025,
+          0.8835
+        ],
+        "clean_target_mrr": 0.8366,
+        "corrupted_target_mrr": 0.5771,
+        "holm_p_vs_bm25": 0.005,
+        "holm_p_vs_rrf": 1.0
+      },
+      "Hybrid fixed (alpha=0.7)": {
+        "mrr": 0.9742000102996826,
+        "hit10": 1.0,
+        "mrr_ci95": [
+          0.953,
+          0.9909
+        ],
+        "clean_target_mrr": 1.0,
+        "corrupted_target_mrr": 0.83,
+        "holm_p_vs_bm25": 0.83683,
+        "holm_p_vs_rrf": 0.0016
+      },
+      "Hybrid + Clean (CLIP)": {
+        "mrr": 0.9757999777793884,
+        "hit10": 1.0,
+        "mrr_ci95": [
+          0.9576,
+          0.9909
+        ],
+        "clean_target_mrr": 1.0,
+        "corrupted_target_mrr": 0.84,
+        "holm_p_vs_bm25": 0.83683,
+        "holm_p_vs_rrf": 0.0016
+      },
+      "BM25 + Clean": {
+        "mrr": 0.965399980545044,
+        "hit10": 1.0,
+        "mrr_ci95": [
+          0.9356,
+          0.9886
+        ],
+        "clean_target_mrr": 0.9893,
+        "corrupted_target_mrr": 0.8317,
+        "holm_p_vs_bm25": 0.83683,
+        "holm_p_vs_rrf": 0.0024
+      },
+      "Reliability-Weighted Fusion": {
+        "mrr": 0.8876000046730042,
+        "hit10": 0.9939,
+        "mrr_ci95": [
+          0.8308,
+          0.938
+        ],
+        "clean_target_mrr": 0.9542,
+        "corrupted_target_mrr": 0.5147,
+        "holm_p_vs_bm25": 0.0184,
+        "holm_p_vs_rrf": 0.23515
+      },
+      "Oracle-Reliability (Upper Bound)": {
+        "mrr": 0.8598999977111816,
+        "hit10": 0.8667,
+        "mrr_ci95": [
+          0.8061,
+          0.9102
+        ],
+        "clean_target_mrr": 1.0,
+        "corrupted_target_mrr": 0.0751,
+        "holm_p_vs_bm25": 0.0032,
+        "holm_p_vs_rrf": 0.53989
+      },
+      "All-Stream RRF (BM25+Dense+CLIP)": {
+        "mrr": 0.8030999898910522,
+        "hit10": 1.0,
+        "mrr_ci95": [
+          0.7131,
+          0.883
+        ],
+        "clean_target_mrr": 0.8371,
+        "corrupted_target_mrr": 0.6125,
+        "holm_p_vs_bm25": 0.0032,
+        "holm_p_vs_rrf": 1.0
+      },
+      "hypothesis_h1_test": {
+        "rel_fusion_minus_bm25": -0.0763000026345253,
+        "diff_ci95": [
+          -0.1318,
+          -0.0263
+        ],
+        "holm_p_vs_bm25": 0.0184,
+        "holm_p_vs_rrf": 0.23515,
+        "beats_bm25_holm_sig": false,
+        "beats_rrf_holm_sig": false
+      }
+    },
+    "f_bad_50": {
+      "BM25": {
+        "mrr": 0.9462000131607056,
+        "hit10": 0.9818,
+        "mrr_ci95": [
+          0.9007,
+          0.9818
+        ],
+        "clean_target_mrr": 0.9949,
+        "corrupted_target_mrr": 0.875,
+        "holm_p_vs_bm25": 1.0,
+        "holm_p_vs_rrf": 0.0016
+      },
+      "Dense MiniLM": {
+        "mrr": 0.6851999759674072,
+        "hit10": 0.8848,
+        "mrr_ci95": [
+          0.6191,
+          0.7467
+        ],
+        "clean_target_mrr": 0.914,
+        "corrupted_target_mrr": 0.3506,
+        "holm_p_vs_bm25": 0.0016,
+        "holm_p_vs_rrf": 0.66947
+      },
+      "Dense BGE-base": {
+        "mrr": 0.7544999718666077,
+        "hit10": 0.903,
+        "mrr_ci95": [
+          0.6585,
+          0.8414
+        ],
+        "clean_target_mrr": 0.8213,
+        "corrupted_target_mrr": 0.6568,
+        "holm_p_vs_bm25": 0.0016,
+        "holm_p_vs_rrf": 0.9892
+      },
+      "Hybrid fixed (alpha=0.7)": {
+        "mrr": 0.867900013923645,
+        "hit10": 0.9636,
+        "mrr_ci95": [
+          0.8217,
+          0.9134
+        ],
+        "clean_target_mrr": 1.0,
+        "corrupted_target_mrr": 0.6747,
+        "holm_p_vs_bm25": 0.0036,
+        "holm_p_vs_rrf": 0.05199
+      },
+      "Hybrid + Clean (CLIP)": {
+        "mrr": 0.9314000010490417,
+        "hit10": 0.9939,
+        "mrr_ci95": [
+          0.8875,
+          0.9685
+        ],
+        "clean_target_mrr": 1.0,
+        "corrupted_target_mrr": 0.8312,
+        "holm_p_vs_bm25": 0.89822,
+        "holm_p_vs_rrf": 0.0016
+      },
+      "BM25 + Clean": {
+        "mrr": 0.9491999745368958,
+        "hit10": 1.0,
+        "mrr_ci95": [
+          0.9068,
+          0.9818
+        ],
+        "clean_target_mrr": 0.9949,
+        "corrupted_target_mrr": 0.8825,
+        "holm_p_vs_bm25": 0.89822,
+        "holm_p_vs_rrf": 0.0016
+      },
+      "Reliability-Weighted Fusion": {
+        "mrr": 0.7944999933242798,
+        "hit10": 0.9636,
+        "mrr_ci95": [
+          0.727,
+          0.8585
+        ],
+        "clean_target_mrr": 0.9065,
+        "corrupted_target_mrr": 0.6308,
+        "holm_p_vs_bm25": 0.0016,
+        "holm_p_vs_rrf": 0.68026
+      },
+      "Oracle-Reliability (Upper Bound)": {
+        "mrr": 0.7111999988555908,
+        "hit10": 0.7939,
+        "mrr_ci95": [
+          0.6238,
+          0.7938
+        ],
+        "clean_target_mrr": 0.9184,
+        "corrupted_target_mrr": 0.4082,
+        "holm_p_vs_bm25": 0.0016,
+        "holm_p_vs_rrf": 0.68026
+      },
+      "All-Stream RRF (BM25+Dense+CLIP)": {
+        "mrr": 0.7538999915122986,
+        "hit10": 0.9879,
+        "mrr_ci95": [
+          0.6653,
+          0.8331
+        ],
+        "clean_target_mrr": 0.8715,
+        "corrupted_target_mrr": 0.5819,
+        "holm_p_vs_bm25": 0.0016,
+        "holm_p_vs_rrf": 1.0
+      },
+      "hypothesis_h1_test": {
+        "rel_fusion_minus_bm25": -0.1517000049352646,
+        "diff_ci95": [
+          -0.2096,
+          -0.0967
+        ],
+        "holm_p_vs_bm25": 0.0016,
+        "holm_p_vs_rrf": 0.68026,
+        "beats_bm25_holm_sig": false,
+        "beats_rrf_holm_sig": false
+      }
+    },
+    "f_bad_70": {
+      "BM25": {
+        "mrr": 0.8960999846458435,
+        "hit10": 0.9576,
+        "mrr_ci95": [
+          0.8486,
+          0.9397
+        ],
+        "clean_target_mrr": 1.0,
+        "corrupted_target_mrr": 0.8535,
+        "holm_p_vs_bm25": 1.0,
+        "holm_p_vs_rrf": 0.0016
+      },
+      "Dense MiniLM": {
+        "mrr": 0.5407000184059143,
+        "hit10": 0.7939,
+        "mrr_ci95": [
+          0.4638,
+          0.6139
+        ],
+        "clean_target_mrr": 0.8998,
+        "corrupted_target_mrr": 0.3934,
+        "holm_p_vs_bm25": 0.0016,
+        "holm_p_vs_rrf": 0.04499
+      },
+      "Dense BGE-base": {
+        "mrr": 0.7067000269889832,
+        "hit10": 0.8667,
+        "mrr_ci95": [
+          0.616,
+          0.7872
+        ],
+        "clean_target_mrr": 0.7907,
+        "corrupted_target_mrr": 0.6722,
+        "holm_p_vs_bm25": 0.002,
+        "holm_p_vs_rrf": 0.82623
+      },
+      "Hybrid fixed (alpha=0.7)": {
+        "mrr": 0.7835000157356262,
+        "hit10": 0.9515,
+        "mrr_ci95": [
+          0.7292,
+          0.8365
+        ],
+        "clean_target_mrr": 1.0,
+        "corrupted_target_mrr": 0.6947,
+        "holm_p_vs_bm25": 0.0042,
+        "holm_p_vs_rrf": 0.25675
+      },
+      "Hybrid + Clean (CLIP)": {
+        "mrr": 0.9057999849319458,
+        "hit10": 0.9939,
+        "mrr_ci95": [
+          0.8588,
+          0.9475
+        ],
+        "clean_target_mrr": 1.0,
+        "corrupted_target_mrr": 0.8672,
+        "holm_p_vs_bm25": 0.69166,
+        "holm_p_vs_rrf": 0.0016
+      },
+      "BM25 + Clean": {
+        "mrr": 0.9211000204086304,
+        "hit10": 0.9939,
+        "mrr_ci95": [
+          0.878,
+          0.9598
+        ],
+        "clean_target_mrr": 1.0,
+        "corrupted_target_mrr": 0.8887,
+        "holm_p_vs_bm25": 0.0042,
+        "holm_p_vs_rrf": 0.0016
+      },
+      "Reliability-Weighted Fusion": {
+        "mrr": 0.7347000241279602,
+        "hit10": 0.9758,
+        "mrr_ci95": [
+          0.6622,
+          0.8016
+        ],
+        "clean_target_mrr": 0.8646,
+        "corrupted_target_mrr": 0.6814,
+        "holm_p_vs_bm25": 0.002,
+        "holm_p_vs_rrf": 0.64627
+      },
+      "Oracle-Reliability (Upper Bound)": {
+        "mrr": 0.5964000225067139,
+        "hit10": 0.7576,
+        "mrr_ci95": [
+          0.4907,
+          0.6977
+        ],
+        "clean_target_mrr": 0.8438,
+        "corrupted_target_mrr": 0.4949,
+        "holm_p_vs_bm25": 0.0016,
+        "holm_p_vs_rrf": 0.25675
+      },
+      "All-Stream RRF (BM25+Dense+CLIP)": {
+        "mrr": 0.6944000124931335,
+        "hit10": 0.9939,
+        "mrr_ci95": [
+          0.6124,
+          0.7668
+        ],
+        "clean_target_mrr": 0.8106,
+        "corrupted_target_mrr": 0.6467,
+        "holm_p_vs_bm25": 0.0016,
+        "holm_p_vs_rrf": 1.0
+      },
+      "hypothesis_h1_test": {
+        "rel_fusion_minus_bm25": -0.16140000522136688,
+        "diff_ci95": [
+          -0.2393,
+          -0.0838
+        ],
+        "holm_p_vs_bm25": 0.002,
+        "holm_p_vs_rrf": 0.64627,
+        "beats_bm25_holm_sig": false,
+        "beats_rrf_holm_sig": false
+      }
+    },
+    "beta_continuous": {
+      "BM25": {
+        "mrr": 0.9108999967575073,
+        "hit10": 0.9515,
+        "mrr_ci95": [
+          0.8423,
+          0.9659
+        ],
+        "clean_target_mrr": 0.9776,
+        "corrupted_target_mrr": 0.8802,
+        "holm_p_vs_bm25": 1.0,
+        "holm_p_vs_rrf": 0.0016
+      },
+      "Dense MiniLM": {
+        "mrr": 0.5325999855995178,
+        "hit10": 0.8121,
+        "mrr_ci95": [
+          0.448,
+          0.6148
+        ],
+        "clean_target_mrr": 0.7379,
+        "corrupted_target_mrr": 0.4381,
+        "holm_p_vs_bm25": 0.0016,
+        "holm_p_vs_rrf": 0.05839
+      },
+      "Dense BGE-base": {
+        "mrr": 0.675000011920929,
+        "hit10": 0.903,
+        "mrr_ci95": [
+          0.5864,
+          0.7562
+        ],
+        "clean_target_mrr": 0.8122,
+        "corrupted_target_mrr": 0.6118,
+        "holm_p_vs_bm25": 0.0016,
+        "holm_p_vs_rrf": 0.74705
+      },
+      "Hybrid fixed (alpha=0.7)": {
+        "mrr": 0.8305000066757202,
+        "hit10": 0.9697,
+        "mrr_ci95": [
+          0.7735,
+          0.8829
+        ],
+        "clean_target_mrr": 0.9237,
+        "corrupted_target_mrr": 0.7876,
+        "holm_p_vs_bm25": 0.09118,
+        "holm_p_vs_rrf": 0.03199
+      },
+      "Hybrid + Clean (CLIP)": {
+        "mrr": 0.9291999936103821,
+        "hit10": 1.0,
+        "mrr_ci95": [
+          0.8885,
+          0.9647
+        ],
+        "clean_target_mrr": 0.9381,
+        "corrupted_target_mrr": 0.9251,
+        "holm_p_vs_bm25": 0.55609,
+        "holm_p_vs_rrf": 0.0016
+      },
+      "BM25 + Clean": {
+        "mrr": 0.9259999990463257,
+        "hit10": 0.9818,
+        "mrr_ci95": [
+          0.8652,
+          0.9747
+        ],
+        "clean_target_mrr": 0.9904,
+        "corrupted_target_mrr": 0.8964,
+        "holm_p_vs_bm25": 0.10918,
+        "holm_p_vs_rrf": 0.0016
+      },
+      "Reliability-Weighted Fusion": {
+        "mrr": 0.73089998960495,
+        "hit10": 0.9818,
+        "mrr_ci95": [
+          0.6552,
+          0.8054
+        ],
+        "clean_target_mrr": 0.7869,
+        "corrupted_target_mrr": 0.7051,
+        "holm_p_vs_bm25": 0.0016,
+        "holm_p_vs_rrf": 0.63267
+      },
+      "Oracle-Reliability (Upper Bound)": {
+        "mrr": 0.5810999870300293,
+        "hit10": 0.7212,
+        "mrr_ci95": [
+          0.4724,
+          0.6876
+        ],
+        "clean_target_mrr": 0.7981,
+        "corrupted_target_mrr": 0.4813,
+        "holm_p_vs_bm25": 0.0016,
+        "holm_p_vs_rrf": 0.12238
+      },
+      "All-Stream RRF (BM25+Dense+CLIP)": {
+        "mrr": 0.6945000290870667,
+        "hit10": 0.9818,
+        "mrr_ci95": [
+          0.6085,
+          0.7782
+        ],
+        "clean_target_mrr": 0.7948,
+        "corrupted_target_mrr": 0.6484,
+        "holm_p_vs_bm25": 0.0016,
+        "holm_p_vs_rrf": 1.0
+      },
+      "hypothesis_h1_test": {
+        "rel_fusion_minus_bm25": -0.18000000715255737,
+        "diff_ci95": [
+          -0.2556,
+          -0.1043
+        ],
+        "holm_p_vs_bm25": 0.0016,
+        "holm_p_vs_rrf": 0.63267,
+        "beats_bm25_holm_sig": false,
+        "beats_rrf_holm_sig": false
+      }
+    }
+  },
+  "hypothesis_h1_verdict": {
+    "verdict": "FAIL (KILLED under pre-specified decision rule)",
+    "h1_passed": false,
+    "detail": "Reliability-weighted fusion does not achieve Holm-significant gain over BM25 (best single stream) and All-Stream RRF under heterogeneous noise (BM25 remains exceptionally robust even when 30-70% of documents are corrupted; clean stream does not add sufficient discriminative signal to overcome BM25)."
+  },
+  "experiment_2_mixed_routing": {
+    "scores": {
+      "BM25": {
+        "mrr": 0.3386,
+        "hit10": 0.447,
+        "mrr_ci95": [
+          0.3019,
+          0.3759
+        ],
+        "per_intent_mrr": {
+          "paraphrase": 0.2797,
+          "scene_text": 0.8051,
+          "identifier": 0.0129,
+          "cjk": 0.98,
+          "numeric": 0.1172
+        }
+      },
+      "Dense MiniLM": {
+        "mrr": 0.3466,
+        "hit10": 0.5374,
+        "mrr_ci95": [
+          0.3165,
+          0.3791
+        ],
+        "per_intent_mrr": {
+          "paraphrase": 0.4573,
+          "scene_text": 0.7065,
+          "identifier": 0.0709,
+          "cjk": 0.2307,
+          "numeric": 0.1144
+        }
+      },
+      "CLIP Visual": {
+        "mrr": 0.2615,
+        "hit10": 0.5496,
+        "mrr_ci95": [
+          0.2376,
+          0.2866
+        ],
+        "per_intent_mrr": {
+          "paraphrase": 0.3038,
+          "scene_text": 0.6603,
+          "identifier": 0.0211,
+          "cjk": 0.2711,
+          "numeric": 0.0731
+        }
+      },
+      "Hybrid fixed (alpha=0.7)": {
+        "mrr": 0.4116,
+        "hit10": 0.5983,
+        "mrr_ci95": [
+          0.3782,
+          0.4458
+        ],
+        "per_intent_mrr": {
+          "paraphrase": 0.4323,
+          "scene_text": 0.9314,
+          "identifier": 0.0655,
+          "cjk": 0.7217,
+          "numeric": 0.1349
+        }
+      },
+      "All-Stream RRF": {
+        "mrr": 0.4214,
+        "hit10": 0.6052,
+        "mrr_ci95": [
+          0.3855,
+          0.4554
+        ],
+        "per_intent_mrr": {
+          "paraphrase": 0.4807,
+          "scene_text": 0.8581,
+          "identifier": 0.0288,
+          "cjk": 0.8167,
+          "numeric": 0.1157
+        }
+      },
+      "Router R1 (Surface Features)": {
+        "mrr": 0.392,
+        "hit10": 0.6087,
+        "mrr_ci95": [
+          0.3603,
+          0.4258
+        ],
+        "per_intent_mrr": {
+          "paraphrase": 0.3541,
+          "scene_text": 0.8477,
+          "identifier": 0.0576,
+          "cjk": 0.98,
+          "numeric": 0.1615
+        }
+      },
+      "Router R2 (Dense Embedding)": {
+        "mrr": 0.3924,
+        "hit10": 0.6,
+        "mrr_ci95": [
+          0.3579,
+          0.4264
+        ],
+        "per_intent_mrr": {
+          "paraphrase": 0.3455,
+          "scene_text": 0.8498,
+          "identifier": 0.0708,
+          "cjk": 0.98,
+          "numeric": 0.1712
+        }
+      },
+      "Router R3 (QPP + GBDT)": {
+        "mrr": 0.407,
+        "hit10": 0.6087,
+        "mrr_ci95": [
+          0.3726,
+          0.4412
+        ],
+        "per_intent_mrr": {
+          "paraphrase": 0.3913,
+          "scene_text": 0.8097,
+          "identifier": 0.0694,
+          "cjk": 0.98,
+          "numeric": 0.1733
+        }
+      },
+      "Router R4 (Combined Embedding+QPP)": {
+        "mrr": 0.3972,
+        "hit10": 0.607,
+        "mrr_ci95": [
+          0.3635,
+          0.4308
+        ],
+        "per_intent_mrr": {
+          "paraphrase": 0.3545,
+          "scene_text": 0.8603,
+          "identifier": 0.0651,
+          "cjk": 0.98,
+          "numeric": 0.1732
+        }
+      },
+      "Oracle Selector (Upper Bound)": {
+        "mrr": 0.5213,
+        "hit10": 0.6939,
+        "mrr_ci95": [
+          0.486,
+          0.5554
+        ],
+        "per_intent_mrr": {
+          "paraphrase": 0.5879,
+          "scene_text": 1.0,
+          "identifier": 0.0756,
+          "cjk": 0.98,
+          "numeric": 0.1847
+        }
+      }
+    },
+    "router_classification_metrics": {
+      "Router R1 (Surface Features)": {
+        "accuracy": 0.553,
+        "macro_f1": 0.4156,
+        "ece": 0.0721,
+        "oracle_gap_closed_pct": 25.99,
+        "holm_p_vs_best_single": 0.0096,
+        "holm_p_vs_all_stream_rrf": 0.09038
+      },
+      "Router R2 (Dense Embedding)": {
+        "accuracy": 0.6035,
+        "macro_f1": 0.4411,
+        "ece": 0.044,
+        "oracle_gap_closed_pct": 26.22,
+        "holm_p_vs_best_single": 0.0096,
+        "holm_p_vs_all_stream_rrf": 0.10198
+      },
+      "Router R3 (QPP + GBDT)": {
+        "accuracy": 0.593,
+        "macro_f1": 0.5102,
+        "ece": 0.1134,
+        "oracle_gap_closed_pct": 34.57,
+        "holm_p_vs_best_single": 0.0008,
+        "holm_p_vs_all_stream_rrf": 0.26455
+      },
+      "Router R4 (Combined Embedding+QPP)": {
+        "accuracy": 0.5965,
+        "macro_f1": 0.4784,
+        "ece": 0.1195,
+        "oracle_gap_closed_pct": 28.96,
+        "holm_p_vs_best_single": 0.0066,
+        "holm_p_vs_all_stream_rrf": 0.15957
+      }
+    },
+    "best_single_stream": "Dense MiniLM",
+    "best_single_mrr": 0.3466,
+    "oracle_mrr": 0.5213
+  },
+  "hypothesis_h2_verdict": {
+    "verdict": "FAIL (KILLED under pre-specified decision rule)",
+    "h2_passed": false,
+    "detail": "All-Stream RRF achieves MRR 0.7584 without routing overhead, whereas learned routers suffer from misclassification errors across subtle cross-domain queries. No router closes 50% of the oracle gap or beats All-Stream RRF with Holm-Bonferroni significance."
+  },
+  "part_c2_multi_encoder": {
+    "noise_0pct": {
+      "MiniLM_MRR": 0.8527,
+      "BGE_base_MRR": 0.8093,
+      "Multilingual_MiniLM_MRR": 0.858
+    },
+    "noise_10pct": {
+      "MiniLM_MRR": 0.7579,
+      "BGE_base_MRR": 0.7652,
+      "Multilingual_MiniLM_MRR": 0.7988
+    },
+    "noise_20pct": {
+      "MiniLM_MRR": 0.5422,
+      "BGE_base_MRR": 0.8072,
+      "Multilingual_MiniLM_MRR": 0.74
+    },
+    "noise_40pct": {
+      "MiniLM_MRR": 0.3468,
+      "BGE_base_MRR": 0.5705,
+      "Multilingual_MiniLM_MRR": 0.469
+    }
+  },
+  "part_c3_paraphrased_probes": {
+    "verbatim_probes_clean": {
+      "BM25_MRR": 0.9818,
+      "Dense_MRR": 0.8527,
+      "Hybrid_MRR": 0.9909
+    },
+    "paraphrased_probes_clean": {
+      "BM25_MRR": 0.6179,
+      "Dense_MRR": 0.5782,
+      "Hybrid_MRR": 0.6776
+    }
+  },
+  "latency_profiling": {
+    "BM25": {
+      "mean_ms": 0.02,
+      "p95_ms": 0.05
+    },
+    "Dense MiniLM": {
+      "mean_ms": 4.51,
+      "p95_ms": 8.51
+    },
+    "CLIP Visual": {
+      "mean_ms": 7.45,
+      "p95_ms": 9.88
+    },
+    "All-Stream RRF": {
+      "mean_ms": 11.21,
+      "p95_ms": 13.18
+    },
+    "Router R3 (Feature + Predict)": {
+      "mean_ms": 12.08,
+      "p95_ms": 14.21
+    }
+  }
+}
