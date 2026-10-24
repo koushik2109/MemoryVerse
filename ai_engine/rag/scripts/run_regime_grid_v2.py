@@ -94,7 +94,7 @@ def tokenize_char_ngrams(text: str, n_min: int = 3, n_max: int = 5) -> List[str]
 
 
 class PurePythonBM25:
-    """Okapi BM25 implementation supporting arbitrary token streams."""
+    """High-performance Inverted Index Okapi BM25 implementation."""
 
     def __init__(self, corpus: Sequence[Sequence[str]], k1: float = 1.5, b: float = 0.75):
         self.k1 = k1
@@ -103,16 +103,16 @@ class PurePythonBM25:
         self.doc_lens = np.array([len(doc) for doc in corpus], dtype=np.float32)
         self.avgdl = float(np.mean(self.doc_lens)) if self.corpus_size > 0 else 1.0
 
-        self.doc_freqs: Dict[str, int] = collections.Counter()
-        self.doc_tfs: List[Dict[str, int]] = []
-        for doc in corpus:
+        # Build Inverted Index: term -> list of (doc_idx, tf)
+        self.postings: Dict[str, List[Tuple[int, int]]] = collections.defaultdict(list)
+        for idx, doc in enumerate(corpus):
             tf = collections.Counter(doc)
-            self.doc_tfs.append(tf)
-            for term in tf:
-                self.doc_freqs[term] += 1
+            for term, count in tf.items():
+                self.postings[term].append((idx, count))
 
         self.idf: Dict[str, float] = {}
-        for term, freq in self.doc_freqs.items():
+        for term, plist in self.postings.items():
+            freq = len(plist)
             self.idf[term] = math.log((self.corpus_size - freq + 0.5) / (freq + 0.5) + 1.0)
 
     def get_scores(self, query: Sequence[str]) -> np.ndarray:
@@ -123,11 +123,9 @@ class PurePythonBM25:
 
         for term in query_terms:
             idf = self.idf[term]
-            for idx, tf_dict in enumerate(self.doc_tfs):
-                f = tf_dict.get(term, 0)
-                if f > 0:
-                    denom = f + self.k1 * (1.0 - self.b + self.b * (self.doc_lens[idx] / self.avgdl))
-                    scores[idx] += idf * (f * (self.k1 + 1.0)) / denom
+            for idx, f in self.postings[term]:
+                denom = f + self.k1 * (1.0 - self.b + self.b * (self.doc_lens[idx] / self.avgdl))
+                scores[idx] += idf * (f * (self.k1 + 1.0)) / denom
         return scores
 
 
@@ -373,83 +371,98 @@ def run_phase2_regime_grid():
 
     # Dev split tuning dictionary: (q_type, condition) -> tuned_params
     dev_tuned_params = {}
+    DEV_PARAMS_CACHE = V2_DIR / "dev_tuned_params_cache.json"
 
-    print("\n" + "=" * 80)
-    print("STAGE 1: DEV SPLIT PARAMETER TUNING (Strictly Zero Test Contamination)")
-    print("=" * 80)
+    if DEV_PARAMS_CACHE.exists():
+        print(f"Loading cached Dev tuned parameters from {DEV_PARAMS_CACHE}...")
+        with open(DEV_PARAMS_CACHE, "r", encoding="utf-8") as f:
+            raw_cache = json.load(f)
+            dev_tuned_params = {tuple(k.split(":::")): v for k, v in raw_cache.items()}
+    else:
+        print("\n" + "=" * 80)
+        print("STAGE 1: DEV SPLIT PARAMETER TUNING (Strictly Zero Test Contamination)")
+        print("=" * 80)
 
-    for q_type in query_types:
-        for condition in noise_conditions:
-            dev_texts = get_corpus_texts_for_condition(dev_records, condition, seed=42)
-            dev_tokens_word = [tokenize_words(t) for t in dev_texts]
-            dev_bm25 = PurePythonBM25(dev_tokens_word)
+        for q_type in query_types:
+            for condition in noise_conditions:
+                dev_texts = get_corpus_texts_for_condition(dev_records, condition, seed=42)
+                dev_tokens_word = [tokenize_words(t) for t in dev_texts]
+                dev_bm25 = PurePythonBM25(dev_tokens_word)
 
-            dev_dense_embs = minilm_model.encode(dev_texts, convert_to_numpy=True, normalize_embeddings=True, show_progress_bar=False)
-            q_minilm = dev_query_bank[q_type]["minilm"]
-            q_texts = dev_query_bank[q_type]["texts"]
-            q_clip = dev_query_bank[q_type]["clip"]
+                dev_dense_embs = minilm_model.encode(dev_texts, convert_to_numpy=True, normalize_embeddings=True, show_progress_bar=False)
+                q_minilm = dev_query_bank[q_type]["minilm"]
+                q_texts = dev_query_bank[q_type]["texts"]
+                q_clip = dev_query_bank[q_type]["clip"]
 
-            dev_targets = [p["target_id"] for p in dev_probes]
+                dev_targets = [p["target_id"] for p in dev_probes]
+                valid_pairs = [(q_idx, dev_id_to_idx[target_id]) for q_idx, target_id in enumerate(dev_targets) if target_id in dev_id_to_idx]
 
-            # 1. Sweep alpha in [0.0, 0.1, ..., 1.0] for Hybrid
-            best_alpha = 0.5
-            best_hybrid_mrr = -1.0
-            for alpha in np.linspace(0.0, 1.0, 11):
-                mrrs = []
-                for q_idx, target_id in enumerate(dev_targets):
-                    if target_id not in dev_id_to_idx:
-                        continue
-                    tgt_idx = dev_id_to_idx[target_id]
-                    s_dense = np.dot(dev_dense_embs, q_minilm[q_idx])
-                    s_bm25 = dev_bm25.get_scores(tokenize_words(q_texts[q_idx]))
-                    comb = alpha * min_max_normalize(s_dense) + (1.0 - alpha) * min_max_normalize(s_bm25)
-                    rank = int(np.where(np.argsort(-comb) == tgt_idx)[0][0]) + 1
-                    mrrs.append(1.0 / rank if rank <= 100 else 0.0)
-                mean_mrr = float(np.mean(mrrs))
-                if mean_mrr > best_hybrid_mrr:
-                    best_hybrid_mrr = mean_mrr
-                    best_alpha = float(round(alpha, 2))
+                # Precompute normalized scores once per query for this (q_type, condition)
+                norm_dense_list = []
+                norm_bm25_list = []
+                norm_clip_list = []
+                for q_idx, _ in valid_pairs:
+                    s_d = np.dot(dev_dense_embs, q_minilm[q_idx])
+                    s_b = dev_bm25.get_scores(tokenize_words(q_texts[q_idx]))
+                    s_c = np.dot(dev_clip_img_embs, q_clip[q_idx])
+                    norm_dense_list.append(min_max_normalize(s_d))
+                    norm_bm25_list.append(min_max_normalize(s_b))
+                    norm_clip_list.append(min_max_normalize(s_c))
 
-            # 2. Sweep gamma_clean in [0.0, 0.05, 0.1, 0.2, 0.3, 0.5] for BM25+CLIP and Hybrid+CLIP
-            best_gamma_bm25 = 0.1
-            best_bm25_clip_mrr = -1.0
-            best_gamma_hyb = 0.1
-            best_hyb_clip_mrr = -1.0
+                # 1. Sweep alpha in [0.0, 0.1, ..., 1.0] for Hybrid
+                best_alpha = 0.5
+                best_hybrid_mrr = -1.0
+                for alpha in np.linspace(0.0, 1.0, 11):
+                    mrrs = []
+                    for idx_pair, (q_idx, tgt_idx) in enumerate(valid_pairs):
+                        comb = alpha * norm_dense_list[idx_pair] + (1.0 - alpha) * norm_bm25_list[idx_pair]
+                        rank = int(np.where(np.argsort(-comb) == tgt_idx)[0][0]) + 1
+                        mrrs.append(1.0 / rank if rank <= 100 else 0.0)
+                    mean_mrr = float(np.mean(mrrs))
+                    if mean_mrr > best_hybrid_mrr:
+                        best_hybrid_mrr = mean_mrr
+                        best_alpha = float(round(alpha, 2))
 
-            for gamma in [0.0, 0.05, 0.1, 0.2, 0.3, 0.5]:
-                mrrs_bm25_c = []
-                mrrs_hyb_c = []
-                for q_idx, target_id in enumerate(dev_targets):
-                    if target_id not in dev_id_to_idx:
-                        continue
-                    tgt_idx = dev_id_to_idx[target_id]
-                    s_bm25 = dev_bm25.get_scores(tokenize_words(q_texts[q_idx]))
-                    s_dense = np.dot(dev_dense_embs, q_minilm[q_idx])
-                    s_clip = np.dot(dev_clip_img_embs, q_clip[q_idx])
+                # 2. Sweep gamma_clean in [0.0, 0.05, 0.1, 0.2, 0.3, 0.5] for BM25+CLIP and Hybrid+CLIP
+                best_gamma_bm25 = 0.1
+                best_bm25_clip_mrr = -1.0
+                best_gamma_hyb = 0.1
+                best_hyb_clip_mrr = -1.0
 
-                    c_bm25 = min_max_normalize(s_bm25) + gamma * min_max_normalize(s_clip)
-                    r_b = int(np.where(np.argsort(-c_bm25) == tgt_idx)[0][0]) + 1
-                    mrrs_bm25_c.append(1.0 / r_b if r_b <= 100 else 0.0)
+                hyb_bases = [best_alpha * norm_dense_list[i] + (1.0 - best_alpha) * norm_bm25_list[i] for i in range(len(valid_pairs))]
+                norm_hyb_bases = [min_max_normalize(hb) for hb in hyb_bases]
 
-                    hyb_base = best_alpha * min_max_normalize(s_dense) + (1.0 - best_alpha) * min_max_normalize(s_bm25)
-                    c_hyb = min_max_normalize(hyb_base) + gamma * min_max_normalize(s_clip)
-                    r_h = int(np.where(np.argsort(-c_hyb) == tgt_idx)[0][0]) + 1
-                    mrrs_hyb_c.append(1.0 / r_h if r_h <= 100 else 0.0)
+                for gamma in [0.0, 0.05, 0.1, 0.2, 0.3, 0.5]:
+                    mrrs_bm25_c = []
+                    mrrs_hyb_c = []
+                    for idx_pair, (q_idx, tgt_idx) in enumerate(valid_pairs):
+                        c_bm25 = norm_bm25_list[idx_pair] + gamma * norm_clip_list[idx_pair]
+                        r_b = int(np.where(np.argsort(-c_bm25) == tgt_idx)[0][0]) + 1
+                        mrrs_bm25_c.append(1.0 / r_b if r_b <= 100 else 0.0)
 
-                if np.mean(mrrs_bm25_c) > best_bm25_clip_mrr:
-                    best_bm25_clip_mrr = float(np.mean(mrrs_bm25_c))
-                    best_gamma_bm25 = gamma
+                        c_hyb = norm_hyb_bases[idx_pair] + gamma * norm_clip_list[idx_pair]
+                        r_h = int(np.where(np.argsort(-c_hyb) == tgt_idx)[0][0]) + 1
+                        mrrs_hyb_c.append(1.0 / r_h if r_h <= 100 else 0.0)
 
-                if np.mean(mrrs_hyb_c) > best_hyb_clip_mrr:
-                    best_hyb_clip_mrr = float(np.mean(mrrs_hyb_c))
-                    best_gamma_hyb = gamma
+                    if np.mean(mrrs_bm25_c) > best_bm25_clip_mrr:
+                        best_bm25_clip_mrr = float(np.mean(mrrs_bm25_c))
+                        best_gamma_bm25 = gamma
 
-            dev_tuned_params[(q_type, condition)] = {
-                "alpha": best_alpha,
-                "gamma_bm25": best_gamma_bm25,
-                "gamma_hyb": best_gamma_hyb,
-            }
-            print(f"Dev Tuned ({q_type:8s}, {condition:12s}): alpha*={best_alpha:.2f} (MRR={best_hybrid_mrr:.4f}), gamma_bm25*={best_gamma_bm25:.2f}, gamma_hyb*={best_gamma_hyb:.2f}")
+                    if np.mean(mrrs_hyb_c) > best_hyb_clip_mrr:
+                        best_hyb_clip_mrr = float(np.mean(mrrs_hyb_c))
+                        best_gamma_hyb = gamma
+
+                dev_tuned_params[(q_type, condition)] = {
+                    "alpha": best_alpha,
+                    "gamma_bm25": best_gamma_bm25,
+                    "gamma_hyb": best_gamma_hyb,
+                }
+                print(f"Dev Tuned ({q_type:8s}, {condition:12s}): alpha*={best_alpha:.2f} (MRR={best_hybrid_mrr:.4f}), gamma_bm25*={best_gamma_bm25:.2f}, gamma_hyb*={best_gamma_hyb:.2f}")
+
+        # Save cache
+        with open(DEV_PARAMS_CACHE, "w", encoding="utf-8") as f:
+            json.dump({f"{k[0]}:::{k[1]}": v for k, v in dev_tuned_params.items()}, f, indent=2)
+        print(f"Saved Dev tuned parameters to {DEV_PARAMS_CACHE}.")
 
     print("\n" + "=" * 80)
     print("STAGE 2: EVALUATING 12 SYSTEMS ON HELD-OUT TEST SPLIT (N=306 probes, 813 test items)")
@@ -819,7 +832,7 @@ def generate_latex_table_fragment(all_results: List[Dict[str, Any]]):
 
     for q_t in query_types:
         q_label = "\\textbf{Verbatim}" if q_t == "verbatim" else ("\\textbf{Light Paraphrase}" if q_t == "light" else "\\textbf{Heavy Paraphrase}")
-        lines.append(f"\\multirow{{6}}{{*}}{{{q_label}}}")
+        lines.append(f"\\multirow{{7}}{{*}}{{{q_label}}}")
         display_systems = ["BM25", "BM25 (Char 3-5gram)", "Dense MiniLM", "Dense BGE-base", "Hybrid (Tuned)", "CLIP Visual", "RAMP-RAG"]
         for s_idx, s in enumerate(display_systems):
             row_cells = []
@@ -831,7 +844,8 @@ def generate_latex_table_fragment(all_results: List[Dict[str, Any]]):
                 row_cells.append(f"{mrr:.3f}{star}")
             line_str = f" & {s:24s} & " + " & ".join(row_cells) + " \\\\"
             lines.append(line_str)
-        lines.append("\\midrule")
+        if q_t != query_types[-1]:
+            lines.append("\\midrule")
 
     lines.append("\\bottomrule")
     lines.append("\\end{tabular}")

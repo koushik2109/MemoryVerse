@@ -1,0 +1,4 @@
+Query_Type,Clean_Lexical_MRR,Clean_Dense_MRR,Noise20_Lexical_MRR,Noise20_Dense_MRR,Noise40_Lexical_MRR,Noise40_Dense_MRR,Crossover_Noise_Percent,Dominance_Regime
+verbatim,0.8317,0.3256,0.4703,0.1345,0.2597,0.0411,None,Lexical dominates everywhere (diff min 0.219)
+light,0.401,0.167,0.0925,0.0657,0.0551,0.0228,None,Lexical dominates everywhere (diff min 0.027)
+heavy,0.0498,0.0256,0.027,0.0251,0.0228,0.0118,None,Lexical dominates everywhere (diff min 0.002)

@@ -1,7 +1,7 @@
 {
   "version": "2.0",
-  "generated_at": "2026-10-25T01:05:00+05:30",
-  "description": "SHA-256 Manifest of frozen experimental datasets, splits, and models for MM-RAG Addendum Study",
+  "generated_at": "2026-10-25T02:35:00+05:30",
+  "description": "SHA-256 Manifest of frozen experimental datasets, splits, results, and LaTeX fragments for MM-RAG Addendum Study",
   "files": {
     "ai_engine/rag/data/v2/public_benchmark_v2.json": {
       "sha256": "71298fa5e0b2c00e366dc38e1ab1f4bbdbae315abba40f39515431cd47c5520b",
@@ -22,6 +22,136 @@
       "sha256": "11b615202623d209579adf78cd0860a03194610b98bbb7a0aba81cd7ef37f0fa",
       "bytes": 1220725,
       "description": "Apple Vision OCR applied to physical images degraded by Gaussian blur (r=1.5), 50% downscale, +/-4 deg rotation, JPEG Q20 (Mean CER: 0.5218, Mean WER: 0.7561)"
+    },
+    "results/v2/regime_grid_results.csv": {
+      "sha256": "4123476a4a92fcad83ce7fcf8a3ffce710035743bc6f026d5019c1a089fdd0c5",
+      "bytes": 19403,
+      "description": "Aggregated Phase 2 evaluation metrics across 18 cells and 12 retrieval systems with 95% cluster bootstrap CIs and Holm-corrected p-values"
+    },
+    "results/v2/regime_grid_raw_test_scores.csv": {
+      "sha256": "4314018145cae3129ab2b87ebec5f90b635eba672f5899b64578791d8dcb5ee0",
+      "bytes": 9133536,
+      "description": "Raw per-query, per-seed evaluation scores across all test queries (N=306) and evaluated systems"
+    },
+    "results/v2/crossover_summary.csv": {
+      "sha256": "2d66b6bf6f58266446d3b03267e2d27fb148d287a9d5b4c363658180df88c156",
+      "bytes": 463,
+      "description": "Crossover summary identifying lexical vs dense ranking transition noise levels by query type"
+    },
+    "results/v2/regime_grid_heatmap.png": {
+      "sha256": "4f7c166f689c61af93b223a56dccc6721a59dcd25d1aabb97c5a86a17f39a97d",
+      "bytes": 215056,
+      "description": "Heatmap of best performing retrieval system per cell across query types and noise conditions"
+    },
+    "results/v2/mrr_vs_noise_by_query_type.png": {
+      "sha256": "130006da82f38fb3f483b84f00797e2044fe0fe603232828480395924d31cc29",
+      "bytes": 380956,
+      "description": "Line plots of retrieval MRR degradation under synthetic character noise across query types"
+    },
+    "latex_fragments/table_regime_grid.tex": {
+      "sha256": "84adc72d749ebc3d9a984f8bb6b09e6f9ccfa30e7838ec10d8391e2f7b8a58ac",
+      "bytes": 2111,
+      "description": "LaTeX booktabs table fragment for Phase 2 regime analysis grid"
+    },
+    "results/v2/ablation_results.csv": {
+      "sha256": "c1e659a4271ed13fefdb4fbfe6d90dae4bcbb4458c7075a6e57188cef8d44627",
+      "bytes": 5274,
+      "description": "Component ablation results across 12 configurations and 4 noise regimes on held-out test split"
+    },
+    "results/v2/reliability_auroc.csv": {
+      "sha256": "61a01e0293e85e1bfb40efbd0a12d7d146a48ae9a3dbaaae22e35501202d5b18",
+      "bytes": 190,
+      "description": "Reliability heuristic AUROC across synthetic noise levels and real degraded OCR"
+    },
+    "latex_fragments/table_ablation_v2.tex": {
+      "sha256": "99ad379641424c6a03340ebd3972c74ef0680b36d363f154026b3e3c9f63ad0a",
+      "bytes": 1424,
+      "description": "LaTeX booktabs component ablation table fragment"
+    },
+    "results/v2/mechanism_tokenization_fragmentation.csv": {
+      "sha256": "1f46ada3e6336aa333ae13990fc20503313c8c32e671e8e18839d982aacc5c6b",
+      "bytes": 235,
+      "description": "Subwords per word tokenization fragmentation data across noise levels"
+    },
+    "results/v2/mechanism_embedding_drift.csv": {
+      "sha256": "cae9eecd3bcbffafd9c7bd65bf19f14e9b979c1d2ed1aa66d774f459079eb462",
+      "bytes": 189,
+      "description": "Cosine similarity embedding drift data for MiniLM and BGE across noise levels"
+    },
+    "results/v2/mechanism_error_attribution.csv": {
+      "sha256": "0255b4f585e8b3d89b6870cc2d2f807e880955dcdc1a715d36f432f77678c8ed",
+      "bytes": 1481,
+      "description": "MRR error attribution across probe structural property buckets at 20% noise"
+    },
+    "results/v2/fig_tokenization_fragmentation.png": {
+      "sha256": "b3780f4381c115b8508e61eaac34b9fc7e87bcd5420dfd815fab044d7a1778b7",
+      "bytes": 126053,
+      "description": "Plot of tokenization fragmentation vs synthetic noise rate"
+    },
+    "results/v2/fig_embedding_drift.png": {
+      "sha256": "76c9d651df93e25329bc531ca18dc2b1c3d5fa0c87dba3f0e0e331eff92f8adc",
+      "bytes": 147930,
+      "description": "Plot of embedding cosine similarity drift vs noise rate"
+    },
+    "results/v2/fig_error_attribution.png": {
+      "sha256": "a9e134320176babd7353d733730d7b8e6e81203150d5f851dfa21ef775ada071",
+      "bytes": 136472,
+      "description": "Bar chart of MRR across probe property buckets at 20% noise"
+    },
+    "results/v2/conformal_cascade_results.csv": {
+      "sha256": "6c4fdc48ff376dce462b83ef60939dab3a5075ade12f27b7b25e85faf6cddc60",
+      "bytes": 42082,
+      "description": "Phase 5 split-by-split conformal cascade calibration results across 200 random splits"
+    },
+    "results/v2/conformal_splits_summary.csv": {
+      "sha256": "cbe49a694d0e2890c0779d8a0e9d7418f64afb87fab009b929137c3c4eba6eb4",
+      "bytes": 757,
+      "description": "Phase 5 summary metrics across 200 splits for empirical and conservative UCB calibration"
+    },
+    "results/v2/conformal_pareto_curve.csv": {
+      "sha256": "7cf738bad1c4338cbf830d1428d27d66a2d304fce34e68a6b40cc83ebae11558",
+      "bytes": 2095,
+      "description": "Phase 5 Cost-Quality Pareto frontier comparing never escalate, fixed thresholds, conformal, and always escalate"
+    },
+    "results/v2/fig_conformal_pareto.png": {
+      "sha256": "cdb6a4ff5c7561f777c32ae11e1e958187f3f9eae07037f3ba6b6a8fdc2d647a",
+      "bytes": 349060,
+      "description": "Two-panel plot of Pareto frontier (latency vs MRR) and risk control verification histogram"
+    },
+    "latex_fragments/table_conformal_v2.tex": {
+      "sha256": "f7f1de9661c960ab265f2b00a87a831057a325a1edb0b4ed8188c93d5290a227",
+      "bytes": 1282,
+      "description": "LaTeX booktabs table fragment for conformal cascade calibration"
+    },
+    "results/v2/coco_native_visual_results.csv": {
+      "sha256": "37731414bf1903dd4dc155019c25eb1e06675e11252a293e771a475e0bae2433",
+      "bytes": 2023,
+      "description": "Phase 7 cross-modal retrieval results across 10 systems on N=1,000 MS-COCO Karpathy test items"
+    },
+    "results/v2/coco_hypothesis_test.csv": {
+      "sha256": "5d0b2151147a498af1742452ab992f0ef5e03eeeb964a623d7608aec8eb4b25e",
+      "bytes": 628,
+      "description": "Phase 7 pre-registered hypothesis test results comparing Native Pixels against best caption proxy"
+    },
+    "latex_fragments/table_coco_v2.tex": {
+      "sha256": "3af287df525a8e8d625702f22faa1cbf3e37464d312732956d9f31227ee1121c",
+      "bytes": 1949,
+      "description": "LaTeX booktabs table fragment for COCO native-visual retrieval benchmark"
+    },
+    "results/v2/multihop_equivalence_results.csv": {
+      "sha256": "371ea379fdd9ab55185c72c445afb6748d60cc975c3dcc038e7672d9121883b9",
+      "bytes": 806,
+      "description": "Phase 6 Two One-Sided Tests (TOST) equivalence results comparing Extractive PRF bridging vs LLM bridging"
+    },
+    "latex_fragments/table_multihop_v2.tex": {
+      "sha256": "a4039413a15cbbe3749af90eedde05ee7c9b22c7a0937083c197de60e0ab6142",
+      "bytes": 821,
+      "description": "LaTeX booktabs table fragment for multi-hop equivalence testing"
+    },
+    "reproduce.sh": {
+      "sha256": "f984b83cc4c19380554db9f4f1166aeabdb11833f9f85ae4d6a17ef3a1c73e2b",
+      "bytes": 4141,
+      "description": "Single-entry-point bash reproduction script running all evaluations from frozen data"
     }
   }
 }

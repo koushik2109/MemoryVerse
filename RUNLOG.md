@@ -55,4 +55,114 @@
   - Measured Degraded OCR Mean CER: `0.5218`
   - Measured Degraded OCR Mean WER: `0.7561`
 - **Output:** Saved to `ai_engine/rag/data/v2/sroie_degraded_ocr.json` (SHA-256 in MANIFEST.json).
+### Phase 2.3 - 2.5: Multi-Stream Regime Analysis Grid Evaluation
+- **Timestamp:** 2026-10-25T01:37:30+05:30
+- **Script:** `ai_engine/rag/scripts/run_regime_grid_v2.py`
+- **Total Wall-Clock Time:** 780.48s (13.0 min)
+- **Evaluated Suite:**
+  - 18 Cells: 3 query types (verbatim, light paraphrase, heavy paraphrase) x 6 noise regimes (clean, syn_10, syn_20, syn_40, real_ocr, real_ocr_deg).
+  - 12 Retrieval Systems: BM25 (word), BM25 (char 3-5gram), Fuzzy Lexical, Dense MiniLM, Dense BGE-base, Dense Multilingual, Hybrid (tuned on Dev), All-Stream RRF, CLIP Visual, BM25 + CLIP, Hybrid + CLIP, RAMP-RAG.
+  - Multi-Seed Evaluation: Seeds 42, 43, 44 on synthetic noise; 306 held-out test queries, 813 test items (pooled with COCO distractors).
+  - Statistical Validation: Clustered bootstrap over target items ($B=2,000$), paired sign-flip permutation tests ($N_{\text{perm}}=10,000$) against Tuned Hybrid, and family-wise step-down Holm-Bonferroni correction.
+- **Key Empirical Outputs:**
+  - `results/v2/regime_grid_results.csv`
+  - `results/v2/regime_grid_raw_test_scores.csv`
+  - `results/v2/crossover_summary.csv`
+  - `results/v2/regime_grid_heatmap.png`
+  - `results/v2/mrr_vs_noise_by_query_type.png`
+  - `latex_fragments/table_regime_grid.tex`
+
+### Phase 4: Component Ablation & RAMP-RAG Architecture Re-Evaluation
+- **Timestamp:** 2026-10-25T02:04:30+05:30
+- **Script:** `ai_engine/rag/scripts/run_ablation_v2.py`
+- **Total Wall-Clock Time:** 313.66s (5.2 min)
+- **Evaluated Models:** `ms-marco-MiniLM-L-6-v2` and `BAAI/bge-reranker-base`.
+- **Key Empirical Results:**
+  - `+ Cascade (MiniLM)` gains $+0.0410$ MRR on Clean ($p_{\text{Holm}} = 0.0014$) and $+0.0339$ MRR on 20% Noise ($p_{\text{Holm}} = 0.0011$).
+  - `+ Cascade (BGE-reranker)` achieves the highest overall retrieval accuracy across all conditions: Clean MRR `0.8821` ($p_{\text{Holm}} = 0.0011$), 20% Noise MRR `0.4154` ($p_{\text{Holm}} = 0.0011$), Real OCR MRR `0.8555` ($p_{\text{Holm}} = 0.0011$), Real Degraded OCR MRR `0.6969`.
+  - `+ Reliability` degrades performance: 20% Noise MRR drops to `0.3574` vs. Baseline `0.3694` (diff CI `[-0.0222, -0.0025]`). H1 Decision Rule: **FAIL (REJECTED)**.
+  - `+ Router` achieves `0.3765` MRR vs. `All-Stream RRF` `0.1827` MRR. H2 Decision Rule: **PASS**.
+  - Observable Reliability AUROC: High on uniform synthetic character corruption (10% noise AUROC `0.9772`, 20% noise `0.9948`), but completely inverts on real optical blur/compression (`0.2674`), proving why heuristic reliability fails in realistic conditions.
+- **Output Artifacts:**
+  - `results/v2/ablation_results.csv`
+  - `results/v2/reliability_auroc.csv`
+  - `latex_fragments/table_ablation_v2.tex`
+
+### Phase 3: Mechanism Analysis (Why Dense Text Proxies Collapse)
+- **Timestamp:** 2026-10-25T02:10:15+05:30
+- **Script:** `ai_engine/rag/scripts/run_mechanism_analysis_v2.py`
+- **Total Wall-Clock Time:** 124.83s (2.1 min)
+- **Tokenization Fragmentation:** WordPiece subwords/word escalates from `1.347` (clean) to `2.246` (20% noise) and `2.994` (40% noise, $+122\%$ fragmentation).
+- **Embedding Drift:** Mean cosine similarity to clean embedding drops from `1.0000` to `0.4655` (MiniLM) and `0.7007` (BGE-base) at 20% noise, and to `0.2604` (MiniLM) and `0.5595` (BGE-base) at 40% noise.
+- **Error Attribution:** Dense models collapse specifically on `Numeric-Heavy` (MiniLM MRR `0.033`) and `Short` probes (MRR `0.068`), while `BM25 (Char 3-5gram)` achieves the highest noise resilience across all property buckets (Numeric-Heavy MRR `0.415`, Short MRR `0.473`, Rare-Token MRR `0.643`, Named Entity MRR `0.504`).
+- **Output Artifacts:**
+  - `results/v2/mechanism_tokenization_fragmentation.csv`
+  - `results/v2/mechanism_embedding_drift.csv`
+  - `results/v2/mechanism_error_attribution.csv`
+  - `results/v2/fig_tokenization_fragmentation.png`
+  - `results/v2/fig_embedding_drift.png`
+  - `results/v2/fig_error_attribution.png`
+  - `MECHANISM.md`
+
+### Phase 5: Conformal Cascade Calibration & Cost-Quality Pareto Frontier
+- **Timestamp:** 2026-10-25T02:25:22+05:30
+- **Script:** `ai_engine/rag/scripts/run_conformal_cascade_v2.py`
+- **Total Wall-Clock Time:** 244.35s (4.1 min)
+- **Workload:** N=2,754 pooled query instances (306 probe clusters x 3 query variants [verbatim, light paraphrase, heavy paraphrase] x 3 representation conditions [clean OCR, syn_20, real_ocr]).
+- **Protocol:** 200 random cluster-stratified 50/50 splits (seeds 1000..1199).
+- **Target Risk Bound:** Non-escalated miss rate $\epsilon \le 0.05$.
+- **Key Empirical Results:**
+  - Empirical Calibration: Calibrated $\tau^* = 0.384$. Mean held-out test miss rate = `0.0579` [5th: `0.0325`, 50th: `0.0538`, 95th: `0.0873`]. Split coverage $\le 0.05$: `36.5%`. Mean escalation rate: `89.5%` [5th: `86.9%`, 95th: `91.2%`]. Mean latency = `74.15 ms`. Test MRR = `0.3527`.
+  - Conservative 95% UCB Calibration: Calibrated $\tau^* = 0.400$. Mean held-out test miss rate = `0.0529` [5th: `0.0325`, 50th: `0.0541`, 95th: `0.0703`]. Split coverage $\le 0.05$: `37.0%`. Mean escalation rate: `90.3%`. Mean latency = `74.81 ms`. Test MRR = `0.3522`.
+  - Pareto Comparison: Never Escalate achieves MRR `0.3266` at `0.45 ms` (miss rate `0.7262`); Always Escalate achieves MRR `0.3485` at `82.82 ms` (0 miss rate). Conformal cascade saves ~10% latency vs Always Escalate while achieving higher MRR (`0.3527` vs `0.3485`) by avoiding cross-encoder false positives on obvious high-margin matches.
+- **Output Artifacts:**
+  - `results/v2/conformal_cascade_results.csv`
+  - `results/v2/conformal_splits_summary.csv`
+  - `results/v2/conformal_pareto_curve.csv`
+  - `results/v2/fig_conformal_pareto.png`
+  - `latex_fragments/table_conformal_v2.tex`
+
+### Phase 7: COCO Karpathy-Test Native-Visual vs. Proxy Retrieval Benchmark
+- **Timestamp:** 2026-10-25T02:32:37+05:30
+- **Script:** `ai_engine/rag/scripts/run_coco_native_visual_v2.py`
+- **Total Wall-Clock Time:** 33.58s
+- **Corpus:** N=1,000 MS-COCO Karpathy-test images.
+- **Queries:** N=1,000 held-out human descriptions (caption 3/4) from Karpathy test.
+- **Key Empirical Results:**
+  - `BM25 (BLIP Proxy)`: Hit@1 = `0.1220`, Hit@10 = `0.3840`, MRR = `0.2048`
+  - `Dense MiniLM (BLIP Proxy)`: Hit@1 = `0.2420`, Hit@10 = `0.6530`, MRR = `0.3728`
+  - `Dense BGE-base (BLIP Proxy)`: Hit@1 = `0.2430`, Hit@10 = `0.6460`, MRR = `0.3695`
+  - `CLIP ViT-B/32 (Native Pixels)`: Hit@1 = `0.3390`, Hit@10 = `0.7570`, MRR = `0.4709`
+  - `Hybrid (CLIP + BGE-base BLIP)`: Hit@1 = `0.3880`, Hit@10 = `0.7870`, MRR = `0.5186`
+  - `Dense BGE-base (Gold Proxy Upper Bound)`: Hit@1 = `0.4580`, Hit@10 = `0.8320`, MRR = `0.5835`
+- **Pre-Registered Hypothesis Testing (Native Pixels vs. Best Caption Proxy):**
+  - Hit@1: Diff $+0.0960$ [$+0.0620, +0.1300$], $p_{\text{Holm}} = 0.00040$ -> Sig = **True**
+  - Hit@5: Diff $+0.1020$ [$+0.0650, +0.1400$], $p_{\text{Holm}} = 0.00040$ -> Sig = **True**
+  - Hit@10: Diff $+0.1040$ [$+0.0720, +0.1390$], $p_{\text{Holm}} = 0.00040$ -> Sig = **True**
+  - MRR: Diff $+0.0981$ [$+0.0690, +0.1263$], $p_{\text{Holm}} = 0.00040$ -> Sig = **True**
+- **Verdict:** **CONFIRMED (HOLDS ACROSS ALL METRICS)**. Native pixel retrieval decisively outperforms machine caption proxies across all metrics on the 1,000-image benchmark.
+- **Output Artifacts:**
+  - `results/v2/coco_native_visual_results.csv`
+  - `results/v2/coco_hypothesis_test.csv`
+  - `latex_fragments/table_coco_v2.tex`
+
+### Phase 6: Multi-Hop Equivalence Testing via Two One-Sided Tests (TOST)
+- **Timestamp:** 2026-10-25T02:23:31+05:30
+- **Script:** `ai_engine/rag/scripts/run_multihop_equivalence_v2.py`
+- **Total Wall-Clock Time:** 0.01s
+- **Dataset:** 100 diagnostic queries (50 Single-Hop, 50 Multi-Hop).
+- **Equivalence Margin:** $\Delta = \pm 0.05$ TargetHit@10 at $\alpha = 0.05$ (90% Confidence Interval).
+- **Key Empirical Results:**
+  - Grounded Extractive Bridge vs. Generative LLM Bridge (Multi-Hop Only, N=50): Extractive Hit@10 = `0.640`, LLM Hit@10 = `0.640`. Paired difference $\bar{D} = +0.0000$ (SE = 0.0000). $90\%$ Equivalence CI = `[+0.0000, +0.0000]`. $p_{\text{TOST}} = 0.00000 < 0.05$. Verdict: **EQUIVALENT**.
+  - Grounded Extractive Bridge vs. Generative LLM Bridge (All Queries, N=100): Extractive Hit@10 = `0.820`, LLM Hit@10 = `0.820`. Paired difference $\bar{D} = +0.0000$ (SE = 0.0000). $90\%$ Equivalence CI = `[+0.0000, +0.0000]`. $p_{\text{TOST}} = 0.00000 < 0.05$. Verdict: **EQUIVALENT**.
+  - Baseline Hybrid (No Bridge) vs. LLM Bridge (Multi-Hop, N=50): Paired difference $\bar{D} = -0.0200$, $90\%$ CI `[-0.0785, +0.0385]`, $p_{\text{TOST}} = 0.19694$. Verdict: **INCONCLUSIVE** (extends beyond $-0.05$).
+- **Output Artifacts:**
+  - `results/v2/multihop_equivalence_results.csv`
+  - `latex_fragments/table_multihop_v2.tex`
+
+### Phase 8: Deliverables & Reproduction Harness
+- **Timestamp:** 2026-10-25T02:35:00+05:30
+- **Master Reproduction Script:** Created `reproduce.sh` with automated verification of frozen datasets and sequential execution of all Phase 2--7 scripts.
+- **Verification:** Audited SHA-256 hashes of all 26 outputs across `results/v2/` and `latex_fragments/` into `MANIFEST.json`.
+
 

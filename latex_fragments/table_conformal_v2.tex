@@ -1,0 +1,20 @@
+% Conformal Cascade Calibration & Pareto Frontier (N=2,754 pooled queries, 200 random splits)
+\begin{table}[htbp]
+\centering
+\small
+\caption{Conformal cascade risk control and latency-quality trade-offs evaluated across 200 cluster-stratified 50/50 splits (seeds 1000--1199) on $N=2{,}754$ pooled benchmark queries. Risk bound target $\epsilon = 0.05$.}
+\label{tab:conformal_cascade_v2}
+\begin{tabular}{lcccccc}
+\toprule
+Cascade Policy & Calibrated $\tau$ & Escalation Rate & Test Miss Rate & Coverage ($\le 0.05$) & Test MRR & Latency (ms) \\
+\midrule
+Never Escalate (Stage-1 Only) & --- & 0.0\% & 0.7262 & 0.0\% & 0.3266 & 0.45 \\
+Fixed Threshold ($\tau=0.04$) & 0.040 & 15.1\% & 0.6885 & --- & 0.3370 & 12.92 \\
+Fixed Threshold ($\tau=0.08$) & 0.080 & 38.7\% & 0.6023 & --- & 0.3465 & 32.36 \\
+Fixed Threshold ($\tau=0.15$) & 0.150 & 58.2\% & 0.4930 & --- & 0.3521 & 48.42 \\
+\textbf{Conformal (Empirical)} & \textbf{0.384} & \textbf{89.5\%} & \textbf{0.0579} & \textbf{36.5\%} & \textbf{0.3527} & \textbf{74.15} \\
+\textbf{Conformal (95\% UCB)} & \textbf{0.400} & \textbf{90.3\%} & \textbf{0.0529} & \textbf{37.0\%} & \textbf{0.3522} & \textbf{74.81} \\
+Always Escalate (Stage-2 Full) & --- & 100.0\% & 0.0000 & 100.0\% & 0.3485 & 82.82 \\
+\bottomrule
+\end{tabular}
+\end{table}
