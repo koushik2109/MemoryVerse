@@ -1,6 +1,27 @@
 {
   "version": "2.0",
-  "generated_at": "2026-10-25T00:40:00+05:30",
+  "generated_at": "2026-10-25T01:05:00+05:30",
   "description": "SHA-256 Manifest of frozen experimental datasets, splits, and models for MM-RAG Addendum Study",
-  "files": {}
+  "files": {
+    "ai_engine/rag/data/v2/public_benchmark_v2.json": {
+      "sha256": "71298fa5e0b2c00e366dc38e1ab1f4bbdbae315abba40f39515431cd47c5520b",
+      "bytes": 1711969,
+      "description": "Public multimodal corpus (1,626 items: 626 SROIE + 1,000 COCO) and 612 factual probes split 50/50"
+    },
+    "ai_engine/rag/data/v2/frozen_probes_with_paraphrases.json": {
+      "sha256": "42d94f473a73c1a6cceca5a08e3e32d65ba1116e384c4224dc019cb5ee28f2cc",
+      "bytes": 242490,
+      "description": "Frozen 612 probes with verbatim, light paraphrase (mean overlap 41.2%), and heavy paraphrase (mean overlap 0.1%)"
+    },
+    "ai_engine/rag/data/v2/paraphrase_audit_sample.csv": {
+      "sha256": "b719277f906ee136d40337f753c97b7e2de082b9ed3f717b0a7815ed2ddc9dfe",
+      "bytes": 10591,
+      "description": "10% random sample (61 rows) of paraphrased probes for audit and inspection"
+    },
+    "ai_engine/rag/data/v2/sroie_degraded_ocr.json": {
+      "sha256": "11b615202623d209579adf78cd0860a03194610b98bbb7a0aba81cd7ef37f0fa",
+      "bytes": 1220725,
+      "description": "Apple Vision OCR applied to physical images degraded by Gaussian blur (r=1.5), 50% downscale, +/-4 deg rotation, JPEG Q20 (Mean CER: 0.5218, Mean WER: 0.7561)"
+    }
+  }
 }

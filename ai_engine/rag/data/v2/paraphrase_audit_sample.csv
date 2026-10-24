@@ -1,0 +1,62 @@
+probe_id,target_id,probe_type,verbatim,light_paraphrase,light_overlap,heavy_paraphrase,heavy_overlap
+probe_0222,sroie_227,receipt_line,: 29/03/2018 20:19:38,retrieve document record showing payment at 29 03,0.3333,A timestamp marking a particular moment in time.,0.0
+probe_0053,sroie_056,receipt_line,21 MAR 2018 17:59,retrieve document record showing payment at 21 mar,0.4,The exact time and date of a financial exchange.,0.0
+probe_0557,sroie_570,receipt_line,INV NO.: 1201504,Invoice number: 1201504,0.3333,A specific reference for a billing record.,0.0
+probe_0488,sroie_500,receipt_line,CS-SA-0128032,retrieve document record showing payment at cs,0.3333,A specific identifier related to a transaction record.,0.0
+probe_0450,sroie_462,company_entity,DIMILIKI OLEH : DOVE HOLDINGS SDN BHD,retrieve document record showing payment at dimiliki oleh,0.3333,An ownership statement related to a corporate entity.,0.0
+probe_0285,sroie_293,company_entity,SELASIH EKSLUSIF SDN BHD,retrieve document record showing payment at selasih ekslusif,0.5,A business entity operating in a specific sector.,0.0
+probe_0197,sroie_202,company_entity,BAIFU (M) SDN BHD,retrieve document record showing payment at baifu m,0.5,A business entity operating under a specific corporate structure.,0.0
+probe_0512,sroie_524,receipt_line,SP-NULL-18/06/09-1018481,retrieve document record showing payment at sp null,0.3333,A unique identifier for another transaction or service entry.,0.0
+probe_0177,sroie_182,receipt_line,: 22/02/2018 7:41:46 AM,retrieve document record showing payment at 22 02 2018,0.4286,A specific time and date marking an event or transaction.,0.0
+probe_0600,sroie_613,receipt_line,03/04/18 19:19,retrieve document record showing payment at 03 04,0.5,A timestamp indicating when a particular transaction took place.,0.0
+probe_0250,sroie_257,address_entity,12 JALAN PENGACARA U1/48 TEMASYA INDUSTRIAL PARK 40150 SHAH ALAM SELANGOR,retrieve document record showing payment at 12 jalan pengacara u1 48,0.4167,Detailed address of a specific location.,0.0
+probe_0065,sroie_068,receipt_line,04/03/2018 15:41:52,retrieve document record showing payment at 04 03,0.3333,A detailed timestamp of a transaction.,0.0
+probe_0060,sroie_063,company_entity,PETRODELI ENTERPRISE,retrieve document record showing payment at petrodeli,0.5,A business likely involved in fuel and convenience services.,0.0
+probe_0184,sroie_189,receipt_line,DATE: 02/03/2018,retrieve document record showing payment at date 02,0.5,A that marks a specific purchase or service event.,0.0
+probe_0443,sroie_455,receipt_line,99.00 SR,retrieve document record showing payment at 99,0.3333,A monetary amount indicating a specific value in a currency.,0.0
+probe_0472,sroie_484,receipt_line,INV NO: CS-SA-0125293,retrieve document record showing payment at inv no,0.4,A unique identifier for another invoice in the accounting system.,0.0
+probe_0429,sroie_438,receipt_line,24 MAY 2018 18:29,retrieve document record showing payment at 24 may,0.4,A date and time marking a transaction occurrence.,0.0
+probe_0056,sroie_059,company_entity,TRIPLE SIX POINT ENTERPRISE 666,retrieve document record showing payment at triple six,0.4,A commercial entity involved in various business activities.,0.0
+probe_0540,sroie_553,company_entity,SANG KEE CHERAS RESTAURANT,retrieve document record showing payment at sang kee,0.5,A dining venue likely offering a variety of dishes.,0.0
+probe_0403,sroie_412,company_entity,SKCA HARDWARE & TIMBER SDN. BHD.,retrieve document record showing payment at skca hardware,0.4,A business dealing with construction materials and tools.,0.0
+probe_0243,sroie_250,receipt_line,09/04/2018 10:52,retrieve document record showing payment at 09 04,0.4,Timestamp indicating when a transaction occurred.,0.0
+probe_0445,sroie_457,receipt_line,SUS304 HOOK 48804,retrieve document record showing payment at sus304,0.3333,"A durable metal made from stainless steel, identified by a specific code.",0.0
+probe_0314,sroie_322,address_entity,NO 16A,retrieve document record showing payment at no,0.5,A specific address designation.,0.0
+probe_0597,sroie_610,receipt_line,TEL: 04-227 2222,retrieve document record showing payment at tel 04,0.5,A contact number associated with a business or service.,0.0
+probe_0563,sroie_576,receipt_line,1237-TMN INDAH PERDANA.,retrieve document record showing payment at 1237 tmn,0.5,A location or establishment name associated with a transaction.,0.0
+probe_0014,sroie_015,receipt_line,COMPANY REG NO.:SA03711551-P,retrieve document record showing payment at company reg,0.4,An identifier for a registered business entity.,0.0
+probe_0321,sroie_329,receipt_line,DATE: 30/08/2017,DATE: 30th August 2017,0.5,A particular day marked in a calendar.,0.0
+probe_0085,sroie_089,receipt_line,TIME: 15:14:00,retrieve document record showing payment at time 15,0.5,A specific moment of the day.,0.0
+probe_0310,sroie_318,address_entity,BEACH ROAD,retrieve document record showing payment at beach,0.5,A location name typically associated with coastal areas.,0.0
+probe_0436,sroie_447,receipt_line,BRUSH 1.5' 628,retrieve document record showing payment at brush 1,0.5,itemized catalog purchase line showing merchandise transaction charges,0.0
+probe_0077,sroie_081,receipt_line,BATTERY LR03-4B AAA 4 PCS,retrieve document record showing payment at battery lr03,0.3333,A pack of four batteries.,0.0
+probe_0183,sroie_188,company_entity,KMF FOODICIOUS SDN BHD,retrieve document record showing payment at kmf foodicious,0.5,"A food-related business, possibly offering a variety of culinary products.",0.0
+probe_0164,sroie_169,receipt_line,DATE: 2018-03-18,retrieve document record showing payment at date 2018,0.5,A specific related to a transaction or event.,0.0
+probe_0190,sroie_195,receipt_line,BIO ZIP POWDER,retrieve document record showing payment at bio,0.3333,itemized catalog purchase line showing merchandise transaction charges,0.0
+probe_0116,sroie_121,receipt_line,104 COTTON GLOVE (DOZEN),retrieve document record showing payment at 104 cotton,0.5,A description of a product quantity and type.,0.0
+probe_0091,sroie_095,receipt_line,CP. (M) SDN BHD,retrieve document record showing payment at cp m,0.5,A company involved in various business activities.,0.0
+probe_0529,sroie_541,company_entity,IDEAL MENU GROUP SDN BHD,retrieve document record showing payment at ideal menu,0.4,A business entity involved in food services.,0.0
+probe_0088,sroie_092,receipt_line,COMPANY REG. NO.: 725186-V,retrieve document record showing payment at company reg,0.4,This is a unique identifier assigned to a registered business entity.,0.0
+probe_0335,sroie_343,receipt_line,DATE: 03/08/2017,3rd August 2017,0.25,A associated with a receipt or financial entry.,0.0
+probe_0499,sroie_511,receipt_line,TIME: 14:30:00,retrieve document record showing payment at time 14,0.5,The timestamp indicating when a transaction took place.,0.0
+probe_0258,sroie_265,receipt_line,15/05/2017 10:49:40 AM,retrieve document record showing payment at 15 05 2017,0.4286,A specific date and time indicating when a transaction took place.,0.0
+probe_0161,sroie_166,company_entity,THE STORE (MALAYSIA) SDN BHD,retrieve document record showing payment at the store,0.4,A retail chain offering a variety of consumer goods.,0.0
+probe_0163,sroie_168,receipt_line,TAMAN SRI BINTANG,retrieve document record showing payment at taman,0.3333,A specific area or neighborhood known for its residential or commercial significance.,0.0
+probe_0530,sroie_542,receipt_line,17/06/2018 18:21,retrieve document record showing payment at 17 06,0.4,A recorded moment of a financial exchange.,0.0
+probe_0598,sroie_611,company_entity,AMTECH ELECTRICAL SUPPLIES,retrieve document record showing payment at amtech,0.3333,commercial vendor invoice from local registered supplier entity,0.0
+probe_0119,sroie_124,receipt_line,TIME: 15:29:00,retrieve document record showing payment at time 15,0.5,itemized catalog purchase line showing merchandise transaction charges,0.0
+probe_0571,sroie_584,receipt_line,28/05/18 11:41,retrieve document record showing payment at 28 05,0.4,A recorded time and date for a transaction.,0.0
+probe_0390,sroie_399,receipt_line,HANDPHONE STICKER WNY-037,retrieve document record showing payment at handphone sticker,0.5,An item description related to mobile accessories.,0.0
+probe_0143,sroie_148,receipt_line,MCDONALD'S RAWANG DT (#188),retrieve document record showing payment at mcdonald s,0.4,A fast-food restaurant location known for its quick-service meals.,0.0
+probe_0096,sroie_100,receipt_line,TIME: 17:21:00,retrieve document record showing payment at time 17,0.5,This specifies the exact when a transaction took place.,0.0
+probe_0462,sroie_474,receipt_line,INV NO: CS-SA-0082716,retrieve document record showing payment at inv no,0.4,Another unique identifier for a different invoice in a transaction.,0.0
+probe_0592,sroie_605,receipt_line,DATE: 03/05/2018,retrieve document record showing payment at date 03,0.5,A indicating when a purchase was made.,0.0
+probe_0165,sroie_170,company_entity,ZEN AND COFFEE 28 S/B,retrieve document record showing payment at zen and,0.3333,A business focused on providing possibly other beverages in a casual setting.,0.0
+probe_0196,sroie_201,receipt_line,CARBON FIBER CARTRIDGE CTO-98#10 ',retrieve document record showing payment at carbon fiber,0.3333,"A specialized item made from lightweight material, likely used in a technical application.",0.0
+probe_0322,sroie_330,receipt_line,30/07/2017,30th July 2017,0.3333,A specific date associated with a transaction or event.,0.0
+probe_0129,sroie_134,receipt_line,TEL : 03-51217970,retrieve document record showing payment at tel,0.3333,A contact number for communication.,0.0
+probe_0328,sroie_336,receipt_line,DATE: 24/08/2017,DATE: 24th August 2017,0.5,A noted day within the month of August.,0.0
+probe_0146,sroie_151,company_entity,L TWO FLORIST & HANDICRAFT,retrieve document record showing payment at l two,0.5,A business specializing in floral arrangements and crafts.,0.0
+probe_0108,sroie_112,company_entity,SUN VICTORY SDN BHD,retrieve document record showing payment at sun victory,0.5,A business entity involved in commerce.,0.0
+probe_0419,sroie_428,receipt_line,16 MAY 2018 18:30,retrieve document record showing payment at 16 may,0.4,A date and time marking a particular transaction or event.,0.0
+probe_0542,sroie_555,receipt_line,ARTLINE WHITEBOARD MAKER PEN 500A (R,retrieve document record showing payment at artline whiteboard,0.3333,A writing instrument designed for use on whiteboards.,0.0
