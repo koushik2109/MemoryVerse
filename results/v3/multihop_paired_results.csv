@@ -1,0 +1,4 @@
+Comparison,System_A,System_B,N_Queries,System_A_Hit10,System_B_Hit10,Paired_Diff,Diff_CI_Lower,Diff_CI_Upper,Both_Hit,SysA_Hit_SysB_Miss,SysA_Miss_SysB_Hit,Both_Miss,McNemar_Discordant,McNemar_Exact_P,Permutation_P_100k,Finding
+Proposed MM-RAG (LLM Multi-Hop) vs. Hybrid (No Multi-Hop),Proposed MM-RAG,Hybrid (No Multi-Hop),50,0.64,0.62,0.02,-0.04,0.1,30,2,1,17,3,1.0,1.0,No significant retrieval advantage (+1 query / 50; p=1.000)
+Proposed MM-RAG (LLM Multi-Hop) vs. Single-Stage Dense Baseline,Proposed MM-RAG,Single-Stage Dense,50,0.64,0.64,0.0,0.0,0.0711,30,2,2,16,4,1.0,1.0,Exact zero retrieval advantage (identical 32/50 hits; p=1.000)
+Proposed MM-RAG (LLM Multi-Hop) vs. BM25 Baseline,Proposed MM-RAG,BM25 Baseline,50,0.64,0.48,0.16,0.04,0.28,23,9,1,17,10,0.02148,0.02108,Significant advantage over sparse BM25 (+8 queries / 50; p=0.0215)

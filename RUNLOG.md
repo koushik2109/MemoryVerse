@@ -212,5 +212,42 @@
   - Evaluated retrieval MRR: BM25 `0.8878`, MiniLM `0.2873`, BGE-base `0.5191` (vs legacy chance `0.0089`, random baseline `0.0089`).
   - Saved to `results/v3/heavy_redesign_results.csv`.
 
+### Phase 2: Empirical Fixes and Retractions (v3)
+- **Timestamp:** 2026-10-25T14:18:00+05:30
+- **Script:** `ai_engine/rag/scripts/run_phase2_fixes_v3.py`
+- **Total Wall-Clock Time:** 6.90s (cached pooled queries)
+- **Sub-Experiment 2.1 (Conformal Cascade Finite-Sample Re-evaluation):**
+  - Evaluated on $N=2{,}754$ pooled queries across 200 random cluster-stratified 50/50 splits (seeds 1000..1199):
+    - Empirical Calibration: Test Miss Rate `0.0579` [0.0560, 0.0598], Coverage `36.5%` [29.8%, 43.6%], Escalation `89.5%`, MRR `0.3527`.
+    - $(n+1)$ Quantile Adjusted: Test Miss Rate `0.0574`, Coverage `37.0%`, Escalation `89.6%`.
+    - Learn-then-Test (95% Clopper-Pearson UCB): Test Miss Rate `0.0529`, Coverage `37.0%`, Escalation `90.3%`.
+    - Fixed Threshold Equal Escalation ($\tau = 0.380$): Test Miss Rate `0.0559`, Coverage `30.0%`, Escalation `89.5%`, MRR `0.3526`.
+  - Refutes strict guarantee claim: test miss rate exceeds 0.05 in ~63% of splits; simple fixed threshold matches MRR and latency at equal escalation.
+  - Outputs: `results/v3/conformal_splits_summary_v3.csv`, `results/v3/conformal_cascade_v3.csv`.
+- **Sub-Experiment 2.2 (Multi-Hop TOST Artifact Removal):**
+  - Evaluated on 50 diagnostic multi-hop queries:
+    - Replaced TOST on copied arrays with exact discordant analysis and McNemar tests:
+      - Proposed MM-RAG vs Hybrid (No Multi-Hop): Proposed hits on 2 queries (`mh_35`, `mh_50`) and misses on 1 (`mh_25`); net diff +1/50 (+0.0200), exact McNemar $p=1.0000$.
+      - Proposed MM-RAG vs Single-Stage Dense: Identical 32/50 hits (net diff 0.0000), exact McNemar $p=1.0000$.
+  - Output: `results/v3/multihop_paired_results.csv`.
+- **Sub-Experiment 2.3 (H2 Query Router vs. Fair Baselines):**
+  - Evaluated Router against Tuned Hybrid and All-Stream RRF across 4 noise regimes with 100,000 sign flips:
+    - 20% noise: Router (0.3765) adds only $+0.0071$ over Tuned Hybrid (0.3694, $p_{\text{Holm}}=0.042$).
+    - Clean OCR: Diff $+0.0010$ ($p_{\text{Holm}}=1.0$). Real OCR: Diff $0.0000$ ($p_{\text{Holm}}=1.0$). Real Degraded OCR: Diff $-0.0017$ ($p_{\text{Holm}}=1.0$).
+  - Reconciles Section IV-I and V-D: Section V-D's claim of +0.1938 was an artifact of comparing to unnormalized strawman All-Stream RRF (0.1827). H2 is KILLED.
+  - Output: `results/v3/router_evaluation_v3.csv`.
+- **Sub-Experiment 2.4 (Light-Paraphrase Paired Tests):**
+  - Evaluated Tuned Hybrid, BM25+CLIP, and Hybrid+CLIP vs BM25 across 6 noise regimes with 100,000 sign flips:
+    - Traced unsourced "0.125" figure to Hybrid+CLIP (`0.1249`).
+    - On syn_20, BM25 collapses to `0.0875` [0.0713, 0.1055], while Tuned Hybrid reaches `0.1110` (diff $+0.0235$, $p_{\text{Holm}}=0.00176$), Hybrid+CLIP reaches `0.1249` (diff $+0.0374$, $p_{\text{Holm}}=0.00024$), and BM25+CLIP reaches `0.1324` (diff $+0.0449$, $p_{\text{Holm}}=0.00024$).
+  - Output: `results/v3/light_paraphrase_paired_tests.csv`.
+- **Sub-Experiment 2.5 (Char n-gram vs. Word BM25 Boundary):**
+  - Evaluated Word BM25 vs Char (3-5)gram BM25 across 6 noise regimes $\times$ 2 query types with 100,000 sign flips:
+    - Verbatim 20% synthetic noise: Char BM25 (0.4703) beats Word BM25 (0.3694) by $+0.1008$ ($p_{\text{Holm}}=0.00012$).
+    - Verbatim clean OCR: Word BM25 (0.8317) beats Char BM25 (0.7306) by $+0.1011$ ($p_{\text{Holm}}=0.00012$).
+    - Verbatim real degraded OCR: Word BM25 (0.6684) beats Char BM25 (0.5907) by $+0.0777$ ($p_{\text{Holm}}=0.00012$).
+  - Documents exact regime boundary: character n-grams protect against synthetic character noise; word BM25 is superior under optical OCR.
+  - Output: `results/v3/char_vs_word_bm25.csv`.
+
 
 
