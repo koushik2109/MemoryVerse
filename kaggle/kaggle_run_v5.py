@@ -55,6 +55,40 @@ N_PERM = 100000
 # 1. PATH RESOLUTION & DATASET DISCOVERY
 # ─────────────────────────────────────────────────────────────────────────────
 
+def find_data_file(data_dir: Path, rel_path: str) -> Path:
+    """
+    Robustly resolves a benchmark or media file inside data_dir or /kaggle/input,
+    preventing duplicate directory prefix errors.
+    """
+    p = Path(rel_path)
+    # 1. Direct join
+    cand = data_dir / p
+    if cand.exists():
+        return cand
+    
+    # 2. If data_dir itself ends with part of rel_path
+    parts = p.parts
+    for i in range(1, len(parts)):
+        sub_p = Path(*parts[i:])
+        cand = data_dir / sub_p
+        if cand.exists():
+            return cand
+            
+    # 3. Search under data_dir
+    matches = list(data_dir.glob(f"**/{p.name}"))
+    if matches:
+        return matches[0]
+        
+    # 4. Search under /kaggle/input if on Kaggle
+    kaggle_in = Path("/kaggle/input")
+    if kaggle_in.exists():
+        matches = list(kaggle_in.glob(f"**/{p.name}"))
+        if matches:
+            return matches[0]
+
+    return data_dir / p
+
+
 def resolve_paths(data_dir_arg: Optional[str], output_dir_arg: Optional[str]) -> Tuple[Path, Path]:
     # Determine output directory
     if output_dir_arg:
@@ -76,13 +110,23 @@ def resolve_paths(data_dir_arg: Optional[str], output_dir_arg: Optional[str]) ->
         found = None
         if kaggle_input.exists():
             for p in kaggle_input.glob("**/public_benchmark_v2.json"):
-                found = p.parent.parent.parent.parent
-                break
+                # Walk up directory tree to find root where ai_engine/rag/... is a relative path
+                curr = p.parent
+                while curr != curr.parent:
+                    if (curr / "ai_engine" / "rag" / "data" / "v2" / "public_benchmark_v2.json").exists():
+                        found = curr
+                    curr = curr.parent
+                if found:
+                    break
         if found and found.exists():
             data_dir = found
         else:
             # Fallback to local repository root
             data_dir = Path(__file__).resolve().parents[1]
+
+    # If data_dir ended up inside ai_engine, walk up to parent
+    if data_dir.name == "ai_engine" and data_dir.parent.exists():
+        data_dir = data_dir.parent
 
     return data_dir, working_dir
 
@@ -296,8 +340,8 @@ def run_stage_3(data_dir: Path, working_dir: Path, smoke: bool = False):
     res_dir.mkdir(parents=True, exist_ok=True)
 
     # Load frozen benchmark & probes
-    bench_p = data_dir / "ai_engine" / "rag" / "data" / "v2" / "public_benchmark_v2.json"
-    probes_p = data_dir / "ai_engine" / "rag" / "data" / "v2" / "frozen_probes_with_paraphrases.json"
+    bench_p = find_data_file(data_dir, "ai_engine/rag/data/v2/public_benchmark_v2.json")
+    probes_p = find_data_file(data_dir, "ai_engine/rag/data/v2/frozen_probes_with_paraphrases.json")
 
     with open(bench_p, "r", encoding="utf-8") as f:
         bench_data = json.load(f)
@@ -322,7 +366,7 @@ def run_stage_3(data_dir: Path, working_dir: Path, smoke: bool = False):
     doc_clean = [r.get("real_ocr_text", "") for r in test_records]
 
     # Load degraded OCR text
-    deg_ocr_p = data_dir / "ai_engine" / "rag" / "data" / "v2" / "sroie_degraded_ocr.json"
+    deg_ocr_p = find_data_file(data_dir, "ai_engine/rag/data/v2/sroie_degraded_ocr.json")
     doc_deg = []
     if deg_ocr_p.exists():
         with open(deg_ocr_p, "r", encoding="utf-8") as f:
@@ -462,7 +506,7 @@ def run_stage_4(data_dir: Path, working_dir: Path, smoke: bool = False):
     res_dir = working_dir / "results" / "v5"
     res_dir.mkdir(parents=True, exist_ok=True)
 
-    probes_p = data_dir / "ai_engine" / "rag" / "data" / "v2" / "frozen_probes_with_paraphrases.json"
+    probes_p = find_data_file(data_dir, "ai_engine/rag/data/v2/frozen_probes_with_paraphrases.json")
     with open(probes_p, "r", encoding="utf-8") as f:
         probes_data = json.load(f)
 
@@ -532,7 +576,7 @@ def run_stage_4(data_dir: Path, working_dir: Path, smoke: bool = False):
             f.write(f'"{p["target_id"]}","{p.get("verbatim", "")}","","",""\n')
 
     # Cross-LLM Comparison Table
-    bench_p = data_dir / "ai_engine" / "rag" / "data" / "v2" / "public_benchmark_v2.json"
+    bench_p = find_data_file(data_dir, "ai_engine/rag/data/v2/public_benchmark_v2.json")
     with open(bench_p, "r", encoding="utf-8") as f:
         bench_data = json.load(f)
     test_records = [r for r in bench_data["records"] if r["split"] == "test"]
@@ -592,8 +636,8 @@ def run_stage_2(data_dir: Path, working_dir: Path, smoke: bool = False):
     res_dir.mkdir(parents=True, exist_ok=True)
 
     # Load COCO Karpathy data
-    coco_p = data_dir / "ai_engine" / "rag" / "data" / "coco_karpathy_test.json"
-    blip_p = data_dir / "ai_engine" / "rag" / "data" / "coco_blip_captions.json"
+    coco_p = find_data_file(data_dir, "ai_engine/rag/data/coco_karpathy_test.json")
+    blip_p = find_data_file(data_dir, "ai_engine/rag/data/coco_blip_captions.json")
 
     with open(coco_p, "r", encoding="utf-8") as f:
         coco_data = json.load(f)
