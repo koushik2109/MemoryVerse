@@ -48,5 +48,3015 @@
     "light_typo_05": "retriev edocument record showing payment at s hrh",
     "light_typo_10": "retrie vedocumint record showing payment at s hhr",
     "light_typo_20": "rtfri evedocum6nt record shwoing payment at s hhr"
+  },
+  "probe_0009": {
+    "verbatim_clean": "1 M PORRIDGE",
+    "light_clean": "retrieve document record showing payment at 1",
+    "verbatim_typo_05": "1M  PORRIDGE",
+    "verbatim_typo_10": "1M  PORRIDGE",
+    "verbatim_typo_20": "1M  PORRIDGr",
+    "light_typo_05": "retriev edocumentprecord showing payment at 1",
+    "light_typo_10": "retriev gdocumentprecord showing pyament at 1",
+    "light_typo_20": "rtfriev gdocmu6ntprecord showing pyam1nt at 1"
+  },
+  "probe_0010": {
+    "verbatim_clean": "SAM SAM TRADING CO",
+    "light_clean": "retrieve document record showing payment at sam sam",
+    "verbatim_typo_05": "SAMS AM TRADING CO",
+    "verbatim_typo_10": "SAMS AM pRADING CO",
+    "verbatim_typo_20": "SAMSgAM pRADING CO",
+    "light_typo_05": "retriev edocumint record showing payment at samrsam",
+    "light_typo_10": "retrie vedocumint record showing payment at samsram",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at samsram"
+  },
+  "probe_0011": {
+    "verbatim_clean": "BIG STRETCH FILM ???",
+    "light_clean": "retrieve document record showing payment at big",
+    "verbatim_typo_05": "BIGS TRETCH FILM ???",
+    "verbatim_typo_10": "BIGS TREpCH FILM ???",
+    "verbatim_typo_20": "BIGSgTREpCH FILM ???",
+    "light_typo_05": "retriev edocumentprecord showing payment at big",
+    "light_typo_10": "retriev gdocumentprecord showing pyam1nt at big",
+    "light_typo_20": "rtfriev gdocmu6ntprecord showing pyam1nt at big"
+  },
+  "probe_0022": {
+    "verbatim_clean": "DATE : 23/01/2018",
+    "light_clean": "retrieve document record showing payment at date 23",
+    "verbatim_typo_05": "DAT E: 23/01/2018",
+    "verbatim_typo_10": "DAT E: 2p/01/2018",
+    "verbatim_typo_20": "DAT g: 2p/01/2018",
+    "light_typo_05": "retriev edocumint record showing payment at datr 23",
+    "light_typo_10": "retrie vedocumint record showing payment at dat r23",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at dat r23"
+  },
+  "probe_0024": {
+    "verbatim_clean": "(CO REG :860671-D)",
+    "light_clean": "retrieve document record showing payment at co reg",
+    "verbatim_typo_05": "(COR EG :860671-D)",
+    "verbatim_typo_10": "(COR EG p860671-D)",
+    "verbatim_typo_20": "(CORgEG p860671-D)",
+    "light_typo_05": "retriev edocument record showing payment at co reg",
+    "light_typo_10": "retrie vedocumint record showing payment at co erg",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at co erg"
+  },
+  "probe_0026": {
+    "verbatim_clean": ": CR 1803/0064",
+    "light_clean": "retrieve document record showing payment at cr",
+    "verbatim_typo_05": ":C R 1803/0064",
+    "verbatim_typo_10": ":C R 1803/0064",
+    "verbatim_typo_20": ":C i 1803/0r64",
+    "light_typo_05": "retriev edocumentprecord showing payment at cr",
+    "light_typo_10": "retriev gdocumentprecord showing pyam1nt at cr",
+    "light_typo_20": "rtfriev gdocmu6ntprecord showing pyam1nt at cr"
+  },
+  "probe_0027": {
+    "verbatim_clean": "05 MAR 2018 18:24",
+    "light_clean": "retrieve document record showing payment at 05 mar",
+    "verbatim_typo_05": "05 AMR 2018 18:24",
+    "verbatim_typo_10": "05 AMR 2p18 18:24",
+    "verbatim_typo_20": "05 AgR 2p18 18:24",
+    "light_typo_05": "retriev edocument record showing payment at 05 rar",
+    "light_typo_10": "retrie vedocumint record showing payment at 05 arr",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 05 arr"
+  },
+  "probe_0028": {
+    "verbatim_clean": "FRI-SAT : 1000 HRS - 2300 HRS",
+    "light_clean": "retrieve document record showing payment at fri sat",
+    "verbatim_typo_05": "FRIS-AT : 1000 HRS - 2300 HRS",
+    "verbatim_typo_10": "FRIS-ATi: 1000 HRS - 23r0 HRS",
+    "verbatim_typo_20": "FR-ISATi: 1000 HRS - 230r HRS",
+    "light_typo_05": "retriev edocumint record showing payment at frirsat",
+    "light_typo_10": "retrie vedocumint record showing payment at frisrat",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at frisrat"
+  },
+  "probe_0029": {
+    "verbatim_clean": "03 MAR 2018 18:22",
+    "light_clean": "retrieve document record showing payment at 03 mar",
+    "verbatim_typo_05": "03 AMR 2018 18:22",
+    "verbatim_typo_10": "03 AMR 2p18 18:22",
+    "verbatim_typo_20": "03 AgR 2p18 18:22",
+    "light_typo_05": "retriev edocument record showing payment at 03 rar",
+    "light_typo_10": "retrie vedocumint record showing payment at 03 arr",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 03 arr"
+  },
+  "probe_0031": {
+    "verbatim_clean": "DATE: 09/03/2018",
+    "light_clean": "retrieve document record showing payment at date 09",
+    "verbatim_typo_05": "DAT:E 09/03/2018",
+    "verbatim_typo_10": "DAT:E 09p03/2018",
+    "verbatim_typo_20": "DAT:g 09p03/2018",
+    "light_typo_05": "retriev edocumint record showing payment at datr 09",
+    "light_typo_10": "retrie vedocumint record showing payment at dat r09",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at dat r09"
+  },
+  "probe_0032": {
+    "verbatim_clean": "12 MAR 2018 18:19",
+    "light_clean": "retrieve document record showing payment at 12 mar",
+    "verbatim_typo_05": "12 AMR 2018 18:19",
+    "verbatim_typo_10": "12 AMR 2p18 18:19",
+    "verbatim_typo_20": "12 AgR 2p18 18:19",
+    "light_typo_05": "retriev edocument record showing payment at 12 rar",
+    "light_typo_10": "retrie vedocumint record showing payment at 12 arr",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 12 arr"
+  },
+  "probe_0033": {
+    "verbatim_clean": "14 MAR 2018 18:40",
+    "light_clean": "retrieve document record showing payment at 14 mar",
+    "verbatim_typo_05": "14 AMR 2018 18:40",
+    "verbatim_typo_10": "14 AMR 2p18 18:40",
+    "verbatim_typo_20": "14 AgR 2p18 18:40",
+    "light_typo_05": "retriev edocument record showing payment at 14 rar",
+    "light_typo_10": "retrie vedocumint record showing payment at 14 arr",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 14 arr"
+  },
+  "probe_0035": {
+    "verbatim_clean": "11/03/2018 06:20 PM",
+    "light_clean": "retrieve document record showing payment at 11 03",
+    "verbatim_typo_05": "11/30/2018 06:20 PM",
+    "verbatim_typo_10": "11/30/20p8 06:20 PM",
+    "verbatim_typo_20": "11/3g/20p8 06:20 MP",
+    "light_typo_05": "retriev edocument record showing payment at 11 r3",
+    "light_typo_10": "retrie vedocumint record showing payment at 11 3r",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 11 3r"
+  },
+  "probe_0037": {
+    "verbatim_clean": "BIZDATE: 12/03/2018",
+    "light_clean": "retrieve document record showing payment at bizdate 12",
+    "verbatim_typo_05": "BIZADTE: 12/03/2018",
+    "verbatim_typo_10": "BIZADTE:p12/03/2018",
+    "verbatim_typo_20": "BIZAgTE:p12/03/2081",
+    "light_typo_05": "retriev edocumint record showing payment at bizrate 12",
+    "light_typo_10": "retrie vedocumint record showing payment at bizarte 12",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment at bizarte 12"
+  },
+  "probe_0040": {
+    "verbatim_clean": "32 PUB & BISTRO OWN BY CNU TRADING",
+    "light_clean": "retrieve document record showing payment at 32 pub bistro",
+    "verbatim_typo_05": "32 PUB  &BISTRO OpN BY CNU TRADING",
+    "verbatim_typo_10": "32 PUB  gBISTRO OpN BY CNU TRADING",
+    "verbatim_typo_20": "3f PU B gBISTR6 OpN BY CNU RTADING",
+    "light_typo_05": "retriev edocumint record showing payment at 32 rub bistro",
+    "light_typo_10": "retri evedocumint record showing payment at 32 urb bistro",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment at 32 urb bistro"
+  },
+  "probe_0041": {
+    "verbatim_clean": "18 MAR 2018 18:25",
+    "light_clean": "retrieve document record showing payment at 18 mar",
+    "verbatim_typo_05": "18 AMR 2018 18:25",
+    "verbatim_typo_10": "18 AMR 2p18 18:25",
+    "verbatim_typo_20": "18 AgR 2p18 18:25",
+    "light_typo_05": "retriev edocument record showing payment at 18 rar",
+    "light_typo_10": "retrie vedocumint record showing payment at 18 arr",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 18 arr"
+  },
+  "probe_0043": {
+    "verbatim_clean": "BANOAR BARU PERMAS JAYA",
+    "light_clean": "retrieve document record showing payment at banoar baru",
+    "verbatim_typo_05": "BANAOR BARU PERMAS JAYA",
+    "verbatim_typo_10": "BANAOR BpRU PERMAS JAYA",
+    "verbatim_typo_20": "BANAgR BpRU PERMA 1JAYA",
+    "light_typo_05": "retriev edocumint record showing payment at banrar baru",
+    "light_typo_10": "retri evedocumint record showing payment at banarr baru",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment at banarr baru"
+  },
+  "probe_0044": {
+    "verbatim_clean": "RESTAURANT SIN DU",
+    "light_clean": "retrieve document record showing payment at restaurant",
+    "verbatim_typo_05": "RESATURANT SIN DU",
+    "verbatim_typo_10": "RESATURApT SIN DU",
+    "verbatim_typo_20": "RESAgURApT SIN DU",
+    "light_typo_05": "retriev edocumint record showing payment at resraurant",
+    "light_typo_10": "retrie vedocumint record showing payment at resarurant",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment at resarurant"
+  },
+  "probe_0045": {
+    "verbatim_clean": "YONG TAT HARDWARE TRADING",
+    "light_clean": "retrieve document record showing payment at yong tat",
+    "verbatim_typo_05": "YON GTAT HARDWARE TRADING",
+    "verbatim_typo_10": "YON GTAT HARDWARE TRADIrG",
+    "verbatim_typo_20": "YONG TAi HARDWARE TRADIGr",
+    "light_typo_05": "retriev edocumint record showing payment at yonr tat",
+    "light_typo_10": "retrie vedocumint record showing payment at yon rtat",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at yon rtat"
+  },
+  "probe_0046": {
+    "verbatim_clean": "DATE: 15/03/2018",
+    "light_clean": "retrieve document record showing payment at date 15",
+    "verbatim_typo_05": "DAT:E 15/03/2018",
+    "verbatim_typo_10": "DAT:E 15p03/2018",
+    "verbatim_typo_20": "DAT:g 15p03/2018",
+    "light_typo_05": "retriev edocumint record showing payment at datr 15",
+    "light_typo_10": "retrie vedocumint record showing payment at dat r15",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at dat r15"
+  },
+  "probe_0047": {
+    "verbatim_clean": "LOT 50",
+    "light_clean": "retrieve document record showing payment at lot",
+    "verbatim_typo_05": "OLT 50",
+    "verbatim_typo_10": "OLT 50",
+    "verbatim_typo_20": "OLT 50",
+    "light_typo_05": "retriev edocumentprecord showing payment at lot",
+    "light_typo_10": "retriev gdocumentprecord showing pyam1nt at lot",
+    "light_typo_20": "rtfriev gdocmu6ntprecord showing pyam1nt at lot"
+  },
+  "probe_0051": {
+    "verbatim_clean": "CARREFOUR RESTAURANT",
+    "light_clean": "retrieve document record showing payment at carrefour",
+    "verbatim_typo_05": "CARERFOUR RESTAURANT",
+    "verbatim_typo_10": "CARERFOUp RESTAURANT",
+    "verbatim_typo_20": "CAREgFOUp RESTAURNAT",
+    "light_typo_05": "retriev edocumint record showing payment at carrefour",
+    "light_typo_10": "retrie vedocumint record showing payment at carerfour",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment at carerfour"
+  },
+  "probe_0052": {
+    "verbatim_clean": "19 MAR 2018 18:26",
+    "light_clean": "retrieve document record showing payment at 19 mar",
+    "verbatim_typo_05": "19 AMR 2018 18:26",
+    "verbatim_typo_10": "19 AMR 2p18 18:26",
+    "verbatim_typo_20": "19 AgR 2p18 18:26",
+    "light_typo_05": "retriev edocument record showing payment at 19 rar",
+    "light_typo_10": "retrie vedocumint record showing payment at 19 arr",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 19 arr"
+  },
+  "probe_0054": {
+    "verbatim_clean": "29 MAR 2018 18:19",
+    "light_clean": "retrieve document record showing payment at 29 mar",
+    "verbatim_typo_05": "29 AMR 2018 18:19",
+    "verbatim_typo_10": "29 AMR 2p18 18:19",
+    "verbatim_typo_20": "29 AgR 2p18 18:19",
+    "light_typo_05": "retriev edocument record showing payment at 29 rar",
+    "light_typo_10": "retrie vedocumint record showing payment at 29 arr",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 29 arr"
+  },
+  "probe_0058": {
+    "verbatim_clean": "NANDO'S CHICKENLAND MALAYSIA SDN BHD",
+    "light_clean": "retrieve document record showing payment at nando s",
+    "verbatim_typo_05": "NANDO'SC HICKENLApD MALAYSIA SDN BHD",
+    "verbatim_typo_10": "NANDO'SCgHICKENLApD MALAYSIA SDN BDH",
+    "verbatim_typo_20": "NANDOnSCgHICKENLApD MALAYSIc SDNbBDH",
+    "light_typo_05": "retriev edocumint record showing payment at nanro s",
+    "light_typo_10": "retrie vedocumint record showing payment at nanor s",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at nanor s"
+  },
+  "probe_0061": {
+    "verbatim_clean": "SUN WONG KUT SDN BHD",
+    "light_clean": "retrieve document record showing payment at sun wong",
+    "verbatim_typo_05": "SUNW ONG KUT SDN BHD",
+    "verbatim_typo_10": "SUNW ONGpKUT SDN BHD",
+    "verbatim_typo_20": "SUNWgONGpKUT SDN HBD",
+    "light_typo_05": "retriev edocumint record showing payment at sunrwong",
+    "light_typo_10": "retrie vedocumint record showing payment at sunwrong",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at sunwrong"
+  },
+  "probe_0062": {
+    "verbatim_clean": "RESTAURANT JIAWEI JIAWEI HOUSE",
+    "light_clean": "receipt document payment record for restaurant jiawei",
+    "verbatim_typo_05": "RESATURANT JIAWEI JIAWEr HOUSE",
+    "verbatim_typo_10": "RESATURiNT JIAWEI JIAWEr HOUSE",
+    "verbatim_typo_20": "RETSAURiNT JIAWEI JIAWE rHOUSE",
+    "light_typo_05": "receiptd ocumeit payment record for restaurant riawei",
+    "light_typo_10": "receipdt ocumeit payment record for restaurant irawei",
+    "light_typo_20": "rcfeidpt ocuem6t payment reocrd for restaurant irawei"
+  },
+  "probe_0064": {
+    "verbatim_clean": "LIAN CHI PU TIAN VEGETARIAN RESTAURANT SDN BHD",
+    "light_clean": "retrieve document record showing payment at lian chi pu",
+    "verbatim_typo_05": "LIAN CH IPU TIAN pEGETARIAN RESTAURANT SDN BHD",
+    "verbatim_typo_10": "LIAN CH gPU TIAN pEGETARIAN RESTAUARN1 SDN BHD",
+    "verbatim_typo_20": "LAfN CH gPU IT6N pEGETARIAN RESTAUARN1 SDN BHD",
+    "light_typo_05": "retriev edocumint record showing payment at liar chi pu",
+    "light_typo_10": "retri evedocumint record showing payment at lia rchi pu",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment at lia rchi pu"
+  },
+  "probe_0068": {
+    "verbatim_clean": "MON-SUN:1000 HRS - 2200 HRS",
+    "light_clean": "retrieve document record showing payment at mon sun",
+    "verbatim_typo_05": "MONS-UN:1000 HRS - 2200 HRS",
+    "verbatim_typo_10": "MONS-UNi1000 HRS - 2200rHRS",
+    "verbatim_typo_20": "MON-SUNi1000 HRS - 2200HrRS",
+    "light_typo_05": "retriev edocumint record showing payment at monrsun",
+    "light_typo_10": "retrie vedocumint record showing payment at monsrun",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at monsrun"
+  },
+  "probe_0070": {
+    "verbatim_clean": "NO.: CS-20242",
+    "light_clean": "retrieve document record showing payment at no",
+    "verbatim_typo_05": "N.O: CS-20242",
+    "verbatim_typo_10": "N.O: CS-20242",
+    "verbatim_typo_20": "N.Oi CS-202r2",
+    "light_typo_05": "retriev edocumentprecord showing payment at no",
+    "light_typo_10": "retriev gdocumentprecord showing pyam1nt at no",
+    "light_typo_20": "rtfriev gdocmu6ntprecord showing pyam1nt at no"
+  },
+  "probe_0074": {
+    "verbatim_clean": "THAI DELICIOUS RESTAURANT",
+    "light_clean": "retrieve document record showing payment at thai",
+    "verbatim_typo_05": "THA IDELICIOUS RESTAURANT",
+    "verbatim_typo_10": "THA IDELICIOUS RESTAURArT",
+    "verbatim_typo_20": "THAI DEiICIOUS RESTAURATr",
+    "light_typo_05": "retriev edocument record showing payment at thar",
+    "light_typo_10": "retrie vedocumint record showing payment at thar",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at thar"
+  },
+  "probe_0075": {
+    "verbatim_clean": "MR.D.I.Y(M)SDN BHD",
+    "light_clean": "retrieve document record showing payment at mr d i",
+    "verbatim_typo_05": "MR..DI.Y(M)SDN BHD",
+    "verbatim_typo_10": "MR..DI.YpM)SDN BHD",
+    "verbatim_typo_20": "MR..gI.YpM)SDN BHD",
+    "light_typo_05": "retriev edocument record showing payment at mr r i",
+    "light_typo_10": "retrie vedocumint record showing payment at mr  ri",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at mr  ri"
+  },
+  "probe_0076": {
+    "verbatim_clean": "21/09/2017 10:20:37 AM",
+    "light_clean": "retrieve document record showing payment at 21 09 2017",
+    "verbatim_typo_05": "21/90/2017 10:20:37 AM",
+    "verbatim_typo_10": "21/90/20p7 10:20:37 AM",
+    "verbatim_typo_20": "21/9g/20p7 10:20:73 AM",
+    "light_typo_05": "retriev edocumint record showing payment at 21 r9 2017",
+    "light_typo_10": "retrie vedocumint record showing payment at 21 9r 2017",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment at 21 9r 2017"
+  },
+  "probe_0077": {
+    "verbatim_clean": "BATTERY LR03-4B AAA 4 PCS",
+    "light_clean": "retrieve document record showing payment at battery lr03",
+    "verbatim_typo_05": "BATETRY LR03-4B AAA 4 PCS",
+    "verbatim_typo_10": "BATETRY LR03-4B AAA 4 PrS",
+    "verbatim_typo_20": "BATTERYiLR03-4B AAA 4 PSr",
+    "light_typo_05": "retriev edocumint record showing payment at batrery lr03",
+    "light_typo_10": "retri evedocumint record showing payment at baterry lr03",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment at baterry lr03"
+  },
+  "probe_0078": {
+    "verbatim_clean": "08/02/2017 3:43:01 PM",
+    "light_clean": "retrieve document record showing payment at 08 02 2017",
+    "verbatim_typo_05": "08/20/2017 3:43:01 PM",
+    "verbatim_typo_10": "08/20/20p7 3:43:01 PM",
+    "verbatim_typo_20": "08/2g/20p7 3:43:0 1PM",
+    "light_typo_05": "retriev edocumint record showing payment at 08 r2 2017",
+    "light_typo_10": "retrie vedocumint record showing payment at 08 2r 2017",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment at 08 2r 2017"
+  },
+  "probe_0080": {
+    "verbatim_clean": "CLOTH PEG E-140",
+    "light_clean": "retrieve document record showing payment at cloth peg",
+    "verbatim_typo_05": "COLTH PEG E-140",
+    "verbatim_typo_10": "COLTH PEG Er140",
+    "verbatim_typo_20": "COLiH PEG Er140",
+    "light_typo_05": "retriev edocumint record showing payment at clorh peg",
+    "light_typo_10": "retrie vedocumint record showing payment at clohr peg",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment at clohr peg"
+  },
+  "probe_0081": {
+    "verbatim_clean": "PADLOCK ST-P6150 50MM",
+    "light_clean": "retrieve document record showing payment at padlock st",
+    "verbatim_typo_05": "PADOLCK ST-P6150 50MM",
+    "verbatim_typo_10": "PADOLCK pT-P6150 50MM",
+    "verbatim_typo_20": "PADOgCK pT-P6150 05MM",
+    "light_typo_05": "retriev edocumint record showing payment at padrock st",
+    "light_typo_10": "retrie vedocumint record showing payment at padorck st",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment at padorck st"
+  },
+  "probe_0085": {
+    "verbatim_clean": "TIME: 15:14:00",
+    "light_clean": "retrieve document record showing payment at time 15",
+    "verbatim_typo_05": "TMIE: 15:14:00",
+    "verbatim_typo_10": "TMIE: 15:14:00",
+    "verbatim_typo_20": "TMIi: 15:14r00",
+    "light_typo_05": "retriev edocumint record showing payment at timr 15",
+    "light_typo_10": "retrie vedocumint record showing payment at tim r15",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at tim r15"
+  },
+  "probe_0087": {
+    "verbatim_clean": "TRI SHAAS SDN BHD (728515-N)",
+    "light_clean": "retrieve document record showing payment at tri shaas",
+    "verbatim_typo_05": "TRIS HAAS SDN BHD (728515-N)",
+    "verbatim_typo_10": "TRIS HAiS SDN BHD (7285r5-N)",
+    "verbatim_typo_20": "TR ISHAiS SDN BHD (72855r-N)",
+    "light_typo_05": "retriev edocumint record showing payment at trirshaas",
+    "light_typo_10": "retrie vedocumint record showing payment at trisrhaas",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment at trisrhaas"
+  },
+  "probe_0089": {
+    "verbatim_clean": "3 FLOOR",
+    "light_clean": "retrieve document record showing payment at 3",
+    "verbatim_typo_05": " 3FLOOR",
+    "verbatim_typo_10": " 3FLOOR",
+    "verbatim_typo_20": " 3FLOOR",
+    "light_typo_05": "retriev edocumentprecord showing payment at 3",
+    "light_typo_10": "retriev gdocumentprecord showing pyament at 3",
+    "light_typo_20": "rtfriev gdocmu6ntprecord showing pyam1nt at 3"
+  },
+  "probe_0090": {
+    "verbatim_clean": "5132 002 0023885",
+    "light_clean": "retrieve document record showing payment at 5132",
+    "verbatim_typo_05": "513 2002 0023885",
+    "verbatim_typo_10": "513 2002p0023885",
+    "verbatim_typo_20": "513 g002p0023885",
+    "light_typo_05": "retriev edocument record showing payment at 513r",
+    "light_typo_10": "retrie vedocumint record showing payment at 513r",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 513r"
+  },
+  "probe_0091": {
+    "verbatim_clean": "CP. (M) SDN BHD",
+    "light_clean": "retrieve document record showing payment at cp m",
+    "verbatim_typo_05": "C.P (M) SDN BHD",
+    "verbatim_typo_10": "C.P (M) SDNrBHD",
+    "verbatim_typo_20": "C.Pi(M) SDNrBHD",
+    "light_typo_05": "retriev edocument record showing payment at cp r",
+    "light_typo_10": "retrie vedocumint record showing payment at cp r",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at cp r"
+  },
+  "probe_0093": {
+    "verbatim_clean": "12/01/18",
+    "light_clean": "retrieve document record showing payment at 12",
+    "verbatim_typo_05": "1/201/18",
+    "verbatim_typo_10": "1/201/18",
+    "verbatim_typo_20": "1/20p/18",
+    "light_typo_05": "retriev edocumentprecord showing payment at 12",
+    "light_typo_10": "retriev gdocumentprecord showing pyam1nt at 12",
+    "light_typo_20": "rtfriev gdocmu6ntprecord showing pyam1nt at 12"
+  },
+  "probe_0094": {
+    "verbatim_clean": "WAHIN HARDWARE SDN BHD",
+    "light_clean": "retrieve document record showing payment at wahin hardware",
+    "verbatim_typo_05": "WAHNI HARDWARE SDN BHD",
+    "verbatim_typo_10": "WAHNI HApDWARE SDN BHD",
+    "verbatim_typo_20": "WAHNg HApDWARE SD NBHD",
+    "light_typo_05": "retriev edocumint record showing payment at wahrn hardware",
+    "light_typo_10": "retri evedocumint record showing payment at wahnr hardware",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment ta wahnr hardware"
+  },
+  "probe_0095": {
+    "verbatim_clean": "TIME: 16:15:00",
+    "light_clean": "retrieve document record showing payment at time 16",
+    "verbatim_typo_05": "TMIE: 16:15:00",
+    "verbatim_typo_10": "TMIE: 16:15:00",
+    "verbatim_typo_20": "TMIi: 16:15r00",
+    "light_typo_05": "retriev edocumint record showing payment at timr 16",
+    "light_typo_10": "retrie vedocumint record showing payment at tim r16",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at tim r16"
+  },
+  "probe_0097": {
+    "verbatim_clean": "TIME: 08:44:00",
+    "light_clean": "retrieve document record showing payment at time 08",
+    "verbatim_typo_05": "TMIE: 08:44:00",
+    "verbatim_typo_10": "TMIE: 08:44:00",
+    "verbatim_typo_20": "TMIi: 08:44r00",
+    "light_typo_05": "retriev edocumint record showing payment at timr 08",
+    "light_typo_10": "retrie vedocumint record showing payment at tim r08",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at tim r08"
+  },
+  "probe_0098": {
+    "verbatim_clean": "DATE: 23/12/17",
+    "light_clean": "retrieve document record showing payment at date 23",
+    "verbatim_typo_05": "DTAE: 23/12/17",
+    "verbatim_typo_10": "DTAE: 23/12/17",
+    "verbatim_typo_20": "DTAi: 23/12r17",
+    "light_typo_05": "retriev edocumint record showing payment at datr 23",
+    "light_typo_10": "retrie vedocumint record showing payment at dat r23",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at dat r23"
+  },
+  "probe_0099": {
+    "verbatim_clean": "TIME: 11:58:00",
+    "light_clean": "retrieve document record showing payment at time 11",
+    "verbatim_typo_05": "TMIE: 11:58:00",
+    "verbatim_typo_10": "TMIE: 11:58:00",
+    "verbatim_typo_20": "TMIi: 11:58r00",
+    "light_typo_05": "retriev edocumint record showing payment at timr 11",
+    "light_typo_10": "retrie vedocumint record showing payment at tim r11",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at tim r11"
+  },
+  "probe_0100": {
+    "verbatim_clean": "T.A.S LEISURE SDN BHD",
+    "light_clean": "retrieve document record showing payment at t a",
+    "verbatim_typo_05": "T.AS. LEISURE SDN BHD",
+    "verbatim_typo_10": "T.AS. LEpSURE SDN BHD",
+    "verbatim_typo_20": "T.ASg LEpSURE SDNB HD",
+    "light_typo_05": "retriev edocumentprecord showing payment at t a",
+    "light_typo_10": "retriev gdocumentprecord showing pyam1nt at t a",
+    "light_typo_20": "rtfriev gdocmu6ntprecord showing pyam1nt at t a"
+  },
+  "probe_0104": {
+    "verbatim_clean": "TEL & FAX NO : 03-6258 7191",
+    "light_clean": "retrieve document record showing payment at tel fax",
+    "verbatim_typo_05": "TEL&  FAX NO : 03-6258 7191",
+    "verbatim_typo_10": "TEL&  FiX NO : 03-6258 r191",
+    "verbatim_typo_20": "TEL & FiX NO : 03-6258 1r91",
+    "light_typo_05": "retriev edocumint record showing payment at telrfax",
+    "light_typo_10": "retrie vedocumint record showing payment at telfrax",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at telfrax"
+  },
+  "probe_0105": {
+    "verbatim_clean": "09/02/2018 11:40",
+    "light_clean": "retrieve document record showing payment at 09 02",
+    "verbatim_typo_05": "09/20/2018 11:40",
+    "verbatim_typo_10": "09/20/20p8 11:40",
+    "verbatim_typo_20": "09/2g/20p8 11:40",
+    "light_typo_05": "retriev edocument record showing payment at 09 r2",
+    "light_typo_10": "retrie vedocumint record showing payment at 09 2r",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 09 2r"
+  },
+  "probe_0107": {
+    "verbatim_clean": "11:57:00",
+    "light_clean": "retrieve document record showing payment at 11",
+    "verbatim_typo_05": "1:157:00",
+    "verbatim_typo_10": "1:157:00",
+    "verbatim_typo_20": "1:15p:00",
+    "light_typo_05": "retriev edocumentprecord showing payment at 11",
+    "light_typo_10": "retriev gdocumentprecord showing pyam1nt at 11",
+    "light_typo_20": "rtfriev gdocmu6ntprecord showing pyam1nt at 11"
+  },
+  "probe_0108": {
+    "verbatim_clean": "SUN VICTORY SDN BHD",
+    "light_clean": "retrieve document record showing payment at sun victory",
+    "verbatim_typo_05": "SUNV ICTORY SDN BHD",
+    "verbatim_typo_10": "SUNV ICTpRY SDN BHD",
+    "verbatim_typo_20": "SUNVgICTpRY SDN BDH",
+    "light_typo_05": "retriev edocumint record showing payment at sunrvictory",
+    "light_typo_10": "retri evedocumint record showing payment at sunvrictory",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment at sunvrictory"
+  },
+  "probe_0110": {
+    "verbatim_clean": "DATE: 04/01/2018",
+    "light_clean": "retrieve document record showing payment at date 04",
+    "verbatim_typo_05": "DAT:E 04/01/2018",
+    "verbatim_typo_10": "DAT:E 04p01/2018",
+    "verbatim_typo_20": "DAT:g 04p01/2018",
+    "light_typo_05": "retriev edocumint record showing payment at datr 04",
+    "light_typo_10": "retrie vedocumint record showing payment at dat r04",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at dat r04"
+  },
+  "probe_0111": {
+    "verbatim_clean": "DATE: 10/01/2018",
+    "light_clean": "retrieve document record showing payment at date 10",
+    "verbatim_typo_05": "DAT:E 10/01/2018",
+    "verbatim_typo_10": "DAT:E 10p01/2018",
+    "verbatim_typo_20": "DAT:g 10p01/2018",
+    "light_typo_05": "retriev edocumint record showing payment at datr 10",
+    "light_typo_10": "retrie vedocumint record showing payment at dat r10",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at dat r10"
+  },
+  "probe_0113": {
+    "verbatim_clean": "DATE: 03/01/2018",
+    "light_clean": "retrieve document record showing payment at date 03",
+    "verbatim_typo_05": "DAT:E 03/01/2018",
+    "verbatim_typo_10": "DAT:E 03p01/2018",
+    "verbatim_typo_20": "DAT:g 03p01/2018",
+    "light_typo_05": "retriev edocumint record showing payment at datr 03",
+    "light_typo_10": "retrie vedocumint record showing payment at dat r03",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at dat r03"
+  },
+  "probe_0116": {
+    "verbatim_clean": "104 COTTON GLOVE (DOZEN)",
+    "light_clean": "retrieve document record showing payment at 104 cotton",
+    "verbatim_typo_05": "104C OTTON GLOVE (DOZEN)",
+    "verbatim_typo_10": "104C OTTON GLOVE (DOZENr",
+    "verbatim_typo_20": "104 COTiON GLOVE (DOZENr",
+    "light_typo_05": "retriev edocumint record showing payment at 104rcotton",
+    "light_typo_10": "retrie vedocumint record showing payment at 104crotton",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment at 104crotton"
+  },
+  "probe_0117": {
+    "verbatim_clean": "TIME: 15:52:00",
+    "light_clean": "retrieve document record showing payment at time 15",
+    "verbatim_typo_05": "TMIE: 15:52:00",
+    "verbatim_typo_10": "TMIE: 15:52:00",
+    "verbatim_typo_20": "TMIi: 15:52r00",
+    "light_typo_05": "retriev edocumint record showing payment at timr 15",
+    "light_typo_10": "retrie vedocumint record showing payment at tim r15",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at tim r15"
+  },
+  "probe_0118": {
+    "verbatim_clean": "TEL :03-40210276",
+    "light_clean": "retrieve document record showing payment at tel",
+    "verbatim_typo_05": "TEL: 03-40210276",
+    "verbatim_typo_10": "TEL: 03-p0210276",
+    "verbatim_typo_20": "TEL:g03-p0210276",
+    "light_typo_05": "retriev edocumentprecord showing payment at tel",
+    "light_typo_10": "retriev gdocumentprecord showing pyam1nt at tel",
+    "light_typo_20": "rtfriev gdocmu6ntprecord showing pyam1nt at tel"
+  },
+  "probe_0119": {
+    "verbatim_clean": "TIME: 15:29:00",
+    "light_clean": "retrieve document record showing payment at time 15",
+    "verbatim_typo_05": "TMIE: 15:29:00",
+    "verbatim_typo_10": "TMIE: 15:29:00",
+    "verbatim_typo_20": "TMIi: 15:29r00",
+    "light_typo_05": "retriev edocumint record showing payment at timr 15",
+    "light_typo_10": "retrie vedocumint record showing payment at tim r15",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at tim r15"
+  },
+  "probe_0121": {
+    "verbatim_clean": "TIME: 11:49:00",
+    "light_clean": "retrieve document record showing payment at time 11",
+    "verbatim_typo_05": "TMIE: 11:49:00",
+    "verbatim_typo_10": "TMIE: 11:49:00",
+    "verbatim_typo_20": "TMIi: 11:49r00",
+    "light_typo_05": "retriev edocumint record showing payment at timr 11",
+    "light_typo_10": "retrie vedocumint record showing payment at tim r11",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at tim r11"
+  },
+  "probe_0122": {
+    "verbatim_clean": "DATE: 12/01/2018",
+    "light_clean": "retrieve document record showing payment at date 12",
+    "verbatim_typo_05": "DAT:E 12/01/2018",
+    "verbatim_typo_10": "DAT:E 12p01/2018",
+    "verbatim_typo_20": "DAT:g 12p01/2018",
+    "light_typo_05": "retriev edocumint record showing payment at datr 12",
+    "light_typo_10": "retrie vedocumint record showing payment at dat r12",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at dat r12"
+  },
+  "probe_0129": {
+    "verbatim_clean": "TEL : 03-51217970",
+    "light_clean": "retrieve document record showing payment at tel",
+    "verbatim_typo_05": "TEL:  03-51217970",
+    "verbatim_typo_10": "TEL:  03p51217970",
+    "verbatim_typo_20": "TEL:g 03p51217970",
+    "light_typo_05": "retriev edocumentprecord showing payment at tel",
+    "light_typo_10": "retriev gdocumentprecord showing pyam1nt at tel",
+    "light_typo_20": "rtfriev gdocmu6ntprecord showing pyam1nt at tel"
+  },
+  "probe_0130": {
+    "verbatim_clean": "TIME: 11:29:00",
+    "light_clean": "retrieve document record showing payment at time 11",
+    "verbatim_typo_05": "TMIE: 11:29:00",
+    "verbatim_typo_10": "TMIE: 11:29:00",
+    "verbatim_typo_20": "TMIi: 11:29r00",
+    "light_typo_05": "retriev edocumint record showing payment at timr 11",
+    "light_typo_10": "retrie vedocumint record showing payment at tim r11",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at tim r11"
+  },
+  "probe_0136": {
+    "verbatim_clean": "INV NO.: 1040841",
+    "light_clean": "retrieve document record showing payment at inv",
+    "verbatim_typo_05": "INVN O.: 1040841",
+    "verbatim_typo_10": "INVN O.:p1040841",
+    "verbatim_typo_20": "INVNgO.:p1040841",
+    "light_typo_05": "retriev edocumentprecord showing payment at inv",
+    "light_typo_10": "retriev gdocumentprecord showing pyam1nt at inv",
+    "light_typo_20": "rtfriev gdocmu6ntprecord showing pyam1nt at inv"
+  },
+  "probe_0137": {
+    "verbatim_clean": "INV NO.: 1044151",
+    "light_clean": "retrieve document record showing payment at inv",
+    "verbatim_typo_05": "INVN O.: 1044151",
+    "verbatim_typo_10": "INVN O.:p1044151",
+    "verbatim_typo_20": "INVNgO.:p1044151",
+    "light_typo_05": "retriev edocumentprecord showing payment at inv",
+    "light_typo_10": "retriev gdocumentprecord showing pyam1nt at inv",
+    "light_typo_20": "rtfriev gdocmu6ntprecord showing pyam1nt at inv"
+  },
+  "probe_0141": {
+    "verbatim_clean": "2003 SAI FUL",
+    "light_clean": "retrieve document record showing payment at 2003",
+    "verbatim_typo_05": "2003 SAI FUL",
+    "verbatim_typo_10": "2003 SAI FUL",
+    "verbatim_typo_20": "2003 SAI FUr",
+    "light_typo_05": "retriev edocument record showing payment at 200r",
+    "light_typo_10": "retrie vedocumint record showing payment at 200r",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 200r"
+  },
+  "probe_0145": {
+    "verbatim_clean": "SWC ENTERORISE SDN BHD",
+    "light_clean": "retrieve document record showing payment at swc enterorise",
+    "verbatim_typo_05": "SWCE NTERORISE SDN BHD",
+    "verbatim_typo_10": "SWCE NTEpORISE SDN BHD",
+    "verbatim_typo_20": "SWCEgNTEpORISE SD NBHD",
+    "light_typo_05": "retriev edocumint record showing payment at swcrenterorise",
+    "light_typo_10": "retri evedocumint record showing payment at swcernterorise",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment ta swcernterorise"
+  },
+  "probe_0146": {
+    "verbatim_clean": "L TWO FLORIST & HANDICRAFT",
+    "light_clean": "retrieve document record showing payment at l two",
+    "verbatim_typo_05": "L TOW FLORIST & HANDICRAFT",
+    "verbatim_typo_10": "L TOW FiORIST & HANDICRrFT",
+    "verbatim_typo_20": "L TWO FiORIST & HANDICRFrT",
+    "light_typo_05": "retriev edocument record showing payment at l tro",
+    "light_typo_10": "retrie vedocumint record showing payment at l tor",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at l tor"
+  },
+  "probe_0147": {
+    "verbatim_clean": "WATSON'S PERSONAL CARE STORES SDN BHD",
+    "light_clean": "retrieve document record showing payment at watson s personal",
+    "verbatim_typo_05": "WATSON' SPERSONALpCARE STORES SDN BHD",
+    "verbatim_typo_10": "WATSON' gPERSONALpCARE STORES SDN HBD",
+    "verbatim_typo_20": "WATSOn' gPERSONALpCARE STORcS SDb HBD",
+    "light_typo_05": "retriev edocumint record showing payment at watron s personal",
+    "light_typo_10": "retri evedocumint record showing payment at watorn s personal",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment ta watorn s personal"
+  },
+  "probe_0151": {
+    "verbatim_clean": "TK DIVISION KITCHEN SDN BHD",
+    "light_clean": "retrieve document record showing payment at tk division",
+    "verbatim_typo_05": "TK IDVISION KITCHEN SDN BHD",
+    "verbatim_typo_10": "TK IDVIiION KITCHEN SDNrBHD",
+    "verbatim_typo_20": "TK DIVIiION KITCHEN SDNBrHD",
+    "light_typo_05": "retriev edocumint record showing payment at tk rivision",
+    "light_typo_10": "retri evedocumint record showing payment at tk irvision",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment at tk irvision"
+  },
+  "probe_0152": {
+    "verbatim_clean": "GOLDEN SCOOP SDN BHD",
+    "light_clean": "GOLDEN SCOOP",
+    "verbatim_typo_05": "GOLEDN SCOOP SDN BHD",
+    "verbatim_typo_10": "GOLEDN SpOOP SDN BHD",
+    "verbatim_typo_20": "GOLEgN SpOOP SDN HBD",
+    "light_typo_05": "GLODEN SCOOP",
+    "light_typo_10": "GLODEN SCOOP",
+    "light_typo_20": "GLODEN SCOOr"
+  },
+  "probe_0154": {
+    "verbatim_clean": "FUN N CHEER (MALURI)",
+    "light_clean": "retrieve document record showing payment at fun n",
+    "verbatim_typo_05": "FUNN  CHEER (MALURI)",
+    "verbatim_typo_10": "FUNN  CHpER (MALURI)",
+    "verbatim_typo_20": "FUNNg CHpER (MALUIR)",
+    "light_typo_05": "retriev edocument record showing payment at funrn",
+    "light_typo_10": "retrie vedocumint record showing payment at funnr",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at funnr"
+  },
+  "probe_0155": {
+    "verbatim_clean": "CT281 - TEALIVE SHELL KEPONG OTTOGO ENTERPRISE",
+    "light_clean": "retrieve document record showing payment at ct281 tealive",
+    "verbatim_typo_05": "CT281 -T EALIVE SpELL KEPONG OTTOGO ENTERPRISE",
+    "verbatim_typo_10": "CT281 -TgEALIVE SpELL KEPONG OTTOG OE1TERPRISE",
+    "verbatim_typo_20": "C2f81 -TgEALVI6 SpELL KEPONG OTTOG OE1TERPRISE",
+    "light_typo_05": "retriev edocumint record showing payment at ct2r1 tealive",
+    "light_typo_10": "retri evedocumint record showing payment at ct21r tealive",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment at ct21r tealive"
+  },
+  "probe_0158": {
+    "verbatim_clean": "1362-JLN DEVELOPMENT",
+    "light_clean": "retrieve document record showing payment at 1362",
+    "verbatim_typo_05": "136-2JLN DEVELOPMENT",
+    "verbatim_typo_10": "136-2JLNpDEVELOPMENT",
+    "verbatim_typo_20": "136-gJLNpDEVELOPMNET",
+    "light_typo_05": "retriev edocument record showing payment at 136r",
+    "light_typo_10": "retrie vedocumint record showing payment at 136r",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 136r"
+  },
+  "probe_0160": {
+    "verbatim_clean": "MR . DAKGALBI SOLARIS",
+    "light_clean": "retrieve document record showing payment at mr",
+    "verbatim_typo_05": "MR  .DAKGALBI SOLARIS",
+    "verbatim_typo_10": "MR  .DAKpALBI SOLARIS",
+    "verbatim_typo_20": "MR  gDAKpALBI SOLRAIS",
+    "light_typo_05": "retriev edocumentprecord showing payment at mr",
+    "light_typo_10": "retriev gdocumentprecord showing pyam1nt at mr",
+    "light_typo_20": "rtfriev gdocmu6ntprecord showing pyam1nt at mr"
+  },
+  "probe_0161": {
+    "verbatim_clean": "THE STORE (MALAYSIA) SDN BHD",
+    "light_clean": "retrieve document record showing payment at the store",
+    "verbatim_typo_05": "THES TORE (MALAYSIA) SDN BHD",
+    "verbatim_typo_10": "THES TOiE (MALAYSIA) SDr BHD",
+    "verbatim_typo_20": "TH ESTOiE (MALAYSIA) SD rBHD",
+    "light_typo_05": "retriev edocumint record showing payment at therstore",
+    "light_typo_10": "retrie vedocumint record showing payment at thesrtore",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment at thesrtore"
+  },
+  "probe_0162": {
+    "verbatim_clean": "LITTLE CRAVINGS SDN BHD",
+    "light_clean": "LITTLE CRAVINGS",
+    "verbatim_typo_05": "LITLTE CRAVINGS SDN BHD",
+    "verbatim_typo_10": "LITLTE CpAVINGS SDN BHD",
+    "verbatim_typo_20": "LITLgE CpAVINGS SN1 BHD",
+    "light_typo_05": "LTITLE CRAVINGS",
+    "light_typo_10": "LTITLE CRAVrNGS",
+    "light_typo_20": "LTIiLE CRAVrNGS"
+  },
+  "probe_0164": {
+    "verbatim_clean": "DATE: 2018-03-18",
+    "light_clean": "retrieve document record showing payment at date 2018",
+    "verbatim_typo_05": "DAT:E 2018-03-18",
+    "verbatim_typo_10": "DAT:E 20p8-03-18",
+    "verbatim_typo_20": "DAT:g 20p8-03-18",
+    "light_typo_05": "retriev edocumint record showing payment at datr 2018",
+    "light_typo_10": "retrie vedocumint record showing payment at dat r2018",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment at dat r2018"
+  },
+  "probe_0168": {
+    "verbatim_clean": "D-08",
+    "light_clean": "retrieve document record showing payment at d",
+    "verbatim_typo_05": "-D08",
+    "verbatim_typo_10": "-D08",
+    "verbatim_typo_20": "-D08",
+    "light_typo_05": "retriev edocumentprecord showing payment at d",
+    "light_typo_10": "retriev gdocumentprecord showing pyament at d",
+    "light_typo_20": "rtfriev gdocmu6ntprecord showing pyam1nt at d"
+  },
+  "probe_0169": {
+    "verbatim_clean": "MY HAPPY PHARMACY PLT",
+    "light_clean": "retrieve document record showing payment at my happy",
+    "verbatim_typo_05": "MY AHPPY PHARMACY PLT",
+    "verbatim_typo_10": "MY AHPPYpPHARMACY PLT",
+    "verbatim_typo_20": "MY AgPPYpPHARMACYP LT",
+    "light_typo_05": "retriev edocumint record showing payment at my rappy",
+    "light_typo_10": "retrie vedocumint record showing payment at my arppy",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at my arppy"
+  },
+  "probe_0170": {
+    "verbatim_clean": "11/02/18 19 : 21",
+    "light_clean": "retrieve document record showing payment at 11 02",
+    "verbatim_typo_05": "11/20/18 19 : 21",
+    "verbatim_typo_10": "11/20/18p19 : 21",
+    "verbatim_typo_20": "11/2g/18p19 : 21",
+    "light_typo_05": "retriev edocument record showing payment at 11 r2",
+    "light_typo_10": "retrie vedocumint record showing payment at 11 2r",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 11 2r"
+  },
+  "probe_0176": {
+    "verbatim_clean": "BHPETROL PALEKBANG",
+    "light_clean": "retrieve document record showing payment at bhpetrol",
+    "verbatim_typo_05": "BHPTEROL PALEKBANG",
+    "verbatim_typo_10": "BHPTEROLpPALEKBANG",
+    "verbatim_typo_20": "BHPTgROLpPALEKBANG",
+    "light_typo_05": "retriev edocumint record showing payment at bhprtrol",
+    "light_typo_10": "retrie vedocumint record showing payment at bhptrrol",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at bhptrrol"
+  },
+  "probe_0180": {
+    "verbatim_clean": "SUPER SEVEN CASH & CARRY SDN BHD",
+    "light_clean": "retrieve document record showing payment at super seven",
+    "verbatim_typo_05": "SUPER SVEEN CASH p CARRY SDN BHD",
+    "verbatim_typo_10": "SUPER SVgEN CASH p CARRY SDN BHD",
+    "verbatim_typo_20": "SfPERS VgEN CASH p CARRY SD NBHD",
+    "light_typo_05": "retriev edocumint record showing payment at suprr seven",
+    "light_typo_10": "retri evedocumint record showing payment at suprr seven",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment at suprr seven"
+  },
+  "probe_0186": {
+    "verbatim_clean": "CO. REG. NO. : 795225-A",
+    "light_clean": "retrieve document record showing payment at co reg",
+    "verbatim_typo_05": "CO.R EG. NO. : 795225-A",
+    "verbatim_typo_10": "CO.R EG.pNO. : 795225-A",
+    "verbatim_typo_20": "CO.RgEG.pNO. : 792125-A",
+    "light_typo_05": "retriev edocument record showing payment at co reg",
+    "light_typo_10": "retrie vedocumint record showing payment at co erg",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at co erg"
+  },
+  "probe_0189": {
+    "verbatim_clean": "SUN-THU : 1000 HRS - 2200 HRS",
+    "light_clean": "retrieve document record showing payment at sun thu",
+    "verbatim_typo_05": "SUNT-HU : 1000 HRS - 2200 HRS",
+    "verbatim_typo_10": "SUNT-HUi: 1000 HRS - 22r0 HRS",
+    "verbatim_typo_20": "SU-NTHUi: 1000 HRS - 220r HRS",
+    "light_typo_05": "retriev edocumint record showing payment at sunrthu",
+    "light_typo_10": "retrie vedocumint record showing payment at suntrhu",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at suntrhu"
+  },
+  "probe_0191": {
+    "verbatim_clean": "11/03/18 16:30",
+    "light_clean": "retrieve document record showing payment at 11 03",
+    "verbatim_typo_05": "1/103/18 16:30",
+    "verbatim_typo_10": "1/103/18 16:30",
+    "verbatim_typo_20": "1/1i3/18 16r30",
+    "light_typo_05": "retriev edocument record showing payment at 11 r3",
+    "light_typo_10": "retrie vedocumint record showing payment at 11 3r",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 11 3r"
+  },
+  "probe_0194": {
+    "verbatim_clean": "TSH POWER HARDWARE TRADING",
+    "light_clean": "retrieve document record showing payment at tsh power",
+    "verbatim_typo_05": "TSHP OWER HARDWARE TRADING",
+    "verbatim_typo_10": "TSHP OWiR HARDWARE TRADrNG",
+    "verbatim_typo_20": "TSH POWiR HARDWARE TRADNrG",
+    "light_typo_05": "retriev edocumint record showing payment at tshrpower",
+    "light_typo_10": "retrie vedocumint record showing payment at tshprower",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment at tshprower"
+  },
+  "probe_0198": {
+    "verbatim_clean": "PILLAR SINK TAP 87601",
+    "light_clean": "retrieve document record showing payment at pillar sink",
+    "verbatim_typo_05": "PILALR SINK TAP 87601",
+    "verbatim_typo_10": "PILALR SpNK TAP 87601",
+    "verbatim_typo_20": "PILAgR SpNK TAP 86701",
+    "light_typo_05": "retriev edocumint record showing payment at pilrar sink",
+    "light_typo_10": "retri evedocumint record showing payment at pilarr sink",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment at pilarr sink"
+  },
+  "probe_0199": {
+    "verbatim_clean": "SINGLE BEDSHEET SET 90*188+20CM",
+    "light_clean": "retrieve document record showing payment at single bedsheet",
+    "verbatim_typo_05": "SINLGE BEDSHEET SET 90*r88+20CM",
+    "verbatim_typo_10": "SINLGE iEDSHEET SET 90*r88+20CM",
+    "verbatim_typo_20": "SIGNLE iEDSHEET SET 90*8r8+20CM",
+    "light_typo_05": "retriev edocumint record showing payment at sinrle bedsheet",
+    "light_typo_10": "retri evedocumint record showing payment at sinlre bedsheet",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment ta sinlre bedsheet"
+  },
+  "probe_0200": {
+    "verbatim_clean": "RM 26.10",
+    "light_clean": "retrieve document record showing payment at rm",
+    "verbatim_typo_05": "R M26.10",
+    "verbatim_typo_10": "R M26.10",
+    "verbatim_typo_20": "R M2p.10",
+    "light_typo_05": "retriev edocumentprecord showing payment at rm",
+    "light_typo_10": "retriev gdocumentprecord showing pyam1nt at rm",
+    "light_typo_20": "rtfriev gdocmu6ntprecord showing pyam1nt at rm"
+  },
+  "probe_0201": {
+    "verbatim_clean": "GOLDEN KEY MAKER",
+    "light_clean": "retrieve document record showing payment at golden",
+    "verbatim_typo_05": "GOLEDN KEY MAKER",
+    "verbatim_typo_10": "GOLEDN KpY MAKER",
+    "verbatim_typo_20": "GOLEgN KpY MAKER",
+    "light_typo_05": "retriev edocument record showing payment at golren",
+    "light_typo_10": "retrie vedocumint record showing payment at golern",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at golern"
+  },
+  "probe_0203": {
+    "verbatim_clean": "WHITE CABLE TIE 4*200MM(8')",
+    "light_clean": "retrieve document record showing payment at white cable",
+    "verbatim_typo_05": "WHIET CABLE TIE 4*200MM(8')",
+    "verbatim_typo_10": "WHIET CiBLE TIE 4*200MMr8')",
+    "verbatim_typo_20": "WHITE CiBLE TIE 4*200MM8r')",
+    "light_typo_05": "retriev edocumint record showing payment at whire cable",
+    "light_typo_10": "retri evedocumint record showing payment at whier cable",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment at whier cable"
+  },
+  "probe_0205": {
+    "verbatim_clean": "KAISON FURNISHING SDN BHD",
+    "light_clean": "retrieve document record showing payment at kaison furnishing",
+    "verbatim_typo_05": "KAIOSN FURNISHING SDN BHD",
+    "verbatim_typo_10": "KAIOSN FURNISHING SDN BrD",
+    "verbatim_typo_20": "KAISON iURNISHING SDN BDr",
+    "light_typo_05": "retriev edocumint record showing payment at kairon furnishing",
+    "light_typo_10": "retri evedocumint record showing payment at kaiorn furnishing",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment ta kaiorn furnishing"
+  },
+  "probe_0209": {
+    "verbatim_clean": ": T03-18/199913",
+    "light_clean": "retrieve document record showing payment at t03",
+    "verbatim_typo_05": ":T 03-18/199913",
+    "verbatim_typo_10": ":T 03-18/19r913",
+    "verbatim_typo_20": ":T i3-18/19r913",
+    "light_typo_05": "retriev edocumentprecord showing payment at t03",
+    "light_typo_10": "retriev gdocumentprecord showing pyam1nt at t03",
+    "light_typo_20": "rtfriev gdocmu6ntprecord showing pyam1nt at t03"
+  },
+  "probe_0211": {
+    "verbatim_clean": "17/01/2018 4:21:53",
+    "light_clean": "retrieve document record showing payment at 17 01",
+    "verbatim_typo_05": "17/10/2018 4:21:53",
+    "verbatim_typo_10": "17/10/20p8 4:21:53",
+    "verbatim_typo_20": "17/1g/20p8 4:21:53",
+    "light_typo_05": "retriev edocument record showing payment at 17 r1",
+    "light_typo_10": "retrie vedocumint record showing payment at 17 1r",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 17 1r"
+  },
+  "probe_0212": {
+    "verbatim_clean": "DATE: 25/04/18",
+    "light_clean": "retrieve document record showing payment at date 25",
+    "verbatim_typo_05": "DTAE: 25/04/18",
+    "verbatim_typo_10": "DTAE: 25/04/18",
+    "verbatim_typo_20": "DTAi: 25/04r18",
+    "light_typo_05": "retriev edocumint record showing payment at datr 25",
+    "light_typo_10": "retrie vedocumint record showing payment at dat r25",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at dat r25"
+  },
+  "probe_0215": {
+    "verbatim_clean": "16:57:00",
+    "light_clean": "retrieve document record showing payment at 16",
+    "verbatim_typo_05": "1:657:00",
+    "verbatim_typo_10": "1:657:00",
+    "verbatim_typo_20": "1:65p:00",
+    "light_typo_05": "retriev edocumentprecord showing payment at 16",
+    "light_typo_10": "retriev gdocumentprecord showing pyam1nt at 16",
+    "light_typo_20": "rtfriev gdocmu6ntprecord showing pyam1nt at 16"
+  },
+  "probe_0217": {
+    "verbatim_clean": "27/02/18 21:22",
+    "light_clean": "retrieve document record showing payment at 27 02",
+    "verbatim_typo_05": "2/702/18 21:22",
+    "verbatim_typo_10": "2/702/18 21:22",
+    "verbatim_typo_20": "2/7i2/18 21r22",
+    "light_typo_05": "retriev edocument record showing payment at 27 r2",
+    "light_typo_10": "retrie vedocumint record showing payment at 27 2r",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 27 2r"
+  },
+  "probe_0218": {
+    "verbatim_clean": "EMPIRE SHOPPING GALLERY",
+    "light_clean": "retrieve document record showing payment at empire",
+    "verbatim_typo_05": "EMPRIE SHOPPING GALLERY",
+    "verbatim_typo_10": "EMPRIE SpOPPING GALLERY",
+    "verbatim_typo_20": "EMPRgE SpOPPING GL1LERY",
+    "light_typo_05": "retriev edocument record showing payment at emprre",
+    "light_typo_10": "retrie vedocumint record showing payment at emprre",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at emprre"
+  },
+  "probe_0219": {
+    "verbatim_clean": "BOON SENG PAPER SDN BHD",
+    "light_clean": "retrieve document record showing payment at boon seng",
+    "verbatim_typo_05": "BOO NSENG PAPER SDN BHD",
+    "verbatim_typo_10": "BOO NSENp PAPER SDN BHD",
+    "verbatim_typo_20": "BOO gSENp PAPER SN1 BHD",
+    "light_typo_05": "retriev edocumint record showing payment at boor seng",
+    "light_typo_10": "retrie vedocumint record showing payment at boo rseng",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment at boo rseng"
+  },
+  "probe_0220": {
+    "verbatim_clean": "RELAIS TOTAL OULMES",
+    "light_clean": "retrieve document record showing payment at relais",
+    "verbatim_typo_05": "RELIAS TOTAL OULMES",
+    "verbatim_typo_10": "RELIAS TpTAL OULMES",
+    "verbatim_typo_20": "RELIgS TpTAL OULMSE",
+    "light_typo_05": "retriev edocument record showing payment at relris",
+    "light_typo_10": "retrie vedocumint record showing payment at relirs",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at relirs"
+  },
+  "probe_0221": {
+    "verbatim_clean": ": 29/03/2018 20:37:46",
+    "light_clean": "retrieve document record showing payment at 29 03",
+    "verbatim_typo_05": ": 2/903/2018 20:37:46",
+    "verbatim_typo_10": ": 2/903/p018 20:37:46",
+    "verbatim_typo_20": ": 2/g03/p018 20:3:746",
+    "light_typo_05": "retriev edocument record showing payment at 29 r3",
+    "light_typo_10": "retrie vedocumint record showing payment at 29 3r",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 29 3r"
+  },
+  "probe_0223": {
+    "verbatim_clean": ": 29/03/2018 20:19:07",
+    "light_clean": "retrieve document record showing payment at 29 03",
+    "verbatim_typo_05": ": 2/903/2018 20:19:07",
+    "verbatim_typo_10": ": 2/903/p018 20:19:07",
+    "verbatim_typo_20": ": 2/g03/p018 20:1:907",
+    "light_typo_05": "retriev edocument record showing payment at 29 r3",
+    "light_typo_10": "retrie vedocumint record showing payment at 29 3r",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 29 3r"
+  },
+  "probe_0224": {
+    "verbatim_clean": "NO.:UOA-CB18-01575",
+    "light_clean": "retrieve document record showing payment at no uoa",
+    "verbatim_typo_05": "NO.U:OA-CB18-01575",
+    "verbatim_typo_10": "NO.U:OA-pB18-01575",
+    "verbatim_typo_20": "NO.UgOA-pB18-01575",
+    "light_typo_05": "retriev edocument record showing payment at no roa",
+    "light_typo_10": "retrie vedocumint record showing payment at no ora",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at no ora"
+  },
+  "probe_0226": {
+    "verbatim_clean": "MAGNETIC WHITEBOARD LD001# 90*60CM",
+    "light_clean": "retrieve document record showing payment at magnetic whiteboard",
+    "verbatim_typo_05": "MAGNETI CWHITEBOApD LD001# 90*60CM",
+    "verbatim_typo_10": "MAGNETI gWHITEBOApD LD001# 90*60CM",
+    "verbatim_typo_20": "MfGNEIT gWHITE6OApD LD001# 09*60CM",
+    "light_typo_05": "retriev edocumint record showing payment at magretic whiteboard",
+    "light_typo_10": "retri evedocumint record showing payment at magertic whiteboard",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing pyament ta magertic whiteboard"
+  },
+  "probe_0227": {
+    "verbatim_clean": "PREMIO STATIONERY SDN BHD",
+    "light_clean": "retrieve document record showing payment at premio stationery",
+    "verbatim_typo_05": "PREIMO STATIONERY SDN BHD",
+    "verbatim_typo_10": "PREIMO STATIONERY SDN BrD",
+    "verbatim_typo_20": "PREMIO iTATIONERY SDN BDr",
+    "light_typo_05": "retriev edocumint record showing payment at prerio stationery",
+    "light_typo_10": "retri evedocumint record showing payment at preiro stationery",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment ta preiro stationery"
+  },
+  "probe_0228": {
+    "verbatim_clean": "Y SOON FATT S/B",
+    "light_clean": "retrieve document record showing payment at y soon",
+    "verbatim_typo_05": "YS OON FATT S/B",
+    "verbatim_typo_10": "YS OON FATTrS/B",
+    "verbatim_typo_20": "YS iON FATTrS/B",
+    "light_typo_05": "retriev edocument record showing payment at y sron",
+    "light_typo_10": "retrie vedocumint record showing payment at y sorn",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at y sorn"
+  },
+  "probe_0229": {
+    "verbatim_clean": "02/JAN/2017 10:49:25",
+    "light_clean": "retrieve document record showing payment at 02 jan",
+    "verbatim_typo_05": "02/AJN/2017 10:49:25",
+    "verbatim_typo_10": "02/AJN/2p17 10:49:25",
+    "verbatim_typo_20": "02/AgN/2p17 10:492:5",
+    "light_typo_05": "retriev edocument record showing payment at 02 ran",
+    "light_typo_10": "retrie vedocumint record showing payment at 02 arn",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 02 arn"
+  },
+  "probe_0230": {
+    "verbatim_clean": "BIZDATE: 20/03/2017",
+    "light_clean": "retrieve document record showing payment at bizdate 20",
+    "verbatim_typo_05": "BIZADTE: 20/03/2017",
+    "verbatim_typo_10": "BIZADTE:p20/03/2017",
+    "verbatim_typo_20": "BIZAgTE:p20/03/2071",
+    "light_typo_05": "retriev edocumint record showing payment at bizrate 20",
+    "light_typo_10": "retrie vedocumint record showing payment at bizarte 20",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment at bizarte 20"
+  },
+  "probe_0231": {
+    "verbatim_clean": "OLIVE9 PHARMACY SDN BHD",
+    "light_clean": "retrieve document record showing payment at olive9 pharmacy",
+    "verbatim_typo_05": "OLIEV9 PHARMACY SDN BHD",
+    "verbatim_typo_10": "OLIEV9 PpARMACY SDN BHD",
+    "verbatim_typo_20": "OLIEg9 PpARMACY SN1 BHD",
+    "light_typo_05": "retriev edocumint record showing payment at olire9 pharmacy",
+    "light_typo_10": "retri evedocumint record showing payment at olier9 pharmacy",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment ta olier9 pharmacy"
+  },
+  "probe_0232": {
+    "verbatim_clean": "GOODS SOLD AR NOT RETURNABLE. TQ",
+    "light_clean": "retrieve document record showing payment at goods sold",
+    "verbatim_typo_05": "GOODS SLOD AR NOTpRETURNABLE. TQ",
+    "verbatim_typo_10": "GOODS SLgD AR NOTpRETURNABLE. TQ",
+    "verbatim_typo_20": "GfODSS LgD AR NOTpRETURNABL.E TQ",
+    "light_typo_05": "retriev edocumint record showing payment at goors sold",
+    "light_typo_10": "retrie vedocumint record showing payment at goosr sold",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment at goosr sold"
+  },
+  "probe_0235": {
+    "verbatim_clean": ": 05 JAN 2017 12:41PM",
+    "light_clean": "retrieve document record showing payment at 05 jan",
+    "verbatim_typo_05": ": 0 5JAN 2017 12:41PM",
+    "verbatim_typo_10": ": 0 5JANp2017 12:41PM",
+    "verbatim_typo_20": ": 0 gJANp2017 12:14PM",
+    "light_typo_05": "retriev edocument record showing payment at 05 ran",
+    "light_typo_10": "retrie vedocumint record showing payment at 05 arn",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 05 arn"
+  },
+  "probe_0236": {
+    "verbatim_clean": ": 04 JAN 2017 01:15PM",
+    "light_clean": "retrieve document record showing payment at 04 jan",
+    "verbatim_typo_05": ": 0 4JAN 2017 01:15PM",
+    "verbatim_typo_10": ": 0 4JANp2017 01:15PM",
+    "verbatim_typo_20": ": 0 gJANp2017 01:51PM",
+    "light_typo_05": "retriev edocument record showing payment at 04 ran",
+    "light_typo_10": "retrie vedocumint record showing payment at 04 arn",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 04 arn"
+  },
+  "probe_0237": {
+    "verbatim_clean": "MCDONALD'S KOTA DAMANSARA DT(#178)",
+    "light_clean": "retrieve document record showing payment at mcdonald s",
+    "verbatim_typo_05": "MCDONAL'DS KOTA DpMANSARA DT(#178)",
+    "verbatim_typo_10": "MCDONAL'gS KOTA DpMANSARA DT(#178)",
+    "verbatim_typo_20": "MfDONLA'gS KOT6 DpMANSARA D(T#178)",
+    "light_typo_05": "retriev edocumint record showing payment at mcdrnald s",
+    "light_typo_10": "retrie vedocumint record showing payment at mcdnrald s",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment at mcdnrald s"
+  },
+  "probe_0239": {
+    "verbatim_clean": "LOT NO. G23",
+    "light_clean": "retrieve document record showing payment at lot",
+    "verbatim_typo_05": "LTO NO. G23",
+    "verbatim_typo_10": "LTO NO. G23",
+    "verbatim_typo_20": "LTO pO. G23",
+    "light_typo_05": "retriev edocumentprecord showing payment at lot",
+    "light_typo_10": "retriev gdocumentprecord showing pyam1nt at lot",
+    "light_typo_20": "rtfriev gdocmu6ntprecord showing pyam1nt at lot"
+  },
+  "probe_0241": {
+    "verbatim_clean": "AMPANG 210 FIRST CITY PARKING SDN BHD",
+    "light_clean": "retrieve document record showing payment at ampang 210 first",
+    "verbatim_typo_05": "AMPANG 120 FIRST pITY PARKING SDN BHD",
+    "verbatim_typo_10": "AMPANG 1g0 FIRST pITY PARKING SDN HBD",
+    "verbatim_typo_20": "AMPANn 1g0 FIRST pITY PARKIcG SDb HBD",
+    "light_typo_05": "retriev edocumint record showing payment at amprng 210 first",
+    "light_typo_10": "retri evedocumint record showing payment at ampnrg 210 first",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment ta ampnrg 210 first"
+  },
+  "probe_0242": {
+    "verbatim_clean": "27/03/2018 16:34",
+    "light_clean": "retrieve document record showing payment at 27 03",
+    "verbatim_typo_05": "27/30/2018 16:34",
+    "verbatim_typo_10": "27/30/20p8 16:34",
+    "verbatim_typo_20": "27/3g/20p8 16:34",
+    "light_typo_05": "retriev edocument record showing payment at 27 r3",
+    "light_typo_10": "retrie vedocumint record showing payment at 27 3r",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 27 3r"
+  },
+  "probe_0243": {
+    "verbatim_clean": "09/04/2018 10:52",
+    "light_clean": "retrieve document record showing payment at 09 04",
+    "verbatim_typo_05": "09/40/2018 10:52",
+    "verbatim_typo_10": "09/40/20p8 10:52",
+    "verbatim_typo_20": "09/4g/20p8 10:52",
+    "light_typo_05": "retriev edocument record showing payment at 09 r4",
+    "light_typo_10": "retrie vedocumint record showing payment at 09 4r",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 09 4r"
+  },
+  "probe_0245": {
+    "verbatim_clean": "TIMES BOOKSTORES",
+    "light_clean": "retrieve document record showing payment at times",
+    "verbatim_typo_05": "TIMSE BOOKSTORES",
+    "verbatim_typo_10": "TIMSE BOpKSTORES",
+    "verbatim_typo_20": "TIMSg BOpKSTORES",
+    "light_typo_05": "retriev edocument record showing payment at timrs",
+    "light_typo_10": "retrie vedocumint record showing payment at timsr",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at timsr"
+  },
+  "probe_0249": {
+    "verbatim_clean": ": 04/05/2017 7:19:43 AM",
+    "light_clean": "retrieve document record showing payment at 04 05 2017",
+    "verbatim_typo_05": ": 0/405/2017 7:19:43 AM",
+    "verbatim_typo_10": ": 0/405/p017 7:19:43 AM",
+    "verbatim_typo_20": ": 0/g05/p017 7:19413 AM",
+    "light_typo_05": "retriev edocumint record showing payment at 04 r5 2017",
+    "light_typo_10": "retrie vedocumint record showing payment at 04 5r 2017",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment at 04 5r 2017"
+  },
+  "probe_0250": {
+    "verbatim_clean": "12 JALAN PENGACARA U1/48 TEMASYA INDUSTRIAL PARK 40150 SHAH ALAM SELANGOR",
+    "light_clean": "retrieve document record showing payment at 12 jalan pengacara u1 48",
+    "verbatim_typo_05": "12 JALAN PENGAACRg U1/48 TEMASYA INpUSTRIAL PARK 40150 SHAH ALAM SELAGNOR",
+    "verbatim_typo_10": "12 JALAN PEnGAACRg U1/48 TEMASYA INpUSTRIAL PARK 40150cSHAH ALAMbSELAGNOR",
+    "verbatim_typo_20": "12 JALAN PEyGAACRg U1/48 ETvSYA INpTRIAL PARK 40150cSHAH ALAMbSELANGOR",
+    "light_typo_05": "retrieve documnetgrecord showing papment at 12 jalan pengacara u1 48",
+    "light_typo_10": "retfieve doucmnetgrecord show6ng papment at 12 jalan pnegacara u1 48",
+    "light_typo_20": "retifeve doucmnetgre1ord hsvw6ng pament at 12 jalan npegrcara u1 48"
+  },
+  "probe_0252": {
+    "verbatim_clean": "1313-SUBANG BESTARI",
+    "light_clean": "retrieve document record showing payment at 1313",
+    "verbatim_typo_05": "131-3SUBANG BESTARI",
+    "verbatim_typo_10": "131-3SUBpNG BESTARI",
+    "verbatim_typo_20": "131-gSUBpNG BESTAIR",
+    "light_typo_05": "retriev edocument record showing payment at 131r",
+    "light_typo_10": "retrie vedocumint record showing payment at 131r",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 131r"
+  },
+  "probe_0253": {
+    "verbatim_clean": "PERNIAGAAN RIANG RIA",
+    "light_clean": "retrieve document record showing payment at perniagaan",
+    "verbatim_typo_05": "PERINAGAAN RIANG RIA",
+    "verbatim_typo_10": "PERINAGApN RIANG RIA",
+    "verbatim_typo_20": "PERIgAGApN RIANG IRA",
+    "light_typo_05": "retriev edocumint record showing payment at perriagaan",
+    "light_typo_10": "retrie vedocumint record showing payment at periragaan",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment at periragaan"
+  },
+  "probe_0256": {
+    "verbatim_clean": "HERO DISTRIBUTION SDN BHD",
+    "light_clean": "retrieve document record showing payment at hero distribution",
+    "verbatim_typo_05": "HER ODISTRIBUTION SDN BHD",
+    "verbatim_typo_10": "HER ODISTRIBUTION SDN BrD",
+    "verbatim_typo_20": "HERO DIiTRIBUTION SDN BDr",
+    "light_typo_05": "retriev edocumint record showing payment at herr distribution",
+    "light_typo_10": "retri evedocumint record showing payment at her rdistribution",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment ta her rdistribution"
+  },
+  "probe_0257": {
+    "verbatim_clean": ": 25 MAY 2017 09:41AM",
+    "light_clean": "retrieve document record showing payment at 25 may",
+    "verbatim_typo_05": ": 2 5MAY 2017 09:41AM",
+    "verbatim_typo_10": ": 2 5MAYp2017 09:41AM",
+    "verbatim_typo_20": ": 2 gMAYp2017 09:14AM",
+    "light_typo_05": "retriev edocument record showing payment at 25 ray",
+    "light_typo_10": "retrie vedocumint record showing payment at 25 ary",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 25 ary"
+  },
+  "probe_0262": {
+    "verbatim_clean": "IN-SPARKLE TRADING SDN BHD",
+    "light_clean": "retrieve document record showing payment at in sparkle",
+    "verbatim_typo_05": "IN-PSARKLE TRADING SDN BHD",
+    "verbatim_typo_10": "IN-PSARiLE TRADING SDN rHD",
+    "verbatim_typo_20": "IN-SPARiLE TRADING SDN HrD",
+    "light_typo_05": "retriev edocumint record showing payment at in rparkle",
+    "light_typo_10": "retrie vedocumint record showing payment at in prarkle",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment at in prarkle"
+  },
+  "probe_0263": {
+    "verbatim_clean": "ELKEN SERVICE SDN BHD",
+    "light_clean": "retrieve document record showing payment at elken service",
+    "verbatim_typo_05": "ELKNE SERVICE SDN BHD",
+    "verbatim_typo_10": "ELKNE SEpVICE SDN BHD",
+    "verbatim_typo_20": "ELKNg SEpVICE SDNB HD",
+    "light_typo_05": "retriev edocumint record showing payment at elkrn service",
+    "light_typo_10": "retri evedocumint record showing payment at elknr service",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment at elknr service"
+  },
+  "probe_0264": {
+    "verbatim_clean": "[19/06/17] [11:37]",
+    "light_clean": "retrieve document record showing payment at 19 06",
+    "verbatim_typo_05": "[190/6/17] [11:37]",
+    "verbatim_typo_10": "[190/6/1p] [11:37]",
+    "verbatim_typo_20": "[190g6/1p] [11:37]",
+    "light_typo_05": "retriev edocument record showing payment at 19 r6",
+    "light_typo_10": "retrie vedocumint record showing payment at 19 6r",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 19 6r"
+  },
+  "probe_0265": {
+    "verbatim_clean": "03/06/2017 5:02:54 PM",
+    "light_clean": "retrieve document record showing payment at 03 06 2017",
+    "verbatim_typo_05": "03/60/2017 5:02:54 PM",
+    "verbatim_typo_10": "03/60/20p7 5:02:54 PM",
+    "verbatim_typo_20": "03/6g/20p7 5:02:5 4PM",
+    "light_typo_05": "retriev edocumint record showing payment at 03 r6 2017",
+    "light_typo_10": "retrie vedocumint record showing payment at 03 6r 2017",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment at 03 6r 2017"
+  },
+  "probe_0266": {
+    "verbatim_clean": "14/JUN/2017 08:34:22",
+    "light_clean": "retrieve document record showing payment at 14 jun",
+    "verbatim_typo_05": "14/UJN/2017 08:34:22",
+    "verbatim_typo_10": "14/UJN/2p17 08:34:22",
+    "verbatim_typo_20": "14/UgN/2p17 08:342:2",
+    "light_typo_05": "retriev edocument record showing payment at 14 run",
+    "light_typo_10": "retrie vedocumint record showing payment at 14 urn",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 14 urn"
+  },
+  "probe_0267": {
+    "verbatim_clean": "SUPER.SEVEN CASH & CARRY SDN BHD",
+    "light_clean": "retrieve document record showing payment at super seven",
+    "verbatim_typo_05": "SUPER.SVEEN CASH p CARRY SDN BHD",
+    "verbatim_typo_10": "SUPER.SVgEN CASH p CARRY SDN BHD",
+    "verbatim_typo_20": "SfPERS.VgEN CASH p CARRY SD NBHD",
+    "light_typo_05": "retriev edocumint record showing payment at suprr seven",
+    "light_typo_10": "retri evedocumint record showing payment at suprr seven",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment at suprr seven"
+  },
+  "probe_0269": {
+    "verbatim_clean": "1422-TMN DESA JAYA",
+    "light_clean": "retrieve document record showing payment at 1422 tmn",
+    "verbatim_typo_05": "142-2TMN DESA JAYA",
+    "verbatim_typo_10": "142-2TMNpDESA JAYA",
+    "verbatim_typo_20": "142-gTMNpDESA JAYA",
+    "light_typo_05": "retriev edocumint record showing payment at 142r tmn",
+    "light_typo_10": "retrie vedocumint record showing payment at 142 rtmn",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 142 rtmn"
+  },
+  "probe_0273": {
+    "verbatim_clean": "DI HUAN YA RESTAURANT",
+    "light_clean": "retrieve document record showing payment at di huan",
+    "verbatim_typo_05": "DI UHAN YA RESTAURANT",
+    "verbatim_typo_10": "DI UHAN pA RESTAURANT",
+    "verbatim_typo_20": "DI UgAN pA RESTAUARNT",
+    "light_typo_05": "retriev edocumint record showing payment at di ruan",
+    "light_typo_10": "retrie vedocumint record showing payment at di uran",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at di uran"
+  },
+  "probe_0275": {
+    "verbatim_clean": "02 APR 2018 18:31",
+    "light_clean": "retrieve document record showing payment at 02 apr",
+    "verbatim_typo_05": "02 PAR 2018 18:31",
+    "verbatim_typo_10": "02 PAR 2p18 18:31",
+    "verbatim_typo_20": "02 PgR 2p18 18:31",
+    "light_typo_05": "retriev edocument record showing payment at 02 rpr",
+    "light_typo_10": "retrie vedocumint record showing payment at 02 prr",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 02 prr"
+  },
+  "probe_0276": {
+    "verbatim_clean": "03 APR 2018 18:33",
+    "light_clean": "retrieve document record showing payment at 03 apr",
+    "verbatim_typo_05": "03 PAR 2018 18:33",
+    "verbatim_typo_10": "03 PAR 2p18 18:33",
+    "verbatim_typo_20": "03 PgR 2p18 18:33",
+    "light_typo_05": "retriev edocument record showing payment at 03 rpr",
+    "light_typo_10": "retrie vedocumint record showing payment at 03 prr",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 03 prr"
+  },
+  "probe_0282": {
+    "verbatim_clean": "14/04/2018 16:14",
+    "light_clean": "retrieve document record showing payment at 14 04",
+    "verbatim_typo_05": "14/40/2018 16:14",
+    "verbatim_typo_10": "14/40/20p8 16:14",
+    "verbatim_typo_20": "14/4g/20p8 16:14",
+    "light_typo_05": "retriev edocument record showing payment at 14 r4",
+    "light_typo_10": "retrie vedocumint record showing payment at 14 4r",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 14 4r"
+  },
+  "probe_0284": {
+    "verbatim_clean": "16 APR 2018 18:23",
+    "light_clean": "retrieve document record showing payment at 16 apr",
+    "verbatim_typo_05": "16 PAR 2018 18:23",
+    "verbatim_typo_10": "16 PAR 2p18 18:23",
+    "verbatim_typo_20": "16 PgR 2p18 18:23",
+    "light_typo_05": "retriev edocument record showing payment at 16 rpr",
+    "light_typo_10": "retrie vedocumint record showing payment at 16 prr",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 16 prr"
+  },
+  "probe_0287": {
+    "verbatim_clean": "19 APR 2018 18:22",
+    "light_clean": "retrieve document record showing payment at 19 apr",
+    "verbatim_typo_05": "19 PAR 2018 18:22",
+    "verbatim_typo_10": "19 PAR 2p18 18:22",
+    "verbatim_typo_20": "19 PgR 2p18 18:22",
+    "light_typo_05": "retriev edocument record showing payment at 19 rpr",
+    "light_typo_10": "retrie vedocumint record showing payment at 19 prr",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 19 prr"
+  },
+  "probe_0288": {
+    "verbatim_clean": "CARRY OUT TIMED",
+    "light_clean": "retrieve document record showing payment at carry",
+    "verbatim_typo_05": "CRARY OUT TIMED",
+    "verbatim_typo_10": "CRARY OUT TrMED",
+    "verbatim_typo_20": "CRAiY OUT TrMED",
+    "light_typo_05": "retriev edocument record showing payment at carry",
+    "light_typo_10": "retrie vedocumint record showing payment at caryr",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at caryr"
+  },
+  "probe_0291": {
+    "verbatim_clean": "RM 21.80",
+    "light_clean": "retrieve document record showing payment at rm",
+    "verbatim_typo_05": "R M21.80",
+    "verbatim_typo_10": "R M21.80",
+    "verbatim_typo_20": "R M2p.80",
+    "light_typo_05": "retriev edocumentprecord showing payment at rm",
+    "light_typo_10": "retriev gdocumentprecord showing pyam1nt at rm",
+    "light_typo_20": "rtfriev gdocmu6ntprecord showing pyam1nt at rm"
+  },
+  "probe_0292": {
+    "verbatim_clean": "VALUED CUSTOMER: 1170086176",
+    "light_clean": "retrieve document record showing payment at valued",
+    "verbatim_typo_05": "VALEUD CUSTOMER: 1170086176",
+    "verbatim_typo_10": "VALEUD iUSTOMER: 117008r176",
+    "verbatim_typo_20": "VALUED iUSTOMER: 1170081r76",
+    "light_typo_05": "retriev edocument record showing payment at valred",
+    "light_typo_10": "retrie vedocumint record showing payment at valerd",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at valerd"
+  },
+  "probe_0293": {
+    "verbatim_clean": "GREEN PEA CHEES",
+    "light_clean": "retrieve document record showing payment at green",
+    "verbatim_typo_05": "GEREN PEA CHEES",
+    "verbatim_typo_10": "GEREN PEA CrEES",
+    "verbatim_typo_20": "GERiN PEA CrEES",
+    "light_typo_05": "retriev edocument record showing payment at grern",
+    "light_typo_10": "retrie vedocumint record showing payment at grenr",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at grenr"
+  },
+  "probe_0298": {
+    "verbatim_clean": "08/04/2018 03:09:12 PM",
+    "light_clean": "retrieve document record showing payment at 08 04 2018",
+    "verbatim_typo_05": "08/40/2018 03:09:12 PM",
+    "verbatim_typo_10": "08/40/20p8 03:09:12 PM",
+    "verbatim_typo_20": "08/4g/20p8 03:09:21 PM",
+    "light_typo_05": "retriev edocumint record showing payment at 08 r4 2018",
+    "light_typo_10": "retrie vedocumint record showing payment at 08 4r 2018",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment at 08 4r 2018"
+  },
+  "probe_0302": {
+    "verbatim_clean": "ORDER TIME : 17:57:32",
+    "light_clean": "retrieve document record showing payment at order time",
+    "verbatim_typo_05": "ORDRE TIME : 17:57:32",
+    "verbatim_typo_10": "ORDRE TIpE : 17:57:32",
+    "verbatim_typo_20": "ORDRg TIpE : 17:5:732",
+    "light_typo_05": "retriev edocumint record showing payment at ordrr time",
+    "light_typo_10": "retrie vedocumint record showing payment at ordrr time",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment at ordrr time"
+  },
+  "probe_0303": {
+    "verbatim_clean": "VALUED CUSTOMER: 1190052101",
+    "light_clean": "retrieve document record showing payment at valued",
+    "verbatim_typo_05": "VALEUD CUSTOMER: 1190052101",
+    "verbatim_typo_10": "VALEUD iUSTOMER: 119005r101",
+    "verbatim_typo_20": "VALUED iUSTOMER: 1190051r01",
+    "light_typo_05": "retriev edocument record showing payment at valred",
+    "light_typo_10": "retrie vedocumint record showing payment at valerd",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at valerd"
+  },
+  "probe_0312": {
+    "verbatim_clean": "JALAN RADIN BAGUS",
+    "light_clean": "retrieve document record showing payment at jalan",
+    "verbatim_typo_05": "JALNA RADIN BAGUS",
+    "verbatim_typo_10": "JALNA RApIN BAGUS",
+    "verbatim_typo_20": "JALNg RApIN BAGUS",
+    "light_typo_05": "retriev edocument record showing payment at jalrn",
+    "light_typo_10": "retrie vedocumint record showing payment at jalnr",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at jalnr"
+  },
+  "probe_0313": {
+    "verbatim_clean": "HAXINCONE RESOURCES SDN BHD",
+    "light_clean": "HAXINCONE RESOURCES",
+    "verbatim_typo_05": "HAXNICONE RESOURCES SDN BHD",
+    "verbatim_typo_10": "HAXNICOiE RESOURCES SDNrBHD",
+    "verbatim_typo_20": "HAXINCOiE RESOURCES SDNBrHD",
+    "light_typo_05": "HAXNICONE RESOURCES",
+    "light_typo_10": "HAXNICONp RESOURCES",
+    "light_typo_20": "HAXNgCONp RESOURCSE"
+  },
+  "probe_0314": {
+    "verbatim_clean": "NO 16A",
+    "light_clean": "retrieve document record showing payment at no",
+    "verbatim_typo_05": "ON 16A",
+    "verbatim_typo_10": "ON 16A",
+    "verbatim_typo_20": "ON 16A",
+    "light_typo_05": "retriev edocumentprecord showing payment at no",
+    "light_typo_10": "retriev gdocumentprecord showing pyam1nt at no",
+    "light_typo_20": "rtfriev gdocmu6ntprecord showing pyam1nt at no"
+  },
+  "probe_0315": {
+    "verbatim_clean": "R&C VENTURE SDN BHD",
+    "light_clean": "retrieve document record showing payment at r c",
+    "verbatim_typo_05": "R&CV ENTURE SDN BHD",
+    "verbatim_typo_10": "R&CV ENTpRE SDN BHD",
+    "verbatim_typo_20": "R&CVgENTpRE SDN BDH",
+    "light_typo_05": "retriev edocumentprecord showing payment at r c",
+    "light_typo_10": "retriev gdocumentprecord showing pyam1nt at r c",
+    "light_typo_20": "rtfriev gdocmu6ntprecord showing pyam1nt at r c"
+  },
+  "probe_0318": {
+    "verbatim_clean": "KHIAM AIK CHAN SDN BHD",
+    "light_clean": "retrieve document record showing payment at khiam aik",
+    "verbatim_typo_05": "KHIMA AIK CHAN SDN BHD",
+    "verbatim_typo_10": "KHIMA AIp CHAN SDN BHD",
+    "verbatim_typo_20": "KHIMg AIp CHAN SD NBHD",
+    "light_typo_05": "retriev edocumint record showing payment at khirm aik",
+    "light_typo_10": "retrie vedocumint record showing payment at khimr aik",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment at khimr aik"
+  },
+  "probe_0319": {
+    "verbatim_clean": "SUBANG HEALTHCARE SDN BHD",
+    "light_clean": "retrieve document record showing payment at subang healthcare",
+    "verbatim_typo_05": "SUBNAG HEALTHCARE SDN BHD",
+    "verbatim_typo_10": "SUBNAG HEALTHCARE SDN BrD",
+    "verbatim_typo_20": "SUBANG iEALTHCARE SDN BDr",
+    "light_typo_05": "retriev edocumint record showing payment at subrng healthcare",
+    "light_typo_10": "retri evedocumint record showing payment at subnrg healthcare",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment ta subnrg healthcare"
+  },
+  "probe_0320": {
+    "verbatim_clean": "GARDENIA BAKERIES (KI ) SDN BHD",
+    "light_clean": "retrieve document record showing payment at gardenia bakeries",
+    "verbatim_typo_05": "GAREDNIA BAKERIES (KI )rSDN BHD",
+    "verbatim_typo_10": "GAREDNIi BAKERIES (KI )rSDN BHD",
+    "verbatim_typo_20": "GADRENIi BAKERIES (KI )SrDN BHD",
+    "light_typo_05": "retriev edocumint record showing payment at garrenia bakeries",
+    "light_typo_10": "retri evedocumint record showing payment at garernia bakeries",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment ta garernia bakeries"
+  },
+  "probe_0322": {
+    "verbatim_clean": "30/07/2017",
+    "light_clean": "30th July 2017",
+    "verbatim_typo_05": "3/007/2017",
+    "verbatim_typo_10": "3/007/2017",
+    "verbatim_typo_20": "3/00p/2017",
+    "light_typo_05": "3t0h July 2017",
+    "light_typo_10": "3t0h July 2017",
+    "light_typo_20": "3t0i July 2r17"
+  },
+  "probe_0324": {
+    "verbatim_clean": "DATE: 25/07/2017",
+    "light_clean": "25th July 2017",
+    "verbatim_typo_05": "DAT:E 25/07/2017",
+    "verbatim_typo_10": "DAT:E 25p07/2017",
+    "verbatim_typo_20": "DAT:g 25p07/2017",
+    "light_typo_05": "2t5h July 2017",
+    "light_typo_10": "2t5h July 2017",
+    "light_typo_20": "2t5i July 2r17"
+  },
+  "probe_0325": {
+    "verbatim_clean": "DATE: 24/07/2017",
+    "light_clean": "24th July 2017",
+    "verbatim_typo_05": "DAT:E 24/07/2017",
+    "verbatim_typo_10": "DAT:E 24p07/2017",
+    "verbatim_typo_20": "DAT:g 24p07/2017",
+    "light_typo_05": "2t4h July 2017",
+    "light_typo_10": "2t4h July 2017",
+    "light_typo_20": "2t4i July 2r17"
+  },
+  "probe_0326": {
+    "verbatim_clean": "DATE: 25/08/2017",
+    "light_clean": "25th August 2017",
+    "verbatim_typo_05": "DAT:E 25/08/2017",
+    "verbatim_typo_10": "DAT:E 25p08/2017",
+    "verbatim_typo_20": "DAT:g 25p08/2017",
+    "light_typo_05": "25t hAugust 2017",
+    "light_typo_10": "25t hAugpst 2017",
+    "light_typo_20": "25t gAugpst 2017"
+  },
+  "probe_0329": {
+    "verbatim_clean": "ACCOUNT'S COPY",
+    "light_clean": "retrieve document record showing payment at account",
+    "verbatim_typo_05": "ACCOUNT'S COPY",
+    "verbatim_typo_10": "ACCOUNT'S COPY",
+    "verbatim_typo_20": "ACCiUNT'S CrPY",
+    "light_typo_05": "retriev edocumint record showing payment at accrunt",
+    "light_typo_10": "retrie vedocumint record showing payment at accurnt",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at accurnt"
+  },
+  "probe_0334": {
+    "verbatim_clean": "DATE: 05/08/2017",
+    "light_clean": "5th August 2017",
+    "verbatim_typo_05": "DAT:E 05/08/2017",
+    "verbatim_typo_10": "DAT:E 05p08/2017",
+    "verbatim_typo_20": "DAT:g 05p08/2017",
+    "light_typo_05": "5ht August 2017",
+    "light_typo_10": "5ht August r017",
+    "light_typo_20": "5htiAugust r017"
+  },
+  "probe_0335": {
+    "verbatim_clean": "DATE: 03/08/2017",
+    "light_clean": "3rd August 2017",
+    "verbatim_typo_05": "DAT:E 03/08/2017",
+    "verbatim_typo_10": "DAT:E 03p08/2017",
+    "verbatim_typo_20": "DAT:g 03p08/2017",
+    "light_typo_05": "3dr August 2017",
+    "light_typo_10": "3dr August r017",
+    "light_typo_20": "3driAugust r017"
+  },
+  "probe_0336": {
+    "verbatim_clean": "DD: 05/09/2017",
+    "light_clean": "5th September 2017",
+    "verbatim_typo_05": "D:D 05/09/2017",
+    "verbatim_typo_10": "D:D 05/09/2017",
+    "verbatim_typo_20": "D:Di05/09/2r17",
+    "light_typo_05": "5thS eptember 2017",
+    "light_typo_10": "5thS eptpmber 2017",
+    "light_typo_20": "5thSgeptpmber 2017"
+  },
+  "probe_0340": {
+    "verbatim_clean": "DD: 28/09/2017",
+    "light_clean": "28th September 2017",
+    "verbatim_typo_05": "D:D 28/09/2017",
+    "verbatim_typo_10": "D:D 28/09/2017",
+    "verbatim_typo_20": "D:Di28/09/2r17",
+    "light_typo_05": "28t hSeptember 2017",
+    "light_typo_10": "28t hSeppember 2017",
+    "light_typo_20": "28t gSeppember 2071"
+  },
+  "probe_0344": {
+    "verbatim_clean": "DATE: 19/09/2017",
+    "light_clean": "19th September 2017",
+    "verbatim_typo_05": "DAT:E 19/09/2017",
+    "verbatim_typo_10": "DAT:E 19p09/2017",
+    "verbatim_typo_20": "DAT:g 19p09/2017",
+    "light_typo_05": "19t hSeptember 2017",
+    "light_typo_10": "19t hSeppember 2017",
+    "light_typo_20": "19t gSeppember 2071"
+  },
+  "probe_0345": {
+    "verbatim_clean": "DD: 18/09/2017",
+    "light_clean": "18th September 2017",
+    "verbatim_typo_05": "D:D 18/09/2017",
+    "verbatim_typo_10": "D:D 18/09/2017",
+    "verbatim_typo_20": "D:Di18/09/2r17",
+    "light_typo_05": "18t hSeptember 2017",
+    "light_typo_10": "18t hSeppember 2017",
+    "light_typo_20": "18t gSeppember 2071"
+  },
+  "probe_0354": {
+    "verbatim_clean": "DATE: 23/10/2017",
+    "light_clean": "23rd October 2017",
+    "verbatim_typo_05": "DAT:E 23/10/2017",
+    "verbatim_typo_10": "DAT:E 23p10/2017",
+    "verbatim_typo_20": "DAT:g 23p10/2017",
+    "light_typo_05": "23r dOctober 2017",
+    "light_typo_10": "23r dOctpber 2017",
+    "light_typo_20": "23r gOctpber 2017"
+  },
+  "probe_0355": {
+    "verbatim_clean": "DD: 29/10/2017",
+    "light_clean": "29th October 2017",
+    "verbatim_typo_05": "D:D 29/10/2017",
+    "verbatim_typo_10": "D:D 29/10/2017",
+    "verbatim_typo_20": "D:Di29/10/2r17",
+    "light_typo_05": "29t hOctober 2017",
+    "light_typo_10": "29t hOctpber 2017",
+    "light_typo_20": "29t gOctpber 2017"
+  },
+  "probe_0357": {
+    "verbatim_clean": "DATE: 22/10/2017",
+    "light_clean": "22nd October 2017",
+    "verbatim_typo_05": "DAT:E 22/10/2017",
+    "verbatim_typo_10": "DAT:E 22p10/2017",
+    "verbatim_typo_20": "DAT:g 22p10/2017",
+    "light_typo_05": "22n dOctober 2017",
+    "light_typo_10": "22n dOctpber 2017",
+    "light_typo_20": "22n gOctpber 2017"
+  },
+  "probe_0358": {
+    "verbatim_clean": "DATE: 19/10/2017",
+    "light_clean": "19th October 2017",
+    "verbatim_typo_05": "DAT:E 19/10/2017",
+    "verbatim_typo_10": "DAT:E 19p10/2017",
+    "verbatim_typo_20": "DAT:g 19p10/2017",
+    "light_typo_05": "19t hOctober 2017",
+    "light_typo_10": "19t hOctpber 2017",
+    "light_typo_20": "19t gOctpber 2017"
+  },
+  "probe_0359": {
+    "verbatim_clean": "DATE: 17/10/2017",
+    "light_clean": "17th October 2017",
+    "verbatim_typo_05": "DAT:E 17/10/2017",
+    "verbatim_typo_10": "DAT:E 17p10/2017",
+    "verbatim_typo_20": "DAT:g 17p10/2017",
+    "light_typo_05": "17t hOctober 2017",
+    "light_typo_10": "17t hOctpber 2017",
+    "light_typo_20": "17t gOctpber 2017"
+  },
+  "probe_0360": {
+    "verbatim_clean": "DATE: 15/10/2017",
+    "light_clean": "retrieve document record showing payment at date 15",
+    "verbatim_typo_05": "DAT:E 15/10/2017",
+    "verbatim_typo_10": "DAT:E 15p10/2017",
+    "verbatim_typo_20": "DAT:g 15p10/2017",
+    "light_typo_05": "retriev edocumint record showing payment at datr 15",
+    "light_typo_10": "retrie vedocumint record showing payment at dat r15",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at dat r15"
+  },
+  "probe_0361": {
+    "verbatim_clean": "DATE: 14/10/2017",
+    "light_clean": "retrieve document record showing payment at date 14",
+    "verbatim_typo_05": "DAT:E 14/10/2017",
+    "verbatim_typo_10": "DAT:E 14p10/2017",
+    "verbatim_typo_20": "DAT:g 14p10/2017",
+    "light_typo_05": "retriev edocumint record showing payment at datr 14",
+    "light_typo_10": "retrie vedocumint record showing payment at dat r14",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at dat r14"
+  },
+  "probe_0362": {
+    "verbatim_clean": "DATE: 12/10/2017",
+    "light_clean": "retrieve document record showing payment at date 12",
+    "verbatim_typo_05": "DAT:E 12/10/2017",
+    "verbatim_typo_10": "DAT:E 12p10/2017",
+    "verbatim_typo_20": "DAT:g 12p10/2017",
+    "light_typo_05": "retriev edocumint record showing payment at datr 12",
+    "light_typo_10": "retrie vedocumint record showing payment at dat r12",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at dat r12"
+  },
+  "probe_0364": {
+    "verbatim_clean": "DATE: 09/10/2017",
+    "light_clean": "retrieve document record showing payment at date 09",
+    "verbatim_typo_05": "DAT:E 09/10/2017",
+    "verbatim_typo_10": "DAT:E 09p10/2017",
+    "verbatim_typo_20": "DAT:g 09p10/2017",
+    "light_typo_05": "retriev edocumint record showing payment at datr 09",
+    "light_typo_10": "retrie vedocumint record showing payment at dat r09",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at dat r09"
+  },
+  "probe_0365": {
+    "verbatim_clean": "DATE: 08/10/2017",
+    "light_clean": "retrieve document record showing payment at date 08",
+    "verbatim_typo_05": "DAT:E 08/10/2017",
+    "verbatim_typo_10": "DAT:E 08p10/2017",
+    "verbatim_typo_20": "DAT:g 08p10/2017",
+    "light_typo_05": "retriev edocumint record showing payment at datr 08",
+    "light_typo_10": "retrie vedocumint record showing payment at dat r08",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at dat r08"
+  },
+  "probe_0366": {
+    "verbatim_clean": "DATE: 05/10/2017",
+    "light_clean": "retrieve document record showing payment at date 05",
+    "verbatim_typo_05": "DAT:E 05/10/2017",
+    "verbatim_typo_10": "DAT:E 05p10/2017",
+    "verbatim_typo_20": "DAT:g 05p10/2017",
+    "light_typo_05": "retriev edocumint record showing payment at datr 05",
+    "light_typo_10": "retrie vedocumint record showing payment at dat r05",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at dat r05"
+  },
+  "probe_0370": {
+    "verbatim_clean": "SPONGE DISHES 6103#",
+    "light_clean": "retrieve document record showing payment at sponge",
+    "verbatim_typo_05": "SPOGNE DISHES 6103#",
+    "verbatim_typo_10": "SPOGNE DpSHES 6103#",
+    "verbatim_typo_20": "SPOGgE DpSHES 610#3",
+    "light_typo_05": "retriev edocument record showing payment at sporge",
+    "light_typo_10": "retrie vedocumint record showing payment at spogre",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at spogre"
+  },
+  "probe_0371": {
+    "verbatim_clean": "IC12 - 12/72",
+    "light_clean": "retrieve document record showing payment at ic12",
+    "verbatim_typo_05": "I1C2 - 12/72",
+    "verbatim_typo_10": "I1C2 - 12/72",
+    "verbatim_typo_20": "I1C2 - 12/7r",
+    "light_typo_05": "retriev edocument record showing payment at ic1r",
+    "light_typo_10": "retrie vedocumint record showing payment at ic1r",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at ic1r"
+  },
+  "probe_0373": {
+    "verbatim_clean": "COSWAY (M) SDN BHD",
+    "light_clean": "retrieve document record showing payment at cosway m",
+    "verbatim_typo_05": "COSAWY (M) SDN BHD",
+    "verbatim_typo_10": "COSAWY (p) SDN BHD",
+    "verbatim_typo_20": "COSAgY (p) SDN BHD",
+    "light_typo_05": "retriev edocumint record showing payment at cosray m",
+    "light_typo_10": "retrie vedocumint record showing payment at cosary m",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at cosary m"
+  },
+  "probe_0378": {
+    "verbatim_clean": "LOT F/L2A.4",
+    "light_clean": "retrieve document record showing payment at lot f",
+    "verbatim_typo_05": "LTO F/L2A.4",
+    "verbatim_typo_10": "LTO F/L2A.4",
+    "verbatim_typo_20": "LTO p/L2A.4",
+    "light_typo_05": "retriev edocument record showing payment at lotrf",
+    "light_typo_10": "retrie vedocumint record showing payment at lotfr",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at lotfr"
+  },
+  "probe_0379": {
+    "verbatim_clean": "03-02-16",
+    "light_clean": "retrieve document record showing payment at 03",
+    "verbatim_typo_05": "0-302-16",
+    "verbatim_typo_10": "0-302-16",
+    "verbatim_typo_20": "0-30p-16",
+    "light_typo_05": "retriev edocumentprecord showing payment at 03",
+    "light_typo_10": "retriev gdocumentprecord showing pyam1nt at 03",
+    "light_typo_20": "rtfriev gdocmu6ntprecord showing pyam1nt at 03"
+  },
+  "probe_0380": {
+    "verbatim_clean": "CHEF LEE SDN BHD",
+    "light_clean": "retrieve document record showing payment at chef lee",
+    "verbatim_typo_05": "CHE FLEE SDN BHD",
+    "verbatim_typo_10": "CHE FLEEpSDN BHD",
+    "verbatim_typo_20": "CHE gLEEpSDN BHD",
+    "light_typo_05": "retriev edocumint record showing payment at cher lee",
+    "light_typo_10": "retrie vedocumint record showing payment at che rlee",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at che rlee"
+  },
+  "probe_0381": {
+    "verbatim_clean": "BASKET W/HOOK 9314#",
+    "light_clean": "retrieve document record showing payment at basket w",
+    "verbatim_typo_05": "BASEKT W/HOOK 9314#",
+    "verbatim_typo_10": "BASEKT WpHOOK 9314#",
+    "verbatim_typo_20": "BASEgT WpHOOK 931#4",
+    "light_typo_05": "retriev edocumint record showing payment at basret w",
+    "light_typo_10": "retrie vedocumint record showing payment at basert w",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at basert w"
+  },
+  "probe_0382": {
+    "verbatim_clean": "TISSUE HOLDER Z-66#*VS",
+    "light_clean": "retrieve document record showing payment at tissue holder",
+    "verbatim_typo_05": "TISUSE HOLDER Z-66#*VS",
+    "verbatim_typo_10": "TISUSE HpLDER Z-66#*VS",
+    "verbatim_typo_20": "TISUgE HpLDER Z-6#6*VS",
+    "light_typo_05": "retriev edocumint record showing payment at tisrue holder",
+    "light_typo_10": "retri evedocumint record showing payment at tisure holder",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment at tisure holder"
+  },
+  "probe_0383": {
+    "verbatim_clean": "CUSHION 43*43CM",
+    "light_clean": "retrieve document record showing payment at cushion",
+    "verbatim_typo_05": "CSUHION 43*43CM",
+    "verbatim_typo_10": "CSUHION 43*r3CM",
+    "verbatim_typo_20": "CSUiION 43*r3CM",
+    "light_typo_05": "retriev edocumint record showing payment at cusrion",
+    "light_typo_10": "retrie vedocumint record showing payment at cusiron",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at cusiron"
+  },
+  "probe_0384": {
+    "verbatim_clean": "MCDONALD'S MRR2 KEPONG DT(#251)",
+    "light_clean": "retrieve document record showing payment at mcdonald s",
+    "verbatim_typo_05": "MCDNOALD'S MRR2 KEPONG rT(#251)",
+    "verbatim_typo_10": "MCDNOALi'S MRR2 KEPONG rT(#251)",
+    "verbatim_typo_20": "MCODNALi'S MRR2 KEPONG Tr(#251)",
+    "light_typo_05": "retriev edocumint record showing payment at mcdrnald s",
+    "light_typo_10": "retrie vedocumint record showing payment at mcdnrald s",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment at mcdnrald s"
+  },
+  "probe_0385": {
+    "verbatim_clean": "30-06-16",
+    "light_clean": "retrieve document record showing payment at 30",
+    "verbatim_typo_05": "3-006-16",
+    "verbatim_typo_10": "3-006-16",
+    "verbatim_typo_20": "3-00p-16",
+    "light_typo_05": "retriev edocumentprecord showing payment at 30",
+    "light_typo_10": "retriev gdocumentprecord showing pyam1nt at 30",
+    "light_typo_20": "rtfriev gdocmu6ntprecord showing pyam1nt at 30"
+  },
+  "probe_0387": {
+    "verbatim_clean": "FOUR QUARTERS SDN BHD",
+    "light_clean": "retrieve document record showing payment at four quarters",
+    "verbatim_typo_05": "FOU RQUARTERS SDN BHD",
+    "verbatim_typo_10": "FOU RQUApTERS SDN BHD",
+    "verbatim_typo_20": "FOU gQUApTERS SDNB HD",
+    "light_typo_05": "retriev edocumint record showing payment at four quarters",
+    "light_typo_10": "retri evedocumint record showing payment at fou rquarters",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment at fou rquarters"
+  },
+  "probe_0388": {
+    "verbatim_clean": "ECOSWAY.COM SDN BHD",
+    "light_clean": "retrieve document record showing payment at ecosway com",
+    "verbatim_typo_05": "ECOWSAY.COM SDN BHD",
+    "verbatim_typo_10": "ECOWSAY.pOM SDN BHD",
+    "verbatim_typo_20": "ECOWgAY.pOM SDN BDH",
+    "light_typo_05": "retriev edocumint record showing payment at ecorway com",
+    "light_typo_10": "retri evedocumint record showing payment at ecowray com",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment at ecowray com"
+  },
+  "probe_0389": {
+    "verbatim_clean": "1174-PERMATA MAGNA",
+    "light_clean": "retrieve document record showing payment at 1174",
+    "verbatim_typo_05": "117-4PERMATA MAGNA",
+    "verbatim_typo_10": "117-4PERpATA MAGNA",
+    "verbatim_typo_20": "117-gPERpATA MAGNA",
+    "light_typo_05": "retriev edocument record showing payment at 117r",
+    "light_typo_10": "retrie vedocumint record showing payment at 117r",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 117r"
+  },
+  "probe_0391": {
+    "verbatim_clean": "SIN THYE & COMPANY",
+    "light_clean": "retrieve document record showing payment at sin",
+    "verbatim_typo_05": "SINT HYE & COMPANY",
+    "verbatim_typo_10": "SINT HYEp& COMPANY",
+    "verbatim_typo_20": "SINTgHYEp& COMPANY",
+    "light_typo_05": "retriev edocumentprecord showing payment at sin",
+    "light_typo_10": "retriev gdocumentprecord showing pyam1nt at sin",
+    "light_typo_20": "rtfriev gdocmu6ntprecord showing pyam1nt at sin"
+  },
+  "probe_0392": {
+    "verbatim_clean": "STORAGE BOX 70581",
+    "light_clean": "retrieve document record showing payment at storage",
+    "verbatim_typo_05": "STOARGE BOX 70581",
+    "verbatim_typo_10": "STOARGE pOX 70581",
+    "verbatim_typo_20": "STOAgGE pOX 70581",
+    "light_typo_05": "retriev edocumint record showing payment at storage",
+    "light_typo_10": "retrie vedocumint record showing payment at stoarge",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at stoarge"
+  },
+  "probe_0396": {
+    "verbatim_clean": "1605-TMN SRI BINTANG",
+    "light_clean": "retrieve document record showing payment at 1605 tmn",
+    "verbatim_typo_05": "160-5TMN SRI BINTANG",
+    "verbatim_typo_10": "160-5TMNpSRI BINTANG",
+    "verbatim_typo_20": "160-gTMNpSRI BINTNAG",
+    "light_typo_05": "retriev edocumint record showing payment at 160r tmn",
+    "light_typo_10": "retrie vedocumint record showing payment at 160 rtmn",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 160 rtmn"
+  },
+  "probe_0399": {
+    "verbatim_clean": "EDEN IMPRESSION SDN BHD",
+    "light_clean": "retrieve document record showing payment at eden impression",
+    "verbatim_typo_05": "EDE NIMPRESSION SDN BHD",
+    "verbatim_typo_10": "EDE NIMPpESSION SDN BHD",
+    "verbatim_typo_20": "EDE gIMPpESSION SN1 BHD",
+    "light_typo_05": "retriev edocumint record showing payment at eder impression",
+    "light_typo_10": "retri evedocumint record showing payment at ede rimpression",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment ta ede rimpression"
+  },
+  "probe_0401": {
+    "verbatim_clean": "FTOF NOODLE HOUSE",
+    "light_clean": "retrieve document record showing payment at ftof",
+    "verbatim_typo_05": "FTO FNOODLE HOUSE",
+    "verbatim_typo_10": "FTO FNOOpLE HOUSE",
+    "verbatim_typo_20": "FTO gNOOpLE HOUSE",
+    "light_typo_05": "retriev edocument record showing payment at ftor",
+    "light_typo_10": "retrie vedocumint record showing payment at ftor",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at ftor"
+  },
+  "probe_0402": {
+    "verbatim_clean": "EIGHT OUNCE COFFEE CO.",
+    "light_clean": "retrieve document record showing payment at eight ounce",
+    "verbatim_typo_05": "EIGTH OUNCE COFFEE CO.",
+    "verbatim_typo_10": "EIGTH OUpCE COFFEE CO.",
+    "verbatim_typo_20": "EIGTg OUpCE COFFE ECO.",
+    "light_typo_05": "retriev edocumint record showing payment at eigrt ounce",
+    "light_typo_10": "retri evedocumint record showing payment at eigtr ounce",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment at eigtr ounce"
+  },
+  "probe_0404": {
+    "verbatim_clean": "ANN GIAP TRADING SDN BHD",
+    "light_clean": "retrieve document record showing payment at ann giap",
+    "verbatim_typo_05": "ANNG IAP TRADING SDN BHD",
+    "verbatim_typo_10": "ANNG IAP TRADING SDN BHr",
+    "verbatim_typo_20": "ANN GIAi TRADING SDN BHr",
+    "light_typo_05": "retriev edocumint record showing payment at annrgiap",
+    "light_typo_10": "retrie vedocumint record showing payment at anngriap",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at anngriap"
+  },
+  "probe_0406": {
+    "verbatim_clean": "1243-JLN PUDU ULU",
+    "light_clean": "retrieve document record showing payment at 1243 jln",
+    "verbatim_typo_05": "124-3JLN PUDU ULU",
+    "verbatim_typo_10": "124-3JLNpPUDU ULU",
+    "verbatim_typo_20": "124-gJLNpPUDU ULU",
+    "light_typo_05": "retriev edocumint record showing payment at 124r jln",
+    "light_typo_10": "retrie vedocumint record showing payment at 124 rjln",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 124 rjln"
+  },
+  "probe_0408": {
+    "verbatim_clean": "K STATIONERY & OFFICE SUPPLIES",
+    "light_clean": "retrieve document record showing payment at k stationery",
+    "verbatim_typo_05": "K SATTIONERY & OFFICE SrPPLIES",
+    "verbatim_typo_10": "K SATTIiNERY & OFFICE SrPPLIES",
+    "verbatim_typo_20": "K TSATIiNERY & OFFICE SPrPLIES",
+    "light_typo_05": "retriev edocumint record showing payment at k srationery",
+    "light_typo_10": "retri evedocumint record showing payment at k sartionery",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment at k sartionery"
+  },
+  "probe_0410": {
+    "verbatim_clean": "BECON STATIONER BECON ENTERPRISE SDN BHD",
+    "light_clean": "retrieve document record showing payment at becon stationer",
+    "verbatim_typo_05": "BECON SATTIONER BpCON ENTERPRISE SDN BHD",
+    "verbatim_typo_10": "BECON SAgTIONER BpCON ENTERPRISE SND BHD",
+    "verbatim_typo_20": "BCfON SAgTIONE6 BpCON ENTERPRISE SND 1HD",
+    "light_typo_05": "retriev edocumint record showing payment at becrn stationer",
+    "light_typo_10": "retri evedocumint record showing payment at becnr stationer",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment ta becnr stationer"
+  },
+  "probe_0416": {
+    "verbatim_clean": "30 MAY 2018 18:24",
+    "light_clean": "retrieve document record showing payment at 30 may",
+    "verbatim_typo_05": "30 AMY 2018 18:24",
+    "verbatim_typo_10": "30 AMY 2p18 18:24",
+    "verbatim_typo_20": "30 AgY 2p18 18:24",
+    "light_typo_05": "retriev edocument record showing payment at 30 ray",
+    "light_typo_10": "retrie vedocumint record showing payment at 30 ary",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 30 ary"
+  },
+  "probe_0420": {
+    "verbatim_clean": "14 MAY 2018 18:10",
+    "light_clean": "retrieve document record showing payment at 14 may",
+    "verbatim_typo_05": "14 AMY 2018 18:10",
+    "verbatim_typo_10": "14 AMY 2p18 18:10",
+    "verbatim_typo_20": "14 AgY 2p18 18:10",
+    "light_typo_05": "retriev edocument record showing payment at 14 ray",
+    "light_typo_10": "retrie vedocumint record showing payment at 14 ary",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 14 ary"
+  },
+  "probe_0421": {
+    "verbatim_clean": "07 MAY 2018 18:21",
+    "light_clean": "retrieve document record showing payment at 07 may",
+    "verbatim_typo_05": "07 AMY 2018 18:21",
+    "verbatim_typo_10": "07 AMY 2p18 18:21",
+    "verbatim_typo_20": "07 AgY 2p18 18:21",
+    "light_typo_05": "retriev edocument record showing payment at 07 ray",
+    "light_typo_10": "retrie vedocumint record showing payment at 07 ary",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 07 ary"
+  },
+  "probe_0423": {
+    "verbatim_clean": "09 MAY 2018 18:24",
+    "light_clean": "retrieve document record showing payment at 09 may",
+    "verbatim_typo_05": "09 AMY 2018 18:24",
+    "verbatim_typo_10": "09 AMY 2p18 18:24",
+    "verbatim_typo_20": "09 AgY 2p18 18:24",
+    "light_typo_05": "retriev edocument record showing payment at 09 ray",
+    "light_typo_10": "retrie vedocumint record showing payment at 09 ary",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 09 ary"
+  },
+  "probe_0425": {
+    "verbatim_clean": "NO. 89&91",
+    "light_clean": "retrieve document record showing payment at no",
+    "verbatim_typo_05": "N.O 89&91",
+    "verbatim_typo_10": "N.O 89&91",
+    "verbatim_typo_20": "N.O p9&91",
+    "light_typo_05": "retriev edocumentprecord showing payment at no",
+    "light_typo_10": "retriev gdocumentprecord showing pyam1nt at no",
+    "light_typo_20": "rtfriev gdocmu6ntprecord showing pyam1nt at no"
+  },
+  "probe_0426": {
+    "verbatim_clean": "VERBENA CONFECTIONERY SDN BHD",
+    "light_clean": "retrieve document record showing payment at verbena confectionery",
+    "verbatim_typo_05": "VEREBNA CONFECTIONERY SDN BHD",
+    "verbatim_typo_10": "VEREBNAiCONFECTIONERY SrN BHD",
+    "verbatim_typo_20": "VEBRENAiCONFECTIONERY SNr BHD",
+    "light_typo_05": "retrieve documnetgrecord showing papment at verbena confectionery",
+    "light_typo_10": "retfieve doucmnetgrecord showing papment at verbena cofnectionery",
+    "light_typo_20": "retifeve doucmnetgre1ord hsow6ng pament at verbena cfonertionery"
+  },
+  "probe_0428": {
+    "verbatim_clean": "MCDONALD'S PERMAS JAYA (#096)",
+    "light_clean": "retrieve document record showing payment at mcdonald s",
+    "verbatim_typo_05": "MCDNOALD'S PERMAS JAYA (#096)",
+    "verbatim_typo_10": "MCDNOALi'S PERMAS JAYA r#096)",
+    "verbatim_typo_20": "MCODNALi'S PERMAS JAYA #r096)",
+    "light_typo_05": "retriev edocumint record showing payment at mcdrnald s",
+    "light_typo_10": "retrie vedocumint record showing payment at mcdnrald s",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment at mcdnrald s"
+  },
+  "probe_0429": {
+    "verbatim_clean": "24 MAY 2018 18:29",
+    "light_clean": "retrieve document record showing payment at 24 may",
+    "verbatim_typo_05": "24 AMY 2018 18:29",
+    "verbatim_typo_10": "24 AMY 2p18 18:29",
+    "verbatim_typo_20": "24 AgY 2p18 18:29",
+    "light_typo_05": "retriev edocument record showing payment at 24 ray",
+    "light_typo_10": "retrie vedocumint record showing payment at 24 ary",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 24 ary"
+  },
+  "probe_0430": {
+    "verbatim_clean": "27 MAY 2018 18:25",
+    "light_clean": "retrieve document record showing payment at 27 may",
+    "verbatim_typo_05": "27 AMY 2018 18:25",
+    "verbatim_typo_10": "27 AMY 2p18 18:25",
+    "verbatim_typo_20": "27 AgY 2p18 18:25",
+    "light_typo_05": "retriev edocument record showing payment at 27 ray",
+    "light_typo_10": "retrie vedocumint record showing payment at 27 ary",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 27 ary"
+  },
+  "probe_0433": {
+    "verbatim_clean": "OPENER SS MT-005",
+    "light_clean": "retrieve document record showing payment at opener ss",
+    "verbatim_typo_05": "OPEENR SS MT-005",
+    "verbatim_typo_10": "OPEENR Sp MT-005",
+    "verbatim_typo_20": "OPEEgR Sp MT-005",
+    "light_typo_05": "retriev edocumint record showing payment at operer ss",
+    "light_typo_10": "retrie vedocumint record showing payment at opeerr ss",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment at opeerr ss"
+  },
+  "probe_0434": {
+    "verbatim_clean": "KE41-51/2 - 50",
+    "light_clean": "retrieve document record showing payment at ke41 51",
+    "verbatim_typo_05": "K4E1-51/2 - 50",
+    "verbatim_typo_10": "K4E1-51/2 - 50",
+    "verbatim_typo_20": "K4Ei-51/2 -r50",
+    "light_typo_05": "retriev edocumint record showing payment at ke4r 51",
+    "light_typo_10": "retrie vedocumint record showing payment at ke4 r51",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at ke4 r51"
+  },
+  "probe_0435": {
+    "verbatim_clean": "RUBBER BOOTS P/968BK-SIZE8 (BLACK)",
+    "light_clean": "retrieve document record showing payment at rubber boots",
+    "verbatim_typo_05": "RUBBER OBOTS P/96pBK-SIZE8 (BLACK)",
+    "verbatim_typo_10": "RUBBER OgOTS P/96pBK-SIZE8 (BLACK)",
+    "verbatim_typo_20": "RfBBE ROgOTS P696pBK-SIZE8 B(LACK)",
+    "light_typo_05": "retriev edocumint record showing payment at rubrer boots",
+    "light_typo_10": "retri evedocumint record showing payment at ruberr boots",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment at ruberr boots"
+  },
+  "probe_0437": {
+    "verbatim_clean": "RM 38.00",
+    "light_clean": "retrieve document record showing payment at rm",
+    "verbatim_typo_05": "R M38.00",
+    "verbatim_typo_10": "R M38.00",
+    "verbatim_typo_20": "R M3p.00",
+    "light_typo_05": "retriev edocumentprecord showing payment at rm",
+    "light_typo_10": "retriev gdocumentprecord showing pyam1nt at rm",
+    "light_typo_20": "rtfriev gdocmu6ntprecord showing pyam1nt at rm"
+  },
+  "probe_0438": {
+    "verbatim_clean": "MUNCHY`S CREAM",
+    "light_clean": "retrieve document record showing payment at munchy",
+    "verbatim_typo_05": "MNUCHY`S CREAM",
+    "verbatim_typo_10": "MNUCHY`S CREAM",
+    "verbatim_typo_20": "MNUiHY`S CRrAM",
+    "light_typo_05": "retriev edocument record showing payment at munrhy",
+    "light_typo_10": "retrie vedocumint record showing payment at munhry",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at munhry"
+  },
+  "probe_0441": {
+    "verbatim_clean": "1299-SUBANG PERMAI",
+    "light_clean": "retrieve document record showing payment at 1299",
+    "verbatim_typo_05": "129-9SUBANG PERMAI",
+    "verbatim_typo_10": "129-9SUBpNG PERMAI",
+    "verbatim_typo_20": "129-gSUBpNG PERMAI",
+    "light_typo_05": "retriev edocument record showing payment at 129r",
+    "light_typo_10": "retrie vedocumint record showing payment at 129r",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 129r"
+  },
+  "probe_0442": {
+    "verbatim_clean": "6627 SEAMASTER SUPER GLO.",
+    "light_clean": "retrieve document record showing payment at 6627 seamaster",
+    "verbatim_typo_05": "662 7SEAMASTER SUPER GLO.",
+    "verbatim_typo_10": "662 7SEAMASTER SUPER GLr.",
+    "verbatim_typo_20": "6627 SEiMASTER SUPER GL.r",
+    "light_typo_05": "retriev edocumint record showing payment at 662r seamaster",
+    "light_typo_10": "retri evedocumint record showing payment at 662 rseamaster",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment ta 662 rseamaster"
+  },
+  "probe_0447": {
+    "verbatim_clean": "13 MAY 2018 18:26",
+    "light_clean": "retrieve document record showing payment at 13 may",
+    "verbatim_typo_05": "13 AMY 2018 18:26",
+    "verbatim_typo_10": "13 AMY 2p18 18:26",
+    "verbatim_typo_20": "13 AgY 2p18 18:26",
+    "light_typo_05": "retriev edocument record showing payment at 13 ray",
+    "light_typo_10": "retrie vedocumint record showing payment at 13 ary",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 13 ary"
+  },
+  "probe_0449": {
+    "verbatim_clean": "05 MAY 2018 18:21",
+    "light_clean": "retrieve document record showing payment at 05 may",
+    "verbatim_typo_05": "05 AMY 2018 18:21",
+    "verbatim_typo_10": "05 AMY 2p18 18:21",
+    "verbatim_typo_20": "05 AgY 2p18 18:21",
+    "light_typo_05": "retriev edocument record showing payment at 05 ray",
+    "light_typo_10": "retrie vedocumint record showing payment at 05 ary",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 05 ary"
+  },
+  "probe_0452": {
+    "verbatim_clean": "NO 35",
+    "light_clean": "retrieve document record showing payment at no",
+    "verbatim_typo_05": "ON 35",
+    "verbatim_typo_10": "ON 35",
+    "verbatim_typo_20": "ON 35",
+    "light_typo_05": "retriev edocumentprecord showing payment at no",
+    "light_typo_10": "retriev gdocumentprecord showing pyam1nt at no",
+    "light_typo_20": "rtfriev gdocmu6ntprecord showing pyam1nt at no"
+  },
+  "probe_0454": {
+    "verbatim_clean": "1 NASI MCD AGSPI &TELUR SET",
+    "light_clean": "retrieve document record showing payment at 1 nasi",
+    "verbatim_typo_05": "1 NSAI MCD AGSPI &TELUR SET",
+    "verbatim_typo_10": "1 NSAI iCD AGSPI &TELURrSET",
+    "verbatim_typo_20": "1 NASI iCD AGSPI &TELURSrET",
+    "light_typo_05": "retriev edocument record showing payment at 1 nrsi",
+    "light_typo_10": "retrie vedocumint record showing payment at 1 nsri",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 1 nsri"
+  },
+  "probe_0455": {
+    "verbatim_clean": "FARMASI LIGAMAS",
+    "light_clean": "retrieve document record showing payment at farmasi",
+    "verbatim_typo_05": "FRAMASI LIGAMAS",
+    "verbatim_typo_10": "FRAMASI LIGrMAS",
+    "verbatim_typo_20": "FRAiASI LIGrMAS",
+    "light_typo_05": "retriev edocumint record showing payment at farrasi",
+    "light_typo_10": "retrie vedocumint record showing payment at fararsi",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at fararsi"
+  },
+  "probe_0457": {
+    "verbatim_clean": "INV NO: CS-SA-0086229",
+    "light_clean": "retrieve document record showing payment at inv no",
+    "verbatim_typo_05": "INVN O: CS-SA-0086229",
+    "verbatim_typo_10": "INVN O: pS-SA-0086229",
+    "verbatim_typo_20": "INVNgO: pS-SA-0082629",
+    "light_typo_05": "retriev edocument record showing payment at invrno",
+    "light_typo_10": "retrie vedocumint record showing payment at invnro",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at invnro"
+  },
+  "probe_0458": {
+    "verbatim_clean": "1. 2012-0013",
+    "light_clean": "retrieve document record showing payment at 1",
+    "verbatim_typo_05": "1 .2012-0013",
+    "verbatim_typo_10": "1 .2012-0013",
+    "verbatim_typo_20": "1 .2012-001r",
+    "light_typo_05": "retriev edocumentprecord showing payment at 1",
+    "light_typo_10": "retriev gdocumentprecord showing pyament at 1",
+    "light_typo_20": "rtfriev gdocmu6ntprecord showing pyam1nt at 1"
+  },
+  "probe_0460": {
+    "verbatim_clean": "INV NO: CS-SA-0079030",
+    "light_clean": "retrieve document record showing payment at inv no",
+    "verbatim_typo_05": "INVN O: CS-SA-0079030",
+    "verbatim_typo_10": "INVN O: pS-SA-0079030",
+    "verbatim_typo_20": "INVNgO: pS-SA-0070930",
+    "light_typo_05": "retriev edocument record showing payment at invrno",
+    "light_typo_10": "retrie vedocumint record showing payment at invnro",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at invnro"
+  },
+  "probe_0461": {
+    "verbatim_clean": "1. 2002-0001",
+    "light_clean": "retrieve document record showing payment at 1",
+    "verbatim_typo_05": "1 .2002-0001",
+    "verbatim_typo_10": "1 .2002-0001",
+    "verbatim_typo_20": "1 .2002-000r",
+    "light_typo_05": "retriev edocumentprecord showing payment at 1",
+    "light_typo_10": "retriev gdocumentprecord showing pyament at 1",
+    "light_typo_20": "rtfriev gdocmu6ntprecord showing pyam1nt at 1"
+  },
+  "probe_0463": {
+    "verbatim_clean": "4 X 2.9000",
+    "light_clean": "retrieve document record showing payment at 4 x",
+    "verbatim_typo_05": "4X  2.9000",
+    "verbatim_typo_10": "4X  2.9000",
+    "verbatim_typo_20": "4X  p.9000",
+    "light_typo_05": "retriev edocumentprecord showing payment at 4 x",
+    "light_typo_10": "retriev gdocumentprecord showing pyam1nt at 4 x",
+    "light_typo_20": "rtfriev gdocmu6ntprecord showing pyam1nt at 4 x"
+  },
+  "probe_0465": {
+    "verbatim_clean": "3 X 1.0000",
+    "light_clean": "retrieve document record showing payment at 3 x",
+    "verbatim_typo_05": "3X  1.0000",
+    "verbatim_typo_10": "3X  1.0000",
+    "verbatim_typo_20": "3X  p.0000",
+    "light_typo_05": "retriev edocumentprecord showing payment at 3 x",
+    "light_typo_10": "retriev gdocumentprecord showing pyam1nt at 3 x",
+    "light_typo_20": "rtfriev gdocmu6ntprecord showing pyam1nt at 3 x"
+  },
+  "probe_0466": {
+    "verbatim_clean": "INV NO: CS-SA-0086778",
+    "light_clean": "retrieve document record showing payment at inv no",
+    "verbatim_typo_05": "INVN O: CS-SA-0086778",
+    "verbatim_typo_10": "INVN O: pS-SA-0086778",
+    "verbatim_typo_20": "INVNgO: pS-SA-0087678",
+    "light_typo_05": "retriev edocument record showing payment at invrno",
+    "light_typo_10": "retrie vedocumint record showing payment at invnro",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at invnro"
+  },
+  "probe_0467": {
+    "verbatim_clean": "INV NO: CS-SA-0098805",
+    "light_clean": "retrieve document record showing payment at inv no",
+    "verbatim_typo_05": "INVN O: CS-SA-0098805",
+    "verbatim_typo_10": "INVN O: pS-SA-0098805",
+    "verbatim_typo_20": "INVNgO: pS-SA-0098805",
+    "light_typo_05": "retriev edocument record showing payment at invrno",
+    "light_typo_10": "retrie vedocumint record showing payment at invnro",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at invnro"
+  },
+  "probe_0469": {
+    "verbatim_clean": "1. 2012-0043",
+    "light_clean": "retrieve document record showing payment at 1",
+    "verbatim_typo_05": "1 .2012-0043",
+    "verbatim_typo_10": "1 .2012-0043",
+    "verbatim_typo_20": "1 .2012-004r",
+    "light_typo_05": "retriev edocumentprecord showing payment at 1",
+    "light_typo_10": "retriev gdocumentprecord showing pyament at 1",
+    "light_typo_20": "rtfriev gdocmu6ntprecord showing pyam1nt at 1"
+  },
+  "probe_0476": {
+    "verbatim_clean": "INV NO: CS-SA-0108918",
+    "light_clean": "retrieve document record showing payment at inv no",
+    "verbatim_typo_05": "INVN O: CS-SA-0108918",
+    "verbatim_typo_10": "INVN O: pS-SA-0108918",
+    "verbatim_typo_20": "INVNgO: pS-SA-0109818",
+    "light_typo_05": "retriev edocument record showing payment at invrno",
+    "light_typo_10": "retrie vedocumint record showing payment at invnro",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at invnro"
+  },
+  "probe_0481": {
+    "verbatim_clean": "1. 2044-0137",
+    "light_clean": "retrieve document record showing payment at 1",
+    "verbatim_typo_05": "1 .2044-0137",
+    "verbatim_typo_10": "1 .2044-0137",
+    "verbatim_typo_20": "1 .2044-013r",
+    "light_typo_05": "retriev edocumentprecord showing payment at 1",
+    "light_typo_10": "retriev gdocumentprecord showing pyament at 1",
+    "light_typo_20": "rtfriev gdocmu6ntprecord showing pyam1nt at 1"
+  },
+  "probe_0483": {
+    "verbatim_clean": "INV NO: CS-SA-0096677",
+    "light_clean": "retrieve document record showing payment at inv no",
+    "verbatim_typo_05": "INVN O: CS-SA-0096677",
+    "verbatim_typo_10": "INVN O: pS-SA-0096677",
+    "verbatim_typo_20": "INVNgO: pS-SA-0096677",
+    "light_typo_05": "retriev edocument record showing payment at invrno",
+    "light_typo_10": "retrie vedocumint record showing payment at invnro",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at invnro"
+  },
+  "probe_0486": {
+    "verbatim_clean": "INV NO: CS-SA-0097493",
+    "light_clean": "retrieve document record showing payment at inv no",
+    "verbatim_typo_05": "INVN O: CS-SA-0097493",
+    "verbatim_typo_10": "INVN O: pS-SA-0097493",
+    "verbatim_typo_20": "INVNgO: pS-SA-0094793",
+    "light_typo_05": "retriev edocument record showing payment at invrno",
+    "light_typo_10": "retrie vedocumint record showing payment at invnro",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at invnro"
+  },
+  "probe_0490": {
+    "verbatim_clean": "1. 5002-0080",
+    "light_clean": "retrieve document record showing payment at 1",
+    "verbatim_typo_05": "1 .5002-0080",
+    "verbatim_typo_10": "1 .5002-0080",
+    "verbatim_typo_20": "1 .5002-008r",
+    "light_typo_05": "retriev edocumentprecord showing payment at 1",
+    "light_typo_10": "retriev gdocumentprecord showing pyament at 1",
+    "light_typo_20": "rtfriev gdocmu6ntprecord showing pyam1nt at 1"
+  },
+  "probe_0491": {
+    "verbatim_clean": "1. 2000-0240",
+    "light_clean": "retrieve document record showing payment at 1",
+    "verbatim_typo_05": "1 .2000-0240",
+    "verbatim_typo_10": "1 .2000-0240",
+    "verbatim_typo_20": "1 .2000-024r",
+    "light_typo_05": "retriev edocumentprecord showing payment at 1",
+    "light_typo_10": "retriev gdocumentprecord showing pyament at 1",
+    "light_typo_20": "rtfriev gdocmu6ntprecord showing pyam1nt at 1"
+  },
+  "probe_0492": {
+    "verbatim_clean": "2 X 3.5000",
+    "light_clean": "retrieve document record showing payment at 2 x",
+    "verbatim_typo_05": "2X  3.5000",
+    "verbatim_typo_10": "2X  3.5000",
+    "verbatim_typo_20": "2X  p.5000",
+    "light_typo_05": "retriev edocumentprecord showing payment at 2 x",
+    "light_typo_10": "retriev gdocumentprecord showing pyam1nt at 2 x",
+    "light_typo_20": "rtfriev gdocmu6ntprecord showing pyam1nt at 2 x"
+  },
+  "probe_0493": {
+    "verbatim_clean": "TIME: 08:13:00",
+    "light_clean": "retrieve document record showing payment at time 08",
+    "verbatim_typo_05": "TMIE: 08:13:00",
+    "verbatim_typo_10": "TMIE: 08:13:00",
+    "verbatim_typo_20": "TMIi: 08:13r00",
+    "light_typo_05": "retriev edocumint record showing payment at timr 08",
+    "light_typo_10": "retrie vedocumint record showing payment at tim r08",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at tim r08"
+  },
+  "probe_0495": {
+    "verbatim_clean": "TIME: 16:44:00",
+    "light_clean": "retrieve document record showing payment at time 16",
+    "verbatim_typo_05": "TMIE: 16:44:00",
+    "verbatim_typo_10": "TMIE: 16:44:00",
+    "verbatim_typo_20": "TMIi: 16:44r00",
+    "light_typo_05": "retriev edocumint record showing payment at timr 16",
+    "light_typo_10": "retrie vedocumint record showing payment at tim r16",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at tim r16"
+  },
+  "probe_0499": {
+    "verbatim_clean": "TIME: 14:30:00",
+    "light_clean": "retrieve document record showing payment at time 14",
+    "verbatim_typo_05": "TMIE: 14:30:00",
+    "verbatim_typo_10": "TMIE: 14:30:00",
+    "verbatim_typo_20": "TMIi: 14:30r00",
+    "light_typo_05": "retriev edocumint record showing payment at timr 14",
+    "light_typo_10": "retrie vedocumint record showing payment at tim r14",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at tim r14"
+  },
+  "probe_0500": {
+    "verbatim_clean": "TIME: 17:57:00",
+    "light_clean": "retrieve document record showing payment at time 17",
+    "verbatim_typo_05": "TMIE: 17:57:00",
+    "verbatim_typo_10": "TMIE: 17:57:00",
+    "verbatim_typo_20": "TMIi: 17:57r00",
+    "light_typo_05": "retriev edocumint record showing payment at timr 17",
+    "light_typo_10": "retrie vedocumint record showing payment at tim r17",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at tim r17"
+  },
+  "probe_0502": {
+    "verbatim_clean": "TIME: 15:46:00",
+    "light_clean": "retrieve document record showing payment at time 15",
+    "verbatim_typo_05": "TMIE: 15:46:00",
+    "verbatim_typo_10": "TMIE: 15:46:00",
+    "verbatim_typo_20": "TMIi: 15:46r00",
+    "light_typo_05": "retriev edocumint record showing payment at timr 15",
+    "light_typo_10": "retrie vedocumint record showing payment at tim r15",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at tim r15"
+  },
+  "probe_0504": {
+    "verbatim_clean": "SR:8PCS AA ENERGIZER(BP.ME)WF",
+    "light_clean": "retrieve document record showing payment at sr 8pcs aa",
+    "verbatim_typo_05": "SR:P8CS AA ENERGIZER(BP.ME)WF",
+    "verbatim_typo_10": "SR:P8CSiAA ENERGIZER(BPrME)WF",
+    "verbatim_typo_20": "SR8:PCSiAA ENERGIZER(BPMrE)WF",
+    "light_typo_05": "retriev edocumint record showing payment at sr rpcs aa",
+    "light_typo_10": "retrie vedocumint record showing payment at sr prcs aa",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment at sr prcs aa"
+  },
+  "probe_0505": {
+    "verbatim_clean": "UNIT 105",
+    "light_clean": "retrieve document record showing payment at unit",
+    "verbatim_typo_05": "UINT 105",
+    "verbatim_typo_10": "UINT 105",
+    "verbatim_typo_20": "UINTp105",
+    "light_typo_05": "retriev edocument record showing payment at unir",
+    "light_typo_10": "retrie vedocumint record showing payment at unir",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at unir"
+  },
+  "probe_0506": {
+    "verbatim_clean": "RAPID RAIL SDN BHD",
+    "light_clean": "retrieve document record showing payment at rapid rail",
+    "verbatim_typo_05": "RAPDI RAIL SDN BHD",
+    "verbatim_typo_10": "RAPDI RApL SDN BHD",
+    "verbatim_typo_20": "RAPDg RApL SDN BHD",
+    "light_typo_05": "retriev edocumint record showing payment at raprd rail",
+    "light_typo_10": "retrie vedocumint record showing payment at rapdr rail",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment at rapdr rail"
+  },
+  "probe_0509": {
+    "verbatim_clean": "SP-NULL-18/06/04-1016956",
+    "light_clean": "retrieve document record showing payment at sp null",
+    "verbatim_typo_05": "SP-UNLL-18/06/04-1016956",
+    "verbatim_typo_10": "SP-UNLL-18/06/04-101695r",
+    "verbatim_typo_20": "SP-NULLi18/06/04-101695r",
+    "light_typo_05": "retriev edocumint record showing payment at sp rull",
+    "light_typo_10": "retrie vedocumint record showing payment at sp urll",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at sp urll"
+  },
+  "probe_0510": {
+    "verbatim_clean": "PCL XL ERROR",
+    "light_clean": "retrieve document record showing payment at pcl",
+    "verbatim_typo_05": "PLC XL ERROR",
+    "verbatim_typo_10": "PLC XL ERROR",
+    "verbatim_typo_20": "PLC XL ERROr",
+    "light_typo_05": "retriev edocumentprecord showing payment at pcl",
+    "light_typo_10": "retriev gdocumentprecord showing pyam1nt at pcl",
+    "light_typo_20": "rtfriev gdocmu6ntprecord showing pyam1nt at pcl"
+  },
+  "probe_0511": {
+    "verbatim_clean": "10 JUN 2018 18:23",
+    "light_clean": "retrieve document record showing payment at 10 jun",
+    "verbatim_typo_05": "10 UJN 2018 18:23",
+    "verbatim_typo_10": "10 UJN 2p18 18:23",
+    "verbatim_typo_20": "10 UgN 2p18 18:23",
+    "light_typo_05": "retriev edocument record showing payment at 10 run",
+    "light_typo_10": "retrie vedocumint record showing payment at 10 urn",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 10 urn"
+  },
+  "probe_0512": {
+    "verbatim_clean": "SP-NULL-18/06/09-1018481",
+    "light_clean": "retrieve document record showing payment at sp null",
+    "verbatim_typo_05": "SP-UNLL-18/06/09-1018481",
+    "verbatim_typo_10": "SP-UNLL-18/06/09-101848r",
+    "verbatim_typo_20": "SP-NULLi18/06/09-101848r",
+    "light_typo_05": "retriev edocumint record showing payment at sp rull",
+    "light_typo_10": "retrie vedocumint record showing payment at sp urll",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at sp urll"
+  },
+  "probe_0516": {
+    "verbatim_clean": "NO.89&91",
+    "light_clean": "retrieve document record showing payment at no",
+    "verbatim_typo_05": "N.O89&91",
+    "verbatim_typo_10": "N.O89&91",
+    "verbatim_typo_20": "N.O8p&91",
+    "light_typo_05": "retriev edocumentprecord showing payment at no",
+    "light_typo_10": "retriev gdocumentprecord showing pyam1nt at no",
+    "light_typo_20": "rtfriev gdocmu6ntprecord showing pyam1nt at no"
+  },
+  "probe_0517": {
+    "verbatim_clean": "LEMON TREE RESTAURANT JTJ FOODS SDN BHD",
+    "light_clean": "retrieve document record showing payment at lemon tree restaurant",
+    "verbatim_typo_05": "LEMON TERE RESTAUpANT JTJ FOODS SDN BHD",
+    "verbatim_typo_10": "LEMON TEgE RESTAUpANT JTJ FOODS SD NBHD",
+    "verbatim_typo_20": "LMfON TEgE RES6AUpANT JTJ FOODS SD NB1D",
+    "light_typo_05": "retrieve documnetgrecord showing papment at lemon tree restaurant",
+    "light_typo_10": "retfieve doucmnetgrecord showing papment at lemon treer estaurant",
+    "light_typo_20": "retifeve doucmnetgre1ord hsow6ng pament at lemon trere ertaurant"
+  },
+  "probe_0518": {
+    "verbatim_clean": "PASARAYA CINWA SDN BHD",
+    "light_clean": "PASARAYA CINWA",
+    "verbatim_typo_05": "PASRAAYA CINWA SDN BHD",
+    "verbatim_typo_10": "PASRAAYApCINWA SDN BHD",
+    "verbatim_typo_20": "PASRgAYApCINWA SD NBHD",
+    "light_typo_05": "PSAARAYA CINWA",
+    "light_typo_10": "PSAARAYA CINWA",
+    "light_typo_20": "PSAiRAYA CIrWA"
+  },
+  "probe_0522": {
+    "verbatim_clean": "GRANDMA HOMES RESTAURANT",
+    "light_clean": "retrieve document record showing payment at grandma",
+    "verbatim_typo_05": "GRADNMA HOMES RESTAURANT",
+    "verbatim_typo_10": "GRADNMA HOMES RESTAURANr",
+    "verbatim_typo_20": "GRANDMAiHOMES RESTAURANr",
+    "light_typo_05": "retriev edocumint record showing payment at grardma",
+    "light_typo_10": "retrie vedocumint record showing payment at gradrma",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at gradrma"
+  },
+  "probe_0523": {
+    "verbatim_clean": "16 JUN 2018 18:25",
+    "light_clean": "retrieve document record showing payment at 16 jun",
+    "verbatim_typo_05": "16 UJN 2018 18:25",
+    "verbatim_typo_10": "16 UJN 2p18 18:25",
+    "verbatim_typo_20": "16 UgN 2p18 18:25",
+    "light_typo_05": "retriev edocument record showing payment at 16 run",
+    "light_typo_10": "retrie vedocumint record showing payment at 16 urn",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 16 urn"
+  },
+  "probe_0524": {
+    "verbatim_clean": "18 JUN 2018 18:29",
+    "light_clean": "retrieve document record showing payment at 18 jun",
+    "verbatim_typo_05": "18 UJN 2018 18:29",
+    "verbatim_typo_10": "18 UJN 2p18 18:29",
+    "verbatim_typo_20": "18 UgN 2p18 18:29",
+    "light_typo_05": "retriev edocument record showing payment at 18 run",
+    "light_typo_10": "retrie vedocumint record showing payment at 18 urn",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 18 urn"
+  },
+  "probe_0530": {
+    "verbatim_clean": "17/06/2018 18:21",
+    "light_clean": "retrieve document record showing payment at 17 06",
+    "verbatim_typo_05": "17/60/2018 18:21",
+    "verbatim_typo_10": "17/60/20p8 18:21",
+    "verbatim_typo_20": "17/6g/20p8 18:21",
+    "light_typo_05": "retriev edocument record showing payment at 17 r6",
+    "light_typo_10": "retrie vedocumint record showing payment at 17 6r",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 17 6r"
+  },
+  "probe_0531": {
+    "verbatim_clean": "PASIR EMAS HARDWARE SDN BHD",
+    "light_clean": "retrieve document record showing payment at pasir emas",
+    "verbatim_typo_05": "PASRI EMAS HARDWARE SDN BHD",
+    "verbatim_typo_10": "PASRI EiAS HARDWARE SDNrBHD",
+    "verbatim_typo_20": "PASIR EiAS HARDWARE SDNBrHD",
+    "light_typo_05": "retriev edocumint record showing payment at pasrr emas",
+    "light_typo_10": "retrie vedocumint record showing payment at pasrr emas",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment at pasrr emas"
+  },
+  "probe_0532": {
+    "verbatim_clean": "RESTORAN DE COFFEE O",
+    "light_clean": "retrieve document record showing payment at restoran de",
+    "verbatim_typo_05": "RESOTRAN DE COFFEE O",
+    "verbatim_typo_10": "RESOTRANpDE COFFEE O",
+    "verbatim_typo_20": "RESOgRANpDE COFFE EO",
+    "light_typo_05": "retriev edocumint record showing payment at resroran de",
+    "light_typo_10": "retri evedocumint record showing payment at resorran de",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment at resorran de"
+  },
+  "probe_0533": {
+    "verbatim_clean": "INV NO.: 1076565",
+    "light_clean": "retrieve document record showing payment at inv",
+    "verbatim_typo_05": "INVN O.: 1076565",
+    "verbatim_typo_10": "INVN O.:p1076565",
+    "verbatim_typo_20": "INVNgO.:p1076565",
+    "light_typo_05": "retriev edocumentprecord showing payment at inv",
+    "light_typo_10": "retriev gdocumentprecord showing pyam1nt at inv",
+    "light_typo_20": "rtfriev gdocmu6ntprecord showing pyam1nt at inv"
+  },
+  "probe_0534": {
+    "verbatim_clean": "INV NO. : 1085405",
+    "light_clean": "retrieve document record showing payment at inv",
+    "verbatim_typo_05": "INVN O. : 1085405",
+    "verbatim_typo_10": "INVN O. p 1085405",
+    "verbatim_typo_20": "INVNgO. p 1085405",
+    "light_typo_05": "retriev edocumentprecord showing payment at inv",
+    "light_typo_10": "retriev gdocumentprecord showing pyam1nt at inv",
+    "light_typo_20": "rtfriev gdocmu6ntprecord showing pyam1nt at inv"
+  },
+  "probe_0535": {
+    "verbatim_clean": "INV NO. : 1159923",
+    "light_clean": "retrieve document record showing payment at inv",
+    "verbatim_typo_05": "INVN O. : 1159923",
+    "verbatim_typo_10": "INVN O. p 1159923",
+    "verbatim_typo_20": "INVNgO. p 1159923",
+    "light_typo_05": "retriev edocumentprecord showing payment at inv",
+    "light_typo_10": "retriev gdocumentprecord showing pyam1nt at inv",
+    "light_typo_20": "rtfriev gdocmu6ntprecord showing pyam1nt at inv"
+  },
+  "probe_0537": {
+    "verbatim_clean": "INV NO. : 1074908",
+    "light_clean": "retrieve document record showing payment at inv",
+    "verbatim_typo_05": "INVN O. : 1074908",
+    "verbatim_typo_10": "INVN O. p 1074908",
+    "verbatim_typo_20": "INVNgO. p 1074908",
+    "light_typo_05": "retriev edocumentprecord showing payment at inv",
+    "light_typo_10": "retriev gdocumentprecord showing pyam1nt at inv",
+    "light_typo_20": "rtfriev gdocmu6ntprecord showing pyam1nt at inv"
+  },
+  "probe_0538": {
+    "verbatim_clean": "INV NO. : 1128507",
+    "light_clean": "retrieve document record showing payment at inv",
+    "verbatim_typo_05": "INVN O. : 1128507",
+    "verbatim_typo_10": "INVN O. p 1128507",
+    "verbatim_typo_20": "INVNgO. p 1128507",
+    "light_typo_05": "retriev edocumentprecord showing payment at inv",
+    "light_typo_10": "retriev gdocumentprecord showing pyam1nt at inv",
+    "light_typo_20": "rtfriev gdocmu6ntprecord showing pyam1nt at inv"
+  },
+  "probe_0539": {
+    "verbatim_clean": "INV NO. : 1128461",
+    "light_clean": "retrieve document record showing payment at inv",
+    "verbatim_typo_05": "INVN O. : 1128461",
+    "verbatim_typo_10": "INVN O. p 1128461",
+    "verbatim_typo_20": "INVNgO. p 1128461",
+    "light_typo_05": "retriev edocumentprecord showing payment at inv",
+    "light_typo_10": "retriev gdocumentprecord showing pyam1nt at inv",
+    "light_typo_20": "rtfriev gdocmu6ntprecord showing pyam1nt at inv"
+  },
+  "probe_0540": {
+    "verbatim_clean": "SANG KEE CHERAS RESTAURANT",
+    "light_clean": "retrieve document record showing payment at sang kee",
+    "verbatim_typo_05": "SAN GKEE CHERAS RESTAURANT",
+    "verbatim_typo_10": "SAN GKEi CHERAS RESTAURrNT",
+    "verbatim_typo_20": "SANG KEi CHERAS RESTAURNrT",
+    "light_typo_05": "retriev edocumint record showing payment at sanr kee",
+    "light_typo_10": "retrie vedocumint record showing payment at san rkee",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at san rkee"
+  },
+  "probe_0543": {
+    "verbatim_clean": "INV NO.: 1219461",
+    "light_clean": "retrieve document record showing payment at inv",
+    "verbatim_typo_05": "INVN O.: 1219461",
+    "verbatim_typo_10": "INVN O.:p1219461",
+    "verbatim_typo_20": "INVNgO.:p1219461",
+    "light_typo_05": "retriev edocumentprecord showing payment at inv",
+    "light_typo_10": "retriev gdocumentprecord showing pyam1nt at inv",
+    "light_typo_20": "rtfriev gdocmu6ntprecord showing pyam1nt at inv"
+  },
+  "probe_0544": {
+    "verbatim_clean": "INV NO.: 1207108",
+    "light_clean": "retrieve document record showing payment at inv",
+    "verbatim_typo_05": "INVN O.: 1207108",
+    "verbatim_typo_10": "INVN O.:p1207108",
+    "verbatim_typo_20": "INVNgO.:p1207108",
+    "light_typo_05": "retriev edocumentprecord showing payment at inv",
+    "light_typo_10": "retriev gdocumentprecord showing pyam1nt at inv",
+    "light_typo_20": "rtfriev gdocmu6ntprecord showing pyam1nt at inv"
+  },
+  "probe_0545": {
+    "verbatim_clean": "INV NO.: 1199976",
+    "light_clean": "retrieve document record showing payment at inv",
+    "verbatim_typo_05": "INVN O.: 1199976",
+    "verbatim_typo_10": "INVN O.:p1199976",
+    "verbatim_typo_20": "INVNgO.:p1199976",
+    "light_typo_05": "retriev edocumentprecord showing payment at inv",
+    "light_typo_10": "retriev gdocumentprecord showing pyam1nt at inv",
+    "light_typo_20": "rtfriev gdocmu6ntprecord showing pyam1nt at inv"
+  },
+  "probe_0547": {
+    "verbatim_clean": "INV NO. : 1183154",
+    "light_clean": "retrieve document record showing payment at inv",
+    "verbatim_typo_05": "INVN O. : 1183154",
+    "verbatim_typo_10": "INVN O. p 1183154",
+    "verbatim_typo_20": "INVNgO. p 1183154",
+    "light_typo_05": "retriev edocumentprecord showing payment at inv",
+    "light_typo_10": "retriev gdocumentprecord showing pyam1nt at inv",
+    "light_typo_20": "rtfriev gdocmu6ntprecord showing pyam1nt at inv"
+  },
+  "probe_0552": {
+    "verbatim_clean": "INV NO.: 1170190",
+    "light_clean": "retrieve document record showing payment at inv",
+    "verbatim_typo_05": "INVN O.: 1170190",
+    "verbatim_typo_10": "INVN O.:p1170190",
+    "verbatim_typo_20": "INVNgO.:p1170190",
+    "light_typo_05": "retriev edocumentprecord showing payment at inv",
+    "light_typo_10": "retriev gdocumentprecord showing pyam1nt at inv",
+    "light_typo_20": "rtfriev gdocmu6ntprecord showing pyam1nt at inv"
+  },
+  "probe_0554": {
+    "verbatim_clean": "INV NO.: 1212276",
+    "light_clean": "Invoice number: 1212276",
+    "verbatim_typo_05": "INVN O.: 1212276",
+    "verbatim_typo_10": "INVN O.:p1212276",
+    "verbatim_typo_20": "INVNgO.:p1212276",
+    "light_typo_05": "Invioce number: 1212276",
+    "light_typo_10": "Invioce pumber: 1212276",
+    "light_typo_20": "Invigce pumber: 1112276"
+  },
+  "probe_0555": {
+    "verbatim_clean": "INV NO.: 1212055",
+    "light_clean": "Invoice number: 1212055",
+    "verbatim_typo_05": "INVN O.: 1212055",
+    "verbatim_typo_10": "INVN O.:p1212055",
+    "verbatim_typo_20": "INVNgO.:p1212055",
+    "light_typo_05": "Invioce number: 1212055",
+    "light_typo_10": "Invioce pumber: 1212055",
+    "light_typo_20": "Invigce pumber: 1112055"
+  },
+  "probe_0559": {
+    "verbatim_clean": "STEEL WOOL SH-2#",
+    "light_clean": "retrieve document record showing payment at steel wool",
+    "verbatim_typo_05": "STELE WOOL SH-2#",
+    "verbatim_typo_10": "STELE WOpL SH-2#",
+    "verbatim_typo_20": "STELg WOpL SH-2#",
+    "light_typo_05": "retriev edocumint record showing payment at sterl wool",
+    "light_typo_10": "retrie vedocumint record showing payment at stelr wool",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment at stelr wool"
+  },
+  "probe_0561": {
+    "verbatim_clean": "02-05-18",
+    "light_clean": "retrieve document record showing payment at 02",
+    "verbatim_typo_05": "0-205-18",
+    "verbatim_typo_10": "0-205-18",
+    "verbatim_typo_20": "0-20p-18",
+    "light_typo_05": "retriev edocumentprecord showing payment at 02",
+    "light_typo_10": "retriev gdocumentprecord showing pyam1nt at 02",
+    "light_typo_20": "rtfriev gdocmu6ntprecord showing pyam1nt at 02"
+  },
+  "probe_0562": {
+    "verbatim_clean": "05-05-18",
+    "light_clean": "retrieve document record showing payment at 05",
+    "verbatim_typo_05": "0-505-18",
+    "verbatim_typo_10": "0-505-18",
+    "verbatim_typo_20": "0-50p-18",
+    "light_typo_05": "retriev edocumentprecord showing payment at 05",
+    "light_typo_10": "retriev gdocumentprecord showing pyam1nt at 05",
+    "light_typo_20": "rtfriev gdocmu6ntprecord showing pyam1nt at 05"
+  },
+  "probe_0564": {
+    "verbatim_clean": "RM7.50 Z",
+    "light_clean": "retrieve document record showing payment at rm7",
+    "verbatim_typo_05": "R7M.50 Z",
+    "verbatim_typo_10": "R7M.50 Z",
+    "verbatim_typo_20": "R7M.p0 Z",
+    "light_typo_05": "retriev edocumentprecord showing payment at rm7",
+    "light_typo_10": "retriev gdocumentprecord showing pyam1nt at rm7",
+    "light_typo_20": "rtfriev gdocmu6ntprecord showing pyam1nt at rm7"
+  },
+  "probe_0566": {
+    "verbatim_clean": "RM 11.23",
+    "light_clean": "retrieve document record showing payment at rm",
+    "verbatim_typo_05": "R M11.23",
+    "verbatim_typo_10": "R M11.23",
+    "verbatim_typo_20": "R M1p.23",
+    "light_typo_05": "retriev edocumentprecord showing payment at rm",
+    "light_typo_10": "retriev gdocumentprecord showing pyam1nt at rm",
+    "light_typo_20": "rtfriev gdocmu6ntprecord showing pyam1nt at rm"
+  },
+  "probe_0567": {
+    "verbatim_clean": "CYLINDRICAL LOCK 3871SS",
+    "light_clean": "retrieve document record showing payment at cylindrical",
+    "verbatim_typo_05": "CYLNIDRICAL LOCK 3871SS",
+    "verbatim_typo_10": "CYLNIDRIpAL LOCK 3871SS",
+    "verbatim_typo_20": "CYLNgDRIpAL LOCK 8171SS",
+    "light_typo_05": "retriev edocumint record showing payment at cylrndrical",
+    "light_typo_10": "retri evedocumint record showing payment at cylnrdrical",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment at cylnrdrical"
+  },
+  "probe_0568": {
+    "verbatim_clean": "FILL IN ENTERPRISE",
+    "light_clean": "retrieve document record showing payment at fill",
+    "verbatim_typo_05": "FIL LIN ENTERPRISE",
+    "verbatim_typo_10": "FIL LIN pNTERPRISE",
+    "verbatim_typo_20": "FIL gIN pNTERPRISE",
+    "light_typo_05": "retriev edocument record showing payment at filr",
+    "light_typo_10": "retrie vedocumint record showing payment at filr",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at filr"
+  },
+  "probe_0569": {
+    "verbatim_clean": ": CR 1805/0201",
+    "light_clean": "retrieve document record showing payment at cr",
+    "verbatim_typo_05": ":C R 1805/0201",
+    "verbatim_typo_10": ":C R 1805/0201",
+    "verbatim_typo_20": ":C i 1805/0r01",
+    "light_typo_05": "retriev edocumentprecord showing payment at cr",
+    "light_typo_10": "retriev gdocumentprecord showing pyam1nt at cr",
+    "light_typo_20": "rtfriev gdocmu6ntprecord showing pyam1nt at cr"
+  },
+  "probe_0570": {
+    "verbatim_clean": "30/05/18 11:01",
+    "light_clean": "retrieve document record showing payment at 30 05",
+    "verbatim_typo_05": "3/005/18 11:01",
+    "verbatim_typo_10": "3/005/18 11:01",
+    "verbatim_typo_20": "3/0i5/18 11r01",
+    "light_typo_05": "retriev edocument record showing payment at 30 r5",
+    "light_typo_10": "retrie vedocumint record showing payment at 30 5r",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 30 5r"
+  },
+  "probe_0571": {
+    "verbatim_clean": "28/05/18 11:41",
+    "light_clean": "retrieve document record showing payment at 28 05",
+    "verbatim_typo_05": "2/805/18 11:41",
+    "verbatim_typo_10": "2/805/18 11:41",
+    "verbatim_typo_20": "2/8i5/18 11r41",
+    "light_typo_05": "retriev edocument record showing payment at 28 r5",
+    "light_typo_10": "retrie vedocumint record showing payment at 28 5r",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 28 5r"
+  },
+  "probe_0573": {
+    "verbatim_clean": ": CR 1806/0729",
+    "light_clean": "retrieve document record showing payment at cr",
+    "verbatim_typo_05": ":C R 1806/0729",
+    "verbatim_typo_10": ":C R 1806/0729",
+    "verbatim_typo_20": ":C i 1806/0r29",
+    "light_typo_05": "retriev edocumentprecord showing payment at cr",
+    "light_typo_10": "retriev gdocumentprecord showing pyam1nt at cr",
+    "light_typo_20": "rtfriev gdocmu6ntprecord showing pyam1nt at cr"
+  },
+  "probe_0577": {
+    "verbatim_clean": ": SP3-01-147902",
+    "light_clean": "retrieve document record showing payment at sp3",
+    "verbatim_typo_05": ":S P3-01-147902",
+    "verbatim_typo_10": ":S P3-01-14r902",
+    "verbatim_typo_20": ":S i3-01-14r902",
+    "light_typo_05": "retriev edocumentprecord showing payment at sp3",
+    "light_typo_10": "retriev gdocumentprecord showing pyam1nt at sp3",
+    "light_typo_20": "rtfriev gdocmu6ntprecord showing pyam1nt at sp3"
+  },
+  "probe_0580": {
+    "verbatim_clean": "11/5/2018 13:14:32",
+    "light_clean": "retrieve document record showing payment at 11 5",
+    "verbatim_typo_05": "11//52018 13:14:32",
+    "verbatim_typo_10": "11//5201p 13:14:32",
+    "verbatim_typo_20": "11//g201p 13:14:32",
+    "light_typo_05": "retriev edocument record showing payment at 11 r",
+    "light_typo_10": "retrie vedocumint record showing payment at 11 r",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 11 r"
+  },
+  "probe_0581": {
+    "verbatim_clean": "2249 CARLSBERG SMOOTH DRAUG",
+    "light_clean": "retrieve document record showing payment at 2249 carlsberg",
+    "verbatim_typo_05": "224 9CARLSBERG SMOOTH DRAUG",
+    "verbatim_typo_10": "224 9CAiLSBERG SMOOTH DrAUG",
+    "verbatim_typo_20": "2249 CAiLSBERG SMOOTH DArUG",
+    "light_typo_05": "retriev edocumint record showing payment at 224r carlsberg",
+    "light_typo_10": "retri evedocumint record showing payment at 224 rcarlsberg",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment ta 224 rcarlsberg"
+  },
+  "probe_0582": {
+    "verbatim_clean": ": 28-04-2018 20:10:51",
+    "light_clean": "retrieve document record showing payment at 28 04",
+    "verbatim_typo_05": ": 2-804-2018 20:10:51",
+    "verbatim_typo_10": ": 2-804-p018 20:10:51",
+    "verbatim_typo_20": ": 2-g04-p018 20:1:051",
+    "light_typo_05": "retriev edocument record showing payment at 28 r4",
+    "light_typo_10": "retrie vedocumint record showing payment at 28 4r",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 28 4r"
+  },
+  "probe_0583": {
+    "verbatim_clean": ": 05-06-2018 20:23:14",
+    "light_clean": "retrieve document record showing payment at 05 06",
+    "verbatim_typo_05": ": 0-506-2018 20:23:14",
+    "verbatim_typo_10": ": 0-506-p018 20:23:14",
+    "verbatim_typo_20": ": 0-g06-p018 20:2:314",
+    "light_typo_05": "retriev edocument record showing payment at 05 r6",
+    "light_typo_10": "retrie vedocumint record showing payment at 05 6r",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 05 6r"
+  },
+  "probe_0585": {
+    "verbatim_clean": ": 28-05-2018 23:28:57",
+    "light_clean": "retrieve document record showing payment at 28 05",
+    "verbatim_typo_05": ": 2-805-2018 23:28:57",
+    "verbatim_typo_10": ": 2-805-p018 23:28:57",
+    "verbatim_typo_20": ": 2-g05-p018 23:2:857",
+    "light_typo_05": "retriev edocument record showing payment at 28 r5",
+    "light_typo_10": "retrie vedocumint record showing payment at 28 5r",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 28 5r"
+  },
+  "probe_0586": {
+    "verbatim_clean": ": 19-05-2018 12:46:58",
+    "light_clean": "retrieve document record showing payment at 19 05",
+    "verbatim_typo_05": ": 1-905-2018 12:46:58",
+    "verbatim_typo_10": ": 1-905-p018 12:46:58",
+    "verbatim_typo_20": ": 1-g05-p018 12:4:658",
+    "light_typo_05": "retriev edocument record showing payment at 19 r5",
+    "light_typo_10": "retrie vedocumint record showing payment at 19 5r",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 19 5r"
+  },
+  "probe_0588": {
+    "verbatim_clean": "28-11-18",
+    "light_clean": "retrieve document record showing payment at 28",
+    "verbatim_typo_05": "2-811-18",
+    "verbatim_typo_10": "2-811-18",
+    "verbatim_typo_20": "2-81p-18",
+    "light_typo_05": "retriev edocumentprecord showing payment at 28",
+    "light_typo_10": "retriev gdocumentprecord showing pyam1nt at 28",
+    "light_typo_20": "rtfriev gdocmu6ntprecord showing pyam1nt at 28"
+  },
+  "probe_0591": {
+    "verbatim_clean": "TIME: 11:22:00",
+    "light_clean": "retrieve document record showing payment at time 11",
+    "verbatim_typo_05": "TMIE: 11:22:00",
+    "verbatim_typo_10": "TMIE: 11:22:00",
+    "verbatim_typo_20": "TMIi: 11:22r00",
+    "light_typo_05": "retriev edocumint record showing payment at timr 11",
+    "light_typo_10": "retrie vedocumint record showing payment at tim r11",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at tim r11"
+  },
+  "probe_0595": {
+    "verbatim_clean": "DATE: 23/05/2018",
+    "light_clean": "retrieve document record showing payment at date 23",
+    "verbatim_typo_05": "DAT:E 23/05/2018",
+    "verbatim_typo_10": "DAT:E 23p05/2018",
+    "verbatim_typo_20": "DAT:g 23p05/2018",
+    "light_typo_05": "retriev edocumint record showing payment at datr 23",
+    "light_typo_10": "retrie vedocumint record showing payment at dat r23",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at dat r23"
+  },
+  "probe_0597": {
+    "verbatim_clean": "TEL: 04-227 2222",
+    "light_clean": "retrieve document record showing payment at tel 04",
+    "verbatim_typo_05": "TEL :04-227 2222",
+    "verbatim_typo_10": "TEL :04-p27 2222",
+    "verbatim_typo_20": "TEL g04-p27 2222",
+    "light_typo_05": "retriev edocument record showing payment at telr04",
+    "light_typo_10": "retrie vedocumint record showing payment at tel0r4",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at tel0r4"
+  },
+  "probe_0600": {
+    "verbatim_clean": "03/04/18 19:19",
+    "light_clean": "retrieve document record showing payment at 03 04",
+    "verbatim_typo_05": "0/304/18 19:19",
+    "verbatim_typo_10": "0/304/18 19:19",
+    "verbatim_typo_20": "0/3i4/18 19r19",
+    "light_typo_05": "retriev edocument record showing payment at 03 r4",
+    "light_typo_10": "retrie vedocumint record showing payment at 03 4r",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 03 4r"
+  },
+  "probe_0601": {
+    "verbatim_clean": "OCEAN LC PACKAGING ENTERPRISE",
+    "light_clean": "retrieve document record showing payment at ocean lc",
+    "verbatim_typo_05": "OCENA LC PACKAGING ENTERPRISE",
+    "verbatim_typo_10": "OCENA Li PACKAGING ENTErPRISE",
+    "verbatim_typo_20": "OCAEN Li PACKAGING ENTEPrRISE",
+    "light_typo_05": "retriev edocumint record showing payment at ocern lc",
+    "light_typo_10": "retrie vedocumint record showing payment at ocenr lc",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at ocenr lc"
+  },
+  "probe_0602": {
+    "verbatim_clean": "(PUSAT PERNIAGAAN BUNGA RAYA",
+    "light_clean": "retrieve document record showing payment at pusat perniagaan",
+    "verbatim_typo_05": "(PUAST PERNIAGAAN BUNGA RAYA",
+    "verbatim_typo_10": "(PUAST iERNIAGAAN BUNGArRAYA",
+    "verbatim_typo_20": "(PSUAT iERNIAGAAN BUNGARrAYA",
+    "light_typo_05": "retriev edocumint record showing payment at pusrt perniagaan",
+    "light_typo_10": "retri evedocumint record showing payment at pustr perniagaan",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment ta pustr perniagaan"
+  },
+  "probe_0605": {
+    "verbatim_clean": ": 13-06-2018 22:53:19",
+    "light_clean": "retrieve document record showing payment at 13 06",
+    "verbatim_typo_05": ": 1-306-2018 22:53:19",
+    "verbatim_typo_10": ": 1-306-p018 22:53:19",
+    "verbatim_typo_20": ": 1-g06-p018 22:5:319",
+    "light_typo_05": "retriev edocument record showing payment at 13 r6",
+    "light_typo_10": "retrie vedocumint record showing payment at 13 6r",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 13 6r"
+  },
+  "probe_0606": {
+    "verbatim_clean": ": 30-05-2018 13:45:46",
+    "light_clean": "retrieve document record showing payment at 30 05",
+    "verbatim_typo_05": ": 3-005-2018 13:45:46",
+    "verbatim_typo_10": ": 3-005-p018 13:45:46",
+    "verbatim_typo_20": ": 3-g05-p018 13:4:546",
+    "light_typo_05": "retriev edocument record showing payment at 30 r5",
+    "light_typo_10": "retrie vedocumint record showing payment at 30 5r",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 30 5r"
+  },
+  "probe_0607": {
+    "verbatim_clean": ": 17-06-2018 14:07:29",
+    "light_clean": "retrieve document record showing payment at 17 06",
+    "verbatim_typo_05": ": 1-706-2018 14:07:29",
+    "verbatim_typo_10": ": 1-706-p018 14:07:29",
+    "verbatim_typo_20": ": 1-g06-p018 14:0:729",
+    "light_typo_05": "retriev edocument record showing payment at 17 r6",
+    "light_typo_10": "retrie vedocumint record showing payment at 17 6r",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 17 6r"
+  },
+  "probe_0609": {
+    "verbatim_clean": ": 20-06-2018 21:36:11",
+    "light_clean": "retrieve document record showing payment at 20 06",
+    "verbatim_typo_05": ": 2-006-2018 21:36:11",
+    "verbatim_typo_10": ": 2-006-p018 21:36:11",
+    "verbatim_typo_20": ": 2-g06-p018 21:3:611",
+    "light_typo_05": "retriev edocument record showing payment at 20 r6",
+    "light_typo_10": "retrie vedocumint record showing payment at 20 6r",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 20 6r"
+  },
+  "probe_0610": {
+    "verbatim_clean": ": 23-06-2018 20:52:16",
+    "light_clean": "retrieve document record showing payment at 23 06",
+    "verbatim_typo_05": ": 2-306-2018 20:52:16",
+    "verbatim_typo_10": ": 2-306-p018 20:52:16",
+    "verbatim_typo_20": ": 2-g06-p018 20:5:216",
+    "light_typo_05": "retriev edocument record showing payment at 23 r6",
+    "light_typo_10": "retrie vedocumint record showing payment at 23 6r",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at 23 6r"
   }
 }
