@@ -1,0 +1,3 @@
+Comparison,Mismatch_Drop_Mean,Mismatch_Drop_CI,OCR_Drop_Mean,OCR_Drop_CI,Diff_in_Drops,Diff_CI,Perm_P_100k,Non_Overlapping_CIs,Headline_Verdict
+Query Mismatch Drop vs. Clean Apple Vision OCR Drop,0.3782,"[0.3315, 0.4273]",0.0201,"[-0.0041, 0.0441]",0.3581,"[0.3056, 0.4128]",1e-05,True,CONFIRMED: Query mismatch degradation (0.3782) significantly exceeds real clean OCR degradation (0.0201) (p < 1e-5)
+Query Mismatch Drop vs. Degraded Optical Blur OCR Drop,0.3782,"[0.3315, 0.4273]",0.16,"[0.1216, 0.2019]",0.2182,"[0.1636, 0.2720]",1e-05,True,CONFIRMED: Query mismatch degradation (0.3782) significantly exceeds degraded OCR degradation (0.1600) with non-overlapping CIs (p < 1e-5)

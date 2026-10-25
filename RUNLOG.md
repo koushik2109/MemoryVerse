@@ -249,5 +249,47 @@
   - Documents exact regime boundary: character n-grams protect against synthetic character noise; word BM25 is superior under optical OCR.
   - Output: `results/v3/char_vs_word_bm25.csv`.
 
-
-
+### Phase 3: Reviewer Evidence Generation (v3)
+- **Timestamp:** 2026-10-25T15:52:00+05:30
+- **Script:** `ai_engine/rag/scripts/run_phase3_reviewer_evidence_v3.py`
+- **Total Wall-Clock Time:** 596.85s (9m 56s)
+- **Sub-Experiments 3.1, 3.4 & 3.5 (Headline Regime Grid, Dev Tuning & Hypothesis Tests):**
+  - Dev split ($N=813$ docs, 306 probes) tuned: $k_1^* = 0.9, b^* = 0.5$ (Dev MRR = 0.8388); Hybrid $\alpha^*$ tuned per regime ($0.0 \dots 1.0$).
+  - Frozen held-out Test split ($N=813$ docs, 306 probes) evaluated across 3 random seeds (42, 43, 44) with cluster bootstrap ($B=2,000$) clustered by `target_id`.
+  - Full 12-cell regime matrix populated with MRR, Hit@10, 95% CIs, and mean latency:
+    - Verbatim ground truth: BM25 (Tuned) `0.8572` [0.8224, 0.8904], Char BM25 `0.9853`, Dense MiniLM `0.2100`, Dense BGE `0.3256`, CLIP `0.0436`, Random `0.0089`.
+    - Verbatim clean OCR: BM25 (Tuned) `0.8371` [0.7982, 0.8711], Char BM25 `0.9436`, Dense MiniLM `0.2056`, Dense BGE `0.3022`, Hybrid `0.8367`.
+    - Verbatim degraded blur: BM25 (Tuned) `0.6972` [0.6503, 0.7406], Char BM25 `0.8248`, Dense MiniLM `0.1724`, Dense BGE `0.2471`, Hybrid `0.6940`.
+    - Verbatim syn 20%: BM25 (Tuned) `0.3961` [0.3637, 0.4292], Char BM25 `0.7252`, Dense MiniLM `0.0596`, Dense BGE `0.1347`, Hybrid `0.3979`.
+    - Light ground truth: BM25 (Tuned) `0.4790` [0.4271, 0.5297], Char BM25 `0.2504`, Dense MiniLM `0.1230`, Dense BGE `0.1670`, Hybrid `0.4572`.
+    - Light clean OCR: BM25 (Tuned) `0.4334` [0.3804, 0.4835], Char BM25 `0.2427`, Dense MiniLM `0.1086`, Dense BGE `0.1601`, Hybrid `0.4335`.
+    - Light degraded blur: BM25 (Tuned) `0.3630` [0.3146, 0.4117], Char BM25 `0.2137`, Dense MiniLM `0.0772`, Dense BGE `0.1275`, Hybrid `0.3657`.
+    - Light syn 20%: BM25 (Tuned) `0.1394` [0.1177, 0.1617], Char BM25 `0.1295`, Dense MiniLM `0.0371`, Dense BGE `0.0684`, Hybrid `0.1445`.
+    - Heavy ground truth: BM25 (Tuned) `0.9116` [0.8851, 0.9365], Char BM25 `0.9653`, Dense MiniLM `0.3669`, Dense BGE `0.5197`, Hybrid `0.8084`.
+    - Heavy clean OCR: BM25 (Tuned) `0.9014` [0.8726, 0.9287], Char BM25 `0.9471`, Dense MiniLM `0.2837`, Dense BGE `0.5128`, Hybrid `0.2837`.
+    - Heavy degraded blur: BM25 (Tuned) `0.7328` [0.6882, 0.7734], Char BM25 `0.8116`, Dense MiniLM `0.2260`, Dense BGE `0.4313`, Hybrid `0.5346`.
+    - Heavy syn 20%: BM25 (Tuned) `0.4567` [0.4234, 0.4883], Char BM25 `0.6891`, Dense MiniLM `0.1061`, Dense BGE `0.2005`, Hybrid `0.1061`.
+  - **Headline Decision Rule Verification (Paired Permutation $N_{\text{perm}}=100{,}000$):**
+    - Query mismatch drop (verbatim $\rightarrow$ light paraphrase): `0.3782` [0.3315, 0.4273].
+    - Clean Apple Vision OCR drop: `0.0201` [-0.0041, 0.0441]. Paired diff: `+0.3581` [0.3056, 0.4128], $p = 10^{-5}$ (floor). Confirmed non-overlapping 95% CIs.
+    - Degraded optical blur OCR drop: `0.1600` [0.1216, 0.2019]. Paired diff: `+0.2182` [0.1636, 0.2720], $p = 10^{-5}$ (floor). Confirmed non-overlapping 95% CIs.
+  - Outputs: `results/v3/dev_tuned_parameters_v3.json`, `results/v3/headline_regime_grid_v3.csv`, `results/v3/headline_hypothesis_tests.csv`.
+- **Sub-Experiment 3.7 (MS-COCO Native-Visual vs Text Proxy Benchmark):**
+  - Aligned $N=1{,}000$ MS-COCO 2014 validation images/queries.
+  - Cached SigLIP Base Patch16 image embeddings to `results/v3/coco_siglip_image_embeddings.npy`.
+  - Evaluated 11 systems:
+    - BM25 (BLIP Proxy): Hit@1 `0.1220`, Hit@10 `0.3840`, MRR `0.2048` [0.1859, 0.2254].
+    - Dense MiniLM (BLIP Proxy): Hit@1 `0.2420`, Hit@10 `0.6530`, MRR `0.3728` [0.3499, 0.3975].
+    - Dense BGE-base (BLIP Proxy): Hit@1 `0.2430`, Hit@10 `0.6460`, MRR `0.3695` [0.3465, 0.3933].
+    - BM25 (Gold Proxy): Hit@1 `0.3600`, Hit@10 `0.7350`, MRR `0.4852` [0.4605, 0.5104].
+    - Dense MiniLM (Gold Proxy): Hit@1 `0.4550`, Hit@10 `0.8380`, MRR `0.5801` [0.5552, 0.6053].
+    - Dense BGE-base (Gold Proxy): Hit@1 `0.4580`, Hit@10 `0.8320`, MRR `0.5835` [0.5589, 0.6083].
+    - CLIP ViT-B/32 (Native Pixels): Hit@1 `0.3390`, Hit@10 `0.7570`, MRR `0.4709` [0.4456, 0.4971].
+    - SigLIP Base Patch16 (Native Pixels): Hit@1 `0.4800`, Hit@10 `0.8670`, MRR `0.6071` [0.5836, 0.6327].
+    - Hybrid (CLIP + BGE BLIP): Hit@1 `0.3880`, Hit@10 `0.7870`, MRR `0.5186` [0.4941, 0.5440].
+    - Hybrid (SigLIP + BGE BLIP): Hit@1 `0.4570`, Hit@10 `0.8360`, MRR `0.5866` [0.5627, 0.6111].
+    - All-Stream RRF: Hit@1 `0.2690`, Hit@10 `0.6890`, MRR `0.4058` [0.3821, 0.4290].
+  - Paired permutation tests ($N_{\text{perm}}=100{,}000$, Holm-Bonferroni correction across 8 tests):
+    - CLIP vs Best BLIP Proxy (MiniLM): Diff Hit@1 `+0.0970`, Hit@5 `+0.1020`, Hit@10 `+0.1040`, MRR `+0.0981` (all $p_{\text{Holm}} = 8 \times 10^{-5}$). Native visual statistically superior.
+    - SigLIP vs Best BLIP Proxy (MiniLM): Diff Hit@1 `+0.2380`, Hit@5 `+0.2520`, Hit@10 `+0.2140`, MRR `+0.2343` (all $p_{\text{Holm}} = 8 \times 10^{-5}$). Native visual statistically superior.
+  - Outputs: `results/v3/coco_native_visual_v3.csv`, `results/v3/coco_hypothesis_test_v3.csv`.

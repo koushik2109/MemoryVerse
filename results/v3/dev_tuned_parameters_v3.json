@@ -1,0 +1,54 @@
+{
+  "bm25_k1": 0.9,
+  "bm25_b": 0.5,
+  "hybrid_alphas": {
+    "verbatim:::ground_truth": {
+      "alpha": 0.0,
+      "dev_mrr": 0.8388
+    },
+    "light:::ground_truth": {
+      "alpha": 0.5,
+      "dev_mrr": 0.423
+    },
+    "heavy:::ground_truth": {
+      "alpha": 0.7,
+      "dev_mrr": 0.023
+    },
+    "verbatim:::clean_ocr": {
+      "alpha": 0.2,
+      "dev_mrr": 0.8217
+    },
+    "light:::clean_ocr": {
+      "alpha": 0.3,
+      "dev_mrr": 0.3868
+    },
+    "heavy:::clean_ocr": {
+      "alpha": 1.0,
+      "dev_mrr": 0.0253
+    },
+    "verbatim:::degraded_ocr": {
+      "alpha": 0.2,
+      "dev_mrr": 0.6076
+    },
+    "light:::degraded_ocr": {
+      "alpha": 0.2,
+      "dev_mrr": 0.3486
+    },
+    "heavy:::degraded_ocr": {
+      "alpha": 0.8,
+      "dev_mrr": 0.0197
+    },
+    "verbatim:::syn_20": {
+      "alpha": 0.1,
+      "dev_mrr": 0.4226
+    },
+    "light:::syn_20": {
+      "alpha": 0.4,
+      "dev_mrr": 0.1485
+    },
+    "heavy:::syn_20": {
+      "alpha": 1.0,
+      "dev_mrr": 0.0113
+    }
+  }
+}
