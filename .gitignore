@@ -15,6 +15,10 @@ __pycache__/
 *.pyc
 *.pyo
 
+# Compiled binaries
+ai_engine/rag/scripts/run_ocr_apple_vision
+ai_engine/rag/scripts/run_ocr_apple_vision_v3
+
 # OS files
 .DS_Store
 Thumbs.db

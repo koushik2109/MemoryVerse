@@ -165,4 +165,52 @@
 - **Master Reproduction Script:** Created `reproduce.sh` with automated verification of frozen datasets and sequential execution of all Phase 2--7 scripts.
 - **Verification:** Audited SHA-256 hashes of all 26 outputs across `results/v2/` and `latex_fragments/` into `MANIFEST.json`.
 
+---
+
+## Phase 0 & Phase 1 Debug Runlog (v3)
+
+### Phase 0: Pipeline Audit & Reproduction Check
+- **Timestamp:** 2026-10-25T13:18:00+05:30
+- **Actions:**
+  - Audited pipeline end-to-end; wrote `AUDIT.md` documenting root causes of CER/WER mismatch, TOST array copying artifact, conformal calibration risk definition, and heavy paraphrase chance performance.
+  - Successfully reproduced 5/5 target numbers from `results/v2/`:
+    1. Verbatim BM25 clean MRR: `0.8317` (Matches 0.832)
+    2. Verbatim Dense MiniLM clean MRR: `0.2100` (Matches 0.210)
+    3. Light Paraphrase BM25 clean MRR: `0.4010` (Matches 0.401)
+    4. COCO Native CLIP MRR: `0.4709` (Matches 0.4709)
+    5. Conformal Test Miss Rate: `0.0579` (Matches 0.0579)
+  - Compiled `CLAIMS_LEDGER.csv` auditing 17 claims across Abstract, Intro, Sec IV/V, and Conclusion.
+  - Pre-registered hypotheses and decision rules in `PREREG_V3.md`.
+  - Computed analytical random-ranking baselines: $\mathbb{E}[\text{MRR}] = 0.00895$ ($N=813$), $0.00749$ ($N=1,000$).
+
+### Phase 1: Debugging and Empirical Verification
+- **Timestamp:** 2026-10-25T13:45:00+05:30
+- **Script:** `ai_engine/rag/scripts/run_phase1_debug_v3.py`
+- **Total Wall-Clock Time:** 6m 12s
+- **Sub-Experiment 1.1 (CER/WER Sanity):**
+  - Evaluated on $N=626$ SROIE receipts:
+    - Clean Apple Vision: Legacy Unnorm CER `0.3938` / WER `0.5796` -> Normalized Line-Aligned CER `0.1387` / WER `0.2165`.
+    - Degraded Optical: Legacy Unnorm CER `0.4760` / WER `0.7052` -> Normalized Line-Aligned CER `0.3086` / WER `0.4595`.
+  - Saved 20 side-by-side inspection pairs to `results/v3/ocr_samples.md` and error rates to `results/v3/ocr_error_rates.csv`.
+- **Sub-Experiment 1.2 (Dense Truncation & Chunked Retrieval):**
+  - Token lengths measured under MiniLM and BGE tokenizers: only 4/626 receipts (0.64%) exceed 512 tokens; mean tokens lost is 0.032%.
+  - Chunked MaxP retrieval evaluated on held-out Test split ($N=306$ probes, $N=813$ docs):
+    - MiniLM: Unchunked MRR `0.2056` vs Chunked MaxP `0.2030`.
+    - BGE-base: Unchunked MRR `0.3022` vs Chunked MaxP `0.3028`.
+    - Numeric-heavy probes: MiniLM Unchunked `0.0790` vs Chunked `0.0770` (BM25: `0.7668`).
+  - Saved to `results/v3/dense_truncation_impact.csv`.
+- **Sub-Experiment 1.3 (Apple Vision OCR Configurations):**
+  - Compiled native Swift worker `run_ocr_apple_vision_v3`.
+  - Evaluated 4 configurations (`accurate`/`fast` $\times$ `languageCorrection` True/False):
+    - Fast level severely degrades accuracy (CER jumps from 0.1386 to 0.5137; BM25 MRR drops from 0.8107 to 0.5063).
+    - Language correction flag does NOT resolve the AUROC inversion (AUROC remains ~0.23 under both True and False).
+  - Saved to `results/v3/ocr_engine_settings.csv`.
+- **Sub-Experiment 1.4 (Heavy Paraphrase Redesign):**
+  - Generated answerable question queries using `openai/gpt-oss-120b` ($T=0.0$) via Groq API.
+  - Filtered with uniqueness checking across all 626 SROIE receipts (302 retained, 4 non-unique dropped).
+  - Saved 50 audit samples to `results/v3/heavy_audit_sample.csv` and frozen queries to `results/v3/heavy_paraphrases_v3.json`.
+  - Evaluated retrieval MRR: BM25 `0.8878`, MiniLM `0.2873`, BGE-base `0.5191` (vs legacy chance `0.0089`, random baseline `0.0089`).
+  - Saved to `results/v3/heavy_redesign_results.csv`.
+
+
 
