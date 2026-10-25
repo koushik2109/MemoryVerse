@@ -1,0 +1,4 @@
+Query_Type,System,MRR,MRR_CI_Lower,MRR_CI_Upper,Hit1,Hit5,Hit10,Hit10_CI_Lower,Hit10_CI_Upper,Mean_Rank,Min_Rank,Max_Rank,Mean_Softmax_Entropy_nats,Rank_Variance
+verbatim,CLIP ViT-B/32 (Genuine Visual),0.0436,0.0281,0.0619,0.0163,0.0621,0.0817,0.0523,0.1144,223.0,1,767,6.62,39641.7
+light,CLIP ViT-B/32 (Genuine Visual),0.0303,0.0202,0.0418,0.0033,0.0556,0.0719,0.0457,0.1013,151.9,1,614,6.54,10733.9
+heavy,CLIP ViT-B/32 (Genuine Visual),0.0388,0.0238,0.0569,0.0196,0.0392,0.0654,0.0392,0.0948,132.7,1,357,6.1,8519.2

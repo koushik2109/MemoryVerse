@@ -1,0 +1,15 @@
+% Source: results/v6/dense_query_formulation_v6.csv
+\begin{table}[t]
+\centering\small
+\caption{Dense Bi-Encoder Sensitivity to Query Formulation on Clean Ground-Truth Receipt Text ($0\%$ noise, Test $N=306$).}\label{tab:dense_formulation_v6}
+\begin{tabular}{lcccc}
+\toprule
+Query Formulation & MiniLM MRR & MiniLM Hit@10 & BGE-Base MRR & BGE-Base Hit@10 \\
+\midrule
+1. Short Verbatim Snippets & 0.2100 & 0.2843 & 0.3256 & 0.3824 \\
+2. Length-Padded Spans & 0.1949 & 0.2484 & 0.2571 & 0.3366 \\
+3. Full Sentential Context Queries & 0.1670 & 0.2320 & 0.2740 & 0.3399 \\
+4. Natural Answerable Questions & 0.3669 & 0.5686 & 0.5197 & 0.7876 \\
+\bottomrule
+\end{tabular}
+\end{table}
