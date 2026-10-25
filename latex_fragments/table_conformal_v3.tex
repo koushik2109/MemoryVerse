@@ -1,0 +1,21 @@
+% Source: results/v3/conformal_splits_summary_v3.csv
+% Evaluated across 200 random cluster-stratified 50/50 splits (seeds 1000--1199) on N=2,754 pooled benchmark queries.
+% Target error bound epsilon = 0.05.
+\begin{table}[htbp]
+\centering
+\small
+\caption{Finite-sample evaluation of conformal cascade calibration versus equal-escalation fixed thresholding across 200 random cluster-stratified 50/50 splits on $N=2{,}754$ pooled benchmark queries (target miss rate $\epsilon = 0.05$). Empirical coverage ($\le 0.05$) reaches 36.5\%--37.0\%, showing that conformal guarantees do not hold strictly under finite test sampling; an equal-escalation fixed threshold ($\tau=0.380$) matches cascade MRR ($0.3526$ vs $0.3527$) and latency ($76.3$ ms).}
+\label{tab:conformal_cascade_v3}
+\begin{tabular}{lcccccc}
+\toprule
+Cascade Policy & Mean Calibrated $\tau$ & Escalation Rate & Test Miss Rate [95\% CI] & Coverage ($\le 0.05$) & Test MRR & Latency (ms) \\
+\midrule
+Never Escalate (Stage-1 Only)     & ---   & 0.0\%  & 0.7262 [0.711, 0.743] & 0.0\%  & 0.3266 & 0.45 \\
+Fixed Margin ($\tau = 0.380$)     & 0.380 & 89.5\% & 0.0559 [0.054, 0.058] & 30.0\% & 0.3526 & 76.29 \\
+Conformal (Empirical Calibration) & 0.384 & 89.5\% & 0.0579 [0.056, 0.060] & 36.5\% & 0.3527 & 76.29 \\
+Conformal ($(n+1)$ Adjusted)      & 0.386 & 89.6\% & 0.0574 [0.055, 0.060] & 37.0\% & 0.3526 & 76.37 \\
+Conformal (Learn-then-Test 95\% UCB) & 0.400 & 90.3\% & 0.0529 [0.051, 0.055] & 37.0\% & 0.3522 & 76.97 \\
+Always Escalate (Stage-2 Full)    & ---   & 100.0\%& 0.0000 [0.000, 0.000] & 100.0\%& 0.3485 & 85.21 \\
+\bottomrule
+\end{tabular}
+\end{table}

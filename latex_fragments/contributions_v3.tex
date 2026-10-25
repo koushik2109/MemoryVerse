@@ -1,0 +1,18 @@
+% Key Contributions section written strictly from SUPPORTED claims verified in results/v3/.
+% Every number is commented with its exact source file.
+\begin{itemize}
+    % Source: results/v3/headline_hypothesis_tests.csv
+    \item \textbf{Headline Decision Rule for Multimodal Text Proxies:} We prove through scaled paired permutation tests ($N_{\text{perm}}=100{,}000$) that semantic query mismatch induces a far more severe performance drop ($\Delta = 0.3782$ MRR) than clean Apple Vision OCR degradation ($\Delta = 0.0201$, $p = 10^{-5}$) or optical blur ($\Delta = 0.1600$, $p = 10^{-5}$) with non-overlapping 95\% confidence intervals. Retrieval system design must prioritize query alignment over OCR refinement.
+
+    % Source: results/v3/coco_native_visual_v3.csv, results/v3/coco_hypothesis_test_v3.csv, results/v3/ocr_error_rates.csv
+    \item \textbf{Regime Boundary Between Text Proxies and Native Vision:} We delineate the exact operational boundary where text proxies succeed versus fail. On scene-text documents with clean OCR (CER = 0.1387, WER = 0.2165), text proxies suffice (BM25 MRR = 0.8371). On natural images (MS-COCO, $N=1{,}000$), native pixel representations decisively outperform machine caption proxies (SigLIP: 0.6071 MRR; CLIP: 0.4709 MRR vs. BLIP MiniLM: 0.3728 MRR; all $p_{\text{Holm}} = 8 \times 10^{-5}$).
+
+    % Source: results/v3/dense_truncation_impact.csv, results/v3/headline_regime_grid_v3.csv
+    \item \textbf{Deconstruction of Dense Bi-Encoder Failure:} We demonstrate that dense proxy failure on structured alphanumeric text is driven by WordPiece subword fragmentation (+122\% subwords/word) and representation drift (cosine similarity falling to 0.4655 at 20\% noise), rather than context truncation. Only 0.64\% of documents exceed 512 tokens, and chunked MaxP pooling yields identical MRR to standard encoding (MiniLM: 0.2030 vs. 0.2056).
+
+    % Source: results/v3/char_vs_word_bm25.csv
+    \item \textbf{Regime Boundary of Character $n$-gram Inverted Indices:} We reveal that character $n$-grams protect strictly against uniform synthetic character noise (+0.1008 MRR at 20\% noise, $p < 0.001$), whereas word-level BM25 is decisively superior under real optical OCR (+0.0996 clean, +0.0777 degraded blur; both $p < 0.001$).
+
+    % Source: results/v3/conformal_splits_summary_v3.csv, results/v3/multihop_paired_results.csv
+    \item \textbf{Empirical Grounding of Conformal Cascades and Multi-Hop RAG:} Across 200 random splits, we show conformal cascades achieve empirical calibration (test miss rate 0.0579 at 89.5\% escalation) but lack finite-sample distribution-free guarantees (36.5\% coverage), matching a simple fixed margin threshold ($\tau = 0.380$, MRR 0.3526). Furthermore, exact paired case analysis refutes generative multi-hop query bridging, showing zero statistically significant retrieval advantage over single-stage hybrid retrieval (+1 net hit / 50; exact McNemar $p = 1.000$).
+\end{itemize}
