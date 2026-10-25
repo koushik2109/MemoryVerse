@@ -70,6 +70,10 @@ $PYTHON_EXE ai_engine/rag/scripts/run_phase2_fixes_v3.py
 echo -e "\n[Phase 3] Executing Reviewer Evidence Generation (run_phase3_reviewer_evidence_v3.py)..."
 $PYTHON_EXE ai_engine/rag/scripts/run_phase3_reviewer_evidence_v3.py
 
+# 6. Phase 4: Second OCR Engine (Tesseract 5.5) & Second Dataset (FUNSD Forms) Replication
+echo -e "\n[Phase 4] Executing Engine & Dataset Replication (run_engine_and_dataset_replication_v3.py)..."
+$PYTHON_EXE ai_engine/rag/scripts/run_engine_and_dataset_replication_v3.py
+
 echo -e "\n[Verification] Auditing generated outputs in results/v3/ and latex_fragments/..."
 V3_OUTPUTS=(
     "results/v3/ocr_error_rates.csv"
@@ -85,11 +89,16 @@ V3_OUTPUTS=(
     "results/v3/headline_hypothesis_tests.csv"
     "results/v3/coco_native_visual_v3.csv"
     "results/v3/coco_hypothesis_test_v3.csv"
+    "results/v3/engine_replication.csv"
+    "results/v3/funsd_dataset_replication.csv"
+    "results/v3/cross_domain_hypothesis_tests.csv"
     "latex_fragments/table_regime_grid_v3.tex"
     "latex_fragments/table_ablation_v3.tex"
     "latex_fragments/table_conformal_v3.tex"
     "latex_fragments/table_multihop_v3.tex"
     "latex_fragments/table_coco_v3.tex"
+    "latex_fragments/table_engine_replication_v3.tex"
+    "latex_fragments/table_funsd_v3.tex"
     "latex_fragments/abstract_v3.tex"
     "latex_fragments/contributions_v3.tex"
 )
@@ -101,6 +110,7 @@ for out in "${V3_OUTPUTS[@]}"; do
     fi
     echo "  [FOUND] $out"
 done
+
 
 echo -e "\n========================================================================"
 echo "ALL EXPERIMENTAL PHASES SUCCESSFULLY REPRODUCED"

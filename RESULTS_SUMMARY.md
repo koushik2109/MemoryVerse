@@ -73,7 +73,7 @@ To preserve scientific integrity, every contradicted claim identified during the
 
 ## 4. Configuration Accounting (Forking-Paths Registry)
 
-A total of **12 evaluation configurations** are tracked in `CONFIG_LOG.md`:
+A total of **14 evaluation configurations** are tracked in `CONFIG_LOG.md`:
 1. `CFG-001`: Analytical Uniform Random Baseline ($N=813$, expected MRR = $0.00895$).
 2. `CFG-002`: OCR Normalization & Alignment Sweeps ($N=626$ receipts).
 3. `CFG-003`: Dense Truncation & Chunked MaxP Retrieval ($N=306$ probes, $813$ docs).
@@ -86,6 +86,8 @@ A total of **12 evaluation configurations** are tracked in `CONFIG_LOG.md`:
 10. `CFG-010`: Character $n$-gram vs. Word BM25 Boundary Matrix ($N_{\text{perm}}=100{,}000$).
 11. `CFG-011`: Headline 12-Cell Regime Matrix & Dev Tuning ($k_1^*=0.9, b^*=0.5$).
 12. `CFG-012`: MS-COCO Native-Visual (CLIP & SigLIP) vs. Caption Proxy Benchmark ($N=1{,}000$).
+13. `CFG-013`: Second OCR Engine Replication (Tesseract 5.5 vs Apple Vision on SROIE Receipts).
+14. `CFG-014`: Second Dataset Replication (FUNSD Forms) & Cross-Domain Hypothesis Tests ($N_{\text{perm}}=100{,}000$).
 
 ---
 
@@ -94,3 +96,18 @@ A total of **12 evaluation configurations** are tracked in `CONFIG_LOG.md`:
 1. **Finite-Sample Conformal Coverage Breakdown:** While split conformal prediction provides marginal guarantees over repeated draws, finite test partitions ($N=1{,}377$) exhibit 63% violation rates for small risk bounds ($\epsilon = 0.05$) due to query exchangeability variance.
 2. **Synthetic vs. Optical Noise Divergence:** Character $n$-gram indices and dictionary-based reliability filters tuned on synthetic character noise fail to translate to optical blur, demonstrating that synthetic corruptions are an unreliable proxy for physical sensor degradation.
 3. **Multi-Hop Extraction Cost:** Generative LLM query reformulation introduces a 45% latency penalty and token costs without producing measurable retrieval gains over single-stage dense or hybrid retrieval.
+
+---
+
+## 6. Generalization Replication: Second OCR Engine & Second Document Dataset
+
+To verify that the headline decision rule is not an artifact of Apple Vision or SROIE receipts, we conducted full independent replications:
+1. **Second OCR Engine (Tesseract 5.5 LSTM vs Apple Vision Neural on SROIE Receipts):**
+   - Clean Tesseract error rates (CER = $0.8376$, WER = $1.0481$) represent an extreme optical degradation regime compared to Apple Vision (CER = $0.1387$, WER = $0.2165$).
+   - Headline Thesis Verified: Query mismatch drop ($\Delta = 0.3775$) significantly exceeds Tesseract OCR drop ($\Delta = 0.1208$) by $+0.2568$ MRR (95% CI $[0.2008, 0.3145]$, $p = 10^{-5}$).
+   - Subword Robustness: Char 3-5gram BM25 retains $0.8412$ MRR on clean Tesseract and $0.4009$ on degraded blur ($N=306$ test probes, $813$ docs).
+2. **Second Document Dataset (FUNSD Scanned Administrative Forms):**
+   - Evaluated 199 dense scanned administrative forms ($N=100$ test probes, 600 docs pool) across Ground Truth, Apple Vision, and Tesseract 5.5.
+   - Headline Thesis Verified: Moving from verbatim to light paraphrasing induces an MRR drop of $0.6841$, exceeding Apple Vision OCR drop ($\Delta = 0.0326$, diff $= +0.6515$, $p = 10^{-5}$) and Tesseract OCR drop ($\Delta = 0.0927$, diff $= +0.5914$, $p = 10^{-5}$) by more than sevenfold.
+   - Result: Headline rule is structurally invariant across both neural and LSTM OCR engines and across physical receipts and administrative forms (`results/v3/cross_domain_hypothesis_tests.csv`).
+

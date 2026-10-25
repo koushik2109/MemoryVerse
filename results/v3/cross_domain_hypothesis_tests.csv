@@ -1,0 +1,4 @@
+Dataset,Engine,Comparison,Mismatch_Drop_Mean,OCR_Drop_Mean,Diff_in_Drops,Diff_CI,Perm_P_100k,Headline_Verdict
+SROIE Receipts,Tesseract 5.5,Query Mismatch Drop vs Tesseract Clean OCR Drop,0.3775,0.1208,0.2568,[0.2008, 0.3145],1e-05,CONFIRMED: Query mismatch (0.3775) significantly exceeds Tesseract OCR drop (0.1208) (p < 1e-4)
+FUNSD Forms,Apple Vision,Query Mismatch Drop vs Apple Vision Clean OCR Drop,0.6841,0.0326,0.6515,[0.5798, 0.7216],1e-05,CONFIRMED: Query mismatch (0.6841) significantly exceeds Apple Vision OCR drop (0.0326) (p < 1e-4)
+FUNSD Forms,Tesseract 5.5,Query Mismatch Drop vs Tesseract Clean OCR Drop,0.6841,0.0927,0.5914,[0.5051, 0.6742],1e-05,CONFIRMED: Query mismatch (0.6841) significantly exceeds Tesseract OCR drop (0.0927) (p < 1e-4)

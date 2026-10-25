@@ -293,3 +293,44 @@
     - CLIP vs Best BLIP Proxy (MiniLM): Diff Hit@1 `+0.0970`, Hit@5 `+0.1020`, Hit@10 `+0.1040`, MRR `+0.0981` (all $p_{\text{Holm}} = 8 \times 10^{-5}$). Native visual statistically superior.
     - SigLIP vs Best BLIP Proxy (MiniLM): Diff Hit@1 `+0.2380`, Hit@5 `+0.2520`, Hit@10 `+0.2140`, MRR `+0.2343` (all $p_{\text{Holm}} = 8 \times 10^{-5}$). Native visual statistically superior.
   - Outputs: `results/v3/coco_native_visual_v3.csv`, `results/v3/coco_hypothesis_test_v3.csv`.
+
+### Phase 8: Second OCR Engine (Tesseract 5.5) & Second Dataset (FUNSD Forms) Replication
+- **Timestamp:** 2026-10-25T16:32:20+05:30
+- **Script:** `ai_engine/rag/scripts/run_engine_and_dataset_replication_v3.py`
+- **Total Wall-Clock Time:** ~210s
+- **Engines & Toolchain:**
+  - Tesseract 5.5.3 (Homebrew open-source LSTM OCR engine) with `pytesseract` 0.3.13.
+  - Apple Vision OCR (macOS Vision Framework, accurate level, neural engine).
+- **Part 1: Second OCR Engine (Tesseract 5.5 vs Apple Vision on SROIE Receipts):**
+  - OCR line-aligned error rates:
+    - Tesseract Clean: CER = `0.8376`, WER = `1.0481` (vs Apple Vision CER `0.1387`, WER `0.2165`).
+    - Tesseract Degraded: CER = `0.9134`, WER = `1.0596` (vs Apple Vision CER `0.3086`, WER `0.4595`).
+  - Held-out Test Split retrieval ($N=306$ probes, $813$ docs):
+    - Ground Truth: Verbatim BM25 `0.8572`, Light BM25 `0.4796`, Heavy BM25 `0.9192`.
+    - Apple Vision Clean: Verbatim BM25 `0.8324`, Light BM25 `0.4003`, Heavy BM25 `0.8937`.
+    - Tesseract 5.5 Clean: Verbatim BM25 `0.7364`, Light BM25 `0.3964`, Heavy BM25 `0.7956`.
+    - Tesseract 5.5 Degraded Blur: Verbatim BM25 `0.3448`, Light BM25 `0.1852`, Heavy BM25 `0.3820`.
+    - Char 3-5gram BM25 retains `0.8412` MRR on Tesseract Clean despite its 83.8% CER.
+- **Part 2: Second Document Dataset (FUNSD Scanned Administrative Forms):**
+  - Dataset: 199 scanned forms (149 train, 50 test; 100 test forms + 500 COCO distractors = 600 docs pool).
+  - OCR line-aligned error rates:
+    - Apple Vision: CER = `0.5712`, WER = `0.6349`.
+    - Tesseract 5.5: CER = `1.0003`, WER = `1.1053`.
+  - FUNSD Test Split retrieval ($N=100$ test probes):
+    - Ground Truth: Verbatim BM25 `0.8690`, Light BM25 `0.1849`, Tuned Hybrid `0.8728` / `0.2043`.
+    - Apple Vision Clean: Verbatim BM25 `0.8364`, Light BM25 `0.1573`, Tuned Hybrid `0.8461` / `0.2099`.
+    - Tesseract 5.5 Clean: Verbatim BM25 `0.7763`, Light BM25 `0.2019`, Tuned Hybrid `0.7775` / `0.2109`.
+- **Part 3: Cross-Domain Headline Decision Rule Verification (Paired Permutation $N_{\text{perm}}=100{,}000$):**
+  - SROIE with Tesseract 5.5: Query mismatch drop `0.3775` vs Tesseract OCR drop `0.1208` (paired diff `+0.2568` [$0.2008, 0.3145$], $p = 10^{-5}$). Confirmed headline thesis.
+  - FUNSD with Apple Vision: Query mismatch drop `0.6841` vs Apple Vision OCR drop `0.0326` (paired diff `+0.6515` [$0.5798, 0.7216$], $p = 10^{-5}$). Confirmed headline thesis.
+  - FUNSD with Tesseract 5.5: Query mismatch drop `0.6841` vs Tesseract OCR drop `0.0927` (paired diff `+0.5914` [$0.5051, 0.6742$], $p = 10^{-5}$). Confirmed headline thesis.
+- **Output Artifacts:**
+  - `results/v3/engine_replication.csv`
+  - `results/v3/funsd_dataset_replication.csv`
+  - `results/v3/cross_domain_hypothesis_tests.csv`
+  - `results/v3/sroie_tesseract_clean_ocr.json`
+  - `results/v3/sroie_tesseract_degraded_ocr.json`
+  - `results/v3/funsd_apple_vision_ocr.json`
+  - `results/v3/funsd_tesseract_ocr.json`
+  - `results/v3/funsd_probes.json`
+
