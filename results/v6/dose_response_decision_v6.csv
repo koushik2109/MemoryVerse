@@ -1,0 +1,5 @@
+Engine,Overlap_15pct_MRR_Loss,Extreme_Degradation_MRR_Loss,Net_Diff (Overlap_Loss - Deg_Loss),Strictly_Dominates_With_NonOverlapping_CI,Dominant_Regime
+Word BM25,-0.0693,0.6817,-0.751,False,Optical Noise Dominates
+Char 3-5gram BM25,-0.0005,0.7874,-0.7879,False,Optical Noise Dominates
+Dense BGE-Base,-0.2086,0.2473,-0.4559,False,Optical Noise Dominates
+Tuned Hybrid RRF,-0.2415,0.3705,-0.612,False,Optical Noise Dominates

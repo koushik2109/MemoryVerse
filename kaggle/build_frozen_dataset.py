@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
 kaggle/build_frozen_dataset.py: Bundles all frozen inputs, benchmark files,
-probe splits, Apple Vision OCR texts, code, and images into frozen_inputs_v5.zip
-for Kaggle execution.
+probe splits, OCR texts, results/v6, LaTeX fragments, runner scripts, and images into
+frozen_inputs_v6.zip for Kaggle execution.
 
 Outputs:
-  kaggle/frozen_inputs_v5.zip
+  kaggle/frozen_inputs_v6.zip
   Prints total zip size and SHA-256 hash.
 """
 
@@ -16,7 +16,7 @@ import hashlib
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-OUTPUT_ZIP = REPO_ROOT / "kaggle" / "frozen_inputs_v5.zip"
+OUTPUT_ZIP = REPO_ROOT / "kaggle" / "frozen_inputs_v6.zip"
 
 FILES_TO_PACK = [
     # Benchmark core
@@ -24,10 +24,6 @@ FILES_TO_PACK = [
     "ai_engine/rag/data/v2/frozen_probes_with_paraphrases.json",
     "ai_engine/rag/data/v2/sroie_degraded_ocr.json",
     "results/v3/heavy_paraphrases_v3.json",
-    "results/v3/dev_tuned_parameters_v3.json",
-    "results/v3/ocr_error_rates.csv",
-    "results/v3/headline_regime_grid_v3.csv",
-    "results/v3/headline_hypothesis_tests.csv",
     "results/v3/sroie_tesseract_clean_ocr.json",
     "results/v3/sroie_tesseract_degraded_ocr.json",
     "results/v3/funsd_apple_vision_ocr.json",
@@ -40,14 +36,22 @@ FILES_TO_PACK = [
     "results/v3/coco_siglip_image_embeddings.npy",
     "ai_engine/rag/data/expanded_multihop_results.json",
     # Documentation, preregistration & configs
-    "PREREG_V5.md",
+    "PREREG_V6.md",
     "CONFIG_LOG.md",
     "MANIFEST.json",
+    "CHECKPOINT1.md",
+    "RESULTS_SUMMARY_V6.md",
+    "CLAIMS_LEDGER.csv",
+    "PAPER_FIXLIST_V6.md",
+    "reproduce_v6.sh",
     "kaggle/requirements_kaggle.txt",
-    "kaggle/kaggle_run_v5.py",
+    "kaggle/kaggle_run_v6.py",
+    "kaggle/README_KAGGLE.md",
 ]
 
 DIRECTORY_TREES_TO_PACK = [
+    "results/v6",
+    "latex_fragments_v6",
     "ai_engine/rag/data/sroie/img",
     "ai_engine/rag/data/sroie/img_degraded",
     "ai_engine/rag/data/coco_1k_images",
@@ -62,7 +66,7 @@ def sha256_of_file(path: Path) -> str:
 
 def main():
     print("=" * 80)
-    print("BUILDING FROZEN INPUTS DATASET FOR KAGGLE (frozen_inputs_v5.zip)")
+    print("BUILDING FROZEN INPUTS DATASET FOR KAGGLE (frozen_inputs_v6.zip)")
     print(f"Repository Root: {REPO_ROOT}")
     print(f"Target Output:   {OUTPUT_ZIP}")
     print("=" * 80)
@@ -93,7 +97,7 @@ def main():
                 print(f"  [Packing Directory Tree] {dir_rel}...")
                 dir_packed = 0
                 for item in dp.rglob("*"):
-                    if item.is_file() and not item.name.startswith("."):
+                    if item.is_file() and not item.name.startswith(".") and not item.name.endswith(".zip"):
                         arc_name = str(item.relative_to(REPO_ROOT))
                         zf.write(item, arcname=arc_name)
                         dir_packed += 1
