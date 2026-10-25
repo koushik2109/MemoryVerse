@@ -1,0 +1,6 @@
+probe_id,target_id,verbatim,gpt4o_mini_paraphrase,qwen_paraphrase,fact_tokens_preserved
+"probe_0000","sroie_000","BOOK TA .K (TAMAN DAYA) SDN BHD","retrieve document record showing payment at book ta k","locate receipt transaction from book ta .k (taman daya) sdn bhd","True"
+"probe_0001","sroie_001","INDAH GIFT & HOME DECO","retrieve document record showing payment at indah gift","locate receipt transaction from indah gift & home deco","True"
+"probe_0003","sroie_003","YONGFATT ENTERPRISE","retrieve document record showing payment at yongfatt","locate receipt transaction from yongfatt enterprise","True"
+"probe_0006","sroie_006","SOON HUAT MACHINERY ENTERPRISE","retrieve document record showing payment at soon huat","locate receipt transaction from soon huat machinery enterprise","True"
+"probe_0007","sroie_007","S.H.H. MOTOR (SUNGAI RENGIT) SDN. BHD.","retrieve document record showing payment at s h h","locate receipt transaction from s.h.h. motor (sungai rengit) sdn. bhd.","True"

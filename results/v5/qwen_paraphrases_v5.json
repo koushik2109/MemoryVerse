@@ -1,0 +1,27 @@
+[
+  {
+    "probe_id": "probe_0000",
+    "target_id": "sroie_000",
+    "qwen_paraphrase": "locate receipt transaction from book ta .k (taman daya) sdn bhd"
+  },
+  {
+    "probe_id": "probe_0001",
+    "target_id": "sroie_001",
+    "qwen_paraphrase": "locate receipt transaction from indah gift & home deco"
+  },
+  {
+    "probe_id": "probe_0003",
+    "target_id": "sroie_003",
+    "qwen_paraphrase": "locate receipt transaction from yongfatt enterprise"
+  },
+  {
+    "probe_id": "probe_0006",
+    "target_id": "sroie_006",
+    "qwen_paraphrase": "locate receipt transaction from soon huat machinery enterprise"
+  },
+  {
+    "probe_id": "probe_0007",
+    "target_id": "sroie_007",
+    "qwen_paraphrase": "locate receipt transaction from s.h.h. motor (sungai rengit) sdn. bhd."
+  }
+]

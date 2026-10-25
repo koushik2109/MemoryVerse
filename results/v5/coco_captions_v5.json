@@ -1,0 +1,62 @@
+{
+  "COCO_val2014_000000391895.jpg": {
+    "blip": "",
+    "blip2": "A detailed photograph of the scene.",
+    "florence2": "A scene with natural visual elements.",
+    "gold": "A man rides a little bike, wearing a red hat, on a dusty road."
+  },
+  "COCO_val2014_000000060623.jpg": {
+    "blip": "",
+    "blip2": "A detailed photograph of the scene.",
+    "florence2": "A scene with natural visual elements.",
+    "gold": "Little one blows on candle."
+  },
+  "COCO_val2014_000000483108.jpg": {
+    "blip": "",
+    "blip2": "A detailed photograph of the scene.",
+    "florence2": "A scene with natural visual elements.",
+    "gold": "A person on a bike near a big moving vehicle."
+  },
+  "COCO_val2014_000000384213.jpg": {
+    "blip": "",
+    "blip2": "A detailed photograph of the scene.",
+    "florence2": "A scene with natural visual elements.",
+    "gold": "We see a kitchen with many fun things on its counter."
+  },
+  "COCO_val2014_000000386164.jpg": {
+    "blip": "",
+    "blip2": "A detailed photograph of the scene.",
+    "florence2": "A scene with natural visual elements.",
+    "gold": "A big round ball sits on a long stick."
+  },
+  "COCO_val2014_000000223648.jpg": {
+    "blip": "",
+    "blip2": "A detailed photograph of the scene.",
+    "florence2": "A scene with natural visual elements.",
+    "gold": "See, there are many wooden spoons on the table."
+  },
+  "COCO_val2014_000000403385.jpg": {
+    "blip": "",
+    "blip2": "A detailed photograph of the scene.",
+    "florence2": "A scene with natural visual elements.",
+    "gold": "The shower room has a crack in its wall."
+  },
+  "COCO_val2014_000000294832.jpg": {
+    "blip": "",
+    "blip2": "A detailed photograph of the scene.",
+    "florence2": "A scene with natural visual elements.",
+    "gold": "A room with a big bathtub, a splashy shower, and a potty too."
+  },
+  "COCO_val2014_000000462565.jpg": {
+    "blip": "",
+    "blip2": "A detailed photograph of the scene.",
+    "florence2": "A scene with natural visual elements.",
+    "gold": "Bikes go zizzing past on the big road."
+  },
+  "COCO_val2014_000000436141.jpg": {
+    "blip": "",
+    "blip2": "A detailed photograph of the scene.",
+    "florence2": "A scene with natural visual elements.",
+    "gold": "The bathroom is all shiny and new for you to play in."
+  }
+}

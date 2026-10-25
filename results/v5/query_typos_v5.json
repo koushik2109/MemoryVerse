@@ -1,0 +1,52 @@
+{
+  "probe_0000": {
+    "verbatim_clean": "BOOK TA .K (TAMAN DAYA) SDN BHD",
+    "light_clean": "retrieve document record showing payment at book ta k",
+    "verbatim_typo_05": "BOO KTA .K (TAMAN DAYA)rSDN BHD",
+    "verbatim_typo_10": "BOO KTAi.K (TAMAN DAYA)rSDN BHD",
+    "verbatim_typo_20": "BOKO TAi.K (TAMAN DAYA)SrDN BHD",
+    "light_typo_05": "retriev edocumint record showing payment at boor ta k",
+    "light_typo_10": "retrie vedocumint record showing payment at boo rta k",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment at boo rta k"
+  },
+  "probe_0001": {
+    "verbatim_clean": "INDAH GIFT & HOME DECO",
+    "light_clean": "retrieve document record showing payment at indah gift",
+    "verbatim_typo_05": "INDHA GIFT & HOME DECO",
+    "verbatim_typo_10": "INDHA GIpT & HOME DECO",
+    "verbatim_typo_20": "INDHg GIpT & HOMED ECO",
+    "light_typo_05": "retriev edocumint record showing payment at indrh gift",
+    "light_typo_10": "retrie vedocumint record showing payment at indhr gift",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment at indhr gift"
+  },
+  "probe_0003": {
+    "verbatim_clean": "YONGFATT ENTERPRISE",
+    "light_clean": "retrieve document record showing payment at yongfatt",
+    "verbatim_typo_05": "YONFGATT ENTERPRISE",
+    "verbatim_typo_10": "YONFGATTpENTERPRISE",
+    "verbatim_typo_20": "YONFgATTpENTERPRIES",
+    "light_typo_05": "retriev edocumint record showing payment at yonrfatt",
+    "light_typo_10": "retrie vedocumint record showing payment at yonfratt",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at yonfratt"
+  },
+  "probe_0006": {
+    "verbatim_clean": "SOON HUAT MACHINERY ENTERPRISE",
+    "light_clean": "retrieve document record showing payment at soon huat",
+    "verbatim_typo_05": "SOO NHUAT MACHINERY ENTrRPRISE",
+    "verbatim_typo_10": "SOO NHUiT MACHINERY ENTrRPRISE",
+    "verbatim_typo_20": "SONO HUiT MACHINERY ENTRrPRISE",
+    "light_typo_05": "retriev edocumint record showing payment at soor huat",
+    "light_typo_10": "retrie vedocumint record showing payment at soo rhuat",
+    "light_typo_20": "rtfri evedocmu6nt record shwoing payment at soo rhuat"
+  },
+  "probe_0007": {
+    "verbatim_clean": "S.H.H. MOTOR (SUNGAI RENGIT) SDN. BHD.",
+    "light_clean": "retrieve document record showing payment at s h h",
+    "verbatim_typo_05": "S.H.H. OMTOR (SUNpAI RENGIT) SDN. BHD.",
+    "verbatim_typo_10": "S.H.H. OgTOR (SUNpAI RENGIT) SDN. HBD.",
+    "verbatim_typo_20": "SHf.H. OgTOR (6UNpAI RENGIT) SDN. HBD1",
+    "light_typo_05": "retriev edocument record showing payment at s hrh",
+    "light_typo_10": "retrie vedocumint record showing payment at s hhr",
+    "light_typo_20": "rtfri evedocum6nt record shwoing payment at s hhr"
+  }
+}

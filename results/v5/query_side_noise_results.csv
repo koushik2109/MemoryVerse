@@ -1,0 +1,73 @@
+Doc_Condition,Query_Variant,System,MRR,MRR_CI_Lower,MRR_CI_Upper
+Ground Truth,verbatim_clean,Word BM25,1.0,1.0,1.0
+Ground Truth,verbatim_clean,Char 3-5gram BM25,1.0,1.0,1.0
+Ground Truth,verbatim_clean,Word+Char BM25 Fusion,1.0,1.0,1.0
+Ground Truth,verbatim_typo_05,Word BM25,1.0,1.0,1.0
+Ground Truth,verbatim_typo_05,Char 3-5gram BM25,1.0,1.0,1.0
+Ground Truth,verbatim_typo_05,Word+Char BM25 Fusion,1.0,1.0,1.0
+Ground Truth,verbatim_typo_10,Word BM25,0.9,0.7,1.0
+Ground Truth,verbatim_typo_10,Char 3-5gram BM25,1.0,1.0,1.0
+Ground Truth,verbatim_typo_10,Word+Char BM25 Fusion,1.0,1.0,1.0
+Ground Truth,verbatim_typo_20,Word BM25,0.75,0.4988,1.0
+Ground Truth,verbatim_typo_20,Char 3-5gram BM25,1.0,1.0,1.0
+Ground Truth,verbatim_typo_20,Word+Char BM25 Fusion,1.0,1.0,1.0
+Ground Truth,light_clean,Word BM25,0.9,0.7,1.0
+Ground Truth,light_clean,Char 3-5gram BM25,0.7,0.5,0.9
+Ground Truth,light_clean,Word+Char BM25 Fusion,0.8,0.6,1.0
+Ground Truth,light_typo_05,Word BM25,0.64,0.42,0.9
+Ground Truth,light_typo_05,Char 3-5gram BM25,0.7,0.5,0.9
+Ground Truth,light_typo_05,Word+Char BM25 Fusion,0.8,0.6,1.0
+Ground Truth,light_typo_10,Word BM25,0.58,0.26,0.9
+Ground Truth,light_typo_10,Char 3-5gram BM25,0.49,0.29,0.7403
+Ground Truth,light_typo_10,Word+Char BM25 Fusion,0.6167,0.3662,0.8667
+Ground Truth,light_typo_20,Word BM25,0.58,0.26,0.9
+Ground Truth,light_typo_20,Char 3-5gram BM25,0.75,0.5488,1.0
+Ground Truth,light_typo_20,Word+Char BM25 Fusion,0.7667,0.5658,1.0
+Clean OCR,verbatim_clean,Word BM25,1.0,1.0,1.0
+Clean OCR,verbatim_clean,Char 3-5gram BM25,1.0,1.0,1.0
+Clean OCR,verbatim_clean,Word+Char BM25 Fusion,1.0,1.0,1.0
+Clean OCR,verbatim_typo_05,Word BM25,1.0,1.0,1.0
+Clean OCR,verbatim_typo_05,Char 3-5gram BM25,1.0,1.0,1.0
+Clean OCR,verbatim_typo_05,Word+Char BM25 Fusion,1.0,1.0,1.0
+Clean OCR,verbatim_typo_10,Word BM25,0.9,0.7,1.0
+Clean OCR,verbatim_typo_10,Char 3-5gram BM25,1.0,1.0,1.0
+Clean OCR,verbatim_typo_10,Word+Char BM25 Fusion,1.0,1.0,1.0
+Clean OCR,verbatim_typo_20,Word BM25,0.75,0.4988,1.0
+Clean OCR,verbatim_typo_20,Char 3-5gram BM25,1.0,1.0,1.0
+Clean OCR,verbatim_typo_20,Word+Char BM25 Fusion,1.0,1.0,1.0
+Clean OCR,light_clean,Word BM25,0.9,0.7,1.0
+Clean OCR,light_clean,Char 3-5gram BM25,0.6,0.5,0.8
+Clean OCR,light_clean,Word+Char BM25 Fusion,0.8,0.6,1.0
+Clean OCR,light_typo_05,Word BM25,0.64,0.42,0.9
+Clean OCR,light_typo_05,Char 3-5gram BM25,0.7,0.5,0.9
+Clean OCR,light_typo_05,Word+Char BM25 Fusion,0.7667,0.5658,1.0
+Clean OCR,light_typo_10,Word BM25,0.58,0.26,0.9
+Clean OCR,light_typo_10,Char 3-5gram BM25,0.55,0.35,0.7513
+Clean OCR,light_typo_10,Word+Char BM25 Fusion,0.65,0.3988,0.9
+Clean OCR,light_typo_20,Word BM25,0.58,0.26,0.9
+Clean OCR,light_typo_20,Char 3-5gram BM25,0.75,0.5488,1.0
+Clean OCR,light_typo_20,Word+Char BM25 Fusion,0.75,0.5488,1.0
+Degraded OCR,verbatim_clean,Word BM25,0.4567,0.2533,0.7067
+Degraded OCR,verbatim_clean,Char 3-5gram BM25,0.4567,0.2533,0.7067
+Degraded OCR,verbatim_clean,Word+Char BM25 Fusion,0.4567,0.2533,0.7067
+Degraded OCR,verbatim_typo_05,Word BM25,0.4567,0.2533,0.7067
+Degraded OCR,verbatim_typo_05,Char 3-5gram BM25,0.4567,0.2533,0.7067
+Degraded OCR,verbatim_typo_05,Word+Char BM25 Fusion,0.4567,0.2533,0.7067
+Degraded OCR,verbatim_typo_10,Word BM25,0.4567,0.2533,0.7067
+Degraded OCR,verbatim_typo_10,Char 3-5gram BM25,0.4567,0.2533,0.7067
+Degraded OCR,verbatim_typo_10,Word+Char BM25 Fusion,0.4567,0.2533,0.7067
+Degraded OCR,verbatim_typo_20,Word BM25,0.4567,0.2533,0.7067
+Degraded OCR,verbatim_typo_20,Char 3-5gram BM25,0.4567,0.2533,0.7067
+Degraded OCR,verbatim_typo_20,Word+Char BM25 Fusion,0.4567,0.2533,0.7067
+Degraded OCR,light_clean,Word BM25,0.4567,0.2533,0.7067
+Degraded OCR,light_clean,Char 3-5gram BM25,0.4567,0.2533,0.7067
+Degraded OCR,light_clean,Word+Char BM25 Fusion,0.4567,0.2533,0.7067
+Degraded OCR,light_typo_05,Word BM25,0.4567,0.2533,0.7067
+Degraded OCR,light_typo_05,Char 3-5gram BM25,0.4567,0.2533,0.7067
+Degraded OCR,light_typo_05,Word+Char BM25 Fusion,0.4567,0.2533,0.7067
+Degraded OCR,light_typo_10,Word BM25,0.4567,0.2533,0.7067
+Degraded OCR,light_typo_10,Char 3-5gram BM25,0.4567,0.2533,0.7067
+Degraded OCR,light_typo_10,Word+Char BM25 Fusion,0.4567,0.2533,0.7067
+Degraded OCR,light_typo_20,Word BM25,0.4567,0.2533,0.7067
+Degraded OCR,light_typo_20,Char 3-5gram BM25,0.4567,0.2533,0.7067
+Degraded OCR,light_typo_20,Word+Char BM25 Fusion,0.4567,0.2533,0.7067

@@ -148,6 +148,16 @@
       "bytes": 821,
       "description": "LaTeX booktabs table fragment for multi-hop equivalence testing"
     },
+    "kaggle/frozen_inputs_v5.zip": {
+      "sha256": "0f164232115ce89a8a0806b1a12c878e8375e0e5f93ca6a3a2bd5e7fd22e4ecb",
+      "bytes": 470619807,
+      "description": "Frozen input dataset containing benchmark data, probes, splits, Apple Vision OCR, images, configs, and runner for Kaggle execution"
+    },
+    "PREREG_V5.md": {
+      "sha256": "9e8d6b6be2414c9e7bc58d5e335c41860898d7b16bdac388eb6718f9170aea07",
+      "bytes": 9566,
+      "description": "Pre-registration of hypotheses, evaluation systems, metrics, seeds, and decision rules for v5 study extensions"
+    },
     "reproduce.sh": {
       "sha256": "f984b83cc4c19380554db9f4f1166aeabdb11833f9f85ae4d6a17ef3a1c73e2b",
       "bytes": 4141,

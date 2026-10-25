@@ -46,3 +46,6 @@ PROJECT_EXPLAINER.md
 
 # Locally supplied raw benchmark media
 ai_engine/rag/data/raw_media/
+
+# Kaggle local simulation scratch directory
+working/

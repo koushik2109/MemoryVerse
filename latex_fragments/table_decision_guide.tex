@@ -1,0 +1,19 @@
+\begin{table*}[t]
+\centering
+\small
+\caption{Synthesized Empirical Retrieval Decision Guide across Modalities, Noise Conditions, and Query Types (Statistically Tied Systems within 95\% Paired CIs).}
+\label{tab:decision_guide}
+\begin{tabular}{llllccl}
+\toprule
+Modality & Noise Regime & Query Type & Recommended Architecture & Top MRR [95\% CI] & Latency (ms) & Empirical Decision Rule \\
+\midrule
+Document Page & Clean Text / Real OCR & Verbatim Lookup & \textbf{BM25 (Char 3-5gram)} & 0.9443 [0.920, 0.965] & 0.87 & Use Char BM25 for near-perfect precision at sub-millisecond cost. \\
+Document Page & Clean Real OCR & Light Paraphrase & \textbf{ColQwen2 Document-Native} & 0.4580 [0.408, 0.509] & 38.40 & Visual tokens or Tuned Hybrid essential; pure lexical BM25 collapses. \\
+Document Page & Clean Real OCR & Answerable Question & \textbf{BM25 (Char 3-5gram)} & 0.9558 [0.935, 0.975] & 5.72 & Char BM25 matches key entity anchors reliably; dense models trail. \\
+Document Page & Degraded Optical Blur & Verbatim Lookup & \textbf{BM25 (Char 3-5gram)} & 0.8248 [0.782, 0.864] & 0.87 & Char n-grams absorb optical character substitution; visual models drop. \\
+Document Page & Synthetic 20% Noise & Verbatim Lookup & \textbf{BM25 (Char 3-5gram)} & 0.7252 [0.694, 0.757] & 0.87 & Char n-grams provide +0.33 MRR over word BM25 under uniform typos. \\
+Natural Image & Clean Machine Proxy (BLIP) & Descriptive Search & \textbf{SigLIP Base Patch16 (Native)} & 0.6071 [0.584, 0.633] & 18.20 & Bypass text proxies completely; native visual embeddings dominate. \\
+Natural Image & Gold Caption Upper Bound & Descriptive Search & \textbf{Dense BGE-base (Gold Proxy)} & 0.5835 [0.559, 0.608] & 19.93 & Proxies reach parity with native vision only with gold human captions. \\
+\bottomrule
+\end{tabular}
+\end{table*}
