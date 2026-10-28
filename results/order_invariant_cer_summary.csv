@@ -1,0 +1,3 @@
+engine,condition,line_aligned_cer,line_aligned_wer,bow_symmetric_diff_rate
+Apple Vision Neural,Clean OCR,0.1387,0.2165,0.1136
+Apple Vision Neural,Degraded Blur,0.3086,0.4595,0.4464

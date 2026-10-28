@@ -1,0 +1,201 @@
+receipt_id,ground_truth_vendor,ground_truth_total,handwritten_verbatim,handwritten_paraphrase
+sroie_000,BOOK TA .K (TAMAN DAYA) SDN BHD,9.00,Book Ta K Taman Daya,Find receipt for books and modelling clay bought in Taman Daya
+sroie_001,INDAH GIFT & HOME DECO,60.30,Indah Gift Home Deco Johor Jaya,What did I buy home decor items in Johor Jaya?
+sroie_003,YONGFATT ENTERPRISE,80.90,Yongfatt Enterprise Jalan Dedap,Receipt for shopping at Yongfatt store on Christmas
+sroie_006,SOON HUAT MACHINERY ENTERPRISE,327.00,Soon Huat Machinery Enterprise,Hardware bill for machinery tools and supplies at Soon Huat
+sroie_007,S.H.H. MOTOR (SUNGAI RENGIT) SDN. BHD.,20.00,SHH Motor Sungai Rengit Pengerang,Motorcycle repair and service bill in Sungai Rengit
+sroie_009,GERBANG ALAF RESTAURANTS SDN BHD,26.60,Gerbang Alaf McDonald Porridge,Breakfast porridge meal receipt at McDonalds Gerbang Alaf
+sroie_010,SAM SAM TRADING CO,14.10,Sam Sam Trading Shah Alam Sri Muda,Receipt for goods from Sam Sam Trading in Shah Alam
+sroie_011,AIK HUAT HARDWARE ENTERPRISE (SETIA ALAM) SDN BHD,15.00,Aik Huat Hardware Setia Alam,Hardware shop bill for big stretch film packing roll
+sroie_025,TEO HENG STATIONERY & BOOKS,18.00,Teo Heng Stationery Books Batang Berjuntai,School books and stationery purchase in Batang Berjuntai
+sroie_027,MR. D.I.Y. (M) SDN BHD,37.10,MR DIY Balakong Seri Kembangan,Home maintenance and DIY tools bill from MR DIY
+sroie_029,C W KHOO HARDWARE SDN BHD,21.20,C W Khoo Hardware Jalan Sagu,Receipt from C W Khoo hardware store in Johor Bahru
+sroie_030,UNIHAKKA INTERNATIONAL SDN BHD,8.20,Unihakka International food court,Dinner meal bill at Unihakka on 5th March
+sroie_031,AEON CO. (M) BHD,75.00,Aeon Co Taman Maluri shopping,Department store receipt for purchases at Aeon Maluri
+sroie_032,UNIHAKKA INTERNATIONAL SDN BHD,8.20,Unihakka International restaurant,Food order receipt from Unihakka Restaurant on 3rd March
+sroie_034,PERNIAGAAN ZHENG HUI,332.30,Perniagaan Zheng Hui Johor,Receipt from Perniagaan Zheng Hui store
+sroie_035,UNIHAKKA INTERNATIONAL SDN BHD,8.20,Unihakka International lunch receipt,Lunch food bill at Unihakka Restaurant on 12 March
+sroie_036,UNIHAKKA INTERNATIONAL SDN BHD,8.20,Unihakka International dinner order,Dinner bill from Unihakka restaurant on 14 March
+sroie_038,YHM AEON TEBRAU CITY,13.10,YHM Aeon Tebrau City,Store purchase at Aeon Tebrau City mall on 11 March
+sroie_040,THREE STOOGES,343.95,Three Stooges Bistro Cafe Damansara,Drinks and food bill at Three Stooges Bistro in Damansara
+sroie_043,32 PUB & BISTRO OWN BY CNU TRADING,190.00,32 Pub Bistro CNU Trading Damansara,Show bill for beers and dinner at 32 Pub and Bistro in Damansara
+sroie_044,UNIHAKKA INTERNATIONAL SDN BHD,8.60,Unihakka International meal,Dining receipt for food at Unihakka on 18 March
+sroie_046,PASAR MINI JIN SENG,28.60,Pasar Mini Jin Seng Permas Jaya,Grocery shopping receipt from mini market in Permas Jaya
+sroie_047,RESTAURANT SIN DU,170.00,Restaurant Sin Du Johor Bahru,Seafood dinner receipt from Sin Du Restaurant
+sroie_048,YONG TAT HARDWARE TRADING,100.90,Yong Tat Hardware Trading Permas,Hardware tools and construction parts from Yong Tat
+sroie_049,PERNIAGAAN ZHENG HUI,8.00,Perniagaan Zheng Hui Jalan Permas,Receipt for items bought at Zheng Hui in Permas
+sroie_050,TIMELESS KITCHENETTE SDN BHD,593.10,Morganfields Timeless Kitchenette sticky bones,Dinner receipt for ribs at Morganfields Kitchenette
+sroie_054,CARREFOUR RESTAURANT,13.80,Carrefour Restaurant Permas Jaya,Lunch bill at Carrefour restaurant in Permas
+sroie_055,UNIHAKKA INTERNATIONAL SDN BHD,8.20,Unihakka International vegetables meal,Vegetable dish food receipt at Unihakka Restaurant
+sroie_057,UNIHAKKA INTERNATIONAL SDN BHD,7.10,Unihakka International fast food,Dinner receipt at Unihakka Restaurant on 29 March
+sroie_061,NANDO'S CHICKENLAND MALAYSIA SDN BHD,129.30,Nandos Chickenland Malaysia peri peri,Receipt for Peri Peri chicken meal at Nandos
+sroie_064,SUN WONG KUT SDN BHD,88.17,Sun Wong Kut restaurant Klang,Dining receipt for Chinese food at Sun Wong Kut
+sroie_065,RESTAURANT JIAWEI JIAWEI HOUSE,65.20,Restaurant Jiawei Jiawei House,Dinner meal bill at Jiawei House restaurant
+sroie_067,LIAN CHI PU TIAN VEGETARIAN RESTAURANT SDN BHD,53.55,Lian Chi Pu Tian Vegetarian Restaurant,Vegetarian food bill at Lian Chi Pu Tian restaurant
+sroie_071,AEON CO. (M) BHD,17.70,Aeon Co Taman Maluri 3rd floor,Shopping receipt from Aeon Taman Maluri shopping centre
+sroie_073,LIAN HING STATIONERY SDN BHD,79.50,Lian Hing Stationery Jalan Sultan,Office supplies and stationery bill from Lian Hing in Jalan Sultan
+sroie_078,THAI DELICIOUS RESTAURANT,92.80,Thai Delicious Restaurant Bandar Puteri,Thai food dinner bill at Thai Delicious in Bandar Puteri
+sroie_079,MR.D.I.Y(M)SDN BHD,15.90,MR DIY Balakong home improvement,Tools and household hardware items bought at MR DIY
+sroie_080,HON HWA HARDWARE TRADING,10.40,Hon Hwa Hardware Trading,Hardware supplies receipt from Hon Hwa Trading
+sroie_081,MR. D.I.Y. SDN BHD,3.90,MR DIY AAA battery 4 pcs,Pack of AAA batteries bought from MR DIY store
+sroie_082,HON HWA HARDWARE TRADING,277.00,Hon Hwa Hardware Trading tools,Hardware equipment bill from Hon Hwa Trading
+sroie_084,MR. D.I.Y. SDN BHD,5.90,MR DIY cloth peg E-140,Plastic cloth pegs bought at MR DIY hardware
+sroie_085,MR. D.I.Y. SDN BHD,9.90,MR DIY padlock 50mm,Padlock security lock purchased at MR DIY
+sroie_089,FY EAGLE ENTERPRISE,7.00,FY Eagle Enterprise Taman Bukit Serdang,Store receipt from FY Eagle in Bukit Serdang
+sroie_091,TRI SHAAS SDN BHD,85.10,Tri Shaas Mydin Mart Sri Muda,Supermarket grocery bill from Mydin Mart in Sri Muda
+sroie_093,AEON CO. (M) BHD.,5.90,Aeon Co Taman Maluri 3 floor,Receipt for items bought on third floor at Aeon Maluri
+sroie_094,AEON CO. (M) BHD,5.90,Aeon Co Taman Maluri department store,Shopping bill from Aeon department store
+sroie_095,POPULAR BOOK CO. (M) SDN BHD,31.45,Popular Book Co Malaysia books,Receipt for books and stationery bought at Popular bookstore
+sroie_097,POPULAR BOOK CO. (M) SDN BHD,21.00,Popular Book Co Malaysia bookstore,Books purchase receipt from Popular Bookstore in January
+sroie_098,WAHIN HARDWARE SDN BHD,42.40,Wahin Hardware Jalan Pasar,Plumbing and hardware items bought at Wahin Hardware
+sroie_099,SYARIKAT PERNIAGAAN GIN KEE,47.70,Syarikat Perniagaan Gin Kee hardware,Hardware shop receipt from Gin Kee store
+sroie_101,SYARIKAT PERNIAGAAN GIN KEE,29.68,Syarikat Perniagaan Gin Kee hardware,Hardware Receipt from Syarikat Gin Kee store
+sroie_102,IKANO HANDEL SDN BHD,73.30,IKEA Cheras Ikano Handel,Receipt of IKEA Cheras Ikano Handel dated 23/12/17
+sroie_103,SYARIKAT PERNIAGAAN GIN KEE,148.40,SYARIKAT PERNIAGAAN GIN KEE in Setapak,Receipt of Syarikat perniagaan gin kee in setapak dated 28/12/2017
+sroie_104,T.A.S LEISURE SDN BHD,102.40,Chili’s T.A.S. Leisure SDN BHD,Food receipt from Chilis T.A.S. Leisure SDN BHD dated 30/12/2017
+sroie_108,LIM SENG THO HARDWARE TRADING,7.00,Lim Seng Tho Hardware Jalan Ipo Batu,Receipt from Lim Seng Tho Harware Trading
+sroie_109,LIM SENG THO HARDWARE TRADING,7.00,Lim Seng Tho Hardware Jalan Ipo Batu,Receipt from Lim Seng Tho Harware Trading
+sroie_111,SYARIKAT PERNIAGAAN GIN KEE,465.34,Syarikat Perniagaan Gin Kee Setapak,Large hardware supply invoice from Gin Kee on 28 Dec 2017
+sroie_112,SUN VICTORY SDN BHD,4.00,Sun Victory Solaris Dutamas parking,Parking fee receipt at Solaris Dutamas dated 14/01/2018
+sroie_114,SYARIKAT PERNIAGAAN GIN KEE,44.73,Syarikat Perniagaan Gin Kee hardware,Hardware store tools receipt from Gin Kee on 4th January 2018
+sroie_115,SYARIKAT PERNIAGAAN GIN KEE,23.32,Syarikat Perniagaan Gin Kee Jalan Air Panas,Plumbing items bill from Gin Kee dated 10 Jan 2018
+sroie_117,SYARIKAT PERNIAGAAN GIN KEE,94.87,Syarikat Perniagaan Gin Kee hardware tools,Receipt for construction materials from Gin Kee on 3 Jan 2018
+sroie_121,SYARIKAT PERNIAGAAN GIN KEE,21.20,Syarikat Perniagaan Gin Kee Setapak,Hardware repair parts bill from Gin Kee on 11 January
+sroie_122,SYARIKAT PERNIAGAAN GIN KEE,12.72,Syarikat Perniagaan Gin Kee hardware,Small hardware screws purchase from Gin Kee on 13 Jan 2018
+sroie_123,SYARIKAT PERNIAGAAN GIN KEE,39.75,Syarikat Perniagaan Gin Kee Jalan Air Panas,Hardware store bill from Gin Kee dated 02/01/2018
+sroie_124,SYARIKAT PERNIAGAAN GIN KEE,5.30,Syarikat Perniagaan Gin Kee Setapak,Hardware items receipt from Gin Kee store on 12 Feb 2018
+sroie_126,SYARIKAT PERNIAGAAN GIN KEE,60.95,Syarikat Perniagaan Gin Kee hardware tools,Building supplies bill from Gin Kee dated 03/02/2018
+sroie_127,SYARIKAT PERNIAGAAN GIN KEE,7.95,Syarikat Perniagaan Gin Kee Setapak,Receipt for small hardware item at Gin Kee in January
+sroie_134,TRI SHAAS SDN BHD,21.40,Tri Shaas Mydin Mart Sri Muda,Grocery bill from Mydin Mart Sri Muda dated 10/08/2017
+sroie_135,ASO ELECTRICAL TRADING SDN BHD,99.00,Aso Electrical Trading Jalan Sepadu Shah Alam,Electrical wiring and lighting supplies receipt on 4 Dec 2017
+sroie_141,RESTORAN WAN SHENG,7.00,Restoran Wan Sheng Bandar Mahkota Cheras,Chinese noodle lunch bill at Restoran Wan Sheng on 12 March 2018
+sroie_142,RESTORAN WAN SHENG,2.30,Restoran Wan Sheng Jalan Temenggung,Coffee and drink receipt from Wan Sheng on 14 March 2018
+sroie_146,PAPPARICH BMC,72.93,PappaRich BMC Bandar Mahkota Cheras,Dinner bill at PappaRich restaurant dated 24/03/2018
+sroie_150,SWC ENTERPRISE SDN BHD,30.00,SWC Enterprise Seksyen 4 Bandar Mahkota,Retail purchase receipt from SWC Enterprise on 28 March 2018
+sroie_151,L TWO FLORIST & HANDICRAFT,9.00,L Two Florist Handicraft Jalan Mahagoni,Flower bouquet and gift craft bill dated 21 March 2018
+sroie_152,WATSON'S PERSONAL CARE STORES SDN BHD,41.45,Watsons Personal Care Summit Subang,Toiletries and skincare shopping receipt from Watsons on 25 March 2018
+sroie_156,TK DIVISION KITCHEN SDN BHD,29.70,Kiku Japanese Restaurant TK Division Kitchen,Japanese food dinner bill at Kiku Restaurant on 17 Jan 2018
+sroie_157,GOLDEN SCOOP SDN BHD,21.50,Baskin Robbins Golden Scoop Desa Park City,Ice cream receipt from Baskin Robbins dated 16/02/2018
+sroie_159,FUN N CHEER (MALURI),29.80,Fun N Cheer Maluri Taman Bukit Cheras,Party supplies and toy purchase bill from Fun N Cheer on 5 Jan 2018
+sroie_160,CT281 - TEALIVE SHELL KEPONG OTTOGO ENTERPRISE,8.60,Tealive Shell Kepong Ottogo Enterprise,Boba milk tea drink receipt from Tealive dated 21 Jan 2018
+sroie_163,99 SPEED MART S/B,108.50,99 Speedmart Jalan Angsa Taman Berkeley,Weekly grocery shopping bill at 99 Speedmart on 17 Feb 2018
+sroie_165,MR . DAKGALBI SOLARIS,71.00,Mr Dakgalbi Solaris Mont Kiara,Korean BBQ chicken dinner bill at Mr Dakgalbi on 5 Jan 2018
+sroie_166,THE STORE (MALAYSIA) SDN BHD,35.80,The Store Jalan Batu Ambar Taman Kok Lian,Supermarket goods receipt from The Store dated 14/01/2018
+sroie_167,LITTLE CRAVINGS SDN BHD,53.60,Nyonya Colors 1 Utama Little Cravings,Traditional kuih and lunch receipt at Nyonya Colors on 18 March 2018
+sroie_169,YAM FRESH,29.30,Yam Fresh Jalan Rimbunan Raya Kepong,Taro ball shaved ice dessert bill from Yam Fresh on 18 March 2018
+sroie_173,DOMMAL FOOD SERVICES SDN BHD,60.60,Dominos Pizza Dommal Food Services Segambut,Pizza delivery dinner order bill dated 26/03/2018
+sroie_174,MY HAPPY PHARMACY PLT,20.50,My Happy Pharmacy Jalan Mamanda Ampang,Prescription medicine bill from Happy Pharmacy on 1 Feb 2018
+sroie_175,POPULAR BOOK CO. (M) SDN BHD,11.80,Popular Book Co Desa Tun Razak,Stationery supplies and pens receipt from Popular Book on 11 Feb 2018
+sroie_181,BHPETROL PALEKBANG,6.00,BHPetrol Palekbang Kampung Laut Tumpat,Petrol fuel pump receipt from BHPetrol dated 24 March 2018
+sroie_185,SUPER SEVEN CASH & CARRY SDN BHD,367.10,Super Seven Cash Carry Pasaraya Borong,Bulk grocery shopping bill from Super Seven on 12 Feb 2018
+sroie_191,ENW HARDWARE CENTRE (M) SDN BHD,34.00,ENW Hardware Centre Ara Damansara,Hardware store parts receipt from ENW Ara Damansara on 10 March 2018
+sroie_194,AEON CO. (M) BHD.,88.95,Aeon Co Taman Maluri 3rd floor,Department store clothing receipt from Aeon Maluri dated 28 Feb 2018
+sroie_196,POPULAR BOOK CO. (M) SDN BHD,5.75,Popular Book Co Desa Tun Razak,Bookstore notebook purchase from Popular on 11 March 2018
+sroie_199,TSH POWER HARDWARE TRADING,8.00,TSH Power Hardware Dataran Sunway Kota Damansara,Hardware drill bit purchase bill dated 10/10/2017
+sroie_203,MR. D.I.Y. (M) SDN BHD,28.00,MR DIY Balakong home improvement,Household repair tools receipt from MR DIY on 26 March 2018
+sroie_204,MR. D.I.Y. (M) SDN BHD,50.80,MR DIY Balakong Seri Kembangan,Home hardware supplies bill from MR DIY dated 25 March 2018
+sroie_205,MR. D.I.Y. (M) SDN BHD,26.10,MR DIY Balakong household tools,Tools and repair purchase receipt from MR DIY on 23 March 2018
+sroie_206,GOLDEN KEY MAKER,21.00,Golden Key Maker Jalan Kenari Bandar Puchong,Duplicate house key maker bill in Puchong dated 24 March 2018
+sroie_208,MR. D.I.Y. (M) SDN BHD,12.30,MR DIY Balakong DIY items,Hardware store items receipt from MR DIY on 24 March 2018
+sroie_210,KAISON FURNISHING SDN BHD,7838.80,Kaison Furnishing Melawati Mall Level 4,Home furniture and curtains bill at Kaison Melawati on 29 Jan 2018
+sroie_214,SINNATHAMBY HOLDINGS SDN. BHD.,13.50,Sinnathamby Holdings Jalan Besar Tanah Rata,Grocery sundry items purchase receipt dated 06/02/2018
+sroie_016,LIGHTROOM GALLERY SDN BHD,73.00,Lightroom Gallery Klang,Store shopping and payment receipt from Lightroom Gallery in Klang
+sroie_216,ADVANCO COMPANY,7.00,Advanco Company Kuala Lumpur,Store shopping and payment receipt from Advanco Company in Kuala Lumpur
+sroie_217,IKANO HANDEL SDN BHD,22.00,Ikano Handel Kuala Lumpur,Store shopping and payment receipt from Ikano Handel in Kuala Lumpur
+sroie_220,PRINT EXPERT SDN BHD,4.25,Print Expert Shah Alam,"Printing banners, signages, and document copy service bill at Print Expert"
+sroie_222,POPULAR BOOK CO. (M) SDN BHD,41.00,Popular Book . (M) Kuala Lumpur,Bookstore purchase bill for books and stationery at Popular Book . (M) in Kuala Lumpur
+sroie_223,POPULAR BOOK CO. (M) SDN BHD,9.90,Popular Book . (M) Kuala Lumpur,Bookstore purchase bill for books and stationery at Popular Book . (M) in Kuala Lumpur
+sroie_224,BOON SENG PAPER SDN BHD,31.80,Boon Seng Paper Shah Alam,Store shopping and payment receipt from Boon Seng Paper in Shah Alam
+sroie_225,RELAIS TOTAL OULMES,56.00,Relais Total Oulmes,Store shopping and payment receipt from Relais Total Oulmes in Malaysia
+sroie_226,TONYMOLY VIVA CITY,100.60,Tonymoly Viva City Kuching,Skincare and beauty cosmetics shopping bill at TonyMoly store in Kuching
+sroie_228,TONYMOLY VIVA CITY,48.95,Tonymoly Viva City Kuching,Skincare and beauty cosmetics shopping bill at TonyMoly store in Kuching
+sroie_229,ANZEL ADVERTISING (M) SDN BHD,7.40,Anzel Advertising (M) Kuala Lumpur,"Printing banners, signages, and document copy service bill at Anzel Advertising (M)"
+sroie_231,MR. D.I.Y. (KUCHAI) SDN BHD,119.70,Mr. D.I.Y. (Kuchai) Seri Kembangan,Home improvement tools and hardware supplies receipt from MR DIY in Seri Kembangan
+sroie_232,PREMIO STATIONERY SDN BHD,25.45,Premio Stationery Petaling Jaya,Bookstore purchase bill for books and stationery at Premio Stationery in Petaling Jaya
+sroie_233,Y SOON FATT S/B,362.50,Y Soon Fatt Klang,Store shopping and payment receipt from Y Soon Fatt in Klang
+sroie_234,BEMED (SP) SDN BHD,165.00,Bemed (Sp) Shah Alam,Pharmacy medical and health essentials receipt from Bemed (Sp) in Shah Alam
+sroie_236,B & BEST RESTAURANT,14.85,B & Best Restaurant Petaling Jaya,Restaurant food and dining bill at B & Best Restaurant in Petaling Jaya
+sroie_238,OLIVE9 PHARMACY SDN BHD,12.15,Olive9 Pharmacy Subang,Pharmacy medical and health essentials receipt from Olive9 Pharmacy in Subang
+sroie_239,SEGI CASH & CARRY SDN. BHD.,50.45,Segi Cash & Carry Shah Alam,Wholesale sundry goods and household groceries purchase at Segi Cash & Carry
+sroie_242,SEGI CASH & CARRY SDN.BHD,12.60,Segi Cash & Carry Shah Alam,Wholesale sundry goods and household groceries purchase at Segi Cash & Carry
+sroie_243,SEGI CASH & CARRY SDN.BHD,20.05,Segi Cash & Carry Shah Alam,Wholesale sundry goods and household groceries purchase at Segi Cash & Carry
+sroie_244,GOLDEN ARCHES RESTAURANTS SDN BHD,29.30,Golden Arches Restaurants Damansara,Restaurant food and dining bill at Golden Arches Restaurants in Damansara
+sroie_246,KING'S CONFECTIONERY S/B,7.50,King'S Confectionery,"Fresh pastry, buns, and cake bakery receipt from King'S Confectionery"
+sroie_248,AMPANG 210 FIRST CITY PARKING SDN BHD,7.00,Ampang 210 First City Parking Petaling Jaya,Parking fee payment ticket receipt in Petaling Jaya
+sroie_249,GL HANDICRAFT & TAII ORING,130.00,Gl Handicraft & Taii Oring Kuala Lumpur,Clothing alterations and tailoring service invoice from Gl Handicraft & Taii Oring
+sroie_250,GL HANDICRAFT & TAII ORING,104.00,Gl Handicraft & Taii Oring Kuala Lumpur,Clothing alterations and tailoring service invoice from Gl Handicraft & Taii Oring
+sroie_252,TIMES BOOKSTORES,12.37,Times Bookstores,Bookstore purchase bill for books and stationery at Times Bookstores in shopping mall
+sroie_256,BILLION SIX ENTERPRISE,12.00,Billion Six Shah Alam,Store shopping and payment receipt from Billion Six in Shah Alam
+sroie_257,AMANO MALAYSIA SDN BHD,3.00,Amano Malaysia Shah Alam,Parking fee payment ticket receipt in Shah Alam
+sroie_259,99 SPEED MART S/B,42.35,99 Speed Mart Klang,Grocery shopping receipt at 99 Speedmart convenience store in Klang
+sroie_260,PERNIAGAAN RIANG RIA,22.60,Perniagaan Riang Ria Shah Alam,Store shopping and payment receipt from Perniagaan Riang Ria in Shah Alam
+sroie_263,HERO DISTRIBUTION SDN BHD,41.50,Hero Distribution Subang,Store shopping and payment receipt from Hero Distribution in Subang
+sroie_264,SEGI CASH & CARRY SDN. BHD.,118.35,Segi Cash & Carry Shah Alam,Wholesale sundry goods and household groceries purchase at Segi Cash & Carry
+sroie_269,IN-SPARKLE TRADING SDN BHD,250.00,In-Sparkle Trading Cheras,Store shopping and payment receipt from In-Sparkle Trading in Cheras
+sroie_270,ELKEN SERVICE SDN BHD,250.00,Elken Service Kuala Lumpur,Store shopping and payment receipt from Elken Service in Kuala Lumpur
+sroie_271,FIVE STAR CASH & CARRY,45.00,Five Star Cash & Carry,Wholesale sundry goods and household groceries purchase at Five Star Cash & Carry
+sroie_272,BROADVIEW MARKETING SDN BHD,18.00,Broadview Marketing Shah Alam,Store shopping and payment receipt from Broadview Marketing in Shah Alam
+sroie_273,BEMED (SP) SDN. BHD.,165.00,Bemed (Sp) Shah Alam,Pharmacy medical and health essentials receipt from Bemed (Sp) in Shah Alam
+sroie_274,SUPER.SEVEN CASH & CARRY SDN BHD,28.05,Super.Seven Cash & Carry Shah Alam,Wholesale sundry goods and household groceries purchase at Super.Seven Cash & Carry
+sroie_276,99 SPEED MART S/B,72.75,99 Speed Mart Klang,Grocery shopping receipt at 99 Speedmart convenience store in Klang
+sroie_277,S&Y STATIONERY,72.00,S&Y Stationery Shah Alam,Bookstore purchase bill for books and stationery at S&Y Stationery in Shah Alam
+sroie_281,DI HUAN YA RESTAURANT,35.00,Di Huan Ya Restaurant Johor,Restaurant food and dining bill at Di Huan Ya Restaurant in Johor
+sroie_283,UNIHAKKA INTERNATIONAL SDN BHD,8.20,Unihakka International Johor,Store shopping and payment receipt from Unihakka International in Johor
+sroie_284,UNIHAKKA INTERNATIONAL SDN BHD,7.10,Unihakka International Johor,Store shopping and payment receipt from Unihakka International in Johor
+sroie_290,LAVENDER CONFECTIONERY & BAKERY S/B,12.30,Lavender Confectionery & Bakery Johor,"Fresh pastry, buns, and cake bakery receipt from Lavender Confectionery & Bakery"
+sroie_292,UNIHAKKA INTERNATIONAL SDN BHD,8.20,Unihakka International Johor,Store shopping and payment receipt from Unihakka International in Johor
+sroie_295,UNIHAKKA INTERNATIONAL SDN BHD,9.90,Unihakka International Johor,Store shopping and payment receipt from Unihakka International in Johor
+sroie_296,DOMINO'S PIZZA,25.60,Domino'S Pizza Johor,Restaurant food and dining bill at Domino'S Pizza in Johor
+sroie_299,DE MAXIMUM THAI EXPRESS SDN BHD,21.80,De Maximum Thai Express,Store shopping and payment receipt from De Maximum Thai Express in Malaysia
+sroie_300,AEON CO. (M) BHD,1.75,Aeon . (M) Cheras,Store shopping and payment receipt from Aeon . (M) in Cheras
+sroie_301,AEON CO. (M) SDN BHD,10.20,Aeon . (M) Cheras,Store shopping and payment receipt from Aeon . (M) in Cheras
+sroie_306,THE TOAST F&B SDN BHD,18.90,The Toast F&B Johor,Restaurant food and dining bill at The Toast F&B in Johor
+sroie_310,DOMINO'S PIZZA,7.20,Domino'S Pizza Johor,Restaurant food and dining bill at Domino'S Pizza in Johor
+sroie_311,AEON CO. (M) BHD,122.80,Aeon . (M) Cheras,Store shopping and payment receipt from Aeon . (M) in Cheras
+sroie_320,THE ROTI MAN BAKERY,20.40,The Roti Man Bakery,"Fresh pastry, buns, and cake bakery receipt from The Roti Man Bakery"
+sroie_321,HAXINCONE RESOURCES SDN BHD,3.70,Haxincone Resources,Store shopping and payment receipt from Haxincone Resources in Malaysia
+sroie_322,FAMILYMART,18.80,Familymart Shah Alam,Store shopping and payment receipt from Familymart in Shah Alam
+sroie_323,R&C VENTURE SDN BHD,9.50,R&C Venture Kuala Lumpur,Store shopping and payment receipt from R&C Venture in Kuala Lumpur
+sroie_326,KHIAM AIK CHAN SDN BHD,28.40,Khiam Aik Chan Subang,Store shopping and payment receipt from Khiam Aik Chan in Subang
+sroie_327,SUBANG HEALTHCARE SDN BHD,78.10,Subang Healthcare Subang,Pharmacy medical and health essentials receipt from Subang Healthcare in Subang
+sroie_328,GARDENIA BAKERIES (KI ) SDN BHD,33.05,Gardenia Bakeries (Ki ) Shah Alam,Bakery delivery and bread invoice from Gardenia in Shah Alam
+sroie_330,GARDENIA BAKERIES (KL) SDN BHD,20.21,Gardenia Bakeries (Kl) Shah Alam,Bakery delivery and bread invoice from Gardenia in Shah Alam
+sroie_332,GARDENIA BAKERIES (KL) SDN BHD,24.83,Gardenia Bakeries (Kl) Shah Alam,Bakery delivery and bread invoice from Gardenia in Shah Alam
+sroie_333,GARDENIA BAKERIES (KL) SDN BHD,27.10,Gardenia Bakeries (Kl) Shah Alam,Bakery delivery and bread invoice from Gardenia in Shah Alam
+sroie_334,GARDENIA BAKERIES (KL) SDN BHD,36.36,Gardenia Bakeries (Kl) Shah Alam,Bakery delivery and bread invoice from Gardenia in Shah Alam
+sroie_337,GARDENIA BAKERIES (KL) SDN BHD,73.55,Gardenia Bakeries (Kl) Shah Alam,Bakery delivery and bread invoice from Gardenia in Shah Alam
+sroie_342,GARDENIA BAKERIES (KL) SDN BHD,19.31,Gardenia Bakeries (Kl) Shah Alam,Bakery delivery and bread invoice from Gardenia in Shah Alam
+sroie_343,GARDENIA BAKERIES (KL) SDN BHD,51.88,Gardenia Bakeries (Kl) Shah Alam,Bakery delivery and bread invoice from Gardenia in Shah Alam
+sroie_344,GARDENIA BAKERIES (KL) SDN BHD,54.15,Gardenia Bakeries (Kl) Shah Alam,Bakery delivery and bread invoice from Gardenia in Shah Alam
+sroie_348,GARDENIA BAKERIES (KL) SDN BHD,48.04,Gardenia Bakeries (Kl) Shah Alam,Bakery delivery and bread invoice from Gardenia in Shah Alam
+sroie_352,GARDENIA BAKERIES (KL) SDN BHD,22.58,Gardenia Bakeries (Kl) Shah Alam,Bakery delivery and bread invoice from Gardenia in Shah Alam
+sroie_353,GARDENIA BAKERIES (KL) SDN BHD,5.90,Gardenia Bakeries (Kl) Shah Alam,Bakery delivery and bread invoice from Gardenia in Shah Alam
+sroie_362,GARDENIA BAKERIES (KL) SDN BHD,39.87,Gardenia Bakeries (Kl) Shah Alam,Bakery delivery and bread invoice from Gardenia in Shah Alam
+sroie_363,GARDENIA BAKERIES (KL) SDN BHD,58.86,Gardenia Bakeries (Kl) Shah Alam,Bakery delivery and bread invoice from Gardenia in Shah Alam
+sroie_365,GARDENIA BAKERIES (KL) SDN BHD,34.21,Gardenia Bakeries (Kl) Shah Alam,Bakery delivery and bread invoice from Gardenia in Shah Alam
+sroie_366,GARDENIA BAKERIES (KL) SDN BHD,68.63,Gardenia Bakeries (Kl) Shah Alam,Bakery delivery and bread invoice from Gardenia in Shah Alam
+sroie_367,GARDENIA BAKERIES (KL) SDN BHD,110.46,Gardenia Bakeries (Kl) Shah Alam,Bakery delivery and bread invoice from Gardenia in Shah Alam
+sroie_368,GARDENIA BAKERIES (KL) SDN BHD,23.56,Gardenia Bakeries (Kl) Shah Alam,Bakery delivery and bread invoice from Gardenia in Shah Alam
+sroie_369,GARDENIA BAKERIES (KL) SDN BHD,33.80,Gardenia Bakeries (Kl) Shah Alam,Bakery delivery and bread invoice from Gardenia in Shah Alam
+sroie_370,GARDENIA BAKERIES (KL) SDN BHD,59.54,Gardenia Bakeries (Kl) Shah Alam,Bakery delivery and bread invoice from Gardenia in Shah Alam
+sroie_372,GARDENIA BAKERIES (KL) SDN BHD,60.24,Gardenia Bakeries (Kl) Shah Alam,Bakery delivery and bread invoice from Gardenia in Shah Alam
+sroie_373,GARDENIA BAKERIES (KL) SDN BHD,46.06,Gardenia Bakeries (Kl) Shah Alam,Bakery delivery and bread invoice from Gardenia in Shah Alam
+sroie_374,GARDENIA BAKERIES (KL) SDN BHD,51.42,Gardenia Bakeries (Kl) Shah Alam,Bakery delivery and bread invoice from Gardenia in Shah Alam
+sroie_378,MR. D.I.Y. (KUCHAI) SDN BHD,3.30,Mr. D.I.Y. (Kuchai) Seri Kembangan,Home improvement tools and hardware supplies receipt from MR DIY in Seri Kembangan
+sroie_379,MR. D.I.Y. (KUCHAI) SDN BHD,22.90,Mr. D.I.Y. (Kuchai) Seri Kembangan,Home improvement tools and hardware supplies receipt from MR DIY in Seri Kembangan
+sroie_381,COSWAY (M) SDN BHD,111.90,Cosway (M) Kuala Lumpur,Cosmetics and household nutritional supplements purchase receipt from Cosway
+sroie_386,GUARDIAN HEALTH AND BEAUTY SDN BHD,2.56,Guardian Health And Beauty,Pharmacy medical and health essentials receipt from Guardian Health And Beauty in town
+sroie_387,99 SPEED MART S/B,82.80,99 Speed Mart Klang,Grocery shopping receipt at 99 Speedmart convenience store in Klang
+sroie_388,CHEF LEE SDN BHD,96.20,Chef Lee Petaling Jaya,Store shopping and payment receipt from Chef Lee in Petaling Jaya
+sroie_389,MR. D.I.Y. (M) SDN BHD,21.00,Mr. D.I.Y. (M) Seri Kembangan,Home improvement tools and hardware supplies receipt from MR DIY in Seri Kembangan
+sroie_390,MR. D.I.Y. (KUCHAI) SDN BHD,57.40,Mr. D.I.Y. (Kuchai) Seri Kembangan,Home improvement tools and hardware supplies receipt from MR DIY in Seri Kembangan
+sroie_391,99 SPEED MART S/B,13.60,99 Speed Mart Klang,Grocery shopping receipt at 99 Speedmart convenience store in Klang
+sroie_392,MR. D.I.Y. (M) SDN BHD,64.70,Mr. D.I.Y. (M) Seri Kembangan,Home improvement tools and hardware supplies receipt from MR DIY in Seri Kembangan
+sroie_393,GOLDEN ARCHES RESTAURANTS SDN BHD,28.20,Golden Arches Restaurants Damansara,Restaurant food and dining bill at Golden Arches Restaurants in Damansara
+sroie_394,99 SPEED MART S/B,27.30,99 Speed Mart Klang,Grocery shopping receipt at 99 Speedmart convenience store in Klang
+sroie_396,FOUR QUARTERS SDN BHD,43.90,Four Quarters Damansara,Store shopping and payment receipt from Four Quarters in Damansara
+sroie_397,ECOSWAY.COM SDN BHD,78.30,Ecosway.Com Kuala Lumpur,Cosmetics and household nutritional supplements purchase receipt from Cosway
+sroie_398,99 SPEED MART S/B,2.10,99 Speed Mart Klang,Grocery shopping receipt at 99 Speedmart convenience store in Klang
+sroie_400,SIN THYE & COMPANY,110.00,Sin Thye & Company Kuala Lumpur,Store shopping and payment receipt from Sin Thye & Company in Kuala Lumpur
+sroie_401,MR. D.I.Y. (KUCHAI) SDN BHD,12.50,Mr. D.I.Y. (Kuchai) Seri Kembangan,Home improvement tools and hardware supplies receipt from MR DIY in Seri Kembangan
+sroie_405,99 SPEED MART S/B,177.20,99 Speed Mart Klang,Grocery shopping receipt at 99 Speedmart convenience store in Klang

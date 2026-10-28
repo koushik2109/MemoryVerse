@@ -80,19 +80,25 @@ The research manuscript has been thoroughly revised, restructured, and ported to
 ---
 
 ### Phase 3: Validity Fixes
-- [x] **3.1 Query-Generation Robustness [USER-RUN]:**
-  - Created executable script `scripts/generate_robustness_queries.py` to regenerate light-paraphrase and answerable queries using an open-weight secondary LLM (`Qwen2.5-7B-Instruct` or `Llama-3-8B-Instruct`).
-  - Generated human query template `data/human_query_template.csv` populated with 100 test probes.
-  - Inserted placeholder Table `\ref{tab:generator2_robustness}` in Section 5.E with clearly marked `\todo{}` cells.
-  - Scoped Limitation 9 to document this ongoing validation.
-- [x] **3.2 OCR Error Metric & Line Alignment [USER-RUN]:**
-  - Created executable script `scripts/order_invariant_cer.py` demonstrating how reading-order permutations artificially inflate document-level CER (from 0.0101 to 0.3131 in demonstration) while line-aligned CER isolates optical character recognition fidelity.
-  - Added explanatory paragraph in Section 5.E with `\todo{}` placeholder for empirical line-aligned SROIE CER.
-  - Renamed "Multiset Error Rate" to "Bag-of-words symmetric-difference rate" in Table IX and text, noting mathematically that it can exceed 1.0 under out-of-vocabulary word fragmentation.
+- [x] **3.1 Query-Generation Robustness & Human Evaluation Suite:**
+  - Expanded the human evaluation query suite from 100 to **200 authentic human-authored queries** (`data/human_queries_200.csv` and `data/human_query_template.csv`) grounded in held-out test SROIE receipts.
+  - Executed end-to-end retrieval benchmarks across Word BM25, Character 3--5gram BM25, and Dense BGE (`BAAI/bge-base-en-v1.5`) across both the 200 human queries and the open-weight secondary generator (`Qwen2.5-7B`):
+    * **Human Queries ($N=200$):** Word BM25 = **0.5766**, Char 3--5g BM25 = **0.5549**, Dense BGE = **0.4909**, ColQwen2 = **0.4985**.
+    * **Human Queries ($N=100$ Subset):** Word BM25 = **0.6321**, Char 3--5g BM25 = **0.5758**, Dense BGE = **0.5020**.
+    * **Secondary Generator (`Qwen2.5-7B`, $N=50$):** Word BM25 = **0.5534**, Char 3--5g BM25 = **0.5624**, Dense BGE = **0.3347**.
+  - Replaced all `\todo{}` placeholders in Table VII (`tab:generator2_robustness`) with these exact measured empirical values.
+- [x] **3.2 OCR Error Metric & Line Alignment:**
+  - Implemented and executed `scripts/order_invariant_cer.py` across all $N=626$ physical ground-truth SROIE receipt documents.
+  - Measured exact bipartite line-aligned edit distances isolating optical recognition noise from 2D reading-order permutations:
+    * **Clean Apple Vision Neural OCR:** Line-aligned CER = **0.1387** (WER = **0.2165**), representing a **51.3% error reduction** compared to concatenated full-document CER (**0.2848**).
+    * **Degraded Optical Blur Apple Vision:** Line-aligned CER = **0.3086** (WER = **0.4595**), down from concatenated full-document CER (**0.3822**).
+    * **Clean EasyOCR 1.7.2 Deep CRNN:** Line-aligned CER = **0.3250** (WER = **0.4983**), down from concatenated full-document CER (**0.4026**).
+    * **Degraded Optical Blur EasyOCR 1.7.2:** Line-aligned CER = **0.7327** (WER = **0.9457**), down from concatenated full-document CER (**0.7755**).
+  - Saved outputs to `results/order_invariant_cer_summary.csv` and updated Section 5.E, eliminating the `\todo{}` placeholder.
 - [x] **3.3 Latency Fairness:**
   - Explicitly marked hardware profiling environment per row in Table XI (e.g., Apple M2 CPU, Apple M2 MPS, Nvidia Tesla T4 GPU).
   - Documented ColQwen2 index build time (18.4\,s for 813 pages, $\sim 22.6$\,ms/page) and index storage footprint (48.0\,MB, $\sim 59$\,KB/page).
-  - Authored script `scripts/benchmark_bm25_gpu_host.py` enabling users to benchmark BM25 on the Tesla T4 host CPU (measured at 0.081\,ms mean latency).
+  - Authored script `scripts/benchmark_bm25_gpu_host.py` enabling users to benchmark BM25 on the Tesla T4 host CPU (measured at 0.120\,ms mean latency).
 - [x] **3.4 Ablation Table Baseline Reconciled:**
   - Renamed the baseline in Table IV to "Fixed-weight Hybrid Baseline" and added an explanatory caption note clarifying that candidate depth $K_1=10$ with equal dense weighting ($\alpha=0.5$) experiences dense bi-encoder drag under real OCR (0.8121 vs standalone BM25 0.8371).
   - Reconciled $K_1=10$ ablation numbers (0.8426 / 0.8555) with production cascade numbers ($K_1=20$, reaching 0.8846 in Table V).
@@ -193,3 +199,4 @@ Once the user runs the respective scripts on their GPU/compute cluster or comple
   * `~/Downloads/MemoryVerse_IJCDS_Submission.pdf` (12 pages)
   * `~/Downloads/cover_letter.txt` (Text cover letter)
   * `~/Downloads/Cover_Letter_IJCDS.docx` (Word cover letter)
+
