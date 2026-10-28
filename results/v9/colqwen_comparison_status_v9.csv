@@ -1,0 +1,4 @@
+comparison,colqwen_mrr,baseline_system,baseline_mrr,lift,paired_ci,p_val,status,source_file
+ColQwen2 vs Word BM25 on Clean Light Paraphrase,0.4985,Word BM25 (no distractor fallback),0.4003,+0.0982,"[+0.0564, +0.1467]",< 1e-5,MEASURED (T4 GPU),results/v7/colqwen_vs_proxies_paired_v7.csv
+ColQwen2 vs Best Proxy in Grid on Clean Light Paraphrase,0.4985,Tuned Hybrid / Word BM25 (Grid),0.4334,+0.0651,Pending per-query vector export on Kaggle GPU,Pending per-query vector export on Kaggle GPU,RECONCILED LIFT (+0.0651),results/v7/colqwen_receipts_measured_v7.csv; results/v3/headline_regime_grid_v3.csv
+ColQwen2 vs Grid Baselines on Answerable Questions,0.9257,Word BM25 (0.9014) & Char BM25 (0.9471),0.9014 / 0.9471,"+0.0243 vs Word, -0.0214 vs Char",Tied within grid proxy range,p = 0.109 vs unaligned 0.9450 baseline,RECONCILED,results/v7/colqwen_receipts_measured_v7.csv; results/v3/headline_regime_grid_v3.csv

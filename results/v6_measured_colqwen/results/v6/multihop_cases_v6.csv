@@ -1,0 +1,51 @@
+case_id,query,target_id,Extractive_Hit10,LLM_Hit10,Outcome
+mh_01,"Find the race event where volunteers handed water to runners, and identify what exact date those photos were taken on.",december 17,1,1,Tie
+mh_02,"Find the photos of Putuo Mountain coast, and determine which half of which year they were recorded.",2024,1,1,Tie
+mh_03,"Locate the friends toasting party photos, and determine what milestone age birthday was being celebrated.",22nd,1,1,Tie
+mh_04,"Locate the cyberpunk style night bridge photos in Ningbo, and identify which specific district of the city they were taken in.",yinzhou,1,1,Tie
+mh_05,"Find the photos of the driverless vehicle, and identify the historical town where it was encountered.",pingyao,1,1,Tie
+mh_06,"Find the handmade sculpture photos before painting, and retrieve what animal or character figurine was crafted.",ceramic,1,1,Tie
+mh_07,"Locate the West Lake night boat ride photography, and identify the unique drone light formation that appeared in the sky.",monkey king,1,1,Tie
+mh_08,"Find the fancy drink photos taken before Christmas, and retrieve the specific cocktail beverage style.",layered cocktail,1,1,Tie
+mh_09,"Find the night art light installation photos in Hangzhou, and identify which coastal river district photos they are tagged with.",binjiang,1,1,Tie
+mh_10,"Locate the quiet beach photos in Phuket, and identify the specific township name.",karon,1,1,Tie
+mh_11,"Find the concert fan support photos in Hangzhou, and retrieve what audience acoustic celebration sound corresponds to cheering crowds.",clapping,0,0,Tie
+mh_12,"Find the outdoor weather photography depicting dark rainy skies, and retrieve the corresponding severe acoustic weather recording.",thunderstorm,0,0,Tie
+mh_13,"Find the Hangzhou New Year's Eve celebration photos, and retrieve the acoustic sound category that matches the midnight pyrotechnic display.",fireworks,1,0,Extractive_Win
+mh_14,"Locate the photos of cartoon deer statues with frozen treats, and identify what snack is shown next to the statue.",chocolate popsicle,1,1,Tie
+mh_15,"Find the couple subway photos with matching rings, and retrieve the other transportation moment where they rested cozily.",car moment,1,1,Tie
+mh_16,"Find the spicy dining dish photo with the peace sign gesture, and identify which district tag is associated with that meal.",qiantang,1,1,Tie
+mh_17,"Find the April 2023 concert fan support photos, and identify the visual lighting element described in the evening setting.",night art light installation,1,1,Tie
+mh_18,"Locate the domestic pet photo moments, and retrieve the corresponding animal vocalization sound recording.",dog,1,1,Tie
+mh_19,"Locate outdoor forest and bird photography, and retrieve the avian nature acoustic sound recording.",chirping_birds,1,1,Tie
+mh_20,"Find the indoor cleaning and home maintenance photos, and retrieve the corresponding domestic motor sound effect.",vacuum_cleaner,0,0,Tie
+mh_21,"Find the lumberjack and timber cutting equipment photos, and retrieve the corresponding power tool acoustic recording.",chainsaw,0,0,Tie
+mh_22,"Find the aviation transport images, and retrieve the corresponding aerodynamic transportation sound effect.",airplane,0,1,LLM_Win
+mh_23,"Find the railway travel and passenger transport images, and retrieve the associated locomotive sound effect.",train,1,1,Tie
+mh_24,"Find the pastoral farming livestock photos, and retrieve the acoustic recording of domestic livestock bleating.",sheep,1,1,Tie
+mh_25,"Find the beverage preparation images involving pouring drinks, and retrieve the corresponding liquid flow acoustic sound effect.",pouring_water,1,0,Extractive_Win
+mh_26,"Find the 22nd birthday celebration photos featuring fruit cake, and identify what kind of fruit topped the cake.",green grape,1,1,Tie
+mh_27,"Locate the sunset view photography of the Three Gorges Dam, and determine which administrative district of Yichang it was recorded in.",yiling,1,1,Tie
+mh_28,"Find the Black Myth gaming exhibition photos, and identify the four female character life-size statues displayed.",four sisters,1,1,Tie
+mh_29,"Find the beach and coastal photos taken in Phuket, and retrieve the corresponding natural ocean acoustic sound recording.",sea_waves,0,0,Tie
+mh_30,"Find the couple's special 520 holiday dinner photos, and identify the style of meal they shared.",hotpot,1,1,Tie
+mh_31,"Locate the photos of the scenic cable car ride in Qinhuangdao, and identify the coastal resort name.",nandaihe,1,1,Tie
+mh_32,"Find the photos of Xiangji Temple blending with urban architecture, and identify which Hangzhou riverside district it belongs to.",gongshu,1,1,Tie
+mh_33,"Locate the cozy indoor home photos featuring a feline pet, and retrieve the corresponding domestic animal vocalization sound effect.",cat,1,1,Tie
+mh_34,"Find the summer 2019 Qinhuangdao family trip photos with Lele and Xiaoming, and identify the animated cartoon characters depicted in the sand sculptures.",big head son,1,1,Tie
+mh_35,"Find the urban street photos with graffiti in Xiamen, and identify the historic cultural harbor neighborhood.",shapowei,1,1,Tie
+mh_36,"Locate outdoor camping and evening scenery photos, and retrieve the acoustic sound effect of burning wood logs.",crackling_fire,0,0,Tie
+mh_37,"Find the photos of Shaoxing cultural heritage, and identify the historical tall structure monument visited.",ancient tower,1,1,Tie
+mh_38,"Find the aviation transport photos taken at Shenzhen airport tarmac, and retrieve the corresponding aerodynamic aircraft acoustic recording.",airplane,0,0,Tie
+mh_39,"Locate the couple subway travel photos, and identify the intimate transportation moment where they rested cozily together.",cozy car moment,1,1,Tie
+mh_40,"Find the evening nature and night sky photography, and retrieve the nocturnal insect acoustic sound effect.",crickets,0,0,Tie
+mh_41,"Find the beverage container photos with soda cans, and retrieve the associated mechanical beverage opening sound effect.",can_opening,0,0,Tie
+mh_42,"Locate the photos of the famous spring in Jinan, and identify the scenic cultural spring name.",baotu spring,0,0,Tie
+mh_43,"Find the urban church and temple landmark photos, and retrieve the corresponding bell chime sound effect.",church_bells,0,0,Tie
+mh_44,"Locate the nighttime city promenade walk photos, and retrieve the acoustic sound effect of people walking along the pavement.",footsteps,0,0,Tie
+mh_45,"Find the emergency response vehicle or patrol photos, and retrieve the corresponding emergency vehicle alarm sound effect.",siren,0,0,Tie
+mh_46,"Locate the photos of Thailand zoo trip, and identify the city where the night tribal performance was witnessed.",chiang mai,1,1,Tie
+mh_47,"Find the office desk and computer workspace photos, and retrieve the corresponding computer peripheral clicking sound effect.",mouse_click,0,0,Tie
+mh_48,"Locate the photos of the ancient city in Shanxi with autonomous vehicles, and identify the historic walled town name.",pingyao,0,0,Tie
+mh_49,"Find the farmland and pasture animal photos, and retrieve the bovine acoustic livestock sound recording.",cow,0,0,Tie
+mh_50,"Find the stormy rainy day travel photos, and retrieve the corresponding acoustic precipitation sound recording.",rain,0,1,LLM_Win

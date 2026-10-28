@@ -1,0 +1,972 @@
+{
+  "metadata": {
+    "light_generator": {
+      "llm": "gpt-4o-mini",
+      "temperature": 0.0,
+      "date": "2026-10-25T01:03:30+05:30",
+      "prompt": "Rewrite the following receipt query snippet as a natural user search query. Preserve core meaning and key numeric/entity identifiers, token overlap 30%-50%."
+    },
+    "heavy_generator": {
+      "llm": "openai/gpt-oss-120b",
+      "temperature": 0.0,
+      "date": "2026-10-25T13:30:00+05:30",
+      "prompt": "Convert receipt facts into natural-language, answerable question-style search queries. Each question must target a specific factual detail from the receipt."
+    },
+    "token_overlap_stats": {
+      "light_vs_probe_mean": 0.23829683388506914,
+      "light_vs_probe_std": 0.1063085465392756,
+      "light_vs_doc_mean": 0.2658152486583859,
+      "heavy_v2_synthetic_vs_probe_mean": 0.0015873015873015873,
+      "heavy_v3_question_vs_probe_mean": 0.13976855955992767,
+      "heavy_v3_question_vs_doc_mean": 0.6089862659890063
+    },
+    "answerability_sample_size": 60,
+    "answerability_rate": 0.95
+  },
+  "sample_60": [
+    {
+      "idx": 191,
+      "probe_id": "probe_0387",
+      "target_id": "sroie_396",
+      "verbatim": "FOUR QUARTERS SDN BHD",
+      "light_paraphrase": "retrieve document record showing payment at four quarters",
+      "heavy_question": "What is the total amount on FOUR QUARTERS SDN BHD receipt dated 06/07/16 in Damansara Utama?",
+      "matched_entities": [
+        "16",
+        "sdn",
+        "quarters",
+        "four",
+        "07"
+      ],
+      "answerable": true
+    },
+    {
+      "idx": 17,
+      "probe_id": "probe_0035",
+      "target_id": "sroie_038",
+      "verbatim": "11/03/2018 06:20 PM",
+      "light_paraphrase": "retrieve document record showing payment at 11 03",
+      "heavy_question": "Which retailer YHM AEON TEBRAU CITY issued a receipt on 11/03/2018 for total 13.10?",
+      "matched_entities": [
+        "13",
+        "yhm",
+        "10",
+        "aeon",
+        "03"
+      ],
+      "answerable": true
+    },
+    {
+      "idx": 78,
+      "probe_id": "probe_0155",
+      "target_id": "sroie_160",
+      "verbatim": "CT281 - TEALIVE SHELL KEPONG OTTOGO ENTERPRISE",
+      "light_paraphrase": "retrieve document record showing payment at ct281 tealive",
+      "heavy_question": "Which CT281 - TEALIVE SHELL KEPONG OTTOGO ENTERPRISE receipt dated 21/01/2018 totals RM8.60?",
+      "matched_entities": [
+        "ct281",
+        "enterprise",
+        "shell",
+        "rm8",
+        "01"
+      ],
+      "answerable": true
+    },
+    {
+      "idx": 298,
+      "probe_id": "probe_0600",
+      "target_id": "sroie_613",
+      "verbatim": "03/04/18 19:19",
+      "light_paraphrase": "retrieve document record showing payment at 03 04",
+      "heavy_question": "Which receipt from POPULAR BOOK CO. (M) SDN BHD dated 03/04/18 totals RM 7.30?",
+      "matched_entities": [
+        "popular",
+        "sdn",
+        "04",
+        "m",
+        "18"
+      ],
+      "answerable": true
+    },
+    {
+      "idx": 202,
+      "probe_id": "probe_0408",
+      "target_id": "sroie_417",
+      "verbatim": "K STATIONERY & OFFICE SUPPLIES",
+      "light_paraphrase": "retrieve document record showing payment at k stationery",
+      "heavy_question": "Which vendor K STATIONERY & OFFICE SUPPLIES issued a receipt dated 15/07/2017 for RM 148.00?",
+      "matched_entities": [
+        "00",
+        "office",
+        "148",
+        "15",
+        "07"
+      ],
+      "answerable": true
+    },
+    {
+      "idx": 230,
+      "probe_id": "probe_0465",
+      "target_id": "sroie_477",
+      "verbatim": "3 X 1.0000",
+      "light_paraphrase": "retrieve document record showing payment at 3 x",
+      "heavy_question": "What total amount did SANYU STATIONERY SHOP charge on 12/08/2017 receipt?",
+      "matched_entities": [
+        "08",
+        "12",
+        "2017",
+        "sanyu",
+        "shop"
+      ],
+      "answerable": true
+    },
+    {
+      "idx": 222,
+      "probe_id": "probe_0452",
+      "target_id": "sroie_464",
+      "verbatim": "NO 35",
+      "light_paraphrase": "retrieve document record showing payment at no",
+      "heavy_question": "Which receipt from THE MARCO POLO KITCH BUKIT INDAH on 06/05/2018 records a total of 15.15?",
+      "matched_entities": [
+        "polo",
+        "marco",
+        "kitch",
+        "bukit",
+        "15"
+      ],
+      "answerable": true
+    },
+    {
+      "idx": 108,
+      "probe_id": "probe_0223",
+      "target_id": "sroie_228",
+      "verbatim": ": 29/03/2018 20:19:07",
+      "light_paraphrase": "retrieve document record showing payment at 29 03",
+      "heavy_question": "Which TONYMOLY VIVA CITY receipt from 29/03/2018 records a total of 48.95?",
+      "matched_entities": [
+        "viva",
+        "29",
+        "48",
+        "95",
+        "03"
+      ],
+      "answerable": true
+    },
+    {
+      "idx": 122,
+      "probe_id": "probe_0242",
+      "target_id": "sroie_249",
+      "verbatim": "27/03/2018 16:34",
+      "light_paraphrase": "retrieve document record showing payment at 27 03",
+      "heavy_question": "Which GL HANDICRAFT & TAII ORING receipt dated 27/03/2018 records a total of RM130.00?",
+      "matched_entities": [
+        "gl",
+        "00",
+        "handicraft",
+        "oring",
+        "taii"
+      ],
+      "answerable": true
+    },
+    {
+      "idx": 133,
+      "probe_id": "probe_0264",
+      "target_id": "sroie_271",
+      "verbatim": "[19/06/17] [11:37]",
+      "light_paraphrase": "retrieve document record showing payment at 19 06",
+      "heavy_question": "What was the total amount on the receipt from FIVE STAR CASH & CARRY dated 19/06/17?",
+      "matched_entities": [
+        "cash",
+        "06",
+        "carry",
+        "19",
+        "five"
+      ],
+      "answerable": true
+    },
+    {
+      "idx": 283,
+      "probe_id": "probe_0569",
+      "target_id": "sroie_582",
+      "verbatim": ": CR 1805/0201",
+      "light_paraphrase": "retrieve document record showing payment at cr",
+      "heavy_question": "What total amount is recorded on the C W KHOO HARDWARE receipt dated 04-05-18?",
+      "matched_entities": [
+        "04",
+        "18",
+        "c",
+        "hardware",
+        "khoo"
+      ],
+      "answerable": true
+    },
+    {
+      "idx": 242,
+      "probe_id": "probe_0495",
+      "target_id": "sroie_507",
+      "verbatim": "TIME: 16:44:00",
+      "light_paraphrase": "retrieve document record showing payment at time 16",
+      "heavy_question": "What was the total amount on the AIK HUAT HARDWARE receipt dated 30/03/2017?",
+      "matched_entities": [
+        "aik",
+        "huat",
+        "2017",
+        "30",
+        "03"
+      ],
+      "answerable": true
+    },
+    {
+      "idx": 51,
+      "probe_id": "probe_0098",
+      "target_id": "sroie_102",
+      "verbatim": "DATE: 23/12/17",
+      "light_paraphrase": "retrieve document record showing payment at date 23",
+      "heavy_question": "What is the total amount on the IKANO HANDEL SDN BHD receipt dated 23/12/2017?",
+      "matched_entities": [
+        "sdn",
+        "handel",
+        "12",
+        "ikano",
+        "23"
+      ],
+      "answerable": true
+    },
+    {
+      "idx": 272,
+      "probe_id": "probe_0547",
+      "target_id": "sroie_560",
+      "verbatim": "INV NO. : 1183154",
+      "light_paraphrase": "retrieve document record showing payment at inv",
+      "heavy_question": "Did the 09-06-2018 receipt from RESTORAN WAN SHENG have a total of RM 4.80?",
+      "matched_entities": [
+        "09",
+        "wan",
+        "rm",
+        "restoran",
+        "80"
+      ],
+      "answerable": true
+    },
+    {
+      "idx": 251,
+      "probe_id": "probe_0511",
+      "target_id": "sroie_523",
+      "verbatim": "10 JUN 2018 18:23",
+      "light_paraphrase": "retrieve document record showing payment at 10 jun",
+      "heavy_question": "Which receipt shows a total of RM8.50 from UNIHAKKA INTERNATIONAL on 10 JUN 2018?",
+      "matched_entities": [
+        "international",
+        "rm8",
+        "10",
+        "unihakka",
+        "jun"
+      ],
+      "answerable": true
+    },
+    {
+      "idx": 190,
+      "probe_id": "probe_0385",
+      "target_id": "sroie_394",
+      "verbatim": "30-06-16",
+      "light_paraphrase": "retrieve document record showing payment at 30",
+      "heavy_question": "Which 99 SPEED MART S/B receipt issued on 30-06-16 totals RM27.30 at TMN PUSAT KEPONG?",
+      "matched_entities": [
+        "16",
+        "s",
+        "speed",
+        "pusat",
+        "mart"
+      ],
+      "answerable": true
+    },
+    {
+      "idx": 22,
+      "probe_id": "probe_0044",
+      "target_id": "sroie_047",
+      "verbatim": "RESTAURANT SIN DU",
+      "light_paraphrase": "retrieve document record showing payment at restaurant",
+      "heavy_question": "What total amount was recorded on the 09/03/2018 receipt from RESTAURANT SIN DU?",
+      "matched_entities": [
+        "restaurant",
+        "09",
+        "sin",
+        "03",
+        "du"
+      ],
+      "answerable": true
+    },
+    {
+      "idx": 19,
+      "probe_id": "probe_0040",
+      "target_id": "sroie_043",
+      "verbatim": "32 PUB & BISTRO OWN BY CNU TRADING",
+      "light_paraphrase": "retrieve document record showing payment at 32 pub bistro",
+      "heavy_question": "Which venue 32 PUB & BISTRO OWN BY CNU TRADING issued a receipt on 10-03-2018 for 190.00?",
+      "matched_entities": [
+        "00",
+        "bistro",
+        "10",
+        "pub",
+        "own"
+      ],
+      "answerable": true
+    },
+    {
+      "idx": 155,
+      "probe_id": "probe_0318",
+      "target_id": "sroie_326",
+      "verbatim": "KHIAM AIK CHAN SDN BHD",
+      "light_paraphrase": "retrieve document record showing payment at khiam aik",
+      "heavy_question": "What was the total amount on the KHIAM AIK CHAN SDN BHD receipt dated 25/09/2017?",
+      "matched_entities": [
+        "aik",
+        "bhd",
+        "sdn",
+        "khiam",
+        "09"
+      ],
+      "answerable": true
+    },
+    {
+      "idx": 134,
+      "probe_id": "probe_0265",
+      "target_id": "sroie_272",
+      "verbatim": "03/06/2017 5:02:54 PM",
+      "light_paraphrase": "retrieve document record showing payment at 03 06 2017",
+      "heavy_question": "Which store BROADVIEW MARKETING SDN BHD issued a receipt on 03/06/2017 for RM18.00?",
+      "matched_entities": [
+        "00",
+        "sdn",
+        "broadview",
+        "marketing",
+        "2017"
+      ],
+      "answerable": true
+    },
+    {
+      "idx": 162,
+      "probe_id": "probe_0329",
+      "target_id": "sroie_337",
+      "verbatim": "ACCOUNT'S COPY",
+      "light_paraphrase": "retrieve document record showing payment at account",
+      "heavy_question": "Which GARDENIA BAKERIES (KL) SDN BHD receipt dated 21/08/2017 shows a total of RM 73.55?",
+      "matched_entities": [
+        "08",
+        "gardenia",
+        "bakeries",
+        "sdn",
+        "kl"
+      ],
+      "answerable": true
+    },
+    {
+      "idx": 226,
+      "probe_id": "probe_0458",
+      "target_id": "sroie_470",
+      "verbatim": "1. 2012-0013",
+      "light_paraphrase": "retrieve document record showing payment at 1",
+      "heavy_question": "What total is recorded on the 05/09/2017 receipt issued by SANYU STATIONERY SHOP?",
+      "matched_entities": [
+        "by",
+        "09",
+        "2017",
+        "sanyu",
+        "shop"
+      ],
+      "answerable": true
+    },
+    {
+      "idx": 205,
+      "probe_id": "probe_0420",
+      "target_id": "sroie_429",
+      "verbatim": "14 MAY 2018 18:10",
+      "light_paraphrase": "retrieve document record showing payment at 14 may",
+      "heavy_question": "Which shop UNIHAKKA INTERNATIONAL SDN BHD issued a receipt on 14 MAY 2018 for $8.90?",
+      "matched_entities": [
+        "international",
+        "sdn",
+        "8",
+        "90",
+        "unihakka"
+      ],
+      "answerable": true
+    },
+    {
+      "idx": 216,
+      "probe_id": "probe_0437",
+      "target_id": "sroie_448",
+      "verbatim": "RM 38.00",
+      "light_paraphrase": "retrieve document record showing payment at rm",
+      "heavy_question": "What total amount is shown on the MR. D.I.Y. (M) SDN BHD receipt dated 27\u201104\u20112018?",
+      "matched_entities": [
+        "mr",
+        "sdn",
+        "04",
+        "m",
+        "d"
+      ],
+      "answerable": true
+    },
+    {
+      "idx": 177,
+      "probe_id": "probe_0364",
+      "target_id": "sroie_372",
+      "verbatim": "DATE: 09/10/2017",
+      "light_paraphrase": "retrieve document record showing payment at date 09",
+      "heavy_question": "How much did GARDENIA BAKERIES (KL) SDN BHD charge on 09/10/2017?",
+      "matched_entities": [
+        "gardenia",
+        "bakeries",
+        "sdn",
+        "kl",
+        "09"
+      ],
+      "answerable": true
+    },
+    {
+      "idx": 47,
+      "probe_id": "probe_0093",
+      "target_id": "sroie_097",
+      "verbatim": "12/01/18",
+      "light_paraphrase": "retrieve document record showing payment at 12",
+      "heavy_question": "On which date was the POPULAR BOOK CO. (M) SDN BHD receipt with total RM 21.00 issued?",
+      "matched_entities": [
+        "popular",
+        "00",
+        "sdn",
+        "m",
+        "book"
+      ],
+      "answerable": true
+    },
+    {
+      "idx": 25,
+      "probe_id": "probe_0047",
+      "target_id": "sroie_050",
+      "verbatim": "LOT 50",
+      "light_paraphrase": "retrieve document record showing payment at lot",
+      "heavy_question": "Where is TIMELESS KITCHENETTE SDN BHD located according to the 2018-03-23 receipt?",
+      "matched_entities": [
+        "kitchenette",
+        "sdn",
+        "03",
+        "23",
+        "2018"
+      ],
+      "answerable": true
+    },
+    {
+      "idx": 149,
+      "probe_id": "probe_0302",
+      "target_id": "sroie_310",
+      "verbatim": "ORDER TIME : 17:57:32",
+      "light_paraphrase": "retrieve document record showing payment at order time",
+      "heavy_question": "Which DOMINO'S PIZZA receipt from 27/04/18 shows a total charge of RM7.20?",
+      "matched_entities": [
+        "domino",
+        "04",
+        "18",
+        "pizza",
+        "s"
+      ],
+      "answerable": true
+    },
+    {
+      "idx": 218,
+      "probe_id": "probe_0441",
+      "target_id": "sroie_453",
+      "verbatim": "1299-SUBANG PERMAI",
+      "light_paraphrase": "retrieve document record showing payment at 1299",
+      "heavy_question": "What total amount is recorded on the 99 SPEED MART S/B receipt issued on 07\u201102\u20112017?",
+      "matched_entities": [
+        "s",
+        "02",
+        "speed",
+        "mart",
+        "07"
+      ],
+      "answerable": true
+    },
+    {
+      "idx": 197,
+      "probe_id": "probe_0399",
+      "target_id": "sroie_408",
+      "verbatim": "EDEN IMPRESSION SDN BHD",
+      "light_paraphrase": "retrieve document record showing payment at eden impression",
+      "heavy_question": "What is the total on the EDEN IMPRESSION SDN BHD receipt dated 20/10/2016?",
+      "matched_entities": [
+        "sdn",
+        "eden",
+        "2016",
+        "impression",
+        "10"
+      ],
+      "answerable": true
+    },
+    {
+      "idx": 175,
+      "probe_id": "probe_0361",
+      "target_id": "sroie_369",
+      "verbatim": "DATE: 14/10/2017",
+      "light_paraphrase": "retrieve document record showing payment at date 14",
+      "heavy_question": "Which receipt from GARDENIA BAKERIES (KL) SDN BHD on 14/10/2017 totals RM 33.80?",
+      "matched_entities": [
+        "gardenia",
+        "bakeries",
+        "sdn",
+        "33",
+        "kl"
+      ],
+      "answerable": true
+    },
+    {
+      "idx": 249,
+      "probe_id": "probe_0509",
+      "target_id": "sroie_521",
+      "verbatim": "SP-NULL-18/06/04-1016956",
+      "light_paraphrase": "retrieve document record showing payment at sp null",
+      "heavy_question": "What total was recorded on the MOONLIGHT CAKE HOUSE receipt dated 04/06/2018?",
+      "matched_entities": [
+        "04",
+        "house",
+        "moonlight",
+        "06",
+        "cake"
+      ],
+      "answerable": true
+    },
+    {
+      "idx": 135,
+      "probe_id": "probe_0266",
+      "target_id": "sroie_273",
+      "verbatim": "14/JUN/2017 08:34:22",
+      "light_paraphrase": "retrieve document record showing payment at 14 jun",
+      "heavy_question": "What total did BEMED (SP) SDN. BHD. charge on 14 June 2017?",
+      "matched_entities": [
+        "sdn",
+        "sp",
+        "bemed",
+        "2017",
+        "14"
+      ],
+      "answerable": true
+    },
+    {
+      "idx": 58,
+      "probe_id": "probe_0110",
+      "target_id": "sroie_114",
+      "verbatim": "DATE: 04/01/2018",
+      "light_paraphrase": "retrieve document record showing payment at date 04",
+      "heavy_question": "Which SYARIKAT PERNIAGAAN GIN KEE receipt dated 04/01/2018 records a total of RM 44.73?",
+      "matched_entities": [
+        "syarikat",
+        "04",
+        "73",
+        "01",
+        "rm"
+      ],
+      "answerable": true
+    },
+    {
+      "idx": 211,
+      "probe_id": "probe_0429",
+      "target_id": "sroie_438",
+      "verbatim": "24 MAY 2018 18:29",
+      "light_paraphrase": "retrieve document record showing payment at 24 may",
+      "heavy_question": "What was the total amount on the UNIHAKKA INTERNATIONAL SDN BHD receipt dated 24 May 2018?",
+      "matched_entities": [
+        "international",
+        "sdn",
+        "unihakka",
+        "may",
+        "24"
+      ],
+      "answerable": true
+    },
+    {
+      "idx": 262,
+      "probe_id": "probe_0533",
+      "target_id": "sroie_545",
+      "verbatim": "INV NO.: 1076565",
+      "light_paraphrase": "retrieve document record showing payment at inv",
+      "heavy_question": "Which receipt from RESTORAN WAN SHENG on 04-04-2018 has invoice number 1076565?",
+      "matched_entities": [
+        "04",
+        "invoice",
+        "wan",
+        "1076565",
+        "restoran"
+      ],
+      "answerable": true
+    },
+    {
+      "idx": 124,
+      "probe_id": "probe_0245",
+      "target_id": "sroie_252",
+      "verbatim": "TIMES BOOKSTORES",
+      "light_paraphrase": "retrieve document record showing payment at times",
+      "heavy_question": "Which store named TIMES BOOKSTORES issued a receipt on 23/04/2017 for RM12.37?",
+      "matched_entities": [
+        "04",
+        "2017",
+        "37",
+        "times",
+        "bookstores"
+      ],
+      "answerable": true
+    },
+    {
+      "idx": 130,
+      "probe_id": "probe_0257",
+      "target_id": "sroie_264",
+      "verbatim": ": 25 MAY 2017 09:41AM",
+      "light_paraphrase": "retrieve document record showing payment at 25 may",
+      "heavy_question": "Which SEGI CASH & CARRY SDN. BHD. issued a receipt on 25 May 2017 for RM118.35?",
+      "matched_entities": [
+        "cash",
+        "sdn",
+        "25",
+        "carry",
+        "2017"
+      ],
+      "answerable": true
+    },
+    {
+      "idx": 300,
+      "probe_id": "probe_0602",
+      "target_id": "sroie_615",
+      "verbatim": "(PUSAT PERNIAGAAN BUNGA RAYA",
+      "light_paraphrase": "retrieve document record showing payment at pusat perniagaan",
+      "heavy_question": "Which store MR. D.I.Y. (M) SDN BHD issued a receipt on 15-07-18 for RM 7.15?",
+      "matched_entities": [
+        "mr",
+        "sdn",
+        "m",
+        "18",
+        "d"
+      ],
+      "answerable": true
+    },
+    {
+      "idx": 235,
+      "probe_id": "probe_0481",
+      "target_id": "sroie_493",
+      "verbatim": "1. 2044-0137",
+      "light_paraphrase": "retrieve document record showing payment at 1",
+      "heavy_question": "A reference number associated with a particular item or service.",
+      "matched_entities": [],
+      "answerable": false
+    },
+    {
+      "idx": 225,
+      "probe_id": "probe_0457",
+      "target_id": "sroie_469",
+      "verbatim": "INV NO: CS-SA-0086229",
+      "light_paraphrase": "retrieve document record showing payment at inv no",
+      "heavy_question": "Which receipt dated 22/05/2017 from SANYU STATIONERY SHOP shows a total of 35.00?",
+      "matched_entities": [
+        "00",
+        "35",
+        "2017",
+        "sanyu",
+        "shop"
+      ],
+      "answerable": true
+    },
+    {
+      "idx": 296,
+      "probe_id": "probe_0595",
+      "target_id": "sroie_608",
+      "verbatim": "DATE: 23/05/2018",
+      "light_paraphrase": "retrieve document record showing payment at date 23",
+      "heavy_question": "What is the total amount on the 23/05/2018 receipt issued by KEDAI PAPAN YEW CHUAN?",
+      "matched_entities": [
+        "papan",
+        "yew",
+        "kedai",
+        "chuan",
+        "23"
+      ],
+      "answerable": true
+    },
+    {
+      "idx": 140,
+      "probe_id": "probe_0276",
+      "target_id": "sroie_284",
+      "verbatim": "03 APR 2018 18:33",
+      "light_paraphrase": "retrieve document record showing payment at 03 apr",
+      "heavy_question": "Which vendor UNIHAKKA INTERNATIONAL SDN BHD issued a receipt on 03 APR 2018 for $7.10?",
+      "matched_entities": [
+        "sdn",
+        "international",
+        "10",
+        "2018",
+        "03"
+      ],
+      "answerable": true
+    },
+    {
+      "idx": 187,
+      "probe_id": "probe_0382",
+      "target_id": "sroie_390",
+      "verbatim": "TISSUE HOLDER Z-66#*VS",
+      "light_paraphrase": "retrieve document record showing payment at tissue holder",
+      "heavy_question": "What MR. D.I.Y. (KUCHAI) SDN BHD receipt on 24-01-16 records total RM57.40 for TISSUE HOLDER Z-66?",
+      "matched_entities": [
+        "mr",
+        "16",
+        "sdn",
+        "d",
+        "01"
+      ],
+      "answerable": true
+    },
+    {
+      "idx": 46,
+      "probe_id": "probe_0091",
+      "target_id": "sroie_095",
+      "verbatim": "CP. (M) SDN BHD",
+      "light_paraphrase": "retrieve document record showing payment at cp m",
+      "heavy_question": "What is the total amount on the POPULAR BOOK CO. (M) SDN BHD receipt dated 07/01/18?",
+      "matched_entities": [
+        "popular",
+        "sdn",
+        "m",
+        "18",
+        "01"
+      ],
+      "answerable": true
+    },
+    {
+      "idx": 63,
+      "probe_id": "probe_0118",
+      "target_id": "sroie_123",
+      "verbatim": "TEL :03-40210276",
+      "light_paraphrase": "retrieve document record showing payment at tel",
+      "heavy_question": "What telephone number appears on the SYARIKAT PERNIAGAAN GIN KEE receipt dated 02/01/2018?",
+      "matched_entities": [
+        "syarikat",
+        "02",
+        "01",
+        "kee",
+        "perniagaan"
+      ],
+      "answerable": true
+    },
+    {
+      "idx": 21,
+      "probe_id": "probe_0043",
+      "target_id": "sroie_046",
+      "verbatim": "BANOAR BARU PERMAS JAYA",
+      "light_paraphrase": "retrieve document record showing payment at banoar baru",
+      "heavy_question": "What is the address of PASAR MINI JIN SENG on the 18/03/18 receipt?",
+      "matched_entities": [
+        "pasar",
+        "18",
+        "mini",
+        "03",
+        "seng"
+      ],
+      "answerable": true
+    },
+    {
+      "idx": 49,
+      "probe_id": "probe_0095",
+      "target_id": "sroie_099",
+      "verbatim": "TIME: 16:15:00",
+      "light_paraphrase": "retrieve document record showing payment at time 16",
+      "heavy_question": "What time is shown on the SYARIKAT PERNIAGAAN GIN KEE receipt dated 04/12/2017 with total RM 47.70?",
+      "matched_entities": [
+        "04",
+        "syarikat",
+        "time",
+        "70",
+        "12"
+      ],
+      "answerable": true
+    },
+    {
+      "idx": 24,
+      "probe_id": "probe_0046",
+      "target_id": "sroie_049",
+      "verbatim": "DATE: 15/03/2018",
+      "light_paraphrase": "retrieve document record showing payment at date 15",
+      "heavy_question": "A specific related to a transaction.",
+      "matched_entities": [],
+      "answerable": false
+    },
+    {
+      "idx": 180,
+      "probe_id": "probe_0370",
+      "target_id": "sroie_378",
+      "verbatim": "SPONGE DISHES 6103#",
+      "light_paraphrase": "retrieve document record showing payment at sponge",
+      "heavy_question": "Which MR. D.I.Y. (KUCHAI) SDN BHD receipt dated 17-04-16 shows total RM 3.30 for SPONGE DISHES 6103?",
+      "matched_entities": [
+        "mr",
+        "3",
+        "16",
+        "sdn",
+        "04"
+      ],
+      "answerable": true
+    },
+    {
+      "idx": 165,
+      "probe_id": "probe_0336",
+      "target_id": "sroie_344",
+      "verbatim": "DD: 05/09/2017",
+      "light_paraphrase": "5th September 2017",
+      "heavy_question": "Which receipt issued by GARDENIA BAKERIES (KL) SDN BHD on 05/09/2017 totals RM 54.15?",
+      "matched_entities": [
+        "gardenia",
+        "bakeries",
+        "sdn",
+        "kl",
+        "09"
+      ],
+      "answerable": true
+    },
+    {
+      "idx": 109,
+      "probe_id": "probe_0224",
+      "target_id": "sroie_229",
+      "verbatim": "NO.:UOA-CB18-01575",
+      "light_paraphrase": "retrieve document record showing payment at no uoa",
+      "heavy_question": "What total was recorded by ANZEL ADVERTISING (M) SDN BHD on 21/03/2018 in Kuala Lumpur?",
+      "matched_entities": [
+        "sdn",
+        "m",
+        "kuala",
+        "21",
+        "03"
+      ],
+      "answerable": true
+    },
+    {
+      "idx": 119,
+      "probe_id": "probe_0237",
+      "target_id": "sroie_244",
+      "verbatim": "MCDONALD'S KOTA DAMANSARA DT(#178)",
+      "light_paraphrase": "retrieve document record showing payment at mcdonald s",
+      "heavy_question": "What total amount is shown on GOLDEN ARCHES RESTAURANTS SDN BHD receipt dated 25/12/2016?",
+      "matched_entities": [
+        "sdn",
+        "golden",
+        "2016",
+        "restaurants",
+        "12"
+      ],
+      "answerable": true
+    },
+    {
+      "idx": 199,
+      "probe_id": "probe_0402",
+      "target_id": "sroie_411",
+      "verbatim": "EIGHT OUNCE COFFEE CO.",
+      "light_paraphrase": "retrieve document record showing payment at eight ounce",
+      "heavy_question": "What total appears on the EIGHT OUNCE COFFEE CO. receipt dated 24-05-2018?",
+      "matched_entities": [
+        "eight",
+        "coffee",
+        "ounce",
+        "05",
+        "24"
+      ],
+      "answerable": true
+    },
+    {
+      "idx": 33,
+      "probe_id": "probe_0068",
+      "target_id": "sroie_071",
+      "verbatim": "MON-SUN:1000 HRS - 2200 HRS",
+      "light_paraphrase": "retrieve document record showing payment at mon sun",
+      "heavy_question": "Operating hours indicating availability throughout the week.",
+      "matched_entities": [
+        "hours"
+      ],
+      "answerable": false
+    },
+    {
+      "idx": 250,
+      "probe_id": "probe_0510",
+      "target_id": "sroie_522",
+      "verbatim": "PCL XL ERROR",
+      "light_paraphrase": "retrieve document record showing payment at pcl",
+      "heavy_question": "What total amount did UNIHAKKA INTERNATIONAL SDN BHD charge on 09 JUN 2018?",
+      "matched_entities": [
+        "international",
+        "sdn",
+        "09",
+        "unihakka",
+        "jun"
+      ],
+      "answerable": true
+    },
+    {
+      "idx": 209,
+      "probe_id": "probe_0426",
+      "target_id": "sroie_435",
+      "verbatim": "VERBENA CONFECTIONERY SDN BHD",
+      "light_paraphrase": "retrieve document record showing payment at verbena confectionery",
+      "heavy_question": "Which vendor VERBENA CONFECTIONERY SDN BHD issued a receipt on 12/05/2018 for RM 75.70?",
+      "matched_entities": [
+        "sdn",
+        "70",
+        "12",
+        "75",
+        "2018"
+      ],
+      "answerable": true
+    },
+    {
+      "idx": 99,
+      "probe_id": "probe_0209",
+      "target_id": "sroie_214",
+      "verbatim": ": T03-18/199913",
+      "light_paraphrase": "retrieve document record showing payment at t03",
+      "heavy_question": "Which receipt from SINNATHAMBY HOLDINGS SDN. BHD. on 06/02/2018 includes item code T03-18/199913?",
+      "matched_entities": [
+        "sdn",
+        "holdings",
+        "18",
+        "sinnathamby",
+        "02"
+      ],
+      "answerable": true
+    },
+    {
+      "idx": 102,
+      "probe_id": "probe_0215",
+      "target_id": "sroie_220",
+      "verbatim": "16:57:00",
+      "light_paraphrase": "retrieve document record showing payment at 16",
+      "heavy_question": "Did PRINT EXPERT SDN BHD record a receipt of 4.25 on 12/01/2018 in Shah Alam?",
+      "matched_entities": [
+        "shah",
+        "sdn",
+        "alam",
+        "12",
+        "01"
+      ],
+      "answerable": true
+    },
+    {
+      "idx": 13,
+      "probe_id": "probe_0029",
+      "target_id": "sroie_032",
+      "verbatim": "03 MAR 2018 18:22",
+      "light_paraphrase": "retrieve document record showing payment at 03 mar",
+      "heavy_question": "Which location UNIHAKKA INTERNATIONAL SDN BHD produced a receipt on 03 MAR 2018 for $8.20?",
+      "matched_entities": [
+        "sdn",
+        "international",
+        "8",
+        "20",
+        "mar"
+      ],
+      "answerable": true
+    }
+  ]
+}

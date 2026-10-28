@@ -1,0 +1,5 @@
+Comparison,Baseline_MRR,Target_MRR,MRR_Drop,Interpretation
+Light Paraphrase Mismatch Drop (GT Verbatim -> GT Light),0.8572,0.479,0.3782,Severe drop: token removal/substitution breaks lexical BM25 match.
+Answerable Question Mismatch Drop (GT Verbatim -> GT Question),0.8572,0.9116,-0.0544,Negative drop (MRR increases!): Natural questions with topical anchors improve BM25 discriminability.
+Clean Apple Vision OCR Drop (GT Verbatim -> Clean OCR Verbatim),0.8572,0.8371,0.0201,Minimal drop: clean neural OCR preserves primary vendor and numeric tokens.
+Degraded Optical Blur Drop (GT Verbatim -> Degraded OCR Verbatim),0.8572,0.6972,0.16,Moderate drop: optical blur causes character substitutions but character n-grams retain 0.8248.

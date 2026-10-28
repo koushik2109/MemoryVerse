@@ -1,0 +1,7 @@
+query_type,baseline,colqwen_mrr,colqwen_ci95,baseline_mrr,diff,diff_ci95,p_raw,p_holm,verdict,mode
+light,Word BM25,0.4962,"[0.4484, 0.5472]",0.4003,+0.0960,"[0.0546, 0.1437]",0.0001,0.0003,ColQwen2_Wins,MEASURED
+light,Char BM25,0.4962,"[0.4484, 0.5472]",0.2365,+0.2597,"[0.2181, 0.3042]",0.0000,0.0001,ColQwen2_Wins,MEASURED
+light,Tuned Hybrid,0.4962,"[0.4484, 0.5472]",0.2462,+0.2500,"[0.2083, 0.2948]",0.0000,0.0001,ColQwen2_Wins,MEASURED
+answerable,Word BM25,0.0546,"[0.0390, 0.0737]",0.0232,+0.0314,"[0.0145, 0.0500]",0.0001,0.0004,ColQwen2_Wins,MEASURED
+answerable,Char BM25,0.0546,"[0.0390, 0.0737]",0.0495,+0.0051,"[-0.0119, 0.0220]",0.5574,1.0000,No_Significant_Difference,MEASURED
+answerable,Tuned Hybrid,0.0546,"[0.0390, 0.0737]",0.0488,+0.0059,"[-0.0109, 0.0228]",0.5027,1.0000,No_Significant_Difference,MEASURED

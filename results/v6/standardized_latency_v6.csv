@@ -1,0 +1,10 @@
+System,Mean_Latency_ms,P50_Latency_ms,P95_Latency_ms
+Word BM25,0.13,0.14,0.24
+Char 3-5gram BM25,0.96,0.93,2.19
+Dense MiniLM,4.56,4.28,6.4
+Dense BGE-base,11.62,10.98,15.86
+Tuned Hybrid,5.34,4.56,9.34
+BM25 + BGE Cross-Encoder (Top-20),1451.77,1310.93,2208.76
+Conformal Cascade (21.6% Escalation),748.89,0.44,2372.8
+CLIP ViT-B/32,9.93,9.7,13.02
+SigLIP Base Patch16,11.38,9.65,18.62

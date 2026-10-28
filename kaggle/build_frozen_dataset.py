@@ -16,7 +16,7 @@ import hashlib
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-OUTPUT_ZIP = REPO_ROOT / "kaggle" / "frozen_inputs_v6.zip"
+OUTPUT_ZIP = REPO_ROOT / "kaggle" / "frozen_inputs_v9.zip"
 
 FILES_TO_PACK = [
     # Benchmark core
@@ -35,23 +35,21 @@ FILES_TO_PACK = [
     "ai_engine/rag/data/coco_clip_image_embeddings.npy",
     "results/v3/coco_siglip_image_embeddings.npy",
     "ai_engine/rag/data/expanded_multihop_results.json",
-    # Documentation, preregistration & configs
-    "PREREG_V6.md",
+    # V9 Documentation, audit & verification scripts
     "CONFIG_LOG.md",
     "MANIFEST.json",
+    "AUDIT_V9.md",
+    "CHANGELOG_V9.md",
     "CHECKPOINT1.md",
-    "RESULTS_SUMMARY_V6.md",
-    "CLAIMS_LEDGER.csv",
-    "PAPER_FIXLIST_V6.md",
-    "reproduce_v6.sh",
+    "IEEE_Paper_v9.tex",
+    "scripts/check_numbers.py",
     "kaggle/requirements_kaggle.txt",
-    "kaggle/kaggle_run_v6.py",
+    "kaggle/kaggle_run_v9.py",
     "kaggle/README_KAGGLE.md",
 ]
 
 DIRECTORY_TREES_TO_PACK = [
-    "results/v6",
-    "latex_fragments_v6",
+    "results/v9",
     "ai_engine/rag/data/sroie/img",
     "ai_engine/rag/data/sroie/img_degraded",
     "ai_engine/rag/data/coco_1k_images",

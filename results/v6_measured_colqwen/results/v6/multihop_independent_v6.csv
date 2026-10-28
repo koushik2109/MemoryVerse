@@ -1,0 +1,2 @@
+Comparison,N_Queries,Extractive_Hit10,LLM_Hit10,Net_Difference,Diff_CI_Lower,Diff_CI_Upper,Extractive_Wins,LLM_Wins,Ties,Exact_McNemar_P,Verdict
+Independent Extractive PRF vs. Generative LLM Bridging,50,0.64,0.64,0.0,-0.0792,0.0792,2,2,46,1.0,No Statistically Detectable Advantage (p > 0.05)

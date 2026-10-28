@@ -1,0 +1,52 @@
+# Comprehensive Table Audit: Query Types, OCR Sources, Probe Subsets, and Evidence Files (AUDIT_V9.md)
+
+This audit documents every table in `IEEE_Paper_v9.tex`, detailing the exact document domain, query types, OCR text sources, probe subsets, sample sizes, and primary result evidence files under `results/`.
+
+---
+
+## Summary Matrix of Empirical Tables
+
+| Table Number & Label | Descriptive Title | Document Domain & Dataset | Sample Size ($N$) | Query Types | OCR / Representation Source | Distractor Fallback & Length Normalization | Primary Source Evidence File |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Table I** (`tab:paradigm_comparison`) | Multimodal Retrieval & Ranking Paradigms | Conceptual / Architecture | Architectural taxonomy | N/A | Text proxies vs late-interaction vision | N/A | Pre-registration plan & related work |
+| **Table II** (`tab:regime_grid_v3`) | Multimodal Text-Proxy Retrieval Regime Analysis across 18 Cells | ICDAR SROIE scanned receipts + MS-COCO distractors | $N=306$ held-out probes (813 test items: 313 receipts, 500 distractors) | 1. Verbatim lookups<br>2. Light paraphrases (41.2% overlap)<br>3. Answerable questions (topical anchors) | 1. Pristine Ground Truth<br>2. Synthetic 20% Substitution<br>3. Apple Vision Neural OCR (Clean)<br>4. Optical Gaussian Blur | **With Fallback:** Distractor text retains ground-truth captions; length normalization calibrated on full 813-doc corpus | `results/v3/headline_regime_grid_v3.csv` |
+| **Table III** (`tab:dense_formulation_v6`) | Dense Bi-Encoder Sensitivity to Query Formulation Controls | ICDAR SROIE scanned receipts | $N=306$ held-out probes (813 test items) | 1. Short Verbatim Snippets<br>2. Length-Padded Spans<br>3. Sentential Contexts<br>4. Keyword-Matched Probes<br>5. Natural Answerable Questions | Pristine Ground-Truth Text (0% noise) | Evaluated on pristine text without character corruption | `results/v6/dense_formulation_keyword_control_v6.csv` |
+| **Table IV** (`tab:ablation_v3`) | Architectural Component Ablation on Public Test Split | ICDAR SROIE scanned receipts + MS-COCO distractors | $N=306$ held-out probes (813 test items) | Verbatim lookups | 1. Clean Ground Truth<br>2. Synthetic 20% Noise<br>3. Apple Vision Clean OCR<br>4. Degraded Optical Blur | Full 813-item test split | `results/v3/practical_stack_ablation.csv`, `results/v6/practical_stack_ablation_v6.csv` |
+| **Table V** (`tab:practical_stack`) | Production Cross-Encoder Cascade Ablation | ICDAR SROIE scanned receipts | $N=306$ held-out probes (813 test items) | Verbatim lookups | Apple Vision Clean OCR | Full 813-item test split | `results/v6/practical_stack_ablation_v6.csv` |
+| **Table VI** (`tab:conformal_cascade_v6`) | Conformal Cascade Calibration across 200 Random Splits | ICDAR SROIE scanned receipts | $N=2{,}754$ pooled query instances across 200 random cluster-stratified splits | 1. Verbatim (918)<br>2. Entity Rewrites (918)<br>3. Legacy Token-Stripped Probes (918) | Heterogeneous: Clean (918), Synthetic 20% (918), Real OCR (918) | **Pooled Cache:** Evaluated from `conformal_pooled_cache.npz`. Third slice reflects legacy token-stripped probes (MRR 0.0404) | `results/v7/conformal_retest_summary_v7.csv`, `results/v7/conformal_retest_v7.csv` |
+| **Table VII** (`tab:coco_benchmarks_v3`) | Cross-Modal Text-to-Image Retrieval on Natural Images | MS-COCO Karpathy Test Split | $N=1{,}000$ held-out images, 500 independent queries | Held-out natural image descriptions | 1. Machine Captions (BLIP proxy)<br>2. Human Gold Captions<br>3. Native Pixel ViT (CLIP ViT-B/32 & SigLIP Base) | Zero lexical leakage | `results/v3/coco_native_visual_v3.csv`, `results/v6/clip_receipt_eval_v6.csv` |
+| **Table VIII** (`tab:multihop_paired_v3`) | Exact Paired Case Analysis for Diagnostic Multi-Hop Queries | Cross-modal image + audio records | $N=50$ diagnostic multi-hop queries | Relational multi-hop bridging | Text proxies (OCR / ASR transcripts) | Evaluated on diagnostic multi-hop probes | `results/v3/multihop_paired_results.csv` |
+| **Table IX** (`tab:multihop_v6`) | Extractive PRF vs. Generative LLM Multi-Hop Bridging | Cross-modal image + audio records | $N=50$ diagnostic multi-hop queries ($N=100$ expanded suite with single-hop controls) | Diagnostic multi-hop queries | Text proxies | Equivalence evaluated strictly on the 50 multi-hop queries ($p_{\text{McNemar}} = 1.000$, CI spans beyond $\pm 0.05$) | `results/v6/multihop_independent_v6.csv`, `results/v6/multihop_100_summary_v6.csv` |
+| **Table X** (`tab:ocr_error_rates_v6`) | Standardized JiWER OCR Error Rates on Scanned Receipts | ICDAR SROIE scanned receipts ($N=626$) | $N=626$ full document receipts | N/A (Transcription edit distance) | 1. Apple Vision Clean<br>2. Apple Vision Degraded Blur<br>3. Tesseract 5.5 Clean<br>4. Tesseract 5.5 Degraded Blur | Evaluated against human reference ground truth | `results/v6/ocr_error_rates_v6.csv` |
+| **Table XI** (`tab:engine_replication_v3`) | Cross-Engine OCR Replication on SROIE Receipts | ICDAR SROIE scanned receipts + distractors | $N=306$ held-out probes (813 test items) | 1. Verbatim lookups<br>2. Light paraphrases<br>3. Answerable questions | 1. Ground Truth<br>2. Apple Vision Clean OCR<br>3. Tesseract 5.5 Clean OCR<br>4. Tesseract 5.5 Degraded Blur OCR | **No-Fallback Artifact:** Tesseract evaluations in v3 engine replication evaluated distractor items with empty strings | `results/v3/engine_replication.csv`, `results/v9/dose_response_reconciled.csv` |
+| **Table XII** (`tab:funsd_v3`) | Cross-Dataset Replication on FUNSD Scanned Administrative Forms | FUNSD administrative forms ($N=199$) | $N=100$ test probes (600 distractor evaluation pool) | 1. Verbatim lookups<br>2. Light paraphrases | 1. Ground Truth<br>2. Apple Vision Neural OCR<br>3. Tesseract 5.5 LSTM OCR | Administrative forms evaluation pool | `results/v3/funsd_dataset_replication.csv`, `results/v6/funsd_eval_v6.csv` |
+| **Table XIII** (`tab:system_costs`) | Computational Resource and Latency Profile Across Retrieval Systems | SROIE + COCO index pool ($N=813$) | $N=813$ documents | Mixed query suite | Standardized benchmarking | **Per-Hardware Breakdown:** Lightweight proxies measured on Apple Silicon M2 CPU/MPS (16 GB RAM); ColQwen2 measured on Nvidia Tesla T4 GPU (14.56 GB GDDR6) | `results/v6/standardized_latency_v6.csv`, `results/v7/colqwen_receipts_measured_v7.csv` |
+| **Table XIV** (`tab:decision_guide_v6`) | Empirical Decision Guide for MM-RAG System Builders | All evaluated domains | Synthesized across all regimes | Verbatim, Light Paraphrase, Answerable Questions | Text proxies vs. Native Visual | Statistical tie sets derived from paired permutation CIs | Synthesized from Tables II, VII, VIII, IX, XI, XII |
+| **Table XV** (`tab:pilot_summary`) | Preliminary Pilot Feasibility Benchmarks (Appendix A) | Album photos, audio, documents | Tier-1 ($N=334$), Tier-2 ($N=85$ text, 13 audio, 53 visual), COCO pilot ($N=250$) | Mixed queries | Pilot transcripts and embeddings | Pilot proof-of-concept archive | `ai_engine/rag/data/` |
+| **Table XVI** (`tab:pilot_multihop`) | Preliminary End-to-End Diagnostic Suite (Appendix A) | Multimodal records | $N=100$ queries (50 single-hop, 50 multi-hop) | Single-hop & multi-hop | Evaluated via GPT-4o-mini | Preliminary pilot evaluation | `ai_engine/rag/data/expanded_multihop_results.json` |
+| **Table XVII** (`tab:pilot_sweeps`) | Preliminary Synthetic Noise Sweeps & Routing Pilots (Appendix A) | Synthetic noise archives | $N=600$ queries | 5 query intents | Synthetic character corruption | Early exploratory routing trials | `results/v2/` |
+
+---
+
+## Discrepancy Reconciliation Notes (Phase 0)
+
+1. **Word BM25 on Apple Clean OCR (Item 0.1):**
+   - In `Table II` (`headline_regime_grid_v3.csv`), Word BM25 Clean OCR scores **0.8371** on verbatim lookups and **0.4334** on light paraphrases. The distractor corpus retains ground-truth caption text, ensuring accurate average document length calculation ($N=813$).
+   - In `Table XI` (`engine_replication.csv`), Word BM25 Clean OCR scored **0.8324** on verbatim lookups and **0.4003** on light paraphrases because distractor items were indexed as empty strings (`""`), which compressed the average document length denominator and slightly distorted BM25 length normalization.
+   - *Resolution:* All text and tables standardize on the regime grid values (**0.8371** verbatim / **0.4334** light paraphrase), and table captions explicitly state the distractor text condition.
+
+2. **Dose-Response Drops (Item 0.2):**
+   - Ghost number `0.6724` was an arithmetic artifact ($0.8324 - 0.1600 = 0.6724$) subtracting the ground-truth blur drop (0.1600) from the clean engine replication baseline (0.8324).
+   - *Reconciled drops from `results/v9/dose_response_drops_v9.csv`:*
+     - Apple Vision: Clean verbatim (0.8371) to light paraphrase (0.4334) drops **0.4037** MRR; clean verbatim to degraded blur (0.6972) drops **0.1399** MRR.
+     - Tesseract 5.5: Clean verbatim (0.7364) to light paraphrase (0.3964) drops **0.3400** MRR; clean verbatim to degraded blur (0.3448) drops **0.3916** MRR.
+
+3. **Dense MiniLM Divergent Numbers (Item 0.3):**
+   - `0.2100`: Pristine ground-truth receipt text, verbatim queries, chunked MaxP in the 12-cell regime grid (`headline_regime_grid_v3.csv`, Test $N=306$).
+   - `0.1919`: Pristine ground-truth receipt text, verbatim queries, unchunked single-vector MiniLM in engine replication without distractor captions (`engine_replication.csv`).
+   - `0.2056`: Clean Apple Vision OCR text, verbatim queries, standard unchunked encoding (`dense_truncation_impact.csv`).
+   - `0.2030`: Clean Apple Vision OCR text, verbatim queries, sliding 150-word window chunked MaxP (`dense_truncation_impact.csv`), proving chunking does not restore MRR.
+
+4. **Conformal Cascade Calibration (Item 0.4):**
+   - All conformal cascade metrics (mean test risk 0.0494, 95% quantile CI [0.0355, 0.0654], split coverage 58.5%, escalation rate 78.4%, savings 21.6%, realized MRR 0.3577 vs 0.3579) are verified against `results/v7/conformal_retest_summary_v7.csv` and `results/v7/conformal_retest_v7.csv`.
+   - The low realized MRR of 0.0404 on the third query slice in the conformal cache is attributable to the legacy v2 token-stripped probe condition present in `conformal_pooled_cache.npz`, whereas BM25 scores ~0.90 on the redesigned anchor-preserved factual questions in `heavy_paraphrases_v3.json`.

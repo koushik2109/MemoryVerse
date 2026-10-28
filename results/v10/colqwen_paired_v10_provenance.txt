@@ -1,0 +1,20 @@
+============================================================
+ColQwen2 Paired Test Provenance — v10
+============================================================
+Run timestamp:     2026-10-28T10:57:51Z
+Mode:              MEASURED
+Model:             vidore/colqwen2-v1.0
+Seeds:             [42, 43, 44]
+B (bootstrap):     2000
+N_perm:            100000
+Corpus size:       813
+Light probes:      306
+Answerable probes: 306
+============================================================
+
+  light        vs Word BM25      : ColQwen=0.4962, Base=0.4003, Diff=+0.0960, p_holm=0.0003
+  light        vs Char BM25      : ColQwen=0.4962, Base=0.2365, Diff=+0.2597, p_holm=0.0001
+  light        vs Tuned Hybrid   : ColQwen=0.4962, Base=0.2462, Diff=+0.2500, p_holm=0.0001
+  answerable   vs Word BM25      : ColQwen=0.0546, Base=0.0232, Diff=+0.0314, p_holm=0.0004
+  answerable   vs Char BM25      : ColQwen=0.0546, Base=0.0495, Diff=+0.0051, p_holm=1.0000
+  answerable   vs Tuned Hybrid   : ColQwen=0.0546, Base=0.0488, Diff=+0.0059, p_holm=1.0000

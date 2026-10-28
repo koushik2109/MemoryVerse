@@ -272,7 +272,7 @@ def late_interaction_maxsim(query_emb: torch.Tensor, doc_emb: torch.Tensor) -> f
     Score(q, d) = sum_{i=1}^{L_q} max_{j=1}^{L_d} (q_i . d_j)
     """
     # query_emb: [L_q, D], doc_emb: [L_d, D]
-    sim = torch.matmul(query_emb, doc_emb.t())  # [L_q, L_d]
+    sim = torch.matmul(query_emb.float(), doc_emb.float().t())  # [L_q, L_d]
     max_sim = torch.max(sim, dim=1).values      # [L_q]
     return float(torch.sum(max_sim).item())
 
@@ -405,13 +405,14 @@ def run_stage_3(data_dir: Path, working_dir: Path, smoke: bool = False):
     # Document Image discovery
     clean_img_dir = find_data_file(data_dir, "ai_engine/rag/data/sroie/img")
     deg_img_dir = find_data_file(data_dir, "ai_engine/rag/data/sroie/img_degraded")
+    coco_img_dir = find_data_file(data_dir, "ai_engine/rag/data/coco_1k_images")
 
     # Execution conditions
     conditions = [
-        {"Condition": "Clean Receipts", "Query_Type": "verbatim", "img_dir": clean_img_dir, "proxy_bm25": bm25_char_clean, "q_key": "verbatim_query"},
+        {"Condition": "Clean Receipts", "Query_Type": "verbatim", "img_dir": clean_img_dir, "proxy_bm25": bm25_char_clean, "q_key": "verbatim"},
         {"Condition": "Clean Receipts", "Query_Type": "light_paraphrase", "img_dir": clean_img_dir, "proxy_bm25": bm25_word_clean, "q_key": "light_paraphrase"},
         {"Condition": "Clean Receipts", "Query_Type": "heavy_question", "img_dir": clean_img_dir, "proxy_bm25": bm25_char_clean, "q_key": "heavy"},
-        {"Condition": "Degraded Blur", "Query_Type": "verbatim", "img_dir": deg_img_dir, "proxy_bm25": bm25_char_deg, "q_key": "verbatim_query"},
+        {"Condition": "Degraded Blur", "Query_Type": "verbatim", "img_dir": deg_img_dir, "proxy_bm25": bm25_char_deg, "q_key": "verbatim"},
     ]
 
     has_gpu = torch.cuda.is_available() and not smoke
@@ -424,18 +425,37 @@ def run_stage_3(data_dir: Path, working_dir: Path, smoke: bool = False):
             print(f"Loading {model_id} onto GPU...")
             from colpali_engine.models import ColQwen2, ColQwen2Processor
             colqwen_processor = ColQwen2Processor.from_pretrained(model_id)
+            torch_dtype = torch.bfloat16 if torch.cuda.is_bf16_supported() else torch.float16
             colqwen_model = ColQwen2.from_pretrained(
                 model_id,
-                torch_dtype=torch.bfloat16,
+                torch_dtype=torch_dtype,
                 device_map="cuda:0"
             ).eval()
             print("Successfully loaded ColQwen2-v1.0 onto GPU.")
         except Exception as e:
-            log_to_runlog(working_dir, f"Warning: Could not initialize ColQwen2 GPU model ({e}). Using verified fallback protocol.")
-            has_gpu = False
+            if "torchao" in str(e).lower():
+                print(f"Detected torchao version issue ({e}). Resolving torchao and reloading ColQwen2...")
+                import subprocess, sys
+                subprocess.run([sys.executable, "-m", "pip", "uninstall", "-y", "torchao"])
+                for m in list(sys.modules.keys()):
+                    if any(k in m for k in ["torchao", "colpali", "transformers", "peft"]):
+                        del sys.modules[m]
+                from colpali_engine.models import ColQwen2, ColQwen2Processor
+                colqwen_processor = ColQwen2Processor.from_pretrained(model_id)
+                torch_dtype = torch.bfloat16 if torch.cuda.is_bf16_supported() else torch.float16
+                colqwen_model = ColQwen2.from_pretrained(
+                    model_id,
+                    torch_dtype=torch_dtype,
+                    device_map="cuda:0"
+                ).eval()
+                print("Successfully recovered and loaded ColQwen2-v1.0 onto GPU after resolving torchao.")
+            else:
+                log_to_runlog(working_dir, f"Warning: Could not initialize ColQwen2 GPU model ({e}). Using verified fallback protocol.")
+                has_gpu = False
 
     colqwen_results = []
     paired_comparison_rows = []
+    cached_doc_embs = {}
 
     for c in conditions:
         cond_name = c["Condition"]
@@ -443,7 +463,7 @@ def run_stage_3(data_dir: Path, working_dir: Path, smoke: bool = False):
         q_key = c["q_key"]
         proxy_engine = c["proxy_bm25"]
 
-        print(f"\nEvaluating Condition: {cond_name} | Query Type: {q_type}...")
+        print(f"\nEvaluating Condition: {cond_name} | Query Type: {q_type}...", flush=True)
         colqwen_rr_list = []
         proxy_rr_list = []
         hit1_list = []
@@ -453,26 +473,49 @@ def run_stage_3(data_dir: Path, working_dir: Path, smoke: bool = False):
         if has_gpu and colqwen_model is not None and colqwen_processor is not None:
             from PIL import Image
             t0 = time.time()
-            # Index page images
-            doc_embs = []
-            for r in test_records:
-                stem = r["id"].replace("sroie_", "")
-                img_path = c["img_dir"] / f"{stem}.jpg"
-                if not img_path.exists():
-                    img_path = c["img_dir"] / f"{stem}.png"
-                if img_path.exists():
-                    img = Image.open(img_path).convert("RGB")
-                    batch_img = colqwen_processor.process_images([img]).to("cuda:0")
-                    with torch.no_grad():
-                        emb = colqwen_model(**batch_img)
-                    doc_embs.append(emb[0].cpu())
-                else:
-                    doc_embs.append(torch.zeros((16, 128)))
+            dir_key = str(c["img_dir"])
+
+            if dir_key in cached_doc_embs:
+                print(f"  [Cache Hit] Reusing {len(cached_doc_embs[dir_key])} pre-computed document embeddings for {cond_name}...", flush=True)
+                doc_embs = cached_doc_embs[dir_key]
+            else:
+                print(f"  [GPU Inference] Embedding {len(test_records)} document & distractor images...", flush=True)
+                doc_embs = []
+                for idx, r in enumerate(test_records):
+                    if r.get("type") == "receipt_document":
+                        stem = r["id"].replace("sroie_", "")
+                        img_path = c["img_dir"] / f"{stem}.jpg"
+                        if not img_path.exists():
+                            img_path = c["img_dir"] / f"{stem}.png"
+                    else: # COCO distractor
+                        stem = r["id"].replace("coco_", "")
+                        img_path = coco_img_dir / f"{stem}.jpg"
+                        if not img_path.exists():
+                            img_path = coco_img_dir / f"{stem}.png"
+
+                    if img_path.exists():
+                        img = Image.open(img_path).convert("RGB")
+                        batch_img = colqwen_processor.process_images([img]).to("cuda:0")
+                        with torch.no_grad():
+                            emb = colqwen_model(**batch_img)
+                        doc_embs.append(emb[0].cpu())
+                    else:
+                        doc_embs.append(torch.zeros((16, 128)))
+
+                    if (idx + 1) % 50 == 0 or (idx + 1) == len(test_records):
+                        elapsed_so_far = time.time() - t0
+                        rate = (idx + 1) / max(0.1, elapsed_so_far)
+                        eta_sec = (len(test_records) - (idx + 1)) / max(0.01, rate)
+                        vram_mb = torch.cuda.memory_allocated() / (1024**2) if torch.cuda.is_available() else 0
+                        print(f"    [Progress] Images: {idx + 1}/{len(test_records)} ({((idx + 1)/len(test_records))*100:.1f}%) | {rate:.1f} img/s | ETA: {eta_sec:.0f}s | VRAM: {vram_mb:.0f}MB", flush=True)
+
+                cached_doc_embs[dir_key] = doc_embs
 
             # Score probes
-            for p in test_probes:
+            print(f"  [GPU Inference] Scoring {len(test_probes)} probes with late-interaction MaxSim...", flush=True)
+            for p_idx, p in enumerate(test_probes):
                 t_idx = id_to_idx[p["target_id"]]
-                q_text = heavy_map.get(p["probe_id"], p.get("verbatim_query", "")) if q_key == "heavy" else p.get(q_key, "")
+                q_text = heavy_map.get(p["probe_id"], p.get("verbatim", "")) if q_key == "heavy" else p.get(q_key, p.get("verbatim", ""))
                 batch_q = colqwen_processor.process_queries([q_text]).to("cuda:0")
                 with torch.no_grad():
                     q_emb = colqwen_model(**batch_q)[0].cpu()
@@ -487,6 +530,9 @@ def run_stage_3(data_dir: Path, working_dir: Path, smoke: bool = False):
                 proxy_scores = proxy_engine.score(q_text)
                 prr, _, _, _ = compute_rr_and_hitk(proxy_scores, t_idx)
                 proxy_rr_list.append(prr)
+
+                if (p_idx + 1) % 50 == 0 or (p_idx + 1) == len(test_probes):
+                    print(f"    [Progress] Probes: {p_idx + 1}/{len(test_probes)} ({((p_idx + 1)/len(test_probes))*100:.1f}%)", flush=True)
 
             elapsed = (time.time() - t0) / max(1, len(test_probes)) * 1000.0
             peak_vram = torch.cuda.max_memory_allocated() / (1024**2) if torch.cuda.is_available() else 0.0
@@ -592,7 +638,7 @@ def run_stage_4(data_dir: Path, working_dir: Path, smoke: bool = False):
     res_dir = working_dir / "results" / "v6"
     res_dir.mkdir(parents=True, exist_ok=True)
 
-    benchmark_id = "vidore/docvqa_benchmark_test"
+    benchmark_id = "vidore/docvqa_test_subsampled"
     out_csv = res_dir / "vidore_benchmark_results.csv"
 
     # Attempt to load benchmark

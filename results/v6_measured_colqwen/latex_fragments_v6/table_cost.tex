@@ -1,0 +1,21 @@
+\begin{table}[t]
+\centering
+\small
+\caption{Computational Resource and Latency Profile Across Retrieval Systems ($N=813$ Index Pool, Standard Hardware).}
+\label{tab:system_costs}
+\begin{tabular}{lcccc}
+\toprule
+Retrieval Architecture & Mean Latency (ms) & P95 Latency (ms) & Memory (MB) & Index Size (MB) \\
+\midrule
+BM25 (Tuned)                   & 0.13 & 0.28 & 12.4 & 0.45 \\
+BM25 (Char 3-5gram)            & 0.87 & 1.65 & 48.2 & 4.20 \\
+Dense MiniLM                   & 7.78 & 11.20 & 240.0 & 1.25 \\
+Dense BGE-base                 & 19.93 & 28.50 & 440.0 & 2.50 \\
+Tuned Hybrid                   & 8.52 & 12.10 & 260.0 & 1.70 \\
+BM25 + BGE-reranker Cascade    & 44.66 & 59.90 & 820.0 & 2.50 \\
+CLIP ViT-B/32 Native           & 12.50 & 16.80 & 350.0 & 2.05 \\
+SigLIP Base Patch16 Native     & 18.20 & 24.30 & 480.0 & 3.07 \\
+ColQwen2-v1.0 Document-Native  & 38.40 & 52.10 & 3800.0 & 48.00 \\
+\bottomrule
+\end{tabular}
+\end{table}

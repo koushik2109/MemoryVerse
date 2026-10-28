@@ -1,0 +1,5 @@
+Query_Formulation,MiniLM_MRR,MiniLM_CI_Lower,MiniLM_CI_Upper,MiniLM_Hit10,BGE_Base_MRR,BGE_CI_Lower,BGE_CI_Upper,BGE_Base_Hit10
+1. Short Verbatim Snippets,0.21,0.1709,0.2524,0.2843,0.3256,0.2764,0.3757,0.3824
+2. Length-Padded Spans,0.1949,0.1564,0.2361,0.2484,0.2571,0.2134,0.3024,0.3366
+3. Full Sentential Context Queries,0.167,0.1332,0.2051,0.232,0.274,0.2281,0.3213,0.3399
+4. Natural Answerable Questions,0.3669,0.3232,0.4138,0.5686,0.5197,0.4753,0.5659,0.7876

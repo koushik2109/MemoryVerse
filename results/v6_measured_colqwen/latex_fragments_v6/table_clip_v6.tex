@@ -1,0 +1,14 @@
+% Source: results/v6/clip_receipt_eval_v6.csv
+\begin{table}[t]
+\centering\small
+\caption{Genuine CLIP ViT-B/32 Visual Retrieval on SROIE Document Images ($N=813$ items, Test $N=306$ probes).}\label{tab:clip_v6}
+\begin{tabular}{lccccc}
+\toprule
+Query Type & MRR [95\% CI] & Hit@10 [95\% CI] & Mean Rank & Min / Max Rank & Softmax Entropy (nats) \\
+\midrule
+Verbatim & 0.0436 [0.0281, 0.0619] & 0.0817 [0.0523, 0.1144] & 223.0 & 1 / 767 & 6.62 \\
+Light & 0.0303 [0.0202, 0.0418] & 0.0719 [0.0457, 0.1013] & 151.9 & 1 / 614 & 6.54 \\
+Heavy & 0.0388 [0.0238, 0.0569] & 0.0654 [0.0392, 0.0948] & 132.7 & 1 / 357 & 6.10 \\
+\bottomrule
+\end{tabular}
+\end{table}
