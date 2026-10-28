@@ -79,3 +79,4 @@ plt.savefig(out_fig1, dpi=300)
 plt.savefig(out_fig2, dpi=300)
 plt.close()
 print(f"Successfully generated:\n  {out_fig1}\n  {out_fig2}")
+

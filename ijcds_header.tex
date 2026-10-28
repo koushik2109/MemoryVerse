@@ -1,0 +1,99 @@
+
+\newcommand{\subparagraph}{}
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{emptypage,titling,titlesec,widetext,textcomp,relsize,parskip}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=10pt,font=scriptsize,labelsep=period,skip=2pt]{caption}
+\usepackage{subcaption}
+\usepackage{tabulary,longtable,makecell,multirow,color,colortbl}
+\usepackage[colorlinks=false,linkcolor=black,urlcolor=gray,citecolor=black]{hyperref}
+\hypersetup{pdfauthor={},pdftitle={When Do Text Proxies Suffice? A Regime Analysis of Sparse, Dense, and Native-Visual Retrieval Under Proxy Noise},pdfsubject={},pdfkeywords={}}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage{authblk,lipsum,txfonts,float,morefloats,gensymb,graphicx,setspace,fancyhdr,cite,booktabs,array,marvosym,xhfill}
+\usepackage{algorithm,algorithmic}
+\usepackage[normalem]{ulem}
+\usepackage[export]{adjustbox}
+
+%for A4 Paper size:
+
+\usepackage[includeheadfoot,paperwidth=21cm,paperheight=29.7cm,top=1cm,bottom=1.75cm,left=2cm,right=2cm,footskip=.22in,headheight=40pt,headsep=10pt,heightrounded]{geometry}
+
+% for letter paper size
+
+% \usepackage[includeheadfoot,paperwidth=8.5in,paperheight=11in,top=1cm,bottom=2cm,left=2cm,right=2cm,footskip=.25in,headheight=40pt,headsep=12pt,heightrounded]{geometry}
+
+
+\setlength{\parindent}{5mm}
+\setlength{\parskip}{0pt plus 0.5pt}
+\setlength{\textfloatsep}{2.5pt plus 1pt minus 1pt}
+\setlength{\floatsep}{2.5pt plus 1pt minus 1pt}
+\setlength{\intextsep}{2.5pt plus 1pt minus 1pt}
+\setlength{\dbltextfloatsep}{2.5pt plus 1pt minus 1pt}
+\setlength{\dblfloatsep}{2.5pt plus 1pt minus 1pt}
+\belowcaptionskip 0.0pt
+\renewcommand{\arraystretch}{0.81}
+
+\newcommand{\todo}[1]{\textcolor{red}{[\textbf{TODO:} #1]}}
+\newcommand{\tm}{{\fontfamily{cmss}\selectfont\texttrademark}~}
+\newcommand{\cpyrt}{\fontfamily{cmss}\selectfont\textcopyright}
+\newcommand{\regtm}{\textsuperscript{\fontfamily{cmss}\selectfont\textregistered}~}
+
+\newcommand{\etal}{et~al.,}
+\newcommand{\ie}{i.e.,}
+\newcommand{\eg}{e.g.,}
+\newcommand{\squeezeup}{\vspace{-3.5mm}}
+\newcommand{\xfill}[2][1ex]{{\dimen0=#2\advance\dimen0 by #1\leaders\hrule height \dimen0 depth -#1\hfill}}
+\newcommand{\xfilll}[2][1ex]{\dimen0=#2\advance\dimen0 by #1\leaders\hrule height \dimen0 depth -#1\hfill}
+
+\renewcommand\Authfont{\fontsize{11}{13.2}\selectfont}
+\renewcommand\Affilfont{\fontsize{9}{10.8}\itshape}
+\renewcommand{\figurename}{Figure}
+\renewcommand{\headrulewidth}{.5pt}
+\renewcommand{\footrulewidth}{.5pt}
+\renewcommand\Authands{ and }
+
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\thesubsection}{\Alph{subsection}}
+\renewcommand{\thesubsubsection}{\arabic{subsubsection}}
+\titleformat{\section}{\bfseries\uppercase}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\bfseries\itshape}{\thesubsection.}{0.5em}{}
+\titleformat{\subsubsection}{\itshape}{\thesubsubsection)}{0.5em}{}
+
+\titlespacing\section{0pt}{2.5pt plus 1pt minus 1pt}{0.8pt plus 0.5pt minus 0.5pt}
+\titlespacing\subsection{0pt}{2.0pt plus 1pt minus 1pt}{0.6pt plus 0.5pt minus 0.5pt}
+\titlespacing\subsubsection{0pt}{1.8pt plus 1pt minus 1pt}{0.6pt plus 0.5pt minus 0.5pt}
+
+\newcommand{\subtitle}[1]{\posttitle{\par\end{center}\begin{center}\bfseries\Large #1\end{center}\vskip1.2em}}
+\newcommand\myabstract[2][.8]{\renewcommand\maketitlehookd{\mbox{}\medskip\par\centering\begin{minipage}{#1\textwidth}\small#2\end{minipage}}}
+
+\definecolor{myred}{RGB}{189, 3, 34}
+\raggedbottom
+\setcounter{page}{1}
+\setcounter{secnumdepth}{4}
+\date{}
+
+\title{\vspace{-1cm}{\includegraphics[height=0.5in,keepaspectratio=true]{ub_logo}\hfill\parbox{15cm}{\raggedleft\sublargesize{\color{myred}\bfseries{International Journal of Computing and Digital Systems\\}}\sublargesize{ 2026, VOL. 18, NO. 1, 1–15\\\vspace{3mm} \url{http://dx.doi.org/10.12785/ijcds/XXXXXX}}}\\\vspace{1cm}{\bfseries{\fontsize{18}{21.6}When Do Text Proxies Suffice? A Regime Analysis of Sparse, Dense, and Native-Visual Retrieval Under Proxy Noise}}}}
+
+\subtitle{}
+
+\author{\bfseries Anonymous Authors}
+
+\affil{\normalfont\textit{Affiliation omitted for double-blind review}}
+\affil[ ]{Received DD Mmm. YYYY, Revised DD Mmm. YYYY, Accepted DD Mmm. YYYY}
+
+\fancypagestyle{firstpage}{%
+    \fancyhf{}
+    \fancyhead[RO]{{\normalfont{International Journal of Computing and Digital Systems\hspace{4mm}}}\includegraphics[height=0.5in, keepaspectratio=true]{ub_logo}\hspace{3mm}\bfseries{\thepage}}
+    \fancyhead[LE]{\bfseries{\thepage}\hspace{3mm}\includegraphics[height=0.5in,keepaspectratio=true]{ub_logo}\hspace{3mm}\normalfont\textit{Anonymous Authors}}
+    \fancyfoot[R]{\vspace{5mm}\textsl{\color{gray}{\textsf{\url{}}}}}}
+
+\pagestyle{firstpage}    
+
+\fancypagestyle{plain}{%
+    \fancyhf{}
+    \fancyhead[LR]{\vspace{2.5cm}}
+    \fancyfoot[L]{\vspace{0mm}{\small\textit{E-mail address: omitted for double-blind review}}}
+    \fancyfoot[R]{\vspace{5mm}\textsl{\color{gray}{\textsf{\url{}}}}}}
+
+
