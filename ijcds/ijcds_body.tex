@@ -1,4 +1,4 @@
-\myabstract[1]{\vspace{-1cm}\hrule\vspace{2mm}\textbf{Abstract:} Multimodal Retrieval-Augmented Generation (MM-RAG) frequently indexes intermediate textual proxies over raw visual media. Evaluating a 1,626-item multimodal benchmark under frozen 50/50 Dev/Test splits (813 corpus items, 306 test probes), we establish an empirical regime map delineating when text proxies suffice and when native representations are required. On verbatim receipt lookups, character 3--5gram BM25 outperforms word BM25 across OCR engines (Apple Clean: 0.9436 vs.\ 0.8371; Degraded: 0.8248 vs.\ 0.6972; Tesseract 5.5: 0.8412 vs.\ 0.7364; all $p < 10^{-4}$), reversing under entity-substituting light paraphrases (0.2427 vs.\ 0.4334). On document images, document-native ColQwen2 achieves 0.4962 MRR under paraphrasing (+0.0628 over Word BM25, $p = 0.0072$) but shows no statistically significant difference from lexical search on answerable factual questions ($p = 1.0000$). On DocVQA ($N=500$), ColQwen2 (0.6450) substantially outperforms generic text proxies ($\le 0.3507$). Dense bi-encoder deficit is associated with query formulation mismatch rather than sequence truncation; natural answerable questions improve BGE-Base MRR from 0.3256 to 0.5263. On MS-COCO ($N=1{,}000$), native SigLIP retrieval (0.6071) significantly outperforms machine caption proxies (0.3728, $p < 10^{-4}$).
+\myabstract[1]{\vspace{-1cm}\hrule\vspace{2mm}\textbf{Abstract:} Multimodal retrieval systems often index textual proxies, such as OCR output or generated captions, instead of raw visual media. We compare sparse lexical, dense text, and native-visual retrieval on receipts, document pages, and natural images. For verbatim receipt lookup, character 3--5gram BM25 outperforms word BM25 on Apple Vision clean OCR (MRR 0.9436 vs.\ 0.8371), degraded OCR (0.8248 vs.\ 0.6972), and Tesseract clean OCR (0.8412 vs.\ 0.7364). Under the entity-substituting paraphrases tested, the ordering reverses (0.2427 vs.\ 0.4334). ColQwen2 achieves MRR 0.4962 on the primary synthetic paraphrase set, compared with 0.4334 for word BM25. On a 500-query DocVQA subset, ColQwen2 reaches MRR 0.6450, while the tested text-proxy baselines reach at most 0.3507. On 1,000 MS-COCO images, SigLIP reaches MRR 0.6071, compared with 0.3728 for the best tested machine-caption proxy. Query formulation also affects dense retrieval: BGE-Base MRR rises from 0.3256 on short snippets to 0.5263 on natural answerable questions. Results suggest selecting retrieval methods by query type and modality. Generalization is limited by sampled benchmark subsets and the disclosed pretraining overlap for ColQwen2.
 \newline
 \newline
 \textbf{Keywords:} Multimodal RAG, Text Proxies, Proxy Noise, Dense-Sparse Regime Analysis, Cascade Ranking, Conformal Risk Control, Document Retrieval. \vspace{1mm} \hrule}
@@ -13,13 +13,13 @@ Retrieval-Augmented Generation (RAG) \cite{lewis2020rag} addresses the hallucina
 
 While foundational studies in information retrieval---notably Kantor and Voorhees~\cite{kantor2000confusion} in the TREC-5 Confusion Track and McNamee and Mayfield~\cite{mcnamee2004character} on character $n$-gram indexing---demonstrated the intrinsic noise resilience of sub-word representations on degraded text, their findings have not been systematically reconciled with modern dense bi-encoders, neural cross-encoder cascades, and document-native vision-language models under semantic query variation. 
 
-To address this gap, this paper establishes \textbf{an empirical regime map of when text proxies suffice versus when native representations are required} across 1,626 multimodal items (scanned receipts, administrative forms, and natural photographs) under frozen 50/50 evaluation splits\footnote{All benchmark collections, evaluation harnesses, and reproduction scripts will be released upon publication at an anonymized repository link [to be provided].}.
+To address this gap, this paper establishes \textbf{an empirical regime map of when text proxies suffice versus when native representations are required} across a primary benchmark of 1,626 multimodal items (626 scanned retail receipts and 1,000 photographic scenes, plus dedicated transfer suites on forms and visual documents) under frozen 50/50 evaluation splits\footnote{All benchmark collections, evaluation harnesses, and reproduction scripts are archived in the supplementary artifact manifest and will be released in an open-access archive upon publication.}.
 
 \textbf{Key Contributions:}
 \begin{enumerate}
     \setlength{\itemsep}{0.2pt plus 0.1pt}
     \setlength{\parskip}{0pt}
-    \item \textbf{Sub-Word Inverted Index Dominance and Paraphrase Reversal on Optical OCR:} Evaluating across proprietary Apple Vision \cite{apple2020vision}, open-source Tesseract 5.5 LSTM \cite{smith2007tesseract}, and deep neural EasyOCR 1.7.2 \cite{jaidedai2020easyocr} ($N=306$ held-out probes, 813 corpus items), character 3--5gram BM25 is the single largest sparse architectural lift under verbatim optical noise (+0.1065 clean, +0.1276 degraded blur, +0.1048 clean Tesseract; all $p_{\text{Holm}} < 10^{-4}$). We delineate its strict scope boundary: this advantage reverses under entity-substituting light paraphrases, where Word BM25 outperforms Character BM25 (0.4334 vs.\ 0.2427). On receipts, document-native ColQwen2-v1.0 \cite{faysse2024colqwen2} achieves 0.4962 MRR under paraphrases (+0.0628 over Word BM25, $p_{\text{Holm}} = 0.0072$) but shows no statistically significant difference from lexical search on answerable factual questions (diff $+0.0051$, $p_{\text{Holm}} = 1.0000$) while imposing $286\times$ higher latency (249.21\,ms on Tesla T4 vs.\ 0.87\,ms CPU lookups). Across 500 human-written queries on DocVQA \cite{mathew2021docvqa}, text proxies fed by Tesseract OCR achieve MRR $\le 0.3507$, whereas native ColQwen2 reaches 0.6450 [95\% CI: 0.601, 0.689] (Hit@10 = 84.10\%). We disclose that the ColPali/ColQwen2 architecture incorporates DocVQA training data in its ViDoRe training mixture while text proxies are off-the-shelf; nonetheless, this delineates the visual geometry boundary where native pixels substantially outperform generic text proxies.
+    \item \textbf{Sub-Word Inverted Index Dominance and Paraphrase Reversal on Optical OCR:} Evaluating across proprietary Apple Vision \cite{apple2020vision}, open-source Tesseract 5.5 LSTM \cite{smith2007tesseract}, and deep neural EasyOCR 1.7.2 \cite{jaidedai2020easyocr} ($N=306$ held-out probes, 813 corpus items), character 3--5gram BM25 is the single largest sparse architectural lift under verbatim optical noise (+0.1065 clean, +0.1276 degraded blur, +0.1048 clean Tesseract; all $p_{\text{Holm}} < 10^{-4}$). We delineate its strict scope boundary: this advantage reverses under entity-substituting light paraphrases, where Word BM25 outperforms Character BM25 (0.4334 vs.\ 0.2427). On receipts, document-native ColQwen2-v1.0 \cite{faysse2024colqwen2} achieves 0.4962 MRR under paraphrases (+0.0628 over Word BM25, $p_{\text{Holm}} = 0.0072$) but shows no statistically significant difference from lexical search on answerable factual questions (diff $+0.0051$, $p_{\text{Holm}} = 1.0000$) while operating at 0.87\,ms CPU lookup latency vs.\ 249.21\,ms GPU serving latency (environment-specific serving profiles, not a controlled single-machine comparison). Across 500 human-written queries on DocVQA \cite{mathew2021docvqa}, text proxies fed by Tesseract OCR achieve MRR $\le 0.3507$, whereas native ColQwen2 reaches 0.6450 [95\% CI: 0.601, 0.689] (Hit@10 = 84.10\%). We disclose that the ColPali/ColQwen2 architecture incorporates DocVQA training data in its ViDoRe training mixture while text proxies are off-the-shelf; nonetheless, this delineates the visual geometry boundary where native pixels substantially outperform generic text proxies.
     \item \textbf{Dense Bi-Encoder Deficit Governed by Query Formulation:} We demonstrate that dense bi-encoder collapse on document text is associated with single-entity query formulation mismatch rather than sequence truncation constraints (real $\text{max\_seq\_length}=256$; 33.4\% exceed 256 tokens, but chunked MaxP yields identical 0.2030 vs.\ 0.2056 unchunked standard); subword tokenization fragmentation (+122.3\% subwords/word) explains the additional degradation under noise. Formulating queries as natural answerable questions improves BGE-Base MRR from 0.3256 to 0.5263 (Hit@10 79.74\%) on uncorrupted document text without modifying representations. Reconstructing broken tokens via clean Dev lexicon projection recovers $+0.1530$ cosine similarity and $+0.0434$ MRR, providing direct causal evidence for tokenization fragmentation.
     \item \textbf{Native-Visual vs.\ Text-Proxy Representation Boundaries:} On photographic scenes ($N=1{,}000$ MS-COCO Karpathy test images \cite{karpathy2015deep, lin2014coco}), native visual embeddings (SigLIP Base Patch16 MRR = 0.6071 \cite{zhai2023siglip}) significantly outperform machine caption proxies (MiniLM MRR = 0.3728 \cite{reimers2019sbert}, $p < 10^{-4}$), showing that synthetic captions lose essential visual nuance, with no statistically significant difference detected from human gold captions (diff $-0.0236$, $p=0.142$, equivalence not asserted). In contrast, for document pages, text proxies suffice when queries contain lexical anchors.
     \item \textbf{Actionable Empirical Decision Guide for MM-RAG Builders:} We synthesize our experimental findings across OCR engines, degradation levels, and query formulations into an empirical decision guide, detailing optimal retrieval architectures and statistically indistinguishable sets across document, image, and query regimes.
@@ -54,7 +54,7 @@ Patel et~al. \cite{patel2025multimodal} & IEEE ETCC 2025 & Heuristic OCR matchin
 Baleen \cite{khattab2021baleen} & NeurIPS 2021 & Not evaluated (Text QA) & Not supported & Generative condensed hops & HotpotQA (Text only) & GPU / High-RAM CPU Server \\
 \textbf{Proposed Regime Framework} & \textbf{This Work} & \textbf{MRR 0.9436 (Char BM25)} & \textbf{MRR 0.6071 (SigLIP Pixels)} & \textbf{Exploratory PRF (Hit@10 0.640, $N=50$, Sec.~VI-B)} & \textbf{SROIE, FUNSD, MS-COCO, DocVQA} & \textbf{CPU char BM25 ($<1$\,ms verbatim) / Cross-Encoder Cascade} \\ \bottomrule
 \end{tabular}
-\vspace{1mm}\newline
+\vspace{0mm}\newline
 \raggedright\scriptsize Note: Qualitative columns reflect architectural design choices; our reported MRR and Hit@10 figures are from held-out evaluation on SROIE/FUNSD/COCO/DocVQA and are not directly comparable to other systems' proprietary benchmarks. Table~\ref{tab:sota_comparison} is a qualitative paradigm map, not a cross-system numerical comparison. ColPali and M3DocRAG figures are from their respective original papers.
 \end{table*}
 
@@ -117,16 +117,9 @@ Scoring every candidate pool with a cross-encoder adds latency. We evaluate conf
 To ensure empirical reproducibility, all evaluations adhere to a standardized, deterministic experimental protocol.
 
 \subsection{Datasets and Split Partitions}
-Our benchmark evaluates 1,626 pooled multimodal items:
-\begin{itemize}
-    \setlength{\itemsep}{0.2pt plus 0.1pt}
-    \setlength{\parskip}{0pt}
-    \item \textbf{SROIE Receipts \cite{huang2019sroie}:} 626 scanned retail receipts from the ICDAR 2019 competition, comprising 612 factual probes.
-    \item \textbf{MS-COCO Images \cite{lin2014coco}:} 1,000 photographic distractor images and held-out human descriptions evaluated under the Karpathy test split \cite{karpathy2015deep}.
-    \item \textbf{FUNSD Administrative Forms \cite{jaume2019funsd}:} 100 scanned business forms with rich multi-field tabular structures and 600 distractor forms.
-    \item \textbf{DocVQA Benchmark \cite{mathew2021docvqa}:} 500 document images and 500 100\% human-authored questions from the ViDoRe benchmark collection \cite{faysse2024colpali}.
-\end{itemize}
-To prevent data snooping, SROIE is partitioned into a strict 50/50 Dev/Test split by Item ID ($N=306$ probes, 813 corpus items each). The Dev split is dedicated strictly to hyperparameter tuning (e.g., fusion $\alpha^*$, conformal thresholds $\tau^*$). The Test split is frozen for evaluation across Seeds 42, 43, and 44 with zero test tuning.
+Our primary multimodal retrieval pool comprises 1,626 indexed items: (1)~\textbf{SROIE Retail Receipts \cite{huang2019sroie}:} 626 scanned receipts from the official ICDAR 2019 competition release with paired bounding-box and key-information ground truth. Across these 626 receipts, 612 contain single-target factual probes satisfying strict cross-corpus uniqueness checks (14 receipts with ambiguous multi-matching candidate strings were excluded); and (2)~\textbf{MS-COCO Photographic Distractors \cite{lin2014coco}:} 1,000 photographic scene images and human descriptions evaluated under the Karpathy test split \cite{karpathy2015deep}.
+
+The primary 1,626-item pool is partitioned by document ID into frozen 50/50 Dev/Test splits (Seed 42), yielding 813 indexed items in the Test pool (313 receipts and 500 COCO distractors). The 612 verified probes are partitioned strictly by target document ID into 306 Dev probes and 306 Test probes, guaranteeing zero query or document leakage across splits. Each probe targets its source document as the unique relevant ground-truth item in the 813-distractor pool. In addition, we evaluate two dedicated external domain-transfer benchmark suites (excluded from the 1,626-item primary total): (a)~\textbf{FUNSD Administrative Forms Suite \cite{jaume2019funsd}:} 100 query-bearing scanned business forms evaluated within a 700-item retrieval corpus comprising the 100 query forms, 99 non-target FUNSD forms, and 501 multimodal distractors; and (b)~\textbf{DocVQA Visual Benchmark Suite \cite{mathew2021docvqa}:} 500 scanned document pages and 500 100\% human-authored questions subsampled from the ViDoRe benchmark collection \cite{faysse2024colpali}.
 
 \subsection{OCR Engines and Optical Degradation Conditions}
 Document text is extracted across three distinct OCR engines:
@@ -173,7 +166,7 @@ Table~\ref{tab:regime_grid_v3} presents retrieval effectiveness across systems, 
 \footnotesize
 \caption{Multimodal Text-Proxy Retrieval Regime Analysis across Query Types and Noise Regimes (Held-Out Public Test Split, $N=306$ Probes, 813 Distractor Pool, 95\% Cluster Bootstrap CIs). Dense MiniLM/BGE latencies (0.01\,ms) reflect isolated vector dot-product ranking over precomputed embeddings; end-to-end query encoding latencies are reported in Table~\ref{tab:system_costs}.}
 \label{tab:regime_grid_v3}
-\setlength{\tabcolsep}{3.5pt}
+\setlength{\tabcolsep}{2.0pt}
 \begin{tabular}{@{}llccccc@{}}
 \toprule
 \makecell[l]{\textbf{Query}\\\textbf{Type}} & \makecell[l]{\textbf{Retrieval}\\\textbf{System}} & \makecell{\textbf{Clean MRR}\\{\scriptsize [95\% CI]}} & \makecell{\textbf{Syn 20\% MRR}\\{\scriptsize [95\% CI]}} & \makecell{\textbf{Real-OCR MRR}\\{\scriptsize [95\% CI]}} & \makecell{\textbf{Optical Blur MRR}\\{\scriptsize [95\% CI]}} & \makecell{\textbf{Latency}\\\textbf{(ms)}} \\
@@ -217,7 +210,7 @@ Table~\ref{tab:regime_grid_v3} presents retrieval effectiveness across systems, 
 
 \begin{figure*}[t]
 \centering
-\includegraphics[width=\textwidth]{figures/fig_dose_response_dual_v6.png}
+\includegraphics[width=0.96\textwidth]{figures/fig_dose_response_dual_v6.png}
 \caption{Dose-response retrieval surface across (a) query token overlap degradation from verbatim lookups to abstract questions, and (b) optical OCR degradation from pristine text to extreme Gaussian blur.}
 \label{fig:dose_response_dual}
 \end{figure*}
@@ -370,7 +363,7 @@ To evaluate distribution-free marginal risk control for candidate escalation, we
 
 \begin{figure*}[t]
 \centering
-\includegraphics[width=0.92\textwidth]{figures/fig_conformal_pareto.png}
+\includegraphics[width=0.88\textwidth]{figures/fig_conformal_pareto.png}
 \caption{Cost-Quality Pareto frontier and risk control histograms across 200 calibration-test resamples on public held-out test split ($N=306$).}
 \label{fig:conformal_pareto}
 \end{figure*}
@@ -555,7 +548,7 @@ Human-Authored Queries ($N=200$)             & 0.5766 & 0.5549 & 0.4909 & ---\rl
 
 \textbf{Cross-Domain Generalization on FUNSD Forms:} On 100 scanned administrative forms from FUNSD \cite{jaume2019funsd} (Table~\ref{tab:funsd_v3}), Character BM25 maintains high verbatim accuracy (0.8433 Apple, 0.8066 Tesseract), showing no statistically significant difference from Word BM25 (0.8364 Apple, diff $+0.0069$, $p > 0.05$; 0.7763 Tesseract). Under light paraphrasing, Word BM25 drops to 0.1573, while Character BM25 achieves 0.2228, Dense BGE achieves 0.1834, and Hybrid reaches 0.2099, confirming sub-word resilience on complex layouts.
 
-\textbf{ColQwen2 Retrieval on Document Receipts:} Benchmarking ColQwen2-v1.0 \cite{faysse2024colqwen2} on document images on Tesla T4 GPU yields 0.4962 MRR [95\% CI: 0.4484, 0.5472] under light paraphrasing (+0.0628 over Word BM25 0.4334, $p_{\text{Holm}} = 0.0072$; +0.0647 over Tuned Hybrid 0.4335, $p_{\text{Holm}} = 0.0095$; in the matched receipt pool, +0.0960 over Word BM25 0.4003, $p_{\text{Holm}} = 0.0003$). Conversely, on answerable factual questions, ColQwen2 shows no significant difference from Character BM25 (diff $+0.0051$, $p_{\text{Holm}} = 1.0000$) or Tuned Hybrid (diff $+0.0059$, $p_{\text{Holm}} = 1.0000$).
+\textbf{ColQwen2 Retrieval on Document Receipts:} Benchmarking ColQwen2-v1.0 \cite{faysse2024colqwen2} on document images on Tesla T4 GPU yields 0.4962 MRR [95\% CI: 0.4484, 0.5472] under light paraphrasing (+0.0628 over Word BM25 0.4334, $p_{\text{Holm}} = 0.0072$; +0.0627 over Tuned Hybrid (MRR 0.4335), $p_{\text{Holm}} = 0.0095$; in the matched receipt pool, +0.0960 over Word BM25 0.4003, $p_{\text{Holm}} = 0.0003$). Conversely, on answerable factual questions, ColQwen2 shows no significant difference from Character BM25 (diff $+0.0051$, $p_{\text{Holm}} = 1.0000$) or Tuned Hybrid (diff $+0.0059$, $p_{\text{Holm}} = 1.0000$).
 
 \subsection{Computational Resource and Latency Profile}
 \label{sec:system_costs_eval}
@@ -592,20 +585,20 @@ Table~\ref{tab:system_costs} reports runtime latency, memory footprint, and inde
 \caption{Empirical Decision Guide for MM-RAG System Builders: Optimal Retrieval Architecture and Statistically Indistinguishable Set ($p > 0.05$) by Regime.}\label{tab:decision_guide_v6}
 \begin{tabular}{@{}p{1.6cm}p{1.8cm}p{1.8cm}p{2.1cm}p{1.8cm}p{2.1cm}p{4.3cm}@{}}
 \toprule
-\textbf{Target Modality} & \textbf{Optical Condition} & \textbf{Query Regime} & \textbf{Optimal Architecture} & \textbf{Metric [95\% CI]}$^*$ & \textbf{Indistinguishable Set ($p > 0.05$)} & \textbf{Architectural Recommendation} \\
+\textbf{Target Modality} & \textbf{Optical Condition} & \textbf{Query Regime} & \textbf{Optimal Architecture} & \textbf{Metric [95\% CI]}$^*$ & \makecell[c]{\textbf{No Statistically Significant}\\\textbf{Difference Detected ($p > 0.05$)}} & \textbf{Architectural Recommendation} \\
 \midrule
 Document Page & Clean Neural OCR & Verbatim Lookup & \textbf{Char 3--5g BM25} & 0.9436 [0.919, 0.965] & Char BM25 standalone & Sub-word n-grams capture numeric tokens and vendor fragments with zero GPU overhead. \\
 Document Page & Degraded Optical Blur & Verbatim Lookup & \textbf{Char 3--5g BM25} & 0.8248 [0.782, 0.864] & Char BM25 standalone & Character n-grams tolerate character substitutions and optical blur; word BM25 collapses to 0.6972. \\
 Document Page & Open-Source Tesseract & Verbatim Lookup & \textbf{Char 3--5g BM25} & 0.8412 [0.803, 0.878] & Char BM25 standalone & Standardized Tesseract (CER 29.4\%, line-aligned 24.2\%) supports high-precision retrieval without proprietary OCR APIs. \\
-Document Page & Clean Neural OCR & Light Paraphrase & \textbf{ColQwen2-v1.0 (GPU)} & 0.4962 [0.448, 0.547] & Hybrid (0.4335) is zero-GPU fallback & Native visual retrieval provides +0.0628 lift over grid Word BM25 ($p_{\text{Holm}} = 0.0072$) and +0.0647 over Tuned Hybrid ($p_{\text{Holm}} = 0.0095$). \\
+Document Page & Clean Neural OCR & Light Paraphrase & \textbf{ColQwen2-v1.0 (GPU)} & 0.4962 [0.448, 0.547] & Hybrid (0.4335) is zero-GPU fallback & Native visual retrieval provides +0.0628 lift over grid Word BM25 ($p_{\text{Holm}} = 0.0072$) and +0.0627 over Tuned Hybrid ($p_{\text{Holm}} = 0.0095$). \\
 Document Page & Clean Neural OCR & Answerable Question & \textbf{Char 3--5g BM25} & 0.9471 [0.923, 0.969] & Char BM25 (0.9471), Word BM25 (0.9014) & Topical anchors yield high discriminability for lexical engines; ColQwen2 shows no significant difference ($p > 0.05$); 249\,ms T4 latency vs.\ 0.87\,ms CPU verbatim (5.72\,ms answerable). \\
 Document Visual Form & Visual Layout & Visual Question Answering & \textbf{ColQwen2-v1.0 (GPU)} & 0.6450 [0.601, 0.689] & ColQwen2 standalone & On DocVQA, native visual retrieval substantially outperforms text proxies ($\le 0.3507$) where layout geometry governs answerability. \\
 Natural Image & Unannotated Pixels & Descriptive Search & \textbf{SigLIP Base Patch16} & 0.6071 [0.584, 0.633] & SigLIP (0.6071), CLIP (0.4709) & Native pixel embeddings significantly outperform machine captions (0.3728); intermediate text proxies lose visual information. \\
 Multi-Hop Query & Precomputed Proxies & Relational Multi-Hop & \textbf{Extractive PRF Bridge} & 0.6400 [0.505, 0.775]$^\dagger$ & Extractive PRF (0.640), Generative LLM (0.640) & Rule-based entity extraction shows no detectable difference from generative LLM bridging on 50 exploratory queries ($p=1.000$). \\
 \bottomrule
 \end{tabular}
-\vspace{1mm}\newline
-\raggedright\scriptsize $^*$Metric is MRR for rows 1--7; $^\dagger$Target Hit@10 on $N=50$ multi-hop diagnostic queries for row 8.
+\vspace{0mm}\newline
+\raggedright\scriptsize $^*$Metric is MRR for rows 1--7; $^\dagger$Target Hit@10 on $N=50$ multi-hop diagnostic queries for row 8. Note: Comparisons with no statistically significant difference detected ($p > 0.05$) reflect failure to reject the null hypothesis; they do not assert statistical equivalence.
 \end{table*}
 
 \subsection{Empirical Decision Guide and Practical Implications}
@@ -616,7 +609,7 @@ Synthesizing all empirical findings across modalities, optical conditions, and q
     \setlength{\itemsep}{0.2pt plus 0.1pt}
     \setlength{\parskip}{0pt}
     \item \textbf{For Verbatim Text and OCR Search:} Deploy Character 3--5gram BM25. It dominates Word BM25 across clean and degraded OCR (+0.10 to +0.13 MRR) with sub-millisecond CPU latency (0.87\,ms). Neural cross-encoders reduce standalone Char-BM25 accuracy ($-0.0262$ MRR) and should not be used.
-    \item \textbf{For Semantic Document Search and Layout VQA:} Deploy ColQwen2-v1.0 on GPU when queries involve entity-substituting paraphrases (+0.0628 lift over Word BM25) or when visual layout governs answerability (DocVQA MRR 0.6450 vs.\ proxies $\le 0.3507$, noting in-domain training overlap). For answerable factual questions with preserved topical anchors, CPU lexical retrieval shows no statistically significant difference from ColQwen2 ($p=1.0000$) while saving $286\times$ query latency.
+    \item \textbf{For Semantic Document Search and Layout VQA:} Deploy ColQwen2-v1.0 on GPU when queries involve entity-substituting paraphrases (+0.0628 lift over Word BM25) or when visual layout governs answerability (DocVQA MRR 0.6450 vs.\ proxies $\le 0.3507$, noting in-domain training overlap). For answerable factual questions with preserved topical anchors, CPU lexical retrieval shows no statistically significant difference from ColQwen2 ($p=1.0000$) while operating at 0.87\,ms CPU lookup latency versus 249.21\,ms GPU serving latency.
     \item \textbf{For Photographic Archives:} Deploy native vision-language embeddings (SigLIP Base Patch16). Machine caption proxies suffer significant information loss (MRR 0.3728 vs.\ 0.6071, $p < 10^{-4}$).
     \item \textbf{For Multi-Hop Relational Reasoning:} Deploy rule-based extractive PRF over generative LLM bridging, matching retrieval reachability on exploratory queries (0.640 vs.\ 0.640 Hit@10) with zero LLM API cost.
 \end{enumerate}
@@ -657,14 +650,14 @@ Sparse Alone  & 0.480 & 0.640 & \makecell{+0.160\\{\scriptsize [+0.04, +0.28]}} 
 \end{table}
 
 \subsection{Dual-Tier Feasibility Pilots}
-Prior to establishing the frozen public benchmark, preliminary pilots evaluated RAMP-RAG across controlled proxy text (Tier 1: $N=334$ queries) and physical media streams (Tier 2: $N=85$ photo scene-text probes, 52 audio recordings via LAION-CLAP \cite{wu2023clap}, and zero-shot CLIP ViT-B/32 \cite{radford2021clip} on 191 album photos). As summarized in Table~\ref{tab:pilot_summary}, Tier-1 produces near-perfect retrieval across all systems because queries are drawn from annotation strings. On physical media (Tier 2), sparse BM25 achieves MRR = 0.7916 on scene text, CLAP achieves MRR = 1.0000 on raw audio, and CLIP ViT-B/32 achieves Hit@10 = 0.792 (MRR = 0.6182) on raw photographic pixels.
+Prior to establishing the frozen public benchmark, preliminary pilots evaluated RAMP-RAG across controlled proxy text (Tier 1: $N=334$ queries) and physical media streams (Tier 2: $N=151$ evaluation probes comprising $N=85$ photo scene-text probes, $N=13$ audio queries over 52 raw 44.1\,kHz WAV recordings via LAION-CLAP \cite{wu2023clap}, and $N=53$ visual queries over 191 album photos using CLIP ViT-B/32 \cite{radford2021clip}). As summarized in Table~\ref{tab:pilot_summary}, Tier-1 produces near-perfect retrieval across all systems because queries are drawn from annotation strings. On physical media (Tier 2), sparse BM25 achieves MRR = 0.7916 on scene text, CLAP achieves MRR = 1.0000 on raw audio, and CLIP ViT-B/32 achieves Hit@10 = 0.792 (MRR = 0.6182) on raw photographic pixels.
 
 \begin{table}[htbp]
 \centering
 \footnotesize
 \caption{Preliminary Exploratory Feasibility Benchmarks: (a) Dual-Tier Proxy vs.\ Physical Media, and (b) Synthetic Noise Sweeps ($N=600$).}\label{tab:pilot_summary}
-\setlength{\tabcolsep}{2.2pt}
-\begin{tabular}{@{}p{2.1cm}p{2.0cm}ccc@{}}
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{@{}llccc@{}}
 \toprule
 \multicolumn{5}{@{}c}{\textbf{(a) Dual-Tier Feasibility ($N=334$ Proxy, $N=151$ Media)}} \\
 \midrule
@@ -718,18 +711,18 @@ In this work, we have established that intermediate textual proxies in multimoda
 
 First, lexical inverted indexing over character subwords ($n$-grams of length 3--5) provides a resilient sparse retrieval foundation, outperforming word tokenization across both commercial neural OCR and open-source Tesseract under heavy optical blur (Apple Clean: 0.9436 vs.\ 0.8371; Degraded: 0.8248 vs.\ 0.6972; Tesseract: 0.8412 vs.\ 0.7364). This dominance reverses under entity-substituting light paraphrases, where Word BM25 (0.4334) surpasses Character BM25 (0.2427). Second, the collapse of dense bi-encoders on document text is associated with a query-span formulation mismatch rather than sequence truncation; structuring queries as natural answerable questions improves BGE-Base MRR from 0.3256 to 0.5263 on identical document text. Third, native visual representations strongly outperform machine caption proxies for natural photographs (SigLIP MRR 0.6071 vs.\ machine captions 0.3728, $p < 10^{-4}$), with no significant difference detected from human gold captions (0.5835, $p=0.142$); on visual document pages (DocVQA), native ColQwen2 substantially outperforms generic text proxies (0.6450 vs.\ $\le 0.3507$); however, on standard receipts, ColQwen2 shows no significant difference from CPU lexical search on answerable factual questions ($p = 1.0000$) while imposing 249.21\,ms GPU latency vs.\ 0.87\,ms CPU lookups.
 
-Conformal cascade calibration achieves mean test miss risk 0.0494 with 58.5\% split coverage at 78.4\% escalation, matched by equal-escalation fixed margin (0.3579 vs.\ 0.3577). On 50 exploratory multi-hop queries, extractive PRF shows no detectable difference from generative LLM bridging (Hit@10 0.640 vs.\ 0.640, $p=1.000$) with zero API cost. By formalizing the trade-offs between computational overhead and representation fidelity, this work provides an engineering roadmap for efficient, trustworthy multimodal retrieval in real-world computing systems.
+In exploratory cascade risk calibration, marginal conformal prediction achieved 58.5\% empirical split coverage against the 0.05 nominal risk target (82.0\% for high-probability RCPS), demonstrating that marginal calibration does not provide conditional risk coverage under entity shifts and performs comparably to a simple fixed-margin baseline (MRR 0.3579 vs.\ 0.3577). On 50 exploratory multi-hop queries, extractive PRF shows no detectable difference from generative LLM bridging (Hit@10 0.640 vs.\ 0.640, $p=1.000$) with zero API cost. By formalizing the trade-offs between computational overhead and representation fidelity, this work provides an engineering roadmap for efficient, trustworthy multimodal retrieval in real-world computing systems.
 
 \begin{thebibliography}{00}
 \scriptsize
-\setlength{\itemsep}{-1.5pt}
+\setlength{\itemsep}{-4.2pt plus 0.2pt}
 \setlength{\parskip}{0pt}
 \bibitem{jing2024llmvectordb}
 Z.~Jing et~al., ``When large language models meet vector databases: A survey,'' \emph{arXiv preprint arXiv:2402.01763}, 2024.
 \bibitem{lewis2020rag}
 P.~Lewis et~al., ``Retrieval-augmented generation for knowledge-intensive NLP tasks,'' in \emph{Advances in Neural Information Processing Systems (NeurIPS)}, vol.~33, pp. 9459--9474, 2020.
 \bibitem{abootorabi2025multimodal}
-M.~Abootorabi et~al., ``A survey on multimodal retrieval-augmented generation,'' in \emph{Findings of the ACL}, 2025.
+M.~Abootorabi et~al., ``Ask in any modality: A comprehensive survey on multimodal retrieval-augmented generation,'' in \emph{Findings of the Association for Computational Linguistics: ACL 2025}, pp. 16776--16809, 2025.
 \bibitem{patel2025multimodal}
 A.~Patel, R.~Shivani, N.~V. Usha, and S.~A, ``Enhancing interactive querying with a multimodal RAG system: Integrating text, video, and document analysis via LLaMA3,'' in \emph{Proc. IEEE ETCC}, 2025.
 \bibitem{joshi2024multimodel}
@@ -747,7 +740,7 @@ R.~Smith, ``An overview of the Tesseract OCR engine,'' in \emph{Proc. 9th Int. C
 \bibitem{jaidedai2020easyocr}
 JaidedAI, ``EasyOCR: Ready-to-use optical character recognition with 80+ supported languages,'' 2020. [Online]. Available: \url{https://github.com/JaidedAI/EasyOCR}.
 \bibitem{faysse2024colqwen2}
-M.~Faysse et~al., ``ColQwen2: Vision-language late-interaction document retrieval based on Qwen2-VL,'' HuggingFace Model Hub, 2024.
+M.~Faysse, H.~Massa, A.~Poli, and F.~Guegan, ``ColQwen2-v1.0: Vision-language document retrieval model,'' Hugging Face Model Hub, 2024. [Online]. Available: \url{https://huggingface.co/vidore/colqwen2-v1.0}.
 \bibitem{mathew2021docvqa}
 M.~Mathew, D.~Karatzas, and C.~V. Jawahar, ``DocVQA: A dataset for VQA on document images,'' in \emph{Proc. IEEE/CVF WACV}, pp. 2200--2209, 2021.
 \bibitem{karpathy2015deep}
