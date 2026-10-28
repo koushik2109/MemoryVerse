@@ -992,7 +992,7 @@ File: ub_logo.png Graphic file (type bmp)
 <ub_logo.png>
 
 LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 63.
+(Font)              using `TU/txr/m/it' instead on input line 66.
 
 [2]
 File: figures/fig_architecture.png Graphic file (type bmp)
@@ -1006,7 +1006,7 @@ File: ub_logo.png Graphic file (type bmp)
 <ub_logo.png>
 
 LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 137.
+(Font)              using `TU/txr/m/it' instead on input line 141.
 
 [3]
 File: figures/fig_mrr_regime_systems.png Graphic file (type bmp)
@@ -1125,7 +1125,7 @@ File: ub_logo.png Graphic file (type bmp)
 <ub_logo.png>
 
 LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 579.
+(Font)              using `TU/txr/m/it' instead on input line 631.
 
 [8]
 Underfull \hbox (badness 1888) in paragraph at lines 635--636
@@ -1204,7 +1204,7 @@ File: ub_logo.png Graphic file (type bmp)
 <ub_logo.png>
 
 LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 726.
+(Font)              using `TU/txr/m/it' instead on input line 727.
 
 [10]
 Underfull \hbox (badness 2111) in paragraph at lines 728--729
@@ -1245,7 +1245,7 @@ File: ub_logo.png Graphic file (type bmp)
 <ub_logo.png>
 
 LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 790.
+(Font)              using `TU/txr/m/it' instead on input line 796.
 
 [11]
 Underfull \hbox (badness 10000) in paragraph at lines 831--832
@@ -1264,26 +1264,28 @@ Underfull \hbox (badness 10000) in paragraph at lines 831--832
  []
 
 )
-[leftcolumn badness]: 1000000 on 6.782pt
-[rightcolumn badness]: 1000000 on 6.782pt
-[leftcolumn badness]: 1000000 on 6.782pt
-[rightcolumn badness]: 1000000 on 6.782pt
-[leftcolumn badness]: 1000000 on 6.782pt
-[rightcolumn badness]: 1000000 on 6.782pt
-[leftcolumn badness]: 1000000 on 6.782pt
-[rightcolumn badness]: 1000000 on 6.782pt
-[leftcolumn badness]: 1000000 on 6.782pt
-[rightcolumn badness]: 1000000 on 6.782pt
+[leftcolumn badness]: 1000000 on 6.705pt
+[rightcolumn badness]: 1000000 on 6.705pt
+[leftcolumn badness]: 1000000 on 6.705pt
+[rightcolumn badness]: 1000000 on 6.705pt
+[leftcolumn badness]: 1000000 on 6.705pt
+[rightcolumn badness]: 1000000 on 6.705pt
+[leftcolumn badness]: 1000000 on 6.705pt
+[rightcolumn badness]: 1000000 on 6.705pt
+[leftcolumn badness]: 1000000 on 6.705pt
+[rightcolumn badness]: 1000000 on 6.705pt
+[leftcolumn badness]: 1000000 on 6.705pt
+[rightcolumn badness]: 1000000 on 6.705pt
 - LAST -
-Extra skip:8.11pt
-Left:289.0pt/1.74998pt
-Right:282.5pt/0.13998pt
-Split: 289.25pt
-Output:289.25pt
+Extra skip:7.718pt
+Left:252.0pt/1.35799pt
+Right:245.5pt/0.13998pt
+Split: 252.5pt
+Output:252.5pt
 Pageshrink: 0.0pt
 Pagestretch: 0.0pt
 @colht:704.0pt
-FLUSHEND [output]: 289.25pt
+FLUSHEND [output]: 252.5pt
 FLUSHEND [leftcolumn badness]: 10000
 FUSHEND [rightcolumn badness]: 10000
 File: ub_logo.png Graphic file (type bmp)
@@ -1300,4 +1302,4 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Package rerunfilecheck Info: File `ijcds_master_doc.out' has not changed.
 (rerunfilecheck)             Checksum: 37F6E7E1D686F2C50F9C29A629C9BB09;8365.
  )
-Output written on ijcds_master_doc.xdv (12 pages, 786720 bytes).
+Output written on ijcds_master_doc.xdv (12 pages, 785308 bytes).

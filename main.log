@@ -987,37 +987,36 @@ Underfull \hbox (badness 1648) in paragraph at lines 24--25
 []\TU/txr/b/it/10 Native-Visual vs. Text-Proxy Representation
  []
 
-File: ub_logo.png Graphic file (type bmp)
-<ub_logo.png>
-
-LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 41.
-
-[2]
 LaTeX Font Info:    Trying to load font information for TU+txtt on input line 6
 2.
 LaTeX Font Info:    No file TUtxtt.fd. on input line 62.
 
-
 LaTeX Font Warning: Font shape `TU/txtt/m/n' undefined
 (Font)              using `TU/lmr/m/n' instead on input line 62.
 
+File: ub_logo.png Graphic file (type bmp)
+<ub_logo.png>
+
+LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
+(Font)              using `TU/txr/m/it' instead on input line 63.
+
+[2]
 File: figures/fig_architecture.png Graphic file (type bmp)
 <figures/fig_architecture.png>
 
 Underfull \hbox (badness 10000) in paragraph at lines 99--101
-\TU/txtt/m/n/10 We evaluate Normalized Convex Combination
+\TU/txss/m/it/10 We evaluate Normalized Convex Combination
  []
 
 File: ub_logo.png Graphic file (type bmp)
 <ub_logo.png>
 
 LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 130.
+(Font)              using `TU/txr/m/it' instead on input line 126.
 
 [3]
 Underfull \hbox (badness 1655) in paragraph at lines 163--163
-|[]\TU/txtt/m/n/10 EMPIRICAL REGIME ANALYSIS AND RE-
+|[]\TU/txss/m/it/10 EMPIRICAL REGIME ANALYSIS AND RE-
  []
 
 File: ub_logo.png Graphic file (type bmp)
@@ -1039,7 +1038,7 @@ File: figures/fig_error_attribution.png Graphic file (type bmp)
 <figures/fig_error_attribution.png>
 
 Underfull \hbox (badness 4739) in paragraph at lines 268--269
-[]\TU/txtt/m/n/10 WordPiece Tokenization Fragmentation: As
+[]\TU/txss/m/it/10 WordPiece Tokenization Fragmentation: As
  []
 
 File: ub_logo.png Graphic file (type bmp)
@@ -1065,29 +1064,29 @@ File: figures/fig_conformal_pareto.png Graphic file (type bmp)
 <figures/fig_conformal_pareto.png>
 
 Underfull \hbox (badness 4072) in paragraph at lines 384--384
-|[]\TU/txtt/m/n/10 Regime B: Visual-Dominated Natural Image
+|[]\TU/txss/m/it/10 Regime B: Visual-Dominated Natural Image
  []
 
 File: figures/fig_coco_native_vs_proxy.png Graphic file (type bmp)
 <figures/fig_coco_native_vs_proxy.png>
 
 Underfull \hbox (badness 10000) in paragraph at lines 462--463
-[]\TU/txtt/m/n/10 Order-Invariant CER Analysis: Standard
+[]\TU/txss/m/it/10 Order-Invariant CER Analysis: Standard
  []
 
 
 Underfull \hbox (badness 2261) in paragraph at lines 462--463
-\TU/txtt/m/n/10 evaluated with bipartite minimum edit distance
+\TU/txss/m/it/10 evaluated with bipartite minimum edit distance
  []
 
 
 Underfull \hbox (badness 2326) in paragraph at lines 462--463
-\TU/txtt/m/n/10 (a 51.3% reduction from concatenated metrics),
+\TU/txss/m/it/10 (a 51.3% reduction from concatenated metrics),
  []
 
 
 Underfull \hbox (badness 2753) in paragraph at lines 462--463
-\TU/txtt/m/n/10 degradation. Across EasyOCR 1.7.2, line-aligned
+\TU/txss/m/it/10 degradation. Across EasyOCR 1.7.2, line-aligned
  []
 
 File: ub_logo.png Graphic file (type bmp)
@@ -1114,7 +1113,7 @@ LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
 
 [9]
 Underfull \hbox (badness 3623) in paragraph at lines 654--655
-[]\TU/txtt/m/n/10 Across 50 diagnostic multi-hop queries (Ta-
+[]\TU/txss/m/it/10 Across 50 diagnostic multi-hop queries (Ta-
  []
 
 File: ub_logo.png Graphic file (type bmp)
@@ -1125,22 +1124,22 @@ LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
 
 [10]
 Underfull \hbox (badness 1735) in paragraph at lines 722--723
-\TU/txtt/m/n/10 sence. Real-world user queries may exhibit
+\TU/txss/m/it/10 sence. Real-world user queries may exhibit
  []
 
 
 Underfull \hbox (badness 3977) in paragraph at lines 725--726
-[]\TU/txtt/m/n/10 Dose-Response Non-Linearity: The retrieval
+[]\TU/txss/m/it/10 Dose-Response Non-Linearity: The retrieval
  []
 
 
 Underfull \hbox (badness 1394) in paragraph at lines 727--728
-\TU/txtt/m/n/10 FUNSD evaluation queries were synthesized
+\TU/txss/m/it/10 FUNSD evaluation queries were synthesized
  []
 
 
 Underfull \hbox (badness 4518) in paragraph at lines 728--729
-[]\TU/txtt/m/n/10 Dense and Learned Sparse Model Scope:
+[]\TU/txss/m/it/10 Dense and Learned Sparse Model Scope:
  []
 
 File: ub_logo.png Graphic file (type bmp)
@@ -1204,4 +1203,4 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 37F6E7E1D686F2C50F9C29A629C9BB09;8365.
  )
-Output written on main.xdv (12 pages, 786040 bytes).
+Output written on main.xdv (12 pages, 784616 bytes).
