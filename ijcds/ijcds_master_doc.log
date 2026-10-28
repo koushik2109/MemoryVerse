@@ -976,15 +976,15 @@ LaTeX Font Warning: Font shape `TU/txss/m/it' undefined
 
 ]
 LaTeX Font Info:    Trying to load font information for TU+txtt on input line 6
-0.
-LaTeX Font Info:    No file TUtxtt.fd. on input line 60.
+2.
+LaTeX Font Info:    No file TUtxtt.fd. on input line 62.
 
 
 LaTeX Font Warning: Font shape `TU/txtt/m/n' undefined
-(Font)              using `TU/lmr/m/n' instead on input line 60.
+(Font)              using `TU/lmr/m/n' instead on input line 62.
 
 
-Underfull \hbox (badness 1859) in paragraph at lines 60--61
+Underfull \hbox (badness 1859) in paragraph at lines 62--63
 \TU/txtt/m/n/10 dard bi-encoders (all-MiniLM-L6-v2, bge-base-en-
  []
 
@@ -992,13 +992,13 @@ File: ub_logo.png Graphic file (type bmp)
 <ub_logo.png>
 
 LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 61.
+(Font)              using `TU/txr/m/it' instead on input line 63.
 
 [2]
 File: figures/fig_architecture.png Graphic file (type bmp)
 <figures/fig_architecture.png>
 
-Underfull \hbox (badness 7667) in paragraph at lines 97--99
+Underfull \hbox (badness 7667) in paragraph at lines 99--101
 \TU/txss/m/it/10 We evaluate Normalized Convex Combination
  []
 
@@ -1006,7 +1006,7 @@ File: ub_logo.png Graphic file (type bmp)
 <ub_logo.png>
 
 LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 135.
+(Font)              using `TU/txr/m/it' instead on input line 137.
 
 [3]
 File: figures/fig_mrr_regime_systems.png Graphic file (type bmp)
@@ -1018,7 +1018,7 @@ File: ub_logo.png Graphic file (type bmp)
 
 
 LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 227.
+(Font)              using `TU/txr/m/it' instead on input line 229.
 
 [4]
 File: figures/fig_tokenization_fragmentation.png Graphic file (type bmp)
@@ -1028,7 +1028,7 @@ File: figures/fig_embedding_drift.png Graphic file (type bmp)
 File: figures/fig_error_attribution.png Graphic file (type bmp)
 <figures/fig_error_attribution.png>
 
-Underfull \hbox (badness 1442) in paragraph at lines 268--269
+Underfull \hbox (badness 1442) in paragraph at lines 270--271
 []\TU/txss/m/it/10 Diagnostic Error Attribution across Probe
  []
 
@@ -1036,10 +1036,10 @@ File: ub_logo.png Graphic file (type bmp)
 <ub_logo.png>
 
 LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 272.
+(Font)              using `TU/txr/m/it' instead on input line 274.
 
 [5]
-Underfull \hbox (badness 4001) in paragraph at lines 358--358
+Underfull \hbox (badness 4001) in paragraph at lines 360--360
 []\TU/txr/b/it/7 TABLE VI. |Conformal Cascade Calibration: Corrected
  []
 
@@ -1049,54 +1049,54 @@ File: ub_logo.png Graphic file (type bmp)
 <ub_logo.png>
 
 LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 381.
+(Font)              using `TU/txr/m/it' instead on input line 383.
 
 [6]
-Underfull \hbox (badness 2735) in paragraph at lines 382--382
+Underfull \hbox (badness 2735) in paragraph at lines 384--384
 |[]\TU/txss/m/it/10 Regime B: Visual-Dominated Natural Image
  []
 
 File: figures/fig_coco_native_vs_proxy.png Graphic file (type bmp)
 <figures/fig_coco_native_vs_proxy.png>
 
-Underfull \hbox (badness 7326) in paragraph at lines 427--429
+Underfull \hbox (badness 7326) in paragraph at lines 429--431
 []\TU/txss/m/it/10 Native visual representations (SigLIP Base
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 460--461
+Underfull \hbox (badness 10000) in paragraph at lines 462--463
 []\TU/txss/m/it/10 Order-Invariant CER Analysis: Standard
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 460--461
+Underfull \hbox (badness 10000) in paragraph at lines 462--463
 \TU/txss/m/it/10 despite high line-level transcription fidelity).
  []
 
 
-Underfull \hbox (badness 4673) in paragraph at lines 460--461
+Underfull \hbox (badness 4673) in paragraph at lines 462--463
 \TU/txss/m/it/10 When evaluated with bipartite minimum edit
  []
 
 
-Underfull \hbox (badness 4505) in paragraph at lines 460--461
+Underfull \hbox (badness 4505) in paragraph at lines 462--463
 \TU/txss/m/it/10 distance matching across physical lines across
  []
 
 
-Underfull \hbox (badness 2894) in paragraph at lines 460--461
+Underfull \hbox (badness 2894) in paragraph at lines 462--463
 \TU/txss/m/it/10 all $\OML/txmi/m/it/10 N \OT1/txr/m/n/10 = 626$ \TU/txss/m/it/
 10 SROIE receipts, true character
  []
 
 
-Underfull \hbox (badness 1365) in paragraph at lines 460--461
+Underfull \hbox (badness 1365) in paragraph at lines 462--463
 \TU/txss/m/it/10 recognition noise drops to $[] \OT1/txr/m/n/10 = 0\OML/txmi/m/
 it/10 :\OT1/txr/m/n/10 1387$ \TU/txss/m/it/10 and
  []
 
 
-Underfull \hbox (badness 6364) in paragraph at lines 460--461
+Underfull \hbox (badness 6364) in paragraph at lines 462--463
 \TU/txss/m/it/10 EasyOCR 1.7.2, line-aligned recognition yields
  []
 
@@ -1104,20 +1104,20 @@ File: ub_logo.png Graphic file (type bmp)
 <ub_logo.png>
 
 LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 461.
+(Font)              using `TU/txr/m/it' instead on input line 463.
 
 [7]
-Underfull \hbox (badness 1609) in paragraph at lines 492--493
+Underfull \hbox (badness 1609) in paragraph at lines 494--495
 \TU/txss/m/it/10 across 500 document pages with 100% human-
  []
 
 
-Underfull \hbox (badness 1622) in paragraph at lines 492--493
+Underfull \hbox (badness 1622) in paragraph at lines 494--495
 \TU/txss/m/it/10 CI: 0.601, 0.689] (Hit@10 = 0.8410). We note
  []
 
 
-Underfull \hbox (badness 4291) in paragraph at lines 571--572
+Underfull \hbox (badness 4291) in paragraph at lines 573--574
 []\TU/txss/m/it/10 ColQwen2 Retrieval on Document Receipts:
  []
 
@@ -1125,30 +1125,30 @@ File: ub_logo.png Graphic file (type bmp)
 <ub_logo.png>
 
 LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 577.
+(Font)              using `TU/txr/m/it' instead on input line 579.
 
 [8]
-Underfull \hbox (badness 1888) in paragraph at lines 633--634
+Underfull \hbox (badness 1888) in paragraph at lines 635--636
 []\TU/txss/m/it/10 For Photographic Archives: Deploy native
  []
 
 
-Underfull \hbox (badness 5667) in paragraph at lines 633--634
+Underfull \hbox (badness 5667) in paragraph at lines 635--636
 \TU/txss/m/it/10 vision-language embeddings (SigLIP Base
  []
 
 
-Underfull \hbox (badness 1728) in paragraph at lines 634--635
+Underfull \hbox (badness 1728) in paragraph at lines 636--637
 \TU/txss/m/it/10 rule-based extractive PRF over generative
  []
 
 
-Underfull \hbox (badness 2302) in paragraph at lines 647--648
+Underfull \hbox (badness 2302) in paragraph at lines 649--650
 []\TU/txss/m/it/10 Hypothesis H1 (Reliability Weighting Re-
  []
 
 
-Underfull \hbox (badness 2608) in paragraph at lines 652--653
+Underfull \hbox (badness 2608) in paragraph at lines 654--655
 []\TU/txss/m/it/10 Across 50 diagnostic multi-hop queries (Ta-
  []
 
@@ -1156,47 +1156,47 @@ File: ub_logo.png Graphic file (type bmp)
 <ub_logo.png>
 
 LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 653.
+(Font)              using `TU/txr/m/it' instead on input line 655.
 
 [9]
-Underfull \hbox (badness 10000) in paragraph at lines 719--720
+Underfull \hbox (badness 10000) in paragraph at lines 721--722
 []\TU/txss/m/it/10 Conformal Cascade Calibration: Under
  []
 
 
-Underfull \hbox (badness 6758) in paragraph at lines 719--720
+Underfull \hbox (badness 6758) in paragraph at lines 721--722
 \TU/txss/m/it/10 escalation rate. Because the 200 splits
  []
 
 
-Underfull \hbox (badness 1635) in paragraph at lines 719--720
+Underfull \hbox (badness 1635) in paragraph at lines 721--722
 \TU/txss/m/it/10 instances, the 95% CI of the mean risk
  []
 
 
-Underfull \hbox (badness 2799) in paragraph at lines 719--720
+Underfull \hbox (badness 2799) in paragraph at lines 721--722
 \OT1/txr/m/n/10 [0\OML/txmi/m/it/10 :\OT1/txr/m/n/10 0480\OML/txmi/m/it/10 ; \O
 T1/txr/m/n/10 0\OML/txmi/m/it/10 :\OT1/txr/m/n/10 0502]$ \TU/txss/m/it/10 descr
 ibes only the sample
  []
 
 
-Underfull \hbox (badness 1394) in paragraph at lines 719--720
+Underfull \hbox (badness 1394) in paragraph at lines 721--722
 \TU/txss/m/it/10 and equal-escalation fixed margin achieves
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 719--720
+Underfull \hbox (badness 10000) in paragraph at lines 721--722
 \TU/txss/m/it/10 matching accuracy (0.3579 vs. 0.3577,
  []
 
 
-Underfull \hbox (badness 1609) in paragraph at lines 719--720
+Underfull \hbox (badness 1609) in paragraph at lines 721--722
 \TU/txss/m/it/10 calibration does not guarantee conditional
  []
 
 
-Underfull \hbox (badness 1389) in paragraph at lines 722--723
+Underfull \hbox (badness 1389) in paragraph at lines 724--725
 \TU/txss/m/it/10 multi-hop queries indicates that multi-hop
  []
 
@@ -1204,40 +1204,40 @@ File: ub_logo.png Graphic file (type bmp)
 <ub_logo.png>
 
 LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 724.
+(Font)              using `TU/txr/m/it' instead on input line 726.
 
 [10]
-Underfull \hbox (badness 2111) in paragraph at lines 726--727
+Underfull \hbox (badness 2111) in paragraph at lines 728--729
 []\TU/txss/m/it/10 Dense and Learned Sparse Model Scope:
  []
 
 
-Underfull \hbox (badness 3861) in paragraph at lines 726--727
+Underfull \hbox (badness 3861) in paragraph at lines 728--729
 \TU/txss/m/it/10 Our evaluation benchmarks representative
  []
 
 
-Underfull \hbox (badness 1596) in paragraph at lines 726--727
+Underfull \hbox (badness 1596) in paragraph at lines 728--729
 \TU/txss/m/it/10 bi-encoders (all-MiniLM-L6-v2, bge-base-en-
  []
 
 
-Underfull \hbox (badness 6876) in paragraph at lines 745--746
+Underfull \hbox (badness 6876) in paragraph at lines 747--748
 []\TU/txtt/m/n/7 P. Lewis et al., “Retrieval-augmented generation for
  []
 
 
-Underfull \hbox (badness 1533) in paragraph at lines 785--786
+Underfull \hbox (badness 1533) in paragraph at lines 787--788
 []\TU/txtt/m/n/7 J. Cho, D. Mahata, O. İrsoy, Y. He, and M. Bansal,
  []
 
 
-Underfull \hbox (badness 1490) in paragraph at lines 787--788
+Underfull \hbox (badness 1490) in paragraph at lines 789--790
 []\TU/txtt/m/n/7 P. Wang et al., “Qwen2-VL: Enhancing vision-language
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 787--788
+Underfull \hbox (badness 10000) in paragraph at lines 789--790
 \TU/txtt/m/n/7 models with dynamic resolution,” arXiv preprint
  []
 
@@ -1245,20 +1245,20 @@ File: ub_logo.png Graphic file (type bmp)
 <ub_logo.png>
 
 LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 788.
+(Font)              using `TU/txr/m/it' instead on input line 790.
 
 [11]
-Underfull \hbox (badness 10000) in paragraph at lines 829--830
+Underfull \hbox (badness 10000) in paragraph at lines 831--832
 []\TU/txtt/m/n/7 OpenAI, “GPT-4o mini: Advancing cost-efficient
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 829--830
+Underfull \hbox (badness 10000) in paragraph at lines 831--832
 \TU/txtt/m/n/7 intelligence, OpenAI Blog, July 18, 2024.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 829--830
+Underfull \hbox (badness 10000) in paragraph at lines 831--832
 \TU/txtt/m/n/7 [Online]. Available: []$[][][][][] [] [] [] [][][][][][] [] [][]
 [] [] [][][][][] []
  []
@@ -1300,4 +1300,4 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Package rerunfilecheck Info: File `ijcds_master_doc.out' has not changed.
 (rerunfilecheck)             Checksum: 37F6E7E1D686F2C50F9C29A629C9BB09;8365.
  )
-Output written on ijcds_master_doc.xdv (12 pages, 786740 bytes).
+Output written on ijcds_master_doc.xdv (12 pages, 786720 bytes).
