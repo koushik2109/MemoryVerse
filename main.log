@@ -941,8 +941,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 14--15
  []
 
 
-Underfull \hbox (badness 3271) in paragraph at lines 14--15
-\TU/txr/b/it/10 retrieval—notably Kantor and Voorhees [[]41[]] in
+Underfull \hbox (badness 5359) in paragraph at lines 14--15
+\TU/txr/b/it/10 retrieval—notably Kantor and Voorhees [[]7[]] in
  []
 
 
@@ -987,43 +987,44 @@ Underfull \hbox (badness 1648) in paragraph at lines 24--25
 []\TU/txr/b/it/10 Native-Visual vs. Text-Proxy Representation
  []
 
-LaTeX Font Info:    Trying to load font information for TU+txtt on input line 6
-0.
-LaTeX Font Info:    No file TUtxtt.fd. on input line 60.
-
-LaTeX Font Warning: Font shape `TU/txtt/m/n' undefined
-(Font)              using `TU/lmr/m/n' instead on input line 60.
-
 File: ub_logo.png Graphic file (type bmp)
 <ub_logo.png>
 
 LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 61.
+(Font)              using `TU/txr/m/it' instead on input line 41.
 
 [2]
+LaTeX Font Info:    Trying to load font information for TU+txtt on input line 6
+2.
+LaTeX Font Info:    No file TUtxtt.fd. on input line 62.
+
+
+LaTeX Font Warning: Font shape `TU/txtt/m/n' undefined
+(Font)              using `TU/lmr/m/n' instead on input line 62.
+
 File: figures/fig_architecture.png Graphic file (type bmp)
 <figures/fig_architecture.png>
 
-Underfull \hbox (badness 10000) in paragraph at lines 97--99
-\TU/txss/m/it/10 We evaluate Normalized Convex Combination
+Underfull \hbox (badness 10000) in paragraph at lines 99--101
+\TU/txtt/m/n/10 We evaluate Normalized Convex Combination
  []
 
 File: ub_logo.png Graphic file (type bmp)
 <ub_logo.png>
 
 LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 124.
+(Font)              using `TU/txr/m/it' instead on input line 130.
 
 [3]
-Underfull \hbox (badness 1655) in paragraph at lines 161--161
-|[]\TU/txss/m/it/10 EMPIRICAL REGIME ANALYSIS AND RE-
+Underfull \hbox (badness 1655) in paragraph at lines 163--163
+|[]\TU/txtt/m/n/10 EMPIRICAL REGIME ANALYSIS AND RE-
  []
 
 File: ub_logo.png Graphic file (type bmp)
 <ub_logo.png>
 
 LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 168.
+(Font)              using `TU/txr/m/it' instead on input line 170.
 
 [4]
 File: figures/fig_mrr_regime_systems.png Graphic file (type bmp)
@@ -1037,15 +1038,15 @@ File: figures/fig_embedding_drift.png Graphic file (type bmp)
 File: figures/fig_error_attribution.png Graphic file (type bmp)
 <figures/fig_error_attribution.png>
 
-Underfull \hbox (badness 4739) in paragraph at lines 266--267
-[]\TU/txss/m/it/10 WordPiece Tokenization Fragmentation: As
+Underfull \hbox (badness 4739) in paragraph at lines 268--269
+[]\TU/txtt/m/n/10 WordPiece Tokenization Fragmentation: As
  []
 
 File: ub_logo.png Graphic file (type bmp)
 <ub_logo.png>
 
 LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 269.
+(Font)              using `TU/txr/m/it' instead on input line 271.
 
 [5]
 File: ub_logo.png Graphic file (type bmp)
@@ -1053,33 +1054,47 @@ File: ub_logo.png Graphic file (type bmp)
 
 
 LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 299.
+(Font)              using `TU/txr/m/it' instead on input line 301.
 
 [6]
-Underfull \hbox (badness 5985) in paragraph at lines 358--358
+Underfull \hbox (badness 5985) in paragraph at lines 360--360
 []\TU/txr/b/it/7 TABLE VI. |Conformal Cascade Calibration: Corrected
  []
 
 File: figures/fig_conformal_pareto.png Graphic file (type bmp)
 <figures/fig_conformal_pareto.png>
 
-Underfull \hbox (badness 4072) in paragraph at lines 382--382
-|[]\TU/txss/m/it/10 Regime B: Visual-Dominated Natural Image
+Underfull \hbox (badness 4072) in paragraph at lines 384--384
+|[]\TU/txtt/m/n/10 Regime B: Visual-Dominated Natural Image
  []
 
 File: figures/fig_coco_native_vs_proxy.png Graphic file (type bmp)
 <figures/fig_coco_native_vs_proxy.png>
 
-Underfull \hbox (badness 2080) in paragraph at lines 431--432
-[]\TU/txss/m/it/10 CLIP ViT-B/32 [[]7[]]: Hit@1 Diff = $\OT1/txr/m/n/10 +0\OML/
-txmi/m/it/10 :\OT1/txr/m/n/10 0970$
+Underfull \hbox (badness 10000) in paragraph at lines 462--463
+[]\TU/txtt/m/n/10 Order-Invariant CER Analysis: Standard
+ []
+
+
+Underfull \hbox (badness 2261) in paragraph at lines 462--463
+\TU/txtt/m/n/10 evaluated with bipartite minimum edit distance
+ []
+
+
+Underfull \hbox (badness 2326) in paragraph at lines 462--463
+\TU/txtt/m/n/10 (a 51.3% reduction from concatenated metrics),
+ []
+
+
+Underfull \hbox (badness 2753) in paragraph at lines 462--463
+\TU/txtt/m/n/10 degradation. Across EasyOCR 1.7.2, line-aligned
  []
 
 File: ub_logo.png Graphic file (type bmp)
 <ub_logo.png>
 
 LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 462.
+(Font)              using `TU/txr/m/it' instead on input line 463.
 
 [7]
 File: ub_logo.png Graphic file (type bmp)
@@ -1087,7 +1102,7 @@ File: ub_logo.png Graphic file (type bmp)
 
 
 LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 568.
+(Font)              using `TU/txr/m/it' instead on input line 570.
 
 [8]
 File: ub_logo.png Graphic file (type bmp)
@@ -1095,67 +1110,85 @@ File: ub_logo.png Graphic file (type bmp)
 
 
 LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 644.
+(Font)              using `TU/txr/m/it' instead on input line 634.
 
 [9]
-Underfull \hbox (badness 3623) in paragraph at lines 648--649
-[]\TU/txss/m/it/10 Across 50 diagnostic multi-hop queries (Ta-
- []
-
-
-Underfull \hbox (badness 1735) in paragraph at lines 716--717
-\TU/txss/m/it/10 sence. Real-world user queries may exhibit
+Underfull \hbox (badness 3623) in paragraph at lines 654--655
+[]\TU/txtt/m/n/10 Across 50 diagnostic multi-hop queries (Ta-
  []
 
 File: ub_logo.png Graphic file (type bmp)
 <ub_logo.png>
 
 LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 717.
+(Font)              using `TU/txr/m/it' instead on input line 720.
 
 [10]
-Underfull \hbox (badness 3977) in paragraph at lines 719--720
-[]\TU/txss/m/it/10 Dose-Response Non-Linearity: The retrieval
+Underfull \hbox (badness 1735) in paragraph at lines 722--723
+\TU/txtt/m/n/10 sence. Real-world user queries may exhibit
  []
 
 
-Underfull \hbox (badness 2452) in paragraph at lines 721--722
-\TU/txss/m/it/10 weight generator (Qwen2.5-7B-Instruct) and
+Underfull \hbox (badness 3977) in paragraph at lines 725--726
+[]\TU/txtt/m/n/10 Dose-Response Non-Linearity: The retrieval
  []
 
 
-Underfull \hbox (badness 4518) in paragraph at lines 722--723
-[]\TU/txss/m/it/10 Dense and Learned Sparse Model Scope:
+Underfull \hbox (badness 1394) in paragraph at lines 727--728
+\TU/txtt/m/n/10 FUNSD evaluation queries were synthesized
+ []
+
+
+Underfull \hbox (badness 4518) in paragraph at lines 728--729
+[]\TU/txtt/m/n/10 Dense and Learned Sparse Model Scope:
  []
 
 File: ub_logo.png Graphic file (type bmp)
 <ub_logo.png>
 
 LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 756.
+(Font)              using `TU/txr/m/it' instead on input line 737.
 
 [11]
-Underfull \hbox (badness 2626) in paragraph at lines 789--790
-[]\TU/txr/b/it/7 J. Cho, D. Mahata, O. İrsoy, Y. He, and M. Bansal,
+Underfull \hbox (badness 2626) in paragraph at lines 787--788
+[]\TU/txtt/m/n/7 J. Cho, D. Mahata, O. İrsoy, Y. He, and M. Bansal,
  []
 
 
-Underfull \hbox (badness 1769) in paragraph at lines 789--790
-\TU/txr/b/it/7 “M3DocRAG: Multi-modal retrieval for multi-page multi-
+Underfull \hbox (badness 1769) in paragraph at lines 787--788
+\TU/txtt/m/n/7 “M3DocRAG: Multi-modal retrieval for multi-page multi-
  []
 
 )
+[leftcolumn badness]: 1000000 on 6.53493pt
+[rightcolumn badness]: 1000000 on 6.53493pt
+[leftcolumn badness]: 1000000 on 6.53493pt
+[rightcolumn badness]: 1000000 on 6.53493pt
+[leftcolumn badness]: 1000000 on 6.53493pt
+[rightcolumn badness]: 1000000 on 6.53493pt
+[leftcolumn badness]: 1000000 on 6.53493pt
+[rightcolumn badness]: 1000000 on 6.53493pt
+[leftcolumn badness]: 1000000 on 6.53493pt
+[rightcolumn badness]: 1000000 on 6.53493pt
+[leftcolumn badness]: 1000000 on 6.53493pt
+[rightcolumn badness]: 1000000 on 6.53493pt
+[leftcolumn badness]: 1000000 on 6.53493pt
+[rightcolumn badness]: 1000000 on 6.53493pt
+[leftcolumn badness]: 1000000 on 6.53493pt
+[rightcolumn badness]: 1000000 on 6.53493pt
+[leftcolumn badness]: 1000000 on 6.53493pt
+[rightcolumn badness]: 1000000 on 6.53493pt
 - LAST -
-Extra skip:374.68498pt
-Left:691.96597pt/0.0pt
-Right:315.923pt/1.35799pt
-Split: -181.3425pt
-Output:-181.3425pt
+Extra skip:8.35707pt
+Left:685.85007pt/1.74998pt
+Right:677.5pt/1.74298pt
+Split: 688.67503pt
+Output:688.67503pt
 Pageshrink: 0.0pt
 Pagestretch: 0.0pt
 @colht:696.0pt
-FLUSHEND [output]: 497.26549pt
-FLUSHEND [leftcolumn badness]: 1000000
+FLUSHEND [output]: 688.67503pt
+FLUSHEND [leftcolumn badness]: 162
 FUSHEND [rightcolumn badness]: 10000
 File: ub_logo.png Graphic file (type bmp)
 <ub_logo.png>
@@ -1171,4 +1204,4 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 37F6E7E1D686F2C50F9C29A629C9BB09;8365.
  )
-Output written on main.xdv (12 pages, 767436 bytes).
+Output written on main.xdv (12 pages, 786060 bytes).
