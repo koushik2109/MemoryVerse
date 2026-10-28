@@ -850,18 +850,18 @@ Package gensymb Info: Using \textmu for \micro on input line 3.
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: includehead includefoot twoside heightrounded 
 * h-part:(L,W,R)=(56.9055pt, 483.69687pt, 56.9055pt)
-* v-part:(T,H,B)=(28.45274pt, 759.6885pt, 56.9055pt)
+* v-part:(T,H,B)=(28.45274pt, 766.8017pt, 49.79231pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04675pt
 * \textwidth=483.69687pt
-* \textheight=682.0pt
+* \textheight=704.0pt
 * \oddsidemargin=-15.36449pt
 * \evensidemargin=-15.36449pt
 * \topmargin=-43.81725pt
-* \headheight=45.0pt
+* \headheight=40.0pt
 * \headsep=10.0pt
 * \topskip=11.0pt
-* \footskip=18.06749pt
+* \footskip=15.89948pt
 * \marginparwidth=20.0pt
 * \marginparsep=10.0pt
 * \columnsep=18.0pt
@@ -923,27 +923,23 @@ e Regime Analysis, Cascade Ranking,
  []
 
 
-LaTeX Font Warning: Font shape `TU/txr/b/sc' undefined
-(Font)              using `TU/txr/b/n' instead on input line 8.
-
-
-Package fancyhdr Warning: \headheight is too small (45.0pt): 
+Package fancyhdr Warning: \headheight is too small (40.0pt): 
 (fancyhdr)                Make it at least 82.13188pt, for example:
 (fancyhdr)                \setlength{\headheight}{82.13188pt}.
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 
-(fancyhdr)                \addtolength{\topmargin}{-37.13188pt}.
+(fancyhdr)                \addtolength{\topmargin}{-42.13188pt}.
 
 
 LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 23.
+(Font)              using `TU/txr/m/it' instead on input line 27.
 
 LaTeX Font Info:    Trying to load font information for TU+txss on input line 2
-3.
-LaTeX Font Info:    No file TUtxss.fd. on input line 23.
+7.
+LaTeX Font Info:    No file TUtxss.fd. on input line 27.
 
 LaTeX Font Warning: Font shape `TU/txss/m/it' undefined
-(Font)              using `TU/lmr/m/n' instead on input line 23.
+(Font)              using `TU/lmr/m/n' instead on input line 27.
 
 [1
 
@@ -1004,20 +1000,19 @@ File: ub_logo.png Graphic file (type bmp)
 <ub_logo.png>
 
 LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 42.
+(Font)              using `TU/txr/m/it' instead on input line 45.
 
 [2]
+File: fig_architecture.png Graphic file (type bmp)
+<fig_architecture.png>
 File: ub_logo.png Graphic file (type bmp)
 <ub_logo.png>
 
 
 LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 57.
+(Font)              using `TU/txr/m/it' instead on input line 99.
 
 [3]
-File: fig_architecture.png Graphic file (type bmp)
-<fig_architecture.png>
-
 Underfull \hbox (badness 10000) in paragraph at lines 103--103
 |[]\TU/txss/m/it/10 Heterogeneous Ingestion and Preprocessing
  []
@@ -1042,7 +1037,7 @@ File: ub_logo.png Graphic file (type bmp)
 <ub_logo.png>
 
 LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 147.
+(Font)              using `TU/txr/m/it' instead on input line 149.
 
 [4]
 Underfull \hbox (badness 10000) in paragraph at lines 160--161
@@ -1077,13 +1072,7 @@ Underfull \hbox (badness 1622) in paragraph at lines 160--161
 \TU/txtt/m/n/10 visual clean stream $[]$ (e.g., zero-shot
  []
 
-File: ub_logo.png Graphic file (type bmp)
-<ub_logo.png>
 
-LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 161.
-
-[5]
 Underfull \hbox (badness 5533) in paragraph at lines 169--170
 \TU/txtt/m/n/10 Instead of static weights, a lightweight
  []
@@ -1094,7 +1083,13 @@ Underfull \hbox (badness 8094) in paragraph at lines 169--170
 /m/n/10 (\OML/txmi/m/it/10 q\OT1/txr/m/n/10 ) =
  []
 
+File: ub_logo.png Graphic file (type bmp)
+<ub_logo.png>
 
+LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
+(Font)              using `TU/txr/m/it' instead on input line 182.
+
+[5]
 Underfull \hbox (badness 1635) in paragraph at lines 184--185
 \TU/txtt/m/n/10 optical character recognition (ICDAR 2019
  []
@@ -1148,7 +1143,7 @@ File: ub_logo.png Graphic file (type bmp)
 <ub_logo.png>
 
 LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 250.
+(Font)              using `TU/txr/m/it' instead on input line 257.
 
 [6]
 File: figures/fig_mrr_regime_systems.png Graphic file (type bmp)
@@ -1161,14 +1156,7 @@ File: results/v2/fig_embedding_drift.png Graphic file (type bmp)
 <results/v2/fig_embedding_drift.png>
 File: results/v2/fig_error_attribution.png Graphic file (type bmp)
 <results/v2/fig_error_attribution.png>
-File: ub_logo.png Graphic file (type bmp)
-<ub_logo.png>
 
-
-LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 299.
-
-[7]
 Underfull \hbox (badness 2772) in paragraph at lines 306--307
 []\TU/txtt/m/n/10 Catastrophic Embedding Drift: This sub-
  []
@@ -1178,8 +1166,14 @@ Underfull \hbox (badness 1442) in paragraph at lines 307--308
 []\TU/txtt/m/n/10 Diagnostic Error Attribution across Probe
  []
 
+File: ub_logo.png Graphic file (type bmp)
+<ub_logo.png>
 
-Underfull \hbox (badness 1881) in paragraph at lines 333--333
+LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
+(Font)              using `TU/txr/m/it' instead on input line 313.
+
+[7]
+Underfull \hbox (badness 1360) in paragraph at lines 333--333
 |[]\TU/txtt/m/n/10 Component Ablation, Best-Pipeline Discovery,
  []
 
@@ -1188,13 +1182,7 @@ Underfull \hbox (badness 1968) in paragraph at lines 368--369
 []\TU/txtt/m/n/10 Cross-Encoder Reranker Cascade (Primary
  []
 
-File: ub_logo.png Graphic file (type bmp)
-<ub_logo.png>
 
-LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 370.
-
-[8]
 Underfull \hbox (badness 4927) in paragraph at lines 370--371
 []\TU/txtt/m/n/10 Hypothesis H2 Decision (Learned Query
  []
@@ -1205,40 +1193,42 @@ File: ub_logo.png Graphic file (type bmp)
 <ub_logo.png>
 
 LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 410.
+(Font)              using `TU/txr/m/it' instead on input line 408.
 
-[9]
+[8]
+Underfull \hbox (badness 2478) in paragraph at lines 415--415
+[]\TU/txr/b/it/7 TABLE VII. |Conformal Cascade Calibration: Corrected
+ []
+
 File: results/v2/fig_conformal_pareto.png Graphic file (type bmp)
 <results/v2/fig_conformal_pareto.png>
 
-Underfull \hbox (badness 3323) in paragraph at lines 436--436
+Underfull \hbox (badness 3189) in paragraph at lines 436--436
 |[]\TU/txtt/m/n/10 Regime B: Visual-Dominated Natural Image
  []
 
+File: ub_logo.png Graphic file (type bmp)
+<ub_logo.png>
 
+LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
+(Font)              using `TU/txr/m/it' instead on input line 475.
+
+[9]
 Underfull \hbox (badness 6236) in paragraph at lines 477--478
 []\TU/txtt/m/n/10 CLIP ViT-B/32: Hit@1 Diff = $\OT1/txr/m/n/10 +0\OML/txmi/m/it
 /10 :\OT1/txr/m/n/10 0970$
  []
 
-File: ub_logo.png Graphic file (type bmp)
-<ub_logo.png>
-
-LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 482.
-
-[10]
 File: figures/fig_coco_native_vs_proxy.png Graphic file (type bmp)
 <figures/fig_coco_native_vs_proxy.png>
 File: ub_logo.png Graphic file (type bmp)
 <ub_logo.png>
 
-
 LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 541.
+(Font)              using `TU/txr/m/it' instead on input line 539.
 
-[11]
-Underfull \hbox (badness 1796) in paragraph at lines 625--626
+[10]
+Underfull \hbox (badness 1796) in paragraph at lines 617--618
 \TU/txtt/m/n/10 achieves 0.4962 MRR [95% CI: 0.4484, 0.5472]
  []
 
@@ -1246,41 +1236,41 @@ File: ub_logo.png Graphic file (type bmp)
 <ub_logo.png>
 
 LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 681.
+(Font)              using `TU/txr/m/it' instead on input line 674.
 
-[12]
-Underfull \hbox (badness 10000) in paragraph at lines 681--682
+[11]
+Underfull \hbox (badness 10000) in paragraph at lines 674--675
 \TU/txtt/m/n/10 Native vision-language embeddings (e.g.,
  []
 
 
-Underfull \hbox (badness 3746) in paragraph at lines 681--682
+Underfull \hbox (badness 3746) in paragraph at lines 674--675
 \TU/txtt/m/n/10 ($\OML/txmi/m/it/10 N \OT1/txr/m/n/10 = 1[]000$\TU/txtt/m/n/10 
 ), machine-generated caption
  []
 
 
-Underfull \hbox (badness 3826) in paragraph at lines 681--682
+Underfull \hbox (badness 3826) in paragraph at lines 674--675
 \TU/txtt/m/n/10 proxies achieve MRR 0.3728 vs. SigLIP
  []
 
 
-Underfull \hbox (badness 2103) in paragraph at lines 682--683
+Underfull \hbox (badness 2103) in paragraph at lines 675--676
 \TU/txtt/m/n/10 based extractive pseudo-relevance feedback
  []
 
 
-Underfull \hbox (badness 1509) in paragraph at lines 682--683
+Underfull \hbox (badness 1509) in paragraph at lines 675--676
 \TU/txtt/m/n/10 query exploratory diagnostic suite (Target
  []
 
 
-Underfull \hbox (badness 5592) in paragraph at lines 683--684
+Underfull \hbox (badness 5592) in paragraph at lines 676--677
 []\TU/txtt/m/n/10 For Computational and Energy Budget-
  []
 
 
-Underfull \hbox (badness 4242) in paragraph at lines 683--684
+Underfull \hbox (badness 4242) in paragraph at lines 676--677
 \TU/txtt/m/n/10 ing: Document-native multi-vector models
  []
 
@@ -1288,20 +1278,20 @@ File: ub_logo.png Graphic file (type bmp)
 <ub_logo.png>
 
 LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 694.
+(Font)              using `TU/txr/m/it' instead on input line 689.
 
-[13]
-Underfull \hbox (badness 2351) in paragraph at lines 698--699
+[12]
+Underfull \hbox (badness 2351) in paragraph at lines 691--692
 \TU/txtt/m/n/10 power limits: Query decomposition incurs
  []
 
 
-Underfull \hbox (badness 7907) in paragraph at lines 698--699
+Underfull \hbox (badness 7907) in paragraph at lines 691--692
 \TU/txtt/m/n/10 a 45% latency penalty (4,736.8ms vs.
  []
 
 
-Underfull \hbox (badness 1515) in paragraph at lines 708--709
+Underfull \hbox (badness 1515) in paragraph at lines 701--702
 \TU/txtt/m/n/10 graded: 0.8248 vs. 0.6972). This dominance re-
  []
 
@@ -1309,78 +1299,322 @@ File: ub_logo.png Graphic file (type bmp)
 <ub_logo.png>
 
 LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 709.
+(Font)              using `TU/txr/m/it' instead on input line 706.
+
+[13]
+Underfull \hbox (badness 6876) in paragraph at lines 718--719
+[]\TU/txr/b/it/7 P. Lewis et al., “Retrieval-augmented generation for
+ []
+
+
+Underfull \hbox (badness 2027) in paragraph at lines 754--755
+\TU/txr/b/it/7 on Empirical Methods in Natural Language Processing
+ []
+
+
+Underfull \hbox (badness 1975) in paragraph at lines 758--759
+[]\TU/txr/b/it/7 OpenAI, “GPT-4o mini: Advancing cost-efficient intelli-
+ []
+
+
+Underfull \hbox (badness 1533) in paragraph at lines 764--765
+[]\TU/txr/b/it/7 J. Cho, D. Mahata, O. İrsoy, Y. He, and M. Bansal,
+ []
+
+
+Underfull \hbox (badness 3503) in paragraph at lines 782--783
+\TU/txr/b/it/7 document retrieval based on Qwen2-VL,” HuggingFace
+ []
+
+File: ub_logo.png Graphic file (type bmp)
+<ub_logo.png>
+
+LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
+(Font)              using `TU/txr/m/it' instead on input line 807.
 
 [14]
-Underfull \hbox (badness 2277) in paragraph at lines 727--728
-[]\TU/txr/b/it/9 Z. Jing et al., “When large language models
- []
-
-File: ub_logo.png Graphic file (type bmp)
-<ub_logo.png>
-
-LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 758.
-
-[15]
-Underfull \hbox (badness 3039) in paragraph at lines 793--794
-\TU/txr/b/it/9 free uncertainty quantification,” arXiv preprint
- []
-
-File: ub_logo.png Graphic file (type bmp)
-<ub_logo.png>
-
-LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 818.
-
-[16]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 855.
+put line 860.
 
-Underfull \hbox (badness 1412) in paragraph at lines 883--884
+Underfull \hbox (badness 3439) in paragraph at lines 869--870
+[] []\TU/txr/b/it/7 Search probe $\OML/txmi/m/it/7 q[] \OMS/txsy/m/n/7   []\OT1
+/txr/m/n/7 (\OML/txmi/m/it/7 q[]; \OMS/txsy/m/n/7 F\OT1/txr/m/n/7 )$\TU/txr/b/i
+t/7 ; Candidates $\OMS/txsy/m/n/7 R[]  
+ []
+
+
+Underfull \hbox (badness 4001) in paragraph at lines 870--871
+[] []\TU/txr/b/it/7 Reranked pool $\OMS/txsy/m/n/7 R[]   []\OT1/txr/m/n/7 (\OMS
+/txsy/m/n/7 R[]\OML/txmi/m/it/7 ; q[]\OT1/txr/m/n/7 )$\TU/txr/b/it/7 ; Entities
+ $\OMS/txsy/m/n/7 E[]  
+ []
+
+
+Underfull \hbox (badness 1946) in paragraph at lines 872--873
+[] []\TU/txr/b/it/7 {Confidence gate: fallback to single-pass compound
+ []
+
+
+Underfull \hbox (badness 1412) in paragraph at lines 884--885
 []\TU/txtt/m/n/10 On an initial 100-query diagnostic suite (50
  []
 
 
-Underfull \hbox (badness 1571) in paragraph at lines 908--909
+Underfull \hbox (badness 1571) in paragraph at lines 889--890
 \TU/txtt/m/n/10 dense bi-encoders collapsed precipitously (0.8527
  []
 
-File: ub_logo.png Graphic file (type bmp)
-<ub_logo.png>
-
-LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 938.
-
-[17]
-[leftcolumn badness]: 1000000 on 7.0279pt
-[rightcolumn badness]: 1000000 on 7.0279pt
-[leftcolumn badness]: 1000000 on 7.0279pt
-[rightcolumn badness]: 1000000 on 7.0279pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
+[leftcolumn badness]: 1000000 on 90.61935pt
+[rightcolumn badness]: 1000000 on 90.61935pt
 - LAST -
-Extra skip:0.0pt
-Left:164.0pt/2.49998pt
-Right:171.4679pt/2.05998pt
-Split: 169.73395pt
-Output:169.73395pt
-Pageshrink: 0.0pt
-Pagestretch: 0.0pt
-@colht:682.0pt
-FLUSHEND [output]: 169.73395pt
-FLUSHEND [leftcolumn badness]: 86
-FUSHEND [rightcolumn badness]: 36
+Extra skip:237.2422pt
+Left:626.5622pt/0.0pt
+Right:389.1pt/0.21999pt
+Split: 623.8011pt
+Output:623.8011pt
+Pageshrink: 1.5pt
+Pagestretch: 1.5pt
+@colht:704.0pt
+FLUSHEND [output]: 623.8011pt
+FLUSHEND [leftcolumn badness]: 49
+FUSHEND [rightcolumn badness]: 10000
 File: ub_logo.png Graphic file (type bmp)
 <ub_logo.png>
 
-
 LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 948.
+(Font)              using `TU/txr/m/it' instead on input line 896.
 
-[18] (ijcds_master_doc.aux)
+[15] (ijcds_master_doc.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `ijcds_master_doc.out' has not changed.
-(rerunfilecheck)             Checksum: EBA4F8F584FDA87B7CA9EBF6168F4A26;11235.
+(rerunfilecheck)             Checksum: A0443741144F1BDBB1A070C46F540E4B;10090.
  ) )
-Output written on ijcds_master_doc.xdv (18 pages, 1013212 bytes).
+Output written on ijcds_master_doc.xdv (15 pages, 979604 bytes).

@@ -80,3 +80,4 @@ The reproduction harness (`./reproduce_v10.sh`) executes and verifies all 5 qual
 3. `[3/5]` Abstract contains exactly 199 words (limit: 200).
 4. `[4/5]` Tectonic compilation builds `IEEE_Paper_v10.pdf` cleanly.
 5. `[5/5]` Log audit confirms 0 undefined references and 0 undefined citations.
+

@@ -4,7 +4,7 @@
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{emptypage,titling,titlesec,widetext,textcomp,relsize,parskip}
 \usepackage[utf8]{inputenc}
-\usepackage[margin=10pt,font=footnotesize,labelsep=period]{caption}
+\usepackage[margin=10pt,font=scriptsize,labelsep=period,skip=2pt]{caption}
 \usepackage{subcaption}
 \usepackage{tabulary,longtable,makecell,multirow,color,colortbl}
 \usepackage[colorlinks=false,linkcolor=black,urlcolor=gray,citecolor=black]{hyperref}
@@ -16,7 +16,7 @@
 
 %for A4 Paper size:
 
-\usepackage[includeheadfoot,paperwidth=21cm,paperheight=29.7cm,top=1cm,bottom=2cm,left=2cm,right=2cm,footskip=.25in,headheight=45pt,headsep=10pt,heightrounded]{geometry}
+\usepackage[includeheadfoot,paperwidth=21cm,paperheight=29.7cm,top=1cm,bottom=1.75cm,left=2cm,right=2cm,footskip=.22in,headheight=40pt,headsep=10pt,heightrounded]{geometry}
 
 % for letter paper size
 
@@ -24,13 +24,14 @@
 
 
 \setlength{\parindent}{5mm}
-\setlength{\parskip}{1.5mm plus 0.5mm minus 0.5mm}
-\setlength{\textfloatsep}{6pt plus 2pt minus 2pt}
-\setlength{\floatsep}{6pt plus 2pt minus 2pt}
-\setlength{\intextsep}{6pt plus 2pt minus 2pt}
-\setlength{\dbltextfloatsep}{6pt plus 2pt minus 2pt}
-\setlength{\dblfloatsep}{6pt plus 2pt minus 2pt}
+\setlength{\parskip}{0pt plus 0.5pt}
+\setlength{\textfloatsep}{3.5pt plus 1pt minus 1pt}
+\setlength{\floatsep}{3.5pt plus 1pt minus 1pt}
+\setlength{\intextsep}{3.5pt plus 1pt minus 1pt}
+\setlength{\dbltextfloatsep}{3.5pt plus 1pt minus 1pt}
+\setlength{\dblfloatsep}{3.5pt plus 1pt minus 1pt}
 \belowcaptionskip 0.0pt
+\renewcommand{\arraystretch}{0.84}
 
 \newcommand{\tm}{{\fontfamily{cmss}\selectfont\texttrademark}~}
 \newcommand{\cpyrt}{\fontfamily{cmss}\selectfont\textcopyright}
@@ -50,9 +51,16 @@
 \renewcommand{\footrulewidth}{.5pt}
 \renewcommand\Authands{ and }
 
-\titlespacing\section{0pt}{8pt plus 4pt minus 2pt}{2pt plus 2pt minus 2pt}
-\titlespacing\subsection{0pt}{8pt plus 4pt minus 2pt}{2pt plus 2pt minus 2pt}
-\titlespacing\subsubsection{0pt}{8pt plus 4pt minus 2pt}{2pt plus 2pt minus 2pt}
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\thesubsection}{\Alph{subsection}}
+\renewcommand{\thesubsubsection}{\arabic{subsubsection}}
+\titleformat{\section}{\bfseries\uppercase}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\bfseries\itshape}{\thesubsection.}{0.5em}{}
+\titleformat{\subsubsection}{\itshape}{\thesubsubsection)}{0.5em}{}
+
+\titlespacing\section{0pt}{3.5pt plus 1pt minus 1pt}{1.0pt plus 0.5pt minus 0.5pt}
+\titlespacing\subsection{0pt}{2.5pt plus 1pt minus 1pt}{0.8pt plus 0.5pt minus 0.5pt}
+\titlespacing\subsubsection{0pt}{2.0pt plus 1pt minus 1pt}{0.8pt plus 0.5pt minus 0.5pt}
 
 \newcommand{\subtitle}[1]{\posttitle{\par\end{center}\begin{center}\bfseries\Large #1\end{center}\vskip1.2em}}
 \newcommand\myabstract[2][.8]{\renewcommand\maketitlehookd{\mbox{}\medskip\par\centering\begin{minipage}{#1\textwidth}\small#2\end{minipage}}}
@@ -63,7 +71,7 @@
 \setcounter{secnumdepth}{4}
 \date{}
 
-\title{\vspace{-1cm}{\includegraphics[height=0.5in,keepaspectratio=true]{ub_logo}\hfill\parbox{15cm}{\raggedleft\sublargesize{\color{myred}\bfseries{International Journal of Computing and Digital Systems\\}}\sublargesize{ 2026, VOL. 18, NO. 1, 1–16\\\vspace{3mm} \url{http://dx.doi.org/10.12785/ijcds/XXXXXX}}}\\\vspace{1cm}{\bfseries{\fontsize{18}{21.6}When Do Text Proxies Suffice? A Regime Analysis of Sparse, Dense, and Native-Visual Retrieval Under Proxy Noise}}}}
+\title{\vspace{-1cm}{\includegraphics[height=0.5in,keepaspectratio=true]{ub_logo}\hfill\parbox{15cm}{\raggedleft\sublargesize{\color{myred}\bfseries{International Journal of Computing and Digital Systems\\}}\sublargesize{ 2026, VOL. 18, NO. 1, 1–15\\\vspace{3mm} \url{http://dx.doi.org/10.12785/ijcds/XXXXXX}}}\\\vspace{1cm}{\bfseries{\fontsize{18}{21.6}When Do Text Proxies Suffice? A Multi-Regime Analysis of Intermediate Representations in Multimodal RAG}}}}
 
 \subtitle{}
 

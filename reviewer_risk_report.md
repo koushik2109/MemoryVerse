@@ -94,3 +94,4 @@ This report systematically anticipates the Top 10 vulnerabilities, methodologica
 ## Conclusion
 
 Manuscript V10 and its companion IJCDS document (`ijcds/ijcds_master_doc.pdf`) present a watertight, rigorously calibrated defense across all 10 reviewer attack vectors. All 1,717 empirical claims trace directly to frozen CSV result files with 0 discrepancies.
+
