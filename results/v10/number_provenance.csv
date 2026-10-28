@@ -211,3 +211,8 @@ number,source_file,row_column,query_type,text_source,subset,manuscript_location,
 0.0095,results/v10/colqwen_per_query_v10.csv; results/v3/headline_regime_grid_v3.csv,paired permutation p-value,light_paraphrase,Direct Document Image Pixels,test_split,Abstract / Contributions / Sec IV-D / Table XV,Paired permutation Holm-corrected p-value for ColQwen2 vs Tuned Hybrid on regime grid
 5.72,results/v3/headline_regime_grid_v3.csv,"row 16, col Mean_Latency_ms",answerable_questions,Apple Vision Clean OCR,test_split,Contributions / Sec IV-A / Table III / Conclusion,Character 3-5gram BM25 mean query latency (ms) on answerable questions
 0.01,results/v3/headline_regime_grid_v3.csv,col Mean_Latency_ms,all,Precomputed Vector Index,test_split,Table Caption #3 / Table III,Dense MiniLM and BGE isolated vector dot-product ranking latency (ms)
+1.7,results/v9/easyocr_replication_v9.csv,metadata,all,EasyOCR,engine_spec,Sec IV-E / Sec VII,EasyOCR software release version 1.7.2
+0.3964,results/v3/engine_replication.csv,"row 36, col MRR",light,Tesseract 5.5 Clean OCR,test_split,Table XI / Sec VII,Word BM25 MRR on Clean Tesseract 5.5 under light paraphrases
+0.2248,results/v3/engine_replication.csv,"row 37, col MRR",light,Tesseract 5.5 Clean OCR,test_split,Table XI / Sec VII,Char 3-5g BM25 MRR on Clean Tesseract 5.5 under light paraphrases
+0.2442,results/v3/funsd_dataset_replication.csv,"row 27, col MRR",light,Tesseract 5.5 Clean OCR,funsd_100,Table XII / Sec VII,Char 3-5g BM25 MRR on FUNSD forms under light paraphrases
+0.2019,results/v3/funsd_dataset_replication.csv,"row 26, col MRR",light,Tesseract 5.5 Clean OCR,funsd_100,Table XII / Sec VII,Word BM25 MRR on FUNSD forms under light paraphrases

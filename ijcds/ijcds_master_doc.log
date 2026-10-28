@@ -926,34 +926,6 @@ e Regime Analysis, Cascade Ranking,
 LaTeX Font Warning: Font shape `TU/txr/b/sc' undefined
 (Font)              using `TU/txr/b/n' instead on input line 8.
 
-LaTeX Font Info:    Trying to load font information for TU+txtt on input line 2
-4.
-LaTeX Font Info:    No file TUtxtt.fd. on input line 24.
-
-LaTeX Font Warning: Font shape `TU/txtt/m/n' undefined
-(Font)              using `TU/lmr/m/n' instead on input line 24.
-
-
-Underfull \hbox (badness 2426) in paragraph at lines 24--25
-\TU/txtt/m/n/10 pirical validity of adaptive fusion, query rout-
- []
-
-
-Underfull \hbox (badness 4266) in paragraph at lines 24--25
-\TU/txtt/m/n/10 analysis plan (commit 97d4ab56, frozen 2026-
- []
-
-
-Underfull \hbox (badness 2856) in paragraph at lines 24--25
-\TU/txtt/m/n/10 10-25; repository branch: research, released for
- []
-
-
-Underfull \hbox (badness 2626) in paragraph at lines 24--25
-\TU/txtt/m/n/10 camera-ready publication at []$[][][][][] [] [] [] [][][][][][]
- [] [][][] []
- []
-
 
 Package fancyhdr Warning: \headheight is too small (45.0pt): 
 (fancyhdr)                Make it at least 82.13188pt, for example:
@@ -964,245 +936,223 @@ Package fancyhdr Warning: \headheight is too small (45.0pt):
 
 
 LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 25.
+(Font)              using `TU/txr/m/it' instead on input line 23.
 
 LaTeX Font Info:    Trying to load font information for TU+txss on input line 2
-5.
-LaTeX Font Info:    No file TUtxss.fd. on input line 25.
+3.
+LaTeX Font Info:    No file TUtxss.fd. on input line 23.
 
 LaTeX Font Warning: Font shape `TU/txss/m/it' undefined
-(Font)              using `TU/lmr/m/n' instead on input line 25.
+(Font)              using `TU/lmr/m/n' instead on input line 23.
 
 [1
 
 
 ]
-Underfull \hbox (badness 2173) in paragraph at lines 30--31
-[]\TU/txtt/m/n/10 Sub-Word Inverted Index Dominance and
+Underfull \hbox (badness 1642) in paragraph at lines 31--32
+\TU/txr/b/it/10 paraphrases, word BM25 drops to 0.1573
  []
 
 
-Underfull \hbox (badness 1642) in paragraph at lines 30--31
-\TU/txtt/m/n/10 paraphrases, word BM25 drops to 0.1573
+Underfull \hbox (badness 2088) in paragraph at lines 31--32
+\TU/txr/b/it/10 dense BGE achieves 0.1834. On receipts,
  []
 
 
-Underfull \hbox (badness 2088) in paragraph at lines 30--31
-\TU/txtt/m/n/10 dense BGE achieves 0.1834. On receipts,
+Underfull \hbox (badness 3029) in paragraph at lines 32--33
+[]\TU/txr/b/it/10 Dense Retrieval Collapse Mechanism and
  []
 
 
-Underfull \hbox (badness 3029) in paragraph at lines 31--32
-[]\TU/txtt/m/n/10 Dense Retrieval Collapse Mechanism and
+Underfull \hbox (badness 2951) in paragraph at lines 32--33
+\TU/txr/b/it/10 as natural answerable questions improves
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 33--34
-\TU/txtt/m/n/10 Grounded in the distribution-free risk-
+Underfull \hbox (badness 10000) in paragraph at lines 34--35
+\TU/txr/b/it/10 Grounded in the distribution-free risk-
  []
 
 
-Underfull \hbox (badness 1742) in paragraph at lines 33--34
-\TU/txtt/m/n/10 With finite-sample $\OT1/txr/m/n/10 (\OML/txmi/m/it/10 n[] \OT1
-/txr/m/n/10 + 1)\OML/txmi/m/it/10 =\OT1/txr/m/n/10 (\OML/txmi/m/it/10 n \OT1/tx
-r/m/n/10 + 1) \OMS/txsy/m/n/10 ^^T \OML/txmi/m/it/10 ^^K$
+Underfull \hbox (badness 2435) in paragraph at lines 34--35
+\TU/txr/b/it/10 controlling prediction framework of Bates
  []
 
 
-Underfull \hbox (badness 1742) in paragraph at lines 34--35
-\TU/txtt/m/n/10 that rule-based extractive pseudo-relevance
+Underfull \hbox (badness 10000) in paragraph at lines 34--35
+\TU/txr/b/it/10 pooled instances). With finite-sample
  []
 
 
-Underfull \hbox (badness 1472) in paragraph at lines 34--35
-\TU/txtt/m/n/10 generative LLM bridging (0.640 vs. 0.640
+Underfull \hbox (badness 3668) in paragraph at lines 34--35
+\TU/txr/b/it/10 includes 0.05; 10th–90th percentile range
+ []
+
+
+Underfull \hbox (badness 3000) in paragraph at lines 34--35
+\TU/txr/b/it/10 across splits: $\OT1/txr/m/n/10 [0\OML/txmi/m/it/10 :\OT1/txr/m
+/n/10 0355\OML/txmi/m/it/10 ; \OT1/txr/m/n/10 0\OML/txmi/m/it/10 :\OT1/txr/m/n/
+10 0654]$\TU/txr/b/it/10 ) with 58.5%
+ []
+
+
+Underfull \hbox (badness 2717) in paragraph at lines 34--35
+\TU/txr/b/it/10 of queries vs. an all-escalation baseline);
  []
 
 File: ub_logo.png Graphic file (type bmp)
 <ub_logo.png>
 
 LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 44.
+(Font)              using `TU/txr/m/it' instead on input line 42.
 
 [2]
+File: ub_logo.png Graphic file (type bmp)
+<ub_logo.png>
+
+
+LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
+(Font)              using `TU/txr/m/it' instead on input line 57.
+
+[3]
 File: fig_architecture.png Graphic file (type bmp)
 <fig_architecture.png>
 
-Underfull \hbox (badness 10000) in paragraph at lines 77--77
+Underfull \hbox (badness 10000) in paragraph at lines 103--103
 |[]\TU/txss/m/it/10 Heterogeneous Ingestion and Preprocessing
  []
 
-File: ub_logo.png Graphic file (type bmp)
-<ub_logo.png>
+LaTeX Font Info:    Trying to load font information for TU+txtt on input line 1
+10.
+LaTeX Font Info:    No file TUtxtt.fd. on input line 110.
 
-LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 106.
+LaTeX Font Warning: Font shape `TU/txtt/m/n' undefined
+(Font)              using `TU/lmr/m/n' instead on input line 110.
 
-[3]
-Underfull \hbox (badness 2057) in paragraph at lines 116--117
-\TU/txss/m/it/10 token-level cross-interaction. While neural cross-
+
+Overfull \hbox (6.9848pt too wide) detected at line 127
+[][]\OML/txmi/m/it/10 S[]\OT1/txr/m/n/10 (\OML/txmi/m/it/10 q; d\OT1/txr/m/n/10
+ ) = \OML/txmi/m/it/10 ^^K[] \OMS/txsy/m/n/10 ^^A []\OT1/txr/m/n/10 (\OML/txmi/
+m/it/10 q; d\OT1/txr/m/n/10 ) + (1 \OMS/txsy/m/n/10 ^^@ \OML/txmi/m/it/10 ^^K[]
+\OT1/txr/m/n/10 ) \OMS/txsy/m/n/10 ^^A []\OT1/txr/m/n/10 (\OML/txmi/m/it/10 q; 
+d\OT1/txr/m/n/10 )
  []
 
-Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 126.
 File: ub_logo.png Graphic file (type bmp)
 <ub_logo.png>
 
 LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 155.
+(Font)              using `TU/txr/m/it' instead on input line 147.
 
 [4]
-Underfull \hbox (badness 7238) in paragraph at lines 156--157
-[]\TU/txss/m/it/10 The query decomposition prompt instructs
+Underfull \hbox (badness 10000) in paragraph at lines 160--161
+[]\TU/txtt/m/n/10 Hypothesis H1 (Reliability-Aware Clean-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 158--159
-[]\TU/txss/m/it/10 As formalized in Algorithm []1[], consider
+Underfull \hbox (badness 10000) in paragraph at lines 160--161
+\TU/txtt/m/n/10 Stream Fusion): Multimedia items
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 158--159
-\TU/txss/m/it/10 an illustrative cross-modal query connecting
+Underfull \hbox (badness 10000) in paragraph at lines 160--161
+\TU/txtt/m/n/10 maintain multiple proxy streams
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 158--159
-\TU/txss/m/it/10 a visual scene with an acoustic event:
- []
-
-
-Underfull \hbox (badness 4132) in paragraph at lines 158--159
-\TU/txss/m/it/10 (1) Hop 1 (Visual Extraction): Sub-query $\OML/txmi/m/it/10 q[
-]$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 158--159
-\TU/txss/m/it/10 retrieves photographic evidence via hybrid
- []
-
-
-Underfull \hbox (badness 2426) in paragraph at lines 158--159
-\TU/txss/m/it/10 matching; entity extraction yields target entity
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 158--159
-[]$\TU/txss/m/it/10 .
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 166--167
-[]\TU/txss/m/it/10 Hypothesis H1 (Reliability-Aware Clean-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 166--167
-\TU/txss/m/it/10 Stream Fusion): Multimedia items
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 166--167
-\TU/txss/m/it/10 maintain multiple proxy streams
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 166--167
+Underfull \hbox (badness 10000) in paragraph at lines 160--161
 \OML/txmi/m/it/10 m \OMS/txsy/m/n/10 2 f[]\OML/txmi/m/it/10 ; []; []\OMS/txsy/m
-/n/10 g$ \TU/txss/m/it/10 weighted by
+/n/10 g$ \TU/txtt/m/n/10 weighted by
  []
 
 
-Underfull \hbox (badness 4467) in paragraph at lines 166--167
-\TU/txss/m/it/10 observable reliability $\OML/txmi/m/it/10 r[]\OT1/txr/m/n/10 (
-\OML/txmi/m/it/10 d\OT1/txr/m/n/10 ) \OMS/txsy/m/n/10 2 \OT1/txr/m/n/10 [0\OML/
-txmi/m/it/10 ; \OT1/txr/m/n/10 1]$\TU/txss/m/it/10 . To
+Underfull \hbox (badness 4467) in paragraph at lines 160--161
+\TU/txtt/m/n/10 observable reliability $\OML/txmi/m/it/10 r[]\OT1/txr/m/n/10 (\
+OML/txmi/m/it/10 d\OT1/txr/m/n/10 ) \OMS/txsy/m/n/10 2 \OT1/txr/m/n/10 [0\OML/t
+xmi/m/it/10 ; \OT1/txr/m/n/10 1]$\TU/txtt/m/n/10 . To
  []
 
 
-Underfull \hbox (badness 1622) in paragraph at lines 166--167
-\TU/txss/m/it/10 visual clean stream $[]$ (e.g., zero-shot
- []
-
-
-Underfull \hbox (badness 5533) in paragraph at lines 175--176
-\TU/txss/m/it/10 Instead of static weights, a lightweight
- []
-
-
-Underfull \hbox (badness 8094) in paragraph at lines 175--176
-\TU/txss/m/it/10 classifier extracts surface cues $\OML/txmi/m/it/10 ^^^\OT1/tx
-r/m/n/10 (\OML/txmi/m/it/10 q\OT1/txr/m/n/10 ) =
- []
-
-
-Underfull \hbox (badness 6141) in paragraph at lines 186--188
-\TU/txss/m/it/10 at []$[][][][][] [] [] [] [][][][][][] [] [][][] [] [][][][][]
-[][][][][][] [] [][][][][][][][][][][] []
- []
-
-
-Underfull \hbox (badness 1635) in paragraph at lines 190--191
-\TU/txss/m/it/10 optical character recognition (ICDAR 2019
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 191--192
-\TU/txss/m/it/10 embeddings decisively surpass machine-
- []
-
-
-Underfull \hbox (badness 2119) in paragraph at lines 192--193
-\TU/txss/m/it/10 pseudo-relevance feedback matches iterative
+Underfull \hbox (badness 1622) in paragraph at lines 160--161
+\TU/txtt/m/n/10 visual clean stream $[]$ (e.g., zero-shot
  []
 
 File: ub_logo.png Graphic file (type bmp)
 <ub_logo.png>
 
 LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 199.
+(Font)              using `TU/txr/m/it' instead on input line 161.
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 205--206
-[]\TU/txss/m/it/10 Document text representations are
+Underfull \hbox (badness 5533) in paragraph at lines 169--170
+\TU/txtt/m/n/10 Instead of static weights, a lightweight
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 205--206
-\TU/txss/m/it/10 extracted using Apple’s Vision framework
+Underfull \hbox (badness 8094) in paragraph at lines 169--170
+\TU/txtt/m/n/10 classifier extracts surface cues $\OML/txmi/m/it/10 ^^^\OT1/txr
+/m/n/10 (\OML/txmi/m/it/10 q\OT1/txr/m/n/10 ) =
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 205--206
-\TU/txss/m/it/10 (VNRecognizeTextRequest) under two distinct
+Underfull \hbox (badness 1635) in paragraph at lines 184--185
+\TU/txtt/m/n/10 optical character recognition (ICDAR 2019
  []
 
 
-Underfull \hbox (badness 1565) in paragraph at lines 205--206
-\TU/txss/m/it/10 conditions: (1) Clean OCR, yielding normalized
+Underfull \hbox (badness 2119) in paragraph at lines 186--187
+\TU/txtt/m/n/10 pseudo-relevance feedback matches iterative
  []
 
 
-Underfull \hbox (badness 3635) in paragraph at lines 205--206
-\TU/txss/m/it/10 document-level Levenshtein alignment [[]41[]]; and
+Underfull \hbox (badness 10000) in paragraph at lines 199--200
+[]\TU/txtt/m/n/10 Document text representations are
  []
 
 
-Underfull \hbox (badness 5533) in paragraph at lines 205--206
-\TU/txss/m/it/10 mean token overlap), and natural answerable
+Underfull \hbox (badness 10000) in paragraph at lines 199--200
+\TU/txtt/m/n/10 extracted using Apple’s Vision framework
  []
 
 
-Underfull \hbox (badness 2221) in paragraph at lines 205--206
-\TU/txss/m/it/10 questions (preserving key factual anchors while
+Underfull \hbox (badness 10000) in paragraph at lines 199--200
+\TU/txtt/m/n/10 (VNRecognizeTextRequest) under two distinct
  []
 
 
-Underfull \hbox (badness 1701) in paragraph at lines 255--256
-\TU/txss/m/it/10 lookups, character 3–5gram BM25 strictly
+Underfull \hbox (badness 1565) in paragraph at lines 199--200
+\TU/txtt/m/n/10 conditions: (1) Clean OCR, yielding normalized
  []
 
+
+Underfull \hbox (badness 3635) in paragraph at lines 199--200
+\TU/txtt/m/n/10 document-level Levenshtein alignment [[]40[]]; and
+ []
+
+
+Underfull \hbox (badness 5533) in paragraph at lines 199--200
+\TU/txtt/m/n/10 mean token overlap), and natural answerable
+ []
+
+
+Underfull \hbox (badness 2221) in paragraph at lines 199--200
+\TU/txtt/m/n/10 questions (preserving key factual anchors while
+ []
+
+
+Underfull \hbox (badness 2020) in paragraph at lines 204--205
+[]\TU/txtt/m/n/10 Table []III[] presents the comprehensive 18-cell
+ []
+
+File: ub_logo.png Graphic file (type bmp)
+<ub_logo.png>
+
+LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
+(Font)              using `TU/txr/m/it' instead on input line 250.
+
+[6]
+File: figures/fig_mrr_regime_systems.png Graphic file (type bmp)
+<figures/fig_mrr_regime_systems.png>
 File: results/v6/fig_dose_response_dual_v6.png Graphic file (type bmp)
 <results/v6/fig_dose_response_dual_v6.png>
 File: results/v2/fig_tokenization_fragmentation.png Graphic file (type bmp)
@@ -1211,112 +1161,158 @@ File: results/v2/fig_embedding_drift.png Graphic file (type bmp)
 <results/v2/fig_embedding_drift.png>
 File: results/v2/fig_error_attribution.png Graphic file (type bmp)
 <results/v2/fig_error_attribution.png>
-
-Underfull \hbox (badness 2772) in paragraph at lines 303--304
-[]\TU/txss/m/it/10 Catastrophic Embedding Drift: This sub-
- []
-
 File: ub_logo.png Graphic file (type bmp)
 <ub_logo.png>
 
-LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 304.
-
-[6]
-Underfull \hbox (badness 1442) in paragraph at lines 304--305
-[]\TU/txss/m/it/10 Diagnostic Error Attribution across Probe
- []
-
-File: ub_logo.png Graphic file (type bmp)
-<ub_logo.png>
 
 LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 312.
+(Font)              using `TU/txr/m/it' instead on input line 299.
 
 [7]
-Underfull \hbox (badness 1881) in paragraph at lines 330--330
-|[]\TU/txss/m/it/10 Component Ablation, Best-Pipeline Discovery,
+Underfull \hbox (badness 2772) in paragraph at lines 306--307
+[]\TU/txtt/m/n/10 Catastrophic Embedding Drift: This sub-
  []
 
 
-Underfull \hbox (badness 1968) in paragraph at lines 365--366
-[]\TU/txss/m/it/10 Cross-Encoder Reranker Cascade (Primary
+Underfull \hbox (badness 1442) in paragraph at lines 307--308
+[]\TU/txtt/m/n/10 Diagnostic Error Attribution across Probe
  []
 
 
-Underfull \hbox (badness 4927) in paragraph at lines 367--368
-[]\TU/txss/m/it/10 Hypothesis H2 Decision (Learned Query
+Underfull \hbox (badness 1881) in paragraph at lines 333--333
+|[]\TU/txtt/m/n/10 Component Ablation, Best-Pipeline Discovery,
  []
 
 
-Underfull \hbox (badness 1383) in paragraph at lines 367--368
-\TU/txss/m/it/10 on 20% synthetic noise (MRR = 0.3765,
+Underfull \hbox (badness 1968) in paragraph at lines 368--369
+[]\TU/txtt/m/n/10 Cross-Encoder Reranker Cascade (Primary
  []
 
+File: ub_logo.png Graphic file (type bmp)
+<ub_logo.png>
 
-Underfull \hbox (badness 3088) in paragraph at lines 393--393
-|[]\TU/txss/m/it/10 Finite-Sample Conformal Cascades and Risk
+LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
+(Font)              using `TU/txr/m/it' instead on input line 370.
+
+[8]
+Underfull \hbox (badness 4927) in paragraph at lines 370--371
+[]\TU/txtt/m/n/10 Hypothesis H2 Decision (Learned Query
  []
 
+File: figures/fig_regime_grid_heatmap.png Graphic file (type bmp)
+<figures/fig_regime_grid_heatmap.png>
+File: ub_logo.png Graphic file (type bmp)
+<ub_logo.png>
+
+LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
+(Font)              using `TU/txr/m/it' instead on input line 410.
+
+[9]
 File: results/v2/fig_conformal_pareto.png Graphic file (type bmp)
 <results/v2/fig_conformal_pareto.png>
 
-Underfull \hbox (badness 3323) in paragraph at lines 426--426
-|[]\TU/txss/m/it/10 Regime B: Visual-Dominated Natural Image
+Underfull \hbox (badness 3323) in paragraph at lines 436--436
+|[]\TU/txtt/m/n/10 Regime B: Visual-Dominated Natural Image
+ []
+
+
+Underfull \hbox (badness 6236) in paragraph at lines 477--478
+[]\TU/txtt/m/n/10 CLIP ViT-B/32: Hit@1 Diff = $\OT1/txr/m/n/10 +0\OML/txmi/m/it
+/10 :\OT1/txr/m/n/10 0970$
  []
 
 File: ub_logo.png Graphic file (type bmp)
 <ub_logo.png>
 
 LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 465.
-
-[8]
-Underfull \hbox (badness 6236) in paragraph at lines 467--468
-[]\TU/txss/m/it/10 CLIP ViT-B/32: Hit@1 Diff = $\OT1/txr/m/n/10 +0\OML/txmi/m/i
-t/10 :\OT1/txr/m/n/10 0970$
- []
-
-File: ub_logo.png Graphic file (type bmp)
-<ub_logo.png>
-
-LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 497.
-
-[9]
-File: ub_logo.png Graphic file (type bmp)
-<ub_logo.png>
-
-
-LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 605.
+(Font)              using `TU/txr/m/it' instead on input line 482.
 
 [10]
+File: figures/fig_coco_native_vs_proxy.png Graphic file (type bmp)
+<figures/fig_coco_native_vs_proxy.png>
 File: ub_logo.png Graphic file (type bmp)
 <ub_logo.png>
 
 
 LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 664.
+(Font)              using `TU/txr/m/it' instead on input line 541.
 
 [11]
-Underfull \hbox (badness 1762) in paragraph at lines 666--667
-\TU/txss/m/it/10 head: Query decomposition incurs a 45%
- []
-
-
-Underfull \hbox (badness 1776) in paragraph at lines 675--676
-\TU/txss/m/it/10 vector retrieval (ColQwen2-v1.0) achieves 0.4985
+Underfull \hbox (badness 1796) in paragraph at lines 625--626
+\TU/txtt/m/n/10 achieves 0.4962 MRR [95% CI: 0.4484, 0.5472]
  []
 
 File: ub_logo.png Graphic file (type bmp)
 <ub_logo.png>
 
 LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 676.
+(Font)              using `TU/txr/m/it' instead on input line 681.
 
 [12]
-Underfull \hbox (badness 2277) in paragraph at lines 690--691
+Underfull \hbox (badness 10000) in paragraph at lines 681--682
+\TU/txtt/m/n/10 Native vision-language embeddings (e.g.,
+ []
+
+
+Underfull \hbox (badness 3746) in paragraph at lines 681--682
+\TU/txtt/m/n/10 ($\OML/txmi/m/it/10 N \OT1/txr/m/n/10 = 1[]000$\TU/txtt/m/n/10 
+), machine-generated caption
+ []
+
+
+Underfull \hbox (badness 3826) in paragraph at lines 681--682
+\TU/txtt/m/n/10 proxies achieve MRR 0.3728 vs. SigLIP
+ []
+
+
+Underfull \hbox (badness 2103) in paragraph at lines 682--683
+\TU/txtt/m/n/10 based extractive pseudo-relevance feedback
+ []
+
+
+Underfull \hbox (badness 1509) in paragraph at lines 682--683
+\TU/txtt/m/n/10 query exploratory diagnostic suite (Target
+ []
+
+
+Underfull \hbox (badness 5592) in paragraph at lines 683--684
+[]\TU/txtt/m/n/10 For Computational and Energy Budget-
+ []
+
+
+Underfull \hbox (badness 4242) in paragraph at lines 683--684
+\TU/txtt/m/n/10 ing: Document-native multi-vector models
+ []
+
+File: ub_logo.png Graphic file (type bmp)
+<ub_logo.png>
+
+LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
+(Font)              using `TU/txr/m/it' instead on input line 694.
+
+[13]
+Underfull \hbox (badness 2351) in paragraph at lines 698--699
+\TU/txtt/m/n/10 power limits: Query decomposition incurs
+ []
+
+
+Underfull \hbox (badness 7907) in paragraph at lines 698--699
+\TU/txtt/m/n/10 a 45% latency penalty (4,736.8ms vs.
+ []
+
+
+Underfull \hbox (badness 1515) in paragraph at lines 708--709
+\TU/txtt/m/n/10 graded: 0.8248 vs. 0.6972). This dominance re-
+ []
+
+File: ub_logo.png Graphic file (type bmp)
+<ub_logo.png>
+
+LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
+(Font)              using `TU/txr/m/it' instead on input line 709.
+
+[14]
+Underfull \hbox (badness 2277) in paragraph at lines 727--728
 []\TU/txr/b/it/9 Z. Jing et al., “When large language models
  []
 
@@ -1324,10 +1320,10 @@ File: ub_logo.png Graphic file (type bmp)
 <ub_logo.png>
 
 LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 721.
+(Font)              using `TU/txr/m/it' instead on input line 758.
 
-[13]
-Underfull \hbox (badness 3039) in paragraph at lines 758--759
+[15]
+Underfull \hbox (badness 3039) in paragraph at lines 793--794
 \TU/txr/b/it/9 free uncertainty quantification,” arXiv preprint
  []
 
@@ -1335,54 +1331,56 @@ File: ub_logo.png Graphic file (type bmp)
 <ub_logo.png>
 
 LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 810.
+(Font)              using `TU/txr/m/it' instead on input line 818.
 
-[14]
-Underfull \hbox (badness 1571) in paragraph at lines 838--839
-\TU/txss/m/it/10 dense bi-encoders collapsed precipitously (0.8527
+[16]
+Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
+put line 855.
+
+Underfull \hbox (badness 1412) in paragraph at lines 883--884
+[]\TU/txtt/m/n/10 On an initial 100-query diagnostic suite (50
  []
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+Underfull \hbox (badness 1571) in paragraph at lines 908--909
+\TU/txtt/m/n/10 dense bi-encoders collapsed precipitously (0.8527
+ []
 
+File: ub_logo.png Graphic file (type bmp)
+<ub_logo.png>
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
+(Font)              using `TU/txr/m/it' instead on input line 938.
 
-)
+[17]
+[leftcolumn badness]: 1000000 on 7.0279pt
+[rightcolumn badness]: 1000000 on 7.0279pt
+[leftcolumn badness]: 1000000 on 7.0279pt
+[rightcolumn badness]: 1000000 on 7.0279pt
 - LAST -
 Extra skip:0.0pt
-Left:651.73427pt/0.0pt
-Right:674.19774pt/0.0pt
-Split: 664.61601pt
-Output:664.61601pt
-Pageshrink: 15.84525pt
-Pagestretch: 19.94525pt
+Left:164.0pt/2.49998pt
+Right:171.4679pt/2.05998pt
+Split: 169.73395pt
+Output:169.73395pt
+Pageshrink: 0.0pt
+Pagestretch: 0.0pt
 @colht:682.0pt
-FLUSHEND [output]: 664.61601pt
-FLUSHEND [leftcolumn badness]: 42
-FUSHEND [rightcolumn badness]: 20
+FLUSHEND [output]: 169.73395pt
+FLUSHEND [leftcolumn badness]: 86
+FUSHEND [rightcolumn badness]: 36
 File: ub_logo.png Graphic file (type bmp)
 <ub_logo.png>
 
 
 LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 5.
+(Font)              using `TU/txr/m/it' instead on input line 948.
 
-[15]
-File: ub_logo.png Graphic file (type bmp)
-<ub_logo.png>
-
-
-LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 5.
-
-[16
-
-] (ijcds_master_doc.aux)
+[18] (ijcds_master_doc.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `ijcds_master_doc.out' has not changed.
-(rerunfilecheck)             Checksum: C15FA5DC72739691E18DD5DB8A58F6F4;10364.
- )
-Output written on ijcds_master_doc.xdv (16 pages, 879700 bytes).
+(rerunfilecheck)             Checksum: EBA4F8F584FDA87B7CA9EBF6168F4A26;11235.
+ ) )
+Output written on ijcds_master_doc.xdv (18 pages, 1013212 bytes).
