@@ -136,7 +136,16 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-)) (emptypage.sty
+)) (bm.sty
+Package: bm 2021/04/25 v1.2e Bold Symbol Support (DPC/FMi)
+\symboldoperators=\mathgroup6
+\symboldletters=\mathgroup7
+\symboldsymbols=\mathgroup8
+Package bm Info: No bold for \OMX/cmex/m/n, using \pmb.
+Package bm Info: No bold for \U/msa/m/n, using \pmb.
+Package bm Info: No bold for \U/msb/m/n, using \pmb.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 149.
+) (emptypage.sty
 Package: emptypage 2010/05/30 v1.2 Suppress page numbers and headings on empty 
 pages
 ) (titling.sty
@@ -491,14 +500,10 @@ LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  OT1/cmr/bx/n --> OT1/txr/m/n on input line 21.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  OT1/txr/m/n --> OT1/txr/bx/n on input line 22.
-\symitalic=\mathgroup6
+\symitalic=\mathgroup9
 LaTeX Font Info:    Overwriting symbol font `italic' in version `bold'
 (Font)                  OT1/txr/m/it --> OT1/txr/bx/it on input line 26.
 LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 29.
-LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> OT1/txr/bx/n on input line 29.
-LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/txr/bx/n on input line 29.
 LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 30.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
 (Font)                  OT1/cmr/m/it --> OT1/txr/m/it on input line 30.
@@ -527,7 +532,7 @@ LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
 (Font)                  OML/cmm/b/it --> OML/txmi/m/it on input line 58.
 LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
 (Font)                  OML/txmi/m/it --> OML/txmi/bx/it on input line 59.
-\symlettersA=\mathgroup7
+\symlettersA=\mathgroup10
 LaTeX Font Info:    Overwriting symbol font `lettersA' in version `bold'
 (Font)                  U/txmia/m/it --> U/txmia/bx/it on input line 67.
 LaTeX Font Info:    Redeclaring math alphabet \mathfrak on input line 70.
@@ -552,7 +557,7 @@ LaTeX Font Info:    Overwriting symbol font `AMSb' in version `bold'
 (Font)                  U/msb/m/n --> U/txsyb/m/n on input line 102.
 LaTeX Font Info:    Overwriting symbol font `AMSb' in version `bold'
 (Font)                  U/txsyb/m/n --> U/txsyb/bx/n on input line 103.
-\symsymbolsC=\mathgroup8
+\symsymbolsC=\mathgroup11
 LaTeX Font Info:    Overwriting symbol font `symbolsC' in version `bold'
 (Font)                  U/txsyc/m/n --> U/txsyc/bx/n on input line 113.
 LaTeX Font Info:    Redeclaring symbol font `largesymbols' on input line 120.
@@ -562,7 +567,7 @@ LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
 (Font)                  OMX/cmex/m/n --> OMX/txex/m/n on input line 120.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
 (Font)                  OMX/txex/m/n --> OMX/txex/bx/n on input line 121.
-\symlargesymbolsA=\mathgroup9
+\symlargesymbolsA=\mathgroup12
 LaTeX Font Info:    Overwriting symbol font `largesymbolsA' in version `bold'
 (Font)                  U/txexa/m/n --> U/txexa/bx/n on input line 129.
 LaTeX Font Info:    Redeclaring math symbol \mathsterling on input line 164.
@@ -842,7 +847,7 @@ LaTeX Info: Redefining \nameref on input line 3.
 \@outlinefile=\write3
 \openout3 = `main.out'.
 
-\symgns@font=\mathgroup10
+\symgns@font=\mathgroup13
 LaTeX Font Info:    Overwriting symbol font `gns@font' in version `bold'
 (Font)                  TS1/txr/m/n --> TS1/txr/b/n on input line 3.
 Package gensymb Info: Math companion symbols declared on input line 3.
@@ -985,6 +990,161 @@ Underfull \hbox (badness 1648) in paragraph at lines 24--25
 []\TU/txr/b/it/10 Native-Visual vs. Text-Proxy Representation
  []
 
+
+Overfull \hbox (8.45679pt too wide) in paragraph at lines 50--50
+[]|\TU/txr/b/it/8 Publication
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--50
+[]|\TU/txr/b/it/8 Document
+ []
+
+
+Underfull \hbox (badness 7012) in paragraph at lines 50--50
+[]|\TU/txr/b/it/8 Natural Image
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--50
+[]|\TU/txr/b/it/8 Benchmark
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 51--51
+[]|\TU/txr/b/it/8 ICLR
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 51--51
+[]|\TU/txr/b/it/8 nDCG@5 =
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 51--51
+[]|\TU/txr/b/it/8 Supported
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 52--52
+[]|\TU/txr/b/it/8 EMNLP
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 52--52
+[]|\TU/txr/b/it/8 Supported
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 52--52
+[]|\TU/txr/b/it/8 Generative LLM
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 52--52
+[]|\TU/txr/b/it/8 MP-DocVQA,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 53--53
+[]|\TU/txr/b/it/8 IEEE
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 53--53
+\TU/txr/b/it/8 ETCC
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 53--53
+[]|\TU/txr/b/it/8 Heuristic OCR
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 53--53
+[]|\TU/txr/b/it/8 Proprietary
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 53--53
+\TU/txr/b/it/8 enterprise
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 54--54
+[]|\TU/txr/b/it/8 NeurIPS
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 54--54
+[]|\TU/txr/b/it/8 Not evaluated
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 54--54
+[]|\TU/txr/b/it/8 Generative
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 54--54
+[]|\TU/txr/b/it/8 HotpotQA
+ []
+
+
+Underfull \hbox (badness 6428) in paragraph at lines 54--55
+[]|\TU/txr/b/it/8 GPU / High-RAM CPU
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 55--55
+[]|\TU/txr/b/it/8 Proposed
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 55--55
+\TU/txr/b/it/8 Regime
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 55--55
+[]|\TU/txr/b/it/8 This
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 55--55
+[]|\TU/txr/b/it/8 MRR 0.9436
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 55--55
+[]|\TU/txr/b/it/8 MRR 0.6071
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 55--55
+\TU/txr/b/it/8 (Hit@10 0.640,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 55--55
+[]|\TU/txr/b/it/8 SROIE,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 55--55
+\TU/txr/b/it/8 FUNSD,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 55--55
+\TU/txr/b/it/8 MS-COCO,
+ []
+
+
+Overfull \hbox (1.54715pt too wide) in paragraph at lines 48--59
+[][] 
+ []
+
 LaTeX Font Info:    Trying to load font information for TU+txtt on input line 6
 2.
 LaTeX Font Info:    No file TUtxtt.fd. on input line 62.
@@ -1010,20 +1170,26 @@ File: ub_logo.png Graphic file (type bmp)
 <ub_logo.png>
 
 LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 126.
+(Font)              using `TU/txr/m/it' instead on input line 111.
 
 [3]
+File: ub_logo.png Graphic file (type bmp)
+<ub_logo.png>
+
+
+LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
+(Font)              using `TU/txr/m/it' instead on input line 153.
+
+[4]
 Underfull \hbox (badness 1655) in paragraph at lines 163--163
 |[]\TU/txss/m/it/10 EMPIRICAL REGIME ANALYSIS AND RE-
  []
 
-File: ub_logo.png Graphic file (type bmp)
-<ub_logo.png>
 
-LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 170.
+Overfull \hbox (15.09724pt too wide) in paragraph at lines 177--209
+ [][] 
+ []
 
-[4]
 File: figures/fig_mrr_regime_systems.png Graphic file (type bmp)
 <figures/fig_mrr_regime_systems.png>
 File: figures/fig_dose_response_dual_v6.png Graphic file (type bmp)
@@ -1043,7 +1209,7 @@ File: ub_logo.png Graphic file (type bmp)
 <ub_logo.png>
 
 LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 271.
+(Font)              using `TU/txr/m/it' instead on input line 269.
 
 [5]
 File: ub_logo.png Graphic file (type bmp)
@@ -1051,39 +1217,165 @@ File: ub_logo.png Graphic file (type bmp)
 
 
 LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 301.
+(Font)              using `TU/txr/m/it' instead on input line 276.
 
 [6]
-Underfull \hbox (badness 5985) in paragraph at lines 360--360
-[]\TU/txr/b/it/7 TABLE VI. |Conformal Cascade Calibration: Corrected
+Underfull \hbox (badness 10000) in paragraph at lines 289--289
+[]|\TU/txr/b/it/8 2. Length-Padded
+ []
+
+
+Underfull \hbox (badness 4954) in paragraph at lines 290--290
+[]|\TU/txr/b/it/8 3. Full Sentential
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 291--291
+[]|\TU/txr/b/it/8 4. Keyword-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 291--291
+\TU/txr/b/it/8 Matched Multi-
+ []
+
+File: ub_logo.png Graphic file (type bmp)
+<ub_logo.png>
+
+LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
+(Font)              using `TU/txr/m/it' instead on input line 302.
+
+[7]
+Overfull \hbox (6.3506pt too wide) in paragraph at lines 334--334
+|[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 336--336
+[]|\TU/txr/b/it/8 Word BM25
+ []
+
+
+Underfull \hbox (badness 7981) in paragraph at lines 338--338
+[]|\TU/txr/b/it/8 BM25 + BGE
+ []
+
+
+Underfull \hbox (badness 8094) in paragraph at lines 342--342
+[]|\TU/txr/b/it/8 Char BM25 +
+ []
+
+
+Underfull \hbox (badness 8094) in paragraph at lines 343--343
+[]|\TU/txr/b/it/8 Char BM25 +
+ []
+
+
+Underfull \hbox (badness 6141) in paragraph at lines 344--344
+[]|\TU/txr/b/it/8 Tuned Char +
+ []
+
+
+Overfull \hbox (1.1666pt too wide) in paragraph at lines 363--363
+|[][]
+ []
+
+
+Overfull \hbox (1.39859pt too wide) in paragraph at lines 365--365
+|[][]
  []
 
 File: figures/fig_conformal_pareto.png Graphic file (type bmp)
 <figures/fig_conformal_pareto.png>
 
-Underfull \hbox (badness 4072) in paragraph at lines 384--384
+Underfull \hbox (badness 4072) in paragraph at lines 380--380
 |[]\TU/txss/m/it/10 Regime B: Visual-Dominated Natural Image
  []
 
 File: figures/fig_coco_native_vs_proxy.png Graphic file (type bmp)
 <figures/fig_coco_native_vs_proxy.png>
 
-Underfull \hbox (badness 10000) in paragraph at lines 462--463
+Overfull \hbox (2.6728pt too wide) in paragraph at lines 440--440
+|[][]
+ []
+
+
+Underfull \hbox (badness 6758) in paragraph at lines 442--442
+[]|\TU/txr/b/it/8 Apple Vision
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 442--442
+[]|\TU/txr/b/it/8 Clean
+ []
+
+
+Underfull \hbox (badness 6758) in paragraph at lines 443--443
+[]|\TU/txr/b/it/8 Apple Vision
+ []
+
+
+Overfull \hbox (1.14478pt too wide) in paragraph at lines 443--443
+[]|\TU/txr/b/it/8 Degraded
+ []
+
+
+Underfull \hbox (badness 7415) in paragraph at lines 444--444
+[]|\TU/txr/b/it/8 Tesseract 5.5
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 444--444
+[]|\TU/txr/b/it/8 Clean
+ []
+
+
+Underfull \hbox (badness 7415) in paragraph at lines 445--445
+[]|\TU/txr/b/it/8 Tesseract 5.5
+ []
+
+
+Overfull \hbox (1.14478pt too wide) in paragraph at lines 445--445
+[]|\TU/txr/b/it/8 Degraded
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 446--446
+[]|\TU/txr/b/it/8 EasyOCR
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 446--446
+[]|\TU/txr/b/it/8 Clean
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 447--447
+[]|\TU/txr/b/it/8 EasyOCR
+ []
+
+
+Overfull \hbox (1.14478pt too wide) in paragraph at lines 447--447
+[]|\TU/txr/b/it/8 Degraded
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 453--454
 []\TU/txss/m/it/10 Order-Invariant CER Analysis: Standard
  []
 
 
-Underfull \hbox (badness 2261) in paragraph at lines 462--463
+Underfull \hbox (badness 2261) in paragraph at lines 453--454
 \TU/txss/m/it/10 evaluated with bipartite minimum edit distance
  []
 
 
-Underfull \hbox (badness 2326) in paragraph at lines 462--463
+Underfull \hbox (badness 2326) in paragraph at lines 453--454
 \TU/txss/m/it/10 (a 51.3% reduction from concatenated metrics),
  []
 
 
-Underfull \hbox (badness 2753) in paragraph at lines 462--463
+Underfull \hbox (badness 2753) in paragraph at lines 453--454
 \TU/txss/m/it/10 degradation. Across EasyOCR 1.7.2, line-aligned
  []
 
@@ -1091,27 +1383,419 @@ File: ub_logo.png Graphic file (type bmp)
 <ub_logo.png>
 
 LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 463.
-
-[7]
-File: ub_logo.png Graphic file (type bmp)
-<ub_logo.png>
-
-
-LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 570.
+(Font)              using `TU/txr/m/it' instead on input line 460.
 
 [8]
+Overfull \hbox (17.2306pt too wide) in paragraph at lines 469--469
+|[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 471--471
+[]|\TU/txr/b/it/8 Word BM25
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 475--475
+[]|\TU/txr/b/it/8 Tuned Hybrid
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 477--477
+[]|\TU/txr/b/it/8 ColQwen2
+ []
+
+File: ub_logo.png Graphic file (type bmp)
+<ub_logo.png>
+
+LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
+(Font)              using `TU/txr/m/it' instead on input line 486.
+
+[9]
+Underfull \hbox (badness 1694) in paragraph at lines 543--543
+[]|\TU/txtt/m/n/8 Primary Gen. (gpt-4o-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 544--544
+[]|\TU/txtt/m/n/8 Secondary Gen.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 545--545
+[]|\TU/txtt/m/n/8 Human-Authored
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 546--546
+[]|\TU/txtt/m/n/8 Human-Authored
+ []
+
+File: ub_logo.png Graphic file (type bmp)
+<ub_logo.png>
+
+LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
+(Font)              using `TU/txr/m/it' instead on input line 559.
+
+[10]
 File: ub_logo.png Graphic file (type bmp)
 <ub_logo.png>
 
 
 LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 634.
+(Font)              using `TU/txr/m/it' instead on input line 564.
 
-[9]
-Underfull \hbox (badness 3623) in paragraph at lines 654--655
+[11]
+Overfull \hbox (3.00423pt too wide) in paragraph at lines 573--573
+|[][]
+ []
+
+
+Overfull \hbox (3.67421pt too wide) in paragraph at lines 579--579
+|[][]
+ []
+
+
+Overfull \hbox (3.67421pt too wide) in paragraph at lines 580--580
+|[][]
+ []
+
+
+Overfull \hbox (7.38823pt too wide) in paragraph at lines 581--581
+|[][]
+ []
+
+
+Overfull \hbox (3.80421pt too wide) in paragraph at lines 583--583
+|[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 595--595
+[]|\TU/txtt/m/n/8 Target
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 595--595
+[]|\TU/txtt/m/n/8 Query
+ []
+
+
+Underfull \hbox (badness 7722) in paragraph at lines 595--595
+[]|\TU/txtt/m/n/8 Metric [95%
+ []
+
+
+Overfull \hbox (3.35306pt too wide) in paragraph at lines 595--595
+[]|\TU/txtt/m/n/8 Indistinguishable
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 597--597
+[]|\TU/txtt/m/n/8 Document
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 597--597
+[]|\TU/txtt/m/n/8 Verbatim
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 597--597
+[]|\TU/txtt/m/n/8 Char 3–5g
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 597--597
+[]|\TU/txtt/m/n/8 Char BM25
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 598--598
+[]|\TU/txtt/m/n/8 Document
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 598--598
+[]|\TU/txtt/m/n/8 Degraded
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 598--598
+[]|\TU/txtt/m/n/8 Verbatim
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 598--598
+[]|\TU/txtt/m/n/8 Char 3–5g
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 598--598
+[]|\TU/txtt/m/n/8 Char BM25
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 599--599
+[]|\TU/txtt/m/n/8 Document
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 599--599
+[]|\TU/txtt/m/n/8 Open-Source
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 599--599
+[]|\TU/txtt/m/n/8 Verbatim
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 599--599
+[]|\TU/txtt/m/n/8 Char 3–5g
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 599--599
+[]|\TU/txtt/m/n/8 Char BM25
+ []
+
+
+Underfull \hbox (badness 7704) in paragraph at lines 599--600
+[]|\TU/txtt/m/n/8 Standardized Tesseract (CER
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 599--600
+\TU/txtt/m/n/8 29.4%, line-aligned 24.2%)
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 600--600
+[]|\TU/txtt/m/n/8 Document
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 600--600
+[]|\TU/txtt/m/n/8 Light
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 600--600
+[]|\TU/txtt/m/n/8 ColQwen2-v1.0
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 600--600
+\TU/txtt/m/n/8 is zero-GPU
+ []
+
+
+Underfull \hbox (badness 4048) in paragraph at lines 600--601
+\TU/txtt/m/n/8 +0.0628 lift over grid Word
+ []
+
+
+Underfull \hbox (badness 2088) in paragraph at lines 600--601
+\TU/txtt/m/n/8 BM25 ($\OML/txmi/m/it/8 p[] \OT1/txr/m/n/8 = 0\OML/txmi/m/it/8 :
+\OT1/txr/m/n/8 0072$\TU/txtt/m/n/8 ) and
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 600--601
+\TU/txtt/m/n/8 +0.0647 over Tuned Hybrid
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 601--601
+[]|\TU/txtt/m/n/8 Document
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 601--601
+[]|\TU/txtt/m/n/8 Answerable
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 601--601
+[]|\TU/txtt/m/n/8 Char 3–5g
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 601--601
+[]|\TU/txtt/m/n/8 Char BM25
+ []
+
+
+Underfull \hbox (badness 2134) in paragraph at lines 601--601
+\TU/txtt/m/n/8 (0.9471), Word
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 602--602
+[]|\TU/txtt/m/n/8 Document
+ []
+
+
+Underfull \hbox (badness 1584) in paragraph at lines 602--602
+[]|\TU/txtt/m/n/8 Visual Ques-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 602--602
+[]|\TU/txtt/m/n/8 ColQwen2-v1.0
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 603--603
+[]|\TU/txtt/m/n/8 Unannotated
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 603--603
+[]|\TU/txtt/m/n/8 Descriptive
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 603--603
+[]|\TU/txtt/m/n/8 SigLIP Base
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 603--603
+[]|\TU/txtt/m/n/8 SigLIP
+ []
+
+
+Underfull \hbox (badness 2134) in paragraph at lines 603--603
+\TU/txtt/m/n/8 (0.6071), CLIP
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 604--604
+[]|\TU/txtt/m/n/8 Multi-Hop
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 604--604
+[]|\TU/txtt/m/n/8 Precomputed
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 604--604
+[]|\TU/txtt/m/n/8 Relational
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 604--604
+[]|\TU/txtt/m/n/8 Extractive
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 604--604
+\TU/txtt/m/n/8 PRF (0.640),
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 604--604
+\TU/txtt/m/n/8 Generative
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 604--605
+[]|\TU/txtt/m/n/8 Rule-based entity extraction
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 604--605
+\TU/txtt/m/n/8 on 50 exploratory queries
+ []
+
+
+Underfull \hbox (badness 3623) in paragraph at lines 639--640
 []\TU/txss/m/it/10 Across 50 diagnostic multi-hop queries (Ta-
+ []
+
+
+Overfull \hbox (47.02174pt too wide) in paragraph at lines 647--657
+ [][] 
+ []
+
+File: ub_logo.png Graphic file (type bmp)
+<ub_logo.png>
+
+LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
+(Font)              using `TU/txr/m/it' instead on input line 661.
+
+[12]
+Underfull \hbox (badness 3872) in paragraph at lines 673--673
+[]|\TU/txtt/m/n/8 Tier 1: Proxy
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 674--674
+[]|\TU/txtt/m/n/8 MM-RAG
+ []
+
+
+Underfull \hbox (badness 5711) in paragraph at lines 676--676
+[]|\TU/txtt/m/n/8 Tier 2: Scene
+ []
+
+
+Underfull \hbox (badness 4181) in paragraph at lines 677--677
+[]|\TU/txtt/m/n/8 Hybrid ($\OML/txmi/m/it/8 ^^K \OT1/txr/m/n/8 =
+ []
+
+
+Underfull \hbox (badness 3758) in paragraph at lines 679--679
+[]|\TU/txtt/m/n/8 Tier 2: Audio
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 679--679
+[]|\TU/txtt/m/n/8 CLAP
+ []
+
+
+Underfull \hbox (badness 2460) in paragraph at lines 680--680
+[]|\TU/txtt/m/n/8 Tier 2: Visual
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 680--680
+[]|\TU/txtt/m/n/8 CLIP ViT-
+ []
+
+
+Overfull \hbox (12.92444pt too wide) in paragraph at lines 667--693
+ [][] 
+ []
+
+File: ub_logo.png Graphic file (type bmp)
+<ub_logo.png>
+
+LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
+(Font)              using `TU/txr/m/it' instead on input line 704.
+
+[13]
+Underfull \hbox (badness 1735) in paragraph at lines 705--706
+\TU/txss/m/it/10 sence. Real-world user queries may exhibit
+ []
+
+
+Underfull \hbox (badness 3977) in paragraph at lines 708--709
+[]\TU/txss/m/it/10 Dose-Response Non-Linearity: The retrieval
+ []
+
+
+Underfull \hbox (badness 1394) in paragraph at lines 710--711
+\TU/txss/m/it/10 FUNSD evaluation queries were synthesized
+ []
+
+
+Underfull \hbox (badness 4518) in paragraph at lines 711--712
+[]\TU/txss/m/it/10 Dense and Learned Sparse Model Scope:
  []
 
 File: ub_logo.png Graphic file (type bmp)
@@ -1120,72 +1804,42 @@ File: ub_logo.png Graphic file (type bmp)
 LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
 (Font)              using `TU/txr/m/it' instead on input line 720.
 
-[10]
-Underfull \hbox (badness 1735) in paragraph at lines 722--723
-\TU/txss/m/it/10 sence. Real-world user queries may exhibit
+[14]
+Underfull \hbox (badness 2626) in paragraph at lines 770--771
+[]\TU/txr/b/it/7 J. Cho, D. Mahata, O. İrsoy, Y. He, and M. Bansal,
  []
 
 
-Underfull \hbox (badness 3977) in paragraph at lines 725--726
-[]\TU/txss/m/it/10 Dose-Response Non-Linearity: The retrieval
- []
-
-
-Underfull \hbox (badness 1394) in paragraph at lines 727--728
-\TU/txss/m/it/10 FUNSD evaluation queries were synthesized
- []
-
-
-Underfull \hbox (badness 4518) in paragraph at lines 728--729
-[]\TU/txss/m/it/10 Dense and Learned Sparse Model Scope:
- []
-
-File: ub_logo.png Graphic file (type bmp)
-<ub_logo.png>
-
-LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
-(Font)              using `TU/txr/m/it' instead on input line 737.
-
-[11]
-Underfull \hbox (badness 2626) in paragraph at lines 787--788
-[]\TU/txtt/m/n/7 J. Cho, D. Mahata, O. İrsoy, Y. He, and M. Bansal,
- []
-
-
-Underfull \hbox (badness 1769) in paragraph at lines 787--788
-\TU/txtt/m/n/7 “M3DocRAG: Multi-modal retrieval for multi-page multi-
+Underfull \hbox (badness 1769) in paragraph at lines 770--771
+\TU/txr/b/it/7 “M3DocRAG: Multi-modal retrieval for multi-page multi-
  []
 
 )
-[leftcolumn badness]: 1000000 on 6.53493pt
-[rightcolumn badness]: 1000000 on 6.53493pt
-[leftcolumn badness]: 1000000 on 6.53493pt
-[rightcolumn badness]: 1000000 on 6.53493pt
-[leftcolumn badness]: 1000000 on 6.53493pt
-[rightcolumn badness]: 1000000 on 6.53493pt
-[leftcolumn badness]: 1000000 on 6.53493pt
-[rightcolumn badness]: 1000000 on 6.53493pt
-[leftcolumn badness]: 1000000 on 6.53493pt
-[rightcolumn badness]: 1000000 on 6.53493pt
-[leftcolumn badness]: 1000000 on 6.53493pt
-[rightcolumn badness]: 1000000 on 6.53493pt
-[leftcolumn badness]: 1000000 on 6.53493pt
-[rightcolumn badness]: 1000000 on 6.53493pt
-[leftcolumn badness]: 1000000 on 6.53493pt
-[rightcolumn badness]: 1000000 on 6.53493pt
-[leftcolumn badness]: 1000000 on 6.53493pt
-[rightcolumn badness]: 1000000 on 6.53493pt
+[leftcolumn badness]: 1000000 on 5.64293pt
+[rightcolumn badness]: 1000000 on 5.64293pt
+[leftcolumn badness]: 1000000 on 5.64293pt
+[rightcolumn badness]: 1000000 on 5.64293pt
+[leftcolumn badness]: 1000000 on 5.64293pt
+[rightcolumn badness]: 1000000 on 5.64293pt
+[leftcolumn badness]: 1000000 on 5.64293pt
+[rightcolumn badness]: 1000000 on 5.64293pt
+[leftcolumn badness]: 1000000 on 5.64293pt
+[rightcolumn badness]: 1000000 on 5.64293pt
+[leftcolumn badness]: 1000000 on 5.64293pt
+[rightcolumn badness]: 1000000 on 5.64293pt
+[leftcolumn badness]: 1000000 on 5.64293pt
+[rightcolumn badness]: 1000000 on 5.64293pt
 - LAST -
-Extra skip:8.35707pt
-Left:685.85007pt/1.74998pt
-Right:677.5pt/1.74298pt
-Split: 688.67503pt
-Output:688.67503pt
+Extra skip:10.04207pt
+Left:650.85007pt/1.43498pt
+Right:640.5pt/1.74298pt
+Split: 650.67503pt
+Output:650.67503pt
 Pageshrink: 0.0pt
 Pagestretch: 0.0pt
 @colht:696.0pt
-FLUSHEND [output]: 688.67503pt
-FLUSHEND [leftcolumn badness]: 162
+FLUSHEND [output]: 650.67503pt
+FLUSHEND [leftcolumn badness]: 0
 FUSHEND [rightcolumn badness]: 10000
 File: ub_logo.png Graphic file (type bmp)
 <ub_logo.png>
@@ -1194,11 +1848,11 @@ File: ub_logo.png Graphic file (type bmp)
 LaTeX Font Warning: Font shape `TU/txr/m/sl' undefined
 (Font)              using `TU/txr/m/it' instead on input line 5.
 
-[12] (main.aux)
+[15] (main.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 37F6E7E1D686F2C50F9C29A629C9BB09;8365.
  )
-Output written on main.xdv (12 pages, 782456 bytes).
+Output written on main.xdv (15 pages, 777192 bytes).
