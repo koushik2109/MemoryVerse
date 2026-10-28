@@ -511,10 +511,9 @@ Underfull \hbox (badness 1596) in paragraph at lines 82--83
 \T1/ptm/m/n/10 feed-back and gen-er-a-tive LLM bridg-ing (0.640 vs.
  []
 
-[2]
+[2] [3]
 File: fig_architecture.png Graphic file (type bmp)
 <fig_architecture.png>
- [3]
 LaTeX Font Info:    Trying to load font information for T1+pcr on input line 15
 7.
  (t1pcr.fd
@@ -541,7 +540,7 @@ Underfull \hbox (badness 4024) in paragraph at lines 157--158
  lex-i-cal to-kens are
  []
 
-[4]
+
 Underfull \hbox (badness 3942) in paragraph at lines 186--187
 \T1/ptm/m/n/10 in-de-pen-dently, pre-vent-ing fine-grained token-level cross-
  []
@@ -597,6 +596,9 @@ Underfull \hbox (badness 2617) in paragraph at lines 195--196
 \T1/ptm/m/n/10 when an ex-trac-tor out-puts ``N/A'' or ex-trac-tion re-fusal
  []
 
+[4]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 
 Underfull \hbox (badness 4291) in paragraph at lines 207--208
 \T1/ptm/b/n/10 sion): \T1/ptm/m/n/10 Mul-ti-me-dia items main-tain mul-ti-ple p
@@ -620,22 +622,21 @@ File: results/v2/fig_embedding_drift.png Graphic file (type bmp)
 <results/v2/fig_embedding_drift.png>
 File: results/v2/fig_error_attribution.png Graphic file (type bmp)
 <results/v2/fig_error_attribution.png>
-
-Underfull \vbox (badness 4543) has occurred while \output is active []
-
  [7]
-[8]
+Underfull \vbox (badness 3895) has occurred while \output is active []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [8]
 File: ijcds/figures/fig_regime_grid_heatmap.png Graphic file (type bmp)
 <ijcds/figures/fig_regime_grid_heatmap.png>
 
-Underfull \vbox (badness 4779) has occurred while \output is active []
-
- [9]
 Underfull \hbox (badness 3590) in paragraph at lines 458--459
 []\T1/ptm/m/n/10 Furthermore, a paired com-par-i-son against an equal-
  []
 
-
+[9]
 Underfull \hbox (badness 2762) in paragraph at lines 462--462
 []\T1/ptm/m/n/10 TABLE VII: |Con-for-mal Cas-cade Cal-i-bra-tion: Cor-rected
  []
@@ -663,9 +664,10 @@ Underfull \hbox (badness 2302) in paragraph at lines 525--526
 
  []
 
+[10]
 File: ijcds/figures/fig_coco_native_vs_proxy.png Graphic file (type bmp)
 <ijcds/figures/fig_coco_native_vs_proxy.png>
-[10]
+
 Underfull \hbox (badness 10000) in paragraph at lines 587--588
 []\T1/ptm/m/n/10 Quantifying re-trieval per-for-mance against human-
  []
@@ -681,18 +683,21 @@ Underfull \hbox (badness 3000) in paragraph at lines 587--588
  []
 
 [11]
-Underfull \hbox (badness 2809) in paragraph at lines 698--699
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [12]
+Underfull \hbox (badness 2809) in paragraph at lines 719--720
 []\T1/ptm/m/n/10 Finally, syn-the-siz-ing all em-pir-i-cal ex-per-i-ments acros
 s
  []
 
-[12]
-Underfull \hbox (badness 10000) in paragraph at lines 730--731
+
+Underfull \hbox (badness 10000) in paragraph at lines 751--752
 []\T1/ptm/b/n/10 For Com-pu-ta-tional and En-ergy Bud-get-ing:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 730--731
+Underfull \hbox (badness 10000) in paragraph at lines 751--752
 \T1/ptm/m/n/10 Document-native multi-vector mod-els (ColQwen2)
  []
 
@@ -702,33 +707,50 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [13]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-Underfull \hbox (badness 2772) in paragraph at lines 748--749
+ [14]
+Underfull \hbox (badness 2772) in paragraph at lines 769--770
 \T1/ptm/b/n/10 er-a-tor threat: \T1/ptm/m/n/10 Eval-u-a-tion queries for light 
 para-
  []
 
-[14]
-Underfull \hbox (badness 7468) in paragraph at lines 757--758
-\T1/ptm/m/n/10 the ob-served mean miss risk to 0.0494 (mean CI
+
+Underfull \hbox (badness 10000) in paragraph at lines 770--771
+\T1/ptm/m/n/10 (\T1/pcr/m/n/10 all-MiniLM-L6-v2\T1/ptm/m/n/10 , \T1/pcr/m/n/10 
+bge-base-en-v1.5\T1/ptm/m/n/10 ).
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 770--771
+\T1/ptm/m/n/10 (e.g., BGE-M3), learned sparse rep-re-sen-ta-tions
+ []
+
+
+Underfull \hbox (badness 5077) in paragraph at lines 770--771
+\T1/ptm/m/n/10 (Col-BERTv2) rep-re-sent com-pelling ex-ten-sions for
  []
 
 [15]
-Underfull \hbox (badness 2671) in paragraph at lines 818--819
+Underfull \hbox (badness 2671) in paragraph at lines 840--841
 []\T1/ptm/m/n/9 J. Cho, D. Ma-hata, O. ^^9drsoy, Y. He, and M. Bansal,
  []
 
 
-Underfull \hbox (badness 2142) in paragraph at lines 818--819
+Underfull \hbox (badness 2142) in paragraph at lines 840--841
 \T1/ptm/m/n/9 ``M3DocRAG: Multi-modal re-trieval for multi-page multi-
  []
 
+[16]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 902.
-[16] [17]
+put line 924.
+
+Underfull \hbox (badness 1436) in paragraph at lines 957--957
+[]\T1/ptm/m/n/10 TABLE XVIII: |Pre-lim-i-nary End-to-End Di-ag-nos-tic Suite
+ []
+
+[17]
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -740,13 +762,11 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[18
-
-] (IEEE_Paper_v10.aux)
+[18] (IEEE_Paper_v10.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `IEEE_Paper_v10.out' has not changed.
-(rerunfilecheck)             Checksum: F45E874341308214F1CFA96EB71D8734;11181.
+(rerunfilecheck)             Checksum: 7F986792BFCF1FD62BC396A4CBB4567A;11181.
  )
-Output written on IEEE_Paper_v10.xdv (18 pages, 195076 bytes).
+Output written on IEEE_Paper_v10.xdv (18 pages, 198512 bytes).

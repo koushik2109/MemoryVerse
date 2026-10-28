@@ -257,7 +257,7 @@ def generate_architecture_diagram(output_path: Path = ARCHITECTURE_FIGURE_PATH) 
             "#512DA8",
         ),
         (
-            "Stage 1: hybrid retrieval\nConvex fusion ($\\alpha$) / RRF ($k=60$)\nTop-30 candidates",
+            "Stage 1: Hybrid Retrieval\nConvex Fusion ($\\alpha$) / RRF\nTop-$K_1$ Candidates ($K_1=20$)",
             0.44,
             0.12,
             0.20,
@@ -266,7 +266,7 @@ def generate_architecture_diagram(output_path: Path = ARCHITECTURE_FIGURE_PATH) 
             "#00796B",
         ),
         (
-            "Stage 2: dual-signal reranker\n0.65 dense similarity\n+ 0.35 token overlap\nTop-10 evaluated",
+            "Stage 2: Cascade Reranker\nNeural Cross-Encoder\n(BGE / MiniLM Reranker)\nTop-$K_1$ Rescored",
             0.68,
             0.27,
             0.15,

@@ -216,3 +216,12 @@ number,source_file,row_column,query_type,text_source,subset,manuscript_location,
 0.2248,results/v3/engine_replication.csv,"row 37, col MRR",light,Tesseract 5.5 Clean OCR,test_split,Table XI / Sec VII,Char 3-5g BM25 MRR on Clean Tesseract 5.5 under light paraphrases
 0.2442,results/v3/funsd_dataset_replication.csv,"row 27, col MRR",light,Tesseract 5.5 Clean OCR,funsd_100,Table XII / Sec VII,Char 3-5g BM25 MRR on FUNSD forms under light paraphrases
 0.2019,results/v3/funsd_dataset_replication.csv,"row 26, col MRR",light,Tesseract 5.5 Clean OCR,funsd_100,Table XII / Sec VII,Word BM25 MRR on FUNSD forms under light paraphrases
+500,results/v9/docvqa_benchmark_results.csv,queries_pages,human_qa,scanned_reports,vidore_docvqa,Abstract / Contributions / Sec IV-E / Table,DocVQA ViDoRe evaluation query and page count
++0.0960,results/v10/colqwen_paired_v10.csv,"row 2, col diff",light,Apple Vision Clean OCR,receipt_pool,Contributions / Sec IV-D,ColQwen2 MRR lift over receipt-only Word BM25 (0.4003)
+0.0003,results/v10/colqwen_paired_v10.csv,"row 2, col p_holm",light,Apple Vision Clean OCR,receipt_pool,Contributions / Sec IV-D,ColQwen2 p_holm over receipt-only Word BM25
++0.0051,results/v10/colqwen_paired_v10.csv,"row 6, col diff",answerable,Apple Vision Clean OCR,receipt_pool,Contributions / Sec IV-D,ColQwen2 diff vs Char BM25 on answerable questions
+0.601,results/v9/docvqa_benchmark_results.csv,"row 7, col CI_Lower",human_qa,document_pixels,vidore_docvqa,Contributions / Sec IV-E / Table,ColQwen2 DocVQA MRR 95% CI lower bound
+0.689,results/v9/docvqa_benchmark_results.csv,"row 7, col CI_Upper",human_qa,document_pixels,vidore_docvqa,Contributions / Sec IV-E / Table,ColQwen2 DocVQA MRR 95% CI upper bound
+84.10%,results/v9/docvqa_benchmark_results.csv,"row 7, col Hit10",human_qa,document_pixels,vidore_docvqa,Contributions / Sec IV-E / Table,ColQwen2 DocVQA Hit@10
+0.4321,results/v3/engine_replication.csv,row 15 - row 20,verbatim vs light,Apple Vision Clean OCR,receipt_pool,Contributions / Sec IV-A,Apple Vision Word BM25 drop on receipt pool (0.8324 to 0.4003)
+0.2265,results/v3/engine_replication.csv,"row 36, col MRR",light,Tesseract 5.5 Clean OCR,receipt_pool,Limitations,Char 3-5g BM25 MRR on Clean Tesseract light paraphrase
