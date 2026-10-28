@@ -228,31 +228,7 @@ To evaluate whether proxy corruption or semantic query mismatch is the dominant 
 \subsection{Micro-Mechanisms of Dense Collapse and Query Formulation Controls}
 \label{sec:mechanism_analysis}
 
-\begin{figure*}[t]
-\centering
-\begin{subfigure}[b]{0.32\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{figures/fig_tokenization_fragmentation.png}
-    \caption{Subword Fragmentation.}
-    \label{fig:tokenization_fragmentation}
-\end{subfigure}
-\hfill
-\begin{subfigure}[b]{0.32\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{figures/fig_embedding_drift.png}
-    \caption{Embedding Cosine Drift.}
-    \label{fig:embedding_drift}
-\end{subfigure}
-\hfill
-\begin{subfigure}[b]{0.32\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{figures/fig_error_attribution.png}
-    \caption{Probe Property Error Attribution.}
-    \label{fig:error_attribution}
-\end{subfigure}
-\caption{Micro-mechanism of dense proxy collapse: (a) WordPiece tokenization fragmentation across character noise rates, (b) cosine embedding drift relative to clean representations, and (c) retrieval MRR across 5 diagnostic probe property buckets under 20\% proxy noise.}
-\label{fig:mechanism_plots}
-\end{figure*}
+
 
 To isolate why dense vector representations collapse under proxy corruptions while sparse inverted indexes endure, we analyzed three underlying mechanisms (Fig.~\ref{fig:mechanism_plots}):
 \begin{enumerate}
@@ -287,6 +263,33 @@ Furthermore, to test the causal impact of tokenization fragmentation versus quer
 \end{tabular}
 \vspace{-2mm}
 \end{table}
+
+\begin{figure*}[t]
+\centering
+\begin{subfigure}[b]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/fig_tokenization_fragmentation.png}
+    \caption{Subword Fragmentation.}
+    \label{fig:tokenization_fragmentation}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/fig_embedding_drift.png}
+    \caption{Embedding Cosine Drift.}
+    \label{fig:embedding_drift}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/fig_error_attribution.png}
+    \caption{Probe Property Error Attribution.}
+    \label{fig:error_attribution}
+\end{subfigure}
+\caption{Micro-mechanism of dense proxy collapse: (a) WordPiece tokenization fragmentation across character noise rates, (b) cosine embedding drift relative to clean representations, and (c) retrieval MRR across 5 diagnostic probe property buckets under 20\% proxy noise.}
+\label{fig:mechanism_plots}
+\end{figure*}
+
 
 \subsection{Production Cascades and Risk-Controlled Escalation}
 \label{sec:ablation_and_cascade}
@@ -634,18 +637,18 @@ Across 50 diagnostic multi-hop queries (Table~\ref{tab:multihop_paired_v3}), mul
 \begin{table}[htbp]
 \centering
 \footnotesize
-\caption{Exact paired discordant case analysis across 50 diagnostic multi-hop queries.}
+\caption{Exact paired discordant case analysis across 50 diagnostic multi-hop queries (MM-RAG Target Hit@10 = 0.640).}
 \label{tab:multihop_paired_v3}
-\setlength{\tabcolsep}{1.8pt}
-\begin{tabular}{@{}p{1.9cm}cccccc@{}}
+\setlength{\tabcolsep}{2.0pt}
+\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}lccccc@{}}
 \toprule
-\makecell[l]{\textbf{Comparison}} & \makecell{\textbf{Base}\\\textbf{Hit@10}} & \makecell{\textbf{MM-RAG}\\\textbf{Hit@10}} & \makecell{\textbf{Paired Diff}\\{\scriptsize [95\% CI]}} & \makecell{\textbf{Disc.}\\\textbf{Pairs}} & \makecell{\textbf{McN.}\ $p$} & \makecell[l]{\textbf{Verdict}} \\
+\textbf{Baseline} & \makecell{\textbf{Base}\\\textbf{Hit@10}} & \makecell{\textbf{Paired Diff}\\{\scriptsize [95\% CI]}} & \makecell{\textbf{Disc.}\\\textbf{Pairs}} & \makecell{\textbf{McN.}\ \bm{$p$}} & \textbf{Verdict} \\
 \midrule
-Single Hybrid & 0.620 & 0.640 & \makecell{+0.020\\{\scriptsize [-0.04, +0.10]}} & 2 / 1 & 1.0000 & \makecell[l]{No detected\\difference} \\
-Single Dense  & 0.640 & 0.640 & \makecell{+0.000\\{\scriptsize [0.00, +0.07]}}  & 2 / 2 & 1.0000 & \makecell[l]{Identical\\performance} \\
-Sparse Alone  & 0.480 & 0.640 & \makecell{+0.160\\{\scriptsize [+0.04, +0.28]}} & 9 / 1 & 0.0215 & \makecell[l]{Significant\\over sparse} \\
+Single Hybrid & 0.620 & \makecell{+0.020\\{\scriptsize [-0.04, 0.10]}} & 2 / 1 & 1.0000 & No diff. \\
+Single Dense  & 0.640 & \makecell{+0.000\\{\scriptsize [0.00, 0.07]}}  & 2 / 2 & 1.0000 & Tie \\
+Sparse Alone  & 0.480 & \makecell{+0.160\\{\scriptsize [+0.04, 0.28]}} & 9 / 1 & 0.0215 & $p < 0.05$ \\
 \bottomrule
-\end{tabular}
+\end{tabular*}
 \vspace{-2mm}
 \end{table}
 
@@ -656,32 +659,32 @@ Prior to establishing the frozen public benchmark, preliminary pilots evaluated 
 \centering
 \footnotesize
 \caption{Preliminary Exploratory Feasibility Benchmarks: (a) Dual-Tier Proxy vs.\ Physical Media, and (b) Synthetic Noise Sweeps ($N=600$).}\label{tab:pilot_summary}
-\setlength{\tabcolsep}{2.5pt}
-\begin{tabular}{@{}llccc@{}}
+\setlength{\tabcolsep}{1.0pt}
+\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}llccc@{}}
 \toprule
 \multicolumn{5}{@{}c}{\textbf{(a) Dual-Tier Feasibility ($N=334$ Proxy, $N=151$ Media)}} \\
 \midrule
 \makecell[l]{\textbf{Tier / Media}} & \makecell[l]{\textbf{System}} & \makecell{\textbf{Hit@10}\\{\scriptsize [95\% CI]}} & \textbf{MRR} & \makecell{\textbf{Lat.}\\\textbf{(ms)}} \\
 \midrule
-\textbf{Tier 1: Proxy ($N=334$)} & BM25 Baseline   & \makecell{0.997\\{\scriptsize [0.991, 1.000]}} & 0.9958 & \textbf{0.13} \\
+\makecell[l]{\textbf{Tier 1: Proxy}\\{\scriptsize ($N=334$)}} & BM25 Baseline   & \makecell{0.997\\{\scriptsize [0.991, 1.000]}} & 0.9958 & \textbf{0.13} \\
                                 & MM-RAG Pipeline & \makecell{\textbf{0.997}\\{\scriptsize [0.991, 1.000]}} & \textbf{0.9970} & 7.96 \\
 \midrule
-\textbf{Tier 2: Scene ($N=85$)}  & BM25 Baseline   & \makecell{0.859\\{\scriptsize [0.776, 0.929]}} & 0.7916 & \textbf{0.08} \\
-                                & Hybrid ($\alpha=0.7$) & \makecell{\textbf{0.871}\\{\scriptsize [0.788, 0.941]}} & 0.7780 & 32.56 \\
+\makecell[l]{\textbf{Tier 2: Scene}\\{\scriptsize ($N=85$)}}  & BM25 Baseline   & \makecell{0.859\\{\scriptsize [0.776, 0.929]}} & 0.7916 & \textbf{0.08} \\
+                                & Hybrid ($\alpha{=}0.7$) & \makecell{\textbf{0.871}\\{\scriptsize [0.788, 0.941]}} & 0.7780 & 32.56 \\
 \midrule
-\textbf{Tier 2: Audio ($N=13$)}  & CLAP (44.1\,kHz)& \makecell{\textbf{1.000}\\{\scriptsize [0.753, 1.000]}} & \textbf{1.0000} & 59.55 \\
-\textbf{Tier 2: Visual ($N=53$)} & CLIP ViT-B/32   & \makecell{\textbf{0.792}\\{\scriptsize [0.679, 0.887]}} & 0.6182 & 39.06 \\
+\makecell[l]{\textbf{Tier 2: Audio}\\{\scriptsize ($N=13$)}}  & CLAP (44\,kHz)& \makecell{\textbf{1.000}\\{\scriptsize [0.753, 1.000]}} & \textbf{1.0000} & 59.55 \\
+\makecell[l]{\textbf{Tier 2: Visual}\\{\scriptsize ($N=53$)}} & CLIP ViT-B/32   & \makecell{\textbf{0.792}\\{\scriptsize [0.679, 0.887]}} & 0.6182 & 39.06 \\
 \midrule
 \multicolumn{5}{@{}c}{\textbf{(b) Synthetic Noise Sweeps \& Routing ($N=600$)}} \\
 \midrule
-\textbf{Architecture} & \textbf{0\% Noise} & \textbf{20\% Noise} & $f_{\text{bad}}=0.30$ & \makecell{\textbf{5-Intent}\\\textbf{MRR}} \\
+\textbf{Architecture} & \textbf{0\% Noise} & \textbf{20\% Noise} & \makecell{\bm{$f_{\text{bad}}$}\\\scriptsize 0.30} & \makecell{\textbf{5-Intent}\\\textbf{MRR}} \\
 \midrule
 BM25 Baseline  & 0.9818 & \textbf{0.9337} & \textbf{0.9639} & 0.3386 \\
 Dense Baseline & 0.8527 & 0.5306          & 0.8184          & 0.3466 \\
 Hybrid Fixed   & 0.9822 & 0.9272          & 0.9632          & 0.3392 \\
 Router Stage-1 & \textbf{0.9830} & 0.9328 & 0.9637          & \textbf{0.3470} \\
 \bottomrule
-\end{tabular}
+\end{tabular*}
 \vspace{-2mm}
 \end{table}
 
@@ -715,7 +718,7 @@ In exploratory cascade risk calibration, marginal conformal prediction achieved 
 
 \begin{thebibliography}{00}
 \scriptsize
-\setlength{\itemsep}{-4.2pt plus 0.2pt}
+\setlength{\itemsep}{-4.6pt plus 0.2pt}
 \setlength{\parskip}{0pt}
 \bibitem{jing2024llmvectordb}
 Z.~Jing et~al., ``When large language models meet vector databases: A survey,'' \emph{arXiv preprint arXiv:2402.01763}, 2024.
