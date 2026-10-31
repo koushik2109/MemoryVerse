@@ -24,12 +24,13 @@
 .vscode/
 *.iml
 GEMINI.md
-devl.sh
 .DS_Store
 Thumbs.db
 
 # Python environments, bytecode, test output, and coverage files.
 **/.venv/
+/.venv-linux
+/.venv-linux/
 **/venv/
 **/__pycache__/
 *.py[cod]
@@ -46,6 +47,7 @@ coverage.xml
 /frontend/.dart_tool/
 /frontend/build/
 /frontend/android/.gradle/
+/frontend/android/.kotlin/
 /frontend/android/build/
 /frontend/android/app/build/
 /frontend/android/local.properties

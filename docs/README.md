@@ -9,8 +9,9 @@ This page is the reading guide for product, engineering, operations, and researc
 3. [Existing architecture](EXISTING_ARCHITECTURE.md) — code-oriented architecture notes.
 4. [Architecture specification](ARCHITECTURE_SPECIFICATION.md) — architecture diagram and implementation/target distinctions.
 5. [Setup and deployment](SETUP_AND_DEPLOYMENT.md) — local setup guidance and production gates.
-6. [Feature audit](FEATURE_AUDIT.md), [feature update matrix](FEATURE_UPDATE_MATRIX.md), and [technical debt](TECHNICAL_DEBT.md) — feature status, gaps, and risks.
-7. [Production-readiness proposal](PRODUCTION_READINESS_PHASES.md) — proposed improvements. It is a plan, not evidence that the work is complete.
+6. [Flutter mobile development](MOBILE_DEVELOPMENT.md) — regenerate platform state and configure emulator, simulator, and physical-device API URLs.
+7. [Feature audit](FEATURE_AUDIT.md), [feature update matrix](FEATURE_UPDATE_MATRIX.md), and [technical debt](TECHNICAL_DEBT.md) — feature status, gaps, and risks.
+8. [Production-readiness proposal](PRODUCTION_READINESS_PHASES.md) — proposed improvements. It is a plan, not evidence that the work is complete.
 
 ## Product and engineering references
 

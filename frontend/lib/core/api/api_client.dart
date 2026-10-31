@@ -5,7 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 import 'dart:io' show Platform;
-import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:flutter/foundation.dart' show kIsWeb, visibleForTesting;
 
 final apiClientProvider = Provider<ApiClient>((ref) => ApiClient());
 
@@ -33,12 +33,51 @@ class ApiClient {
   }
 
   static String get baseUrl {
-    String url = dotenv.env['API_BASE_URL'] ?? 'http://10.0.2.2:8000/api/v1';
-    if (kIsWeb || (!kIsWeb && !Platform.isAndroid)) {
-      url = url.replaceAll('10.0.2.2', '127.0.0.1');
-    } else if (!kIsWeb && Platform.isAndroid) {
-      url = url.replaceAll('localhost', '10.0.2.2').replaceAll('127.0.0.1', '10.0.2.2');
+    return resolveBaseUrl(
+      environment: dotenv.env,
+      isWeb: kIsWeb,
+      isAndroid: !kIsWeb && Platform.isAndroid,
+      isIOS: !kIsWeb && Platform.isIOS,
+    );
+  }
+
+  @visibleForTesting
+  static String resolveBaseUrl({
+    required Map<String, String> environment,
+    required bool isWeb,
+    required bool isAndroid,
+    required bool isIOS,
+  }) {
+    String? configuredUrl(String key) {
+      final value = environment[key]?.trim();
+      return value == null || value.isEmpty ? null : value;
     }
+
+    final sharedUrl = configuredUrl('API_BASE_URL');
+    String url;
+
+    if (isAndroid) {
+      url = configuredUrl('API_BASE_URL_ANDROID') ??
+          sharedUrl ??
+          'http://10.0.2.2:8000/api/v1';
+      url = url
+          .replaceAll('localhost', '10.0.2.2')
+          .replaceAll('127.0.0.1', '10.0.2.2');
+    } else if (isIOS) {
+      url = configuredUrl('API_BASE_URL_IOS') ??
+          sharedUrl ??
+          'http://127.0.0.1:8000/api/v1';
+      url = url.replaceAll('10.0.2.2', '127.0.0.1');
+    } else if (isWeb) {
+      url = configuredUrl('API_BASE_URL_WEB') ??
+          sharedUrl ??
+          'http://127.0.0.1:8000/api/v1';
+      url = url.replaceAll('10.0.2.2', '127.0.0.1');
+    } else {
+      url = sharedUrl ?? 'http://127.0.0.1:8000/api/v1';
+      url = url.replaceAll('10.0.2.2', '127.0.0.1');
+    }
+
     if (!url.endsWith('/api/v1')) {
       url = url.endsWith('/') ? '${url}api/v1' : '$url/api/v1';
     }
@@ -190,8 +229,7 @@ class ApiClient {
       // Try to extract a meaningful error message
       String? msg;
       if (body is Map) {
-        msg =
-            body['detail'] as String? ??
+        msg = body['detail'] as String? ??
             (body['error'] as Map?)?['message'] as String?;
       }
       if (msg != null && msg.isNotEmpty) return msg;

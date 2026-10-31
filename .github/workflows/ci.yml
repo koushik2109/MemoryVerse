@@ -1,0 +1,96 @@
+name: MemoryVerse CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  linux-scripts:
+    name: Linux script syntax
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check Bash scripts
+        shell: bash
+        run: |
+          mapfile -t scripts < <(find . -path './.git' -prune -o -path './.venv' -prune -o -path './.agents' -prune -o -path './frontend/.dart_tool' -prune -o -type f -name '*.sh' -print)
+          if ((${#scripts[@]} == 0)); then
+            echo 'No Bash scripts found.'
+            exit 1
+          fi
+          printf 'Checking %s Bash scripts\n' "${#scripts[@]}"
+          for script in "${scripts[@]}"; do
+            bash -n "$script"
+          done
+
+  powershell-syntax:
+    name: PowerShell script syntax
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Parse PowerShell scripts
+        shell: pwsh
+        run: |
+          $files = Get-ChildItem -Path . -Filter *.ps1 -Recurse -File
+          if (-not $files) { throw 'No PowerShell scripts found.' }
+          foreach ($file in $files) {
+            $tokens = $null
+            $parseErrors = $null
+            [System.Management.Automation.Language.Parser]::ParseFile(
+              $file.FullName,
+              [ref]$tokens,
+              [ref]$parseErrors
+            ) | Out-Null
+            if ($parseErrors.Count -gt 0) {
+              $parseErrors | ForEach-Object { Write-Error "$($file.FullName): $_" }
+              throw "PowerShell parsing failed for $($file.Name)."
+            }
+            Write-Host "Parsed $($file.FullName)"
+          }
+
+  backend:
+    name: Backend tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: backend/requirements.txt
+      - name: Install backend dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r backend/requirements.txt opencv-python-headless
+      - name: Run backend tests
+        env:
+          PYTHONPATH: ${{ github.workspace }}/backend:${{ github.workspace }}
+        run: python -m pytest backend/tests -q
+
+  flutter:
+    name: Flutter analyze and tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+          cache-dependency-path: frontend/pubspec.lock
+      - name: Install Flutter dependencies
+        working-directory: frontend
+        run: flutter pub get
+      - name: Analyze Flutter app
+        working-directory: frontend
+        run: flutter analyze
+      - name: Run Flutter tests
+        working-directory: frontend
+        run: flutter test

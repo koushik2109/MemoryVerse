@@ -2,6 +2,13 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsLocalNetworking</key>
+		<true/>
+	</dict>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>MemoryVerse connects to your development machine when using a local backend during testing.</string>
 	<key>GIDClientID</key>
 	<string>413763126044-jgj0jq3s55pemg1jj4f53ratglvmv662.apps.googleusercontent.com</string>
 	<key>CFBundleURLTypes</key>

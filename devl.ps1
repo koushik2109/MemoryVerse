@@ -20,6 +20,7 @@ $script:BackendDir = Join-Path $script:RepoRoot 'backend'
 $script:FrontendDir = Join-Path $script:RepoRoot 'frontend'
 $script:PythonExe = Join-Path $script:RepoRoot '.venv\Scripts\python.exe'
 $script:AiPythonExe = Join-Path $script:RepoRoot 'ai_engine\rag\.venv\Scripts\python.exe'
+$script:BindHost = if ([string]::IsNullOrWhiteSpace($env:MEMORYVERSE_BIND_HOST)) { '127.0.0.1' } else { $env:MEMORYVERSE_BIND_HOST.Trim() }
 if (-not (Test-Path -LiteralPath $script:AiPythonExe)) {
     $script:AiPythonExe = $script:PythonExe
 }
@@ -120,29 +121,29 @@ if ($runFrontend) {
     try {
         $flutterDevices = @(flutter devices --machine | ConvertFrom-Json)
     } catch {
-        throw "Could not read Flutter devices. Start the Android emulator first, then retry. $($_.Exception.Message)"
+        throw "Could not read Flutter devices. Start a device or simulator, then retry. $($_.Exception.Message)"
     }
-    $androidDevices = @($flutterDevices | Where-Object { $_.targetPlatform -like 'android-*' })
+    $availableDevices = @($flutterDevices | Where-Object { $_.id })
 
     if ($requestedDevice) {
-        $selectedDevice = $androidDevices | Where-Object { $_.id -eq $requestedDevice } | Select-Object -First 1
+        $selectedDevice = $availableDevices | Where-Object { $_.id -eq $requestedDevice } | Select-Object -First 1
         if (-not $selectedDevice) {
-            $available = if ($androidDevices.Count) { $androidDevices.id -join ', ' } else { 'none' }
-            throw "Android device '$requestedDevice' is not ready. Available Android devices: $available. Start one with emulator.ps1."
+            $available = if ($availableDevices.Count) { $availableDevices.id -join ', ' } else { 'none' }
+            throw "Flutter device '$requestedDevice' is not ready. Available devices: $available."
         }
         $DeviceId = $selectedDevice.id
-    } elseif ($androidDevices.Count -eq 1) {
-        $DeviceId = $androidDevices[0].id
-    } elseif ($androidDevices.Count -gt 1) {
-        throw "Multiple Android devices are ready ($($androidDevices.id -join ', ')). Choose one with -DeviceId."
+    } elseif ($availableDevices.Count -eq 1) {
+        $DeviceId = $availableDevices[0].id
+    } elseif ($availableDevices.Count -gt 1) {
+        throw "Multiple Flutter devices are ready ($($availableDevices.id -join ', ')). Choose one with -DeviceId."
     } else {
-        throw 'No running Android device was found. Start the emulator with emulator.ps1, then run devl.ps1 again.'
+        throw 'No running Flutter device was found. Start a device or simulator, then run devl.ps1 again.'
     }
 
     if (-not $PrepareFlutter -and -not (Test-Path -LiteralPath (Join-Path $script:FrontendDir '.dart_tool\package_config.json'))) {
         throw 'Flutter packages are not prepared. Run `flutter pub get` in frontend, or rerun devl.ps1 with -PrepareFlutter.'
     }
-    Write-Ok "Flutter will target Android device $DeviceId"
+    Write-Ok "Flutter will target device $DeviceId"
 }
 
 function Start-ServiceTerminal([string]$Title, [string]$Code) {
@@ -153,7 +154,7 @@ function Start-ServiceTerminal([string]$Title, [string]$Code) {
     Write-Ok "Opened $Title terminal."
 }
 
-function Start-PythonService([string]$Name, [string]$WorkingDirectory, [string]$Python, [string]$Module, [int]$Port, [string]$ReloadDir) {
+function Start-PythonService([string]$Name, [string]$WorkingDirectory, [string]$Python, [string]$Module, [int]$Port, [string]$ReloadDir, [string]$BindHost = '127.0.0.1') {
     if (Test-ListeningPort $Port) {
         if (Test-HealthyService "http://127.0.0.1:$Port/health") {
             Write-Ok "$Name is already healthy on port $Port; keeping it running."
@@ -165,13 +166,14 @@ function Start-PythonService([string]$Name, [string]$WorkingDirectory, [string]$
     $repoLiteral = ConvertTo-PowerShellLiteral $script:RepoRoot
     $workingLiteral = ConvertTo-PowerShellLiteral $WorkingDirectory
     $pythonLiteral = ConvertTo-PowerShellLiteral $Python
+    $hostLiteral = ConvertTo-PowerShellLiteral $BindHost
     $titleLiteral = ConvertTo-PowerShellLiteral "MemoryVerse $Name"
     $code = @"
 `$Host.UI.RawUI.WindowTitle = $titleLiteral
 Set-Location -LiteralPath $workingLiteral
 `$env:PYTHONPATH = $repoLiteral
 Write-Host 'Starting $Name on port $Port...' -ForegroundColor Cyan
-& $pythonLiteral -m uvicorn $Module --reload --reload-dir $ReloadDir --host 0.0.0.0 --port $Port
+& $pythonLiteral -m uvicorn $Module --reload --reload-dir $ReloadDir --host $hostLiteral --port $Port
 if (`$LASTEXITCODE -ne 0) { Write-Host '$Name exited with code ' `$LASTEXITCODE -ForegroundColor Red }
 Write-Host 'This window contains the $Name output. Close it when you are done.' -ForegroundColor Yellow
 "@
@@ -182,7 +184,7 @@ if ($runAi) {
     Start-PythonService 'AI RAG Engine' $script:RepoRoot $script:AiPythonExe 'ai_engine.rag.server:app' 8001 'ai_engine'
 }
 if ($runBackend) {
-    Start-PythonService 'Backend' $script:BackendDir $script:PythonExe 'app.main:app' 8000 'app'
+    Start-PythonService 'Backend' $script:BackendDir $script:PythonExe 'app.main:app' 8000 'app' $script:BindHost
 }
 
 if ($runBackend) {
@@ -196,7 +198,7 @@ if ($runFrontend) {
     $frontendLiteral = ConvertTo-PowerShellLiteral $script:FrontendDir
     $deviceLiteral = ConvertTo-PowerShellLiteral $DeviceId
     $titleLiteral = ConvertTo-PowerShellLiteral 'MemoryVerse Flutter App'
-    $analyzeLine = if ($Analyze) { "flutter analyze`nif (`$LASTEXITCODE -ne 0) { Write-Host 'Flutter analysis reported issues; continuing to launch.' -ForegroundColor Yellow }" } else { "Write-Host 'Skipping flutter analyze for faster startup. Use -Analyze to include it.' -ForegroundColor DarkGray" }
+    $analyzeLine = if ($Analyze) { "flutter analyze`nif (`$LASTEXITCODE -ne 0) { throw 'Flutter analysis failed; app launch stopped.' }" } else { "Write-Host 'Skipping flutter analyze for faster startup. Use -Analyze to include it.' -ForegroundColor DarkGray" }
     $pubGetLine = if ($PrepareFlutter) { "flutter pub get`nif (`$LASTEXITCODE -ne 0) { throw 'flutter pub get failed.' }" } else { "Write-Host 'Using prepared Flutter dependencies. Pass -PrepareFlutter to refresh them.' -ForegroundColor DarkGray" }
     $frontendCode = @"
 `$Host.UI.RawUI.WindowTitle = $titleLiteral
@@ -204,7 +206,7 @@ Set-Location -LiteralPath $frontendLiteral
 Write-Host 'Preparing Flutter dependencies...' -ForegroundColor Cyan
 $pubGetLine
 $analyzeLine
-Write-Host 'Launching MemoryVerse on Android device $DeviceId...' -ForegroundColor Cyan
+Write-Host 'Launching MemoryVerse on Flutter device $DeviceId...' -ForegroundColor Cyan
 flutter run -d $deviceLiteral
 if (`$LASTEXITCODE -ne 0) { Write-Host 'Flutter exited with code ' `$LASTEXITCODE -ForegroundColor Red }
 Write-Host 'This window contains the Flutter output. Close it when you are done.' -ForegroundColor Yellow

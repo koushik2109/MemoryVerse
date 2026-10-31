@@ -22,16 +22,25 @@ echo "Timestamp: $(date -u +"%Y-%m-%dT%H:%M:%SZ")"
 echo "========================================================================"
 
 # 1. Environment & Python Executable Setup
-PYTHON_EXE=".venv/bin/python"
-if [ ! -f "$PYTHON_EXE" ]; then
-    echo "Error: Virtual environment python not found at $PYTHON_EXE."
+PYTHON_EXE="${PYTHON_EXE:-$SCRIPT_DIR/.venv/bin/python}"
+if [ ! -x "$PYTHON_EXE" ] && [ -x "$SCRIPT_DIR/.venv-linux/bin/python" ]; then
+    PYTHON_EXE="$SCRIPT_DIR/.venv-linux/bin/python"
+elif [ ! -x "$PYTHON_EXE" ] && [ -x "$HOME/MemoryVerse/.venv/bin/python" ]; then
+    PYTHON_EXE="$HOME/MemoryVerse/.venv/bin/python"
+fi
+if [ ! -x "$PYTHON_EXE" ]; then
+    echo "Error: Python executable not found or not executable: $PYTHON_EXE" >&2
+    echo "Create a Linux/macOS virtual environment at .venv or set PYTHON_EXE to the intended Python interpreter." >&2
     exit 1
 fi
 
-export PYTHONPATH="/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages:${PWD}/ai_engine/rag:${PYTHONPATH:-}"
+export PYTHONPATH="${PWD}/ai_engine/rag${PYTHONPATH:+:$PYTHONPATH}"
 
 echo "[Environment] Python: $($PYTHON_EXE --version)"
-echo "[Environment] PyTorch: $($PYTHON_EXE -c "import torch; print(torch.__version__, 'MPS Available:', torch.backends.mps.is_available())")"
+$PYTHON_EXE -c "import torch; print('[Environment] PyTorch:', torch.__version__, '| MPS available:', bool(getattr(torch.backends, 'mps', None) and torch.backends.mps.is_available()))" || {
+    echo "Error: PyTorch is required. Install the documented research dependencies into the selected environment." >&2
+    exit 1
+}
 
 # 2. Verify Frozen Benchmark Artifacts
 echo -e "\n[Verification] Checking frozen benchmark artifacts..."
