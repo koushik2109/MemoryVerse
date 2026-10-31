@@ -4,6 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:memory_verse/contracts/models.dart';
 import 'package:memory_verse/core/design/tokens.dart';
+import 'package:memory_verse/core/services/media/media_gallery_export_service.dart';
 import 'package:memory_verse/core/widgets/media.dart';
 import 'package:memory_verse/features/memories/presentation/video_player_screen.dart';
 import 'package:path_provider/path_provider.dart';
@@ -48,10 +49,10 @@ class _MovieCardState extends State<MovieCard> {
 
     try {
       final dir = await getApplicationDocumentsDirectory();
-      final sanitizedTitle = widget.memoryTitle
-          .replaceAll(RegExp(r'[^a-zA-Z0-9]'), '_')
-          .trim();
-      final safeId = widget.movie.id.substring(0, math.min(6, widget.movie.id.length));
+      final sanitizedTitle =
+          widget.memoryTitle.replaceAll(RegExp(r'[^a-zA-Z0-9]'), '_').trim();
+      final safeId =
+          widget.movie.id.substring(0, math.min(6, widget.movie.id.length));
       final filename = 'Movie_${sanitizedTitle}_$safeId.mp4';
       final savePath = '${dir.path}/$filename';
 
@@ -72,20 +73,12 @@ class _MovieCardState extends State<MovieCard> {
 
       String? publicFolder;
       try {
-        if (Platform.isAndroid) {
-          final publicMoviesDir = Directory('/storage/emulated/0/Movies');
-          if (publicMoviesDir.existsSync()) {
-            final publicFile = File('${publicMoviesDir.path}/$filename');
-            await File(savePath).copy(publicFile.path);
-            publicFolder = 'Movies';
-          } else {
-            final extMoviesDirs = await getExternalStorageDirectories(type: StorageDirectory.movies);
-            if (extMoviesDirs != null && extMoviesDirs.isNotEmpty) {
-              final publicFile = File('${extMoviesDirs.first.path}/$filename');
-              await File(savePath).copy(publicFile.path);
-              publicFolder = 'Movies';
-            }
-          }
+        if (MediaGalleryExportService.isSupportedPlatform) {
+          publicFolder = await MediaGalleryExportService.saveDownloadedFile(
+            filePath: savePath,
+            fileName: filename,
+            isVideo: true,
+          );
         } else {
           final dlDir = await getDownloadsDirectory();
           if (dlDir != null) {
@@ -256,7 +249,8 @@ class _MovieCardState extends State<MovieCard> {
                         color: adt.AppColors.plum900.withValues(alpha: 0.75),
                         shape: BoxShape.circle,
                         border: Border.all(
-                          color: adt.AppColors.onDarkPrimary.withValues(alpha: 0.8),
+                          color: adt.AppColors.onDarkPrimary
+                              .withValues(alpha: 0.8),
                           width: 2,
                         ),
                         boxShadow: [
@@ -280,7 +274,8 @@ class _MovieCardState extends State<MovieCard> {
                     top: 12,
                     left: 12,
                     child: Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 10, vertical: 4),
                       decoration: BoxDecoration(
                         color: adt.AppColors.plum900.withValues(alpha: 0.75),
                         borderRadius: BorderRadius.circular(12),
@@ -317,7 +312,8 @@ class _MovieCardState extends State<MovieCard> {
                     top: 12,
                     right: 12,
                     child: Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 8, vertical: 4),
                       decoration: BoxDecoration(
                         color: Colors.black.withValues(alpha: 0.65),
                         borderRadius: BorderRadius.circular(8),
@@ -327,7 +323,8 @@ class _MovieCardState extends State<MovieCard> {
                         style: TextStyle(
                           fontSize: 11,
                           fontWeight: FontWeight.w600,
-                          color: adt.AppColors.onDarkPrimary.withValues(alpha: 0.9),
+                          color: adt.AppColors.onDarkPrimary
+                              .withValues(alpha: 0.9),
                         ),
                       ),
                     ),
@@ -391,13 +388,15 @@ class _MovieCardState extends State<MovieCard> {
                       _isDownloading
                           ? '${(_downloadProgress * 100).toInt()}%'
                           : 'Download',
-                      style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
+                      style: const TextStyle(
+                          fontSize: 13, fontWeight: FontWeight.w600),
                     ),
                     onPressed: _isDownloading ? null : () => _downloadVideo(),
                     style: OutlinedButton.styleFrom(
                       foregroundColor: adt.AppColors.onDarkPrimary,
                       side: BorderSide(
-                        color: adt.AppColors.onDarkPrimary.withValues(alpha: 0.2),
+                        color:
+                            adt.AppColors.onDarkPrimary.withValues(alpha: 0.2),
                       ),
                       padding: const EdgeInsets.symmetric(vertical: 10),
                       shape: RoundedRectangleBorder(
@@ -412,13 +411,15 @@ class _MovieCardState extends State<MovieCard> {
                     icon: const Icon(Icons.share_rounded, size: 18),
                     label: const Text(
                       'Share',
-                      style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
+                      style:
+                          TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
                     ),
                     onPressed: _shareVideo,
                     style: OutlinedButton.styleFrom(
                       foregroundColor: adt.AppColors.onDarkPrimary,
                       side: BorderSide(
-                        color: adt.AppColors.onDarkPrimary.withValues(alpha: 0.2),
+                        color:
+                            adt.AppColors.onDarkPrimary.withValues(alpha: 0.2),
                       ),
                       padding: const EdgeInsets.symmetric(vertical: 10),
                       shape: RoundedRectangleBorder(
@@ -435,7 +436,8 @@ class _MovieCardState extends State<MovieCard> {
                   style: FilledButton.styleFrom(
                     backgroundColor: c.primary,
                     foregroundColor: c.primaryInverse,
-                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 16, vertical: 10),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),

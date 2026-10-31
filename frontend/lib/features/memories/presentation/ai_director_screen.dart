@@ -7,6 +7,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:memory_verse/contracts/models.dart';
 import 'package:memory_verse/core/providers/ai_director_controller.dart';
 import 'package:memory_verse/core/providers/video_job_controller.dart';
+import 'package:memory_verse/core/services/media/media_gallery_export_service.dart';
 import 'package:memory_verse/features/memories/presentation/video_player_screen.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
@@ -21,7 +22,8 @@ class AiDirectorScreen extends ConsumerStatefulWidget {
     this.initialPrompt,
   });
 
-  static void open(BuildContext context, MemoryModel memory, {String? initialPrompt}) {
+  static void open(BuildContext context, MemoryModel memory,
+      {String? initialPrompt}) {
     Navigator.push(
       context,
       MaterialPageRoute(
@@ -112,8 +114,10 @@ class _AiDirectorScreenState extends ConsumerState<AiDirectorScreen> {
         ),
       );
       final dir = await getApplicationDocumentsDirectory();
-      final sanitizedTitle = widget.memory.title.replaceAll(RegExp(r'[^a-zA-Z0-9]'), '_');
-      final filename = 'MemoryVerse_${sanitizedTitle}_${job.id.substring(0, math.min(6, job.id.length))}.mp4';
+      final sanitizedTitle =
+          widget.memory.title.replaceAll(RegExp(r'[^a-zA-Z0-9]'), '_');
+      final filename =
+          'MemoryVerse_${sanitizedTitle}_${job.id.substring(0, math.min(6, job.id.length))}.mp4';
       final savePath = '${dir.path}/$filename';
 
       final dio = Dio();
@@ -122,20 +126,13 @@ class _AiDirectorScreenState extends ConsumerState<AiDirectorScreen> {
 
       String? publicSavedFolder;
       try {
-        if (Platform.isAndroid) {
-          final publicMoviesDir = Directory('/storage/emulated/0/Movies');
-          if (publicMoviesDir.existsSync()) {
-            final publicFile = File('${publicMoviesDir.path}/$filename');
-            await File(savePath).copy(publicFile.path);
-            publicSavedFolder = 'Movies';
-          } else {
-            final extMoviesDirs = await getExternalStorageDirectories(type: StorageDirectory.movies);
-            if (extMoviesDirs != null && extMoviesDirs.isNotEmpty) {
-              final publicFile = File('${extMoviesDirs.first.path}/$filename');
-              await File(savePath).copy(publicFile.path);
-              publicSavedFolder = 'Movies';
-            }
-          }
+        if (MediaGalleryExportService.isSupportedPlatform) {
+          publicSavedFolder =
+              await MediaGalleryExportService.saveDownloadedFile(
+            filePath: savePath,
+            fileName: filename,
+            isVideo: true,
+          );
         } else {
           final dlDir = await getDownloadsDirectory();
           if (dlDir != null) {
@@ -161,7 +158,8 @@ class _AiDirectorScreenState extends ConsumerState<AiDirectorScreen> {
             label: 'Share',
             textColor: Colors.white,
             onPressed: () {
-              Share.shareXFiles([XFile(savePath)], text: 'Watch my MemoryVerse movie: ${widget.memory.title}');
+              Share.shareXFiles([XFile(savePath)],
+                  text: 'Watch my MemoryVerse movie: ${widget.memory.title}');
             },
           ),
         ),
@@ -184,8 +182,10 @@ class _AiDirectorScreenState extends ConsumerState<AiDirectorScreen> {
     if (text.trim().isEmpty && _attachedMedia.isEmpty) return;
     String submission = text.trim();
     if (_attachedMedia.isNotEmpty) {
-      final mediaNote = ' [Attached ${_attachedMedia.length} photo${_attachedMedia.length > 1 ? 's' : ''}]';
-      submission = submission.isEmpty ? mediaNote.trim() : '$submission$mediaNote';
+      final mediaNote =
+          ' [Attached ${_attachedMedia.length} photo${_attachedMedia.length > 1 ? 's' : ''}]';
+      submission =
+          submission.isEmpty ? mediaNote.trim() : '$submission$mediaNote';
       setState(() {
         _attachedMedia.clear();
       });
@@ -242,9 +242,8 @@ class _AiDirectorScreenState extends ConsumerState<AiDirectorScreen> {
     final directorState = ref.watch(aiDirectorControllerProvider);
     final jobState = ref.watch(videoJobControllerProvider);
     final loadedSession = directorState.session;
-    final session = loadedSession?.memoryId == widget.memory.id
-        ? loadedSession
-        : null;
+    final session =
+        loadedSession?.memoryId == widget.memory.id ? loadedSession : null;
     final activeJob = jobState.job;
 
     // Check if user has entered conversation mode (more than initial greeting)
@@ -299,7 +298,8 @@ class _AiDirectorScreenState extends ConsumerState<AiDirectorScreen> {
               children: [
                 // Top Navigation Bar
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 16.0, vertical: 8.0),
                   child: Row(
                     children: [
                       GestureDetector(
@@ -324,16 +324,19 @@ class _AiDirectorScreenState extends ConsumerState<AiDirectorScreen> {
                       const Spacer(),
                       if (session != null)
                         Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 12, vertical: 6),
                           decoration: BoxDecoration(
                             color: Colors.black.withValues(alpha: 0.25),
                             borderRadius: BorderRadius.circular(16),
-                            border: Border.all(color: Colors.white.withValues(alpha: 0.1)),
+                            border: Border.all(
+                                color: Colors.white.withValues(alpha: 0.1)),
                           ),
                           child: Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              const Icon(Icons.movie_outlined, size: 14, color: Colors.white70),
+                              const Icon(Icons.movie_outlined,
+                                  size: 14, color: Colors.white70),
                               const SizedBox(width: 6),
                               Text(
                                 '${session.specification.aspectRatio} · ${session.specification.durationTargetSeconds}s',
@@ -358,7 +361,8 @@ class _AiDirectorScreenState extends ConsumerState<AiDirectorScreen> {
                 ),
 
                 // Bottom Input Area (Illuminated Pill from image.png)
-                _buildInputBar(directorState.isLoading || directorState.isGenerating),
+                _buildInputBar(
+                    directorState.isLoading || directorState.isGenerating),
               ],
             ),
           ),
@@ -369,11 +373,12 @@ class _AiDirectorScreenState extends ConsumerState<AiDirectorScreen> {
 
   // ── Initial State Layout (Strict reproduction of image.png) ─────────────────
   Widget _buildInitialShowcaseView(AISessionModel? session) {
-    final suggestions = session?.suggestions ?? [
-      'Time at home with friends',
-      'Spring flowers to remember',
-      'Joyful holidays, with epic music',
-    ];
+    final suggestions = session?.suggestions ??
+        [
+          'Time at home with friends',
+          'Spring flowers to remember',
+          'Joyful holidays, with epic music',
+        ];
 
     return SingleChildScrollView(
       controller: _scrollController,
@@ -480,7 +485,8 @@ class _AiDirectorScreenState extends ConsumerState<AiDirectorScreen> {
   }
 
   // ── Conversational View Layout ──────────────────────────────────────────────
-  Widget _buildConversationView(AISessionModel session, VideoJobModel? activeJob) {
+  Widget _buildConversationView(
+      AISessionModel session, VideoJobModel? activeJob) {
     return ListView.builder(
       controller: _scrollController,
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
@@ -492,7 +498,8 @@ class _AiDirectorScreenState extends ConsumerState<AiDirectorScreen> {
 
         final msg = session.messages[index];
         final isUser = msg.role == 'user';
-        final lastAssistantIndex = session.messages.lastIndexWhere((m) => m.role != 'user');
+        final lastAssistantIndex =
+            session.messages.lastIndexWhere((m) => m.role != 'user');
         final isLatestAssistant = index == lastAssistantIndex;
 
         return Column(
@@ -571,7 +578,8 @@ class _AiDirectorScreenState extends ConsumerState<AiDirectorScreen> {
     );
   }
 
-  Widget _buildAssistantBubble(AIMessageModel msg, VideoSpecificationModel spec) {
+  Widget _buildAssistantBubble(
+      AIMessageModel msg, VideoSpecificationModel spec) {
     return Container(
       constraints: BoxConstraints(
         maxWidth: MediaQuery.of(context).size.width * 0.84,
@@ -615,7 +623,8 @@ class _AiDirectorScreenState extends ConsumerState<AiDirectorScreen> {
           const SizedBox(height: 10),
           Text(
             msg.content,
-            style: const TextStyle(color: Colors.white, fontSize: 14.5, height: 1.4),
+            style: const TextStyle(
+                color: Colors.white, fontSize: 14.5, height: 1.4),
           ),
         ],
       ),
@@ -660,14 +669,18 @@ class _AiDirectorScreenState extends ConsumerState<AiDirectorScreen> {
                     : (isFailed ? Icons.error_outline : Icons.auto_awesome),
                 color: isDone
                     ? const Color(0xFF81C784)
-                    : (isFailed ? const Color(0xFFE57373) : const Color(0xFFFFA5B8)),
+                    : (isFailed
+                        ? const Color(0xFFE57373)
+                        : const Color(0xFFFFA5B8)),
                 size: 20,
               ),
               const SizedBox(width: 8),
               Text(
                 isDone
                     ? 'Your memory movie is ready'
-                    : (isFailed ? 'Creation paused' : 'Creating your memory movie...'),
+                    : (isFailed
+                        ? 'Creation paused'
+                        : 'Creating your memory movie...'),
                 style: const TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.w700,
@@ -687,7 +700,6 @@ class _AiDirectorScreenState extends ConsumerState<AiDirectorScreen> {
             ],
           ),
           const SizedBox(height: 12),
-
           if (!isDone && !isFailed) ...[
             ClipRRect(
               borderRadius: BorderRadius.circular(6),
@@ -724,7 +736,6 @@ class _AiDirectorScreenState extends ConsumerState<AiDirectorScreen> {
               ],
             ),
           ],
-
           if (isDone) ...[
             const SizedBox(height: 8),
             Container(
@@ -733,9 +744,11 @@ class _AiDirectorScreenState extends ConsumerState<AiDirectorScreen> {
               decoration: BoxDecoration(
                 color: Colors.black,
                 borderRadius: BorderRadius.circular(14),
-                image: widget.memory.media.isNotEmpty && widget.memory.media.first.thumbnailUrl != null
+                image: widget.memory.media.isNotEmpty &&
+                        widget.memory.media.first.thumbnailUrl != null
                     ? DecorationImage(
-                        image: NetworkImage(widget.memory.media.first.thumbnailUrl!),
+                        image: NetworkImage(
+                            widget.memory.media.first.thumbnailUrl!),
                         fit: BoxFit.cover,
                         colorFilter: ColorFilter.mode(
                           Colors.black.withValues(alpha: 0.4),
@@ -759,7 +772,8 @@ class _AiDirectorScreenState extends ConsumerState<AiDirectorScreen> {
                         ),
                       ],
                     ),
-                    child: const Icon(Icons.play_arrow_rounded, color: Colors.white, size: 36),
+                    child: const Icon(Icons.play_arrow_rounded,
+                        color: Colors.white, size: 36),
                   ),
                 ),
               ),
@@ -784,7 +798,8 @@ class _AiDirectorScreenState extends ConsumerState<AiDirectorScreen> {
                       ? const SizedBox(
                           width: 18,
                           height: 18,
-                          child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white),
+                          child: CircularProgressIndicator(
+                              strokeWidth: 2, color: Colors.white),
                         )
                       : const Icon(Icons.download_rounded, size: 20),
                   tooltip: 'Download video offline',
@@ -795,10 +810,12 @@ class _AiDirectorScreenState extends ConsumerState<AiDirectorScreen> {
                   icon: const Icon(Icons.share_rounded, size: 20),
                   tooltip: 'Share video file with others',
                   onPressed: () async {
-                    if (_downloadedVideoPath != null && File(_downloadedVideoPath!).existsSync()) {
+                    if (_downloadedVideoPath != null &&
+                        File(_downloadedVideoPath!).existsSync()) {
                       await Share.shareXFiles(
                         [XFile(_downloadedVideoPath!)],
-                        text: 'Watch my MemoryVerse movie: ${widget.memory.title}',
+                        text:
+                            'Watch my MemoryVerse movie: ${widget.memory.title}',
                       );
                     } else if (job.resultUrl != null) {
                       ScaffoldMessenger.of(context).showSnackBar(
@@ -808,13 +825,16 @@ class _AiDirectorScreenState extends ConsumerState<AiDirectorScreen> {
                         ),
                       );
                       final downloadedPath = await _downloadVideo(job);
-                      if (downloadedPath != null && File(downloadedPath).existsSync()) {
+                      if (downloadedPath != null &&
+                          File(downloadedPath).existsSync()) {
                         await Share.shareXFiles(
                           [XFile(downloadedPath)],
-                          text: 'Watch my MemoryVerse movie: ${widget.memory.title}',
+                          text:
+                              'Watch my MemoryVerse movie: ${widget.memory.title}',
                         );
                       } else {
-                        await Share.share('Watch my MemoryVerse movie: ${job.resultUrl}');
+                        await Share.share(
+                            'Watch my MemoryVerse movie: ${job.resultUrl}');
                       }
                     }
                   },
@@ -866,14 +886,16 @@ class _AiDirectorScreenState extends ConsumerState<AiDirectorScreen> {
                         top: 2,
                         right: 2,
                         child: GestureDetector(
-                          onTap: () => setState(() => _attachedMedia.removeAt(idx)),
+                          onTap: () =>
+                              setState(() => _attachedMedia.removeAt(idx)),
                           child: Container(
                             padding: const EdgeInsets.all(2),
                             decoration: const BoxDecoration(
                               color: Colors.black87,
                               shape: BoxShape.circle,
                             ),
-                            child: const Icon(Icons.close, size: 14, color: Colors.white),
+                            child: const Icon(Icons.close,
+                                size: 14, color: Colors.white),
                           ),
                         ),
                       ),
@@ -914,7 +936,8 @@ class _AiDirectorScreenState extends ConsumerState<AiDirectorScreen> {
               ),
               Expanded(
                 child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
                   decoration: BoxDecoration(
                     color: const Color(0xFF1E1726).withValues(alpha: 0.92),
                     borderRadius: BorderRadius.circular(32),
@@ -938,7 +961,8 @@ class _AiDirectorScreenState extends ConsumerState<AiDirectorScreen> {
                         child: TextField(
                           controller: _textController,
                           focusNode: _inputFocusNode,
-                          style: const TextStyle(color: Colors.white, fontSize: 16),
+                          style: const TextStyle(
+                              color: Colors.white, fontSize: 16),
                           cursorColor: const Color(0xFFFFA5B8),
                           decoration: InputDecoration(
                             hintText: 'Describe a memory...',
@@ -954,9 +978,12 @@ class _AiDirectorScreenState extends ConsumerState<AiDirectorScreen> {
                       ValueListenableBuilder<TextEditingValue>(
                         valueListenable: _textController,
                         builder: (context, value, _) {
-                          final hasText = value.text.trim().isNotEmpty || _attachedMedia.isNotEmpty;
+                          final hasText = value.text.trim().isNotEmpty ||
+                              _attachedMedia.isNotEmpty;
                           return GestureDetector(
-                            onTap: hasText ? () => _submitMessage(value.text) : null,
+                            onTap: hasText
+                                ? () => _submitMessage(value.text)
+                                : null,
                             child: Container(
                               width: 34,
                               height: 34,

@@ -8,6 +8,7 @@ import 'package:video_player/video_player.dart';
 import 'package:memory_verse/contracts/models.dart';
 import 'package:memory_verse/core/api/api_client.dart';
 import 'package:memory_verse/core/design/tokens.dart';
+import 'package:memory_verse/core/services/media/media_gallery_export_service.dart';
 import 'package:memory_verse/core/theme/app_design_tokens.dart' as adt;
 
 class VideoPlayerScreen extends StatefulWidget {
@@ -50,7 +51,8 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
         );
         await _videoPlayerController.initialize();
       } catch (streamErr) {
-        debugPrint('Stream URL failed ($streamErr), attempting direct media.url: ${widget.media.url}');
+        debugPrint(
+            'Stream URL failed ($streamErr), attempting direct media.url: ${widget.media.url}');
         if (widget.media.url.isNotEmpty) {
           _videoPlayerController = VideoPlayerController.networkUrl(
             Uri.parse(widget.media.url),
@@ -108,7 +110,8 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
 
     try {
       final dir = await getApplicationDocumentsDirectory();
-      final safeName = widget.media.filename.replaceAll(RegExp(r'[^a-zA-Z0-9._-]'), '_');
+      final safeName =
+          widget.media.filename.replaceAll(RegExp(r'[^a-zA-Z0-9._-]'), '_');
       final savePath = '${dir.path}/$safeName';
 
       final downloadUrl = widget.media.url.isNotEmpty
@@ -121,20 +124,12 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
 
       String? publicFolder;
       try {
-        if (Platform.isAndroid) {
-          final publicMoviesDir = Directory('/storage/emulated/0/Movies');
-          if (publicMoviesDir.existsSync()) {
-            final publicFile = File('${publicMoviesDir.path}/$safeName');
-            await File(savePath).copy(publicFile.path);
-            publicFolder = 'Movies';
-          } else {
-            final extMoviesDirs = await getExternalStorageDirectories(type: StorageDirectory.movies);
-            if (extMoviesDirs != null && extMoviesDirs.isNotEmpty) {
-              final publicFile = File('${extMoviesDirs.first.path}/$safeName');
-              await File(savePath).copy(publicFile.path);
-              publicFolder = 'Movies';
-            }
-          }
+        if (MediaGalleryExportService.isSupportedPlatform) {
+          publicFolder = await MediaGalleryExportService.saveDownloadedFile(
+            filePath: savePath,
+            fileName: safeName,
+            isVideo: true,
+          );
         } else {
           final dlDir = await getDownloadsDirectory();
           if (dlDir != null) {
@@ -160,11 +155,13 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
             margin: const EdgeInsets.fromLTRB(16, 0, 16, 12),
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
             backgroundColor: const Color(0xFF2E7D32),
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
             duration: const Duration(seconds: 4),
             content: Row(
               children: [
-                const Icon(Icons.check_circle_rounded, color: Colors.white, size: 20),
+                const Icon(Icons.check_circle_rounded,
+                    color: Colors.white, size: 20),
                 const SizedBox(width: 10),
                 Expanded(
                   child: Column(
@@ -180,7 +177,9 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
                         ),
                       ),
                       Text(
-                        publicFolder != null ? '$displayName · $publicFolder' : displayName,
+                        publicFolder != null
+                            ? '$displayName · $publicFolder'
+                            : displayName,
                         style: const TextStyle(
                           color: Colors.white70,
                           fontSize: 11,
@@ -254,8 +253,11 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
         iconTheme: const IconThemeData(color: adt.AppColors.onDarkPrimary),
         title: Text(
           // Show clean memory name — strip .mp4 extension for display
-          widget.media.filename.replaceAll(RegExp(r'\.mp4$'), '').replaceAll('_', ' '),
-          style: const TextStyle(color: adt.AppColors.onDarkPrimary, fontSize: 16),
+          widget.media.filename
+              .replaceAll(RegExp(r'\.mp4$'), '')
+              .replaceAll('_', ' '),
+          style:
+              const TextStyle(color: adt.AppColors.onDarkPrimary, fontSize: 16),
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
         ),
@@ -271,12 +273,14 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
                       color: adt.AppColors.onDarkPrimary,
                     ),
                   )
-                : const Icon(Icons.download_rounded, color: adt.AppColors.onDarkPrimary),
+                : const Icon(Icons.download_rounded,
+                    color: adt.AppColors.onDarkPrimary),
             onPressed: _isDownloading ? null : _downloadVideo,
           ),
           IconButton(
             tooltip: 'Share video',
-            icon: const Icon(Icons.ios_share, color: adt.AppColors.onDarkPrimary),
+            icon:
+                const Icon(Icons.ios_share, color: adt.AppColors.onDarkPrimary),
             onPressed: _shareVideo,
           ),
         ],
@@ -285,35 +289,36 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
         child: _isLoading
             ? CircularProgressIndicator(color: c.primary)
             : _hasError
-            ? Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Icon(
-                    Icons.error_outline,
-                    color: adt.AppColors.onDarkMuted,
-                    size: 48,
-                  ),
-                  const SizedBox(height: AppSpacing.s16),
-                  const Text(
-                    'Failed to load video',
-                    style: TextStyle(color: adt.AppColors.onDarkPrimary),
-                  ),
-                  const SizedBox(height: AppSpacing.s16),
-                  TextButton(
-                    onPressed: () {
-                      setState(() {
-                        _isLoading = true;
-                        _hasError = false;
-                      });
-                      _initializePlayer();
-                    },
-                    child: Text('Retry', style: TextStyle(color: c.primary)),
-                  ),
-                ],
-              )
-            : _chewieController != null
-            ? Chewie(controller: _chewieController!)
-            : const SizedBox.shrink(),
+                ? Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Icon(
+                        Icons.error_outline,
+                        color: adt.AppColors.onDarkMuted,
+                        size: 48,
+                      ),
+                      const SizedBox(height: AppSpacing.s16),
+                      const Text(
+                        'Failed to load video',
+                        style: TextStyle(color: adt.AppColors.onDarkPrimary),
+                      ),
+                      const SizedBox(height: AppSpacing.s16),
+                      TextButton(
+                        onPressed: () {
+                          setState(() {
+                            _isLoading = true;
+                            _hasError = false;
+                          });
+                          _initializePlayer();
+                        },
+                        child:
+                            Text('Retry', style: TextStyle(color: c.primary)),
+                      ),
+                    ],
+                  )
+                : _chewieController != null
+                    ? Chewie(controller: _chewieController!)
+                    : const SizedBox.shrink(),
       ),
     );
   }

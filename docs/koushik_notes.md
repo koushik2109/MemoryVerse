@@ -175,3 +175,21 @@ Use sequential IDs (`Fix #0001`, `Fix #0002`, …). Add one entry after each com
 - **Verification:** Linux `flutter pub get` succeeded; `flutter analyze` reported no issues; all 20 Flutter tests passed, including URL selection for emulator, simulator, desktop/web, and physical-device overrides. Android manifests and iOS plist parse successfully. An Android 14 emulator is connected. Regenerated Flutter config and build files contain no old Windows project path. The APK build passed the original stale-path failure point, then requested the missing Android SDK CMake 3.22.1 package; it was stopped under the repository rule against installing tools automatically. The Android APK and emulator launch therefore remain unverified until CMake is installed. An iOS build cannot run on Linux because Xcode/macOS is required.
 - **Setup review:** The automatic reviewer rejected changing the backend's default bind to `0.0.0.0` because it exposes the dev server on every interface. Kept loopback as the default and added an explicit opt-in for physical devices. The CMake SDK installation was not completed; its SDK folder currently contains only installer metadata.
 - **Not included:** No UI styling, RAG implementation, RAG tests, or backend business logic was changed. The five pre-existing RAG working-tree changes remain untouched.
+
+### Fix #0008 — Add an iOS simulator build to CI
+
+- **Date:** 2026-10-31
+- **Scope:** Ensure iOS platform code is compiled on a macOS/Xcode runner even when local development is on Linux.
+- **Files:** `.github/workflows/ci.yml`, `docs/koushik_notes.md`.
+- **What changed:** Added a macOS GitHub Actions job that installs the locked Flutter packages and builds the app for the iOS simulator with code signing disabled. This checks CocoaPods/Xcode integration without requiring a signing identity or device provisioning.
+- **Verification:** Workflow YAML parsing and `git diff --check` passed. The job cannot run until the workflow is pushed to GitHub; no iOS build was run locally because this host is Linux and has no Xcode.
+- **Not included:** No iOS UI styling, RAG code, backend behavior, or platform permissions were changed.
+
+### Fix #0009 — Save downloaded media through the system media library
+
+- **Date:** 2026-10-31
+- **Scope:** Replace direct shared-storage file copies in media and video download flows with the platform media-library API.
+- **Files:** `frontend/lib/core/services/media/media_gallery_export_service.dart`, `frontend/lib/features/memories/presentation/memory_media_viewer.dart`, `frontend/lib/features/memories/presentation/video_player_screen.dart`, `frontend/lib/features/memories/presentation/ai_director_screen.dart`, `frontend/lib/features/memories/presentation/widgets/movie_card.dart`, `frontend/android/app/src/main/AndroidManifest.xml`, `docs/koushik_notes.md`.
+- **What changed:** Added one export service using `photo_manager` to save photos into the Pictures library and videos into Movies, under a MemoryVerse album/folder where supported. Replaced direct writes to `/storage/emulated/0/...` with the platform media-library API, and iOS Downloads-directory copies with Photos library saves. Desktop Downloads behavior and app-private offline copies remain in place. Added legacy external-write permission for Android 9 and below only; newer Android versions use scoped media storage. This avoids relying on Android shared-storage paths that scoped storage blocks.
+- **Verification:** `flutter analyze` reported no issues and all 20 Flutter tests passed. The Android emulator is available, but its app build and live gallery-save operation remain unverified until Android SDK CMake 3.22.1 is installed. The iOS gallery path is statically checked only; iOS execution requires macOS/Xcode.
+- **Not included:** No UI styling, RAG code, backend behavior, or media-discovery behavior was changed.

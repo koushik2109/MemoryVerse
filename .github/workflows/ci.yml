@@ -94,3 +94,20 @@ jobs:
       - name: Run Flutter tests
         working-directory: frontend
         run: flutter test
+
+  ios-simulator:
+    name: iOS simulator build
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+          cache-dependency-path: frontend/pubspec.lock
+      - name: Install Flutter dependencies
+        working-directory: frontend
+        run: flutter pub get
+      - name: Build for iOS simulator
+        working-directory: frontend
+        run: flutter build ios --simulator --no-codesign

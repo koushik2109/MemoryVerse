@@ -9,6 +9,7 @@ import 'package:memory_verse/core/api/api_client.dart';
 import 'package:memory_verse/core/design/tokens.dart';
 import 'package:memory_verse/core/providers/app_providers.dart';
 import 'package:memory_verse/core/repositories/app_repositories.dart';
+import 'package:memory_verse/core/services/media/media_gallery_export_service.dart';
 import 'package:memory_verse/core/widgets/media.dart';
 import 'package:memory_verse/features/memories/presentation/video_player_screen.dart';
 import 'package:share_plus/share_plus.dart';
@@ -163,7 +164,8 @@ class _MemoryMediaViewerState extends ConsumerState<MemoryMediaViewer> {
     try {
       final dir = await getApplicationDocumentsDirectory();
       final isVideo = media.mediaType == 'video';
-      final safeName = media.filename.replaceAll(RegExp(r'[^a-zA-Z0-9._-]'), '_');
+      final safeName =
+          media.filename.replaceAll(RegExp(r'[^a-zA-Z0-9._-]'), '_');
       final savePath = '${dir.path}/$safeName';
 
       final downloadUrl = media.url.isNotEmpty
@@ -175,23 +177,12 @@ class _MemoryMediaViewerState extends ConsumerState<MemoryMediaViewer> {
 
       String? publicFolder;
       try {
-        if (Platform.isAndroid) {
-          final targetFolderName = isVideo ? 'Movies' : 'Pictures';
-          final publicDir = Directory('/storage/emulated/0/$targetFolderName');
-          if (publicDir.existsSync()) {
-            final publicFile = File('${publicDir.path}/$safeName');
-            await File(savePath).copy(publicFile.path);
-            publicFolder = targetFolderName;
-          } else {
-            final extDirs = await getExternalStorageDirectories(
-              type: isVideo ? StorageDirectory.movies : StorageDirectory.pictures,
-            );
-            if (extDirs != null && extDirs.isNotEmpty) {
-              final publicFile = File('${extDirs.first.path}/$safeName');
-              await File(savePath).copy(publicFile.path);
-              publicFolder = targetFolderName;
-            }
-          }
+        if (MediaGalleryExportService.isSupportedPlatform) {
+          publicFolder = await MediaGalleryExportService.saveDownloadedFile(
+            filePath: savePath,
+            fileName: safeName,
+            isVideo: isVideo,
+          );
         } else {
           final dlDir = await getDownloadsDirectory();
           if (dlDir != null) {
@@ -241,7 +232,8 @@ class _MemoryMediaViewerState extends ConsumerState<MemoryMediaViewer> {
     final media = widget.memory.media[_currentIndex];
     try {
       final dir = await getApplicationDocumentsDirectory();
-      final safeName = media.filename.replaceAll(RegExp(r'[^a-zA-Z0-9._-]'), '_');
+      final safeName =
+          media.filename.replaceAll(RegExp(r'[^a-zA-Z0-9._-]'), '_');
       final localPath = '${dir.path}/$safeName';
 
       if (!File(localPath).existsSync()) {
@@ -284,7 +276,8 @@ class _MemoryMediaViewerState extends ConsumerState<MemoryMediaViewer> {
           iconTheme: const IconThemeData(color: adt.AppColors.onDarkPrimary),
         ),
         body: const Center(
-          child: Text('No media', style: TextStyle(color: adt.AppColors.onDarkPrimary)),
+          child: Text('No media',
+              style: TextStyle(color: adt.AppColors.onDarkPrimary)),
         ),
       );
     }
@@ -360,7 +353,10 @@ class _MemoryMediaViewerState extends ConsumerState<MemoryMediaViewer> {
                 ),
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
-                    colors: [adt.AppColors.plum900.withValues(alpha: 0.87), Colors.transparent],
+                    colors: [
+                      adt.AppColors.plum900.withValues(alpha: 0.87),
+                      Colors.transparent
+                    ],
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                   ),
@@ -417,7 +413,10 @@ class _MemoryMediaViewerState extends ConsumerState<MemoryMediaViewer> {
                 ),
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
-                    colors: [Colors.transparent, adt.AppColors.plum900.withValues(alpha: 0.87)],
+                    colors: [
+                      Colors.transparent,
+                      adt.AppColors.plum900.withValues(alpha: 0.87)
+                    ],
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                   ),
@@ -435,18 +434,21 @@ class _MemoryMediaViewerState extends ConsumerState<MemoryMediaViewer> {
                                 color: adt.AppColors.onDarkPrimary,
                               ),
                             )
-                          : const Icon(Icons.download_rounded, color: adt.AppColors.onDarkPrimary),
+                          : const Icon(Icons.download_rounded,
+                              color: adt.AppColors.onDarkPrimary),
                       tooltip: 'Download offline',
                       onPressed: _isDownloading ? null : _downloadCurrentMedia,
                     ),
                     IconButton(
-                      icon: const Icon(Icons.ios_share, color: adt.AppColors.onDarkPrimary),
+                      icon: const Icon(Icons.ios_share,
+                          color: adt.AppColors.onDarkPrimary),
                       tooltip: 'Share',
                       onPressed: _shareCurrentMedia,
                     ),
                     if (currentMedia.mediaType == 'image')
                       IconButton(
-                        icon: const Icon(Icons.wallpaper, color: adt.AppColors.onDarkPrimary),
+                        icon: const Icon(Icons.wallpaper,
+                            color: adt.AppColors.onDarkPrimary),
                         tooltip: 'Set as Cover',
                         onPressed: _setAsCover,
                       ),
