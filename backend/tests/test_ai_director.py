@@ -1,6 +1,8 @@
 """
 Unit and Integration Tests for AI Memory Director, AspectRatioComposer, QualityValidator, and RevisionEngine
 """
+from pathlib import Path
+
 import pytest
 from PIL import Image
 from app.schemas.ai_session import VideoSpecification, MemoryContext
@@ -286,9 +288,9 @@ def test_ai_director_conversational_qa_and_storage():
     # 4. Test ratio video storage path
     from app.services.storage_service import storage_service
     p_16_9 = storage_service.get_ratio_video_path("16:9", "test_reel.mp4")
-    assert "videos/16_9/test_reel.mp4" in p_16_9 or "videos/16_9\\test_reel.mp4" in p_16_9
+    assert Path(p_16_9).parts[-3:] == ("videos", "16_9", "test_reel.mp4")
     p_9_16 = storage_service.get_ratio_video_path("9:16", "test_reel.mp4")
-    assert "videos/9_16/test_reel.mp4" in p_9_16 or "videos/9_16\\test_reel.mp4" in p_9_16
+    assert Path(p_9_16).parts[-3:] == ("videos", "9_16", "test_reel.mp4")
 
 
 def test_cinematic_title_synthesis_and_intro_card():

@@ -1,0 +1,21 @@
+# Keep text files stable across Windows, Linux, and macOS checkouts.
+* text=auto eol=lf
+
+# Preserve binary media, model, archive, and document artifacts byte-for-byte.
+*.gif binary
+*.jpg binary
+*.jpeg binary
+*.mp3 binary
+*.mp4 binary
+*.mov binary
+*.npy binary
+*.npz binary
+*.onnx binary
+*.pdf binary
+*.png binary
+*.pt binary
+*.pth binary
+*.safetensors binary
+*.wav binary
+*.webp binary
+*.zip binary

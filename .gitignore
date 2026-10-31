@@ -1,51 +1,86 @@
+# Local credentials and environment files. Keep example templates trackable.
+.env
+.env.*
+!.env.example
+!.env.*.example
+**/.env
+**/.env.*
+!**/.env.example
+!**/.env.*.example
+*.pem
+*.p12
+*.pfx
+*.jks
+*.keystore
 
-# IDEs
+# Local agent, cloud, and editor state.
+.agents/
+.aws/
+.codex/
+.claude/
+.qoder/
+.opencode/
 .idea/
 .vscode/
-.opencode/
-
-# Environment files
-*.env
-.env
-
-# Python virtual environment
-.venv/
-venv/
-__pycache__/
-*.pyc
-*.pyo
-
-# Compiled binaries
-ai_engine/rag/scripts/run_ocr_apple_vision
-ai_engine/rag/scripts/run_ocr_apple_vision_v3
-
-# OS files
+*.iml
+GEMINI.md
+devl.sh
 .DS_Store
 Thumbs.db
-.env
-backend/.env
-frontend/.env
 
-# AI Agents
-.agents/
-GEMINI.md
+# Python environments, bytecode, test output, and coverage files.
+**/.venv/
+**/venv/
+**/__pycache__/
+*.py[cod]
+**/.pytest_cache/
+**/.mypy_cache/
+**/.ruff_cache/
+**/.cache/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
 
-# Flutter desktop ephemeral files
-ephemeral/
+# Flutter and platform build output.
+/frontend/.dart_tool/
+/frontend/build/
+/frontend/android/.gradle/
+/frontend/android/build/
+/frontend/android/app/build/
+/frontend/android/local.properties
+/frontend/android/key.properties
+/frontend/ios/Flutter/Generated.xcconfig
+/frontend/ios/Flutter/flutter_export_environment.sh
+/frontend/ios/Pods/
+/frontend/macos/Pods/
+**/ephemeral/
+.flutter-plugins
+.flutter-plugins-dependencies
 
-devl.sh
+# Generated local media and scratch data. Keep checked-in fixtures,
+# benchmark outputs, source assets, and research results trackable.
+/backend/storage/staging/
+/backend/storage/videos/
+/storage/staging/
+/backend/*TEMP_MPY*.mp4
+/ai_engine/rag/data/raw_media/
+/working/
+
+# Local archives and generated LaTeX auxiliary files.
 *.zip
-PROJECT_REVIEW_SUMMARY.md
-PROJECT_STATUS_AND_CHANGES.md
-DESIGN_DOC.md
-PROJECT_EXPLAINER.md
+/research_paper/*.aux
+/research_paper/*.fdb_latexmk
+/research_paper/*.fls
+/research_paper/*.log
+/research_paper/*.out
+/research_paper/*.synctex.gz
+/research_paper/*.toc
+/research_paper/*.bbl
+/research_paper/*.blg
+/research_paper/*.bcf
+/research_paper/*.run.xml
 
-# Image files
-*.jpg
-*.jpeg
-
-# Locally supplied raw benchmark media
-ai_engine/rag/data/raw_media/
-
-# Kaggle local simulation scratch directory
-working/
+# Project-local compiled research helpers.
+/ai_engine/rag/scripts/run_ocr_apple_vision
+/ai_engine/rag/scripts/run_ocr_apple_vision_v3

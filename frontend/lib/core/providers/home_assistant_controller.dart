@@ -71,6 +71,7 @@ class HomeAssistantState {
 class HomeAssistantController extends StateNotifier<HomeAssistantState> {
   final AiRepository _aiRepo;
   final Ref _ref;
+  int _requestGeneration = 0;
 
   HomeAssistantController(this._aiRepo, this._ref)
       : super(const HomeAssistantState());
@@ -80,6 +81,7 @@ class HomeAssistantController extends StateNotifier<HomeAssistantState> {
   }
 
   void clear() {
+    _requestGeneration++;
     state = const HomeAssistantState();
   }
 
@@ -87,15 +89,17 @@ class HomeAssistantController extends StateNotifier<HomeAssistantState> {
     final trimmed = message.trim();
     if (trimmed.isEmpty) return;
 
-    state = state.copyWith(
+    final generation = ++_requestGeneration;
+    state = HomeAssistantState(
       isLoading: true,
       query: trimmed,
-      clearError: true,
       isExpanded: true,
+      suggestedChips: state.suggestedChips,
     );
 
     try {
       final res = await _aiRepo.askHomeAssistant(message: trimmed);
+      if (generation != _requestGeneration) return;
       final reply = res['message'] as String? ?? 'Done.';
       final intent = res['intent'] as String?;
       final rawAction = res['structured_action'] as Map<String, dynamic>?;
@@ -122,6 +126,7 @@ class HomeAssistantController extends StateNotifier<HomeAssistantState> {
         _ref.read(videoJobControllerProvider.notifier).trackExistingJob(jobId);
       }
     } catch (e) {
+      if (generation != _requestGeneration) return;
       state = state.copyWith(
         isLoading: false,
         error: 'Assistant error: ${e.toString()}',

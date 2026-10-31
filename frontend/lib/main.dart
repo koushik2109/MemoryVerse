@@ -27,7 +27,7 @@ Future<void> main() async {
   try {
     await dotenv.load(fileName: '.env');
     final envUrl = dotenv.env['SUPABASE_URL']?.trim();
-    final envKey = dotenv.env['SUPABASE_ANON_KEY']?.trim();
+    final envKey = dotenv.env['SUPABASE_ANON_KEY']?.trim() ?? dotenv.env['SUPABASE_PUBLISHABLE_KEY']?.trim();
     if (envUrl != null && envUrl.isNotEmpty) supabaseUrl = envUrl;
     if (envKey != null && envKey.isNotEmpty) supabaseAnonKey = envKey;
   } catch (e) {

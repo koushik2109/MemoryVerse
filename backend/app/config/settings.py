@@ -9,6 +9,9 @@ class Settings(BaseSettings):
     SUPABASE_URL: str = ""
     SUPABASE_ANON_KEY: str = ""
     SUPABASE_SERVICE_ROLE_KEY: str = ""
+    SUPABASE_PUBLISHABLE_KEY: Optional[str] = None
+    SUPABASE_SECRET_KEY: Optional[str] = None
+    SUPABASE_JWKS_URL: Optional[str] = None
 
     JWT_SECRET: str = "memory_verse_super_secret_jwt_key_2026"
     ALGORITHM: str = "HS256"

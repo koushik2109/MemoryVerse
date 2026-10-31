@@ -458,7 +458,7 @@ class AiRepository {
     }
 
     for (final f in files) {
-      if (f.existsSync()) {
+      if (await f.exists()) {
         final filename = f.path.split(Platform.pathSeparator).last;
         formData.files.add(
           MapEntry(

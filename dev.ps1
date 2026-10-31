@@ -1,6 +1,7 @@
 param(
     [switch]$BackendOnly,
-    [switch]$FrontendOnly
+    [switch]$FrontendOnly,
+    [string]$DeviceId
 )
 
 $RunBackend = $true
@@ -31,39 +32,29 @@ Write-Host ""
 if ($RunBackend) {
     if (-not (Test-Path $BackendDir)) { Write-Err "Backend directory not found: $BackendDir" }
 
-    Write-Warn "Checking for existing backend processes..."
-    $pids = @()
+    Write-Warn "Checking backend port 8000..."
+    $backendAlreadyRunning = $false
     try {
         $connections = Get-NetTCPConnection -LocalPort 8000 -State Listen -ErrorAction SilentlyContinue
         if ($connections) {
-            $pids = $connections | Select-Object -ExpandProperty OwningProcess -Unique
+            $backendAlreadyRunning = $true
         }
     } catch {}
 
-    if ($pids.Count -gt 0) {
-        Write-Warn "Killing existing process on port 8000 (PID: $($pids -join ', '))..."
-        foreach ($p in $pids) {
-            Stop-Process -Id $p -Force -ErrorAction SilentlyContinue
-            cmd /c "taskkill /F /PID $p" 2>$null
-        }
-        Start-Sleep -Seconds 1
+    if ($backendAlreadyRunning) {
+        Write-Warn "A service is already listening on port 8000; keeping it running."
     }
 
-    $FastapiCheck = Join-Path $VenvDir "Lib\site-packages\fastapi"
-    $ExifreadCheck = Join-Path $VenvDir "Lib\site-packages\exifread"
-    if ((-not (Test-Path $VenvDir)) -or (-not (Test-Path $FastapiCheck)) -or (-not (Test-Path $ExifreadCheck))) {
-        Write-Warn "Virtual environment dependencies missing or incomplete at $VenvDir -- installing..."
-        $PythonExe = Join-Path $VenvDir "Scripts\python.exe"
-        if (-not (Test-Path $VenvDir)) {
-            python -m venv $VenvDir
-            & $PythonExe -m ensurepip
-        }
-        & $PythonExe -m pip install -q --upgrade pip
-        & $PythonExe -m pip install -q -r (Join-Path $BackendDir "requirements.txt")
-        Write-Ok "Virtual environment created and dependencies installed."
-    } else {
-        Write-Ok "Virtual environment found."
+    $PythonExe = Join-Path $VenvDir "Scripts\python.exe"
+    if (-not (Test-Path $PythonExe)) {
+        Write-Err "Project virtual environment is missing: $PythonExe. Create it and install backend/requirements.txt before starting the backend."
     }
+
+    & $PythonExe -c "import fastapi, uvicorn" 2>$null
+    if ($LASTEXITCODE -ne 0) {
+        Write-Err "The project .venv is missing FastAPI or Uvicorn. Install the approved backend requirements into $VenvDir, then rerun dev.ps1. No packages were installed by this launcher."
+    }
+    Write-Ok "Project virtual environment and backend runtime are available."
 }
 
 if ($RunFrontend) {
@@ -77,18 +68,66 @@ if ($RunFrontend) {
     } catch {
         Write-Ok "Flutter found."
     }
+
+    try {
+        $devices = @(flutter devices --machine | ConvertFrom-Json)
+        $androidDevices = @($devices | Where-Object { $_.targetPlatform -like "android-*" })
+        if ($DeviceId) {
+            $selectedDevice = $androidDevices | Where-Object { $_.id -eq $DeviceId } | Select-Object -First 1
+            if (-not $selectedDevice) {
+                $availableDevices = @($androidDevices | ForEach-Object { $_.id })
+                $availableList = if ($availableDevices.Count) { $availableDevices -join ", " } else { "none" }
+                Write-Err "Android device '$DeviceId' is not connected. Running Android devices: $availableList. Start the emulator or choose a listed device."
+            }
+        } elseif ($androidDevices.Count -eq 1) {
+            $DeviceId = $androidDevices[0].id
+        } elseif ($androidDevices.Count -gt 1) {
+            Write-Warn "Multiple Android devices are connected: $($androidDevices.id -join ', '). Choose one with -DeviceId."
+        }
+    } catch {
+        Write-Warn "Could not read Flutter's device list; Flutter will use its normal device selection."
+    }
+
+    if ($DeviceId) {
+        Write-Ok "Flutter will run on device: $DeviceId"
+    } else {
+        Write-Warn "No single running Android emulator was detected. Start one with emulator.ps1 or pass -DeviceId."
+    }
 }
 
 # Launching terminals
 if ($RunBackend) {
-    Write-Ok "Opening Backend terminal..."
-    $PythonExe = Join-Path $VenvDir "Scripts\python.exe"
-    $BackendCmd = "cd '$BackendDir'; `$env:PYTHONPATH='.'; Write-Host ''; Write-Host '  >>> MemoryVerse Backend starting (Uvicorn with Auto-Reload)...'; Write-Host ''; & '$PythonExe' -m uvicorn app.main:app --reload --reload-dir app --host 0.0.0.0 --port 8000"
-    Start-Process powershell -ArgumentList "-ExecutionPolicy", "Bypass", "-NoExit", "-Command", $BackendCmd
+    if (-not $backendAlreadyRunning) {
+        Write-Ok "Opening Backend terminal..."
+        $PythonExe = Join-Path $VenvDir "Scripts\python.exe"
+        $BackendCmd = "Set-Location '$BackendDir'; `$env:PYTHONPATH='.'; Write-Host ''; Write-Host '  >>> MemoryVerse Backend starting (Uvicorn with Auto-Reload)...'; Write-Host ''; & '$PythonExe' -m uvicorn app.main:app --reload --reload-dir app --host 0.0.0.0 --port 8000"
+        Start-Process powershell -ArgumentList "-ExecutionPolicy", "Bypass", "-NoExit", "-Command", $BackendCmd
+    }
 }
 
 if ($RunBackend -and $RunFrontend) {
-    Start-Sleep -Seconds 1
+    Write-Warn "Waiting for the backend health check..."
+    $healthUrl = "http://127.0.0.1:8000/health"
+    $healthDeadline = (Get-Date).AddSeconds(180)
+    $backendHealthy = $false
+
+    while ((Get-Date) -lt $healthDeadline) {
+        try {
+            $healthResponse = Invoke-WebRequest -Uri $healthUrl -TimeoutSec 2 -UseBasicParsing
+            $healthBody = $healthResponse.Content | ConvertFrom-Json
+            if ($healthResponse.StatusCode -eq 200 -and $healthBody.status -eq "healthy") {
+                $backendHealthy = $true
+                break
+            }
+        } catch {}
+
+        Start-Sleep -Milliseconds 500
+    }
+
+    if (-not $backendHealthy) {
+        Write-Err "Backend did not become healthy within 180 seconds. Check the backend terminal before starting the app."
+    }
+    Write-Ok "Backend health check passed."
 }
 
 if ($RunFrontend) {
@@ -98,7 +137,11 @@ if ($RunFrontend) {
     Write-Host "  API Docs    -> http://localhost:8000/docs"
     Write-Host ""
     Set-Location $FrontendDir
-    flutter run
+    if ($DeviceId) {
+        flutter run -d $DeviceId
+    } else {
+        flutter run
+    }
 }
 
 Write-Host ""

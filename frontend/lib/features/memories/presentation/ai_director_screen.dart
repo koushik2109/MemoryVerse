@@ -241,7 +241,10 @@ class _AiDirectorScreenState extends ConsumerState<AiDirectorScreen> {
 
     final directorState = ref.watch(aiDirectorControllerProvider);
     final jobState = ref.watch(videoJobControllerProvider);
-    final session = directorState.session;
+    final loadedSession = directorState.session;
+    final session = loadedSession?.memoryId == widget.memory.id
+        ? loadedSession
+        : null;
     final activeJob = jobState.job;
 
     // Check if user has entered conversation mode (more than initial greeting)

@@ -108,16 +108,29 @@ class AndroidMediaService implements MediaService {
           size: pageSize,
         );
         if (entities.isEmpty) break;
-        for (final asset in entities) {
-          if (limit != null && items.length >= limit) break;
-          final created = asset.createDateTime;
-          if (since != null && created.isBefore(since)) continue;
 
-          try {
-            items.add(await _toDiscoveredItem(asset, created));
-          } catch (_) {
-            // A single media row can disappear while the library is changing.
-          }
+        final eligible = entities
+            .where((asset) =>
+                since == null || !asset.createDateTime.isBefore(since))
+            .toList();
+        final remaining =
+            limit == null ? eligible.length : limit - items.length;
+        const conversionBatchSize = 8;
+        for (var start = 0; start < eligible.length && start < remaining;) {
+          var end = start + conversionBatchSize;
+          if (end > eligible.length) end = eligible.length;
+          if (end > remaining) end = remaining;
+          final batch = eligible.sublist(start, end);
+          final converted = await Future.wait(batch.map((asset) async {
+            try {
+              return await _toDiscoveredItem(asset, asset.createDateTime);
+            } catch (_) {
+              // A single media row can disappear while the library is changing.
+              return null;
+            }
+          }));
+          items.addAll(converted.whereType<DiscoveredMediaItem>());
+          start = end;
         }
       }
     } catch (_) {
