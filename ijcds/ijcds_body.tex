@@ -264,26 +264,7 @@ Furthermore, to test the causal impact of tokenization fragmentation versus quer
 
 \begin{figure*}[t]
 \centering
-\begin{subfigure}[b]{0.32\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{figures/fig_tokenization_fragmentation.png}
-    \caption{Subword Fragmentation.}
-    \label{fig:tokenization_fragmentation}
-\end{subfigure}
-\hfill
-\begin{subfigure}[b]{0.32\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{figures/fig_embedding_drift.png}
-    \caption{Embedding Cosine Drift.}
-    \label{fig:embedding_drift}
-\end{subfigure}
-\hfill
-\begin{subfigure}[b]{0.32\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{figures/fig_error_attribution.png}
-    \caption{Probe Property Error Attribution.}
-    \label{fig:error_attribution}
-\end{subfigure}
+\includegraphics[width=0.98\textwidth]{figures/fig_mechanism_composite.png}
 \caption{Micro-mechanism of dense proxy collapse: (a) WordPiece tokenization fragmentation across character noise rates, (b) cosine embedding drift relative to clean representations, and (c) retrieval MRR across 5 diagnostic probe property buckets under 20\% proxy noise.}
 \label{fig:mechanism_plots}
 \end{figure*}
@@ -343,7 +324,9 @@ Tuned Char + BGE             & \textbf{0.9437} & \textbf{0.9837} & 12.6 & +0.000
 \textbf{Finite-Sample Conformal Cascade Risk Evaluation:}
 To evaluate distribution-free marginal risk control for candidate escalation, we evaluated split conformal calibration across 200 random cluster-stratified 50/50 splits (seeds 1000--1199) on $N=2{,}754$ pooled query instances (Table~\ref{tab:conformal_cascade_v6}). The evaluation instances comprise three equal query slices ($3 \times 918$ instances): verbatim lookups, entity rewrites, and legacy token-stripped probes, evaluated across clean, 20\% synthetic noise, and real OCR document streams. When calibrated under marginal loss $L = \mathbf{1}[\text{not escalated} \land Y \ne 1]$ with finite-sample adjustment $(n\hat{R}+1)/(n+1) \le \alpha$ \cite{bates2021conformal, angelopoulos2021gentle}, the observed mean test miss risk is $0.0494$ at an escalation rate of $78.4\%$.
 
-\begin{table}[t]
+Because the 200 splits resample the same fixed pool of $N=2{,}754$ instances, the reported interval $[0.0480, 0.0502]$ describes only the sample mean across partitions of this pool, not a generalization CI for unseen queries or documents. The 10th-to-90th percentile range across splits is $[0.0355, 0.0654]$. Crucially, while split conformal risk control bounds expected risk ($\mathbb{E}[R] \le 0.05$, where empirical mean risk reached $0.0494$), it bounds expected risk across splits rather than per-split coverage. Across 200 resamples, individual split risk exceeds 0.05 in 41.5\% of splits (empirical split coverage 58.5\%). High-probability Risk-Controlling Prediction Sets (RCPS, Bates et~al.~\cite{bates2021conformal}) with $\delta=0.10$ achieves 82.0\% coverage against its 90\% target. As formulated by Angelopoulos et~al.~\cite{angelopoulos2021gentle, angelopoulos2024conformal}, the finite-sample correction $(n\hat{R}+1)/(n+1)$ guarantees marginal risk control across partitions, but does not prevent conditional risk inflation under query-type shifts. This constitutes a notable negative result: conformal risk gating does not reliably substitute for query-type-conditioned gating in multimodal retrieval cascades. Furthermore, a paired comparison against an equal-escalation fixed-margin baseline calibrated at the identical 78.4\% escalation rate ($\tau = 0.235$) reveals that fixed-margin escalation matches conformal calibration in realized retrieval accuracy (MRR 0.3579 vs.\ 0.3577, $p > 0.05$) and risk control (0.0488 vs.\ 0.0494; coverage 57.0\% vs.\ 58.5\%). Stratified by query type, entity rewrites experience risk 0.0627 ($>0.05$), demonstrating that marginal calibration does not guarantee conditional protection per query slice. Conformal calibration evaluates cross-encoders on 78.4\% of queries, which represents a 21.6\% escalation reduction strictly relative to an all-escalation baseline (Fig.~\ref{fig:conformal_pareto}).
+
+\begin{table}[htbp]
 \centering\footnotesize
 \caption{Conformal Cascade Calibration: Corrected Marginal Loss, High-Probability RCPS ($\delta=0.10$), and Equal-Escalation Baseline over 200 Cluster-Aware Splits ($N=2{,}754$ instances; nominal target $\epsilon=0.05$).}
 \label{tab:conformal_cascade_v6}
@@ -367,8 +350,6 @@ To evaluate distribution-free marginal risk control for candidate escalation, we
 \caption{Cost-Quality Pareto frontier and risk control histograms across 200 calibration-test splits on pooled test instances ($N=2{,}754$, $\tau^*=0.2369$, 78.4\% escalation, 58.5\% empirical split coverage; 82.0\% for high-probability RCPS).}
 \label{fig:conformal_pareto}
 \end{figure*}
-
-Because the 200 splits resample the same fixed pool of $N=2{,}754$ instances, the reported interval $[0.0480, 0.0502]$ describes only the sample mean across partitions of this pool, not a generalization CI for unseen queries or documents. The 10th-to-90th percentile range across splits is $[0.0355, 0.0654]$. Crucially, while split conformal risk control bounds expected risk ($\mathbb{E}[R] \le 0.05$, where empirical mean risk reached $0.0494$), it bounds expected risk across splits rather than per-split coverage. Across 200 resamples, individual split risk exceeds 0.05 in 41.5\% of splits (empirical split coverage 58.5\%). High-probability Risk-Controlling Prediction Sets (RCPS, Bates et~al.~\cite{bates2021conformal}) with $\delta=0.10$ achieves 82.0\% coverage against its 90\% target. As formulated by Angelopoulos et~al.~\cite{angelopoulos2021gentle, angelopoulos2024conformal}, the finite-sample correction $(n\hat{R}+1)/(n+1)$ guarantees marginal risk control across partitions, but does not prevent conditional risk inflation under query-type shifts. This constitutes a notable negative result: conformal risk gating does not reliably substitute for query-type-conditioned gating in multimodal retrieval cascades. Furthermore, a paired comparison against an equal-escalation fixed-margin baseline calibrated at the identical 78.4\% escalation rate ($\tau = 0.235$) reveals that fixed-margin escalation matches conformal calibration in realized retrieval accuracy (MRR 0.3579 vs.\ 0.3577, $p > 0.05$) and risk control (0.0488 vs.\ 0.0494; coverage 57.0\% vs.\ 58.5\%). Stratified by query type, entity rewrites experience risk 0.0627 ($>0.05$), demonstrating that marginal calibration does not guarantee conditional protection per query slice. Conformal calibration evaluates cross-encoders on 78.4\% of queries, which represents a 21.6\% escalation reduction strictly relative to an all-escalation baseline (Fig.~\ref{fig:conformal_pareto}).
 
 \subsection{Regime B: Visual-Dominated Natural Image Search}
 \label{sec:regime_b_visual}
