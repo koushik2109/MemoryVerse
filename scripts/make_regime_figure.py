@@ -56,9 +56,11 @@ for rects in [rects1, rects2, rects3, rects4]:
 ax.set_ylabel("Mean Reciprocal Rank (MRR)", fontweight="bold")
 ax.set_xticks(x)
 ax.set_xticklabels(formulations)
-ax.set_ylim(0, 1.10)
+ax.set_ylim(0, 1.22)
+ax.set_yticks([0.0, 0.2, 0.4, 0.6, 0.8, 1.0])
 ax.axhline(0.5, color="gray", linestyle="--", linewidth=0.5, alpha=0.5)
-ax.legend(frameon=True, facecolor="white", framealpha=0.9, edgecolor="#cccccc", loc="upper center", bbox_to_anchor=(0.5, 0.99), ncol=2, handletextpad=0.3, columnspacing=0.8)
+ax.axhline(1.0, color="#cccccc", linestyle=":", linewidth=0.5, alpha=0.7)
+ax.legend(frameon=True, facecolor="white", framealpha=0.92, edgecolor="#cccccc", loc="upper center", bbox_to_anchor=(0.5, 0.99), ncol=2, handletextpad=0.3, columnspacing=0.8, fontsize=6.8)
 ax.grid(axis="y", linestyle=":", alpha=0.5)
 plt.tight_layout(pad=0.3)
 
