@@ -377,7 +377,7 @@ class _AiDirectorScreenState extends ConsumerState<AiDirectorScreen> {
         [
           'Time at home with friends',
           'Spring flowers to remember',
-          'Joyful holidays, with epic music',
+          'Joyful holidays with a faster pace',
         ];
 
     return SingleChildScrollView(

@@ -20,7 +20,6 @@ from moviepy import (
 from app.core.db import get_supabase_client
 from app.config.settings import settings
 from app.services import media_intelligence as mi
-from ai_engine.video_generation.tts_engine import EmotionTTSEngine
 from app.services.job_state_manager import job_state_manager, JobStatus
 from app.services.storage_service import storage_service
 from ai_engine.emotion.emotion_analyzer import emotion_analyzer
@@ -49,51 +48,6 @@ def _filter_media_to_selected_ids(
 
     selected_set = {str(media_id) for media_id in selected_media_ids}
     return [item for item in media_items if str(item.get("id", "")) in selected_set]
-
-
-def _create_ambient_audio(duration: float, sample_rate: int = 44100) -> AudioArrayClip:
-    """
-    Synthesizes a soothing, warm ambient chord progression (Cmaj7 -> Am7 -> Fmaj7 -> G)
-    with smooth stereo panning, soft attack/decay, and seamless fade-in/fade-out.
-    """
-    total_samples = max(1, int(duration * sample_rate))
-    t_arr = np.linspace(0, duration, total_samples, endpoint=False)
-    audio = np.zeros((total_samples, 2), dtype=np.float32)
-
-    chords = [
-        [130.81, 196.00, 246.94, 329.63], # Cmaj7
-        [110.00, 164.81, 196.00, 261.63], # Am7
-        [87.31, 130.81, 164.81, 220.00],  # Fmaj7
-        [98.00, 146.83, 196.00, 246.94],  # G
-    ]
-    chord_len = 4.0
-
-    for i, t in enumerate(t_arr):
-        chord_idx = int(t / chord_len) % len(chords)
-        chord_t = t % chord_len
-        notes = chords[chord_idx]
-
-        env = min(1.0, chord_t / 0.3) * math.exp(-chord_t * 0.25)
-
-        val_l = 0.0
-        val_r = 0.0
-        for n_idx, freq in enumerate(notes):
-            wave = math.sin(2 * math.pi * freq * t) + 0.30 * math.sin(4 * math.pi * freq * t)
-            pan = 0.4 + 0.2 * (n_idx % 2)
-            val_l += wave * (1.0 - pan)
-            val_r += wave * pan
-
-        audio[i, 0] = val_l * env * 0.14
-        audio[i, 1] = val_r * env * 0.14
-
-    fade_in_len = min(total_samples, int(1.0 * sample_rate))
-    fade_out_len = min(total_samples, int(2.0 * sample_rate))
-    if total_samples > fade_in_len:
-        audio[:fade_in_len, :] *= np.linspace(0, 1, fade_in_len)[:, None]
-    if total_samples > fade_out_len:
-        audio[-fade_out_len:, :] *= np.linspace(1, 0, fade_out_len)[:, None]
-
-    return AudioArrayClip(audio, fps=sample_rate)
 
 
 # ── AI Story Planner ─────────────────────────────────────────────────────────
@@ -128,8 +82,9 @@ HARD RULES:
 - start_time must be < end_time for video scenes.
 - duration_seconds must be positive.
 - Images have start_time=0.0 and end_time=0.0.
-- Preferred motions: zoom_in, zoom_out, pan_left, pan_right, slow_zoom_in, slow_zoom_out, steady, static.
+- Still images must remain static; do not request pan, zoom, or other camera movement.
 - Preferred transitions: fade, dissolve, cut.
+- Set the motion field to "static" for every scene.
 - Return ONLY valid JSON — no markdown fences, no explanation text.
 """
 
@@ -270,7 +225,7 @@ def _validate_and_patch_story_plan(
         if not scene.get("scene_id"):
             scene["scene_id"] = f"s{i+1}"
         scene.setdefault("purpose", "rising_action")
-        scene.setdefault("motion", "zoom_in")
+        scene["motion"] = "static"
         scene.setdefault("transition", "fade")
         scene.setdefault("narration", "")
         scene.setdefault("start_time", 0.0)
@@ -348,7 +303,7 @@ def _generate_ai_story_plan(
         '      "start_time": 0.0,\n'
         '      "end_time": 0.0,\n'
         '      "duration_seconds": 5.0,\n'
-        '      "motion": "slow_zoom_in",\n'
+        '      "motion": "static",\n'
         '      "transition": "fade",\n'
         '      "narration": "An evidence-based sentence about this specific moment"\n'
         '    }\n'
@@ -414,10 +369,6 @@ def _generate_ai_story_plan(
         reverse=True,
     )
 
-    motions = [
-        "zoom_in", "pan_left", "zoom_out", "pan_right", "slow_zoom_in",
-        "drift_left", "drift_right", "tilt_up", "tilt_down", "diagonal_tl",
-    ]
     scenes_fb: list[dict[str, Any]] = []
     total = len(editorial_candidates)
     title_dur = 2.5
@@ -484,7 +435,7 @@ def _generate_ai_story_plan(
             "start_time":       round(start_t, 2),
             "end_time":         round(end_t,   2),
             "duration_seconds": dur,
-            "motion":           "static" if mtype == "video" else motions[i % len(motions)],
+            "motion":           "static",
             "transition":       "fade",
             "narration":        narration,
         })
@@ -505,13 +456,11 @@ def _create_ai_cinematic_scene_clip(
     img_path: str,
     duration: float = 3.5,
     target_size: tuple[int, int] = (1280, 720),
-    motion_type: str = "zoom_in",
     caption: str | None = None,
     bg_strategy: str = BackgroundStrategy.ADAPTIVE_CINEMATIC.value,
 ) -> VideoClip:
     """
-    Ultra-Fast AI Motion Synthesizer:
-    Pre-renders keyframes ONCE and uses high-speed Numpy matrix interpolation.
+    Create a composed image scene without camera movement.
     """
     tw, th = target_size
     orig_img = Image.open(img_path).convert("RGB")
@@ -541,78 +490,28 @@ def _create_ai_cinematic_scene_clip(
     b_draw.rectangle([0, 0, fg_w + 7, fg_h + 7], outline=(255, 255, 255, 80), width=2)
     border_img.paste(cast(Any, fg_base), (4, 4))
 
-    # Pre-render Start Keyframe (p = 0.0)
-    # Extended motion type table: zoom, pan, drift, tilt, diagonal
-    _MOTION_START: dict[str, tuple[float, int, int]] = {
-        # (scale, shift_x, shift_y)
-        "zoom_in":    (1.00, 0,    -8),
-        "zoom_out":   (1.10, 0,     8),
-        "pan_left":   (1.05, 15,    0),
-        "pan_right":  (1.05, -15,   0),
-        "slow_zoom_in": (1.00, 0,  -5),
-        "drift_left": (1.05, 20,   0),
-        "drift_right":(1.05, -20,   0),
-        "tilt_up":    (1.05, 0,   20),
-        "tilt_down":  (1.05, 0,  -20),
-        "diagonal_tl":(1.05, 14,  12),
-        "diagonal_br":(1.05, -14, -12),
-        "static":     (1.00, 0,    0),
-    }
-    _MOTION_END: dict[str, tuple[float, int, int]] = {
-        "zoom_in":    (1.10, 0,    8),
-        "zoom_out":   (1.00, 0,   -8),
-        "pan_left":   (1.05, -15,  0),
-        "pan_right":  (1.05, 15,   0),
-        "slow_zoom_in": (1.06, 0,  5),
-        "drift_left": (1.05, -20,  0),
-        "drift_right":(1.05, 20,   0),
-        "tilt_up":    (1.05, 0,  -20),
-        "tilt_down":  (1.05, 0,   20),
-        "diagonal_tl":(1.05, -14, -12),
-        "diagonal_br":(1.05, 14,  12),
-        "static":     (1.00, 0,    0),
-    }
-    m_key = motion_type if motion_type in _MOTION_START else "zoom_in"
-    z0, sx0, sy0 = _MOTION_START[m_key]
-    z1, sx1, sy1 = _MOTION_END[m_key]
-
-    w0, h0 = int(border_img.width * z0), int(border_img.height * z0)
-    fg0 = border_img.resize((w0, h0), cast(Any, Image.Resampling.BILINEAR)) if z0 != 1.0 else border_img
-    canvas0 = bg_base.copy()
-    canvas0.paste(fg0, ((tw - w0) // 2 + sx0, (th - h0) // 2 + sy0), fg0)
-    w1, h1 = int(border_img.width * z1), int(border_img.height * z1)
-    fg1 = border_img.resize((w1, h1), cast(Any, Image.Resampling.BILINEAR)) if z1 != 1.0 else border_img
-    canvas1 = bg_base.copy()
-    canvas1.paste(fg1, ((tw - w1) // 2 + sx1, (th - h1) // 2 + sy1), fg1)
+    frame = bg_base.copy()
+    frame.paste(
+        border_img,
+        ((tw - border_img.width) // 2, (th - border_img.height) // 2),
+        border_img,
+    )
 
     if caption and caption.strip():
         try:
             from ai_engine.video_generation.subtitles import render_subtitle_frame
-            canvas0 = render_subtitle_frame(cast(Any, canvas0), caption.strip(), font_size=28, bottom_margin=int(th * 0.12))
-            canvas1 = render_subtitle_frame(cast(Any, canvas1), caption.strip(), font_size=28, bottom_margin=int(th * 0.12))
+            frame = render_subtitle_frame(
+                cast(Any, frame),
+                caption.strip(),
+                font_size=28,
+                bottom_margin=int(th * 0.12),
+            )
         except Exception as sub_err:
             logger.debug(f"Subtitle overlay skipped: {sub_err}")
 
-    arr0 = np.array(canvas0, dtype=np.float32)
-    arr1 = np.array(canvas1, dtype=np.float32)
+    frame_array = np.asarray(frame, dtype=np.uint8)
+    return VideoClip(lambda _time: frame_array, duration=duration)
 
-    def make_frame(t: float) -> Any:
-        p = max(0.0, min(1.0, t / duration))
-        ease_p = 0.5 - 0.5 * math.cos(math.pi * p)
-
-        # High-speed numpy vector interpolation
-        f = (1.0 - ease_p) * arr0 + ease_p * arr1
-
-        # Smooth Fade-in / Fade-out
-        fade_dur = 0.35
-        if t < fade_dur:
-            f *= (t / fade_dur)
-        elif t > (duration - fade_dur):
-            f *= max(0.0, (duration - t) / fade_dur)
-
-        return f.astype(np.uint8)
-
-    return VideoClip(make_frame, duration=duration)
 
 
 def _synthesize_cinematic_title_and_tagline(raw_title: str, emotion: str = "nostalgic") -> tuple[str, str]:
@@ -736,7 +635,7 @@ def _create_ai_title_card_clip(
     export_cover_path: str | None = None,
 ) -> VideoClip:
     """
-    Ultra-Cinematic Opening Title Card Clip with animated Ken Burns zoom,
+    Opening title card with a static background,
     luminous radial ambient lighting, floating golden bokeh, double-bordered
     glass badge, diamond accent, and multi-layer typography.
     """
@@ -760,12 +659,8 @@ def _create_ai_title_card_clip(
     else:
         bg = Image.new("RGB", (tw, th), color=(18, 10, 28))
 
-    # Pre-render End Zoom Keyframe (bg zoomed 1.06x)
-    bw1, bh1 = int(tw * 1.06), int(th * 1.06)
-    bg1 = bg.resize((bw1, bh1), cast(Any, Image.Resampling.BILINEAR))
-    l1 = (bw1 - tw) // 2
-    t1 = (bh1 - th) // 2
-    bg1 = bg1.crop((l1, t1, l1 + tw, t1 + th))
+    # Keep the title card still; only the video edit itself supplies transitions.
+    bg1 = bg.copy()
 
     # 2. Add Luminous Center Radial Glow (Cinematic spotlight effect)
     cx, cy = tw // 2, th // 2
@@ -866,8 +761,8 @@ def _create_ai_title_card_clip(
 
         return canvas
 
-    card0 = draw_elements(bg, accent_progress=0.15, drift=0)
-    card1 = draw_elements(bg1, accent_progress=1.0, drift=8)
+    card0 = draw_elements(bg, accent_progress=1.0, drift=0)
+    card1 = draw_elements(bg1, accent_progress=1.0, drift=0)
     if export_cover_path:
         try:
             card1.convert("RGB").save(export_cover_path, "JPEG", quality=95)
@@ -1357,7 +1252,7 @@ class VideoService:
 
             # ── 9. Generate AI story plan ─────────────────────────────────────────────
             job_state_manager.transition_stage(
-                job_id, "planning_story", task_description="Directing narrative arc and Ken Burns choreography..."
+                job_id, "planning_story", task_description="Planning the story order and scene durations..."
             )
             story_plan = _generate_ai_story_plan(
                 title=memory_title,
@@ -1380,7 +1275,7 @@ class VideoService:
 
             # ── 10. Render: story plan drives every clip ──────────────────────────────
             job_state_manager.transition_stage(
-                job_id, "generating_motion", task_description=f"Synthesizing Ken Burns dynamic pan & zoom for {len(scenes)} scenes..."
+                job_id, "generating_motion", task_description=f"Composing static image scenes for {len(scenes)} scenes..."
             )
             clips: list[Any] = []
 
@@ -1414,9 +1309,7 @@ class VideoService:
             )
             clips.append(title_clip)
 
-            # ── 10b. Synthesize Emotion-Aware TTS Narration & Render Scenes ─────────
-            tts_engine = EmotionTTSEngine()
-            speech_segments: list[tuple[float, Any]] = []
+            # ── 10b. Render scenes ─────────────────────────────────────────────────
             current_timeline = title_duration
 
             for scene in scenes:
@@ -1427,14 +1320,10 @@ class VideoService:
                     continue
 
                 dur       = float(scene.get("duration_seconds") or 4.0)
-                motion    = str(scene.get("motion") or "zoom_in")
                 purpose   = str(scene.get("purpose") or "rising_action")
                 item_data = media_by_id.get(scene_media_id, {})
                 mtype     = (item_data.get("media_type") or "image").lower()
                 narration = (scene.get("narration") or "").strip()
-
-                # Voiceover/TTS disabled — BGM-only audio pipeline
-                # (TTS files and engine are preserved for future use)
 
                 try:
                     if mtype == "image":
@@ -1459,7 +1348,6 @@ class VideoService:
                                 img_path=scene_path,
                                 duration=dur,
                                 target_size=TARGET_SIZE,
-                                motion_type=motion,
                                 caption=None,  # Captions disabled — clean cinematic look
                                 bg_strategy=bg_strategy,
                             )
@@ -1509,73 +1397,21 @@ class VideoService:
             # No truncation — target_duration is an advisory hint, not a hard cap.
             reel_total_dur = float(final_clip.duration or current_timeline)
 
-            sr = 44100
-            total_samples = max(1, int(reel_total_dur * sr))
-
-            # ── 11. Audio: Ambient BGM + Emotion-Aware TTS Narration with Audio Ducking ──
+            # ── 11. Audio: preserve source audio; do not synthesize a soundtrack ──
             job_state_manager.transition_stage(
-                job_id, "generating_audio", task_description="Synthesizing emotion-tuned soundtrack & narration with audio ducking..."
+                job_id,
+                "generating_audio",
+                task_description=(
+                    "Preserving audio from selected videos. No licensed background-"
+                    "music source is configured, so no music track will be added."
+                ),
             )
-            try:
-                if music_style in ("none", "mute", "off"):
-                    # Only speech track (or silent background)
-                    if speech_segments:
-                        speech_track = np.zeros((total_samples, 2), dtype=np.float32)
-                        for seg_start_t, s_arr in speech_segments:
-                            start_idx = int(seg_start_t * sr)
-                            end_idx = min(total_samples, start_idx + len(s_arr))
-                            slice_len = end_idx - start_idx
-                            if slice_len > 0:
-                                speech_track[start_idx:end_idx] += s_arr[:slice_len]
-                        ambient_music = AudioArrayClip(speech_track, fps=sr)
-                        final_clip = final_clip.with_audio(ambient_music)
-                    else:
-                        final_clip = final_clip.with_audio(None)
-                else:
-                    from ai_engine.video_generation.audio_synth import synthesize_ambient_soundtrack
-                    effective_mood = music_style if music_style in (
-                        "calm", "nostalgic", "joyful", "reflective", "uplifting", "acoustic", "warm", "emotional", "lofi"
-                    ) else (mood or "calm")
-                    raw_bgm = synthesize_ambient_soundtrack(
-                        mood=effective_mood,
-                        duration_seconds=reel_total_dur,
-                        sample_rate=sr,
-                    )
-                    bgm_stereo = np.column_stack([raw_bgm, raw_bgm])
-
-                    # Build speech ducking envelope
-                    speech_mask = np.zeros(total_samples, dtype=np.float32)
-                    speech_track = np.zeros((total_samples, 2), dtype=np.float32)
-
-                    for seg_start_t, s_arr in speech_segments:
-                        start_idx = int(seg_start_t * sr)
-                        end_idx = min(total_samples, start_idx + len(s_arr))
-                        slice_len = end_idx - start_idx
-                        if slice_len > 0:
-                            speech_mask[start_idx:end_idx] = 1.0
-                            speech_track[start_idx:end_idx] += s_arr[:slice_len]
-
-                    # Smooth ducking transitions (0.25s cosine fade)
-                    fade_samples = max(1, int(0.25 * sr))
-                    kernel = np.hanning(fade_samples * 2)
-                    kernel /= kernel.sum()
-                    speech_mask_smooth = np.convolve(speech_mask, kernel, mode="same")
-                    speech_mask_smooth = np.clip(speech_mask_smooth, 0.0, 1.0)
-
-                    # Duck BGM: 55% normal volume, ducks down to 18% during voice narration
-                    bgm_gain = 0.55 * (1.0 - 0.68 * speech_mask_smooth)
-                    ducked_bgm = bgm_stereo * bgm_gain[:, None]
-
-                    # Composite final mixed soundtrack
-                    mixed_audio = ducked_bgm + speech_track
-                    mixed_audio = np.clip(mixed_audio, -0.98, 0.98)
-
-                    ambient_music = AudioArrayClip(mixed_audio, fps=sr)
-                    final_clip = final_clip.with_audio(ambient_music)
-            except Exception as audio_err:
-                logger.warning(f"Soundtrack composition failed: {audio_err}, falling back to ambient generator")
-                ambient_music = _create_ambient_audio(reel_total_dur)
-                final_clip = final_clip.with_audio(ambient_music)
+            if music_style not in ("none", "mute", "off"):
+                logger.info(
+                    "Requested background music '%s' was omitted because no "
+                    "licensed music source is configured.",
+                    music_style,
+                )
 
             # ── 12. Write output MP4 to local staging area ─────────────────────────────
             job_state_manager.transition_stage(

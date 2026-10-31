@@ -12,7 +12,6 @@ from ai_engine.agents.storyteller.narrative_arc import segment_assets_into_phase
 from ai_engine.agents.narrator.agent import FactAuditorAgent
 from ai_engine.agents.narrator.evidence_manifest import verify_entities_against_manifest, sanitize_statement
 from ai_engine.agents.video.agent import VideoDirectorAgent
-from ai_engine.agents.video.motion_planner import get_motion_for_shot, interpolate_motion_frame
 
 
 class TestPlanningAgent(unittest.TestCase):
@@ -147,15 +146,6 @@ class TestVideoDirectorAgent(unittest.TestCase):
     def setUp(self):
         self.agent = VideoDirectorAgent(fps=30)
 
-    def test_ken_burns_motion_generation(self):
-        motion = get_motion_for_shot(0)
-        self.assertIn("type", motion)
-        self.assertIn("start_scale", motion)
-
-        scale, cx, cy = interpolate_motion_frame(motion, 0.5)
-        self.assertGreaterEqual(scale, 1.0)
-        self.assertAlmostEqual(cx, 0.5, delta=0.2)
-
     def test_compile_shot_list(self):
         script = {
             "phases": [
@@ -172,6 +162,7 @@ class TestVideoDirectorAgent(unittest.TestCase):
         self.assertEqual(shots[0]["shot_index"], 1)
         self.assertEqual(shots[0]["duration"], 6.0)
         self.assertEqual(shots[1]["duration"], 8.0)
+        self.assertTrue(all(shot["camera_motion"] == "static" for shot in shots))
 
 
 if __name__ == "__main__":

@@ -1,31 +1,23 @@
 """
 Video Director Agent
-Compiles production-ready shot-lists, Ken Burns camera keyframes,
-and audio-visual synchronization specifications.
+Compiles production-ready shot-lists, static image compositions, and
+audio-visual synchronization specifications.
 """
 import logging
 from typing import Any, Dict, List, Optional
-from ai_engine.agents.video.motion_planner import get_motion_for_shot, interpolate_motion_frame
 
 logger = logging.getLogger(__name__)
 
 
 class VideoDirectorAgent:
     """
-    Transforms an audited memory script and curated media into a cinematic shot list
-    with dynamic Ken Burns camera motions, transitions, and audio sync.
+    Transforms an audited memory script and curated media into a shot list with
+    static image framing, transitions, and source-audio synchronization.
     """
 
     def __init__(self, fps: int = 30, resolution: str = "1080x1920"):
         self.fps = fps
         self.resolution = resolution  # Portrait 9:16 default for mobile Flutter playback
-
-    def generate_ken_burns_motion(self, index: int) -> Dict[str, Any]:
-        """
-        Generates progressive cinematic camera motion parameters:
-        alternates between zoom-in, zoom-out, pan-left, and pan-right.
-        """
-        return get_motion_for_shot(index)
 
     def compile_shot_list(
         self,
@@ -57,7 +49,6 @@ class VideoDirectorAgent:
             asset_path = media_item.get("file_path", "") if media_item else "/media/memories/placeholder.jpg"
             modality = media_item.get("source_modality", "image") if media_item else "image"
 
-            camera_motion = self.generate_ken_burns_motion(idx)
             transition = "crossfade" if idx > 0 else "cut"
             transition_duration = 0.6 if transition == "crossfade" else 0.0
 
@@ -69,7 +60,7 @@ class VideoDirectorAgent:
                 "duration": round(phase_duration, 2),
                 "asset_path": asset_path,
                 "asset_type": modality,
-                "camera_motion": camera_motion,
+                "camera_motion": "static",
                 "transition_in": transition,
                 "transition_duration": transition_duration,
                 "narration": phase.get("narration", ""),

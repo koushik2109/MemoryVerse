@@ -1,7 +1,6 @@
 """
 Video Composition Renderer
-Orchestrates shot lists, Ken Burns camera motion, subtitle overlays,
-and procedural ambient background music into final cinematic MP4 video recaps.
+Builds static, carefully composed shots with optional subtitles and source audio.
 """
 import os
 import math
@@ -11,7 +10,7 @@ import numpy as np
 from PIL import Image, ImageFilter, ImageDraw, ImageFont
 
 try:
-    from moviepy import VideoClip, VideoFileClip, AudioArrayClip, concatenate_videoclips
+    from moviepy import VideoClip, VideoFileClip, concatenate_videoclips
     HAS_MOVIEPY = True
 except ImportError:
     HAS_MOVIEPY = False
@@ -28,23 +27,18 @@ except ImportError:
 
     VideoClip: Any = _DummyClip
     VideoFileClip: Any = _DummyClip
-    AudioArrayClip: Any = _DummyClip
-
     def concatenate_videoclips(*args: Any, **kwargs: Any) -> Any:
         return _DummyClip()
 
-from ai_engine.video_generation.ken_burns import get_crop_window
 from ai_engine.video_generation.subtitles import render_subtitle_frame
-from ai_engine.video_generation.audio_synth import synthesize_ambient_soundtrack
-from ai_engine.video_generation.tts_engine import EmotionTTSEngine
 
 logger = logging.getLogger(__name__)
 
 
 class VideoRenderer:
     """
-    Assembles curated media assets into cinematic videos with camera motion,
-    subtitles, and synchronized ambient audio.
+    Assembles curated media into static compositions. Audio from selected source
+    videos is retained; the renderer does not generate a background soundtrack.
     """
 
     def __init__(self, fps: int = 24, resolution: str = "720x1280"):
@@ -77,6 +71,7 @@ class VideoRenderer:
             "resolution": self.resolution,
             "total_shots": total_shots,
             "audio_mood": audio_mood,
+            "background_music": "not_added_no_licensed_source",
             "status": "ready_for_render",
             "shots": shot_list,
         }
@@ -86,12 +81,10 @@ class VideoRenderer:
         img_path: str,
         duration: float = 4.0,
         target_size: Tuple[int, int] = (720, 1280),
-        motion_type: str = "zoom_in",
         narration: Optional[str] = None,
     ) -> Any:
         """
-        Renders a cinematic Ken Burns pan-and-zoom clip without subtitle overlay.
-        Pre-computes start and end keyframes for high-performance vectorized rendering.
+        Renders one static, aspect-preserving composition for the full shot.
         """
         if not HAS_MOVIEPY:
             raise RuntimeError("MoviePy is required for video rendering")
@@ -120,49 +113,18 @@ class VideoRenderer:
             b_draw.rectangle([0, 0, fg_w + 5, fg_h + 5], outline=(255, 255, 255, 90), width=2)
             border_img.paste(fg_base, (3, 3))
 
-        # Start keyframe (p = 0.0)
-        z0 = 1.00 if "zoom_in" in motion_type else (1.10 if "zoom_out" in motion_type else 1.05)
-        sx0 = -18 if "pan_right" in motion_type else (18 if "pan_left" in motion_type else 0)
-        sy0 = -8 if "zoom_in" in motion_type else (8 if "zoom_out" in motion_type else 0)
-
-        w0, h0 = int(border_img.width * z0), int(border_img.height * z0)
-        fg0 = border_img.resize((w0, h0), Image.Resampling.BILINEAR) if z0 != 1.0 else border_img
-        canvas0 = bg_base.copy()
-        canvas0.paste(fg0, ((tw - w0) // 2 + sx0, (th - h0) // 2 + sy0), fg0)
-
-        # End keyframe (p = 1.0)
-        z1 = 1.10 if "zoom_in" in motion_type else (1.00 if "zoom_out" in motion_type else 1.05)
-        sx1 = 18 if "pan_right" in motion_type else (-18 if "pan_left" in motion_type else 0)
-        sy1 = 8 if "zoom_in" in motion_type else (-8 if "zoom_out" in motion_type else 0)
-
-        w1, h1 = int(border_img.width * z1), int(border_img.height * z1)
-        fg1 = border_img.resize((w1, h1), Image.Resampling.BILINEAR) if z1 != 1.0 else border_img
-        canvas1 = bg_base.copy()
-        canvas1.paste(fg1, ((tw - w1) // 2 + sx1, (th - h1) // 2 + sy1), fg1)
+        canvas = bg_base.copy()
+        canvas.paste(
+            border_img,
+            ((tw - border_img.width) // 2, (th - border_img.height) // 2),
+            border_img,
+        )
 
         # Subtitle overlay disabled — clean cinematic look
         # (subtitles.py is preserved for future use)
 
-        arr0 = np.array(canvas0, dtype=np.float32)
-        arr1 = np.array(canvas1, dtype=np.float32)
-
-        fade_dur = min(0.35, duration * 0.15)
-
-        def make_frame(t: float) -> np.ndarray:
-            p = max(0.0, min(1.0, t / duration))
-            # Smooth cosine ease curve
-            ease_p = 0.5 - 0.5 * math.cos(math.pi * p)
-            f = (1.0 - ease_p) * arr0 + ease_p * arr1
-
-            # Cross-fade in & out
-            if t < fade_dur and fade_dur > 0:
-                f *= (t / fade_dur)
-            elif t > (duration - fade_dur) and fade_dur > 0:
-                f *= max(0.0, (duration - t) / fade_dur)
-
-            return np.clip(f, 0, 255).astype(np.uint8)
-
-        return VideoClip(make_frame, duration=duration)
+        frame = np.asarray(canvas, dtype=np.uint8)
+        return VideoClip(lambda _time: frame, duration=duration)
 
     def create_title_card_clip(
         self,
@@ -227,11 +189,7 @@ class VideoRenderer:
                 f *= max(0.0, (duration - t) / fade_dur)
             return np.clip(f, 0, 255).astype(np.uint8)
 
-        clip = VideoClip(make_frame, duration=duration)
-        sr = 44100
-        n_samples = int(duration * sr)
-        silent_audio = AudioArrayClip(np.zeros((n_samples, 2), dtype=np.float32), fps=sr)
-        return clip.with_audio(silent_audio)
+        return VideoClip(make_frame, duration=duration)
 
     def render_video(
         self,
@@ -245,8 +203,8 @@ class VideoRenderer:
         """
         Executes full video composition:
         1. Compiles opening title card.
-        2. Renders each shot with Ken Burns camera curves and subtitle overlays.
-        3. Synthesizes a matching 4-chord ambient soundtrack.
+        2. Renders each image as a static composition with optional captions.
+        3. Preserves audio present in selected source videos without adding music.
         4. Writes the final MP4 video file.
         """
         if not HAS_MOVIEPY:
@@ -277,8 +235,6 @@ class VideoRenderer:
         clips.append(title_clip)
 
         # 2. Render each scene shot with emotion-aware speech synchronization
-        tts_engine = EmotionTTSEngine()
-        speech_segments: List[Tuple[float, np.ndarray]] = []
         current_timeline = title_duration
 
         for idx, shot in enumerate(shot_list):
@@ -288,12 +244,8 @@ class VideoRenderer:
                 continue
 
             duration = float(shot.get("duration") or shot.get("duration_seconds") or 4.0)
-            motion_info = shot.get("camera_motion", {})
-            motion_type = motion_info.get("motion_type", "zoom_in") if isinstance(motion_info, dict) else str(motion_info or "zoom_in")
             narration = (shot.get("narration") or "").strip()
             asset_type = shot.get("asset_type", "image")
-            # Voiceover/TTS disabled — BGM-only audio
-            # (tts_engine.py and speech segments are preserved for future re-enable)
 
             try:
                 if asset_type == "video" or asset_path.lower().endswith((".mp4", ".mov", ".avi", ".webm")):
@@ -313,7 +265,6 @@ class VideoRenderer:
                         img_path=asset_path,
                         duration=duration,
                         target_size=target_size,
-                        motion_type=motion_type,
                         narration=narration,
                     )
                     clips.append(clip)
@@ -326,50 +277,10 @@ class VideoRenderer:
 
         final_clip = concatenate_videoclips(clips, method="compose")
         # Content-driven duration — no truncation; length is determined by shots
+        # Source-video audio remains part of the concatenated clips. Photo-only
+        # reels intentionally have no generated background track until a
+        # licensed music source is configured.
         total_duration = float(final_clip.duration or current_timeline)
-        sr = 44100
-        total_samples = max(1, int(total_duration * sr))
-
-        # 3. Procedural ambient BGM + Emotion-Aware TTS Voiceover Mixing with Audio Ducking
-        try:
-            raw_bgm = synthesize_ambient_soundtrack(
-                mood=audio_mood,
-                duration_seconds=total_duration,
-                sample_rate=sr,
-            )
-            bgm_stereo = np.column_stack([raw_bgm, raw_bgm])
-
-            # Build speech ducking envelope
-            speech_mask = np.zeros(total_samples, dtype=np.float32)
-            speech_track = np.zeros((total_samples, 2), dtype=np.float32)
-
-            for seg_start_t, s_arr in speech_segments:
-                start_idx = int(seg_start_t * sr)
-                end_idx = min(total_samples, start_idx + len(s_arr))
-                slice_len = end_idx - start_idx
-                if slice_len > 0:
-                    speech_mask[start_idx:end_idx] = 1.0
-                    speech_track[start_idx:end_idx] += s_arr[:slice_len]
-
-            # Smooth ducking transitions (0.25s cosine fade)
-            fade_samples = max(1, int(0.25 * sr))
-            kernel = np.hanning(fade_samples * 2)
-            kernel /= kernel.sum()
-            speech_mask_smooth = np.convolve(speech_mask, kernel, mode="same")
-            speech_mask_smooth = np.clip(speech_mask_smooth, 0.0, 1.0)
-
-            # Duck BGM: 55% normal volume, ducks down to 18% during voice narration
-            bgm_gain = 0.55 * (1.0 - 0.68 * speech_mask_smooth)
-            ducked_bgm = bgm_stereo * bgm_gain[:, None]
-
-            # Composite final mixed soundtrack
-            mixed_audio = ducked_bgm + speech_track
-            mixed_audio = np.clip(mixed_audio, -0.98, 0.98)
-
-            ambient_clip = AudioArrayClip(mixed_audio, fps=sr)
-            final_clip = final_clip.with_audio(ambient_clip)
-        except Exception as e:
-            logger.warning(f"Failed to attach synthesized soundtrack: {e}")
 
         # 4. Render to MP4
         cpu_threads = max(2, (os.cpu_count() or 4) - 1)
@@ -396,5 +307,6 @@ class VideoRenderer:
             "total_shots": len(clips) - 1,
             "duration_seconds": round(total_duration, 2),
             "audio_mood": audio_mood,
+            "background_music": "not_added_no_licensed_source",
             "status": "completed",
         }

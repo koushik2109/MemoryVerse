@@ -15,7 +15,7 @@ class EmotionSpec(BaseModel):
 
 
 class MusicSpec(BaseModel):
-    style: str = "cinematic_warm"  # energetic, warm, cinematic, acoustic, minimal, emotional
+    style: str = "none"  # Background music stays off until a licensed source is configured.
     tempo: int = 90
     energy: float = 0.6
 
@@ -27,8 +27,8 @@ class NarrationSpec(BaseModel):
 
 
 class MotionSpec(BaseModel):
-    style: str = "dynamic_zoom"  # slow_pan, dynamic_zoom, subtle_zoom, steady
-    intensity: float = 0.7
+    style: str = "static"
+    intensity: float = 0.0
 
 
 class CompositionSpec(BaseModel):

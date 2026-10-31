@@ -26,7 +26,6 @@ class VideoCreatorSheet extends ConsumerStatefulWidget {
 
 class _VideoCreatorSheetState extends ConsumerState<VideoCreatorSheet> {
   String _dimension = '9:16'; // '9:16' or '16:9'
-  String _mood = 'calm'; // 'calm', 'nostalgic', 'energetic'
   late Set<String> _selectedMediaIds;
   bool _jobStartedLocally = false;
 
@@ -70,7 +69,6 @@ class _VideoCreatorSheetState extends ConsumerState<VideoCreatorSheet> {
     final jobId = await ref.read(videoJobControllerProvider.notifier).startJob(
           memoryId: widget.memory.id,
           dimension: _dimension,
-          mood: _mood,
           mediaIds: _selectedMediaIds.toList(),
         );
 
@@ -163,7 +161,7 @@ class _VideoCreatorSheetState extends ConsumerState<VideoCreatorSheet> {
               ),
               const SizedBox(height: AppSpacing.s8),
               Text(
-                'Directing Ken Burns camera motions, evidence subtitles, and ambient 4-chord soundtrack.',
+                'Static, aspect-preserving scenes. Original video audio is kept; no background music is added.',
                 textAlign: TextAlign.center,
                 style: TextStyle(color: c.textMuted, fontSize: 13),
               ),
@@ -252,47 +250,17 @@ class _VideoCreatorSheetState extends ConsumerState<VideoCreatorSheet> {
                 ),
                 const SizedBox(height: AppSpacing.s20),
 
-                // Music Mood Selector
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    'Soundtrack Mood',
+                    'Audio',
                     style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600, color: c.text),
                   ),
                 ),
                 const SizedBox(height: AppSpacing.s8),
-                Row(
-                  children: [
-                    Expanded(
-                      child: _ChoiceChip(
-                        label: 'Calm Piano',
-                        icon: Icons.spa_outlined,
-                        selected: _mood == 'calm',
-                        onTap: () => setState(() => _mood = 'calm'),
-                        c: c,
-                      ),
-                    ),
-                    const SizedBox(width: AppSpacing.s8),
-                    Expanded(
-                      child: _ChoiceChip(
-                        label: 'Nostalgic',
-                        icon: Icons.auto_awesome,
-                        selected: _mood == 'nostalgic',
-                        onTap: () => setState(() => _mood = 'nostalgic'),
-                        c: c,
-                      ),
-                    ),
-                    const SizedBox(width: AppSpacing.s8),
-                    Expanded(
-                      child: _ChoiceChip(
-                        label: 'Energetic',
-                        icon: Icons.bolt,
-                        selected: _mood == 'energetic',
-                        onTap: () => setState(() => _mood = 'energetic'),
-                        c: c,
-                      ),
-                    ),
-                  ],
+                Text(
+                  'Audio from selected videos is preserved. Photo-only videos have no audio until a licensed music source is available.',
+                  style: TextStyle(color: c.textMuted, fontSize: 13),
                 ),
                 const SizedBox(height: AppSpacing.s24),
 
@@ -576,59 +544,6 @@ class _ChoiceTile extends StatelessWidget {
             Text(
               subtitle,
               style: TextStyle(fontSize: 10, color: c.textMuted),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class _ChoiceChip extends StatelessWidget {
-  final String label;
-  final IconData icon;
-  final bool selected;
-  final VoidCallback onTap;
-  final AppColors c;
-
-  const _ChoiceChip({
-    required this.label,
-    required this.icon,
-    required this.selected,
-    required this.onTap,
-    required this.c,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap,
-      borderRadius: BorderRadius.circular(AppRadii.md),
-      child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
-        decoration: BoxDecoration(
-          color: selected ? c.primary.withValues(alpha: 0.12) : c.bg,
-          borderRadius: BorderRadius.circular(AppRadii.md),
-          border: Border.all(
-            color: selected ? c.primary : c.border,
-            width: selected ? 1.8 : 1.0,
-          ),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(icon, color: selected ? c.primary : c.textMuted, size: 16),
-            const SizedBox(width: 4),
-            Flexible(
-              child: Text(
-                label,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w600,
-                  color: selected ? c.primary : c.text,
-                ),
-              ),
             ),
           ],
         ),

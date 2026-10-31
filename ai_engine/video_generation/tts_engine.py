@@ -12,11 +12,22 @@ import math
 import os
 import re
 import tempfile
+import wave
 from typing import Any, Dict, Optional, Tuple
 
 import numpy as np
 
 logger = logging.getLogger(__name__)
+
+
+def _write_mono_wav(file_path: str, samples: np.ndarray, sample_rate: int) -> None:
+    """Write a normalized mono TTS waveform as 16-bit PCM without music helpers."""
+    pcm = (np.clip(np.asarray(samples, dtype=np.float32), -1.0, 1.0) * 32767).astype("<i2")
+    with wave.open(file_path, "wb") as wav_file:
+        wav_file.setnchannels(1)
+        wav_file.setsampwidth(2)
+        wav_file.setframerate(sample_rate)
+        wav_file.writeframes(pcm.tobytes())
 
 # Try importing edge-tts; graceful degradation if not installed
 try:
@@ -270,8 +281,7 @@ class EmotionTTSEngine:
             # Fallback to harmonic procedural speech tone
             audio_arr, dur = self._synthesize_fallback(clean_text, resolved_emotion)
             if output_path:
-                from ai_engine.video_generation.audio_synth import write_wav_file
-                write_wav_file(output_path, audio_arr[:, 0], self.sample_rate)
+                _write_mono_wav(output_path, audio_arr[:, 0], self.sample_rate)
             return audio_arr, dur, self.sample_rate
 
         finally:

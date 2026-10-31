@@ -1,14 +1,12 @@
 """
 Unit Tests for End-to-End Processing Pipelines
-Tests IngestPipeline, QueryPipeline, EventAggregator, and procedural audio synthesis.
+Tests query/story pipelines and the no-generated-music video policy.
 """
 import unittest
-import numpy as np
 from ai_engine.pipelines.query_pipeline import MultimodalQueryPipeline
 from ai_engine.story_generation.event_aggregator import EventAggregator, haversine_distance
 from ai_engine.story_generation.arc_generator import NarrativeArcGenerator
-from ai_engine.video_generation.audio_synth import synthesize_ambient_soundtrack, generate_chord_tone
-from ai_engine.video_generation.ken_burns import get_crop_window
+from ai_engine.video_generation.renderer import VideoRenderer
 
 
 class TestPipelines(unittest.TestCase):
@@ -36,28 +34,9 @@ class TestPipelines(unittest.TestCase):
         self.assertEqual(events[0]["item_count"], 2)
         self.assertEqual(events[1]["item_count"], 1)
 
-    def test_procedural_audio_soundtrack_synthesis(self):
-        audio = synthesize_ambient_soundtrack(mood="calm", duration_seconds=2.0, sample_rate=22050)
-        self.assertEqual(len(audio), 2 * 22050)
-        self.assertTrue(np.all(np.abs(audio) <= 1.0))
-        self.assertGreater(np.max(np.abs(audio)), 0.1)
-
-    def test_ken_burns_crop_window(self):
-        x1, y1, x2, y2 = get_crop_window(
-            width=1920,
-            height=1080,
-            start_scale=1.0,
-            end_scale=1.2,
-            start_center=(0.5, 0.5),
-            end_center=(0.5, 0.5),
-            progress=0.5,
-        )
-        self.assertGreaterEqual(x1, 0)
-        self.assertGreaterEqual(y1, 0)
-        self.assertLessEqual(x2, 1920)
-        self.assertLessEqual(y2, 1080)
-        self.assertGreater(x2, x1)
-        self.assertGreater(y2, y1)
+    def test_video_renderer_reports_background_music_unavailable(self):
+        spec = VideoRenderer().render_spec([], target_duration=12.0)
+        self.assertEqual(spec["background_music"], "not_added_no_licensed_source")
 
 
 if __name__ == "__main__":

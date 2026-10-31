@@ -681,7 +681,7 @@ class VideoSpecificationModel {
     this.aspectRatio = '16:9',
     this.orientation = 'landscape',
     this.emotionPrimary = 'calm',
-    this.musicStyle = 'cinematic_warm',
+    this.musicStyle = 'none',
     this.narrationEnabled = false,
   });
 
@@ -695,7 +695,7 @@ class VideoSpecificationModel {
       aspectRatio: json['aspect_ratio']?.toString() ?? '16:9',
       orientation: json['orientation']?.toString() ?? 'landscape',
       emotionPrimary: emo?['primary']?.toString() ?? 'calm',
-      musicStyle: mus?['style']?.toString() ?? 'cinematic_warm',
+      musicStyle: mus?['style']?.toString() ?? 'none',
       narrationEnabled: narr?['enabled'] == true,
     );
   }

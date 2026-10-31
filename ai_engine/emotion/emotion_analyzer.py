@@ -4,8 +4,7 @@ Extracts affective signals from visual cues (CLIP + color temperature),
 acoustic features (energy, tempo), speech transcripts, text descriptions,
 and temporal EXIF metadata.
 Fuses them with confidence weights and generates an EmotionTimeline that drives
-story pacing, scene durations, Ken Burns motion intensity, 4-chord soundtrack mood,
-and TTS narration prosody.
+story pacing, scene durations, and TTS narration prosody.
 """
 import io
 import logging
@@ -114,21 +113,11 @@ class EmotionTimeline:
         return 1.0
 
     def get_motion_preset(self, emotion: str) -> str:
-        """Maps dominant emotion to Ken Burns motion style."""
-        if emotion == "excitement":
-            return "dynamic_zoom_in"
-        elif emotion == "joy":
-            return "gentle_zoom_in"
-        elif emotion == "nostalgia":
-            return "slow_pan_horizontal"
-        elif emotion == "calm":
-            return "subtle_zoom_out"
-        elif emotion == "love":
-            return "slow_center_zoom"
-        return "slow_pan_right"
+        """Compatibility adapter: generated still-image scenes remain static."""
+        return "static"
 
     def get_audio_mood(self) -> str:
-        """Returns soundtrack mood parameter for audio synthesizer."""
+        """Returns soundtrack mood metadata for compatibility with older clients."""
         if self.overall_mood in ("joy", "excitement"):
             return "energetic"
         elif self.overall_mood in ("nostalgia", "love"):

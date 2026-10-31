@@ -102,13 +102,14 @@ def test_ai_director_specification_mutation():
     assert "20s" in reply
     assert "9:16" in reply
 
-    # Test "change music to acoustic and add narration"
+    # Unsupported music requests are not recorded as applied changes, while
+    # narration remains a supported specification option.
     mutated_spec2, reply2, _ = ai_director_service._interpret_and_mutate_spec(
         user_text="Change music to acoustic and add voiceover narration",
         spec=mutated_spec,
         context=context,
     )
-    assert mutated_spec2.music.style == "acoustic"
+    assert mutated_spec2.music.style == "none"
     assert mutated_spec2.narration.enabled is True
 
 
@@ -128,7 +129,7 @@ def test_target_aspect_ratio_dimensions():
 
 
 def test_ai_director_extended_mutations():
-    """Test 4:3, Instagram reel, mute music, quality profile, and conversational question interpretations."""
+    """Test aspect ratio, quality, unsupported music, and conversational questions."""
     context = MemoryContext(
         memory_id="mem_test",
         user_id="user_test",
@@ -159,13 +160,14 @@ def test_ai_director_extended_mutations():
     assert s2.aspect_ratio == "9:16"
     assert s2.quality_profile == "high_quality"
 
-    # 3. Test mute music / no music
+    # 3. Music is disabled in the director until a licensed source is configured.
     s3, r3, _ = ai_director_service._interpret_and_mutate_spec(
-        user_text="Remove music and keep it silent or narration only",
+        user_text="Add acoustic music",
         spec=s2,
         context=context,
     )
     assert s3.music.style == "none"
+    assert "licensed" in r3.lower()
 
     # 4. Test question handling ("why did you choose this media?")
     _, r4, _ = ai_director_service._interpret_and_mutate_spec(

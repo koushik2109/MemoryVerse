@@ -71,8 +71,9 @@ class AIDirectorService:
         welcome_content = (
             f"I found {context.photo_count} photos and {context.video_count} videos from \"{context.title}\".\n\n"
             f"I can direct a warm, {spec.emotion.primary} memory movie highlighting the best moments first "
-            f"with a smooth nostalgic finish (~{spec.duration_target_seconds}s in {spec.aspect_ratio}).\n\n"
-            f"Would you like to customize the music, pacing, or story before I generate it?"
+            f"with a smooth, static composition (~{spec.duration_target_seconds}s in {spec.aspect_ratio}).\n\n"
+            "No licensed background-music source is configured, so I will not add generated music. "
+            "Audio from selected videos will be preserved. Would you like to customize the pacing, narration, or story?"
         )
 
         initial_message = AIMessage(
@@ -80,7 +81,7 @@ class AIDirectorService:
             session_id=session_id,
             role="assistant",
             content=welcome_content,
-            suggestions=["Generate Video", "Make it more emotional", "Make it 20 seconds", "Change music to acoustic"],
+            suggestions=["Generate Video", "Make it more emotional", "Make it 20 seconds", "Add narration"],
             specification=spec,
             created_at=now,
         )
@@ -384,7 +385,7 @@ class AIDirectorService:
         if context.location_name:
             suggestions.append(f"Trip to {context.location_name}")
         elif "trip" in context.title.lower() or "travel" in context.title.lower():
-            suggestions.append("Travel diary, with epic music")
+            suggestions.append("Travel diary with a slower pace")
         elif "birthday" in context.title.lower() or "party" in context.title.lower():
             suggestions.append("Joyful celebration with friends")
         else:
@@ -400,13 +401,13 @@ class AIDirectorService:
         else:
             suggestions.append("Sweet moments to remember")
 
-        # 3. Emotion / Music themed suggestion
+        # 3. Emotion / pacing themed suggestion
         if context.dominant_emotion in ("joy", "excitement"):
-            suggestions.append("Joyful holidays, with epic music")
+            suggestions.append("Joyful holidays with a faster pace")
         elif context.dominant_emotion == "nostalgia":
             suggestions.append("Warm and nostalgic documentary")
         else:
-            suggestions.append("Calm reflection with acoustic melody")
+            suggestions.append("Calm reflection with a slower pace")
 
         return suggestions
 
@@ -427,9 +428,9 @@ class AIDirectorService:
                 confidence=context.emotion_confidence,
             ),
             music=MusicSpec(
-                style="cinematic_warm" if context.dominant_emotion in ("nostalgia", "calm") else "energetic",
+                style="none",
                 tempo=95 if context.dominant_emotion in ("joy", "excitement") else 75,
-                energy=0.7 if context.dominant_emotion in ("joy", "excitement") else 0.5,
+                energy=0.0,
             ),
             narration=NarrationSpec(enabled=False),
         )
@@ -483,36 +484,16 @@ class AIDirectorService:
         # Mood & Emotion modifications
         if "emotional" in text or "nostalgic" in text or "sentiment" in text:
             new_spec.emotion.primary = "nostalgia"
-            new_spec.music.style = "cinematic_warm"
-            new_spec.music.energy = 0.5
             modifications.append("increased nostalgic emotional warmth")
         elif "happy" in text or "energetic" in text or "upbeat" in text or "fun" in text:
             new_spec.emotion.primary = "joy"
-            new_spec.music.style = "energetic"
-            new_spec.music.energy = 0.8
             modifications.append("tuned vibe to joyful and energetic")
         elif "calm" in text or "peaceful" in text or "slow" in text:
             new_spec.emotion.primary = "calm"
-            new_spec.music.style = "minimal"
-            new_spec.music.energy = 0.35
-            modifications.append("slowed pacing and softened audio")
+            modifications.append("slowed the story pacing")
 
-        # Music modifications
-        if "no music" in text or "remove music" in text or "mute" in text:
-            new_spec.music.style = "none"
-            new_spec.music.energy = 0.0
-            modifications.append("disabled background music")
-        elif "acoustic" in text:
-            new_spec.music.style = "acoustic"
-            new_spec.music.energy = 0.5
-            modifications.append("changed music to acoustic guitar")
-        elif "epic" in text or "cinematic" in text:
-            new_spec.music.style = "cinematic_warm"
-            new_spec.music.energy = 0.75
-            modifications.append("changed music to epic cinematic soundtrack")
-        elif "quieter" in text or "softer" in text or "lower volume" in text:
-            new_spec.music.energy = max(0.15, new_spec.music.energy - 0.25)
-            modifications.append("softened soundtrack volume")
+        # Music selection is intentionally unavailable until a licensed source
+        # is configured. Do not claim that an unsupported choice was applied.
 
         # Narration modifications
         if "narration" in text or "voiceover" in text or "narrate" in text:
@@ -578,7 +559,7 @@ class AIDirectorService:
             if context.emotion_distribution:
                 emotions_list = list(context.emotion_distribution.keys())[:3]
                 reply += f" Detected emotions across scenes: {', '.join(emotions_list)}."
-            return new_spec, reply, ["Make it more emotional", "Make it joyful", "Generate Video", "Change music to acoustic"]
+            return new_spec, reply, ["Make it more emotional", "Make it joyful", "Generate Video", "Add narration"]
 
         if "why did you choose" in text or "why did you select" in text or "why this" in text or "why these" in text or "reason" in text or ("why" in text and ("photo" in text or "media" in text or "select" in text or "choose" in text)):
             reply = f"I selected {len(new_spec.media_selection or context.media_ids[:5])} moments based on visual quality, emotional resonance with '{context.dominant_emotion}', and chronological milestones."
@@ -592,7 +573,7 @@ class AIDirectorService:
                     f"• Scene 4: Highlights & activity (~4.0s)\n" \
                     f"• Scene 5: Gentle resolution outro (~4.0s)\n" \
                     f"Total: ~{new_spec.duration_target_seconds}s in {new_spec.aspect_ratio}."
-            return new_spec, reply, ["Generate Video", "Change music to acoustic", "Switch aspect ratio", "Make it 20 seconds"]
+            return new_spec, reply, ["Generate Video", "Switch aspect ratio", "Make it 20 seconds", "Add narration"]
 
         if "insight" in text:
             reply = f"Memory Insights for '{context.title}':\n" \
@@ -603,8 +584,11 @@ class AIDirectorService:
 
         if not modifications:
             if any(w in text for w in ["music", "song", "audio", "track"]):
-                reply = f"The current soundtrack style is {new_spec.music.style or 'warm acoustic'}. Would you like me to switch to acoustic, cinematic, energetic, or mute?"
-                follow_up_suggestions = ["Change music to acoustic", "Change music to cinematic", "No music", "Generate Video"]
+                reply = (
+                    "I can't add background music until a licensed music source is configured. "
+                    "I'll preserve audio from selected videos; a photo-only reel will have no audio."
+                )
+                follow_up_suggestions = ["Continue without music", "Add narration", "Change duration", "Generate Video"]
             elif any(w in text for w in ["aspect", "ratio", "format", "vertical", "horizontal"]):
                 reply = f"The current format is {new_spec.aspect_ratio}. I can switch to 9:16 (Instagram Reel / TikTok), 16:9 (Landscape YouTube), 1:1 (Square), or 4:3."
                 follow_up_suggestions = ["Switch aspect ratio to 9:16", "Switch aspect ratio to 16:9", "Switch aspect ratio to 1:1", "Generate Video"]
@@ -612,7 +596,7 @@ class AIDirectorService:
                 reply = f"The target duration is ~{new_spec.duration_target_seconds} seconds. Would you like a 15s quick highlight, 20s story, or 30s recap?"
                 follow_up_suggestions = ["Make it 15 seconds", "Make it 20 seconds", "Make it 30 seconds", "Generate Video"]
             else:
-                reply = f"I've tailored the plan around '{user_text}'. What would you like to customize next — music, pacing, aspect ratio, or shall we generate?"
+                reply = f"I've tailored the plan around '{user_text}'. What would you like to customize next — pacing, aspect ratio, narration, or shall we generate?"
                 follow_up_suggestions = ["Generate Video", "Change duration", "Switch aspect ratio", "Add narration"]
         else:
             reply = f"I've updated the plan: {', '.join(modifications)}. Ready to generate whenever you like!"
