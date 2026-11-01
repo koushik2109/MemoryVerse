@@ -69,3 +69,4 @@ text = text.replace(old_sec7, new_sec7)
 
 p.write_text(text, encoding="utf-8")
 print("Successfully applied updates to paper_v3/ijcds_body.tex")
+

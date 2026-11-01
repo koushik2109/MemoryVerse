@@ -78,3 +78,4 @@ new_text = text[:m.start(2)] + new_bib_text + text[m.end(2):]
 
 p.write_text(new_text, encoding="utf-8")
 print("Saved ijcds_body.tex with exact order!")
+
