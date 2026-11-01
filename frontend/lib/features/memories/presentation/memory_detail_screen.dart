@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:memory_verse/contracts/models.dart';
 import 'package:memory_verse/core/design/tokens.dart';
 import 'package:memory_verse/core/providers/app_providers.dart';
+import 'package:memory_verse/core/providers/home_assistant_controller.dart';
 import 'package:memory_verse/core/repositories/app_repositories.dart';
 import 'package:memory_verse/core/widgets/media.dart';
 import 'package:memory_verse/core/widgets/states.dart';
@@ -14,6 +15,7 @@ import 'package:memory_verse/features/memories/presentation/edit_memory_screen.d
 import 'package:share_plus/share_plus.dart';
 import 'package:memory_verse/core/providers/upload_controller.dart';
 import 'package:memory_verse/features/memories/presentation/widgets/movie_card.dart';
+import 'package:memory_verse/features/memories/presentation/widgets/memory_ai_assistant_sheet.dart';
 import 'package:memory_verse/core/theme/app_design_tokens.dart' as adt;
 
 class MemoryDetailScreen extends ConsumerStatefulWidget {
@@ -132,15 +134,41 @@ class _MemoryDetailScreenState extends ConsumerState<MemoryDetailScreen> {
               style: TextStyle(color: c.textMuted, fontSize: 14),
             ),
             const SizedBox(height: AppSpacing.s16),
-            FilledButton.icon(
-              icon: const Icon(Icons.add_photo_alternate_outlined),
-              label: const Text('Add Photos & Videos'),
-              onPressed: () =>
-                  MultiMediaPickerScreen.open(context, memoryId: memory.id),
-              style: FilledButton.styleFrom(
-                backgroundColor: c.primary,
-                foregroundColor: c.primaryInverse,
-              ),
+            Wrap(
+              spacing: AppSpacing.s8,
+              runSpacing: AppSpacing.s8,
+              alignment: WrapAlignment.center,
+              children: [
+                FilledButton.icon(
+                  icon: const Icon(Icons.add_photo_alternate_outlined),
+                  label: const Text('Add Photos & Videos'),
+                  onPressed: () =>
+                      MultiMediaPickerScreen.open(context, memoryId: memory.id),
+                  style: FilledButton.styleFrom(
+                    backgroundColor: c.primary,
+                    foregroundColor: c.primaryInverse,
+                  ),
+                ),
+                OutlinedButton.icon(
+                  icon: const Icon(Icons.auto_awesome, size: 18),
+                  label: const Text('Ask AI Assistant'),
+                  onPressed: () => MemoryAiAssistantSheet.show(
+                    context,
+                    memory,
+                    onExecuteAction: (action, params) => ref
+                        .read(homeAssistantProvider.notifier)
+                        .executeAction(
+                          context,
+                          actionOverride: action,
+                          actionParamsOverride: params,
+                        ),
+                  ),
+                  style: OutlinedButton.styleFrom(
+                    foregroundColor: c.primary,
+                    side: BorderSide(color: c.primary.withValues(alpha: 0.5)),
+                  ),
+                ),
+              ],
             ),
           ],
         ),
@@ -281,6 +309,30 @@ class _MemoryDetailScreenState extends ConsumerState<MemoryDetailScreen> {
                   onPressed: () => Navigator.pop(context),
                 ),
                 actions: [
+                  IconButton(
+                    icon: Icon(
+                      Icons.auto_awesome,
+                      color: adt.AppColors.onDarkPrimary,
+                      shadows: [
+                        Shadow(
+                          color: adt.AppColors.plum900.withValues(alpha: 0.45),
+                          blurRadius: 4,
+                        ),
+                      ],
+                    ),
+                    tooltip: 'AI Assistant',
+                    onPressed: () => MemoryAiAssistantSheet.show(
+                      context,
+                      memory,
+                      onExecuteAction: (action, params) => ref
+                          .read(homeAssistantProvider.notifier)
+                          .executeAction(
+                            context,
+                            actionOverride: action,
+                            actionParamsOverride: params,
+                          ),
+                    ),
+                  ),
                   PopupMenuButton<String>(
                     icon: Icon(
                       Icons.more_horiz,
@@ -414,6 +466,22 @@ class _MemoryDetailScreenState extends ConsumerState<MemoryDetailScreen> {
                         onTap: () => MultiMediaPickerScreen.open(
                           context,
                           memoryId: memory.id,
+                        ),
+                      ),
+                      _ActionButton(
+                        icon: Icons.auto_awesome,
+                        label: 'AI Assistant',
+                        c: c,
+                        onTap: () => MemoryAiAssistantSheet.show(
+                          context,
+                          memory,
+                          onExecuteAction: (action, params) => ref
+                              .read(homeAssistantProvider.notifier)
+                              .executeAction(
+                                context,
+                                actionOverride: action,
+                                actionParamsOverride: params,
+                              ),
                         ),
                       ),
                       _ActionButton(

@@ -75,7 +75,13 @@ class HomeAssistantResponse(BaseModel):
 
 class HomeAssistantService:
     @staticmethod
-    def process_command(user_id: str, query: str, context: Optional[Dict[str, Any]] = None) -> HomeAssistantResponse:
+    def process_command(
+        user_id: str,
+        query: str,
+        context: Optional[Dict[str, Any]] = None,
+        context_memory_id: Optional[str] = None,
+        context_vault_id: Optional[str] = None,
+    ) -> HomeAssistantResponse:
         """
         Main entry point for processing Home Assistant natural language commands.
         Uses deterministic pattern matching & entity resolution first, ensuring sub-50ms latency
@@ -84,6 +90,20 @@ class HomeAssistantService:
         q = query.strip()
         q_lower = q.lower()
         supabase = get_supabase_client()
+        ctx_memory_id = context_memory_id or (context or {}).get("memory_id")
+        ctx_vault_id = context_vault_id or (context or {}).get("vault_id")
+        ctx_mem = HomeAssistantService._get_memory_by_id(user_id, ctx_memory_id) if ctx_memory_id else None
+
+        def _resolve_target_mem(name: Optional[str]) -> Optional[Dict[str, Any]]:
+            if not name:
+                return ctx_mem
+            clean = name.strip(" ?.\"").lower()
+            if clean in ["this", "it", "this memory", "the memory", "current", "here", "current memory"]:
+                return ctx_mem
+            resolved = HomeAssistantService._resolve_memory_by_name(user_id, name)
+            if not resolved and ctx_mem:
+                return ctx_mem
+            return resolved
 
         # -------------------------------------------------------------
         # 1. CREATE MEMORY
@@ -245,26 +265,32 @@ class HomeAssistantService:
             q,
             re.IGNORECASE,
         )
-        if count_match:
+        if not count_match and ctx_mem and any(k in q_lower for k in ["how many photos", "how many items", "how many moments", "media count"]):
+            entity_name = None
+            resolved_mem = ctx_mem
+        elif count_match:
             entity_name = count_match.group(1).strip(" ?.\"")
-            resolved_mem = HomeAssistantService._resolve_memory_by_name(user_id, entity_name)
-            if resolved_mem:
-                media_list = resolved_mem.get("media") or []
-                photos = sum(1 for m in media_list if m.get("media_type") == "image")
-                videos = sum(1 for m in media_list if m.get("media_type") == "video")
-                total = len(media_list)
-                return HomeAssistantResponse(
-                    message=f"'{resolved_mem['title']}' has {total} moment(s): {photos} photo(s) and {videos} video(s).",
-                    intent="GET_MEMORY_MEDIA_COUNT",
-                    actions=[AssistantAction(type="OPEN_MEMORY", memory_id=resolved_mem["id"])],
-                    suggested_chips=["Check Readiness", "Generate Video", "Open Memory"],
-                )
-            else:
-                return HomeAssistantResponse(
-                    message=f"I couldn't find a memory named '{entity_name}'. Would you like to create it?",
-                    intent="GET_MEMORY_MEDIA_COUNT",
-                    suggested_chips=[f"Create memory {entity_name}", "Show my memories"],
-                )
+            resolved_mem = _resolve_target_mem(entity_name)
+        else:
+            resolved_mem = None
+
+        if resolved_mem:
+            media_list = resolved_mem.get("media") or []
+            photos = sum(1 for m in media_list if m.get("media_type") == "image")
+            videos = sum(1 for m in media_list if m.get("media_type") == "video")
+            total = len(media_list)
+            return HomeAssistantResponse(
+                message=f"'{resolved_mem['title']}' has {total} moment(s): {photos} photo(s) and {videos} video(s).",
+                intent="GET_MEMORY_MEDIA_COUNT",
+                actions=[AssistantAction(type="OPEN_MEMORY", memory_id=resolved_mem["id"])],
+                suggested_chips=["Check Readiness", "Generate Video", "Open Memory"],
+            )
+        elif count_match and entity_name:
+            return HomeAssistantResponse(
+                message=f"I couldn't find a memory named '{entity_name}'. Would you like to create it?",
+                intent="GET_MEMORY_MEDIA_COUNT",
+                suggested_chips=[f"Create memory {entity_name}", "Show my memories"],
+            )
 
         # -------------------------------------------------------------
         # 6. CHECK READINESS
@@ -275,29 +301,35 @@ class HomeAssistantService:
             q,
             re.IGNORECASE,
         )
-        if ready_match:
+        if not ready_match and ctx_mem and any(k in q_lower for k in ["is it ready", "is this ready", "check readiness", "am i ready"]):
+            entity_name = None
+            resolved_mem = ctx_mem
+        elif ready_match:
             entity_name = (ready_match.group(1) or ready_match.group(2) or "").strip(" ?.\"")
-            resolved_mem = HomeAssistantService._resolve_memory_by_name(user_id, entity_name)
-            if resolved_mem:
-                readiness = memory_readiness_service.evaluate_memory_readiness(user_id, resolved_mem["id"])
-                return HomeAssistantResponse(
-                    message=f"Readiness check for '{resolved_mem['title']}':\n{readiness.status_summary}",
-                    intent="CHECK_MEMORY_READINESS",
-                    actions=[
-                        AssistantAction(
-                            type="SHOW_READINESS",
-                            memory_id=resolved_mem["id"],
-                            data=readiness.model_dump(),
-                        )
-                    ],
-                    suggested_chips=["Generate Video", "Open AI Director", "Open Memory"],
-                )
-            else:
-                return HomeAssistantResponse(
-                    message=f"I couldn't locate a memory called '{entity_name}' to check its readiness.",
-                    intent="CHECK_MEMORY_READINESS",
-                    suggested_chips=["Show my memories"],
-                )
+            resolved_mem = _resolve_target_mem(entity_name)
+        else:
+            resolved_mem = None
+
+        if resolved_mem:
+            readiness = memory_readiness_service.evaluate_memory_readiness(user_id, resolved_mem["id"])
+            return HomeAssistantResponse(
+                message=f"Readiness check for '{resolved_mem['title']}':\n{readiness.status_summary}",
+                intent="CHECK_MEMORY_READINESS",
+                actions=[
+                    AssistantAction(
+                        type="SHOW_READINESS",
+                        memory_id=resolved_mem["id"],
+                        data=readiness.model_dump(),
+                    )
+                ],
+                suggested_chips=["Generate Video", "Open AI Director", "Open Memory"],
+            )
+        elif ready_match and entity_name:
+            return HomeAssistantResponse(
+                message=f"I couldn't locate a memory called '{entity_name}' to check its readiness.",
+                intent="CHECK_MEMORY_READINESS",
+                suggested_chips=["Show my memories"],
+            )
 
         # -------------------------------------------------------------
         # 7. GENERATE VIDEO
@@ -308,77 +340,82 @@ class HomeAssistantService:
             q,
             re.IGNORECASE,
         )
-        if gen_match and not any(k in q_lower for k in ["memory", "vault", "room"]):
+        if not gen_match and ctx_mem and any(k in q_lower for k in ["generate video", "make video", "create video", "make a reel", "create reel", "render video"]):
+            resolved_mem = ctx_mem
+        elif gen_match and not any(k in q_lower for k in ["memory", "vault", "room"]):
             entity_name = gen_match.group(1).strip(" ?.\"")
-            resolved_mem = HomeAssistantService._resolve_memory_by_name(user_id, entity_name)
-            if resolved_mem:
-                mem_id = resolved_mem["id"]
-                # 1. Check readiness
-                readiness = memory_readiness_service.evaluate_memory_readiness(user_id, mem_id)
-                if not readiness.is_ready_for_video:
-                    if readiness.active_job_id:
-                        return HomeAssistantResponse(
-                            message=f"'{resolved_mem['title']}' is already being rendered ({readiness.active_job_progress}%).",
-                            intent="GENERATE_MEMORY_VIDEO",
-                            actions=[
-                                AssistantAction(
-                                    type="WATCH_VIDEO_JOB",
-                                    memory_id=mem_id,
-                                    job_id=readiness.active_job_id,
-                                )
-                            ],
-                            suggested_chips=["Check Status", "Open Memory"],
-                        )
-                    else:
-                        blocker_text = "; ".join(readiness.blockers)
-                        return HomeAssistantResponse(
-                            message=f"'{resolved_mem['title']}' is not ready for video generation yet: {blocker_text}",
-                            intent="GENERATE_MEMORY_VIDEO",
-                            actions=[AssistantAction(type="OPEN_MEMORY", memory_id=mem_id)],
-                            suggested_chips=["Add Media", "Check Readiness"],
-                        )
+            resolved_mem = _resolve_target_mem(entity_name)
+        else:
+            resolved_mem = None
 
-                # 2. Extract optional duration / aspect ratio if present
-                duration = 30
-                dur_match = re.search(r"(\d+)\s*(?:sec|second|s)", q_lower)
-                if dur_match:
-                    duration = int(dur_match.group(1))
+        if resolved_mem:
+            mem_id = resolved_mem["id"]
+            # 1. Check readiness
+            readiness = memory_readiness_service.evaluate_memory_readiness(user_id, mem_id)
+            if not readiness.is_ready_for_video:
+                if readiness.active_job_id:
+                    return HomeAssistantResponse(
+                        message=f"'{resolved_mem['title']}' is already being rendered ({readiness.active_job_progress}%).",
+                        intent="GENERATE_MEMORY_VIDEO",
+                        actions=[
+                            AssistantAction(
+                                type="WATCH_VIDEO_JOB",
+                                memory_id=mem_id,
+                                job_id=readiness.active_job_id,
+                            )
+                        ],
+                        suggested_chips=["Check Status", "Open Memory"],
+                    )
+                else:
+                    blocker_text = "; ".join(readiness.blockers)
+                    return HomeAssistantResponse(
+                        message=f"'{resolved_mem['title']}' is not ready for video generation yet: {blocker_text}",
+                        intent="GENERATE_MEMORY_VIDEO",
+                        actions=[AssistantAction(type="OPEN_MEMORY", memory_id=mem_id)],
+                        suggested_chips=["Add Media", "Check Readiness"],
+                    )
 
-                aspect_ratio = "16:9"
-                if "reel" in q_lower or "portrait" in q_lower or "9:16" in q_lower or "tiktok" in q_lower:
-                    aspect_ratio = "9:16"
+            # 2. Extract optional duration / aspect ratio if present
+            duration = 30
+            dur_match = re.search(r"(\d+)\s*(?:sec|second|s)", q_lower)
+            if dur_match:
+                duration = int(dur_match.group(1))
 
-                # 3. Create durable VideoJob
-                new_job = video_worker_pool.submit_video_job(
-                    user_id=user_id,
-                    memory_id=mem_id,
-                    conversation_id=f"home_assistant_{user_id[:8]}",
-                    specification={
-                        "memory_id": mem_id,
-                        "duration_seconds": duration,
-                        "aspect_ratio": aspect_ratio,
-                        "mood": "nostalgic",
-                        "music_style": "cinematic_ambient",
-                        "pacing": "moderate",
-                    },
-                )
+            aspect_ratio = "16:9"
+            if "reel" in q_lower or "portrait" in q_lower or "9:16" in q_lower or "tiktok" in q_lower:
+                aspect_ratio = "9:16"
 
-                return HomeAssistantResponse(
-                    message=(
-                        f"Started generating a {duration}s ({aspect_ratio}) memory video for '{resolved_mem['title']}'. "
-                        "You can track live progress below."
-                    ),
-                    intent="GENERATE_MEMORY_VIDEO",
-                    actions=[
-                        AssistantAction(
-                            type="WATCH_VIDEO_JOB",
-                            memory_id=mem_id,
-                            job_id=new_job.job_id,
-                            data={"title": resolved_mem["title"], "duration": duration},
-                        )
-                    ],
-                    suggested_chips=["Check Status", "Open AI Director"],
-                )
+            # 3. Create durable VideoJob
+            new_job = video_worker_pool.submit_video_job(
+                user_id=user_id,
+                memory_id=mem_id,
+                conversation_id=f"home_assistant_{user_id[:8]}",
+                specification={
+                    "memory_id": mem_id,
+                    "duration_seconds": duration,
+                    "aspect_ratio": aspect_ratio,
+                    "mood": "nostalgic",
+                    "music_style": "cinematic_ambient",
+                    "pacing": "moderate",
+                },
+            )
+
+            return HomeAssistantResponse(
+                message=(
+                    f"Started generating a {duration}s ({aspect_ratio}) memory video for '{resolved_mem['title']}'. "
+                    "You can track live progress below."
+                ),
+                intent="GENERATE_MEMORY_VIDEO",
+                actions=[
+                    AssistantAction(
+                        type="WATCH_VIDEO_JOB",
+                        memory_id=mem_id,
+                        job_id=new_job.job_id,
+                        data={"title": resolved_mem["title"], "duration": duration},
+                    )
+                ],
+                suggested_chips=["Check Status", "Open AI Director"],
+            )
 
         # -------------------------------------------------------------
         # 8. CHECK JOB STATUS / HOW IS PROCESSING
@@ -597,6 +634,51 @@ class HomeAssistantService:
                 )
 
         # -------------------------------------------------------------
+        # 14. SUGGESTIONS & IDEAS FOR A MEMORY
+        # Examples: "What should I add?", "Suggest photos", "How to complete this memory"
+        # -------------------------------------------------------------
+        if any(p in q_lower for p in ["what should i add", "suggest photos", "how to complete", "ideas for", "suggest media"]) or ("add" in q_lower and "photos" in q_lower and "what" in q_lower):
+            target = ctx_mem
+            if not target:
+                mems = HomeAssistantService._fetch_user_memories(user_id)
+                target = mems[0] if mems else None
+            if target:
+                media_list = target.get("media") or []
+                total = len(media_list)
+                if total == 0:
+                    msg = f"For '{target['title']}', start by adding 3–6 photos or short clips of the key highlights. Once added, I can analyze the emotions and stitch them into a story reel."
+                elif total < 3:
+                    msg = f"'{target['title']}' has {total} moment(s). Adding 2–3 more moments will make it eligible for an AI memory video."
+                else:
+                    msg = f"'{target['title']}' has {total} moments and is in great shape! You can customize emotion and pacing with AI Director or generate a video reel."
+                return HomeAssistantResponse(
+                    message=msg,
+                    intent="SUGGEST_MEMORY_MEDIA",
+                    actions=[AssistantAction(type="ADD_MEDIA", memory_id=target["id"])],
+                    suggested_chips=["Add Media", "Check Readiness", "Open AI Director"],
+                )
+
+        # -------------------------------------------------------------
+        # 15. SUMMARIZE MEMORY
+        # Examples: "Summarize this memory", "Tell me about Chennai", "Describe this memory"
+        # -------------------------------------------------------------
+        if any(p in q_lower for p in ["summarize", "tell me about", "describe this"]) and not any(k in q_lower for k in ["trip", "vacation"]):
+            target = ctx_mem
+            if not target:
+                sum_match = re.search(r"(?:summarize|tell me about|describe)(?:\s+(?:the|my))?(?:\s+memory)?\s+[\"']?(.+?)[\"']?\??$", q, re.IGNORECASE)
+                if sum_match:
+                    target = HomeAssistantService._resolve_memory_by_name(user_id, sum_match.group(1))
+            if target:
+                media_list = target.get("media") or []
+                desc = target.get("description") or "No description provided."
+                return HomeAssistantResponse(
+                    message=f"Summary of '{target['title']}':\n{desc}\nMoments: {len(media_list)} item(s).",
+                    intent="SUMMARIZE_MEMORY",
+                    actions=[AssistantAction(type="OPEN_MEMORY", memory_id=target["id"])],
+                    suggested_chips=["Check Readiness", "Generate Video", "Add Media"],
+                )
+
+        # -------------------------------------------------------------
         # Fallback: Conversational Guidance
         # -------------------------------------------------------------
         return HomeAssistantResponse(
@@ -650,7 +732,12 @@ class HomeAssistantService:
     def _get_memory_by_id(user_id: str, memory_id: str) -> Optional[Dict[str, Any]]:
         supabase = get_supabase_client()
         try:
-            res = supabase.table("memories").select("id, title, owner_id").eq("id", memory_id).execute()
+            res = (
+                supabase.table("memories")
+                .select("id, title, memory_date, description, owner_id, media!media_memory_id_fkey(id, media_type, url, thumbnail_url)")
+                .eq("id", memory_id)
+                .execute()
+            )
             if res.data and res.data[0].get("owner_id") == user_id:
                 return res.data[0]
         except Exception:

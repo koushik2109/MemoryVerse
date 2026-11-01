@@ -10,6 +10,7 @@ import 'package:memory_verse/core/repositories/app_repositories.dart';
 class _FakeAiRepository implements AiRepository {
   final Map<String, Completer<Map<String, dynamic>>> pendingReplies = {};
   final Map<String, Map<String, dynamic>> replies = {};
+  String? lastContextMemoryId;
 
   @override
   Future<Map<String, dynamic>> chat({
@@ -49,8 +50,11 @@ class _FakeAiRepository implements AiRepository {
   @override
   Future<Map<String, dynamic>> askHomeAssistant({
     required String message,
+    String? contextMemoryId,
+    String? contextVaultId,
     Map<String, dynamic>? clientContext,
   }) async {
+    lastContextMemoryId = contextMemoryId;
     final pending = pendingReplies[message];
     if (pending != null) return pending.future;
     return replies[message] ?? _reply('No matching action.', action: 'NONE');
@@ -148,5 +152,47 @@ void main() {
     expect(state.query, isNull);
     expect(state.responseMessage, isNull);
     expect(state.isLoading, isFalse);
+  });
+
+  test('submits contextual query and parses ADD_MEDIA action', () async {
+    final controller = container.read(homeAssistantProvider.notifier);
+    repository.replies['what should I add'] = _reply(
+      'Add more moments to this memory.',
+      action: 'ADD_MEDIA',
+      params: {'memory_id': 'mem-context-1'},
+    );
+
+    await controller.submitQuery('what should I add', contextMemoryId: 'mem-context-1');
+
+    final state = container.read(homeAssistantProvider);
+    expect(state.action, 'ADD_MEDIA');
+    expect(state.actionParams['memory_id'], 'mem-context-1');
+    expect(state.responseMessage, 'Add more moments to this memory.');
+  });
+
+  test('memory assistant keeps context and reply separate from Home assistant',
+      () async {
+    final memorySub = container.listen(
+      memoryAssistantProvider('mem-context-2'),
+      (_, __) {},
+      fireImmediately: true,
+    );
+    repository.replies['check readiness'] = _reply(
+      'This memory is ready.',
+      action: 'SHOW_READINESS',
+      params: {'memory_id': 'mem-context-2'},
+    );
+
+    await container
+        .read(memoryAssistantProvider('mem-context-2').notifier)
+        .submitMemoryQuery('check readiness');
+
+    expect(repository.lastContextMemoryId, 'mem-context-2');
+    expect(
+      container.read(memoryAssistantProvider('mem-context-2')).responseMessage,
+      'This memory is ready.',
+    );
+    expect(container.read(homeAssistantProvider).responseMessage, isNull);
+    memorySub.close();
   });
 }

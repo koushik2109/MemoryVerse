@@ -7,10 +7,32 @@ import 'package:memory_verse/core/repositories/app_repositories.dart';
 import 'package:memory_verse/contracts/models.dart';
 import 'package:memory_verse/core/widgets/media.dart';
 import 'package:memory_verse/features/memories/presentation/video_player_screen.dart';
+import 'package:memory_verse/core/navigation/router.dart';
 import 'package:memory_verse/core/theme/app_design_tokens.dart' as adt;
 
 class AiScreen extends ConsumerStatefulWidget {
-  const AiScreen({super.key});
+  final String? memoryId;
+  final String? memoryTitle;
+
+  const AiScreen({
+    super.key,
+    this.memoryId,
+    this.memoryTitle,
+  });
+
+  static void open(
+    BuildContext context, {
+    String? memoryId,
+    String? memoryTitle,
+  }) {
+    context.push(
+      Routes.ai,
+      extra: {
+        if (memoryId != null) 'memory_id': memoryId,
+        if (memoryTitle != null) 'memory_title': memoryTitle,
+      },
+    );
+  }
 
   @override
   ConsumerState<AiScreen> createState() => _AiScreenState();
@@ -22,6 +44,7 @@ class _AiScreenState extends ConsumerState<AiScreen> {
   final List<AiMessageModel> _messages = [];
   String? _currentConvoId;
   bool _sending = false;
+  String? _historyLoadError;
 
   static const _suggestions = [
     'Summarize my last trip',
@@ -30,11 +53,60 @@ class _AiScreenState extends ConsumerState<AiScreen> {
     'Create a highlight reel',
   ];
 
+  List<String> get _activeSuggestions {
+    if (widget.memoryTitle != null && widget.memoryTitle!.isNotEmpty) {
+      final title = widget.memoryTitle!;
+      return [
+        'What should I add to $title?',
+        'Is $title ready for a video?',
+        'Generate a video for $title',
+        'Summarize $title',
+      ];
+    }
+    return _suggestions;
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _restoreLatestConversation();
+  }
+
   @override
   void dispose() {
     _msgController.dispose();
     _scrollController.dispose();
     super.dispose();
+  }
+
+  Future<void> _restoreLatestConversation() async {
+    try {
+      final conversations =
+          await ref.read(aiRepositoryProvider).listConversations();
+      if (conversations.isEmpty || !mounted || _messages.isNotEmpty || _sending) {
+        return;
+      }
+
+      final conversation = conversations.first;
+      final messages =
+          await ref.read(aiRepositoryProvider).getMessages(conversation.id);
+      if (!mounted || _messages.isNotEmpty || _sending) return;
+
+      setState(() {
+        _currentConvoId = conversation.id;
+        _messages
+          ..clear()
+          ..addAll(messages);
+        _historyLoadError = null;
+      });
+      _scrollToBottom();
+    } catch (error) {
+      if (mounted) {
+        setState(() {
+          _historyLoadError = 'Previous conversations could not be loaded.';
+        });
+      }
+    }
   }
 
   Future<void> _send() async {
@@ -128,6 +200,57 @@ class _AiScreenState extends ConsumerState<AiScreen> {
       ),
       body: Column(
         children: [
+          if (widget.memoryTitle != null)
+            Container(
+              margin: const EdgeInsets.fromLTRB(
+                AppSpacing.s20,
+                AppSpacing.s8,
+                AppSpacing.s20,
+                AppSpacing.s4,
+              ),
+              padding: const EdgeInsets.symmetric(
+                horizontal: AppSpacing.s16,
+                vertical: AppSpacing.s8,
+              ),
+              decoration: BoxDecoration(
+                color: c.surfaceElevated,
+                borderRadius: BorderRadius.circular(AppRadii.lg),
+                border: Border.all(
+                  color: c.primary.withValues(alpha: 0.3),
+                ),
+              ),
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.auto_awesome,
+                    size: 16,
+                    color: c.primary,
+                  ),
+                  const SizedBox(width: AppSpacing.s8),
+                  Expanded(
+                    child: Text(
+                      'Focusing on: ${widget.memoryTitle}',
+                      style: const TextStyle(
+                        color: adt.AppColors.onDarkPrimary,
+                        fontSize: 13,
+                        fontWeight: FontWeight.w500,
+                      ),
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          if (_historyLoadError != null)
+            Padding(
+              padding: const EdgeInsets.fromLTRB(
+                AppSpacing.s20,
+                AppSpacing.s12,
+                AppSpacing.s20,
+                0,
+              ),
+              child: Text(_historyLoadError!, style: TextStyle(color: c.textMuted)),
+            ),
           // Messages
           Expanded(
             child: _messages.isEmpty
@@ -136,6 +259,7 @@ class _AiScreenState extends ConsumerState<AiScreen> {
                     name:
                         profileAsync.valueOrNull?.fullName?.split(' ').first ??
                         'there',
+                    suggestions: _activeSuggestions,
                     onSuggestion: (s) {
                       _msgController.text = s;
                       _send();
@@ -227,10 +351,12 @@ class _WelcomeView extends StatelessWidget {
   const _WelcomeView({
     required this.c,
     required this.name,
+    required this.suggestions,
     required this.onSuggestion,
   });
   final AppColors c;
   final String name;
+  final List<String> suggestions;
   final ValueChanged<String> onSuggestion;
 
   @override
@@ -263,7 +389,7 @@ class _WelcomeView extends StatelessWidget {
                 ?.copyWith(color: c.textMuted),
           ),
           const SizedBox(height: AppSpacing.s32),
-          ..._AiScreenState._suggestions.map(
+          ...suggestions.map(
             (s) => Padding(
               padding: const EdgeInsets.only(bottom: AppSpacing.s10),
               child: GestureDetector(

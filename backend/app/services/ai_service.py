@@ -194,6 +194,68 @@ def _call_openrouter(prompt: str, context: str, api_key: str, model: str) -> LLM
     raise RuntimeError("All OpenRouter candidate models failed.")
 
 
+def _call_groq(prompt: str, context: str, api_key: str, model: str) -> LLMResponse:
+    """Call Groq Cloud Chat API with candidate model fallback."""
+    import httpx
+    headers = {
+        "Authorization": f"Bearer {api_key}",
+        "Content-Type": "application/json",
+    }
+
+    candidate_models = []
+    if model:
+        candidate_models.append(model)
+    candidate_models.extend([
+        "openai/gpt-oss-120b",
+        "openai/gpt-oss-20b",
+        "qwen/qwen3.8-27b",
+        "llama-3.3-70b-versatile",
+        "llama-3.1-8b-instant",
+    ])
+    seen = set()
+    models_to_try = [m for m in candidate_models if not (m in seen or seen.add(m))]
+
+    sys_content = (
+        "You are MemoryVerse AI, a warm and helpful personal memory assistant. "
+        "You help users explore, search, and relive their personal memories. "
+        "Answer based on the provided memory context. "
+        "Be warm, personal, and conversational. "
+        "When presenting, filtering, or highlighting memories, describe them naturally in sentences or bullet points. "
+        "Do NOT render ASCII or Markdown tables of filenames, because the app automatically displays interactive visual photo and video cards for the user below your message."
+    ) if context else "You are an intelligent AI assistant. Follow the prompt instructions precisely."
+
+    user_content = f"Memory context:\n{context}\n\nUser question: {prompt}" if context else prompt
+
+    last_exc = None
+    with httpx.Client(timeout=httpx.Timeout(connect=10.0, read=35.0, write=30.0, pool=10.0)) as client:
+        for m in models_to_try:
+            try:
+                body = {
+                    "model": m,
+                    "messages": [
+                        {"role": "system", "content": sys_content},
+                        {"role": "user", "content": user_content},
+                    ],
+                    "max_tokens": 1200,
+                    "temperature": 0.5,
+                }
+                resp = client.post("https://api.groq.com/openai/v1/chat/completions", json=body, headers=headers)
+                if resp.status_code == 200:
+                    data = resp.json()
+                    choices = data.get("choices") or []
+                    if choices and "message" in choices[0]:
+                        answer = choices[0]["message"]["content"].strip()
+                        return LLMResponse(text=answer)
+                logger.warning(f"Groq model {m} returned {resp.status_code}: {resp.text[:120]}")
+            except Exception as e:
+                logger.warning(f"Groq model {m} failed: {e}")
+                last_exc = e
+
+    if last_exc:
+        raise last_exc
+    raise RuntimeError("All Groq candidate models failed.")
+
+
 def _fallback_response(prompt: str, context: str) -> LLMResponse:
     """Intelligent fallback when no LLM key is configured."""
     if context.strip():
@@ -216,15 +278,18 @@ def _fallback_response(prompt: str, context: str) -> LLMResponse:
 def _call_llm(prompt: str, context: str) -> LLMResponse:
     """Route to the configured LLM provider."""
     provider = settings.LLM_PROVIDER.lower()
-    api_key = settings.LLM_API_KEY
-    model = settings.LLM_MODEL
+    api_key = settings.LLM_API_KEY or settings.GROQ_API_KEY
+    model = settings.LLM_MODEL or settings.GROQ_MODEL
 
     if not api_key or provider == "none":
         return _fallback_response(prompt, context)
 
     try:
+        # Auto-detect Groq keys starting with gsk_ or explicit provider "groq"
+        if api_key.startswith("gsk_") or provider == "groq":
+            return _call_groq(prompt, context, api_key, model)
         # Auto-detect OpenRouter keys starting with sk-or-v1-
-        if api_key.startswith("sk-or-v1-") or provider == "openrouter":
+        elif api_key.startswith("sk-or-v1-") or provider == "openrouter":
             return _call_openrouter(prompt, context, api_key, model)
         elif provider == "openai":
             return _call_openai(prompt, context, api_key, model)
@@ -317,19 +382,100 @@ def _call_openrouter_vlm(image_bytes: bytes, prompt: str, api_key: str, preferre
     raise RuntimeError("All OpenRouter vision models failed.")
 
 
+def _call_groq_vlm(image_bytes: bytes, prompt: str, api_key: str, preferred_model: str = "") -> str:
+    """Call Groq multimodal vision models (e.g. qwen/qwen3.8-27b) with downsampled image payload."""
+    import httpx
+    import base64
+
+    # Downsample image and ensure minimum 32x32 dimensions required by Groq
+    compact_bytes = _downsample_image_for_vlm(image_bytes, max_dim=768, quality=80)
+    try:
+        from PIL import Image
+        import io
+        pil_img = Image.open(io.BytesIO(compact_bytes))
+        w, h = pil_img.size
+        if w < 32 or h < 32:
+            new_w = max(32, w)
+            new_h = max(32, h)
+            pil_img = pil_img.resize((new_w, new_h), Image.Resampling.BILINEAR)
+            buf = io.BytesIO()
+            pil_img.save(buf, format="JPEG", quality=85)
+            compact_bytes = buf.getvalue()
+    except Exception as e:
+        logger.warning(f"Image resize check failed: {e}")
+
+    b64_img = base64.b64encode(compact_bytes).decode("utf-8")
+    data_uri = f"data:image/jpeg;base64,{b64_img}"
+
+    headers = {
+        "Authorization": f"Bearer {api_key}",
+        "Content-Type": "application/json",
+    }
+
+    vision_models = []
+    if preferred_model:
+        vision_models.append(preferred_model)
+    vision_models.extend([
+        "qwen/qwen3.8-27b",
+        "llama-3.2-11b-vision-preview",
+        "llama-3.2-90b-vision-preview",
+    ])
+    seen = set()
+    models_to_try = [m for m in vision_models if not (m in seen or seen.add(m))]
+
+    last_exc = None
+    with httpx.Client(timeout=httpx.Timeout(connect=15.0, read=45.0, write=60.0, pool=15.0)) as client:
+        for m in models_to_try:
+            try:
+                body = {
+                    "model": m,
+                    "messages": [
+                        {
+                            "role": "user",
+                            "content": [
+                                {"type": "text", "text": prompt},
+                                {"type": "image_url", "image_url": {"url": data_uri}},
+                            ],
+                        }
+                    ],
+                    "max_tokens": 400,
+                    "temperature": 0.2,
+                }
+                if "json" in prompt.lower() and any(k in prompt.lower() for k in ["format", "schema", "object", "keys"]):
+                    body["response_format"] = {"type": "json_object"}
+                resp = client.post("https://api.groq.com/openai/v1/chat/completions", json=body, headers=headers)
+                if resp.status_code == 200:
+                    data = resp.json()
+                    choices = data.get("choices") or []
+                    if choices and "message" in choices[0]:
+                        content = choices[0]["message"].get("content")
+                        if content:
+                            return content.strip()
+                logger.warning(f"Groq VLM model {m} returned {resp.status_code}: {resp.text[:120]}")
+            except Exception as e:
+                logger.warning(f"Groq VLM model {m} failed: {e}")
+                last_exc = e
+
+    if last_exc:
+        raise last_exc
+    raise RuntimeError("All Groq vision models failed.")
+
+
 def call_vlm(image_bytes: bytes, prompt: str) -> str:
     """
     Public entrypoint for Vision-Language Model analysis.
     Sends image bytes and prompt to configured vision provider.
     """
     provider = settings.LLM_PROVIDER.lower()
-    api_key = settings.LLM_API_KEY
+    api_key = settings.LLM_API_KEY or settings.GROQ_API_KEY
     model = settings.LLM_MODEL
 
     if not api_key or provider == "none":
         return "Image moment (VLM key not configured)"
 
-    if api_key.startswith("sk-or-v1-") or provider == "openrouter":
+    if api_key.startswith("gsk_") or provider == "groq":
+        return _call_groq_vlm(image_bytes, prompt, api_key, settings.GROQ_VLM_MODEL or "qwen/qwen3.8-27b")
+    elif api_key.startswith("sk-or-v1-") or provider == "openrouter":
         return _call_openrouter_vlm(image_bytes, prompt, api_key, model)
     elif provider == "openai":
         # Standard OpenAI vision
@@ -613,7 +759,7 @@ class AIService:
             try:
                 m_res = supabase.table("media") \
                     .select("id, filename, media_type, created_at, location_name, vault_id, memory_id, owner_id, storage_path, url, thumbnail_url, file_size, mime_type") \
-                    .in_("id", list(all_media_ids)).execute()
+                    .in_("id", list(all_media_ids)).eq("owner_id", user_id).execute()
                 m_rows = cast(list[dict[str, Any]], m_res.data or [])
                 for m_row in m_rows:
                     media_by_id[str(m_row["id"])] = _row_to_media_response(m_row)

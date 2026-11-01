@@ -478,12 +478,16 @@ class AiRepository {
 
   Future<Map<String, dynamic>> askHomeAssistant({
     required String message,
+    String? contextMemoryId,
+    String? contextVaultId,
     Map<String, dynamic>? clientContext,
   }) async {
     final res = await _api.post(
       '/ai/home-assistant',
       data: {
         'message': message,
+        if (contextMemoryId != null) 'context_memory_id': contextMemoryId,
+        if (contextVaultId != null) 'context_vault_id': contextVaultId,
         if (clientContext != null) 'client_context': clientContext,
       },
     );

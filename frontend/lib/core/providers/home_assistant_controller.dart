@@ -7,6 +7,7 @@ import 'package:memory_verse/core/repositories/app_repositories.dart';
 import 'package:memory_verse/features/memories/presentation/ai_director_screen.dart';
 import 'package:memory_verse/features/memories/presentation/create_memory_sheet.dart';
 import 'package:memory_verse/features/memories/presentation/memory_detail_screen.dart';
+import 'package:memory_verse/features/memories/presentation/multi_media_picker_screen.dart';
 import 'package:memory_verse/features/memories/presentation/video_player_screen.dart';
 import 'package:memory_verse/features/vaults/presentation/create_vault_dialog.dart';
 import 'package:memory_verse/features/vaults/presentation/vault_detail_screen.dart';
@@ -85,7 +86,11 @@ class HomeAssistantController extends StateNotifier<HomeAssistantState> {
     state = const HomeAssistantState();
   }
 
-  Future<void> submitQuery(String message) async {
+  Future<void> submitQuery(
+    String message, {
+    String? contextMemoryId,
+    String? contextVaultId,
+  }) async {
     final trimmed = message.trim();
     if (trimmed.isEmpty) return;
 
@@ -98,7 +103,11 @@ class HomeAssistantController extends StateNotifier<HomeAssistantState> {
     );
 
     try {
-      final res = await _aiRepo.askHomeAssistant(message: trimmed);
+      final res = await _aiRepo.askHomeAssistant(
+        message: trimmed,
+        contextMemoryId: contextMemoryId,
+        contextVaultId: contextVaultId,
+      );
       if (generation != _requestGeneration) return;
       final reply = res['message'] as String? ?? 'Done.';
       final intent = res['intent'] as String?;
@@ -134,9 +143,13 @@ class HomeAssistantController extends StateNotifier<HomeAssistantState> {
     }
   }
 
-  void executeAction(BuildContext context) {
-    final action = state.action;
-    final params = state.actionParams;
+  void executeAction(
+    BuildContext context, {
+    String? actionOverride,
+    Map<String, dynamic>? actionParamsOverride,
+  }) {
+    final action = actionOverride ?? state.action;
+    final params = actionParamsOverride ?? state.actionParams;
     if (action == null) return;
 
     switch (action) {
@@ -160,6 +173,13 @@ class HomeAssistantController extends StateNotifier<HomeAssistantState> {
           initialPrompt: params['initial_prompt']?.toString(),
           autoStartDiscovery: params['auto_start_discovery'] == true,
         );
+        break;
+
+      case 'ADD_MEDIA':
+        final memoryId = params['memory_id']?.toString();
+        if (memoryId != null && memoryId.isNotEmpty) {
+          MultiMediaPickerScreen.open(context, memoryId: memoryId);
+        }
         break;
 
       case 'OPEN_VAULT':
@@ -251,4 +271,23 @@ final homeAssistantProvider =
     StateNotifierProvider<HomeAssistantController, HomeAssistantState>((ref) {
   final aiRepo = ref.watch(aiRepositoryProvider);
   return HomeAssistantController(aiRepo, ref);
+});
+
+class MemoryAssistantController extends HomeAssistantController {
+  final String memoryId;
+
+  MemoryAssistantController(
+    super.aiRepo,
+    super.ref,
+    this.memoryId,
+  );
+
+  Future<void> submitMemoryQuery(String message) =>
+      submitQuery(message, contextMemoryId: memoryId);
+}
+
+final memoryAssistantProvider = StateNotifierProvider.autoDispose.family<
+    MemoryAssistantController, HomeAssistantState, String>((ref, memoryId) {
+  final aiRepo = ref.watch(aiRepositoryProvider);
+  return MemoryAssistantController(aiRepo, ref, memoryId);
 });

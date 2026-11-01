@@ -137,7 +137,21 @@ final routerProvider = Provider<GoRouter>((ref) {
       ),
       GoRoute(
         path: Routes.ai,
-        pageBuilder: (_, __) => _slide(const AiScreen()),
+        pageBuilder: (context, state) {
+          final extra = state.extra;
+          String? memoryId;
+          String? memoryTitle;
+          if (extra is Map<String, dynamic>) {
+            memoryId = extra['memory_id'] as String?;
+            memoryTitle = extra['memory_title'] as String?;
+          }
+          return _slide(
+            AiScreen(
+              memoryId: memoryId,
+              memoryTitle: memoryTitle,
+            ),
+          );
+        },
       ),
       GoRoute(
         path: '/join/:code',
