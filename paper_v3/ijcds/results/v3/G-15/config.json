@@ -1,0 +1,14 @@
+{
+  "item_id": "G-15",
+  "source_deliverable": "T3-08",
+  "title": "Rigorous TOST equivalence testing with pre-stated margins and power",
+  "seed": 42,
+  "git_commit": "HEAD",
+  "files": [
+    "tost_sensitivity_sweep.csv",
+    "config.json",
+    "README.md",
+    "tost_equivalence_summary.csv",
+    "tost_per_comparison_details.json"
+  ]
+}

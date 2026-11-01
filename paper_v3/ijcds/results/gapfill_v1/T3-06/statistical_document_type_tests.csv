@@ -1,0 +1,7 @@
+Document_Type,Layout_Complexity,Query_Count,Best_Text_Proxy_System,Best_Text_Proxy_MRR,ColQwen2_MRR,MRR_Advantage_ColQwen2_vs_Proxy,Dominant_Architecture_Regime
+Administrative Business Forms (FUNSD),Semi-Structured Form & Key-Value Boxes,100,Tuned Hybrid,0.8461,0.612,-0.23409999999999997,Text Proxy Dominant (Char BM25 >> Visual)
+"Charts, Plots & Visual Figures",2D Coordinate Graphics,21,Word BM25,0.16470237881976577,0.714,0.5492976211802342,Native Visual Dominant (Proxy Collapse)
+Corporate Memos & Header Fields,Semi-Structured Header,84,Tuned Hybrid,0.19981558268045307,0.638,0.43818441731954694,Native Visual Dominant (Proxy Collapse)
+Multi-Column Prose & Reports,Multi-Column Text,355,Tuned Hybrid,0.3790095442337587,0.612,0.23299045576624128,Native Visual Dominant (Proxy Collapse)
+Retail Receipts (SROIE),1D Sequential Entity Stream,306,Char 3-5g BM25,0.9442,0.4962,-0.44800000000000006,Text Proxy Dominant (Char BM25 >> Visual)
+Structured Tables & Financial Sheets,2D Non-Linear Tables,40,Tuned Hybrid,0.49563390129108453,0.682,0.18636609870891552,Native Visual Dominant (Proxy Collapse)

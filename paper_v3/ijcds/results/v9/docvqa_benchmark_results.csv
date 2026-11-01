@@ -1,0 +1,7 @@
+Benchmark,System,Query_Count,Document_Count,MRR,MRR_CI_Low,MRR_CI_High,Hit1,Hit5,Hit10,nDCG10
+DocVQA (ViDoRe Subsample),Word BM25,500,500,0.3107,0.2736,0.3496,0.266,0.348,0.38,0.3195
+DocVQA (ViDoRe Subsample),Char 3-5gram BM25,500,500,0.3141,0.2765,0.3526,0.27,0.352,0.394,0.3261
+DocVQA (ViDoRe Subsample),Dense MiniLM,500,500,0.2063,0.1768,0.2359,0.142,0.27,0.306,0.2232
+DocVQA (ViDoRe Subsample),Dense BGE-base,500,500,0.2737,0.2394,0.3102,0.216,0.324,0.394,0.2948
+DocVQA (ViDoRe Subsample),Tuned Hybrid,500,500,0.3507,0.3122,0.3901,0.298,0.408,0.468,0.3724
+DocVQA (ViDoRe Subsample),ColQwen2-v1.0 (ViDoRe Native Pixel),500,500,0.645,0.601,0.689,0.528,0.782,0.841,0.612

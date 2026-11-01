@@ -1,0 +1,5 @@
+case_id,is_multihop,query,Extractive_Hit10,LLM_Hit10,Outcome
+mh_13,True,"Find the Hangzhou New Year's Eve celebration photos, and retrieve the acoustic sound category that matches the midnight pyrotechnic display.",1,0,EXTRACTIVE_WIN
+mh_22,True,"Find the aviation transport images, and retrieve the corresponding aerodynamic transportation sound effect.",0,1,LLM_WIN
+mh_25,True,"Find the beverage preparation images involving pouring drinks, and retrieve the corresponding liquid flow acoustic sound effect.",1,0,EXTRACTIVE_WIN
+mh_50,True,"Find the stormy rainy day travel photos, and retrieve the corresponding acoustic precipitation sound recording.",0,1,LLM_WIN

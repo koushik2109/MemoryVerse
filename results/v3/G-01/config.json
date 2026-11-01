@@ -1,0 +1,13 @@
+{
+  "item_id": "G-01",
+  "source_deliverable": "T1-01",
+  "title": "Modern text baselines (BGE-M3, E5, GTE, Qwen3, SPLADE, ColBERTv2)",
+  "seed": 42,
+  "git_commit": "HEAD",
+  "files": [
+    "config.json",
+    "README.md",
+    "paired_statistical_tests_t1_01.csv",
+    "sroie_modern_dense_summary.csv"
+  ]
+}

@@ -1,0 +1,33 @@
+% Source: results/v3/coco_native_visual_v3.csv and results/v3/coco_hypothesis_test_v3.csv
+% Evaluated on N=1,000 MS-COCO Karpathy-test images and queries.
+% 95% CIs via cluster bootstrap (B=2,000). Asterisks denote Holm-corrected significance (p_Holm < 0.05, N_perm=100,000) over the best machine proxy (Dense MiniLM BLIP).
+\begin{table}[htbp]
+\centering
+\small
+\caption{Cross-modal text-to-image retrieval performance on $N=1{,}000$ MS-COCO Karpathy-test images. Comparison of native pixel representations (CLIP ViT-B/32 and SigLIP Base Patch16) against machine caption proxies (BLIP) and held-out human gold captions. Asterisks ($^*$) indicate Holm-corrected significance ($p_{\text{Holm}} = 8 \times 10^{-5}$) over the best machine caption proxy.}
+\label{tab:coco_benchmarks_v3}
+\begin{tabular}{lcccc}
+\toprule
+Method & Hit@1 & Hit@5 & Hit@10 [95\% CI] & MRR [95\% CI] \\
+\midrule
+\multicolumn{5}{l}{\textit{Machine Caption Proxy (BLIP)}} \\
+BM25                          & 0.1220 & 0.2800 & 0.3840 [0.355, 0.415] & 0.2048 [0.186, 0.225] \\
+Dense MiniLM (Best BLIP Proxy)& 0.2420 & 0.5160 & 0.6530 [0.624, 0.682] & 0.3728 [0.350, 0.397] \\
+Dense BGE-base                & 0.2430 & 0.5050 & 0.6460 [0.618, 0.678] & 0.3695 [0.347, 0.393] \\
+\midrule
+\multicolumn{5}{l}{\textit{Human Gold Caption Proxy (Upper Bound)}} \\
+BM25 (Gold Proxy)             & 0.3600 & 0.6250 & 0.7350 [0.708, 0.762] & 0.4852 [0.461, 0.510] \\
+Dense MiniLM (Gold Proxy)     & 0.4550 & 0.7280 & 0.8380 [0.814, 0.860] & 0.5801 [0.555, 0.605] \\
+Dense BGE-base (Gold Proxy)   & 0.4580 & 0.7370 & 0.8320 [0.809, 0.854] & 0.5835 [0.559, 0.608] \\
+\midrule
+\multicolumn{5}{l}{\textit{Native Pixel Representation}} \\
+\textbf{CLIP ViT-B/32}        & \textbf{0.3390}$^*$ & \textbf{0.6180}$^*$ & \textbf{0.7570}$^*$ [0.729, 0.785] & \textbf{0.4709}$^*$ [0.446, 0.497] \\
+\textbf{SigLIP Base Patch16}  & \textbf{0.4800}$^*$ & \textbf{0.7680}$^*$ & \textbf{0.8670}$^*$ [0.845, 0.888] & \textbf{0.6071}$^*$ [0.584, 0.633] \\
+\midrule
+\multicolumn{5}{l}{\textit{Multi-Vector \& Hybrid Fusion}} \\
+Hybrid (CLIP + BGE BLIP)      & 0.3880 & 0.6720 & 0.7870 [0.760, 0.811] & 0.5186 [0.494, 0.544] \\
+Hybrid (SigLIP + BGE BLIP)    & 0.4570 & 0.7470 & 0.8360 [0.813, 0.858] & 0.5866 [0.563, 0.611] \\
+All-Stream RRF (Strawman)     & 0.2690 & 0.5530 & 0.6890 [0.662, 0.718] & 0.4058 [0.382, 0.429] \\
+\bottomrule
+\end{tabular}
+\end{table}

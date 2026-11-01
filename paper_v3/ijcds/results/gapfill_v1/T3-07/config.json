@@ -1,0 +1,9 @@
+{
+  "item_id": "T3-07",
+  "description": "Evaluation of stronger image-caption proxies and multi-caption indexing vs native visual representations",
+  "seed": 42,
+  "git_commit": "6b9f2aaa8a873049f7d95fd831e22f868cd5e636",
+  "n_images": 1000,
+  "best_machine_proxy": "Multi-Caption Indexing (BLIP-2 + Florence-2, MRR = 0.4580)",
+  "native_visual_champion": "SigLIP Base Patch16 (MRR = 0.6071)"
+}

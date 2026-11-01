@@ -1,0 +1,12 @@
+{
+  "recipe_name": "Tri-Modal Robust Reciprocal Rank Fusion (TR-RRF)",
+  "selection_criterion": "Tuned strictly on Dev split across pooled Verbatim, Light, Heavy queries",
+  "dev_mean_mrr": 0.4326,
+  "configuration": {
+    "name": "Convex_Dense_Biased",
+    "type": "convex",
+    "w_w": 0.2,
+    "w_c": 0.2,
+    "w_d": 0.6
+  }
+}

@@ -1,0 +1,13 @@
+Metric,Conformal Marginal Risk Control,Equal-Escalation Fixed Margin (tau=0.235)
+Mean Calibrated Threshold Tau*,0.2369,0.2347
+Mean Test Miss Risk,0.0494,0.0488
+Test Risk 95% Quantile CI,"[0.0355, 0.0654]","[0.0406, 0.0574]"
+Mean Escalation Rate,78.4%,78.4%
+Mean Computation Savings,21.6%,21.6%
+Overall Realized MRR,0.3577,0.3579
+Verbatim Realized MRR,0.6932,0.6933
+Entity Rewrite Realized MRR,0.3395,0.3397
+Answerable Questions Realized MRR,0.0404,0.0407
+Verbatim Test Miss Risk,0.0464,0.0471
+Entity Rewrite Test Miss Risk,0.0627,0.0620
+Answerable Questions Test Miss Risk,0.0391,0.0375

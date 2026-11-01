@@ -1,0 +1,20 @@
+{
+  "item_id": "R-04",
+  "title": "Recompute TOST, nDCG/MRR, Hybrid mapping, and Table III single pool",
+  "seed": 42,
+  "timestamp": "2026-11-01T22:34:00+05:30",
+  "git_commit": "HEAD",
+  "files": [
+    "tost_sensitivity_recomputed.csv",
+    "table_ii_hybrid_reconciled.csv",
+    "table_iii_unified_pools.csv",
+    "table_ix_docvqa_metrics_reconciled.csv"
+  ],
+  "parameters": {
+    "tost_margins": [0.03, 0.05, 0.06],
+    "confidence_levels": [0.90, 0.95],
+    "table_iii_unification_target": "813-pool",
+    "table_ix_metric_distinction": "nDCG@5 vs nDCG@10"
+  }
+}
+

@@ -2,11 +2,12 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 from pathlib import Path
 
-# Configure publication typography matching IEEE / IJCDS
+# Configure publication typography matching IEEE / IJCDS diagram standards
+# Sans-serif (Arial / Helvetica / DejaVu Sans) ensures uniform stroke width without thin hairlines
 plt.rcParams.update({
-    "font.family": "serif",
-    "font.serif": ["Times New Roman", "DejaVu Serif", "Times"],
-    "mathtext.fontset": "stix",
+    "font.family": "sans-serif",
+    "font.sans-serif": ["Arial", "Helvetica", "DejaVu Sans", "sans-serif"],
+    "mathtext.fontset": "dejavusans",
     "figure.autolayout": False,
 })
 
@@ -19,14 +20,14 @@ ax.set_ylim(0.0, 1.0)
 ax.axis("off")
 
 # Helper function to draw a modern card with header
-def draw_card(ax, x, y, w, h, title, subtitle_lines, bg_color="#ffffff", border_color="#1f2937", header_color="#f1f5f9", title_color="#000000", header_fsize=8.6, body_fsize=8.8, body_lspace=1.30):
-    # Main card container
+def draw_card(ax, x, y, w, h, title, subtitle_lines, bg_color="#ffffff", border_color="#1f2937", header_color="#f1f5f9", title_color="#000000", header_fsize=8.8, body_fsize=9.2, body_lspace=1.40, body_weight="bold"):
+    # Main card container with zero pad so box matches coordinates exactly
     box = patches.FancyBboxPatch(
         (x, y), w, h,
-        boxstyle="round,pad=0.005,rounding_size=0.018",
+        boxstyle="round,pad=0.0,rounding_size=0.016",
         facecolor=bg_color,
         edgecolor=border_color,
-        linewidth=1.15,
+        linewidth=1.35,
         zorder=2
     )
     ax.add_patch(box)
@@ -35,7 +36,7 @@ def draw_card(ax, x, y, w, h, title, subtitle_lines, bg_color="#ffffff", border_
     hh = 0.17 * h if h > 0.5 else 0.24 * h
     header = patches.FancyBboxPatch(
         (x, y + h - hh), w, hh,
-        boxstyle="round,pad=0.005,rounding_size=0.018",
+        boxstyle="round,pad=0.0,rounding_size=0.016",
         facecolor=header_color,
         edgecolor="none",
         zorder=3
@@ -47,7 +48,7 @@ def draw_card(ax, x, y, w, h, title, subtitle_lines, bg_color="#ffffff", border_
     ax.add_patch(rect_flat)
     
     # Header divider line
-    ax.plot([x, x + w], [y + h - hh, y + h - hh], color=border_color, lw=0.9, zorder=4)
+    ax.plot([x, x + w], [y + h - hh, y + h - hh], color=border_color, lw=1.0, zorder=4)
     
     # Header text
     ax.text(x + w / 2, y + h - hh / 2, title, ha="center", va="center", fontsize=header_fsize, fontweight="bold", color=title_color, zorder=5)
@@ -55,12 +56,12 @@ def draw_card(ax, x, y, w, h, title, subtitle_lines, bg_color="#ffffff", border_
     # Body text
     body_y = y + (h - hh) / 2
     body_text = "\n".join(subtitle_lines)
-    ax.text(x + w / 2, body_y, body_text, ha="center", va="center", fontsize=body_fsize, color="#000000", linespacing=body_lspace, zorder=5)
+    ax.text(x + w / 2, body_y, body_text, ha="center", va="center", fontsize=body_fsize, fontweight=body_weight, color="#000000", linespacing=body_lspace, zorder=5)
 
-# 5-Column Coordinates
-c_w = 0.176
-gap = 0.020
-xs = [0.015 + i * (c_w + gap) for i in range(5)]
+# 5-Column Coordinates (balanced width and gap)
+c_w = 0.170
+gap = 0.028
+xs = [0.019 + i * (c_w + gap) for i in range(5)]
 
 top_y, top_h = 0.53, 0.43
 bot_y, bot_h = 0.04, 0.43
@@ -70,27 +71,27 @@ full_y, full_h = 0.04, 0.92
 draw_card(ax, xs[0], top_y, c_w, top_h,
           "MODAL INPUT PROXIES",
           ["Scanned Receipts (SROIE)", "Administrative Forms (FUNSD)", "Natural Scenes (MS-COCO)", "Acoustic Audio (ESC-50)"],
-          bg_color="#f8fafc", border_color="#64748b", header_color="#e2e8f0", title_color="#0f172a",
-          header_fsize=8.5, body_fsize=9.2, body_lspace=1.45)
+          bg_color="#f8fafc", border_color="#475569", header_color="#e2e8f0", title_color="#0f172a",
+          header_fsize=8.8, body_fsize=9.2, body_lspace=1.45, body_weight="bold")
 
 draw_card(ax, xs[0], bot_y, c_w, bot_h,
           "QUERY FORMULATIONS",
           ["Verbatim Lookup (Exact Spans)", "Light Paraphrase (Entity Sub)", "Answerable Factual Queries", "Relational Multi-Hop Queries"],
-          bg_color="#faf5ff", border_color="#9333ea", header_color="#f3e8ff", title_color="#581c87",
-          header_fsize=8.5, body_fsize=9.0, body_lspace=1.45)
+          bg_color="#faf5ff", border_color="#7e22ce", header_color="#f3e8ff", title_color="#581c87",
+          header_fsize=8.8, body_fsize=9.0, body_lspace=1.45, body_weight="bold")
 
 # ==================== COLUMN 2: EXTRACTION & ANALYSIS ====================
 draw_card(ax, xs[1], top_y, c_w, top_h,
           "EXTRACTION & STORAGE",
           ["Apple Vision / Tesseract OCR", "BLIP / Florence-2 Captions", "Word & Char 3–5g Inverted Index", "Dense BGE-base / MiniLM Index"],
           bg_color="#f0f9ff", border_color="#0284c7", header_color="#e0f2fe", title_color="#075985",
-          header_fsize=8.4, body_fsize=9.0, body_lspace=1.45)
+          header_fsize=8.6, body_fsize=9.0, body_lspace=1.45, body_weight="bold")
 
 draw_card(ax, xs[1], bot_y, c_w, bot_h,
           "QUERY PARSING & BRIDGING",
           ["Topical Anchor Extraction", "Surface Feature Router", "Grounded PRF Entity Bridging", "Confidence Delegation"],
-          bg_color="#faf5ff", border_color="#9333ea", header_color="#f3e8ff", title_color="#581c87",
-          header_fsize=8.1, body_fsize=9.0, body_lspace=1.45)
+          bg_color="#faf5ff", border_color="#7e22ce", header_color="#f3e8ff", title_color="#581c87",
+          header_fsize=8.4, body_fsize=9.0, body_lspace=1.45, body_weight="bold")
 
 # ==================== COLUMN 3: STAGE 1 HYBRID FUSION ====================
 draw_card(ax, xs[2], full_y, c_w, full_h,
@@ -100,7 +101,7 @@ draw_card(ax, xs[2], full_y, c_w, full_h,
            "",
            "Subword Lexical Indexing:",
            "Character 3–5gram BM25",
-           r"(+10.6% lift on real OCR)",
+           "(+10.6% lift on real OCR)",
            "",
            "Fusion Mechanics:",
            r"Convex Sweep ($\alpha^* = 1.00$)",
@@ -109,8 +110,8 @@ draw_card(ax, xs[2], full_y, c_w, full_h,
            "Candidate Extraction:",
            r"Top-$K_1$ Pool ($K_1 = 20$)",
            r"$\geq 94$% Verbatim Hit@10"],
-          bg_color="#f0fdf4", border_color="#16a34a", header_color="#dcfce7", title_color="#14532d",
-          header_fsize=8.4, body_fsize=8.6, body_lspace=1.22)
+          bg_color="#f0fdf4", border_color="#15803d", header_color="#dcfce7", title_color="#14532d",
+          header_fsize=8.6, body_fsize=8.6, body_lspace=1.22, body_weight="bold")
 
 # ==================== COLUMN 4: STAGE 2 CASCADE RERANK ====================
 draw_card(ax, xs[3], full_y, c_w, full_h,
@@ -126,10 +127,10 @@ draw_card(ax, xs[3], full_y, c_w, full_h,
            "",
            "Rescored Candidates:",
            r"Top-$K_2$ Ranked ($K_2 = 10$)",
-           "+4.7% MRR on ambiguous queries",
+           "+4.7% MRR on ambiguous",
            "Zero latency on high-margin"],
-          bg_color="#fffbeb", border_color="#d97706", header_color="#fef3c7", title_color="#78350f",
-          header_fsize=8.4, body_fsize=8.6, body_lspace=1.22)
+          bg_color="#fffbeb", border_color="#b45309", header_color="#fef3c7", title_color="#78350f",
+          header_fsize=8.6, body_fsize=8.6, body_lspace=1.22, body_weight="bold")
 
 # ==================== COLUMN 5: GROUNDED GENERATION ====================
 draw_card(ax, xs[4], full_y, c_w, full_h,
@@ -147,20 +148,22 @@ draw_card(ax, xs[4], full_y, c_w, full_h,
            "Dual-Reviewer Human Audit",
            r"$\kappa = 0.8716$ Agreement",
            "100% Zero-Leakage Tested"],
-          bg_color="#fff1f2", border_color="#e11d48", header_color="#ffe4e6", title_color="#881337",
-          header_fsize=8.4, body_fsize=8.6, body_lspace=1.22)
+          bg_color="#fff1f2", border_color="#be123c", header_color="#ffe4e6", title_color="#881337",
+          header_fsize=8.6, body_fsize=8.6, body_lspace=1.22, body_weight="bold")
 
-# Arrow helper
-def draw_arrow(ax, x1, y1, x2, y2, color="#1e293b", lw=1.3):
+# Arrow helper: guarantees arrows are placed strictly outside the cells with symmetric margins
+def draw_arrow(ax, x1_box, y1, x2_box, y2, color="#1e293b", lw=1.5):
+    x1 = x1_box + 0.0065
+    x2 = x2_box - 0.0055
     ax.annotate(
         "", xy=(x2, y2), xytext=(x1, y1),
         arrowprops=dict(
             arrowstyle="-|>",
             color=color,
             lw=lw,
-            mutation_scale=9.0,
-            shrinkA=1,
-            shrinkB=1,
+            mutation_scale=10.0,
+            shrinkA=0,
+            shrinkB=0,
             joinstyle="miter"
         ),
         zorder=10

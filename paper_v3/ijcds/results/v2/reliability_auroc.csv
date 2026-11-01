@@ -1,0 +1,5 @@
+Noise_Condition,AUROC,Discriminative_Quality
+Synthetic 10%,0.9772,Good
+Synthetic 20%,0.9948,Good
+Synthetic 40%,0.998,Good
+Real Degraded OCR vs Clean OCR,0.2674,Poor (Heuristic Failure)

@@ -85,7 +85,7 @@ fig.legend(
     handletextpad=0.5
 )
 
-fig.subplots_adjust(left=0.07, right=0.98, bottom=0.17, top=0.82, wspace=0.22)
+fig.subplots_adjust(left=0.065, right=0.935, bottom=0.17, top=0.82, wspace=0.22)
 
 # Save to destination paths
 out_paths = [

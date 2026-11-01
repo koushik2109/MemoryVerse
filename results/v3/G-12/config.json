@@ -1,0 +1,14 @@
+{
+  "item_id": "G-12",
+  "source_deliverable": "T3-02",
+  "title": "Paraphrase-intensity dose-response across multiple generators",
+  "seed": 42,
+  "git_commit": "HEAD",
+  "files": [
+    "config.json",
+    "generator_dose_response_summary.csv",
+    "generator_query_evaluations.csv",
+    "README.md",
+    "fig_generator_dose_response.png"
+  ]
+}

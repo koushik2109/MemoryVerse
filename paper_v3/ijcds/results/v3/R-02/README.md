@@ -1,0 +1,6 @@
+# R-02 Deliverable: CLIP & SigLIP Visual Model Evaluation Across Conditions
+
+This deliverable consolidates measured retrieval performance for dual-encoder vision models (CLIP ViT-B/32 and SigLIP Base Patch16):
+1. **Document Text Images (SROIE Receipts, N=306):** CLIP completely fails on high-density document text (MRR <= 0.0590 on clean, <= 0.0443 on optical blur), proving that coarse image-level contrastive models cannot resolve document text or structural layout without fine-grained late interaction (ColQwen2).
+2. **Synthetic Text Noise (Syn-20%):** Because synthetic character substitution corrupts OCR text strings, it has no effect on raw image pixels. Visual models on Syn-20% evaluate on the identical uncorrupted images as Clean GT (or are N/A). The previous asterisked values (0.0482*, 0.7812*) were synthetic linear midpoints and are superseded by this measured record.
+3. **Natural Scene Photography (MS-COCO, N=1,000):** SigLIP Base Patch16 achieves MRR = 0.6071 [0.584, 0.633] (Hit@10 = 0.8670), decisively beating machine caption proxies (BLIP 0.3728, lift +0.2343, p < 1e-4) and statistically matching 5-reference human gold captions (0.6210, diff -0.0139, p = 0.321, p_TOST = 0.0050 at margin +/-0.05).

@@ -1,0 +1,14 @@
+{
+  "item_id": "G-05",
+  "source_deliverable": "T1-05",
+  "title": "Multi-seed variance over 20 random Dev/Test splits",
+  "seed": 42,
+  "git_commit": "HEAD",
+  "files": [
+    "multi_seed_summary.csv",
+    "config.json",
+    "colqwen_resampled_multi_seed_results.csv",
+    "README.md",
+    "corpus_multi_seed_results.csv"
+  ]
+}

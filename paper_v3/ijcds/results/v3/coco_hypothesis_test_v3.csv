@@ -1,0 +1,9 @@
+Metric,Visual_System,Visual_Mean,Best_Proxy,Proxy_Mean,Mean_Diff,Diff_CI_Lower,Diff_CI_Upper,Perm_P_100k,P_Holm,Significant_Superior
+HIT1,CLIP ViT-B/32,0.339,Dense MiniLM (BLIP Proxy),0.242,0.097,0.064,0.13,1e-05,8e-05,True
+HIT1,SigLIP Base Patch16,0.48,Dense MiniLM (BLIP Proxy),0.242,0.238,0.205,0.271,1e-05,8e-05,True
+HIT5,CLIP ViT-B/32,0.618,Dense MiniLM (BLIP Proxy),0.516,0.102,0.065,0.14,1e-05,8e-05,True
+HIT5,SigLIP Base Patch16,0.768,Dense MiniLM (BLIP Proxy),0.516,0.252,0.217,0.287,1e-05,8e-05,True
+HIT10,CLIP ViT-B/32,0.757,Dense MiniLM (BLIP Proxy),0.653,0.104,0.072,0.139,1e-05,8e-05,True
+HIT10,SigLIP Base Patch16,0.867,Dense MiniLM (BLIP Proxy),0.653,0.214,0.181,0.245,1e-05,8e-05,True
+MRR,CLIP ViT-B/32,0.4709,Dense MiniLM (BLIP Proxy),0.3728,0.0981,0.069,0.1263,1e-05,8e-05,True
+MRR,SigLIP Base Patch16,0.6071,Dense MiniLM (BLIP Proxy),0.3728,0.2343,0.2065,0.2608,1e-05,8e-05,True

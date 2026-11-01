@@ -1,0 +1,13 @@
+{
+  "item_id": "G-06",
+  "source_deliverable": "T2-03",
+  "title": "Sub-word vs character n-gram tokenization isolation ablation",
+  "seed": 42,
+  "git_commit": "HEAD",
+  "files": [
+    "subword_ablation_results.csv",
+    "config.json",
+    "README.md",
+    "subword_ablation_summary.csv"
+  ]
+}

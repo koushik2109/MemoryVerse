@@ -1,0 +1,12 @@
+Analysis_ID,Analysis_Name,Scope_and_Target,Status,Execution_Timestamp,Commit_Relation,Primary_Script_or_Source
+A-01,Sparse vs Dense Baseline Grid,SROIE Test N=306 (Apple Clean/Blur/Tesseract),EXPLORATORY,Pre-2026-10-25 22:20,Before 97d4ab56,results/v3/headline_regime_grid_v3.csv
+A-02,Dose-Response Degradation Sweep,Apple Vision & Tesseract optical blur vs overlap,EXPLORATORY,Pre-2026-10-25 22:20,Before 97d4ab56,results/v6/dose_response_degradation_v6.csv
+A-03,MS-COCO Native-Visual vs Captions,MS-COCO Karpathy Test N=1000 (SigLIP/CLIP/BLIP),EXPLORATORY,Pre-2026-10-25 22:20,Before 97d4ab56,results/v3/coco_native_visual_v3.csv
+A-04,Diagnostic Multi-Hop Reasoning N=50,Grounded PRF vs LLM Bridging (N=50),EXPLORATORY,Pre-2026-10-25 22:20,Before 97d4ab56,results/v3/multihop_paired_results.csv
+A-05,Expanded Multi-Hop Verification N=100,50 Multi-hop + 50 Single-hop (Equivalence test),CONFIRMATORY,2026-10-25 23:11,After 97d4ab56,results/v6/multihop_100_summary_v6.csv
+A-06,Marginal-Loss Conformal Cascade Calibration,200 Random Splits (N=2754) Test Risk & Coverage,CONFIRMATORY,2026-10-25 23:10,After 97d4ab56,results/v6/conformal_high_prob_summary_v6.csv
+A-07,Causal Dense Collapse Mechanism Control,Keyword Formulation Control & Lexicon Projection,CONFIRMATORY,2026-10-25 22:47,After 97d4ab56,results/v6/dense_formulation_keyword_control_v6.csv
+A-08,Frozen Best-Pipeline Benchmark Evaluation,Single frozen configuration evaluated on held-out Test,CONFIRMATORY,2026-10-25 23:31,After 97d4ab56,results/v6/best_pipeline_eval_v6.csv
+A-09,Standardized End-to-End Latency & Cost,Batch-1 warm/cold measurements across 6 architectures,CONFIRMATORY,2026-10-25 23:02,After 97d4ab56,results/v6/standardized_latency_v6.csv
+A-10,Paraphrase Answerability & Query Audit,60-case manual audit for leakage and factual grounding,CONFIRMATORY,2026-10-25 22:37,After 97d4ab56,results/v6/paraphrase_audit_60.json
+A-11,ColQwen2 Document-Native GPU Benchmark,813 Test items & 306 probes on Tesla T4 GPU,CONFIRMATORY,2026-10-26 17:46,After 97d4ab56,results/v7/colqwen_receipts_measured_v7.csv

@@ -1,0 +1,14 @@
+{
+  "item_id": "G-13",
+  "source_deliverable": "T3-04",
+  "title": "Query-side typographical noise robustness across architectures",
+  "seed": 42,
+  "git_commit": "HEAD",
+  "files": [
+    "query_noise_summary.csv",
+    "config.json",
+    "README.md",
+    "fig_query_noise_robustness.png",
+    "query_noise_results.csv"
+  ]
+}

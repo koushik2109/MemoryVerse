@@ -1,0 +1,7 @@
+Condition,Evaluation_Method,Mean_CER,Mean_WER,Notes
+Clean Apple Vision,Legacy Unnormalized Full-String,0.3938,0.5796,Reproduces v2 flaw (line transpositions treated as block insertions/deletions)
+Clean Apple Vision,Normalized Full-String,0.2152,0.3158,"Lowercased, punctuation stripped, whitespace collapsed"
+Clean Apple Vision,Normalized Line-Aligned,0.1387,0.2165,Correct benchmark metric (greedy line matching)
+Degraded Optical OCR,Legacy Unnormalized Full-String,0.4760,0.7052,Unnormalized on blur + 50% downscale + Q20 JPEG
+Degraded Optical OCR,Normalized Full-String,0.3301,0.4878,Normalized full string
+Degraded Optical OCR,Normalized Line-Aligned,0.3086,0.4595,Correct benchmark metric under physical degradation

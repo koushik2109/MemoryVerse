@@ -1,0 +1,5 @@
+Caption_Source,Mean_Length,BM25_MRR,Dense_MiniLM_MRR,Dense_BGE_MRR,Gap_to_CLIP,Gap_to_SigLIP
+BLIP (Baseline),10.4,0.2048,0.3728,0.3695,-0.0981,-0.2343
+BLIP-2 (opt-2.7b),18.2,0.258,0.412,0.4185,-0.0524,-0.1886
+Florence-2 (detailed),24.6,0.291,0.435,0.442,-0.0289,-0.1651
+Gold Human Captions,11.8,0.4852,0.5801,0.5835,0.1126,-0.0236

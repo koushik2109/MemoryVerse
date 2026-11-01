@@ -1,0 +1,16 @@
+{
+  "item_id": "G-04",
+  "source_deliverable": "T1-04",
+  "title": "Corpus-size scaling across 813 to 500K documents",
+  "seed": 42,
+  "git_commit": "HEAD",
+  "files": [
+    "corpus_scaling_summary.csv",
+    "corpus_scaling_system_resources.csv",
+    "config.json",
+    "fig_corpus_size_scaling_latency_index.png",
+    "README.md",
+    "fig_corpus_size_scaling_mrr.png",
+    "corpus_scaling_results.csv"
+  ]
+}

@@ -1,0 +1,5 @@
+Level,Language_Correction,Description,Clean_Aligned_CER,Clean_Aligned_WER,Degraded_Aligned_CER,Degraded_Aligned_WER,BM25_MRR_Clean,BM25_MRR_Degraded,Reliability_AUROC
+accurate,True,Accurate level + Language Correction ON (Default),0.1386,0.2164,0.3086,0.4595,0.8107,0.6568,0.2322
+accurate,False,Accurate level + Language Correction OFF,0.1401,0.2197,0.3113,0.4697,0.8091,0.6419,0.2304
+fast,True,Fast level + Language Correction ON,0.5137,0.8307,0.8465,1.0044,0.5063,0.1481,0.144
+fast,False,Fast level + Language Correction OFF,0.5191,0.8376,0.8497,0.9992,0.4949,0.151,0.1419

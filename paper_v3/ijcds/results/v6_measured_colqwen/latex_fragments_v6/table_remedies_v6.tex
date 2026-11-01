@@ -1,0 +1,17 @@
+% Source: results/v6/remedies_summary.csv
+\begin{table}[t]
+\centering\small
+\caption{Query-Side and Document-Side Remedy Evaluation on Clean OCR ($N=306$). Paired MRR gains with 95\% cluster-bootstrap CIs, latency, and costs.}\label{tab:remedies_v6}
+\begin{tabular}{llccccc}
+\toprule
+Regime & Remedy Strategy & Baseline MRR & Remedy MRR & Paired Gain [95\% CI] & Added Lat. & Cost \\
+\midrule
+Light Paraphrase & Keyword Extraction (b) & 0.3745 & 0.3562 & -0.0183 [-0.0326, -0.0063] & -0.1\,ms & $0.00 \\
+ & Document Expansion (c) & 0.3745 & 0.3950 & +0.0205 [-0.0022, +0.0442] & -0.0\,ms & $0.00 \\
+ & PRF RM3 Expansion (d) & 0.3745 & 0.3447 & -0.0298 [-0.0521, -0.0094] & +0.6\,ms & $0.00 \\
+Answerable Heavy & Keyword Extraction (b) & 0.8778 & 0.9027 & +0.0249 [+0.0088, +0.0416] & -0.1\,ms & $0.00 \\
+ & Document Expansion (c) & 0.8778 & 0.8915 & +0.0137 [-0.0027, +0.0308] & +0.0\,ms & $0.00 \\
+ & PRF RM3 Expansion (d) & 0.8778 & 0.8407 & -0.0371 [-0.0585, -0.0167] & +1.1\,ms & $0.00 \\
+\bottomrule
+\end{tabular}
+\end{table}

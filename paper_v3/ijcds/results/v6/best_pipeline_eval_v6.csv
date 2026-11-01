@@ -1,0 +1,6 @@
+Pipeline,Clean_MRR,Hit10,Lift_over_CharBM25,Latency_ms,Memory_MB
+Char 3-5g BM25 Standalone,0.9437,0.9837,0.0,0.96,48.2
+Char BM25 + MiniLM Reranker (Top-20),0.9175,0.9706,-0.0262,18.5,280.0
+Char BM25 + BGE Reranker (Top-20),0.9141,0.9771,-0.0296,44.7,820.0
+Tuned Char-BM25 + BGE Hybrid,0.9437,0.9837,0.0,12.6,488.0
+Tuned Hybrid + BGE Reranker (Top-20),0.9141,0.9771,-0.0296,57.3,868.0

@@ -1,0 +1,2 @@
+Benchmark_ID,Split,Status,Evaluated_Systems,Notes
+"vidore/docvqa_benchmark_test","test","BENCHMARK_SKIPPED_OFFLINE","Word BM25, Char 3-5gram BM25, Tuned Hybrid, Chunked Dense, ColQwen2","Pre-registered protocol 4.4: No silent substitution. Benchmark evaluation requires internet access on Kaggle GPU."

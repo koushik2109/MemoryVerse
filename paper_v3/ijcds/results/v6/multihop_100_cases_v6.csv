@@ -1,0 +1,101 @@
+case_id,is_multihop,query,Extractive_Hit10,LLM_Hit10,Outcome
+mh_01,True,"Find the race event where volunteers handed water to runners, and identify what exact date those photos were taken on.",1,1,TIE
+mh_02,True,"Find the photos of Putuo Mountain coast, and determine which half of which year they were recorded.",1,1,TIE
+mh_03,True,"Locate the friends toasting party photos, and determine what milestone age birthday was being celebrated.",1,1,TIE
+mh_04,True,"Locate the cyberpunk style night bridge photos in Ningbo, and identify which specific district of the city they were taken in.",1,1,TIE
+mh_05,True,"Find the photos of the driverless vehicle, and identify the historical town where it was encountered.",1,1,TIE
+mh_06,True,"Find the handmade sculpture photos before painting, and retrieve what animal or character figurine was crafted.",1,1,TIE
+mh_07,True,"Locate the West Lake night boat ride photography, and identify the unique drone light formation that appeared in the sky.",1,1,TIE
+mh_08,True,"Find the fancy drink photos taken before Christmas, and retrieve the specific cocktail beverage style.",1,1,TIE
+mh_09,True,"Find the night art light installation photos in Hangzhou, and identify which coastal river district photos they are tagged with.",1,1,TIE
+mh_10,True,"Locate the quiet beach photos in Phuket, and identify the specific township name.",1,1,TIE
+mh_11,True,"Find the concert fan support photos in Hangzhou, and retrieve what audience acoustic celebration sound corresponds to cheering crowds.",0,0,TIE
+mh_12,True,"Find the outdoor weather photography depicting dark rainy skies, and retrieve the corresponding severe acoustic weather recording.",0,0,TIE
+mh_13,True,"Find the Hangzhou New Year's Eve celebration photos, and retrieve the acoustic sound category that matches the midnight pyrotechnic display.",1,0,EXTRACTIVE_WIN
+mh_14,True,"Locate the photos of cartoon deer statues with frozen treats, and identify what snack is shown next to the statue.",1,1,TIE
+mh_15,True,"Find the couple subway photos with matching rings, and retrieve the other transportation moment where they rested cozily.",1,1,TIE
+mh_16,True,"Find the spicy dining dish photo with the peace sign gesture, and identify which district tag is associated with that meal.",1,1,TIE
+mh_17,True,"Find the April 2023 concert fan support photos, and identify the visual lighting element described in the evening setting.",1,1,TIE
+mh_18,True,"Locate the domestic pet photo moments, and retrieve the corresponding animal vocalization sound recording.",1,1,TIE
+mh_19,True,"Locate outdoor forest and bird photography, and retrieve the avian nature acoustic sound recording.",1,1,TIE
+mh_20,True,"Find the indoor cleaning and home maintenance photos, and retrieve the corresponding domestic motor sound effect.",0,0,TIE
+mh_21,True,"Find the lumberjack and timber cutting equipment photos, and retrieve the corresponding power tool acoustic recording.",0,0,TIE
+mh_22,True,"Find the aviation transport images, and retrieve the corresponding aerodynamic transportation sound effect.",0,1,LLM_WIN
+mh_23,True,"Find the railway travel and passenger transport images, and retrieve the associated locomotive sound effect.",1,1,TIE
+mh_24,True,"Find the pastoral farming livestock photos, and retrieve the acoustic recording of domestic livestock bleating.",1,1,TIE
+mh_25,True,"Find the beverage preparation images involving pouring drinks, and retrieve the corresponding liquid flow acoustic sound effect.",1,0,EXTRACTIVE_WIN
+mh_26,True,"Find the 22nd birthday celebration photos featuring fruit cake, and identify what kind of fruit topped the cake.",1,1,TIE
+mh_27,True,"Locate the sunset view photography of the Three Gorges Dam, and determine which administrative district of Yichang it was recorded in.",1,1,TIE
+mh_28,True,"Find the Black Myth gaming exhibition photos, and identify the four female character life-size statues displayed.",1,1,TIE
+mh_29,True,"Find the beach and coastal photos taken in Phuket, and retrieve the corresponding natural ocean acoustic sound recording.",0,0,TIE
+mh_30,True,"Find the couple's special 520 holiday dinner photos, and identify the style of meal they shared.",1,1,TIE
+mh_31,True,"Locate the photos of the scenic cable car ride in Qinhuangdao, and identify the coastal resort name.",1,1,TIE
+mh_32,True,"Find the photos of Xiangji Temple blending with urban architecture, and identify which Hangzhou riverside district it belongs to.",1,1,TIE
+mh_33,True,"Locate the cozy indoor home photos featuring a feline pet, and retrieve the corresponding domestic animal vocalization sound effect.",1,1,TIE
+mh_34,True,"Find the summer 2019 Qinhuangdao family trip photos with Lele and Xiaoming, and identify the animated cartoon characters depicted in the sand sculptures.",1,1,TIE
+mh_35,True,"Find the urban street photos with graffiti in Xiamen, and identify the historic cultural harbor neighborhood.",1,1,TIE
+mh_36,True,"Locate outdoor camping and evening scenery photos, and retrieve the acoustic sound effect of burning wood logs.",0,0,TIE
+mh_37,True,"Find the photos of Shaoxing cultural heritage, and identify the historical tall structure monument visited.",1,1,TIE
+mh_38,True,"Find the aviation transport photos taken at Shenzhen airport tarmac, and retrieve the corresponding aerodynamic aircraft acoustic recording.",0,0,TIE
+mh_39,True,"Locate the couple subway travel photos, and identify the intimate transportation moment where they rested cozily together.",1,1,TIE
+mh_40,True,"Find the evening nature and night sky photography, and retrieve the nocturnal insect acoustic sound effect.",0,0,TIE
+mh_41,True,"Find the beverage container photos with soda cans, and retrieve the associated mechanical beverage opening sound effect.",0,0,TIE
+mh_42,True,"Locate the photos of the famous spring in Jinan, and identify the scenic cultural spring name.",0,0,TIE
+mh_43,True,"Find the urban church and temple landmark photos, and retrieve the corresponding bell chime sound effect.",0,0,TIE
+mh_44,True,"Locate the nighttime city promenade walk photos, and retrieve the acoustic sound effect of people walking along the pavement.",0,0,TIE
+mh_45,True,"Find the emergency response vehicle or patrol photos, and retrieve the corresponding emergency vehicle alarm sound effect.",0,0,TIE
+mh_46,True,"Locate the photos of Thailand zoo trip, and identify the city where the night tribal performance was witnessed.",1,1,TIE
+mh_47,True,"Find the office desk and computer workspace photos, and retrieve the corresponding computer peripheral clicking sound effect.",0,0,TIE
+mh_48,True,"Locate the photos of the ancient city in Shanxi with autonomous vehicles, and identify the historic walled town name.",0,0,TIE
+mh_49,True,"Find the farmland and pasture animal photos, and retrieve the bovine acoustic livestock sound recording.",0,0,TIE
+mh_50,True,"Find the stormy rainy day travel photos, and retrieve the corresponding acoustic precipitation sound recording.",0,1,LLM_WIN
+sh_01,False,photos of marathon volunteers handing water to runners,1,1,TIE
+sh_02,False,sound recording of a barking dog in domestic environment,1,1,TIE
+sh_03,False,photographs taken driving over a bridge at sunset,1,1,TIE
+sh_04,False,audio recording of thunderstorm and rainfall,1,1,TIE
+sh_05,False,scenic landscape photos of Putuo Mountain coast,1,1,TIE
+sh_06,False,acoustic recording of chirping birds in outdoor nature,1,1,TIE
+sh_07,False,domestic vacuum cleaner household appliance sound,1,1,TIE
+sh_08,False,photos from friends toasting at a party celebration,1,1,TIE
+sh_09,False,sound effect of fireworks explosion celebrating holiday,1,1,TIE
+sh_10,False,creative art studio wall decoration photographs,1,1,TIE
+sh_11,False,peaceful beach photos in Phuket Karon coastal area,1,1,TIE
+sh_12,False,audio of wooden door knocking sound effect,1,1,TIE
+sh_13,False,fancy layered cocktail drink photos before Christmas,1,1,TIE
+sh_14,False,photos of driverless autonomous car in Pingyao town,1,1,TIE
+sh_15,False,sound of applause and clapping hands in an audience,1,1,TIE
+sh_16,False,cute handcrafted ceramic figurine sculpture images,1,1,TIE
+sh_17,False,sound recording of a chainsaw cutting wood,1,1,TIE
+sh_18,False,photos of traditional handmade noodles preparation,1,1,TIE
+sh_19,False,audio recording of an airplane engine flying,1,1,TIE
+sh_20,False,New Years Eve celebration photos in Hangzhou city,1,1,TIE
+sh_21,False,sound effect of pouring liquid water into a glass,1,1,TIE
+sh_22,False,dreamy night art light installation photography,1,1,TIE
+sh_23,False,sound recording of train moving along railroad tracks,1,1,TIE
+sh_24,False,cyberpunk style night bridge photos in Ningbo Yinzhou,1,1,TIE
+sh_25,False,sound recording of a rooster crowing in the morning,1,1,TIE
+sh_26,False,audio recording of helicopter rotor blades flying overhead,1,1,TIE
+sh_27,False,photographs of Gulangyu city skyline view across the water,1,1,TIE
+sh_28,False,sound of crackling campfire with burning wood logs,1,1,TIE
+sh_29,False,photos of green grape cake celebration,1,1,TIE
+sh_30,False,audio recording of ocean sea waves rolling on the beach,1,1,TIE
+sh_31,False,photos of Hangzhou Xiangji Temple blending with urban city,1,1,TIE
+sh_32,False,sound effect of mechanical clock ticking rhythmically,1,1,TIE
+sh_33,False,photos of romantic 520 hotpot dinner,1,1,TIE
+sh_34,False,audio recording of crickets chirping at night,1,1,TIE
+sh_35,False,photos of Black Myth Four Sisters life-size exhibit statue,1,1,TIE
+sh_36,False,sound of emergency siren sounding on police or ambulance vehicle,1,1,TIE
+sh_37,False,photographs of Three Gorges Dam sunset view in Yiling District,1,1,TIE
+sh_38,False,acoustic recording of church bells ringing in a tower,1,1,TIE
+sh_39,False,photos of cable car ride at Nandaihe in Qinhuangdao,1,1,TIE
+sh_40,False,sound recording of a domestic cat meowing or purring,1,1,TIE
+sh_41,False,photos of Huawei store children playing with dinosaur figure,1,1,TIE
+sh_42,False,audio recording of footsteps walking on a hard surface,1,1,TIE
+sh_43,False,photos of Shaoxing ancient tower heritage site,1,1,TIE
+sh_44,False,sound effect of can opening popping soda beverage tab,1,1,TIE
+sh_45,False,photos of Shapowei street art and graffiti walls,1,1,TIE
+sh_46,False,sound recording of gentle rain falling outdoors,1,1,TIE
+sh_47,False,photos of Baotu Spring cultural tour scenic park,1,1,TIE
+sh_48,False,sound of computer mouse clicking during work,1,1,TIE
+sh_49,False,photos of Chiang Mai zoo night tribal performance,1,1,TIE
+sh_50,False,audio recording of a cow mooing on a dairy farm,1,1,TIE

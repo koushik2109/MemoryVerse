@@ -1,0 +1,18 @@
+% Source: results/v3/multihop_paired_results.csv
+% Evaluated on 50 diagnostic multi-hop queries. Exact paired analysis replacing invalid TOST artifact.
+% Significance tested via exact two-tailed McNemar test on discordant query pairs.
+\begin{table}[htbp]
+\centering
+\small
+\caption{Exact paired discordant case analysis and two-tailed McNemar tests across the 50 diagnostic multi-hop queries. Comparison of Proposed Multi-Hop LLM Bridging against Single-Stage Hybrid, Single-Stage Dense, and Sparse BM25 baselines. While LLM bridging outperforms sparse BM25 alone (+8 net hits, $p = 0.0215$), it yields no statistically detectable retrieval improvement over single-stage hybrid (+1 net hit, $p = 1.000$) or single-stage dense (identical 32/50 hits, $p = 1.000$).}
+\label{tab:multihop_paired_v3}
+\begin{tabular}{lcccccc}
+\toprule
+Baseline Comparison & Baseline Hit@10 & MM-RAG Hit@10 & Paired Diff [95\% CI] & Discordant Pairs (Win / Loss) & Exact McNemar $p$ & Verdict \\
+\midrule
+Single-Stage Hybrid (No Multi-Hop) & 0.620 (31/50) & 0.640 (32/50) & +0.020 [-0.040, +0.100] & 2 / 1 & 1.0000 & No Significant Advantage \\
+Single-Stage Dense                 & 0.640 (32/50) & 0.640 (32/50) & +0.000 [ 0.000, +0.071] & 2 / 2 & 1.0000 & Zero Advantage (Identical) \\
+Sparse BM25 Alone                  & 0.480 (24/50) & 0.640 (32/50) & +0.160 [+0.040, +0.280] & 9 / 1 & 0.0215 & Significant over Sparse \\
+\bottomrule
+\end{tabular}
+\end{table}

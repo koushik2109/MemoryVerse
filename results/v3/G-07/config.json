@@ -1,0 +1,13 @@
+{
+  "item_id": "G-07",
+  "source_deliverable": "T2-04",
+  "title": "Native visual fusion (Char BM25 + ColQwen2) and cascade reranking",
+  "seed": 42,
+  "git_commit": "HEAD",
+  "files": [
+    "config.json",
+    "README.md",
+    "cascade_per_k_sweep.csv",
+    "cascade_fusion_summary.csv"
+  ]
+}

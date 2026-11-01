@@ -1,0 +1,8 @@
+CER,Condition_Label,Crossover_Overlap_Threshold,Overlap_CI_Lower,Overlap_CI_Upper,MRR_at_Crossover,Dominant_Above_Threshold,Dominant_Below_Threshold
+0.0,Ground Truth,0.5057,0.4263,0.6388,0.7772,Char 3-5g BM25 (High Lexical Overlap),Word BM25 (Entity Paraphrase / Semantic Drift)
+0.1,Synthetic CER 0.10,0.5133,0.4431,0.6304,0.7794,Char 3-5g BM25 (High Lexical Overlap),Word BM25 (Entity Paraphrase / Semantic Drift)
+0.2,Synthetic CER 0.20,0.5208,0.4422,0.6453,0.7615,Char 3-5g BM25 (High Lexical Overlap),Word BM25 (Entity Paraphrase / Semantic Drift)
+0.2848,Clean Apple Vision,0.5271,0.4396,0.6722,0.7282,Char 3-5g BM25 (High Lexical Overlap),Word BM25 (Entity Paraphrase / Semantic Drift)
+0.3822,Optical Blur,0.5342,0.4467,0.7047,0.6644,Char 3-5g BM25 (High Lexical Overlap),Word BM25 (Entity Paraphrase / Semantic Drift)
+0.5,Synthetic CER 0.50,0.5427,0.4329,0.7285,0.5429,Char 3-5g BM25 (High Lexical Overlap),Word BM25 (Entity Paraphrase / Semantic Drift)
+0.6377,Degraded Tesseract,0.552,0.3423,0.8414,0.3481,Char 3-5g BM25 (High Lexical Overlap),Word BM25 (Entity Paraphrase / Semantic Drift)

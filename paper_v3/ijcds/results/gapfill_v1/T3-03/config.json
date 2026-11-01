@@ -1,0 +1,24 @@
+{
+  "task_id": "T3-03",
+  "seed": 42,
+  "commit": "6b9f2aaa8a873049f7d95fd831e22f868cd5e636",
+  "b_bootstrap": 2000,
+  "b_permutation": 10000,
+  "datasets_evaluated": [
+    "SROIE Receipts (N=306 test probes, N=813 pool)",
+    "FUNSD Forms (N=100 probes, N=600 pool)"
+  ],
+  "degradation_regimes_evaluated": [
+    "Clean Neural OCR (Baseline)",
+    "Synthetic Poisson 10% Noise",
+    "Synthetic Poisson 20% Noise",
+    "Synthetic Poisson 30% Noise",
+    "Simulated Mobile Camera Physics",
+    "Optical Blur Level 1 (Mild)",
+    "Optical Blur Level 2 (Moderate)",
+    "Optical Blur Level 3 (Severe)",
+    "Optical Blur Level 4 (Extreme)",
+    "Real Optical Camera Blur OCR",
+    "FUNSD Forms (Ground Truth, Clean OCR, Handwriting/Stamps)"
+  ]
+}

@@ -1,0 +1,9 @@
+Domain,Model,Condition,Query_Slice,MRR,CI_95,Hit1,Hit10,Notes
+Scanned Receipts (SROIE),CLIP ViT-B/32,Clean Receipts (Pristine),Verbatim Lookup,0.059,"[0.041, 0.079]",0.0261,0.1144,Standard Table II CLIP verbatim row
+Scanned Receipts (SROIE),CLIP ViT-B/32,Clean Receipts (Pristine),Light Paraphrase,0.0381,"[0.024, 0.054]",0.0065,0.0719,Standard Table II CLIP light paraphrase row
+Scanned Receipts (SROIE),CLIP ViT-B/32,Clean Receipts (Pristine),Answerable Questions,0.0338,"[0.021, 0.049]",0.0098,0.0621,Standard Table II CLIP answerable row
+Scanned Receipts (SROIE),CLIP ViT-B/32,Optical Blur Degraded,Verbatim Lookup,0.0443,"[0.028, 0.063]",0.0196,0.0686,Measured in results/v11_degraded_visual/clip_degraded_eval_v11.csv
+Scanned Receipts (SROIE),CLIP ViT-B/32,Optical Blur Degraded,Light Paraphrase,0.0284,"[0.016, 0.042]",0.0065,0.0425,Measured in results/v11_degraded_visual/clip_degraded_eval_v11.csv
+Scanned Receipts (SROIE),CLIP ViT-B/32,Optical Blur Degraded,Answerable Questions,0.0303,"[0.018, 0.045]",0.0098,0.0556,Measured in results/v11_degraded_visual/clip_degraded_eval_v11.csv
+Natural Photography (MS-COCO),SigLIP Base Patch16,"Clean Raw Pixels (Karpathy Test N=1,000)",Descriptive Image Search,0.6071,"[0.584, 0.633]",0.48,0.867,"Decisively outperforms best machine caption proxy (BLIP 0.3728, +0.2343 lift, p < 1e-4)"
+Natural Photography (MS-COCO),CLIP ViT-B/32,"Clean Raw Pixels (Karpathy Test N=1,000)",Descriptive Image Search,0.4709,"[0.443, 0.501]",0.342,0.728,Baseline dual-encoder vision model

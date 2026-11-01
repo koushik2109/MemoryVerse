@@ -1,0 +1,17 @@
+ocr_regime,query_slice,retriever,n_probes,hit10_rate,mrr,total_failures,failure_rate,ocr_target_absence,paraphrase_entity_gap,distractor_collision,dense_numeric_short_dispersion,dense_subword_drift,partial_mismatch
+clean_gt,light_paraphrase,all-MiniLM-L6-v2,306,0.1895,0.1253,248,0.8105,0,70,0,122,56,0
+clean_gt,light_paraphrase,bge-small-en-v1.5,306,0.268,0.1861,224,0.732,0,63,0,122,39,0
+clean_gt,light_paraphrase,char_bm25,306,0.4052,0.2767,182,0.5948,0,65,0,0,0,117
+clean_gt,light_paraphrase,word_bm25,306,0.4739,0.4016,161,0.5261,0,73,0,0,0,88
+clean_gt,verbatim,all-MiniLM-L6-v2,306,0.2843,0.2117,219,0.7157,1,0,0,214,4,0
+clean_gt,verbatim,bge-small-en-v1.5,306,0.3529,0.3191,198,0.6471,1,0,0,195,2,0
+clean_gt,verbatim,char_bm25,306,0.9935,0.9737,2,0.0065,1,0,0,0,0,1
+clean_gt,verbatim,word_bm25,306,0.9346,0.8317,20,0.0654,1,0,18,0,0,1
+real_ocr,light_paraphrase,all-MiniLM-L6-v2,306,0.1536,0.1102,259,0.8464,0,81,0,122,56,0
+real_ocr,light_paraphrase,bge-small-en-v1.5,306,0.2778,0.1946,221,0.7222,0,68,0,114,39,0
+real_ocr,light_paraphrase,char_bm25,306,0.3725,0.2548,192,0.6275,0,73,0,0,0,119
+real_ocr,light_paraphrase,word_bm25,306,0.5719,0.4131,131,0.4281,0,57,0,0,0,74
+real_ocr,verbatim,all-MiniLM-L6-v2,306,0.3137,0.2238,210,0.6863,4,0,0,202,4,0
+real_ocr,verbatim,bge-small-en-v1.5,306,0.3725,0.3061,192,0.6275,4,0,0,186,2,0
+real_ocr,verbatim,char_bm25,306,0.9837,0.9399,5,0.0163,4,0,1,0,0,0
+real_ocr,verbatim,word_bm25,306,0.915,0.8091,26,0.085,4,0,20,0,0,2

@@ -1,0 +1,1581 @@
+# Qualitative Side-by-Side OCR Engine Comparison (Phase 3.1)
+
+Comparing Ground Truth, Apple Vision Neural OCR, Tesseract 5.5 LSTM, and EasyOCR 1.7.2 on SROIE Receipts.
+
+## Sample 1: Receipt `sroie_262`
+
+### 1. Ground Truth Text
+```text
+99 SPEED MART S/B (519537-X) 
+ POSTED 
+ LOT P.T. 2811 
+ TAMAN BERKELEY 
+ 41150 KLANG 
+ 1032-SUBANG PERDANA 
+ GST ID. NO : 000181747712 
+ INVOICE NO : 18039/103/T0209 
+ 04:56PM 
+ 565420 
+ 21-05-17 
+ 154 AJINOMOTO 1KG 
+ @2 X RM 10.40 
+ RM20.80 S 
+ TOTAL SALES (INCLUSIVE GST) RM 
+ CASH RM 
+ CHANGE RM 
+ 20.80 
+ 21.00 
+ .20 
+ GST SUMMARY 
+ AMOUNT(RM) 
+ TAX(RM) 
+ S = 6% 
+ 19.62 
+ 1.18 
+ THANK YOU. PLEASE COME AGAIN
+```
+
+### 2. Apple Vision Clean OCR
+```text
+(P) POSTEE 
+ 99 SPEED MART 5/8 (519537-X) 
+ LOT P.T. 2911, JALAN ANGSA, 
+ TAMAN BERKELEY 
+ 41150 KLANG, SELANGOR 
+ 1032-SUBANG PERDANA 
+ GST ID. NO : 000181747712 
+ INVOICE NO : 10039/103/T0209 
+ 565420 
+ 21-05-17 
+ RM20,80 = 
+ 04:56PM 
+ 154 AJINOMOT 1K8 
+ 02 X RM 10,40 
+ Total Sales (Incluzive OST) RM 
+ CASH RM 
+ CHANGE RM 
+ 20.90 
+ 21.00 
+ .20 
+ OST Suamary 
+ S = 6/ 
+ Asount (RM) 
+ 19,62 
+ Tax (RH) 
+ 1,18 
+ 20-50 
+ Thank You, Please come aoain
+```
+
+### 3. Tesseract 5.5 Clean OCR
+```text
+1839/03/70 20%
+in.
+WS
+MOICE N
+ih
+```
+
+### 4. EasyOCR 1.7.2 Clean OCR
+```text
+(0 )
+SPEED HAPT 5/; (519537-{
+Lot P.t. 2911, Jalan AnESA,
+{Arr GERXELEY
+41150 KlahG, SELAIBOR
+1052-SVESNG PERDANA
+6St ID.
+ND
+0Q0151747712
+IXWOICE ND
+18032/103/T0207
+04;S5pm
+565420
+21-05-17
+154 AJINDAOTO 1x8
+2r20,90
+02 % Rh 10.40
+Total Sale; {Inclusive DS) &m
+20.90
+C4Sh Rx
+21.@0
+ChaNSE &#
+GST Suuary
+Abount{RK)
+Tax(RH)
+6 < &
+19,62
+1,9
+I-k
+Than;; Yow. Please
+CoWne
+eqain
+POSTZi
+```
+
+---
+
+## Sample 2: Receipt `sroie_313`
+
+### 1. Ground Truth Text
+```text
+TF VALUE-MART SDN BHD (482123-U) 
+ BENTONG-2 
+ GST REG NO 000184401920 
+ JALAN TRAS BATU 1 
+ 28700 BENTONG 
+ PAHANG DARUL MAKMUR. 
+ TEL : 09-2201388 
+ TAX INVOICE : 
+ 19/05/18 
+ CASHIER : 
+ 21:17:14 
+ KCA TOILET ROLL 3PLY 10R 
+ 9555227800168 
+ 12.50*2 
+ 25.00 
+ SUPER CRWC 36G*15 HAZELNUT 
+ 9555037203555 
+ 13.90*1 
+ 13.90 
+ SUPER CRWC 40G*15 CLASSIC 
+ 8888240000897 
+ 13.90*1 
+ 13.90 
+ ITEM: 
+ TOTAL WITH GST @ 6% 
+ 52.80 
+ QTY: 
+ 4 
+ ROUNDING 
+ 0.00 
+ TOTAL 
+ 52.80 
+ TENDER 
+ VISA 6258 APP: 518361
+```
+
+### 2. Apple Vision Clean OCR
+```text
+Toilet Poll a Coffeęś 
+ TF Value-Mart Sdn Bhd (482123-U) 
+ Bentong-2 
+ GST Reg No 000184401920 
+ Jalan Tras Batu 1 
+ 28700 Bentong 
+ Pahang Darul Makmur. 
+ Tel: 09-2201388 
+ Tax Invoice: BTB09201805190274 
+ Cashier: bt2_nina Rojina 
+ KCA TOILET ROLL 3PLY 10R 
+ 9555227800168 
+ SUPER CRWC 36G*15 HAZELNUT 
+ 9555037203555 
+ SUPER CRWC 40G*15 CLASSIC 
+ 8888240000897 
+ ITEM: 3 
+ QTY: 4 
+ 19/05/18 
+ 21:17:14 
+ 12.50*2 
+ 25.00 S 
+ 13.90*1 
+ 13.90 S 
+ 13.90*1 
+ 13.90 S 
+ Total with GST @ 6% 
+ ROUNDING 
+ 
+```
+
+### 3. Tesseract 5.5 Clean OCR
+```text
+Toilet Rell x Coftec
+TF Value-Mart Sdn Bhd (482123-U)
+Bantonge2
+GST Reg No 000184401920
+Jalan Tras Batu 1
+28700 Bentong
+Pahang Darul Makmur.
+Tel : 09-2201388
+Tax Invoice : BTBO9201805190274 19/05/18
+Cashier ; bt2_nina Rojina 247154
+KCA TOILET ROLL 3PLY 10R
+9555227800168 12.50*2 25.00 S
+SUPER CRWC 36G*15 HAZELNUT
+9555037203555 13.90*1 13.90 S
+SUPER CRWC 40G*15 CLASSIC
+8888240000897 13.90*1 13.90 S
+ITEM: 3 Total with GST @ 6% 52.80
+QTY: 4 ROUNDING 0.00
+TOTAL 52.80
+TENDER
+Visa 6258 App: 518361 52.8
+```
+
+### 4. EasyOCR 1.7.2 Clean OCR
+```text
+Tovet
+Rel (
+8
+Qofkee
+TF Value-Mart Sdn Bhd (482123-U)
+Bentong-2
+GST
+No 000134401920
+Jalan Tras Batu 1
+28700 Bentong
+Pahang Darul Makmur
+Tel
+09-2201388
+Tax Invoice
+BTB09201805190274
+19/05/18
+Cashier
+bt2
+nina Rojina
+21.17.14
+KCA TOILET ROLL 3PLY 1OR
+9555227800168
+12.50*2
+25.00
+5
+SUPER CRWC 366*15 HAZELNUT
+9555037203555
+13.90*1
+13,90
+5
+SUPER CRWC 40g*15 CLASSIC
+8888240000897
+13,90*1
+13,90
+5
+ITEM;
+Total with GST
+@ 6%/
+52.80
+CTY:
+ROUNDING
+0.00
+TOTAL
+52,80
+TENDER
+Visa 6258 App: 518361
+52,80
+CHANGE
+0.0
+```
+
+---
+
+## Sample 3: Receipt `sroie_621`
+
+### 1. Ground Truth Text
+```text
+ONE ONE THREE SEAFOOD RESTAURANT SDN BHD 
+ (1120908-M) 
+ NO.1 
+ 43800 DENGKIL 
+ (GST REG. NO : 000670224384) 
+ TAX INVOICE 
+ TABLE 37 
+ BILL#:V001-540417 
+ ORDER#: 140523 
+ DATE 
+ : 15-06-2018 11:35:35 
+ CASHIER: 113 CASHIER 
+ PAX(S): 
+ 0 
+ QTY 
+ DESCRIPTION 
+ TOTAL TAX 
+ 1 
+ D 120.00 SR 
+ CAT FISH ITEM 
+ 1 
+ D 
+ 18.00 SR 
+ VAGE ITEM 
+ 1 
+ D 
+ 5.50 SR 
+ WHITE RICE 
+ 1 
+ D 
+ 5.00 SR 
+ BEVERAGE 
+ TOTAL (EXCLUDING GST): 
+ 148.50 
+ TOTAL (INCLUSIVE OF GST): 
+ 148.50 
+ TOTAL : 
+ 148.50 
+ CLOSED: 1 
+ 
+```
+
+### 2. Apple Vision Clean OCR
+```text
+ONE ONE THREE SEAFOOD RESTAURANT SDN BHD 
+ (1120908-Młł 
+ NO.1, TAMAN SRI DENGKIL, JALAN AIR HITAM 
+ 43800 DENGKIL, SELANGOR. 
+ (GST Reg. No : 000670224384) 
+ Tax Invoice 
+ Table 37 
+ Bill#:V001-540417 
+ Order#: 140523 
+ Date : 15-06-2018 11:35:35 
+ Cashier: 113 CASHIER 
+ Pax(s): 0 
+ Qty Description 
+ Total TAX 
+ 1 . 
+ D 120.00 SR 
+ Cat Fish Item 
+ D 18.00 SR 
+ Vege item 
+ T 
+ D 
+ 5.50 SR 
+ White Rice 
+ D 
+ 5.00 SR 
+ Beverage 
+ Total (Excluding GST): 
+ Total (Inclusive of GST): 
+ TOTAL: 
+ 148.50
+```
+
+### 3. Tesseract 5.5 Clean OCR
+```text
+ONE ONE THREE SEAFOOD RESTAURANT SDN BHD
+(1120908-M)
+NO.1, TAMAN SRI DENGKIL, JALAN AIR HITAM
+43800 DENGKIL, SELANGOR,
+(GST Reg. No : 000870224384)
+Tax Invoice
+Table 37
+Bi11#:V001-540417 Order#: 140523
+Date +: 15-06-2018 11:36:35
+Cashier: 113 CASHIER Pax(s): 0
+Qty Description Total Tw
+1 f 190 at sR
+Cat Fish Itein
+; D 18. v0 SR
+Vege item
+] D 5,50-5R
+White Rice
+] D 5.00 SR
+Beverage
+Total (Excluding GST): 148.50
+Total (Inclusive of GST): 148.50
+TOTAL: 148.50
+Closed: 1 15- 06- 2018 98344
+Server: 13 
+```
+
+### 4. EasyOCR 1.7.2 Clean OCR
+```text
+ONE OnE THREE SEAFOOD RESTAURANT  SON BHD
+(1120908-M)
+NO, 1
+TAMAN  SRI   DENGKIL
+JALAN AIK HITAM
+43800  DENGKIL , SELANGOR
+(GST Reg
+No
+000670224384 )
+Tax
+Invoice
+Table
+37
+Bill#;V001-540417
+Ordef #;
+140523
+Late
+15-06-2018 11;35;35
+Cashier
+113 CASHIER
+Pax(s) :
+U
+Description
+Tota) TAY
+120,00 SR
+Cat Fish Item
+0
+18 JU SR
+Verje item
+1
+750SR
+White Rice
+5 , 00 SR
+Beverage
+Tota]
+Exc luding GST) ;
+148 , 50
+Total (Inclusive of GST) :
+148.50
+TOTAL:
+148
+50
+Closed:
+15-06-2018
+76:44
+Server :
+113 CASHIER
+CASH
+1
+```
+
+---
+
+## Sample 4: Receipt `sroie_075`
+
+### 1. Ground Truth Text
+```text
+3180303 
+ LIAN HING STATIONERY SDN BHD 
+ (162761-M) 
+ NO.32 & 33 
+ TAMAN SERDANG RAYA. 
+ 43300 SERI KEMBANGAN 
+ DARUL EHSAN 
+ GST ID : 002139201536 
+ TAX INVOICE 
+ 30/03/2018 
+ NO. : CS-20322 
+ QTY 
+ TAX 
+ RM 
+ DURAFILE H399 (110 X 95MM) 
+ 200 
+ SR 
+ 116.60 
+ NAME BADGE (H) @ 0.5500 
+ 809 METAL NAME BADGE CLIP 
+ 2 
+ SR 
+ 42.40 
+ 100'S @ 20 0000 
+ TOTAL AMT INCL. GST @ 6% : 
+ 159.00 
+ ROUNDING ADJUSTMENT : 
+ TOTAL AMT PAYABLE : 
+ 159.00 
+ PAID AMOUNT : 
+ 200.00 
+ CHANGE : 
+ 41.00 
+ TOTAL QTY TEND
+```
+
+### 2. Apple Vision Clean OCR
+```text
+3180303 
+ CENDEHD 
+ LAN HING STATIONERY SDN BHD 
+ (162761-M) 
+ NO.32 & 33. JALAN SR 1/9. SEKSYEN 9, 
+ TAMAN SERDANG RAYA. 
+ 43300 SERI KEMBANGAN, SELANGOR 
+ DARUL EHSAN 
+ GST ID : 002139201536 
+ Tax Invoice 
+ 30/03/2018 
+ No. : CS-20322 
+ Qty Tax 
+ RM 
+ 200 SR 116.60 
+ 2 SR 42.40 
+ Durafile H399 (110 x 95mm) 
+ Nare Badge (H) @ 0.5500 
+ 809 Metal Name Badge Clip 
+ - 100's (@) 20 0000 
+ Total Amt Incl. GST () 6% : 
+ Rounding Adjustment 
+ Total Amt Payable : 
+ Paid Amount 
+ Change : 
+ Total Qty Ten
+```
+
+### 3. Tesseract 5.5 Clean OCR
+```text
+3180303 (7% eb sy D3 4°
+UAN HING STATIONERY SDN BHD
+(162761-M)
+NO. 32 & 33, JALAN SR 19. SEKSYEN 9,
+TAMAN SERDANG RAYA.
+43300 SER] KEMBANGAN, SELANGOR
+DARUL EHSAN
+GST ID : 002139201536
+Tax Invoice
+No. CS-20322
+Qty Tax RM
+Durafite H399(110 x 96mm) 200 SR_116.60_/
+Name Badge (H) @ 0.5500
+"$09 Metal Name Badge Clip 2 SR 4240 ye
+100's @20 0000
+‘Total Amt incl. GST @ 6% : 189.00
+Rounding Adjustment
+Total Amt Payable - 159.00 ye
+Paid Amount 200.00
+Change : 41.00
+Total Qty Tender : 202
+THANK YOU
+Foy an
+```
+
+### 4. EasyOCR 1.7.2 Clean OCR
+```text
+3180303
+CzhJzH)
+UANFIING STATIONERY SDN BHD
+162761-M)
+NO 32 ? 33 JALAN SR 1 9 SEKSYEN 9
+TAMAN SERDANG RAYA
+43300 SERI KEMBANGAN SELANGOR
+DARUL EHSAN
+GST ID
+002139201536
+Tax Invoice
+30,0322018
+No:
+CS 20322
+Cty Tar
+RM
+Duratile +399 (110 x 95nir)
+200
+SR
+116.60
+Narne Badge (H) @ 0.5500
+809 Metal Narie Badge Clip
+SR
+4240
+100's ( 20 00oo
+Total Aint Incl GST @ 6*
+159.,00
+Rounding Adjustment
+Tolal Amt Payable
+159.00
+Paid Amount
+200 00
+Change
+41.00
+Total
+Tende
+202
+GST Sumimary
+Amount
+Tax
+(RM)
+(RM)
+SR @4
+
+```
+
+---
+
+## Sample 5: Receipt `sroie_576`
+
+### 1. Ground Truth Text
+```text
+99 SPEED MART S/B (519537-X) 
+ LOP P.T. 2811 
+ TAMAN BERKELEY 
+ 41150 KLANG 
+ 1237-TMN INDAH PERDANA. 
+ GST ID. NO : 000181747712 
+ INVOICE NO : 18396/102/T0362 
+ 03:46PM 
+ 568268 
+ 13-05-18 
+ 0715 KNORR CHICKEN STOCK 1K 
+ RM16.85 S 
+ 5596 HYGIENIC 7.5 INCH COLO 
+ RM6.06 S 
+ @6 X RM 1.01 
+ TOTAL SALES (INCLUSIVE GST) RM 
+ 22.91 
+ ROUNDING ADJUSTMENT RM 
+ -.01 
+ ROUNDING RM 
+ 22.90 
+ CASH RM 
+ 50.00 
+ CHANGE RM 
+ 27.10 
+ GST SUMMARY 
+ AMOUNT(RM) 
+ TAX(RM) 
+ S = 6% 
+ 21.60 
+ 1.31 
+ THANK YOU. PLEA
+```
+
+### 2. Apple Vision Clean OCR
+```text
+99 SPEED MART S/B (519537-X) 
+ LOT P.T. 2811, JALAN ANGSA, 
+ JAMAN BERKELEY 
+ 41150 KLANG, SELANGOR 
+ 1237-TMN INDAH PERDANA. 
+ GST ID. NO: 000181747712 
+ INVOICE NO : 18396/102/T0362 
+ 03: 46PM 
+ 568268 
+ 13-05-18 
+ 0715 KNORR CHICKEN STOCK 1K 
+ 5596 HYGIENIC 7.5 INCH COLO 
+ @6 X RM 1.01 
+ RM16.85 s 
+ RM6.06 = 
+ Total Sales (Inclusive GST) RM 
+ Rounding Adjustment RM 
+ Rounding RM 
+ CASH RM 
+ CHANGE RM 
+ 22.91 
+ -. 01 
+ 22.90 
+ 50.00 
+ 27.10 
+ GST Summary 
+ $ = 6% 
+ Amount (RM) 
+ 21.60 
+ Tax (R
+```
+
+### 3. Tesseract 5.5 Clean OCR
+```text
+tn
+99 SPEED MART S/B (519537-x)
+LOT P.T. 2841, JALAN ANGSA,
+SANAN BERKELEY
+41150 KLANG, SELANGOR
+1237-TMN INDAH PERDANA.
+GST ID. NO s 000181747712
+INVDICE NO : 18396/102/T0362
+03:46PM. 568268 13-05-18
+OTIS KNORR CHICKEN STOCK 1K  RML4.85
+«$596 HYGIENIC 7.5 INCH COLO —-RM4.06 =
+RG X RM LO
+| Total Sales (Inclusive GST) RM 22,94
+Rounding Adjustment RM = -, 01
+| Rounding RM 22.90
+| CASH RM 50.00
+| CHANGE RK = 27,10
+«GST Summary = Amount (RM) Tax(RH)
+dase 21.60 1.31
+Thank You. Please come again
+Keep 
+```
+
+### 4. EasyOCR 1.7.2 Clean OCR
+```text
+99 SPEED HART S/B (519537-X)
+LOT PT.
+281,1,
+JALAN ANGSA,
+TahAN  BERKELEY
+41150 KLANG,
+SELANGOR
+1237-ThN Indak PERDANA
+GST ID. NO
+000181747712
+INVDICE No
+18396/102/T0362
+03:46PM
+568268
+13-05-18
+0715 KNOrR CHICKEN STOCK IK
+RNib.85
+8
+5596 HVGIENIC 7.5 Inch COLo
+RMG. 06
+@6 X RM 1.01
+Total Sales (Inclusive GST} RM
+22.91
+Rounding Adjustment RM
+01
+Rounding Rh
+22.90
+CasH Rh
+50,00
+CHANGE RM
+27.10
+GST Sumeary
+Amount(RH)
+Tax(RA)
+5
+67.
+21.60
+1.31
+Thank You:
+Please come again
+the invoice for applicable retur
+```
+
+---
+
+## Sample 6: Receipt `sroie_012`
+
+### 1. Ground Truth Text
+```text
+HOME MASTER HARDWARE & 
+ ELECTRICAL 
+ NO.113G & 115G 
+ U13/BG BANDAR SETIA ALAM 
+ 40170 BANDAR SETIA ALAM 
+ SELANGOR. 
+ COMPANY REG NO. :SA03711551-P 
+ GST REG NO. :001637511168 
+ TAX INVOICE 
+ INVOLCE NO.: 
+ DATE : 
+ 22/12/2017 14:03 
+ CASHLER # : 
+ CASHIER 
+ RM 
+ CODE 
+ 24MMX7Y M.ONE TAPE 
+ 1.00 
+ X 
+ 15.90 
+ 15.90 
+ SR 
+ SUBTOTAL : 
+ 15.90 
+ TOTAL EXCL. OF GST 
+ 15.00 
+ TOTAL INCL. OF GST 
+ 15.90 
+ TOTAL AMT ROUNDED 
+ 15.90 
+ PAYMENT : 
+ 50.00 
+ CHANGE DUE : 
+ 34.10 
+ TOTAL ITEM(S) : 1 
+ G 
+ 
+```
+
+### 2. Apple Vision Clean OCR
+```text
+HOME MASTER HARDWARE & 
+ ELECTRICAL 
+ NO.113G & 115G, JALAN SETIA GEMBILANG 
+ U13/EG DANDAR SETIA ALAN, 
+ 40170 BANDAR SETIA ALAM, 
+ SELANGOR. 
+ Company Reg No. :SA03711551-P 
+ GST Reg No. :001637511166 
+ TAX INVOICE 
+ Involce No.: 
+ Date : 
+ Cashler # : 
+ CS 67832 
+ 22/12/2017 14:03 
+ CASHIER 
+ 24MMX7Y M.ONE TAPE 
+ 1.00 
+ 15.90 
+ Subtotal : 
+ Total Excl. of GST 
+ Total Incl. of GST 
+ Total Amt Rounded 
+ Payment: 
+ Change Due : 
+ Total Item (a) : 1 
+ G 
+ SR 
+ Summary 
+ • 6% 
+ Amouni (RM) 
+ 15.00
+```
+
+### 3. Tesseract 5.5 Clean OCR
+```text
+HORE MASTER HARDWARE &
+ELECTRICAL
+NQ.113G & 115G, JALAN SETIA GEMEILANG
+U13/8G BANDAR SETIA ALAM,
+40770 BANDAR SETIA ALAM,
+SELANGOR,
+Company Reg No. :SA03711951-F
+GST Reg No. 001837511166
+TAK INVOICE
+Invole No.; CS 87832
+Date: 22/12/2017 14:03
+Caahiler #: CASHIER
+RM Code
+24MIMY7Y M.ONE TAPE
+1.00 x 19.90 15.90 SR
+Subtotal : 75.90
+TotalExclofGST 45.00
+Tota! Incl, of GST 15.90
+TotalAmtRounded 45.90
+Payment : §0.00
+Change Due: 34.10
+- Total tema) > 4
+GS ummary Amouni(RM) Tax (RN)
+SR @a% 18.00 0.90
+A
+```
+
+### 4. EasyOCR 1.7.2 Clean OCR
+```text
+HOME MASTeR KARDWARE &
+ELECTRICAL
+Na.113G & 115G, JALAN SETIA GEMBILANG
+UtjeG DANDAR SETIA ALAM,
+40170 BANDAR SETIA ALAM,
+SELANIGOR
+Compzny Reg Nj. ;540371t551-P
+GST Rey No. "0016375+1168
+Tfk Icice
+Involce Nlo::
+CS67332
+Date
+22/12/2017 14.03
+Czahler#;
+CaShIER
+RM
+Code
+24mmx7y MQNE TAPE
+1.00
+{
+15.90
+15.90
+Subtota
+15.90
+Total Excl , 0r GST
+t5.00
+Totz' Ingi, 0f GST
+15.90
+Total Amt Rounded
+15.90
+Payment
+50.00
+Change Duz
+34.10
+Totzl Item (6} -
+Artturii (GM)
+Tax (Q}
+SR
+6%
+15.00
+0.90
+46
+THANK YOU
+ANT Go
+```
+
+---
+
+## Sample 7: Receipt `sroie_566`
+
+### 1. Ground Truth Text
+```text
+RESTORAN WAN SHENG 
+ 002043319-W 
+ NO.2 
+ SEKSYEN 9 
+ 43200 CHERAS 
+ GST REG NO: 001335787520 
+ TAX INVOICE 
+ INV NO.: 1175805 
+ CASHIER: THANDAR 
+ DATE 
+ : 04-06-2018 15:53:52 
+ DESCRIPTION 
+ QTY 
+ U.PRICE 
+ TOTAL 
+ TAX 
+ TEH (B) 
+ 1 X 
+ 2.20 
+ 2.20 
+ ZRL 
+ CHAM (B) 
+ 1 X 
+ 2.20 
+ 2.20 
+ ZRL 
+ BUNGA KEKWA 
+ 1 X 
+ 1.70 
+ 1.70 
+ ZRL 
+ TAKE AWAY 
+ 3 X 
+ 0.20 
+ 0.60 
+ ZRL 
+ TOTAL QTY: 6 
+ TOTAL (EXCLUDING GST): 
+ 6.70 
+ TOTAL (INCLUSIVE OF GST): 
+ 6.70 
+ TOTAL : 
+ 6.70 
+ CASH : 
+ 6.70 
+ GST SUMMARY
+```
+
+### 2. Apple Vision Clean OCR
+```text
+RESTORAN WAN SHENG 
+ 002043319-W 
+ No.2, Jalan Temenggung 19/9, 
+ Seksyen 9, Bandar Mahkota Cheras, 
+ 43200 Cheras, Selangor 
+ CST REG NO: 001335787520 
+ Tax Invoice 
+ INV No.: 1175805 
+ Date 
+ : 04-06-2018 
+ Cashier: Thandar 
+ 52 
+ Description 
+ U.price 
+ Total TAX 
+ Teh (B) 
+ 1 x 
+ 2.20 
+ 2.20 ZRL 
+ Cham (B) 
+ 1 x 
+ 2.20 
+ 2.20 ZRL 
+ Bunga Kekwa 
+ 1 x 
+ 1.70 
+ 1.70 ZRL 
+ Take Away 
+ 3 x 
+ 0.20 
+ 0.60 ZRL 
+ Total QTY: 6 
+ Total (Excluding GST) 
+ Total (Inclusive of 
+ GST 
+ TOTAL: 
+ CASH : 
+ 6.7
+```
+
+### 3. Tesseract 5.5 Clean OCR
+```text
+RESTORAN WAN SHENG
+002043319-W
+No.2, Jalan Temenggung 19/9,
+Seksyen 9, Bandar Mahkota Cheras,
+43200 Cheras, Selangor
+GST REG NO; 0013935787520
+fax Tinvoice
+INV Now: 117580! itier: Thandar
+fate  : 04-06-00) h2
+Description price lotal TAX
+leh (B)
+Lm 2,20 2.20 ZRL
+Cham (8)
+1x 2.20 2.20 ZRL
+Bunga Kekwa
+i x 1.76 1.70 ZRL
+Take Away
+3 Xx 0.20 0.60 ZRL
+Total Q'Y: 6
+fotal (Excluding & 6.70
+Total (Inclusive o 6.70
+TOTAL : 6.70
+CASH : 6.70
+GST Summary Amount(RM) — Tax(RM)
+ZRL (@ 0%) 6.70 0.00
+```
+
+### 4. EasyOCR 1.7.2 Clean OCR
+```text
+RESTORAN WAN SHENG
+002043319-W
+No 2 ,
+Jalan  Temerggurg  19/9
+Seksyen 9, Bandal" Mahkota Cheras
+43200 Cheras
+Selangor
+GST REG NO ; 001335787520
+Tax
+Invoice
+InV No .
+117/520"
+Cael : Thandar
+Date
+04-06 - <1" `' ' ,2
+DJescr ipt |Cr
+40,
+pice
+Iotal TAX
+Teh (R)
+2,20
+2,20 ZRL
+Cham (B)
+1
+A
+2 ,20
+2.20 ZRL
+ESl qa Kekwa
+1.70
+1,70 ZRL
+Take Away
+3 X
+0,20
+0,60  ZRL
+Tota? QTY;
+6
+Tota| (Excluding GSU;
+6 , 70
+Tota] ( Inclusive 0f (;
+6. 70
+TOTAL :
+6
+70
+CASH
+6,70
+GST   Summary
+Amcunt (RM
+Tax(RM)
+ZRL
+(@ OX)
+6,70
+0,
+```
+
+---
+
+## Sample 8: Receipt `sroie_607`
+
+### 1. Ground Truth Text
+```text
+KEDAI PAPAN YEW CHUAN 
+ (0005583085-K) 
+ LOT 276 JALAN BANTING 
+ 43800 DENGKIL 
+ TEL : 03-87686092 
+ FAX : 03-87686092 
+ GST ID : 000781500416 
+ TAX INVOICE 
+ BILL TO : 
+ SUCI ALAM JAYA TRANSPORT 
+ NO 1 JALAN AMAN 2 
+ TAMAN DESA 43800 
+ DENGKIL SELANGOR 
+ 017-6057770 
+ DOC NO. 
+ : 
+ CS00012330 
+ DATE: 30/04/2018 
+ CASHIER 
+ : 
+ USER 
+ TIME: 13:01:00 
+ SALESPERSON 
+ : 
+ REF.: 
+ ITEM 
+ QTY 
+ S/PRICE 
+ (GST) 
+ (GST) 
+ S/PRICE 
+ AMOUNT 
+ TAX 
+ 0139 
+ BESI Y 10 (CQ) 
+ 6 
+ 17.00 
+ 18.02 
+ 108.12 
+ SR 
+```
+
+### 2. Apple Vision Clean OCR
+```text
+KEDAI PAPAN YEW CHUAN 
+ (0005583085-K) 
+ LOT 276 JALAN BANTING 
+ 43800 DENGKIL, SELANGOR. 
+ TEL: 03-87686092 FAX 03-87686092 
+ GST ID: 000781500416 
+ TAX INVOICE 
+ Bill To : 
+ SUCI ALAM JAYA TRANSPORT 
+ NO 1 JALAN AMAN 2 
+ TAMAN DESA 43800 
+ DENGKIL SELANGOR 
+ 017-6057770 
+ Doc No. 
+ Cashier 
+ CS00012330 
+ USER 
+ Salesperson 
+ Date: 
+ 30/04/2018 
+ Time: 13:01:00 
+ Ret.: 
+ Item 
+ 00139 
+ BESI Y 10 (CQ) 
+ 100135 
+ BESI R 5.5 (CQ) 
+ 101756 
+ SIMEN 
+ Total Qty: 
+ Qty 
+ 6 
+ S/Price 
+ 17 00 
+ (GST) 
+ 
+```
+
+### 3. Tesseract 5.5 Clean OCR
+```text
+LOT 276 JALAN
+Bill To :
+SUCI ALAM JAYA TRANSPO
+NO 1 JALAN AMAN 2
+TAMAN DESA 43800
+TEL : 03-87686092 FAX
+GST ID : 000781500416
+_TAX INVOICE
+KEDAI PAPAN YEW CHUAN
+(0005583085-k)
+BANTING
+43800 DENGKIL, SELANGOR
+03-87686092
+RT
+DENGKIL SELANGOR
+017-6057770
+‘DocNo.  —.~ C$00012330° SC ate’ 30/042078
+Cashier : USER Time’ 13.01:00
+Salesperson .; Ret:
+| oo (GST) (GsT)
+tem ty S/Price  S/Price Amount Tax
+a9 6 1700 186. 108.12 SR
+BESI Y 10 (CQ)
+100135 4 8.00 6.48 33.92 SR
+BESI R 5.5 (CQ)
+101756 15 16.50 17.
+```
+
+### 4. EasyOCR 1.7.2 Clean OCR
+```text
+KEDAI PAPAN YEW CHUAN
+(0005583085-K)
+LOT 276 JALAN BANTING
+43800 DENGKIL, SELANGOR
+TEL
+03-87686092
+FAX
+03-87686092
+GST ID
+000781500416
+IAX INVOICE
+Bill To
+SUCI ALAM JAYA TRANSPORT
+NO 1 JALAN AMAN 2
+TAMAN DESA 43800
+DENGKIL SELANGOR
+017-6057770
+Doc No,
+CS00012330
+Date:  30704/2018
+Cashier
+USER
+Time
+13,01'00
+Salesperson
+Rel ;
+(GST)
+(GST)
+Ism
+Qty
+SIPrice
+S/Price
+Amount
+Tay
+0139
+6
+17 00
+18 0.
+106. 12
+SR
+BESI Y 10 (CQ)
+100135
+8,Q0
+8,48
+33.92
+SR
+BESI R 5.5 (CQ)
+101756
+15
+16.50
+17 49
+262.36
+SR
+SIMEN
+To
+```
+
+---
+
+## Sample 9: Receipt `sroie_451`
+
+### 1. Ground Truth Text
+```text
+MR. D.I.Y. (M) SDN BHD 
+ (CO.REG :860671-D) 
+ LOT 1851-A & 1851-B 
+ KAWASAN PERINDUSTRIAN BALAKONG 
+ 43300 SERI KEMBANGAN 
+ (GST ID NO :000306020352) 
+ (IOI PUCHONG) 
+ -TAX INVOICE- 
+ LAVA FOOD CONTAINER FC202 500ML 
+ *S 
+ WA26 - 12/144 
+ 9555047302026 
+ 1 
+ X 
+ 1.80 
+ 1.80 
+ LAVA CANISTER CST7700 530ML 
+ *S 
+ WA33 - 12/144 
+ 9555047301890 
+ 2 
+ X 
+ 1.60 
+ 3.20 
+ ITEM(S) : 2 
+ QTY(S) : 3 
+ TOTAL INCL. GST@6% 
+ RM 5.00 
+ CASH 
+ RM 50.00 
+ CHANGE 
+ RM 45.00 
+ GST @6% INCLUDED IN TOTAL 
+ RM 0.28 
+ 
+```
+
+### 2. Apple Vision Clean OCR
+```text
+2104003 
+ ALO13A ARA 
+ MR. D.I.Y. (M) SDN BHD 
+ (CO.REG :860671-D) 
+ LI ON BE CREATEN SEANEDA. 
+ (GST ID No :000306020352) 
+ (IOI PUCHONG) 
+ -TAX INVOICE- 
+ LAVA FOOD CONTAINER FC202 500ml 
+ WA26 - 12/14ĄŚ 
+ 9555047302026 
+ 1 X 
+ 1.80 
+ LAVA CANISTER CST7700 530ml 
+ WA33 - 12/144 
+ 9555047301890 
+ 2 x 
+ 1.60 
+ *S 
+ 1.80 
+ *S 
+ 3.20 
+ Item(s) : 2 
+ Qty (s) : 3 
+ Total Incl. GST@6% 
+ CASH 
+ CHANGE 
+ RM 5.00 
+ RM 50.00 
+ RM 45.00 
+ GST @6% included in total 
+ *- 
+ 30-04-18 18:17 SH01 ZJ86 
+ OPERATO
+```
+
+### 3. Tesseract 5.5 Clean OCR
+```text
+1 O06! o Mo
+MR. O.T.¥. (M) SON BHD
+(CO.REG :860671-D)
+LOT 1851-A &@ 1851-B, JALAN KpB 6,
+KAWASAN PERINDUSTRIAN BALAKONG,
+43300 SERI KEMBANGAN, SELANGOR
+(GST ID No :000306020352)
+(101 PUCHONG)
+-TAX INVOICE-
+LAVA FOOD CONTAINER FC202 500m\ *S
+WA26 - 12/144
+9555047302026 ] 1.80 1.80
+LAVA CANISTER CST7700 sera *S
+WA33 - 12/144
+9555047301890 2X 1.60 3.20
+Item(s) : 2 Qty(s) : 4
+Total Incl. GST@6% RM 5.00
+CASH RM 50.00
+CHANGE RM 45.00
+al @6% included in total RM (0.28
+30- 04-18 18:17 SHO1 Zug6 T2 Ro001
+```
+
+### 4. EasyOCR 1.7.2 Clean OCR
+```text
+CC
+'19[
+As
+#27
+2/Sv1o63
+8
+MR
+D. I.Y _
+(M)
+SDN BHD
+(Co. REG
+86067 1-D )
+Lot
+1851-4
+&
+185 1-B
+JALAN KPB
+6
+Kawasan PERINDUSTRIAN BALAKONG,
+43300
+SERI
+KEMBANGAN
+SELANGOR
+(GST
+ID
+No
+000306020352 )
+(IOi Puchong
+Tax
+InVOICE -
+LAVA
+FOOD CoNTAinER
+FC202
+500m ]
+*S
+WA26
+12/144
+9555047302026
+1 X
+1.80
+1,80
+LAVA
+CANISTER
+CST7700 530m ]
+#S
+0A33
+12/144
+9555047301890
+2 X
+1.60
+3 . 20
+Item(s )
+2
+Qty(s)
+3
+Tota]
+Inc ]
+GST@6%
+CASH
+RM
+5 , 00
+CHANGE
+RM 50 ,00
+RM 45,00
+GST
+@6%  included
+in tota]
+RM
+0 ,28
+30-04-18 18 : 1
+```
+
+---
+
+## Sample 10: Receipt `sroie_132`
+
+### 1. Ground Truth Text
+```text
+FARMASI MALURI S/B (587969-U) 
+ GST NO: 000342237184 (ID:5033) 
+ 23 
+ MALURI 
+ TAX INVOICE 
+ CASHIER : POS1N 
+ M/C. ID :POS7 
+ RECEIPT : 71857936 
+ 02/03/18 05:16 PM 
+ DESCRIPTION 
+ DISC. 
+ SUBTOTAL 
+ 061558 - **BMS MILK THISTLE 
+ 1 X 111.30 
+ 36.75 
+ 72.35 S 
+ 910845 - TRILON-E CRM 
+ 1 X 7.00 
+ 7.00 Z 
+ TOTAL (INCLUDING GST) 
+ 79.35 
+ ROUNDING 
+ NET 
+ TENOER 
+ CHANGE/BALANCE 
+ 0.00 
+ 79.35 
+ 100.00 
+ 20.65 
+ GST SUMMARY 
+ ZRL @0.00% 
+ SR @ 6.00% 
+ 7.00 
+ 68.25 
+ 0.00 
+ 4.10 
+ GOODS SOLD ARE NON
+```
+
+### 2. Apple Vision Clean OCR
+```text
+3180301 
+ For staff: Leong sing Fode 
+ Farmasi Maluri S/B(587969-U) 
+ GST NO: 000342237184 (ID:5033) 
+ 23, Jln Burung Jentayu, Tmn Bukit 
+ Maluri, Kepong, 52100 KL. 
+ TAX INVOICE 
+ Cashier : pos1N 
+ Receipt : 
+ 71857936 
+ M/c. ID : POS7 
+ 02/03/18 05:16 PM 
+ Description 
+ Disc. 
+ Subtotal 
+ 061558 - **BMS MILK THISTLE 
+ 1 X 111.30 
+ 36. 75 
+ 910845 - TRILON-E CRM 
+ 1 × 7.00 
+ 72. șšŚ 
+ 7.00 Z 
+ TOTAL (Including GST) 
+ 79. 35 
+ ROUNDING 
+ NET 
+ TENDER 
+ CHANGE/BALANCE 
+ 0. 00 
+ 79.35 
+ 100. 00 
+ 
+```
+
+### 3. Tesseract 5.5 Clean OCR
+```text
+3180301
+for Sinyy = Leong Seep Feate
+Farmasi Maluri S/B(587969-U)
+GST NO: 000342237184 (1D:5033)
+23, Jin Burung Jentayu, Tmn Bukit
+Maluri, Kepong, 52100 KL.
+TAX INVOICE
+Cashier : posiN M/c. ID : POS7
+Receipt : 71857936 02/03/18 05:16 PM
+Description Disc. Subtotal
+061558 - *BMS MILK THISTLE
+1X 111.30 36. 75 72.35 S
+910845 - TRILON-E CRM
+1X 7.00 7.00 Z
+TOTAL (Including GST) 79.35
+ROUNDING 0.00
+NET 79. 36
+TENDER 100. 00
+CHANGE/BALANCE 20. 65
+GST Summary Amt(Excl.Gst) Tax (RM)
+ZRL @0. 00% 7.00 0.00
+
+```
+
+### 4. EasyOCR 1.7.2 Clean OCR
+```text
+3180301
+Fr
+stfs
+Legip
+Fdc
+Farmasi
+Ma lur i
+S/B (587969-U)
+GST  NO: 000342237184   (ID:5033)
+23,
+JIn Burung  Jentayu;
+Tmn Bukit
+Maluri , Kepong,  52100 KL:
+TAX INVOICE
+Cashier
+posIN
+Mc. ID
+POS7
+Receipt
+71857936
+02/03/18 05:16 PM
+Descr iption
+Disc
+Subtotal
+061558
+XXBMS MILK THISTLE
+X
+111.30
+36. 75
+72.35 $
+910845
+TRILON-E CRM
+1 X 7. 00
+7.00 2
+TOTAL  (Including GST)
+79. 35
+RounDinG
+0. 00
+NET
+79. 35
+TENDER
+100 . 00
+CHANGE /BALANCE
+20.65
+GST  Summary
+Amt (Exc]. Gst)
+Tax (RM)
+ZRL @0. 00%
+7 . 00
+0. 00
+S
+```
+
+---
+

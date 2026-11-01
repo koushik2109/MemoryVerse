@@ -1,0 +1,14 @@
+Condition,Apple Clean OCR,Apple Clean OCR,Apple Clean OCR,Optical Blur Degraded,Optical Blur Degraded,Optical Blur Degraded,Synthetic 20% Noise,Synthetic 20% Noise,Synthetic 20% Noise
+Query_Slice,Answerable Question,Light Paraphrase,Verbatim Lookup,Answerable Question,Light Paraphrase,Verbatim Lookup,Answerable Question,Light Paraphrase,Verbatim Lookup
+System,,,,,,,,,
+BPE (GPT-2),0.0173,0.0728,0.669,0.0164,0.0616,0.5612,0.0164,0.0327,0.393
+Char 2-gram,0.0255,0.0665,0.7868,0.0207,0.0715,0.6136,0.0202,0.0324,0.4384
+Char 3-5gram (Combined),0.046,0.2448,0.9437,0.0379,0.2077,0.8086,0.0283,0.1556,0.6723
+Char 3-gram,0.0421,0.173,0.9328,0.0359,0.1301,0.7972,0.0328,0.0968,0.6918
+Char 4-gram,0.0462,0.2312,0.9434,0.0377,0.2093,0.807,0.026,0.1473,0.6767
+Char 5-gram,0.0373,0.2647,0.9408,0.0303,0.2311,0.7977,0.0215,0.1433,0.6033
+Char 6-gram,0.0308,0.2219,0.9307,0.0255,0.223,0.7759,0.0202,0.1219,0.5289
+Word + Fuzzy Expansion,0.0206,0.4245,0.8005,0.0162,0.3601,0.6803,0.0176,0.1821,0.3804
+Word + Porter Stemming,0.0327,0.4286,0.8367,0.0243,0.3427,0.6824,0.0168,0.1622,0.3127
+Word Standard,0.0188,0.4341,0.8371,0.0124,0.3513,0.6827,0.0115,0.1626,0.3155
+WordPiece (BERT),0.0287,0.3936,0.8289,0.0224,0.3403,0.6608,0.0174,0.1771,0.4095

@@ -1,0 +1,12 @@
+{
+  "item_id": "T3-05",
+  "language": "Arabic",
+  "dataset": "KhalfounMehdi/arabic-latin-invoices-synthetic",
+  "license": "Creative Commons Attribution 4.0 International (CC-BY-4.0)",
+  "seed": 42,
+  "git_commit": "6b9f2aaa8a873049f7d95fd831e22f868cd5e636",
+  "n_documents": 100,
+  "n_queries_per_slice": 100,
+  "total_queries": 300,
+  "recommendation": "FLAGGED AS SEPARATE PAPER: Full cross-lingual morphological evaluation warrants a dedicated paper."
+}

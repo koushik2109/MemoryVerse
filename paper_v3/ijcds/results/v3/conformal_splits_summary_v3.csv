@@ -1,0 +1,7 @@
+Strategy,Target_Epsilon,Mean_Tau,Coverage_Fraction,Coverage_CI_Lower,Coverage_CI_Upper,Test_Miss_Rate_Mean,Test_Miss_CI_Lower,Test_Miss_CI_Upper,Escalation_Rate_Mean,Escalation_CI_Lower,Escalation_CI_Upper,MRR_Mean,MRR_CI_Lower,MRR_CI_Upper,Hit10_Mean,Hit10_CI_Lower,Hit10_CI_Upper,Mean_Latency_ms
+Conformal (Empirical Calibration),0.05,0.3844,0.365,0.2982,0.4358,0.0579,0.0555,0.0603,0.8947,0.8929,0.8966,0.3527,0.3513,0.3541,0.4296,0.4281,0.431,76.29
+Conformal ((n+1) Quantile Adjusted),0.05,0.3861,0.37,0.303,0.4409,0.0574,0.055,0.0598,0.8957,0.8939,0.8974,0.3526,0.3513,0.354,0.4296,0.4281,0.431,76.37
+Conformal (Learn-then-Test 95% UCB),0.05,0.4,0.37,0.303,0.4409,0.0529,0.0513,0.0545,0.9028,0.9017,0.9038,0.3522,0.3509,0.3536,0.4296,0.4281,0.431,76.97
+Fixed Threshold (Equal Escalation tau=0.380),0.05,0.38,0.3,0.2374,0.3686,0.0559,0.0543,0.0576,0.8947,0.8936,0.8959,0.3526,0.3512,0.354,0.4296,0.4281,0.431,76.29
+Never Escalate (Stage 1 Only),0.05,0.0,0.0,0.0,0.0,0.7262,0.7106,0.7429,0.0,0.0,0.0,0.3266,0.3108,0.3419,0.4288,0.4099,0.4473,0.45
+Always Escalate (Stage 2 All),0.05,99.0,1.0,1.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,0.3485,0.3322,0.3647,0.4288,0.4099,0.4473,85.21

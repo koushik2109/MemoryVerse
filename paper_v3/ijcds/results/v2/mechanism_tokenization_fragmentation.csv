@@ -1,0 +1,7 @@
+Condition,Noise_Rate,MiniLM_Subwords_Per_Word,BGE_Subwords_Per_Word
+Clean (0%),0.0,1.347,1.347
+Syn 10%,0.1,1.844,1.844
+Syn 20%,0.2,2.246,2.246
+Syn 40%,0.4,2.994,2.994
+Real OCR,-1.0,1.369,1.369
+Real Degraded OCR,-1.0,1.385,1.385

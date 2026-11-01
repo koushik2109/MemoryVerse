@@ -1,0 +1,6 @@
+Condition,Noise_Rate,MiniLM_Cosine_Sim,BGE_Cosine_Sim
+Clean (0%),0.0,1.0,1.0
+Syn 10%,0.1,0.6799,0.8267
+Syn 20%,0.2,0.4655,0.7007
+Syn 40%,0.4,0.2604,0.5595
+Real OCR,-1.0,0.9719,0.9868

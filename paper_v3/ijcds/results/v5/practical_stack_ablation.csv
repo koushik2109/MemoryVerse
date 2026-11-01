@@ -1,0 +1,5 @@
+Pipeline,MRR,Hit10,Latency_ms,Lift_over_BM25,Perm_P
+Word BM25 (First-Stage Alone),0.8324,0.9444,0.13,0.0,1.0
+BM25 + MiniLM Cross-Encoder,0.865,0.9608,18.4,0.0326,0.0042
+BM25 + BGE-reranker-base,0.8846,0.9738,44.66,0.0522,0.0008
+Tuned Hybrid + BGE-reranker,0.8872,0.9772,52.8,0.0548,0.0006

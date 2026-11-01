@@ -1,0 +1,13 @@
+{
+  "item_id": "G-17",
+  "source_deliverable": "T3-10",
+  "title": "Granular error analysis and failure-mode taxonomy across metadata fields",
+  "seed": 42,
+  "git_commit": "HEAD",
+  "files": [
+    "error_taxonomy_breakdown.csv",
+    "per_query_failure_attribution.csv",
+    "config.json",
+    "README.md"
+  ]
+}

@@ -46,14 +46,19 @@ def load_provenance():
 
 def find_in_results_dir(val_str: str) -> str:
     """Search for the exact value string in results directory."""
-    clean = val_str.replace(",", "").replace("%", "").strip()
+    clean = val_str.replace("\\%", "").replace("%", "").replace(",", "").replace("{,}", "").strip()
+    candidates = [clean]
+    if clean.startswith("+") or clean.startswith("-"):
+        candidates.append(clean[1:])
+    
     # Search common csv/json in results
     for p in (REPO_ROOT / "results").rglob("*"):
         if p.is_file() and p.suffix in [".csv", ".json", ".txt"]:
             try:
                 content = p.read_text(encoding="utf-8", errors="ignore")
-                if clean in content:
-                    return str(p.relative_to(REPO_ROOT))
+                for c in candidates:
+                    if len(c) >= 3 and c in content:
+                        return str(p.relative_to(REPO_ROOT))
             except Exception:
                 pass
     return ""

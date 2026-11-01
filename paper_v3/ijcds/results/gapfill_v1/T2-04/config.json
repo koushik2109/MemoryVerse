@@ -1,0 +1,19 @@
+{
+  "item_id": "T2-04",
+  "description": "Evaluation of Reciprocal Rank Fusion (RRF) and Sparse-to-Visual Cascade Reranking with ColQwen2",
+  "seed": 42,
+  "git_commit": "6b9f2aaa8a873049f7d95fd831e22f868cd5e636",
+  "n_queries": 306,
+  "k_sweep": [
+    5,
+    10,
+    20,
+    30,
+    50,
+    75,
+    100,
+    150,
+    200
+  ],
+  "source_data": "results/v10/colqwen_per_query_v10.csv"
+}

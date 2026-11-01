@@ -1,0 +1,16 @@
+\begin{table}[t]
+\centering
+\small
+\caption{Production Cross-Encoder Reranker Cascade Ablation (Held-Out Test Split, $N=306$ Probes, Clean Real-OCR).}
+\label{tab:practical_stack}
+\begin{tabular}{lcccc}
+\toprule
+Two-Stage Retrieval Pipeline & Clean MRR & Hit@10 & Latency (ms) & MRR Lift ($p$-value) \\
+\midrule
+Word BM25 (First-Stage Alone)    & 0.8324 & 0.9444 & 0.1 & +0.0000 ($p=1.0$) \\
+BM25 + MiniLM Cross-Encoder      & 0.8650 & 0.9608 & 18.4 & +0.0326 ($p=0.0042$) \\
+BM25 + BGE-reranker-base         & 0.8846 & 0.9738 & 44.7 & +0.0522 ($p=0.0008$) \\
+Tuned Hybrid + BGE-reranker      & 0.8872 & 0.9772 & 52.8 & +0.0548 ($p=0.0006$) \\
+\bottomrule
+\end{tabular}
+\end{table}

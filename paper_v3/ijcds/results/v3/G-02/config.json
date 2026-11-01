@@ -1,0 +1,12 @@
+{
+  "item_id": "G-02",
+  "source_deliverable": "T1-02",
+  "title": "Stronger DocVQA text proxies (PaddleOCR, docTR, Docling, VLMs)",
+  "seed": 42,
+  "git_commit": "HEAD",
+  "files": [
+    "config.json",
+    "README.md",
+    "docvqa_ocr_proxies_summary.csv"
+  ]
+}

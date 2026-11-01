@@ -1,0 +1,12 @@
+{
+  "item_id": "R-02",
+  "random_seed": 42,
+  "models_evaluated": [
+    "CLIP ViT-B/32",
+    "SigLIP Base Patch16-224"
+  ],
+  "image_conditions": [
+    "Pristine Clean Images",
+    "Optical Blur Degraded Images"
+  ]
+}

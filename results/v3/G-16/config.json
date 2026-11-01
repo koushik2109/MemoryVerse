@@ -1,0 +1,14 @@
+{
+  "item_id": "G-16",
+  "source_deliverable": "T3-09",
+  "title": "Expanded multi-hop relational reasoning benchmark",
+  "seed": 42,
+  "git_commit": "HEAD",
+  "files": [
+    "multihop_100_summary.csv",
+    "config.json",
+    "README.md",
+    "multihop_discordant_analysis.csv",
+    "tost_multihop_equivalence.json"
+  ]
+}

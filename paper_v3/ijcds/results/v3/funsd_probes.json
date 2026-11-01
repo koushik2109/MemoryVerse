@@ -1,0 +1,1200 @@
+{
+  "dev_probes": [
+    {
+      "target_id": "funsd_71206427",
+      "split": "dev",
+      "verbatim_query": "DATE: June 1, 1990",
+      "light_paraphrase": "What is the DATE on this form?"
+    },
+    {
+      "target_id": "funsd_0001123541",
+      "split": "dev",
+      "verbatim_query": "DEPARTMENT: R&D Library",
+      "light_paraphrase": "What is the DEPARTMENT on this form?"
+    },
+    {
+      "target_id": "funsd_92039708_9710",
+      "split": "dev",
+      "verbatim_query": "TO: R. B. SPELL",
+      "light_paraphrase": "What is the TO on this form?"
+    },
+    {
+      "target_id": "funsd_0060029036",
+      "split": "dev",
+      "verbatim_query": "Date Routed: January 11, 1994",
+      "light_paraphrase": "What is the Date Routed on this form?"
+    },
+    {
+      "target_id": "funsd_81619511_9513",
+      "split": "dev",
+      "verbatim_query": "TO: S.P. Zolot",
+      "light_paraphrase": "What is the TO on this form?"
+    },
+    {
+      "target_id": "funsd_89386032",
+      "split": "dev",
+      "verbatim_query": "Client Name Borriston Laboratories, Inc.",
+      "light_paraphrase": "What is the Client Name on this form?"
+    },
+    {
+      "target_id": "funsd_0001209043",
+      "split": "dev",
+      "verbatim_query": "Brand SALEM (RJR)",
+      "light_paraphrase": "What is the Brand on this form?"
+    },
+    {
+      "target_id": "funsd_0060262650",
+      "split": "dev",
+      "verbatim_query": "Return this form to: AAAS Meetings Office 1101 Vermont Ave., N W. Washington, D. C. 20005",
+      "light_paraphrase": "What is the Return this form to on this form?"
+    },
+    {
+      "target_id": "funsd_0001129658",
+      "split": "dev",
+      "verbatim_query": "FAX: (305) 400 6 06",
+      "light_paraphrase": "What is the FAX on this form?"
+    },
+    {
+      "target_id": "funsd_0060165115",
+      "split": "dev",
+      "verbatim_query": "TELEFAX MESSAGE No.: 2463",
+      "light_paraphrase": "What is the TELEFAX MESSAGE No on this form?"
+    },
+    {
+      "target_id": "funsd_0060007216",
+      "split": "dev",
+      "verbatim_query": "PROJECT CODE PMRM",
+      "light_paraphrase": "What is the PROJECT CODE on this form?"
+    },
+    {
+      "target_id": "funsd_00093726",
+      "split": "dev",
+      "verbatim_query": "Date: September 21, 1976",
+      "light_paraphrase": "What is the Date on this form?"
+    },
+    {
+      "target_id": "funsd_00836244",
+      "split": "dev",
+      "verbatim_query": "COMPOUND 2, 4- Dihydroxypyridine",
+      "light_paraphrase": "What is the COMPOUND on this form?"
+    },
+    {
+      "target_id": "funsd_0060094595",
+      "split": "dev",
+      "verbatim_query": "Characteristic Tested Smoke Analysis",
+      "light_paraphrase": "What is the Characteristic Tested on this form?"
+    },
+    {
+      "target_id": "funsd_80728670",
+      "split": "dev",
+      "verbatim_query": "DATE: 2 /28 /84",
+      "light_paraphrase": "What is the DATE on this form?"
+    },
+    {
+      "target_id": "funsd_92327794",
+      "split": "dev",
+      "verbatim_query": "TO: (919) 378- 001 Ron Goldbrenner",
+      "light_paraphrase": "What is the TO on this form?"
+    },
+    {
+      "target_id": "funsd_00922237",
+      "split": "dev",
+      "verbatim_query": "VENDOR Microbiological Associates 5221 River Rd., Bethesda MD 20816",
+      "light_paraphrase": "What is the VENDOR on this form?"
+    },
+    {
+      "target_id": "funsd_92298125",
+      "split": "dev",
+      "verbatim_query": "TO: MARY MAZZA",
+      "light_paraphrase": "What is the TO on this form?"
+    },
+    {
+      "target_id": "funsd_12825369",
+      "split": "dev",
+      "verbatim_query": "BRAND Misty",
+      "light_paraphrase": "What is the BRAND on this form?"
+    },
+    {
+      "target_id": "funsd_92586242",
+      "split": "dev",
+      "verbatim_query": "EVENT NAME: GENERAL INFORMATION:",
+      "light_paraphrase": "What is the EVENT NAME on this form?"
+    },
+    {
+      "target_id": "funsd_0001463448",
+      "split": "dev",
+      "verbatim_query": "This form was placed before Bates ID 6708105266",
+      "light_paraphrase": "What is the This form was placed before Bates ID on this form?"
+    },
+    {
+      "target_id": "funsd_0060302201",
+      "split": "dev",
+      "verbatim_query": "NAME: Ronald. W Davis",
+      "light_paraphrase": "What is the NAME on this form?"
+    },
+    {
+      "target_id": "funsd_91391286",
+      "split": "dev",
+      "verbatim_query": "FROM: THOM SMITH",
+      "light_paraphrase": "What is the FROM on this form?"
+    },
+    {
+      "target_id": "funsd_0060308461",
+      "split": "dev",
+      "verbatim_query": "(1) YEAR COVERED: 1985",
+      "light_paraphrase": "What is the 1 YEAR COVERED on this form?"
+    },
+    {
+      "target_id": "funsd_81619486_9488",
+      "split": "dev",
+      "verbatim_query": "TO: S. P. ZOLOT",
+      "light_paraphrase": "What is the TO on this form?"
+    },
+    {
+      "target_id": "funsd_0071032790",
+      "split": "dev",
+      "verbatim_query": "To: Files",
+      "light_paraphrase": "What is the To on this form?"
+    },
+    {
+      "target_id": "funsd_0060080406",
+      "split": "dev",
+      "verbatim_query": "BRAND BULL DURHAM Filter Box",
+      "light_paraphrase": "What is the BRAND on this form?"
+    },
+    {
+      "target_id": "funsd_0012529284",
+      "split": "dev",
+      "verbatim_query": "No. C -5-51",
+      "light_paraphrase": "What is the No on this form?"
+    },
+    {
+      "target_id": "funsd_0060036622",
+      "split": "dev",
+      "verbatim_query": "TO: Mr. G. J. Schramm",
+      "light_paraphrase": "What is the TO on this form?"
+    },
+    {
+      "target_id": "funsd_71190280",
+      "split": "dev",
+      "verbatim_query": "JOB NO. 7848",
+      "light_paraphrase": "What is the JOB NO on this form?"
+    },
+    {
+      "target_id": "funsd_93455715",
+      "split": "dev",
+      "verbatim_query": "REPORTED BY: R. E. Klein, Regional Sales Manager, Cleveland, OH",
+      "light_paraphrase": "What is the REPORTED BY on this form?"
+    },
+    {
+      "target_id": "funsd_87682908",
+      "split": "dev",
+      "verbatim_query": "Advance Registration Fee: (prior to August 10) $ 170.00",
+      "light_paraphrase": "What is the Advance Registration Fee prior to August 10 on this form?"
+    },
+    {
+      "target_id": "funsd_91356315",
+      "split": "dev",
+      "verbatim_query": "REPORTED BY: VAL THURMAN, DIVISION MANAGER, LOUISVILLE, KY",
+      "light_paraphrase": "What is the REPORTED BY on this form?"
+    },
+    {
+      "target_id": "funsd_87533049",
+      "split": "dev",
+      "verbatim_query": "FROM: J. La Valle",
+      "light_paraphrase": "What is the FROM on this form?"
+    },
+    {
+      "target_id": "funsd_0060308251",
+      "split": "dev",
+      "verbatim_query": "Date 7/ 24/ 90",
+      "light_paraphrase": "What is the Date on this form?"
+    },
+    {
+      "target_id": "funsd_01122115",
+      "split": "dev",
+      "verbatim_query": "RE -339",
+      "light_paraphrase": "What is the RE on this form?"
+    },
+    {
+      "target_id": "funsd_71601299",
+      "split": "dev",
+      "verbatim_query": "Date 15. 03. 2000",
+      "light_paraphrase": "What is the Date on this form?"
+    },
+    {
+      "target_id": "funsd_93329540",
+      "split": "dev",
+      "verbatim_query": "REPORTED BY: A. REID, DIVISION MANAGER, SAN FRANCISCO, CA",
+      "light_paraphrase": "What is the REPORTED BY on this form?"
+    },
+    {
+      "target_id": "funsd_0000990274",
+      "split": "dev",
+      "verbatim_query": "RECEIVED APR 2 1984 P. H. H.",
+      "light_paraphrase": "What is the RECEIVED on this form?"
+    },
+    {
+      "target_id": "funsd_71563825",
+      "split": "dev",
+      "verbatim_query": "Brief Number #",
+      "light_paraphrase": "What is the Brief Number on this form?"
+    },
+    {
+      "target_id": "funsd_0060255888",
+      "split": "dev",
+      "verbatim_query": "Date: October 9, 1968",
+      "light_paraphrase": "What is the Date on this form?"
+    },
+    {
+      "target_id": "funsd_0000989556",
+      "split": "dev",
+      "verbatim_query": "Brand: PHOENIX",
+      "light_paraphrase": "What is the Brand on this form?"
+    },
+    {
+      "target_id": "funsd_0011505151",
+      "split": "dev",
+      "verbatim_query": "PROJECT NO. 1987- 115- CA",
+      "light_paraphrase": "What is the PROJECT NO on this form?"
+    },
+    {
+      "target_id": "funsd_00070353",
+      "split": "dev",
+      "verbatim_query": "Registration No 533",
+      "light_paraphrase": "What is the Registration No on this form?"
+    },
+    {
+      "target_id": "funsd_0012529295",
+      "split": "dev",
+      "verbatim_query": "Date: 10/ /9 87",
+      "light_paraphrase": "What is the Date on this form?"
+    },
+    {
+      "target_id": "funsd_81574683",
+      "split": "dev",
+      "verbatim_query": "Date: 3/27/84",
+      "light_paraphrase": "What is the Date on this form?"
+    },
+    {
+      "target_id": "funsd_0060136394",
+      "split": "dev",
+      "verbatim_query": "CLIENT THE AMERICAN TOBACCO COMPANY (LUCKY STRIKE)",
+      "light_paraphrase": "What is the CLIENT on this form?"
+    },
+    {
+      "target_id": "funsd_0030031163",
+      "split": "dev",
+      "verbatim_query": "GOLF TOURNAMENT (Ladies & Men) . . . Friday, August 16, Tee off at 8:00 A. M. SHARP (no green fee)",
+      "light_paraphrase": "What is the GOLF TOURNAMENT on this form?"
+    },
+    {
+      "target_id": "funsd_81749056_9057",
+      "split": "dev",
+      "verbatim_query": "TO: S. P. ZOLOT",
+      "light_paraphrase": "What is the TO on this form?"
+    },
+    {
+      "target_id": "funsd_660978",
+      "split": "dev",
+      "verbatim_query": "CLIENT: Brown & Williamson",
+      "light_paraphrase": "What is the CLIENT on this form?"
+    },
+    {
+      "target_id": "funsd_0060214859",
+      "split": "dev",
+      "verbatim_query": "Report 517",
+      "light_paraphrase": "What is the Report on this form?"
+    },
+    {
+      "target_id": "funsd_92091873",
+      "split": "dev",
+      "verbatim_query": "Division San Jose/ 933",
+      "light_paraphrase": "What is the Division on this form?"
+    },
+    {
+      "target_id": "funsd_71202511",
+      "split": "dev",
+      "verbatim_query": "No. 1998 -18D",
+      "light_paraphrase": "What is the No on this form?"
+    },
+    {
+      "target_id": "funsd_92657391",
+      "split": "dev",
+      "verbatim_query": "DATE: 12/ 28/ 94",
+      "light_paraphrase": "What is the DATE on this form?"
+    },
+    {
+      "target_id": "funsd_11508234",
+      "split": "dev",
+      "verbatim_query": "No. 1995- 48D",
+      "light_paraphrase": "What is the No on this form?"
+    },
+    {
+      "target_id": "funsd_0011973451",
+      "split": "dev",
+      "verbatim_query": "Date: 6/ 24/ 94",
+      "light_paraphrase": "What is the Date on this form?"
+    },
+    {
+      "target_id": "funsd_91355841",
+      "split": "dev",
+      "verbatim_query": "REPORTED BY: A. L. EVERETT, MANAGER, CHAIN ACCOUNTS - ATLANTA, GA",
+      "light_paraphrase": "What is the REPORTED BY on this form?"
+    },
+    {
+      "target_id": "funsd_0001476912",
+      "split": "dev",
+      "verbatim_query": "Project # 1969- 105",
+      "light_paraphrase": "What is the Project on this form?"
+    },
+    {
+      "target_id": "funsd_00920294",
+      "split": "dev",
+      "verbatim_query": "Alert Number 970220",
+      "light_paraphrase": "What is the Alert Number on this form?"
+    },
+    {
+      "target_id": "funsd_0001438955",
+      "split": "dev",
+      "verbatim_query": "Project # 72- 31",
+      "light_paraphrase": "What is the Project on this form?"
+    },
+    {
+      "target_id": "funsd_01073843",
+      "split": "dev",
+      "verbatim_query": "COMPOUND Diethyl 3, 3-Dimethyl-2-oxo-1, 4-cyclopentanedicarboxylate",
+      "light_paraphrase": "What is the COMPOUND on this form?"
+    },
+    {
+      "target_id": "funsd_0011856542",
+      "split": "dev",
+      "verbatim_query": "PROJECT CODE BD-FF",
+      "light_paraphrase": "What is the PROJECT CODE on this form?"
+    },
+    {
+      "target_id": "funsd_93213298",
+      "split": "dev",
+      "verbatim_query": "Division Detroit - MCA",
+      "light_paraphrase": "What is the Division on this form?"
+    },
+    {
+      "target_id": "funsd_0012178355",
+      "split": "dev",
+      "verbatim_query": "BRAND ELI CUTTER KS",
+      "light_paraphrase": "What is the BRAND on this form?"
+    },
+    {
+      "target_id": "funsd_89867723",
+      "split": "dev",
+      "verbatim_query": "DATE April 27, 1981",
+      "light_paraphrase": "What is the DATE on this form?"
+    },
+    {
+      "target_id": "funsd_92433599_92433601",
+      "split": "dev",
+      "verbatim_query": "Name BRAYTON, GISVOLD. & HARLEY",
+      "light_paraphrase": "What is the Name on this form?"
+    },
+    {
+      "target_id": "funsd_87672097",
+      "split": "dev",
+      "verbatim_query": "COMPOUND Mapleine",
+      "light_paraphrase": "What is the COMPOUND on this form?"
+    },
+    {
+      "target_id": "funsd_91315069_91315070",
+      "split": "dev",
+      "verbatim_query": "TO: R. H. ORCUTT",
+      "light_paraphrase": "What is the TO on this form?"
+    },
+    {
+      "target_id": "funsd_0060077689",
+      "split": "dev",
+      "verbatim_query": "LOCATION STAMFORD, CT",
+      "light_paraphrase": "What is the LOCATION on this form?"
+    },
+    {
+      "target_id": "funsd_0060000813",
+      "split": "dev",
+      "verbatim_query": "P. S. 73 -91",
+      "light_paraphrase": "What is the P S on this form?"
+    },
+    {
+      "target_id": "funsd_92081358_1359",
+      "split": "dev",
+      "verbatim_query": "DIVISION: Chicago South",
+      "light_paraphrase": "What is the DIVISION on this form?"
+    },
+    {
+      "target_id": "funsd_0071032807",
+      "split": "dev",
+      "verbatim_query": "Project Code CST- N- 68",
+      "light_paraphrase": "What is the Project Code on this form?"
+    },
+    {
+      "target_id": "funsd_01197604",
+      "split": "dev",
+      "verbatim_query": "Tar Number: 195",
+      "light_paraphrase": "What is the Tar Number on this form?"
+    },
+    {
+      "target_id": "funsd_71366499",
+      "split": "dev",
+      "verbatim_query": "JOB NO. 7559",
+      "light_paraphrase": "What is the JOB NO on this form?"
+    },
+    {
+      "target_id": "funsd_11875011",
+      "split": "dev",
+      "verbatim_query": "PROJECT NUMBER: 1995- 13D",
+      "light_paraphrase": "What is the PROJECT NUMBER on this form?"
+    },
+    {
+      "target_id": "funsd_91104867",
+      "split": "dev",
+      "verbatim_query": "Division Sales",
+      "light_paraphrase": "What is the Division on this form?"
+    },
+    {
+      "target_id": "funsd_91391310",
+      "split": "dev",
+      "verbatim_query": "FROM: M. BORSINI",
+      "light_paraphrase": "What is the FROM on this form?"
+    },
+    {
+      "target_id": "funsd_0011899960",
+      "split": "dev",
+      "verbatim_query": "Attention DR. HUGHES, MESSRS. ALAR, SANDEFUR,",
+      "light_paraphrase": "What is the Attention on this form?"
+    },
+    {
+      "target_id": "funsd_81186212",
+      "split": "dev",
+      "verbatim_query": "New Competitive Activity",
+      "light_paraphrase": "Form relating to New Competitive Activity"
+    },
+    {
+      "target_id": "funsd_82254638",
+      "split": "dev",
+      "verbatim_query": "DATE TO CORP: 7/11/97",
+      "light_paraphrase": "What is the DATE TO CORP on this form?"
+    },
+    {
+      "target_id": "funsd_01150773_01150774",
+      "split": "dev",
+      "verbatim_query": "TELEFAX (202) 662-6291",
+      "light_paraphrase": "What is the TELEFAX on this form?"
+    },
+    {
+      "target_id": "funsd_00920222",
+      "split": "dev",
+      "verbatim_query": "DATE March 27, 1984",
+      "light_paraphrase": "What is the DATE on this form?"
+    },
+    {
+      "target_id": "funsd_92314414",
+      "split": "dev",
+      "verbatim_query": "530: 274- 38- 3042",
+      "light_paraphrase": "What is the 530 on this form?"
+    },
+    {
+      "target_id": "funsd_00838511_00838525",
+      "split": "dev",
+      "verbatim_query": "DATE 12- 4- 80",
+      "light_paraphrase": "What is the DATE on this form?"
+    },
+    {
+      "target_id": "funsd_716552",
+      "split": "dev",
+      "verbatim_query": "DESCRIPTION VICEROY Rich Lights 100' s 20' s Label",
+      "light_paraphrase": "What is the DESCRIPTION on this form?"
+    },
+    {
+      "target_id": "funsd_91372360",
+      "split": "dev",
+      "verbatim_query": "DATE 11/4/93",
+      "light_paraphrase": "What is the DATE on this form?"
+    },
+    {
+      "target_id": "funsd_71341634",
+      "split": "dev",
+      "verbatim_query": "(Records Retention: 30 days)",
+      "light_paraphrase": "What is the Records Retention on this form?"
+    },
+    {
+      "target_id": "funsd_91856041_6049",
+      "split": "dev",
+      "verbatim_query": "EVENT NAME: GENERAL INFORMATION:",
+      "light_paraphrase": "What is the EVENT NAME on this form?"
+    },
+    {
+      "target_id": "funsd_00040534",
+      "split": "dev",
+      "verbatim_query": "COMPOUND 3-Hydroxy-3-methylbutanoic acid (Tur 13)",
+      "light_paraphrase": "What is the COMPOUND on this form?"
+    },
+    {
+      "target_id": "funsd_89368010",
+      "split": "dev",
+      "verbatim_query": "Study Name Acute Toxicity of Reference Cigarette Smoke lafter Inhalation in Mice.",
+      "light_paraphrase": "What is the Study Name on this form?"
+    },
+    {
+      "target_id": "funsd_91914407",
+      "split": "dev",
+      "verbatim_query": "DATE: 6- 29- 94",
+      "light_paraphrase": "What is the DATE on this form?"
+    },
+    {
+      "target_id": "funsd_0060024314",
+      "split": "dev",
+      "verbatim_query": "Permit#: 0001",
+      "light_paraphrase": "What is the Permit on this form?"
+    },
+    {
+      "target_id": "funsd_00866042",
+      "split": "dev",
+      "verbatim_query": "DATE ISSUED Oct. 11, 1983",
+      "light_paraphrase": "What is the DATE ISSUED on this form?"
+    },
+    {
+      "target_id": "funsd_12603270",
+      "split": "dev",
+      "verbatim_query": "Date: June 21, 1985",
+      "light_paraphrase": "What is the Date on this form?"
+    },
+    {
+      "target_id": "funsd_0012602424",
+      "split": "dev",
+      "verbatim_query": "DATE: 11/ 28/ 84",
+      "light_paraphrase": "What is the DATE on this form?"
+    },
+    {
+      "target_id": "funsd_80718412_8413",
+      "split": "dev",
+      "verbatim_query": "MARKET: Boston",
+      "light_paraphrase": "What is the MARKET on this form?"
+    },
+    {
+      "target_id": "funsd_88547278_88547279",
+      "split": "dev",
+      "verbatim_query": "Quotation To: Lorillard One Park Avenue New York, NY 10016 Attn: Neil Toumey",
+      "light_paraphrase": "What is the Quotation To on this form?"
+    },
+    {
+      "target_id": "funsd_0000971160",
+      "split": "dev",
+      "verbatim_query": "Date: 9/ 3/ 92",
+      "light_paraphrase": "What is the Date on this form?"
+    },
+    {
+      "target_id": "funsd_13149651",
+      "split": "dev",
+      "verbatim_query": "LRB Or Bill No. han Au No LRB 1946",
+      "light_paraphrase": "What is the LRB Or Bill No han Au No on this form?"
+    },
+    {
+      "target_id": "funsd_0060091229",
+      "split": "dev",
+      "verbatim_query": "RETURN TO: Harden- Kane, Inc. 666 Fifth Avenue New York, N. Y. 10103",
+      "light_paraphrase": "What is the RETURN TO on this form?"
+    }
+  ],
+  "test_probes": [
+    {
+      "target_id": "funsd_83594639",
+      "split": "test",
+      "verbatim_query": "Date: September 22, 1997",
+      "light_paraphrase": "What is the Date on this form?"
+    },
+    {
+      "target_id": "funsd_86236474_6476",
+      "split": "test",
+      "verbatim_query": "TO: Mrs. K. A. Sparrow",
+      "light_paraphrase": "What is the TO on this form?"
+    },
+    {
+      "target_id": "funsd_83553333_3334",
+      "split": "test",
+      "verbatim_query": "Sender Charles Duggan",
+      "light_paraphrase": "What is the Sender on this form?"
+    },
+    {
+      "target_id": "funsd_82200067_0069",
+      "split": "test",
+      "verbatim_query": "TO: K. A. Sparrow",
+      "light_paraphrase": "What is the TO on this form?"
+    },
+    {
+      "target_id": "funsd_82504862",
+      "split": "test",
+      "verbatim_query": "CASE NAME: Donald D. Sellers and Robin J. Sellers v. Raybestos Manhattan et al.",
+      "light_paraphrase": "What is the CASE NAME on this form?"
+    },
+    {
+      "target_id": "funsd_87086073",
+      "split": "test",
+      "verbatim_query": "DATE August 14, 1990",
+      "light_paraphrase": "What is the DATE on this form?"
+    },
+    {
+      "target_id": "funsd_89856243",
+      "split": "test",
+      "verbatim_query": "Date October 17, 1979",
+      "light_paraphrase": "What is the Date on this form?"
+    },
+    {
+      "target_id": "funsd_85629964",
+      "split": "test",
+      "verbatim_query": "YEAR: CIGARETTE REPORT FORM",
+      "light_paraphrase": "What is the YEAR on this form?"
+    },
+    {
+      "target_id": "funsd_83996357",
+      "split": "test",
+      "verbatim_query": "TO: KELLI SCRUGGS",
+      "light_paraphrase": "What is the TO on this form?"
+    },
+    {
+      "target_id": "funsd_86079776_9777",
+      "split": "test",
+      "verbatim_query": "Client Name: SPECIFICS",
+      "light_paraphrase": "What is the Client Name on this form?"
+    },
+    {
+      "target_id": "funsd_83772145",
+      "split": "test",
+      "verbatim_query": "TELECOPY NO: 212/ 545- 3297",
+      "light_paraphrase": "What is the TELECOPY NO on this form?"
+    },
+    {
+      "target_id": "funsd_82252956_2958",
+      "split": "test",
+      "verbatim_query": "TO: K. A. Sparrow",
+      "light_paraphrase": "What is the TO on this form?"
+    },
+    {
+      "target_id": "funsd_87528321",
+      "split": "test",
+      "verbatim_query": "RFC 880029",
+      "light_paraphrase": "What is the RFC on this form?"
+    },
+    {
+      "target_id": "funsd_82250337_0338",
+      "split": "test",
+      "verbatim_query": "TO: Sam Zolot",
+      "light_paraphrase": "What is the TO on this form?"
+    },
+    {
+      "target_id": "funsd_83635935",
+      "split": "test",
+      "verbatim_query": "DATE: June 4, 1997",
+      "light_paraphrase": "What is the DATE on this form?"
+    },
+    {
+      "target_id": "funsd_82254765",
+      "split": "test",
+      "verbatim_query": "TO: K. A. SPARROW",
+      "light_paraphrase": "What is the TO on this form?"
+    },
+    {
+      "target_id": "funsd_82573104",
+      "split": "test",
+      "verbatim_query": "Date: December 9, 1999",
+      "light_paraphrase": "What is the Date on this form?"
+    },
+    {
+      "target_id": "funsd_82253058_3059",
+      "split": "test",
+      "verbatim_query": "TO: MRS. K. A. SPARROW",
+      "light_paraphrase": "What is the TO on this form?"
+    },
+    {
+      "target_id": "funsd_87428306",
+      "split": "test",
+      "verbatim_query": "LRC FILE NUMBER A221",
+      "light_paraphrase": "What is the LRC FILE NUMBER on this form?"
+    },
+    {
+      "target_id": "funsd_82253362_3364",
+      "split": "test",
+      "verbatim_query": "TO: K. A. Sparrow",
+      "light_paraphrase": "What is the TO on this form?"
+    },
+    {
+      "target_id": "funsd_87137840",
+      "split": "test",
+      "verbatim_query": "TA #: T07281A",
+      "light_paraphrase": "What is the TA on this form?"
+    },
+    {
+      "target_id": "funsd_87147607",
+      "split": "test",
+      "verbatim_query": "DATE April 19, 1988",
+      "light_paraphrase": "What is the DATE on this form?"
+    },
+    {
+      "target_id": "funsd_82251504",
+      "split": "test",
+      "verbatim_query": "Distribution by/ to: DM to RSM 1st of Month RSM to R W. C. 10th",
+      "light_paraphrase": "What is the Distribution by to on this form?"
+    },
+    {
+      "target_id": "funsd_83823750",
+      "split": "test",
+      "verbatim_query": "To Robert H. Shaw, Esq.",
+      "light_paraphrase": "What is the To on this form?"
+    },
+    {
+      "target_id": "funsd_82253245_3247",
+      "split": "test",
+      "verbatim_query": "TO: K. A. Sparrow",
+      "light_paraphrase": "What is the TO on this form?"
+    },
+    {
+      "target_id": "funsd_92380595",
+      "split": "test",
+      "verbatim_query": "DATE: 12- 13- 89",
+      "light_paraphrase": "What is the DATE on this form?"
+    },
+    {
+      "target_id": "funsd_85201976",
+      "split": "test",
+      "verbatim_query": "Marden - Kane, Inc.",
+      "light_paraphrase": "Form relating to Marden - Kane, Inc."
+    },
+    {
+      "target_id": "funsd_83443897",
+      "split": "test",
+      "verbatim_query": "DATE: January 11, 1999",
+      "light_paraphrase": "What is the DATE on this form?"
+    },
+    {
+      "target_id": "funsd_85240939",
+      "split": "test",
+      "verbatim_query": "NAME: GEORGE R. TELFORD",
+      "light_paraphrase": "What is the NAME on this form?"
+    },
+    {
+      "target_id": "funsd_87332450",
+      "split": "test",
+      "verbatim_query": "Advance Registration Fee: $135 00",
+      "light_paraphrase": "What is the Advance Registration Fee on this form?"
+    },
+    {
+      "target_id": "funsd_87528380",
+      "split": "test",
+      "verbatim_query": "TO Lorillard Corporation",
+      "light_paraphrase": "What is the TO on this form?"
+    },
+    {
+      "target_id": "funsd_91814768_91814769",
+      "split": "test",
+      "verbatim_query": "File with: Director, Office of Campaign & Political Finance One Ashburton Place, Boston, MA 02108",
+      "light_paraphrase": "What is the File with on this form?"
+    },
+    {
+      "target_id": "funsd_82562350",
+      "split": "test",
+      "verbatim_query": "To: Mr. Randy Spell",
+      "light_paraphrase": "What is the To on this form?"
+    },
+    {
+      "target_id": "funsd_86244113",
+      "split": "test",
+      "verbatim_query": "BRAND STYLE LIGHT 100'S",
+      "light_paraphrase": "What is the BRAND on this form?"
+    },
+    {
+      "target_id": "funsd_82491256",
+      "split": "test",
+      "verbatim_query": "CASE NAME: Wanda G. Robinson and Carroll Robinson v Raybestos- Manhattan, et al.",
+      "light_paraphrase": "What is the CASE NAME on this form?"
+    },
+    {
+      "target_id": "funsd_86328049_8050",
+      "split": "test",
+      "verbatim_query": "Telecopier Nos. (804) 788- 8218 (804) 788- 8219 (804) 788- 8669",
+      "light_paraphrase": "What is the Telecopier Nos on this form?"
+    },
+    {
+      "target_id": "funsd_82837252",
+      "split": "test",
+      "verbatim_query": "REPORTED BY: BOBBY MILLS, REGIONAL SALES MGR., INDIANAPOLIS, IN",
+      "light_paraphrase": "What is the REPORTED BY on this form?"
+    },
+    {
+      "target_id": "funsd_83641919_1921",
+      "split": "test",
+      "verbatim_query": "TO: S. P. ZOLOT",
+      "light_paraphrase": "What is the TO on this form?"
+    },
+    {
+      "target_id": "funsd_83573282",
+      "split": "test",
+      "verbatim_query": "Date: January 14, 1999",
+      "light_paraphrase": "What is the Date on this form?"
+    },
+    {
+      "target_id": "funsd_86220490",
+      "split": "test",
+      "verbatim_query": "To: Mike Mozina",
+      "light_paraphrase": "What is the To on this form?"
+    },
+    {
+      "target_id": "funsd_85540866",
+      "split": "test",
+      "verbatim_query": "MEDIA CONTACT SHEET",
+      "light_paraphrase": "Form relating to MEDIA CONTACT SHEET"
+    },
+    {
+      "target_id": "funsd_86263525",
+      "split": "test",
+      "verbatim_query": "DEPARTMENT NAME SCIENCE & TECHNOLOGY",
+      "light_paraphrase": "What is the DEPARTMENT NAME on this form?"
+    },
+    {
+      "target_id": "funsd_82092117",
+      "split": "test",
+      "verbatim_query": "Fax: 614 -466 -5087",
+      "light_paraphrase": "What is the Fax on this form?"
+    },
+    {
+      "target_id": "funsd_93106788",
+      "split": "test",
+      "verbatim_query": "DATE: MARCH 17, 1995",
+      "light_paraphrase": "What is the DATE on this form?"
+    },
+    {
+      "target_id": "funsd_86230203_0206",
+      "split": "test",
+      "verbatim_query": "TO: K. A. Sparrow",
+      "light_paraphrase": "What is the TO on this form?"
+    },
+    {
+      "target_id": "funsd_87594142_87594144",
+      "split": "test",
+      "verbatim_query": "1. PRINCIPAL INVESTIGATOR NAME, TITLE, TELEPHONE # AND MAILING ADDRESS. Steven R. Kleeberger, Ph. D.",
+      "light_paraphrase": "What is the 1 PRINCIPAL INVESTIGATOR NAME TITLE TELEPHONE  AND MAILING ADDRESS on this form?"
+    },
+    {
+      "target_id": "funsd_87093315_87093318",
+      "split": "test",
+      "verbatim_query": "Date: 3/14/90",
+      "light_paraphrase": "What is the Date on this form?"
+    },
+    {
+      "target_id": "funsd_83624198",
+      "split": "test",
+      "verbatim_query": "DATE: February 25, 1998",
+      "light_paraphrase": "What is the DATE on this form?"
+    },
+    {
+      "target_id": "funsd_86075409_5410",
+      "split": "test",
+      "verbatim_query": "From: Lynnette Stevens",
+      "light_paraphrase": "What is the From on this form?"
+    },
+    {
+      "target_id": "funsd_87125460",
+      "split": "test",
+      "verbatim_query": "STUDY NAME Induction of Hepatic Enzymes in rats (B202)",
+      "light_paraphrase": "What is the STUDY NAME on this form?"
+    },
+    {
+      "target_id": "funsd_91939637",
+      "split": "test",
+      "verbatim_query": "PROMOTIONAL PERIOD: May- June 1992",
+      "light_paraphrase": "What is the PROMOTIONAL PERIOD on this form?"
+    },
+    {
+      "target_id": "funsd_0011859695",
+      "split": "test",
+      "verbatim_query": "Date: September 25, 1969",
+      "light_paraphrase": "What is the Date on this form?"
+    },
+    {
+      "target_id": "funsd_00851772_1780",
+      "split": "test",
+      "verbatim_query": "CHEMICAL \u2610 TYPE",
+      "light_paraphrase": "What is the CHEMICAL on this form?"
+    },
+    {
+      "target_id": "funsd_80707440_7443",
+      "split": "test",
+      "verbatim_query": "PUBLICATION Daily Newspapers",
+      "light_paraphrase": "What is the PUBLICATION on this form?"
+    },
+    {
+      "target_id": "funsd_0012947358",
+      "split": "test",
+      "verbatim_query": "TO: The Corporation Trust Company",
+      "light_paraphrase": "What is the TO on this form?"
+    },
+    {
+      "target_id": "funsd_88057519",
+      "split": "test",
+      "verbatim_query": "BRAND Satin Filter 100's",
+      "light_paraphrase": "What is the BRAND on this form?"
+    },
+    {
+      "target_id": "funsd_71108371",
+      "split": "test",
+      "verbatim_query": "Project Number: (assigned by MIS)",
+      "light_paraphrase": "What is the Project Number on this form?"
+    },
+    {
+      "target_id": "funsd_91903177",
+      "split": "test",
+      "verbatim_query": "TO: K. A. SPARROW",
+      "light_paraphrase": "What is the TO on this form?"
+    },
+    {
+      "target_id": "funsd_91581919",
+      "split": "test",
+      "verbatim_query": "From Newspaper New Albany Tribune",
+      "light_paraphrase": "What is the From Newspaper on this form?"
+    },
+    {
+      "target_id": "funsd_0013255595",
+      "split": "test",
+      "verbatim_query": "APPROVALS: Division Head",
+      "light_paraphrase": "What is the APPROVALS on this form?"
+    },
+    {
+      "target_id": "funsd_92657311_7313",
+      "split": "test",
+      "verbatim_query": "TO: R. B. SPELL",
+      "light_paraphrase": "What is the TO on this form?"
+    },
+    {
+      "target_id": "funsd_0060173256",
+      "split": "test",
+      "verbatim_query": "Description Displays",
+      "light_paraphrase": "What is the Description on this form?"
+    },
+    {
+      "target_id": "funsd_0001477983",
+      "split": "test",
+      "verbatim_query": "Reporting Period: Month of May",
+      "light_paraphrase": "What is the Reporting Period on this form?"
+    },
+    {
+      "target_id": "funsd_92094751",
+      "split": "test",
+      "verbatim_query": "DATE 9/ 8 /95",
+      "light_paraphrase": "What is the DATE on this form?"
+    },
+    {
+      "target_id": "funsd_0030041455",
+      "split": "test",
+      "verbatim_query": "Section Number 2",
+      "light_paraphrase": "What is the Section Number on this form?"
+    },
+    {
+      "target_id": "funsd_93380187",
+      "split": "test",
+      "verbatim_query": "FROM: MICHELLE LEPRE",
+      "light_paraphrase": "What is the FROM on this form?"
+    },
+    {
+      "target_id": "funsd_93351929_93351931",
+      "split": "test",
+      "verbatim_query": "FROM: JESSICA ARATO",
+      "light_paraphrase": "What is the FROM on this form?"
+    },
+    {
+      "target_id": "funsd_01191071_1072",
+      "split": "test",
+      "verbatim_query": "FILE FILE TYPE 083 MEMORY TX",
+      "light_paraphrase": "What is the FILE FILE TYPE on this form?"
+    },
+    {
+      "target_id": "funsd_0011976929",
+      "split": "test",
+      "verbatim_query": "City/ Town: Dundee",
+      "light_paraphrase": "What is the City Town on this form?"
+    },
+    {
+      "target_id": "funsd_0060207528",
+      "split": "test",
+      "verbatim_query": "CONTRACT: A- 530- 1059",
+      "light_paraphrase": "What is the CONTRACT on this form?"
+    },
+    {
+      "target_id": "funsd_0000999294",
+      "split": "test",
+      "verbatim_query": "PDC # C273- 82- 7",
+      "light_paraphrase": "What is the PDC on this form?"
+    },
+    {
+      "target_id": "funsd_00851879",
+      "split": "test",
+      "verbatim_query": "Date 5-13-81",
+      "light_paraphrase": "What is the Date on this form?"
+    },
+    {
+      "target_id": "funsd_0001485288",
+      "split": "test",
+      "verbatim_query": "SPECIAL SAMPLE MANUFACTURE \u2611",
+      "light_paraphrase": "What is the SPECIAL SAMPLE MANUFACTURE on this form?"
+    },
+    {
+      "target_id": "funsd_0012199830",
+      "split": "test",
+      "verbatim_query": "RECEIVED DEC 1 1 1989",
+      "light_paraphrase": "What is the RECEIVED on this form?"
+    },
+    {
+      "target_id": "funsd_00865872",
+      "split": "test",
+      "verbatim_query": "LRC FILE NUMBER B164",
+      "light_paraphrase": "What is the LRC FILE NUMBER on this form?"
+    },
+    {
+      "target_id": "funsd_91361993",
+      "split": "test",
+      "verbatim_query": "REPORTED BY C. M. WIECHMANN, D. M. , LUBBOCK, TX",
+      "light_paraphrase": "What is the REPORTED BY on this form?"
+    },
+    {
+      "target_id": "funsd_00283813",
+      "split": "test",
+      "verbatim_query": "Date: 7/ 16/ 68",
+      "light_paraphrase": "What is the Date on this form?"
+    },
+    {
+      "target_id": "funsd_0001118259",
+      "split": "test",
+      "verbatim_query": "Standard Grade Mark PCFS Flue cured fines",
+      "light_paraphrase": "What is the Standard Grade Mark on this form?"
+    },
+    {
+      "target_id": "funsd_91974562",
+      "split": "test",
+      "verbatim_query": "FROM: THOM SMITH",
+      "light_paraphrase": "What is the FROM on this form?"
+    },
+    {
+      "target_id": "funsd_0060025670",
+      "split": "test",
+      "verbatim_query": "TEST ADHESIVE EVALUATION",
+      "light_paraphrase": "Form relating to TEST ADHESIVE EVALUATION"
+    },
+    {
+      "target_id": "funsd_12052385",
+      "split": "test",
+      "verbatim_query": "PROJECT NO. 1987- 144- K",
+      "light_paraphrase": "What is the PROJECT NO on this form?"
+    },
+    {
+      "target_id": "funsd_0060068489",
+      "split": "test",
+      "verbatim_query": "AGENCY corporate Media Department",
+      "light_paraphrase": "What is the AGENCY on this form?"
+    },
+    {
+      "target_id": "funsd_0001456787",
+      "split": "test",
+      "verbatim_query": "BWIT Suggestion 99 mm",
+      "light_paraphrase": "What is the BWIT Suggestion on this form?"
+    },
+    {
+      "target_id": "funsd_91161344_91161347",
+      "split": "test",
+      "verbatim_query": "Today's Date 3/20/78",
+      "light_paraphrase": "What is the Todays Date on this form?"
+    },
+    {
+      "target_id": "funsd_0060270727",
+      "split": "test",
+      "verbatim_query": "YEAR COVERED: 1987",
+      "light_paraphrase": "What is the YEAR COVERED on this form?"
+    },
+    {
+      "target_id": "funsd_01408099_01408101",
+      "split": "test",
+      "verbatim_query": "DATE March 1, 1978",
+      "light_paraphrase": "What is the DATE on this form?"
+    },
+    {
+      "target_id": "funsd_0011974919",
+      "split": "test",
+      "verbatim_query": "To Joe Leinster",
+      "light_paraphrase": "What is the To on this form?"
+    },
+    {
+      "target_id": "funsd_00837285",
+      "split": "test",
+      "verbatim_query": "DATE 11/1381",
+      "light_paraphrase": "What is the DATE on this form?"
+    },
+    {
+      "target_id": "funsd_89817999_8002",
+      "split": "test",
+      "verbatim_query": "TO R. H. ORCUTT",
+      "light_paraphrase": "What is the TO on this form?"
+    },
+    {
+      "target_id": "funsd_00836816",
+      "split": "test",
+      "verbatim_query": "LRC FILE NUMBER A30",
+      "light_paraphrase": "What is the LRC FILE NUMBER on this form?"
+    },
+    {
+      "target_id": "funsd_0001239897",
+      "split": "test",
+      "verbatim_query": "PROJECT # 19 4- 26A",
+      "light_paraphrase": "What is the PROJECT on this form?"
+    },
+    {
+      "target_id": "funsd_81310636",
+      "split": "test",
+      "verbatim_query": "COMPOUND CODE B83",
+      "light_paraphrase": "What is the COMPOUND CODE on this form?"
+    },
+    {
+      "target_id": "funsd_92094746",
+      "split": "test",
+      "verbatim_query": "DATE 9 /8 /95",
+      "light_paraphrase": "What is the DATE on this form?"
+    },
+    {
+      "target_id": "funsd_0011838621",
+      "split": "test",
+      "verbatim_query": "No. 27",
+      "light_paraphrase": "What is the No on this form?"
+    },
+    {
+      "target_id": "funsd_00860012_00860014",
+      "split": "test",
+      "verbatim_query": "DATE ISSUED December 13, 1983",
+      "light_paraphrase": "What is the DATE ISSUED on this form?"
+    },
+    {
+      "target_id": "funsd_0011845203",
+      "split": "test",
+      "verbatim_query": "PROJECT NUMBER: 1991- 18",
+      "light_paraphrase": "What is the PROJECT NUMBER on this form?"
+    },
+    {
+      "target_id": "funsd_0011906503",
+      "split": "test",
+      "verbatim_query": "Title CICARETTE TEST STATION (CT5400)",
+      "light_paraphrase": "What is the Title on this form?"
+    },
+    {
+      "target_id": "funsd_0001463282",
+      "split": "test",
+      "verbatim_query": "No. 6",
+      "light_paraphrase": "What is the No on this form?"
+    },
+    {
+      "target_id": "funsd_80310840a",
+      "split": "test",
+      "verbatim_query": "Project Title: Direct Mail Conversion Research",
+      "light_paraphrase": "What is the Project Title on this form?"
+    }
+  ]
+}
