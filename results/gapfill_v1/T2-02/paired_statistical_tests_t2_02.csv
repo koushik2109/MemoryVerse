@@ -1,0 +1,10 @@
+Condition,Comparison,MRR_Diff,p_perm
+Clean (0% CER),Char 3-5g BM25 vs Word BM25,0.006802721088435375,0.7498
+Clean (0% CER),Char 4-gram BM25 vs Word BM25,0.0,1.0
+Clean (0% CER),Word BM25 vs Dense BGE-Small,0.30541907584206623,0.0
+5% CER Noise,Char 3-5g BM25 vs Word BM25,0.10174319727891157,2e-05
+5% CER Noise,Char 4-gram BM25 vs Word BM25,0.09579081632653062,4e-05
+5% CER Noise,Word BM25 vs Dense BGE-Small,0.2396382808293435,0.0
+20% CER Noise,Char 3-5g BM25 vs Word BM25,0.3000852258347992,0.0
+20% CER Noise,Char 4-gram BM25 vs Word BM25,0.2811511232486523,0.0
+20% CER Noise,Word BM25 vs Dense BGE-Small,0.06320862015748342,0.1825

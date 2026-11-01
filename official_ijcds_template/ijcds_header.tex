@@ -1,0 +1,89 @@
+
+\newcommand{\subparagraph}{}
+
+\usepackage{emptypage,titling,titlesec,widetext,textcomp,relsize,parskip}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=10pt,font=footnotesize,labelsep=period]{caption}
+\usepackage{tabulary,longtable,makecell,multirow,color,colortbl}
+\usepackage[colorlinks=false,linkcolor=black,urlcolor=gray,citecolor=black]{hyperref}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage[T1]{fontenc}
+\usepackage{authblk,lipsum,txfonts,float,morefloats,gensymb,graphicx,setspace,fancyhdr,bibunits,booktabs,array,marvosym,xhfill}
+\usepackage[normalem]{ulem}
+\usepackage[export]{adjustbox}
+
+%for A4 Paper size:
+
+% \usepackage[includeheadfoot,paperwidth=21cm,paperheight=29.7cm,top=1cm,bottom=2cm,left=2cm,right=2cm,footskip=.25in,headheight=40pt,headsep=12pt,heightrounded]{geometry}
+
+% for letter paper size
+
+\usepackage[includeheadfoot,paperwidth=8.5in,paperheight=11in,top=1cm,bottom=2cm,left=2cm,right=2cm,footskip=.25in,headheight=40pt,headsep=12pt,heightrounded]{geometry}
+
+
+\setlength{\parindent}{5mm}
+\setlength{\parskip}{3mm}
+\belowcaptionskip 0.0pt
+
+\newcommand{\tm}{{\fontfamily{cmss}\selectfont\texttrademark}~}
+\newcommand{\cpyrt}{\fontfamily{cmss}\selectfont\textcopyright}
+\newcommand{\regtm}{\textsuperscript{\fontfamily{cmss}\selectfont\textregistered}~}
+
+\newcommand{\etal}{et~al.,}
+\newcommand{\ie}{i.e.,}
+\newcommand{\eg}{e.g.,}
+\newcommand{\squeezeup}{\vspace{-3.5mm}}
+\newcommand{\xfill}[2][1ex]{{\dimen0=#2\advance\dimen0 by #1\leaders\hrule height \dimen0 depth -#1\hfill}}
+\newcommand{\xfilll}[2][1ex]{\dimen0=#2\advance\dimen0 by #1\leaders\hrule height \dimen0 depth -#1\hfill}
+
+\renewcommand\Authfont{\fontsize{11}{13.2}\selectfont}
+\renewcommand\Affilfont{\fontsize{9}{10.8}\itshape}
+\renewcommand{\figurename}{Figure}
+\renewcommand{\headrulewidth}{.5pt}
+\renewcommand{\footrulewidth}{.5pt}
+\renewcommand\Authands{ and }
+
+\titlespacing\section{0pt}{8pt plus 4pt minus 2pt}{2pt plus 2pt minus 2pt}
+\titlespacing\subsection{0pt}{8pt plus 4pt minus 2pt}{2pt plus 2pt minus 2pt}
+\titlespacing\subsubsection{0pt}{8pt plus 4pt minus 2pt}{2pt plus 2pt minus 2pt}
+
+\newcommand{\subtitle}[1]{\posttitle{\par\end{center}\begin{center}\bfseries\Large #1\end{center}\vskip1.2em}}
+\newcommand\myabstract[2][.8]{\renewcommand\maketitlehookd{\mbox{}\medskip\par\centering\begin{minipage}{#1\textwidth}\small#2\end{minipage}}}
+
+\definecolor{myred}{RGB}{189, 3, 34}
+\raggedbottom
+\setcounter{page}{1}
+\setcounter{secnumdepth}{4}
+\date{}
+
+\title{\vspace{-1cm}{\includegraphics[height=0.5in,keepaspectratio=true]{ub_logo}\hfill\parbox{15cm}{\raggedleft\sublargesize{\color{myred}\bfseries{International Journal of Computing and Digital Systems\\}}\sublargesize{ 2024, VOL. 17, NO. 1, 1–10\\\vspace{3mm} \url{http://dx.doi.org/10.12785/ijcds/XXXXXX}}}\\\vspace{1cm}{\bfseries{\fontsize{18}{21.6}Paper Title}}}}
+
+\subtitle{}
+
+\author[1]{\bfseries Name of Author 1}
+\author[2]{\bfseries Name of Author 2}
+\author[1,3]{\bfseries Name of Author 3}
+
+
+\affil[1]{\normalfont\textit{Department,Name of the Organization, City, Country}}
+\affil[2]{\normalfont\textit{Department,Name of the Organization, City, Country}}
+\affil[3]{Department,Name of the Organization, City, Country}
+\affil[ ]{\vspace{0pt}}
+\affil[ ]{Received 12 March 2024, Revised 15 June 2024, Accepted 10 July 2024}
+\affil[ ]{\vspace{0pt}}
+
+\fancypagestyle{firstpage}{%
+    \fancyhf{}
+    \fancyhead[RO]{{\normalfont{International Journal of Computing and Digital Systems\hspace{4mm}}}\includegraphics[height=0.5in, keepaspectratio=true]{ub_logo}\hspace{3mm}\bfseries{\thepage}}
+    \fancyhead[LE]{\bfseries{\thepage}\hspace{3mm}\includegraphics[height=0.5in,keepaspectratio=true]{ub_logo}\hspace{3mm}\normalfont\textit{First Author, et~al.}}
+    \fancyfoot[R]{\vspace{5mm}\textsl{\color{gray}{\textsf{\url{}}}}}}
+
+\pagestyle{firstpage}    
+
+\fancypagestyle{plain}{%
+    \fancyhf{}
+    \fancyhead[LR]{\vspace{2.5cm}}
+    \fancyfoot[L]{\vspace{0mm}{\small\textit{E-mail address: author 1, author 2, author 3}}}
+    \fancyfoot[R]{\vspace{5mm}\textsl{\color{gray}{\textsf{\url{}}}}}}
+
+

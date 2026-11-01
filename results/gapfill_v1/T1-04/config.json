@@ -1,0 +1,17 @@
+{
+  "task_id": "T1-04",
+  "seed": 42,
+  "commit": "6b9f2aaa8a873049f7d95fd831e22f868cd5e636",
+  "b_bootstrap": 2000,
+  "pool_sizes_evaluated": [
+    813,
+    5000,
+    50000,
+    500000
+  ],
+  "subsample_caps": {
+    "Dense BGE-small": "Capped at 5,000 documents (MPS embedding matrix memory and compute constraints)",
+    "ColQwen2-v1.0": "Capped at 5,000 documents (Multi-vector late-interaction GPU VRAM footprint constraint: ~11.2 GB)"
+  },
+  "query_probes_evaluated": 306
+}

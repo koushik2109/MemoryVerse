@@ -1,0 +1,26 @@
+{
+  "item_id": "T2-03",
+  "title": "Isolate sub-word vs character effects",
+  "timestamp": "2026-10-31T18:07:07+0530",
+  "git_commit": "6b9f2aaa8a873049f7d95fd831e22f868cd5e636",
+  "tokenizers_evaluated": [
+    "Char 2-gram",
+    "Char 3-gram",
+    "Char 4-gram",
+    "Char 5-gram",
+    "Char 6-gram",
+    "Char 3-5gram (Combined)",
+    "WordPiece (BERT)",
+    "BPE (GPT-2)",
+    "Word + Porter Stemming",
+    "Word + Fuzzy Expansion",
+    "Word Standard"
+  ],
+  "conditions": [
+    "Apple Clean OCR",
+    "Optical Blur Degraded",
+    "Synthetic 20% Noise"
+  ],
+  "test_probes": 306,
+  "test_corpus": 813
+}

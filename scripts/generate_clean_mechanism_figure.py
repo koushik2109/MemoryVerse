@@ -89,11 +89,11 @@ for idx, (sys_raw, sys_label, col) in enumerate(plot_systems):
 
 ax3.set_title("(c) Probe Property Error Attribution (20% Noise)", fontweight="bold", pad=8)
 ax3.set_xticks(x)
-ax3.set_xticklabels(buckets, fontsize=8.2, fontweight="medium")
+ax3.set_xticklabels(buckets, fontsize=8.2, fontweight="normal")
 ax3.set_ylabel("MRR at 20% Noise")
-ax3.set_ylim(0, 0.88)
+ax3.set_ylim(0, 0.98)
 ax3.grid(True, linestyle=":", alpha=0.6, axis="y")
-ax3.legend(loc="upper right", frameon=True, framealpha=0.9, edgecolor="#cccccc", ncol=2, fontsize=7.2)
+ax3.legend(loc="upper left", frameon=True, framealpha=0.95, edgecolor="#cccccc", ncol=2, fontsize=7.2)
 
 fig.subplots_adjust(left=0.06, right=0.98, bottom=0.16, top=0.88, wspace=0.28)
 
@@ -103,3 +103,4 @@ out_ijcds = repo_root / "ijcds" / "figures" / "fig_mechanism_composite.png"
 out_ijcds.parent.mkdir(parents=True, exist_ok=True)
 fig.savefig(out_ijcds, dpi=300)
 print(f"Generated {out_composite} and {out_ijcds}")
+

@@ -1,0 +1,19 @@
+{
+  "item_id": "T3-02",
+  "description": "Dose-response curve of Word vs Char BM25 across graded token overlap bins and generator sources",
+  "seed": 42,
+  "git_commit": "6b9f2aaa8a873049f7d95fd831e22f868cd5e636",
+  "total_queries_evaluated": 1930,
+  "generators": [
+    "GPT-4o-mini",
+    "Human-Authored",
+    "Qwen2.5-7B"
+  ],
+  "overlap_bins": [
+    "0.00 - 0.20 (Minimal/Zero Overlap)",
+    "0.20 - 0.40 (Light Overlap)",
+    "0.40 - 0.60 (Moderate Overlap)",
+    "0.60 - 0.80 (High Overlap)",
+    "0.80 - 1.00 (Verbatim)"
+  ]
+}

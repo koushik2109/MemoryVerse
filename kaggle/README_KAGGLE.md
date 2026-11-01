@@ -94,3 +94,27 @@ Once the commit finishes, the **Output** tab will contain:
   - `RUNLOG.md`: Detailed timestamps, wall-clock measurements, and tracebacks.
   - `env_report.txt`: GPU model, CUDA driver, and toolchain versions.
   - `SHA256SUMS.txt`: Cryptographic checksums for every artifact.
+
+---
+
+## 6. Version 11 Suite: Degraded Visual Retrieval Benchmark
+
+**Target Output:** `results_v11_final.zip` (containing `colqwen_degraded_eval_v11.csv`, `clip_degraded_eval_v11.csv`, `paired_degraded_visual_v11.csv`, `v11_provenance.txt`)
+
+### Artifacts Delivered
+1. **Dataset Archive:** `kaggle/frozen_inputs_v11.zip` (448.96 MB, SHA-256: `afd3e099287a8d5491c6e8d4b4f515f42c45e127d1fd7cbbbfd5160e6b105eff`)
+   - Bundles all frozen benchmark splits, queries, clean and optical blur degraded images, and audit records.
+2. **Kaggle Notebook:** `kaggle/kaggle_run_v11.ipynb`
+   - Complete 10-cell self-contained interactive notebook ready for direct upload to Kaggle.
+3. **Standalone Python Script:** `kaggle/kaggle_run_v11_colqwen_degraded.py`
+   - Standalone CLI execution script.
+
+### Kaggle Execution Commands
+```bash
+# In Kaggle Notebook (with Internet ON, GPU T4 x2 or P100):
+!python kaggle_run_v11_colqwen_degraded.py --run B
+
+# Or directly open and run all cells in kaggle_run_v11.ipynb
+```
+- **Expected Runtime:** ~35 min on GPU T4 (~18 min ColQwen2 encoding + MaxSim scoring, ~12 min CLIP image/text feature scoring, ~5 min for 100,000 paired permutation tests).
+- **Smoke Test:** `python kaggle_run_v11_colqwen_degraded.py --smoke` (verifies entire statistical and IO pipeline in ~1 second).

@@ -1,0 +1,19 @@
+Condition,Query_Slice,Comparison,MRR_Diff,Permutation_p
+Apple Clean OCR,Verbatim Lookup,Char 3-5g BM25 vs. BGE-Small,0.6445120457795467,0.0
+Apple Clean OCR,Verbatim Lookup,Word BM25 vs. BGE-Small,0.5386192912525237,0.0
+Apple Clean OCR,Light Paraphrase,Char 3-5g BM25 vs. BGE-Small,0.08616700888991541,0.0
+Apple Clean OCR,Light Paraphrase,Word BM25 vs. BGE-Small,0.2373910619916612,0.0
+Apple Clean OCR,Answerable Questions,Char 3-5g BM25 vs. BGE-Small,0.6445120457795467,0.0
+Apple Clean OCR,Answerable Questions,Word BM25 vs. BGE-Small,0.5386192912525237,0.0
+Apple Degraded Optical Blur,Verbatim Lookup,Char 3-5g BM25 vs. BGE-Small,0.5715117752107641,0.0
+Apple Degraded Optical Blur,Verbatim Lookup,Word BM25 vs. BGE-Small,0.4388979846019232,0.0
+Apple Degraded Optical Blur,Light Paraphrase,Char 3-5g BM25 vs. BGE-Small,0.08382614376800325,0.0
+Apple Degraded Optical Blur,Light Paraphrase,Word BM25 vs. BGE-Small,0.19502952880227173,0.0
+Apple Degraded Optical Blur,Answerable Questions,Char 3-5g BM25 vs. BGE-Small,0.5715117752107641,0.0
+Apple Degraded Optical Blur,Answerable Questions,Word BM25 vs. BGE-Small,0.4388979846019232,0.0
+Tesseract Clean OCR,Verbatim Lookup,Char 3-5g BM25 vs. BGE-Small,0.6662188643770239,0.0
+Tesseract Clean OCR,Verbatim Lookup,Word BM25 vs. BGE-Small,0.5379582615498723,0.0
+Tesseract Clean OCR,Light Paraphrase,Char 3-5g BM25 vs. BGE-Small,0.1084720266568457,0.0
+Tesseract Clean OCR,Light Paraphrase,Word BM25 vs. BGE-Small,0.29256683121523785,0.0
+Tesseract Clean OCR,Answerable Questions,Char 3-5g BM25 vs. BGE-Small,0.6662188643770239,0.0
+Tesseract Clean OCR,Answerable Questions,Word BM25 vs. BGE-Small,0.5379582615498723,0.0

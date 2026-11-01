@@ -1,0 +1,14 @@
+{
+  "item_id": "T2-05",
+  "description": "End-to-End RAG Answer Accuracy Benchmark",
+  "seed": 42,
+  "git_commit": "c6b87f89b007dfbd4cdcda237c40627e4c09352a",
+  "n_queries": 150,
+  "generator_model": "gpt-4o-mini",
+  "human_audit_n": 100,
+  "cohens_kappa_correctness": 0.8730561726436052,
+  "cohens_kappa_faithfulness": 0.8720614105229492,
+  "cohens_kappa_relevance": 1.0,
+  "spearman_rho_mrr_anls": 0.3,
+  "kendall_tau_mrr_anls": 0.19999999999999998
+}

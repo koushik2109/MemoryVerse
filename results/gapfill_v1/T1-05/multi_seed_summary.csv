@@ -1,0 +1,16 @@
+Comparison,Mean,StdDev,Min,Max,Range,Ordering_Claim,Ordering_Hold_Rate
+Corpus: Char BM25 Verbatim MRR,0.9443,0.0062,0.9305,0.957,0.0265,,N/A
+Corpus: Word BM25 Verbatim MRR,0.8272,0.0118,0.8049,0.8463,0.0414,,N/A
+Corpus: Verbatim Lift (Char - Word),0.1171,0.012,0.0841,0.1365,0.0524,Char > Word,20/20 (100.0%)
+Corpus: Word BM25 Light Paraphrase MRR,0.4115,0.0313,0.3644,0.4679,0.1035,,N/A
+Corpus: Char BM25 Light Paraphrase MRR,0.2658,0.0308,0.2203,0.347,0.1267,,N/A
+Corpus: Paraphrase Reversal (Word - Char),0.1457,0.0211,0.093,0.1831,0.0901,Word > Char (Reversal),20/20 (100.0%)
+Corpus: Tuned Hybrid Light Paraphrase MRR,0.4115,0.0313,0.3644,0.4679,0.1035,,N/A
+Corpus: Hybrid Lift over Char (Hybrid - Char),0.1457,0.0211,0.093,0.1831,0.0901,Hybrid >= Char,20/20 (100.0%)
+Corpus: Char BM25 Answerable MRR,0.0357,0.0047,0.0304,0.0454,0.015,,N/A
+Corpus: Word BM25 Answerable MRR,0.0194,0.003,0.0129,0.0248,0.0119,,N/A
+Corpus: Answerable Lexical (Char - Word),0.0163,0.0041,0.01,0.0244,0.0144,Char > Word,20/20 (100.0%)
+ColQwen2: ColQwen2 Light Paraphrase MRR,0.4971,0.019,0.471,0.5325,0.0615,,N/A
+ColQwen2: Lift over Char BM25 (ColQwen2 - Char),0.2548,0.0137,0.2248,0.2761,0.0513,ColQwen2 > Char BM25,20/20 (100.0%)
+ColQwen2: Lift over Word BM25 (ColQwen2 - Word),0.0846,0.0125,0.0559,0.1096,0.0537,ColQwen2 > Word BM25,20/20 (100.0%)
+ColQwen2: Lift over Tuned Hybrid (ColQwen2 - Hybrid),0.2447,0.0138,0.2142,0.268,0.0538,ColQwen2 > Tuned Hybrid,20/20 (100.0%)

@@ -1,0 +1,13 @@
+{
+  "item_id": "T1-03",
+  "smoke": false,
+  "device": "cuda:0 (Tesla T4)",
+  "colqwen_model": "vidore/colqwen2-v1.0",
+  "clip_model": "openai/clip-vit-base-patch32",
+  "seeds": [42, 43, 44],
+  "bootstrap_B": 2000,
+  "n_perm": 100000,
+  "timestamp": "Sat Oct 31 13:57:04 UTC 2026",
+  "source": "kaggle_run_v11_colqwen_degraded"
+}
+

@@ -1,0 +1,24 @@
+{
+  "item_id": "T3-08",
+  "title": "Proper Equivalence Tests (TOST)",
+  "git_commit": "6b9f2aaa8a873049f7d95fd831e22f868cd5e636",
+  "timestamp": "2026-10-31T12:52:51Z",
+  "seed": 42,
+  "b_bootstrap": 10000,
+  "primary_margin": 0.05,
+  "sensitivity_margins": [
+    0.03,
+    0.04,
+    0.05,
+    0.06,
+    0.075,
+    0.1
+  ],
+  "comparisons": [
+    "ColQwen2 vs. Char BM25 (Answerable Entity-Abstracted, N=306)",
+    "ColQwen2 vs. Tuned Hybrid (Answerable Entity-Abstracted, N=306)",
+    "Extractive PRF vs. Generative LLM Bridging (Diagnostic N=50)",
+    "Extractive PRF vs. Generative LLM Bridging (Expanded N=100)",
+    "SigLIP Base Patch16 vs. Human Gold Captions (MS-COCO Karpathy Test, N=1,000)"
+  ]
+}

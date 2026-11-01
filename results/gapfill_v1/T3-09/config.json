@@ -1,0 +1,12 @@
+{
+  "item_id": "T3-09",
+  "description": "Expanded N=100 multi-hop paired evaluation and TOST equivalence testing",
+  "seed": 42,
+  "git_commit": "6b9f2aaa8a873049f7d95fd831e22f868cd5e636",
+  "n_queries": 100,
+  "source_data": "results/v6/multihop_100_cases_v6.csv",
+  "equivalence_margins": [
+    0.05,
+    0.07
+  ]
+}
