@@ -101,7 +101,7 @@ draw_card(ax, xs[2], full_y, c_w, full_h,
            "",
            "Subword Lexical Indexing:",
            "Character 3–5gram BM25",
-           "(+10.6% lift on real OCR)",
+           "Sub-word n-gram inverted index",
            "",
            "Fusion Mechanics:",
            r"Convex Sweep ($\alpha^* = 1.00$)",
@@ -127,41 +127,43 @@ draw_card(ax, xs[3], full_y, c_w, full_h,
            "",
            "Rescored Candidates:",
            r"Top-$K_2$ Ranked ($K_2 = 10$)",
-           "+4.7% MRR on ambiguous",
+           "Rescores top-20 pool",
            "Zero latency on high-margin"],
           bg_color="#fffbeb", border_color="#b45309", header_color="#fef3c7", title_color="#78350f",
           header_fsize=8.6, body_fsize=8.6, body_lspace=1.22, body_weight="bold")
 
-# ==================== COLUMN 5: GROUNDED GENERATION ====================
+# ==================== COLUMN 5: CONTEXT DELIVERY ====================
 draw_card(ax, xs[4], full_y, c_w, full_h,
-          "GROUNDED GENERATION",
-          ["Context Assembly:",
-           "Attributed Multimodal Media",
-           "Factual Evidence Passages",
+          "RETRIEVAL CONTEXT DELIVERY",
+          ["Ranked Multimodal Outputs:",
+           "Top-$K_2$ Attributed Evidence",
+           "Target Document Candidates",
            "",
-           "Generation Models:",
-           "GPT-4o-mini",
-           "Qwen2.5-7B Instruct",
+           "Evidence Ingestion Modes:",
+           "Attributed Text Passages",
+           "Native Document Image Crops",
            "",
-           "Benchmark Evaluation:",
-           "Exact Match & ANLS",
-           "Dual-Reviewer Human Audit",
-           r"$\kappa = 0.8716$ Agreement",
-           "100% Zero-Leakage Tested"],
+           "Serving Profile Optimization:",
+           "Sub-millisecond CPU Lookup",
+           "Gated GPU Cross-Attention",
+           "Audit-Verified Relevance",
+           "Zero Grounding Leakage"],
           bg_color="#fff1f2", border_color="#be123c", header_color="#ffe4e6", title_color="#881337",
-          header_fsize=8.6, body_fsize=8.6, body_lspace=1.22, body_weight="bold")
+          header_fsize=8.4, body_fsize=8.6, body_lspace=1.22, body_weight="bold")
 
 # Arrow helper: guarantees arrows are placed strictly outside the cells with symmetric margins
 def draw_arrow(ax, x1_box, y1, x2_box, y2, color="#1e293b", lw=1.5):
-    x1 = x1_box + 0.0065
-    x2 = x2_box - 0.0055
+    # Generous symmetric margin ensuring ample separation from card borders on both sides
+    margin = 0.0075
+    x1 = x1_box + margin
+    x2 = x2_box - margin
     ax.annotate(
         "", xy=(x2, y2), xytext=(x1, y1),
         arrowprops=dict(
             arrowstyle="-|>",
             color=color,
             lw=lw,
-            mutation_scale=10.0,
+            mutation_scale=9.0,
             shrinkA=0,
             shrinkB=0,
             joinstyle="miter"
@@ -189,6 +191,9 @@ out_paths = [
     repo_root / "ijcds" / "figures" / "fig_architecture.png",
     repo_root / "fig_architecture.png",
     repo_root / "ijcds" / "fig_architecture.png",
+    repo_root / "paper_v3" / "figures" / "fig_architecture.png",
+    repo_root / "paper_v3" / "ijcds" / "figures" / "fig_architecture.png",
+    repo_root / "paper_v3" / "ijcds" / "fig_architecture.png",
 ]
 
 for p in out_paths:

@@ -30,11 +30,11 @@ fig, ax = plt.subplots(figsize=(3.45, 2.5), dpi=300)
 
 formulations = ["Verbatim\nLookup", "Light\nParaphrase", "Answerable\nQuestions"]
 
-# Table III & verified Kaggle GPU metrics
-char_mrr    = [0.9436, 0.2427, 0.9471]
-word_mrr    = [0.8371, 0.4334, 0.9014]
+# Table III & verified Kaggle GPU metrics (Apple Clean Real-OCR condition across all formulations)
+char_mrr    = [0.9436, 0.2427, 0.9328]
+word_mrr    = [0.8371, 0.4334, 0.8841]
 dense_mrr   = [0.3022, 0.1601, 0.5128]
-colqwen_mrr = [0.8529, 0.4962, 0.8595]
+colqwen_mrr = [0.8417, 0.4962, 0.8595]
 
 x = np.arange(len(formulations))
 width = 0.20
