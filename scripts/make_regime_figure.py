@@ -47,11 +47,11 @@ rects4 = ax.bar(x + 1.5*width, colqwen_mrr, width, label="ColQwen2 (GPU)", color
 for rects in [rects1, rects2, rects3, rects4]:
     for rect in rects:
         h = rect.get_height()
-        ax.annotate(f"{h:.2f}",
+        ax.annotate(f"{h:.4f}",
                     xy=(rect.get_x() + rect.get_width() / 2, h),
-                    xytext=(0, 1.5),
+                    xytext=(0, 2),
                     textcoords="offset points",
-                    ha="center", va="bottom", fontsize=5.8, rotation=0)
+                    ha="center", va="bottom", fontsize=4.8, rotation=45)
 
 ax.set_ylabel("Mean Reciprocal Rank (MRR)", fontweight="bold")
 ax.set_xticks(x)
