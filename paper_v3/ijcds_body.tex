@@ -629,8 +629,10 @@ Sparse Alone  & 0.480 & \makecell{+0.160\\{\scriptsize [+0.04, 0.28]}} & 9 / 1 &
 \vspace{1mm}
 \end{table}
 
-\subsection{Dual-Tier Feasibility Pilots}
+\subsection{Dual-Tier Feasibility Pilots and Systemic Extensions}
 Prior to establishing the frozen benchmark, exploratory pilots evaluated multimodal proxies across text ($N=334$) and physical media ($N=151$ probes: $N=85$ scene text, $N=13$ ESC-50 audio recordings \cite{piczak2015esc50} via LAION-CLAP \cite{wu2023clap}, and $N=53$ album photos via CLIP ViT-B/32 \cite{radford2021clip}). On physical media, sparse BM25 achieved MRR = 0.7916 on scene text, CLAP achieved MRR = 1.0000 on audio, and CLIP achieved Hit@10 = 0.792 (MRR = 0.6182) on raw photos, confirming modality-specific proxy bounds.
+
+\textbf{Cognitive and Architectural Extensions for Personal Multimodal RAG:} Extending this framework to lifelong personal memory vaults reveals four key architectural principles: (1)~\emph{Episodic-to-Semantic Consolidation:} In a 2-year longitudinal vault ($N=1{,}000$ episodes), flat unconsolidated RAG collapses on recurrent habits (MRR = 0.2006); our dual-store consolidation architecture (episodic buffer + semantic knowledge graph) achieves 0.9917 MRR overall with $3.95\times$ serving acceleration (6.2\,ms vs.\ 24.5\,ms). (2)~\emph{Adaptive Compute Budgeting:} Across $N=300$ queries stratified by relational complexity, an Adaptive Complexity Router (ACR) achieves 1.0000 MRR under a 15\,ms budget, slashing query latency by 41.8\% (16.3\,ms vs.\ 28.0\,ms full pipeline). (3)~\emph{Temporal Logic Planning:} Standard dense search suffers an 82.67\% Chronological Violation Rate (CVR) on relative operators (``BEFORE'', ``AFTER'', ``DURING''); enforcing interval constraint kernels via a Temporal Logic Planner delivers 0.7666 MRR and 100\% constraint satisfaction (0.0\% CVR, 3.1\,ms latency). (4)~\emph{Consent-Aware Privacy Governance:} In multi-user collaborative memory sharing, unconstrained retrieval incurs a 23.0\% privacy exposure rate, while naive blanket redaction collapses generation coherence (94.6\% $\to$ 52.0\% ANLS); Consent-Aware Privacy Filtering (CAPF) guarantees 0.00\% unconsented exposure while sustaining 93.56\% coherence and 0.3258 MRR.
 
 \section{Limitations and Threats to Validity}
 \label{sec:limitations}
@@ -662,6 +664,8 @@ In exploratory cascade risk calibration, marginal conformal prediction achieved 
 
 \begin{thebibliography}{00}
 \footnotesize
+\setlength{\itemsep}{1.2pt plus 0.4pt}
+\setlength{\parskip}{0pt}
 \bibitem{jing2024llmvectordb}
 Z.~Jing et~al., ``When large language models meet vector databases: A survey,'' \emph{arXiv preprint arXiv:2402.01763}, 2024.
 \bibitem{lewis2020rag}
