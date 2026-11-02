@@ -101,3 +101,4 @@ def update_table(summary_path: Path):
 if __name__ == "__main__":
     p = Path(sys.argv[1]) if len(sys.argv) > 1 else SUMMARY_CSV
     update_table(p)
+

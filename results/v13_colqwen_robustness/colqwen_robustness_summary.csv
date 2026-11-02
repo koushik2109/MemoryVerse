@@ -1,0 +1,5 @@
+Query Source,N Probes,Word BM25,Char 3-5g BM25,Dense BGE,ColQwen2 MRR,95% CI,Elapsed (s)
+"Primary Gen. (gpt-4o-mini, N=306)",306,0.4334,0.2427,0.1601,0.4962,"[0.4492, 0.5473]",89.4
+"Secondary Gen. (Qwen2.5-7B, N=306)",306,0.6292,0.5802,0.2685,0.7627,"[0.7194, 0.8039]",91.0
+Human-Authored Queries (N=100),100,0.6321,0.5758,0.502,0.766,"[0.6957, 0.8347]",29.7
+Human-Authored Queries (N=200),200,0.5766,0.5549,0.4909,0.6471,"[0.5888, 0.7030]",59.6

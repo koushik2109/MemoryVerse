@@ -1,0 +1,12 @@
+{
+  "item_id": "R-01",
+  "random_seed": 42,
+  "test_n": 306,
+  "pools_evaluated": [
+    "813-item distractor pool",
+    "626-item pure receipt pool"
+  ],
+  "models": [
+    "ColQwen2-v1.0 Native Visual"
+  ]
+}

@@ -1,0 +1,4 @@
+Condition,Subwords_Per_Word,Mean_Cosine_Sim,Drift_Recovery_Pct
+Clean Text (0% Noise),1.856,1.0,100.0
+Corrupted Text (20% Noise),2.486,0.6826,0.0
+Restored (Dev Lexicon Intervention),2.075,0.8356,48.20000076293945

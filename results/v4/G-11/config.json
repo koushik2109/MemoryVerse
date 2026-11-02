@@ -1,0 +1,16 @@
+{
+  "item_id": "G-11",
+  "title": "End-to-End RAG Answer Accuracy Benchmark & Human Audit",
+  "git_commit": "ebc19dd07d31fe5b854467a62310cd3a0ff1fb32",
+  "generator_model": "gpt-4o-mini (temperature=0.0)",
+  "n_queries": 150,
+  "human_audit_cases": 100,
+  "raters": 2,
+  "metrics": [
+    "Retrieval_MRR",
+    "Answer_ANLS",
+    "Exact_Match",
+    "Faithfulness_Rate"
+  ],
+  "source_file": "results/gapfill_v1/T2-05/e2e_rag_summary.csv"
+}

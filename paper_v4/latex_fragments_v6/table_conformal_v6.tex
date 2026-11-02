@@ -1,0 +1,13 @@
+% Source: results/v6/conformal_splits_summary_v6.csv
+\begin{table}[t]
+\centering\small
+\caption{Conformal Cascade Calibration: Corrected Marginal Loss vs.\ Flawed Conditional Ratio over 200 Cluster-Aware Splits ($N=2{,}754$ instances, nominal target $\epsilon=0.05$).}\label{tab:conformal_cascade_v6}
+\begin{tabular}{lccccc}
+\toprule
+Risk Formulation & Mean $\tau^*$ & Mean Test Risk & Split Cov. ($\le 0.05$) & Mean Esc. Rate & Mean MRR \\
+\midrule
+Marginal Loss $L=1[\text{not esc} \land \text{miss}]$ & 0.2375 & 0.0491 & 58.5\% & 78.4\% & 0.3577 \\
+Conditional Ratio $P(\text{miss} \mid \text{not esc})$ & 0.4071 & 0.0545 & 38.0\% & 90.2\% & 0.3524 \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,6 @@
+System,Query_Type,Test_MRR,Random_Baseline_MRR,Diff_from_Random,Decision_Rule_Status
+Uniform Random Ranking,Any (N=813),0.0089,0.0089,0.0000,Baseline
+Pure BM25,Legacy Concept Paraphrase (v2),0.0089,0.0089,-0.0001,Design Failure (Matches Chance)
+Pure BM25,Redesigned Question Queries (v3),0.8878,0.0089,+0.8789,Valid (>0.05 Target Met)
+Dense MiniLM,Redesigned Question Queries (v3),0.2873,0.0089,+0.2784,Valid (>0.05 Target Met)
+Dense BGE-base,Redesigned Question Queries (v3),0.5191,0.0089,+0.5101,Valid (>0.05 Target Met)

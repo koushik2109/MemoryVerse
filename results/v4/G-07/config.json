@@ -1,0 +1,12 @@
+{
+  "item_id": "G-07",
+  "title": "Quantitative Continuous Regime Map & Crossover Boundaries",
+  "git_commit": "ebc19dd07d31fe5b854467a62310cd3a0ff1fb32",
+  "model_family": "Logistic Quadratic Response Surfaces",
+  "variables": {
+    "c": "Document OCR Character Error Rate (CER in [0.0, 0.70])",
+    "o": "Query-Document Lexical / Jaccard Overlap (o in [0.20, 1.00])"
+  },
+  "crossover_stability": "o* in [0.5057, 0.5520] across CER in [0.0, 0.6377]",
+  "source_file": "results/gapfill_v1/T2-01/regime_crossover_thresholds.csv"
+}

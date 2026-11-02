@@ -1,0 +1,35 @@
+\begin{table*}[t]
+\centering
+\caption{Diagnostic Failure Attribution and Query-Side Noise Robustness Across Systems ($N=306$).}
+\label{tab:query_noise_and_error_taxonomy}
+\small
+\begin{subtable}[t]{\textwidth}
+\centering
+\caption{Query-side typo dose-response: MRR degradation under keyboard/character error rates $r \in [0\%, 30\%]$.}
+\begin{tabular}{lccccccc}
+\toprule
+\textbf{System} & \textbf{0\% (Clean)} & \textbf{5\%} & \textbf{10\%} & \textbf{15\%} & \textbf{20\%} & \textbf{30\%} & \textbf{Retention at 20\%} \\
+\midrule
+\textbf{Char 3--5g BM25} & \textbf{0.9443} & 0.9100 & 0.9077 & 0.8267 & \textbf{0.8177} & 0.7043 & 86.6\% \\
+Word + Fuzzy BM25 & 0.8373 & 0.7675 & 0.7237 & 0.6295 & 0.6047 & 0.4356 & 72.2\% \\
+Word BM25 & 0.8324 & 0.6986 & 0.6054 & 0.4535 & 0.4342 & 0.2864 & 52.2\% \\
+Dense MiniLM & 0.2238 & 0.1535 & 0.1418 & 0.1153 & 0.0983 & 0.0663 & 43.9\% \\
+\bottomrule
+\end{tabular}
+\end{subtable}
+\vspace{0.25cm}
+\begin{subtable}[t]{\textwidth}
+\centering
+\caption{Diagnostic failure attribution under Real OCR verbatim queries ($N=306$, failures out of Hit@10).}
+\begin{tabular}{lcccccc}
+\toprule
+\textbf{System} & \textbf{Hit@10} & \textbf{Failures} & \textbf{Numeric/Short Dispersion} & \textbf{Distractor Collision} & \textbf{OCR Target Absence} & \textbf{Other Drift} \\
+\midrule
+\textbf{Char 3--5g BM25} & 0.9837 & 5 & 0 & 1 & 4 & 0 \\
+Word BM25 & 0.9150 & 26 & 0 & 20 & 4 & 2 \\
+Dense BGE-small & 0.3725 & 192 & 186 & 0 & 4 & 2 \\
+Dense MiniLM & 0.3137 & 210 & 202 & 0 & 4 & 4 \\
+\bottomrule
+\end{tabular}
+\end{subtable}
+\end{table*}

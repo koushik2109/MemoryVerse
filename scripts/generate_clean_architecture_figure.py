@@ -191,6 +191,7 @@ out_paths = [
     repo_root / "ijcds" / "figures" / "fig_architecture.png",
     repo_root / "fig_architecture.png",
     repo_root / "ijcds" / "fig_architecture.png",
+    repo_root / "paper_v4" / "figures" / "fig_architecture.png",
     repo_root / "paper_v3" / "figures" / "fig_architecture.png",
     repo_root / "paper_v3" / "ijcds" / "figures" / "fig_architecture.png",
     repo_root / "paper_v3" / "ijcds" / "fig_architecture.png",

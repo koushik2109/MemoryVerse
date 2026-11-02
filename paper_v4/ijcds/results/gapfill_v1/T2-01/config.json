@@ -1,0 +1,20 @@
+{
+  "item_id": "T2-01",
+  "title": "Quantitative Regime Map and Crossover Boundaries",
+  "git_commit": "6b9f2aaa8a873049f7d95fd831e22f868cd5e636",
+  "timestamp": "2026-10-31T13:13:15Z",
+  "seed": 42,
+  "b_bootstrap": 2000,
+  "models_evaluated": [
+    "Char 3-5g BM25",
+    "Word BM25",
+    "Dense BGE-base",
+    "Dense MiniLM",
+    "Tuned Hybrid",
+    "ColQwen2"
+  ],
+  "heldout_validation_dataset": "FUNSD Forms (N=30 conditions)",
+  "r2_training_char": 0.9862,
+  "r2_training_word": 0.9753,
+  "r2_validation_funsd": 0.7569461777063254
+}

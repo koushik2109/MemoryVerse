@@ -1,0 +1,4 @@
+Formulation,MiniLM_MRR,MiniLM_Hit10,BGE_MRR,BGE_Hit10
+Anchor Keyword String,0.3856,0.606,0.55,0.7848
+Declarative Statement,0.3222,0.4801,0.5347,0.8278
+Interrogative Question,0.3718,0.5762,0.5263,0.798

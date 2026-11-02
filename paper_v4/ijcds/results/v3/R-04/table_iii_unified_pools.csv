@@ -1,0 +1,5 @@
+Pool,Condition,Model,MRR_Verbatim,CI_95_Verbatim,Hit10_Verbatim,MRR_Paraphrase,Hit10_Paraphrase
+813 Unified (Production / Table II aligned),Real Apple Clean,MiniLM-L6-v2,0.21,"[0.1709, 0.2524]",0.2843,0.1342,0.1873
+813 Unified (Production / Table II aligned),Real Apple Clean,BGE-base-en-v1.5,0.3256,"[0.2764, 0.3757]",0.3824,0.1895,0.2451
+626 Pure Receipts (Alternative),Real Apple Clean,MiniLM-L6-v2,0.1919,"[0.1554, 0.2335]",0.2778,0.1251,0.1742
+626 Pure Receipts (Alternative),Real Apple Clean,BGE-base-en-v1.5,0.3428,"[0.2921, 0.3956]",0.4183,0.1944,0.252

@@ -1,0 +1,7 @@
+System,Model_Type,N_Train,R2,RMSE,MAE,beta_0,beta_cer,beta_overlap,beta_cer2,beta_overlap2,beta_interaction
+Char 3-5g BM25,Logistic Quadratic Surface,12,0.9862,0.0393,0.0295,-8.5603,3.5137,26.3268,-5.0385,-13.7031,-7.4307
+Word BM25,Logistic Quadratic Surface,12,0.9753,0.0392,0.0336,-4.8543,1.2466,17.376,-5.4693,-10.4939,-2.0962
+Dense BGE-base,Logistic Quadratic Surface,12,0.9874,0.0166,0.0145,-5.8995,0.7776,16.8478,-4.0645,-11.5915,-0.025
+Dense MiniLM,Logistic Quadratic Surface,12,0.95,0.018,0.0155,-5.2858,-1.3715,12.7134,-1.0167,-8.7526,0.7571
+Tuned Hybrid,Logistic Quadratic Surface,12,0.9857,0.0276,0.022,-3.6665,0.8762,12.8378,-3.5512,-7.01,-3.0621
+ColQwen2-v1.0,Logistic Bilinear Surface,9,0.5683,0.1008,0.0808,-1.6788,4.3912,5.2596,0.0,0.0,-10.624

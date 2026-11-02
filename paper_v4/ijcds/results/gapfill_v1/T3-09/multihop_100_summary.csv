@@ -1,0 +1,3 @@
+subset,n_queries,extractive_hit10,llm_hit10,paired_diff (Ext - LLM),b_ext_wins,c_llm_wins,ties,p_mcnemar,ci_95_lower,ci_95_upper,p_tost_05,equivalent_05,p_tost_07,equivalent_07
+n50_exploratory,50,0.64,0.64,0.0,2,2,46,1.0,-0.0784,0.0784,0.10564977366685535,False,0.040059156863817114,True
+n100_expanded,100,0.82,0.82,0.0,2,2,96,1.0,-0.0392,0.0392,0.006209665325776159,True,0.0002326290790355401,True

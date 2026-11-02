@@ -1,0 +1,13 @@
+{
+  "item_id": "G-14",
+  "source_deliverable": "T3-07",
+  "title": "Advanced caption proxies (Qwen2-VL, Florence-2, BLIP-2) on MS-COCO",
+  "seed": 42,
+  "git_commit": "HEAD",
+  "files": [
+    "config.json",
+    "caption_proxies_summary.csv",
+    "README.md",
+    "caption_proxies_paired_tests.csv"
+  ]
+}

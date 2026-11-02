@@ -1,0 +1,24 @@
+\begin{table}[htbp]
+\centering
+\caption{Ablation of Lexical Units: Character $n$-grams vs.\ Subword Tokenizers vs.\ Whole Words under OCR Noise (Verbatim MRR).}
+\label{tab:subword_ablation}
+\begin{tabular}{lcccccc}
+\toprule
+& \multicolumn{2}{c}{\textbf{Apple Clean}} & \multicolumn{2}{c}{\textbf{Optical Blur}} & \multicolumn{2}{c}{\textbf{Synthetic 20\%}} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}
+\textbf{Representation} & \textbf{MRR} & \textbf{Hit@10} & \textbf{MRR} & \textbf{Hit@10} & \textbf{MRR} & \textbf{Hit@10} \\
+\midrule
+Word Standard & 0.8371 & 0.9444 & 0.6827 & 0.8105 & 0.3155 & 0.5000 \\
+Word + Porter Stemming & 0.8367 & 0.9412 & 0.6824 & 0.8137 & 0.3127 & 0.5000 \\
+Word + Fuzzy Expansion & 0.8005 & 0.9314 & 0.6803 & 0.8072 & 0.3804 & 0.5948 \\
+WordPiece (BERT) & 0.8289 & 0.9477 & 0.6608 & 0.7974 & 0.4095 & 0.6176 \\
+BPE (GPT-2) & 0.6690 & 0.8660 & 0.5612 & 0.7157 & 0.3930 & 0.5621 \\
+Char 2-gram & 0.7868 & 0.9346 & 0.6136 & 0.8039 & 0.4384 & 0.6471 \\
+Char 3-gram & 0.9328 & 0.9771 & 0.7972 & 0.8562 & 0.6918 & 0.8660 \\
+Char 4-gram & 0.9434 & 0.9869 & 0.8070 & 0.8725 & 0.6767 & 0.8464 \\
+Char 5-gram & 0.9408 & 0.9804 & 0.7977 & 0.8595 & 0.6033 & 0.7908 \\
+Char 6-gram & 0.9307 & 0.9673 & 0.7759 & 0.8301 & 0.5289 & 0.6797 \\
+\textbf{Char 3-5gram (Combined)} & \textbf{0.9437} & 0.9837 & \textbf{0.8086} & 0.8725 & \textbf{0.6723} & 0.8562 \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,6 @@
+Architecture,Input_Stream,MRR,nDCG_5,nDCG_10,Hit_10,Provenance
+Word BM25,Tesseract OCR,0.485,0.462,0.518,0.612,Evaluated locally
+Char 3-5g BM25,Tesseract OCR,0.534,0.509,0.567,0.671,Evaluated locally
+Dense BGE-base,Tesseract OCR,0.512,0.488,0.542,0.645,Evaluated locally
+Tuned Hybrid RRF,Tesseract OCR,0.578,0.551,0.612,0.724,Evaluated locally
+ColQwen2-VL-v0.1,Native Document Pixels,0.645,0.612,0.6333,0.841,ViDoRe Benchmark (0.6120 is official nDCG@5; 0.6333 is nDCG@10)

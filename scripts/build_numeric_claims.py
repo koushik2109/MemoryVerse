@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """scripts/build_numeric_claims.py
 
-Extracts all numeric claims from ijcds_body.tex across Abstract, Sections I-VIII,
+Extracts all numeric claims from paper_v4/ijcds_body.tex across Abstract, Sections I-VIII,
 Tables I-XV, and Figures 1-6.
 Maps each claim to its source file in results/ or marks as UNVERIFIED.
 Outputs numeric_claims.csv with columns:
-value, section_table_figure, metric, system, condition, N, source_file, status
+value, location, metric, system, condition, split, pool, text_source, N, source_file, status
 """
 
 import csv
@@ -14,8 +14,10 @@ from pathlib import Path
 from typing import Dict, List, Set, Tuple
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-TEX_PATH = REPO_ROOT / "ijcds_body.tex"
+TEX_PATH = REPO_ROOT / "paper_v4" / "ijcds_body.tex"
+HEADER_PATH = REPO_ROOT / "paper_v4" / "ijcds_header.tex"
 OUT_CSV = REPO_ROOT / "numeric_claims.csv"
+V4_OUT_DIR = REPO_ROOT / "results" / "v4" / "S-02"
 PROV_PATH = REPO_ROOT / "results" / "v10" / "number_provenance.csv"
 
 # Structural numbers to exclude (LaTeX syntax, standard parameters, years)
@@ -64,7 +66,10 @@ def find_in_results_dir(val_str: str) -> str:
     return ""
 
 def main():
-    lines = TEX_PATH.read_text(encoding="utf-8").splitlines()
+    lines = []
+    if HEADER_PATH.exists():
+        lines.extend(HEADER_PATH.read_text(encoding="utf-8").splitlines())
+    lines.extend(TEX_PATH.read_text(encoding="utf-8").splitlines())
     prov_db = load_provenance()
 
     claims = []
@@ -109,14 +114,13 @@ def main():
     }
 
     num_pattern = re.compile(r"(?<![a-zA-Z\\])[+-]?(?:\d{1,3}(?:(?:\{,\}|,)\d{3})+|\d+)(?:\.\d+)?%?(?:\\%)?")
-
     seen = set()
 
     for line_idx, line in enumerate(lines, 1):
         stripped = line.strip()
 
         # Section tracking
-        if "\\begin{abstract}" in stripped:
+        if "\\begin{abstract}" in stripped or "\\myabstract" in stripped:
             current_sec = "Abstract"
         elif "\\end{abstract}" in stripped:
             current_sec = "Introduction"
@@ -193,7 +197,7 @@ def main():
             # Try to match provenance
             prov = prov_db.get(raw_val) or prov_db.get(clean_val) or prov_db.get(f"+{clean_val}") or prov_db.get(f"-{clean_val}")
 
-            # Heuristics for system, metric, condition, N
+            # Heuristics for system, metric, condition, N, pool, split, text_source
             context_window = cleaned_line[max(0, m.start()-40):min(len(cleaned_line), m.end()+40)]
             
             # Metric heuristic
@@ -214,7 +218,7 @@ def main():
                 metric = "WER"
             elif "ms" in cleaned_line or "latency" in cleaned_line.lower():
                 metric = "Latency (ms)"
-            elif "p " in cleaned_line or "p=" in cleaned_line or "p<" in cleaned_line or "p_{\\text{Holm}}" in cleaned_line:
+            elif "p " in cleaned_line or "p=" in cleaned_line or "p<" in cleaned_line or "p_{\\text{Holm}}" in cleaned_line or "p_{\\text{TOST}}" in cleaned_line:
                 metric = "p-value"
             elif "%" in raw_val or "coverage" in cleaned_line.lower() or "rate" in cleaned_line.lower():
                 metric = "Percentage / Rate"
@@ -267,14 +271,55 @@ def main():
             elif "20%" in cleaned_line:
                 condition = "Synthetic 20% Noise"
 
+            # Pool heuristic
+            pool = "813 w/ COCO caption fallback"
+            if "FUNSD" in cleaned_line or "Table X" in loc or "forms" in cleaned_line.lower():
+                pool = "100 scanned forms"
+            elif "DocVQA" in cleaned_line or "Table IX" in loc:
+                pool = "500 document pages"
+            elif "COCO" in cleaned_line or "Table VII" in loc or "captions" in cleaned_line.lower():
+                pool = "1,000 Karpathy test images"
+            elif "pure receipts" in cleaned_line.lower() or "626" in cleaned_line:
+                pool = "626 pure receipts"
+            elif "pilot" in loc.lower() or "Table XV" in loc:
+                pool = "151 multimodal media"
+
+            # Text source heuristic
+            text_source = "Apple Clean"
+            if "Ground Truth" in condition or "Clean GT" in cleaned_line or "Clean GT" in condition:
+                text_source = "Clean GT"
+            elif "Tesseract" in condition or "Tesseract" in cleaned_line:
+                text_source = "Tesseract 5.5"
+            elif "EasyOCR" in condition or "EasyOCR" in cleaned_line:
+                text_source = "EasyOCR 1.7.2"
+            elif "blur" in condition.lower() or "degraded" in condition.lower():
+                text_source = "Apple Degraded Optical Blur"
+            elif "Syn" in condition or "20%" in condition:
+                text_source = "Syn-20%"
+            elif system in ["ColQwen2", "CLIP", "SigLIP"]:
+                text_source = "Pixel/Audio Native"
+
+            # Split heuristic
+            split = "Held-Out Test (50%)"
+            if "Dev" in cleaned_line or "dev" in cleaned_line:
+                split = "Dev (50%)"
+            elif "full" in cleaned_line.lower() or "2754" in cleaned_line:
+                split = "Full Split (100%)"
+
             # Sample size N
             N = "306"
-            if "500" in cleaned_line or "DocVQA" in cleaned_line:
+            if "500" in cleaned_line or "DocVQA" in cleaned_line or pool == "500 document pages":
                 N = "500"
-            elif "1000" in cleaned_line or "1{,}000" in cleaned_line or "COCO" in cleaned_line:
+            elif "1000" in cleaned_line or "1{,}000" in cleaned_line or "COCO" in cleaned_line or pool == "1,000 Karpathy test images":
                 N = "1000"
+            elif "100" in cleaned_line and ("human" in cleaned_line.lower() or "relational" in cleaned_line.lower() or pool == "100 scanned forms"):
+                N = "100"
+            elif "200" in cleaned_line and "human" in cleaned_line.lower():
+                N = "200"
             elif "50" in cleaned_line and ("hop" in cleaned_line or "multi-hop" in cleaned_line):
                 N = "50"
+            elif "110" in cleaned_line or "audit" in cleaned_line.lower():
+                N = "110"
             elif "626" in cleaned_line:
                 N = "626"
             elif "2754" in cleaned_line or "2{,}754" in cleaned_line:
@@ -293,6 +338,8 @@ def main():
                     metric = prov.get("metric_description")
                 if prov.get("query_type"):
                     condition = f"{prov.get('query_type')} / {prov.get('text_source', condition)}"
+                if prov.get("text_source"):
+                    text_source = prov.get("text_source")
                 status = "VERIFIED"
             else:
                 # Fallback search in results dir
@@ -303,27 +350,47 @@ def main():
 
             claims.append({
                 "value": raw_val,
-                "section_table_figure": loc,
+                "location": loc,
                 "metric": metric,
                 "system": system,
                 "condition": condition,
+                "split": split,
+                "pool": pool,
+                "text_source": text_source,
                 "N": N,
                 "source_file": source_file,
                 "status": status,
             })
 
-    with open(OUT_CSV, mode="w", newline="", encoding="utf-8") as f:
-        fieldnames = ["value", "section_table_figure", "metric", "system", "condition", "N", "source_file", "status"]
-        writer = csv.DictWriter(f, fieldnames=fieldnames)
-        writer.writeheader()
-        for c in claims:
-            writer.writerow(c)
+    V4_OUT_DIR.mkdir(parents=True, exist_ok=True)
+    fieldnames = ["value", "location", "metric", "system", "condition", "split", "pool", "text_source", "N", "source_file", "status"]
+    
+    for target_path in [OUT_CSV, V4_OUT_DIR / "numeric_claims.csv"]:
+        with open(target_path, mode="w", newline="", encoding="utf-8") as f:
+            writer = csv.DictWriter(f, fieldnames=fieldnames)
+            writer.writeheader()
+            for c in claims:
+                writer.writerow(c)
 
     print(f"Total claims extracted: {len(claims)}")
     verified = sum(1 for c in claims if c["status"] == "VERIFIED")
     unverified = sum(1 for c in claims if c["status"] == "UNVERIFIED")
     print(f"VERIFIED: {verified}, UNVERIFIED: {unverified}")
 
+    # Write untraceable claims report
+    unverified_claims = [c for c in claims if c["status"] == "UNVERIFIED"]
+    untraceable_md = V4_OUT_DIR / "untraceable_claims_report.md"
+    with open(untraceable_md, mode="w", encoding="utf-8") as f:
+        f.write("# Untraceable Claims Report (S-02)\n\n")
+        f.write(f"- Total Claims: {len(claims)}\n")
+        f.write(f"- Verified: {verified}\n")
+        f.write(f"- Untraceable / Unverified: {len(unverified_claims)}\n\n")
+        f.write("| Value | Location | Metric | System | Condition | Pool | Text Source | N |\n")
+        f.write("| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |\n")
+        for u in unverified_claims:
+            f.write(f"| `{u['value']}` | {u['location']} | {u['metric']} | {u['system']} | {u['condition']} | {u['pool']} | {u['text_source']} | {u['N']} |\n")
+
+    print(f"Saved untraceable report to: {untraceable_md}")
+
 if __name__ == "__main__":
     main()
-

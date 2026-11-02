@@ -1,0 +1,27 @@
+{
+  "item_id": "G-08",
+  "title": "Corpus-Size Scaling Benchmark (813 to 500,000 Documents)",
+  "git_commit": "ebc19dd07d31fe5b854467a62310cd3a0ff1fb32",
+  "pool_sizes": [
+    813,
+    5000,
+    50000,
+    500000
+  ],
+  "systems_evaluated": [
+    "Word BM25",
+    "Char 3-5g BM25",
+    "Dense BGE-small",
+    "ColQwen2-v1.0 (Native Pixel)"
+  ],
+  "query_slices": [
+    "Verbatim Lookup",
+    "Light Paraphrase",
+    "Answerable Questions"
+  ],
+  "compute_caps": {
+    "Dense BGE-small": "Capped at 5K due to linear vector scan / index memory constraints",
+    "ColQwen2-v1.0": "Capped at 5K due to multi-vector VRAM footprint (11.2 GB at 5K, >100 GB extrapolated at 50K)"
+  },
+  "source_file": "results/gapfill_v1/T1-04/corpus_scaling_summary.csv"
+}

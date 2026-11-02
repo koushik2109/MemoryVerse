@@ -1,0 +1,25 @@
+{
+  "item_id": "G-09",
+  "title": "Controlled Test of Query-Formulation and Syntactic Syntax Claim",
+  "git_commit": "ebc19dd07d31fe5b854467a62310cd3a0ff1fb32",
+  "formulations": [
+    "snippet",
+    "keyword",
+    "declarative",
+    "interrogative",
+    "imperative"
+  ],
+  "systems_evaluated": [
+    "char_bm25",
+    "word_bm25",
+    "bge-small-en-v1.5",
+    "all-MiniLM-L6-v2"
+  ],
+  "ocr_regimes": [
+    "real_ocr",
+    "clean_gt"
+  ],
+  "n_queries": 306,
+  "permutation_resamples": 100000,
+  "source_file": "results/gapfill_v1/T3-01/query_formulation_summary.csv"
+}

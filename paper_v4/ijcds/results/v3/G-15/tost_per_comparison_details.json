@@ -1,0 +1,24 @@
+{
+  "colqwen_vs_lexical": {
+    "n": 306,
+    "colqwen_mrr": 0.05463488235294118,
+    "char_mrr": 0.04948522549019608,
+    "hybrid_mrr": 0.04875606209150327,
+    "diff_char_mrr": 0.005149656862745096,
+    "diff_hybrid_mrr": 0.005878820261437908
+  },
+  "multihop_bridging": {
+    "n50_extractive": 0.64,
+    "n50_llm": 0.64,
+    "n100_extractive": 0.82,
+    "n100_llm": 0.82
+  },
+  "siglip_vs_gold": {
+    "n": 1000,
+    "siglip_mrr": 0.6071,
+    "gold_mrr": 0.5835,
+    "diff_mrr": 0.0236,
+    "nhst_p": 0.142,
+    "se": 0.01607209234274848
+  }
+}

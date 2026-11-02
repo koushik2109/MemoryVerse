@@ -1,0 +1,22 @@
+{
+  "item_id": "T3-10",
+  "description": "Granular diagnostic error taxonomy across sparse and dense retrieval systems",
+  "seed": 42,
+  "git_commit": "6b9f2aaa8a873049f7d95fd831e22f868cd5e636",
+  "n_probes": 306,
+  "n_corpus": 813,
+  "models": [
+    "word_bm25",
+    "char_bm25",
+    "all-MiniLM-L6-v2",
+    "bge-small-en-v1.5"
+  ],
+  "query_slices": [
+    "verbatim",
+    "light_paraphrase"
+  ],
+  "ocr_regimes": [
+    "real_ocr",
+    "clean_gt"
+  ]
+}

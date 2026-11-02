@@ -1,0 +1,18 @@
+\begin{table}[htbp]
+\centering
+\caption{Empirical Regime Crossover Boundaries: Critical Query--Document Overlap $o^*$ Separating Character $n$-gram BM25 Dominance from Whole-Word BM25 Across Document CER.}
+\label{tab:regime_crossover}
+\begin{tabular}{lcccccc}
+\toprule
+\textbf{Operating Condition} & \textbf{CER} & \textbf{Critical Overlap $o^*$} & \textbf{95\% Bootstrap CI} & \textbf{MRR at $o^*$} & \textbf{Dominant ($o > o^*$)} & \textbf{Dominant ($o < o^*$)} \\
+\midrule
+Ground Truth & 0.0000 & \textbf{0.5057} & [0.4263, 0.6388] & 0.7772 & Char 3--5g BM25 & Word BM25 \\
+Synthetic CER 0.10 & 0.1000 & \textbf{0.5133} & [0.4431, 0.6304] & 0.7794 & Char 3--5g BM25 & Word BM25 \\
+Synthetic CER 0.20 & 0.2000 & \textbf{0.5208} & [0.4422, 0.6453] & 0.7615 & Char 3--5g BM25 & Word BM25 \\
+Clean Apple Vision & 0.2848 & \textbf{0.5271} & [0.4396, 0.6722] & 0.7282 & Char 3--5g BM25 & Word BM25 \\
+Optical Blur & 0.3822 & \textbf{0.5342} & [0.4467, 0.7047] & 0.6644 & Char 3--5g BM25 & Word BM25 \\
+Synthetic CER 0.50 & 0.5000 & \textbf{0.5427} & [0.4329, 0.7285] & 0.5429 & Char 3--5g BM25 & Word BM25 \\
+Degraded Tesseract & 0.6377 & \textbf{0.5520} & [0.3423, 0.8414] & 0.3481 & Char 3--5g BM25 & Word BM25 \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,16 @@
+[2026-10-28T10:14:07Z] Resolved Dataset Root: /kaggle/input/datasets/anuragkrishnavennela/frozen-v9
+[2026-10-28T10:14:07Z] Resolved Working Dir:  /kaggle/working
+[2026-10-28T10:14:07Z] Stage 3B: ColQwen2 paired permutation tests (smoke=False)
+[2026-10-28T10:14:08Z] Corpus size: 813 items
+[2026-10-28T10:14:08Z] Light probes: 306, Answerable: 306, Verbatim: 306
+[2026-10-28T10:14:08Z] Building lexical BM25 baselines...
+[2026-10-28T10:14:14Z] OK: Char BM25 verbatim MRR=0.9443
+[2026-10-28T10:14:14Z] OK: Word BM25 light MRR=0.4003
+[2026-10-28T10:14:14Z] OK: Char BM25 answerable MRR=0.0495
+[2026-10-28T10:14:14Z] OK: Tuned Hybrid light MRR=0.2462
+[2026-10-28T10:14:14Z] GPU detected — running real ColQwen2-v1.0 model inference.
+[2026-10-28T10:15:35Z] Encoding 813 corpus images with ColQwen2-v1.0...
+[2026-10-28T10:54:47Z] Scoring light-paraphrase probes vs corpus...
+[2026-10-28T10:56:13Z] Scoring answerable queries vs corpus...
+[2026-10-28T10:57:39Z] Running paired permutation tests (N_perm=100,000, seeds 42, 43, 44)...
+[2026-10-28T10:57:51Z] Stage 3B complete. Artifacts written to /kaggle/working/results/v10

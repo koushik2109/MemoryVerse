@@ -1,0 +1,5 @@
+Condition,Router_MRR,Router_CI,Tuned_Hybrid_MRR,Tuned_Hybrid_CI,Diff_vs_Hybrid,P_Holm_vs_Hybrid,Is_Sig_vs_Hybrid,All_Stream_RRF_MRR,Diff_vs_RRF,BM25_MRR,Diff_vs_BM25,Verdict_H2
+clean,0.8309,"[0.7932, 0.8669]",0.8299,"[0.7913, 0.8661]",0.001,1.0,False,0.3227,0.5082,0.8317,-0.0008,KILLED (No meaningful gain over Tuned Hybrid; RRF gain was strawman comparison)
+syn_20,0.3765,"[0.3432, 0.4094]",0.3694,"[0.3361, 0.4018]",0.0071,0.042,True,0.1827,0.1938,0.3694,0.0071,KILLED (No meaningful gain over Tuned Hybrid; RRF gain was strawman comparison)
+real_ocr,0.8121,"[0.7696, 0.8492]",0.8121,"[0.7696, 0.8492]",0.0,1.0,False,0.3079,0.5042,0.8107,0.0014,KILLED (No meaningful gain over Tuned Hybrid; RRF gain was strawman comparison)
+real_ocr_deg,0.6667,"[0.6173, 0.7124]",0.6684,"[0.6192, 0.7146]",-0.0017,1.0,False,0.2791,0.3876,0.6684,-0.0017,KILLED (No meaningful gain over Tuned Hybrid; RRF gain was strawman comparison)

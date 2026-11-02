@@ -1,0 +1,46 @@
+{
+  "audit_name": "T2-05 End-to-End RAG Dual-Rater Agreement",
+  "human_reviewers": 2,
+  "n_audited": 100,
+  "dimensions": {
+    "correctness_label": {
+      "observed_agreement": 0.92,
+      "cohen_kappa": 0.8730561726436052,
+      "bootstrap_ci95": [
+        0.7745535332022462,
+        0.9509088005364928
+      ],
+      "categories": [
+        "correct",
+        "partially_correct",
+        "incorrect"
+      ]
+    },
+    "faithfulness_label": {
+      "observed_agreement": 0.92,
+      "cohen_kappa": 0.8720614105229492,
+      "bootstrap_ci95": [
+        0.7803171997951812,
+        0.9513935863526265
+      ],
+      "categories": [
+        "supported",
+        "mixed",
+        "unsupported"
+      ]
+    },
+    "relevance_label": {
+      "observed_agreement": 1.0,
+      "cohen_kappa": 1.0,
+      "bootstrap_ci95": [
+        1.0,
+        1.0
+      ],
+      "categories": [
+        "direct",
+        "partial",
+        "off_topic"
+      ]
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "item_id": "G-10",
+  "title": "Paraphrase-Intensity and Generator Robustness Study",
+  "git_commit": "ebc19dd07d31fe5b854467a62310cd3a0ff1fb32",
+  "total_queries": 1730,
+  "generators_evaluated": [
+    "GPT-4o-mini",
+    "Human-Authored",
+    "Qwen2.5-7B"
+  ],
+  "overlap_bins": [
+    "0.00 - 0.20 (Minimal/Zero Overlap)",
+    "0.20 - 0.40 (Light Overlap)",
+    "0.40 - 0.60 (Moderate Overlap)",
+    "0.60 - 0.80 (High Overlap)",
+    "0.80 - 1.00 (Verbatim)"
+  ],
+  "source_file": "results/gapfill_v1/T3-02/generator_dose_response_summary.csv"
+}

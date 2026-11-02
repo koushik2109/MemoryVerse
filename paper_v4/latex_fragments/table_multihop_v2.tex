@@ -1,0 +1,15 @@
+% Multi-Hop TOST Equivalence Testing Fragment
+\begin{table}[htbp]
+\centering
+\small
+\caption{Two One-Sided Tests (TOST) for retrieval equivalence between Grounded Extractive Bridging and Generative LLM Bridging (GPT-4o-mini) on the diagnostic multi-hop benchmark. Equivalence margin $\Delta = \pm 0.05$ TargetHit@10 with $\alpha=0.05$ ($90\%$ confidence interval).}
+\label{tab:multihop_equivalence_v2}
+\begin{tabular}{lcccccc}
+\toprule
+Evaluation Subset & Extractive Hit@10 & LLM Hit@10 & Paired Diff $\bar{D}$ & $90\%$ Equivalence CI & $p_{\text{TOST}}$ & Verdict ($\Delta=\pm 0.05$) \\
+\midrule
+Multi-Hop Only (N=50) & 0.640 & 0.640 & +0.0000 & [+0.0000, +0.0000] & 0.0000 & EQUIVALENT \\
+All Queries (N=100) & 0.820 & 0.820 & +0.0000 & [+0.0000, +0.0000] & 0.0000 & EQUIVALENT \\
+\bottomrule
+\end{tabular}
+\end{table}

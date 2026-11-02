@@ -1,0 +1,5 @@
+Condition,Query_Type,ColQwen2_MRR,ColQwen2_CI,Best_Proxy_System,Best_Proxy_MRR,Diff_ColQwen_minus_Proxy,Diff_CI,Perm_P_100k,Verdict
+Clean Receipts,verbatim,0.812,[0.7712, 0.8495],BM25 (Tuned),0.8324,-0.0204,[-0.0512, 0.0104],0.182,REFUTED: Tuned BM25 matches/exceeds ColQwen2 on clean verbatim queries
+Clean Receipts,light_paraphrase,0.458,[0.4082, 0.5091],Tuned Hybrid,0.4003,0.0577,[0.0125, 0.1030],0.0084,CONFIRMED: ColQwen2 significantly outperforms text proxies under light paraphrasing (p < 0.01)
+Clean Receipts,heavy_question,0.824,[0.7850, 0.8610],BM25 (Char 3-5gram),0.9558,-0.1318,[-0.1690, -0.0950],1e-05,REFUTED: Lexical char BM25 decisively outperforms ColQwen2 on question probes
+Degraded Blur,verbatim,0.584,[0.5310, 0.6380],BM25 (Char 3-5gram),0.8248,-0.2408,[-0.2910, -0.1910],1e-05,REFUTED: Optical blur degrades visual tokens faster than subword char n-grams

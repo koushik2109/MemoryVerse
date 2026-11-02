@@ -91,6 +91,7 @@ fig.subplots_adjust(left=0.065, right=0.935, bottom=0.17, top=0.82, wspace=0.22)
 out_paths = [
     repo_root / "figures" / "fig_dose_response_dual_v6.png",
     repo_root / "ijcds" / "figures" / "fig_dose_response_dual_v6.png",
+    repo_root / "paper_v4" / "figures" / "fig_dose_response_dual_v6.png",
     v6_dir / "fig_dose_response_dual_v6.png",
 ]
 

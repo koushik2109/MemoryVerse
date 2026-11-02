@@ -1,0 +1,52 @@
+Condition,Query_Slice,Architecture_Family,System,N,MRR,MRR_95_CI,Hit1,Hit10,Latency_ms
+Apple Clean Real-OCR,Answerable Question,Learned-Sparse / Late-Interaction / Dense,Char 3-5g BM25,306,0.8564,"[0.820, 0.889]",0.8072,0.9542,0.96
+Apple Clean Real-OCR,Answerable Question,Learned-Sparse / Late-Interaction / Dense,Dense BGE-base,306,0.3084,"[0.260, 0.358]",0.2745,0.3627,8.4
+Apple Clean Real-OCR,Answerable Question,Learned-Sparse / Late-Interaction / Dense,Late-Interaction (ColBERTv2),306,0.3313,"[0.282, 0.380]",0.2843,0.3987,28.5
+Apple Clean Real-OCR,Answerable Question,Learned-Sparse / Late-Interaction / Dense,Learned-Sparse (SPLADE),306,0.0472,"[0.030, 0.067]",0.0229,0.0686,3.8
+Apple Clean Real-OCR,Answerable Question,Learned-Sparse / Late-Interaction / Dense,Two-Stage Char BM25 + Cross-Encoder (K1=20),306,0.6785,"[0.632, 0.722]",0.5915,0.9379,19.36
+Apple Clean Real-OCR,Answerable Question,Learned-Sparse / Late-Interaction / Dense,Two-Stage Word BM25 + Cross-Encoder (K1=20),306,0.6351,"[0.588, 0.679]",0.5458,0.8987,18.5
+Apple Clean Real-OCR,Answerable Question,Learned-Sparse / Late-Interaction / Dense,Word BM25,306,0.7833,"[0.741, 0.824]",0.7255,0.9118,0.1
+Apple Clean Real-OCR,Light Paraphrase,Learned-Sparse / Late-Interaction / Dense,Char 3-5g BM25,306,0.2448,"[0.205, 0.284]",0.1765,0.366,0.96
+Apple Clean Real-OCR,Light Paraphrase,Learned-Sparse / Late-Interaction / Dense,Dense BGE-base,306,0.1913,"[0.152, 0.232]",0.1601,0.2516,8.4
+Apple Clean Real-OCR,Light Paraphrase,Learned-Sparse / Late-Interaction / Dense,Late-Interaction (ColBERTv2),306,0.2452,"[0.202, 0.290]",0.1928,0.3595,28.5
+Apple Clean Real-OCR,Light Paraphrase,Learned-Sparse / Late-Interaction / Dense,Learned-Sparse (SPLADE),306,0.0321,"[0.020, 0.046]",0.0098,0.0425,3.8
+Apple Clean Real-OCR,Light Paraphrase,Learned-Sparse / Late-Interaction / Dense,Two-Stage Char BM25 + Cross-Encoder (K1=20),306,0.2735,"[0.231, 0.318]",0.2092,0.366,19.36
+Apple Clean Real-OCR,Light Paraphrase,Learned-Sparse / Late-Interaction / Dense,Two-Stage Word BM25 + Cross-Encoder (K1=20),306,0.4192,"[0.368, 0.470]",0.3464,0.5686,18.5
+Apple Clean Real-OCR,Light Paraphrase,Learned-Sparse / Late-Interaction / Dense,Word BM25,306,0.4335,"[0.381, 0.483]",0.3693,0.5784,0.1
+Apple Clean Real-OCR,Verbatim Lookup,Learned-Sparse / Late-Interaction / Dense,Char 3-5g BM25,306,0.9437,"[0.919, 0.965]",0.9216,0.9837,0.96
+Apple Clean Real-OCR,Verbatim Lookup,Learned-Sparse / Late-Interaction / Dense,Dense BGE-base,306,0.33,"[0.283, 0.379]",0.2941,0.3987,8.4
+Apple Clean Real-OCR,Verbatim Lookup,Learned-Sparse / Late-Interaction / Dense,Late-Interaction (ColBERTv2),306,0.3896,"[0.338, 0.443]",0.3497,0.451,28.5
+Apple Clean Real-OCR,Verbatim Lookup,Learned-Sparse / Late-Interaction / Dense,Learned-Sparse (SPLADE),306,0.0774,"[0.053, 0.103]",0.0458,0.1209,3.8
+Apple Clean Real-OCR,Verbatim Lookup,Learned-Sparse / Late-Interaction / Dense,Two-Stage Char BM25 + Cross-Encoder (K1=20),306,0.935,"[0.909, 0.958]",0.9118,0.9771,19.36
+Apple Clean Real-OCR,Verbatim Lookup,Learned-Sparse / Late-Interaction / Dense,Two-Stage Word BM25 + Cross-Encoder (K1=20),306,0.7823,"[0.741, 0.820]",0.6993,0.9216,18.5
+Apple Clean Real-OCR,Verbatim Lookup,Learned-Sparse / Late-Interaction / Dense,Word BM25,306,0.8386,"[0.800, 0.874]",0.7876,0.9444,0.1
+Apple Degraded Optical Blur,Answerable Question,Learned-Sparse / Late-Interaction / Dense,Char 3-5g BM25,306,0.7106,"[0.664, 0.755]",0.6503,0.8431,0.96
+Apple Degraded Optical Blur,Answerable Question,Learned-Sparse / Late-Interaction / Dense,Dense BGE-base,306,0.2595,"[0.213, 0.304]",0.2222,0.3235,8.4
+Apple Degraded Optical Blur,Answerable Question,Learned-Sparse / Late-Interaction / Dense,Late-Interaction (ColBERTv2),306,0.2385,"[0.195, 0.282]",0.1863,0.3301,28.5
+Apple Degraded Optical Blur,Answerable Question,Learned-Sparse / Late-Interaction / Dense,Learned-Sparse (SPLADE),306,0.0385,"[0.026, 0.054]",0.0131,0.049,3.8
+Apple Degraded Optical Blur,Answerable Question,Learned-Sparse / Late-Interaction / Dense,Two-Stage Char BM25 + Cross-Encoder (K1=20),306,0.5919,"[0.541, 0.641]",0.5131,0.8007,19.36
+Apple Degraded Optical Blur,Answerable Question,Learned-Sparse / Late-Interaction / Dense,Two-Stage Word BM25 + Cross-Encoder (K1=20),306,0.5116,"[0.460, 0.563]",0.4314,0.7255,18.5
+Apple Degraded Optical Blur,Answerable Question,Learned-Sparse / Late-Interaction / Dense,Word BM25,306,0.6059,"[0.556, 0.656]",0.5392,0.7712,0.1
+Apple Degraded Optical Blur,Light Paraphrase,Learned-Sparse / Late-Interaction / Dense,Char 3-5g BM25,306,0.2146,"[0.179, 0.253]",0.1275,0.3399,0.96
+Apple Degraded Optical Blur,Light Paraphrase,Learned-Sparse / Late-Interaction / Dense,Dense BGE-base,306,0.1641,"[0.129, 0.203]",0.1307,0.2092,8.4
+Apple Degraded Optical Blur,Light Paraphrase,Learned-Sparse / Late-Interaction / Dense,Late-Interaction (ColBERTv2),306,0.1869,"[0.151, 0.224]",0.1275,0.3007,28.5
+Apple Degraded Optical Blur,Light Paraphrase,Learned-Sparse / Late-Interaction / Dense,Learned-Sparse (SPLADE),306,0.0294,"[0.018, 0.042]",0.0098,0.0425,3.8
+Apple Degraded Optical Blur,Light Paraphrase,Learned-Sparse / Late-Interaction / Dense,Two-Stage Char BM25 + Cross-Encoder (K1=20),306,0.2509,"[0.209, 0.296]",0.1961,0.3497,19.36
+Apple Degraded Optical Blur,Light Paraphrase,Learned-Sparse / Late-Interaction / Dense,Two-Stage Word BM25 + Cross-Encoder (K1=20),306,0.3515,"[0.303, 0.401]",0.2843,0.4935,18.5
+Apple Degraded Optical Blur,Light Paraphrase,Learned-Sparse / Late-Interaction / Dense,Word BM25,306,0.3495,"[0.301, 0.396]",0.281,0.4967,0.1
+Apple Degraded Optical Blur,Verbatim Lookup,Learned-Sparse / Late-Interaction / Dense,Char 3-5g BM25,306,0.8271,"[0.785, 0.865]",0.8007,0.8922,0.96
+Apple Degraded Optical Blur,Verbatim Lookup,Learned-Sparse / Late-Interaction / Dense,Dense BGE-base,306,0.2796,"[0.234, 0.325]",0.2418,0.3333,8.4
+Apple Degraded Optical Blur,Verbatim Lookup,Learned-Sparse / Late-Interaction / Dense,Late-Interaction (ColBERTv2),306,0.3145,"[0.266, 0.363]",0.268,0.4052,28.5
+Apple Degraded Optical Blur,Verbatim Lookup,Learned-Sparse / Late-Interaction / Dense,Learned-Sparse (SPLADE),306,0.0597,"[0.041, 0.081]",0.0294,0.0915,3.8
+Apple Degraded Optical Blur,Verbatim Lookup,Learned-Sparse / Late-Interaction / Dense,Two-Stage Char BM25 + Cross-Encoder (K1=20),306,0.7844,"[0.740, 0.824]",0.7288,0.8693,19.36
+Apple Degraded Optical Blur,Verbatim Lookup,Learned-Sparse / Late-Interaction / Dense,Two-Stage Word BM25 + Cross-Encoder (K1=20),306,0.6561,"[0.606, 0.702]",0.585,0.8137,18.5
+Apple Degraded Optical Blur,Verbatim Lookup,Learned-Sparse / Late-Interaction / Dense,Word BM25,306,0.695,"[0.647, 0.739]",0.6242,0.8301,0.1
+Apple Clean OCR,Verbatim Lookup,Modern Dense Bi-Encoder,Dense BGE-small,306,0.2997,"[0.251, 0.350]",-,0.3595,4.2
+Apple Clean OCR,Light Paraphrase,Modern Dense Bi-Encoder,Dense BGE-small,306,0.1949,"[0.158, 0.235]",-,0.281,4.2
+Apple Clean OCR,Answerable Questions,Modern Dense Bi-Encoder,Dense BGE-small,306,0.2997,"[0.251, 0.350]",-,0.3595,4.2
+Apple Degraded Optical Blur,Verbatim Lookup,Modern Dense Bi-Encoder,Dense BGE-small,306,0.2561,"[0.211, 0.303]",-,0.2974,4.2
+Apple Degraded Optical Blur,Light Paraphrase,Modern Dense Bi-Encoder,Dense BGE-small,306,0.1546,"[0.121, 0.191]",-,0.2222,4.2
+Apple Degraded Optical Blur,Answerable Questions,Modern Dense Bi-Encoder,Dense BGE-small,306,0.2561,"[0.211, 0.303]",-,0.2974,4.2
+Tesseract Clean OCR,Verbatim Lookup,Modern Dense Bi-Encoder,Dense BGE-small,306,0.3191,"[0.271, 0.370]",-,0.3529,4.2
+Tesseract Clean OCR,Light Paraphrase,Modern Dense Bi-Encoder,Dense BGE-small,306,0.1861,"[0.149, 0.224]",-,0.268,4.2
+Tesseract Clean OCR,Answerable Questions,Modern Dense Bi-Encoder,Dense BGE-small,306,0.3191,"[0.271, 0.370]",-,0.3529,4.2

@@ -1,0 +1,26 @@
+\begin{table*}[t]
+\centering
+\caption{Corpus-Size Scaling from 813 to 500,000 Documents: Retrieval MRR, Serving Latency, and Index Footprint Across Scale.}
+\label{tab:corpus_scaling}
+\small
+\begin{tabular}{llcccccccc}
+\toprule
+& & \multicolumn{4}{c}{\textbf{MRR Across Corpus Pool Size}} & \multicolumn{2}{c}{\textbf{Latency (ms)}} & \multicolumn{2}{c}{\textbf{Index Size (MB)}} \\
+\cmidrule(lr){3-6}\cmidrule(lr){7-8}\cmidrule(lr){9-10}
+\textbf{System} & \textbf{Query Formulation} & \textbf{813} & \textbf{5K} & \textbf{50K} & \textbf{500K} & \textbf{813} & \textbf{500K} & \textbf{813} & \textbf{500K} \\
+\midrule
+\textbf{Char 3-5g BM25} & Verbatim Lookup & \textbf{0.9442} & \textbf{0.9224} & \textbf{0.8563} & \textbf{0.8945} & 0.29 & 328.02 & 11.9 & 5849.4 \\
+Word BM25 & Verbatim Lookup & 0.8383 & 0.7786 & 0.7562 & 0.7254 & 0.05 & 50.29 & 0.7 & 394.8 \\
+Dense BGE-small & Verbatim Lookup & 0.2997 & 0.2874 & \textit{Capped} & \textit{Capped} & 0.03 & \textit{--} & 1.2 & \textit{--} \\
+ColQwen2-v1.0 (Native Pixel) & Verbatim Lookup & 0.4962 & 0.4320 & \textit{Capped} & \textit{Capped} & 249.21 & \textit{--} & 1824.0 & \textit{--} \\
+\textbf{Word BM25} & Light Paraphrase & \textbf{0.4323} & \textbf{0.1948} & \textbf{0.2335} & \textbf{0.2392} & 0.03 & 19.29 & 0.7 & 394.8 \\
+Char 3-5g BM25 & Light Paraphrase & 0.2811 & 0.1555 & 0.1963 & 0.1907 & 0.78 & 350.27 & 11.9 & 5849.4 \\
+Dense BGE-small & Light Paraphrase & 0.1949 & 0.1933 & \textit{Capped} & \textit{Capped} & 0.03 & \textit{--} & 1.2 & \textit{--} \\
+ColQwen2-v1.0 (Native Pixel) & Light Paraphrase & 0.3540 & 0.3010 & \textit{Capped} & \textit{Capped} & 249.21 & \textit{--} & 1824.0 & \textit{--} \\
+\textbf{Char 3-5g BM25} & Answerable Questions & \textbf{0.5495} & \textbf{0.5430} & \textbf{0.5382} & \textbf{0.5278} & 0.77 & 438.28 & 11.9 & 5849.4 \\
+Word BM25 & Answerable Questions & 0.5236 & 0.4170 & 0.4643 & 0.4673 & 0.05 & 21.85 & 0.7 & 394.8 \\
+Dense BGE-small & Answerable Questions & 0.4958 & 0.4950 & \textit{Capped} & \textit{Capped} & 0.02 & \textit{--} & 1.2 & \textit{--} \\
+ColQwen2-v1.0 (Native Pixel) & Answerable Questions & 0.5280 & 0.4650 & \textit{Capped} & \textit{Capped} & 249.21 & \textit{--} & 1824.0 & \textit{--} \\
+\bottomrule
+\end{tabular}
+\end{table*}

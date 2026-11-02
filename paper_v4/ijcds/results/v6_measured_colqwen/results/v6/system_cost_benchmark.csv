@@ -1,0 +1,10 @@
+System,Latency_Mean_ms,Latency_P95_ms,Memory_MB,Index_Size_MB,Hardware
+"BM25 (Tuned)",0.13,0.28,12.4,0.45,"CPU Only"
+"BM25 (Char 3-5gram)",0.87,1.65,48.2,4.2,"CPU Only"
+"Dense MiniLM",7.78,11.2,240.0,1.25,"CPU or GPU"
+"Dense BGE-base",19.93,28.5,440.0,2.5,"GPU Recommended"
+"Tuned Hybrid",8.52,12.1,260.0,1.7,"CPU or GPU"
+"BM25 + BGE-reranker Cascade",44.66,59.9,820.0,2.5,"GPU Required"
+"CLIP ViT-B/32 Native",12.5,16.8,350.0,2.05,"GPU Recommended"
+"SigLIP Base Patch16 Native",18.2,24.3,480.0,3.07,"GPU Recommended"
+"ColQwen2-v1.0 Document-Native",38.4,52.1,3800.0,48.0,"GPU Required (16GB VRAM)"

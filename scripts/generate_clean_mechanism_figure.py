@@ -102,5 +102,8 @@ fig.savefig(out_composite, dpi=300)
 out_ijcds = repo_root / "ijcds" / "figures" / "fig_mechanism_composite.png"
 out_ijcds.parent.mkdir(parents=True, exist_ok=True)
 fig.savefig(out_ijcds, dpi=300)
-print(f"Generated {out_composite} and {out_ijcds}")
+out_v4 = repo_root / "paper_v4" / "figures" / "fig_mechanism_composite.png"
+out_v4.parent.mkdir(parents=True, exist_ok=True)
+fig.savefig(out_v4, dpi=300)
+print(f"Generated {out_composite}, {out_ijcds}, and {out_v4}")
 

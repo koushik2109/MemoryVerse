@@ -1,0 +1,39 @@
+{
+  "item_id": "T1-05",
+  "title": "Multiple split seeds",
+  "timestamp": "2026-10-31T17:56:04+0530",
+  "git_commit": "6b9f2aaa8a873049f7d95fd831e22f868cd5e636",
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61
+  ],
+  "num_seeds": 20,
+  "dataset": "SROIE-COCO Unified Public Benchmark v2",
+  "total_probes": 612,
+  "total_corpus": 1626,
+  "sroie_items": 626,
+  "coco_items": 1000,
+  "outputs": {
+    "corpus_splits_csv": "results/gapfill_v1/T1-05/corpus_multi_seed_results.csv",
+    "colqwen_splits_csv": "results/gapfill_v1/T1-05/colqwen_resampled_multi_seed_results.csv",
+    "summary_csv": "results/gapfill_v1/T1-05/multi_seed_summary.csv"
+  }
+}

@@ -1,0 +1,19 @@
+\begin{table*}[t]
+\centering
+\caption{Controlled Query-Formulation Ablation: Disentangling Syntactic Phrasing from Entity Anchor Mass under Real OCR ($N=306$).}
+\label{tab:query_formulation_controlled}
+\small
+\begin{tabular}{lcccccccc}
+\toprule
+& \multicolumn{2}{c}{\textbf{Char 3--5g BM25}} & \multicolumn{2}{c}{\textbf{Word BM25}} & \multicolumn{2}{c}{\textbf{Dense BGE-small}} & \multicolumn{2}{c}{\textbf{Dense MiniLM}} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}\cmidrule(lr){8-9}
+\textbf{Query Formulation} & \textbf{MRR} & \textbf{Hit@10} & \textbf{MRR} & \textbf{Hit@10} & \textbf{MRR} & \textbf{Hit@10} & \textbf{MRR} & \textbf{Hit@10} \\
+\midrule
+Short Verbatim Snippet (1 Anchor) & 0.9399 & 0.9837 & 0.8091 & 0.9150 & 0.3061 & 0.3725 & 0.2238 & 0.3137 \\
+Keyword Bag (Multi-Anchor Co-spec) & 0.9644 & 0.9902 & 0.9426 & 0.9869 & 0.5187 & 0.8137 & 0.3382 & 0.5425 \\
+Declarative Sentence & 0.9649 & 0.9902 & 0.9438 & 0.9869 & 0.5210 & 0.7908 & 0.3081 & 0.4477 \\
+Interrogative Question & 0.9627 & 0.9902 & 0.9432 & 0.9837 & 0.5073 & 0.8072 & 0.3091 & 0.4771 \\
+Conversational Imperative & 0.9605 & 0.9902 & 0.9249 & 0.9837 & 0.5132 & 0.7974 & 0.2545 & 0.4085 \\
+\bottomrule
+\end{tabular}
+\end{table*}

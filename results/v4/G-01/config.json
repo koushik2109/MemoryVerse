@@ -1,0 +1,20 @@
+{
+  "item_id": "G-01",
+  "title": "Stronger and Modern Text Retrieval Baselines under OCR Noise",
+  "git_commit": "ebc19dd07d31fe5b854467a62310cd3a0ff1fb32",
+  "seed": 42,
+  "models_evaluated": [
+    "BAAI/bge-small-en-v1.5",
+    "BAAI/bge-base-en-v1.5",
+    "naver/splade-cocondenser-ensembledistil",
+    "colbert-ir/colbertv2.0",
+    "cross-encoder/ms-marco-MiniLM-L-6-v2"
+  ],
+  "corpus": "SROIE Held-Out Test Pool (N=813 items: 313 receipts + 500 COCO distractors)",
+  "probes": "N=306 test probes across Verbatim, Paraphrase, Answerable",
+  "engines": [
+    "Apple Clean Real-OCR",
+    "Apple Degraded Optical Blur",
+    "Tesseract Clean OCR"
+  ]
+}

@@ -1,0 +1,7 @@
+Query_Regime,Remedy,Baseline_BM25_MRR,Remedy_MRR,Paired_MRR_Gain,Gain_CI_Lower,Gain_CI_Upper,Added_Latency_ms,Cost_Per_Query,PreRegistered_Verdict
+Light Paraphrase,Keyword Extraction (b),0.3745,0.3562,-0.0183,-0.0326,-0.0063,-0.05,$0.00,Negative (CI < 0)
+Light Paraphrase,Document Expansion (c),0.3745,0.395,0.0205,-0.0022,0.0442,-0.0,$0.00,Inconclusive / Tie (CI spans 0)
+Light Paraphrase,PRF RM3 Expansion (d),0.3745,0.3447,-0.0298,-0.0521,-0.0094,0.57,$0.00,Negative (CI < 0)
+Answerable Heavy,Keyword Extraction (b),0.8778,0.9027,0.0249,0.0088,0.0416,-0.14,$0.00,Effective (CI > 0)
+Answerable Heavy,Document Expansion (c),0.8778,0.8915,0.0137,-0.0027,0.0308,0.01,$0.00,Inconclusive / Tie (CI spans 0)
+Answerable Heavy,PRF RM3 Expansion (d),0.8778,0.8407,-0.0371,-0.0585,-0.0167,1.11,$0.00,Negative (CI < 0)

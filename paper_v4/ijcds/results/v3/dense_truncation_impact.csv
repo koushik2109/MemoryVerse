@@ -1,0 +1,6 @@
+Model,Chunking_Strategy,All_Probes_MRR,Numeric_Heavy_MRR,Short_Entity_MRR,General_MRR,Truncated_Docs_Pct,Mean_Tokens_Lost_Pct
+Pure BM25,Full Document Inverted Index,0.8107,0.7668,0.9338,0.9266,0.0%,0.0%
+Dense MiniLM-L6-v2,Standard Unchunked (512 limit),0.2056,0.0790,0.4816,0.5689,0.64%,0.032%
+Dense MiniLM-L6-v2,Chunked MaxP (<=150 words window),0.2030,0.0770,0.4726,0.5663,0.0%,0.0%
+Dense BGE-base-en-v1.5,Standard Unchunked (512 limit),0.3022,0.1022,0.7444,0.8735,0.64%,0.032%
+Dense BGE-base-en-v1.5,Chunked MaxP (<=150 words window),0.3028,0.1042,0.7228,0.8776,0.0%,0.0%

@@ -1,0 +1,20 @@
+{
+  "item_id": "G-04",
+  "title": "Lexical and Native-Visual Fusion & Retrieval Cascades",
+  "git_commit": "ebc19dd07d31fe5b854467a62310cd3a0ff1fb32",
+  "seed": 42,
+  "fusion_methods": [
+    "Reciprocal Rank Fusion (RRF, k=60)",
+    "Normalized Convex Score Fusion (alpha*=0.05)",
+    "Two-Stage Cascades (Word BM25 top-K -> ColQwen2 rerank, K in [20, 50, 100])",
+    "Tri-Modal Fusion (Char BM25 + Word BM25 + ColQwen2)"
+  ],
+  "headline_results": {
+    "rrf_mrr": 0.5745,
+    "colqwen_mrr": 0.4962,
+    "rrf_lift_over_colqwen": "+0.0782 (p < 1e-5)",
+    "cascade_k50_mrr": 0.4822,
+    "cascade_k50_latency_ms": 16.2,
+    "cascade_speedup": "15.4x vs ColQwen2 249.21 ms"
+  }
+}

@@ -1,0 +1,5 @@
+engine,comparison,clean_mrr,comparison_mrr,drop_mrr,source
+Apple Vision,clean verbatim minus light paraphrase,0.8371,0.4334,0.4037,results/v9/dose_response_reconciled.csv
+Apple Vision,clean verbatim minus optical blur,0.8371,0.6972,0.1399,results/v9/dose_response_reconciled.csv
+Tesseract 5.5,clean verbatim minus light paraphrase,0.7364,0.3964,0.3400,results/v9/dose_response_reconciled.csv
+Tesseract 5.5,clean verbatim minus optical blur,0.7364,0.3448,0.3916,results/v9/dose_response_reconciled.csv

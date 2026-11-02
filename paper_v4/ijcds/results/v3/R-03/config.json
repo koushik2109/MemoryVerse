@@ -1,0 +1,9 @@
+{
+  "item_id": "R-03",
+  "dataset": "FUNSD forms",
+  "engines": [
+    "EasyOCR 1.7.2",
+    "Tesseract 5.5 LSTM"
+  ],
+  "audit_scope": "OCR output length and detection threshold under optical blur"
+}

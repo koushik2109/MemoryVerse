@@ -1,0 +1,24 @@
+{
+  "item_id": "T3-04",
+  "title": "Query-Side Noise Robustness Evaluation",
+  "git_commit": "6b9f2aaa8a873049f7d95fd831e22f868cd5e636",
+  "timestamp": "2026-10-31T13:16:57Z",
+  "seed": 42,
+  "noise_levels": [
+    0.0,
+    0.05,
+    0.1,
+    0.15,
+    0.2,
+    0.25,
+    0.3
+  ],
+  "systems": [
+    "Char 3-5g BM25",
+    "Word BM25",
+    "Word + Fuzzy BM25",
+    "Dense MiniLM"
+  ],
+  "probes_count": 306,
+  "corpus_count": 813
+}

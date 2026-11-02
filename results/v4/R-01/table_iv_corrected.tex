@@ -1,0 +1,21 @@
+% Auto-generated Table IV (R-01 Corrected Component Ablation)
+\begin{table*}[t]
+\centering
+\footnotesize
+\caption{Architectural Component Ablation on Public Held-Out Test Split ($N=306$ Probes, 813 Distractor Pool, 95\% Cluster Bootstrap CIs). All rows evaluate candidate depth $K_1=10$ (standalone Word BM25 stream achieves 0.8107 Real-OCR vs.\ 0.8371 unconstrained in Table~\ref{tab:regime_grid_v3}). Asterisks ($^*$) denote statistically significant difference ($p_{\text{Holm}} < 0.05$) from the Fixed-weight Hybrid baseline ($\alpha=0.5$). Production cascading over first-stage Word BM25 ($K_1=20$) is reported in Table~\ref{tab:practical_stack}.}
+\label{tab:ablation_v3}
+\setlength{\tabcolsep}{4.0pt}
+\begin{tabular}{@{}p{5.5cm}cccc@{}}
+\toprule
+\textbf{Configuration} & \makecell{\textbf{Clean MRR}\\{\scriptsize [95\% CI]}} & \makecell{\textbf{Syn 20\% MRR}\\{\scriptsize [95\% CI]}} & \makecell{\textbf{Real-OCR MRR}\\{\scriptsize [95\% CI]}} & \makecell{\textbf{Real-Deg MRR}\\{\scriptsize [95\% CI]}} \\
+\midrule
+Fixed-weight Hybrid Baseline ($K_1=10$, $\alpha=0.5$) & \makecell{0.8299\\{\scriptsize [0.791, 0.866]}} & \makecell{0.3694\\{\scriptsize [0.336, 0.402]}} & \makecell{0.8121\\{\scriptsize [0.770, 0.849]}} & \makecell{0.6684\\{\scriptsize [0.619, 0.715]}} \\
+BM25 First-Stage Stream Only ($K_1=10$)              & \makecell{0.8317\\{\scriptsize [0.793, 0.868]}} & \makecell{0.3694\\{\scriptsize [0.336, 0.402]}} & \makecell{0.8107\\{\scriptsize [0.769, 0.848]}} & \makecell{0.6684\\{\scriptsize [0.619, 0.714]}} \\
+Dense MiniLM First-Stage Stream Only ($K_1=10$)     & \makecell{0.2144$^*$\\{\scriptsize [0.175, 0.256]}} & \makecell{0.0747$^*$\\{\scriptsize [0.057, 0.095]}} & \makecell{0.2072$^*$\\{\scriptsize [0.168, 0.248]}} & \makecell{0.1821$^*$\\{\scriptsize [0.145, 0.222]}} \\
+Oracle Ground-Truth Text Stream ($K_1=10$)          & \makecell{0.8317\\{\scriptsize [0.793, 0.868]}} & \makecell{0.8317\\{\scriptsize [0.793, 0.868]}} & \makecell{0.8317\\{\scriptsize [0.793, 0.868]}} & \makecell{0.8317\\{\scriptsize [0.793, 0.868]}} \\
+Learned Router Gating ($K_1=10$)                    & \makecell{0.8309\\{\scriptsize [0.793, 0.867]}} & \makecell{0.3765$^*$\\{\scriptsize [0.343, 0.409]}} & \makecell{0.8121\\{\scriptsize [0.770, 0.849]}} & \makecell{0.6667\\{\scriptsize [0.617, 0.713]}} \\
+Heuristic Reliability Weighting ($K_1=10$)          & \makecell{0.8318\\{\scriptsize [0.794, 0.867]}} & \makecell{0.3574\\{\scriptsize [0.326, 0.390]}} & \makecell{0.8058\\{\scriptsize [0.765, 0.843]}} & \makecell{0.6368$^*$\\{\scriptsize [0.587, 0.684]}} \\
+\bottomrule
+\end{tabular}
+\end{table*}
+

@@ -1,0 +1,18 @@
+% Source: results/v6/char_vs_word_bm25_v6.csv, results/v6/coco_native_visual_v3.csv, results/v6/multihop_independent_v6.csv
+\begin{table*}[t]
+\centering\small
+\caption{Empirical Decision Guide for MM-RAG System Builders: Optimal Retrieval Architecture and Statistical Tie Set by Regime.}\label{tab:decision_guide_v6}
+\begin{tabular}{llllccl}
+\toprule
+Target Modality & Optical Condition & Query Regime & Optimal Architecture & MRR [95\% CI] & Tie Set & Architectural Recommendation \\
+\midrule
+Document Page & Clean Neural OCR & Verbatim Lookup & \textbf{Char 3--5g BM25} & 0.9436 [0.919, 0.965] & Char BM25 standalone & Sub-word n-grams capture numeric tokens and vendor fragments with zero GPU overhead. \\
+Document Page & Degraded Optical Blur & Verbatim Lookup & \textbf{Char 3--5g BM25} & 0.8248 [0.782, 0.864] & Char BM25 standalone & Character n-grams tolerate character substitutions and optical blur; word BM25 collapses to 0.6972. \\
+Document Page & Open-Source Tesseract & Verbatim Lookup & \textbf{Char 3--5g BM25} & 0.8410 [0.803, 0.878] & Char BM25 standalone & Standardized Tesseract (CER 29.4%) supports high-precision retrieval without proprietary OCR APIs. \\
+Document Page & Clean Neural OCR & Light Paraphrase & \textbf{Tuned Hybrid (Word+Dense)} & 0.4334 [0.380, 0.484] & Word BM25 (0.4334), Hybrid (0.4335) & Word BM25 matches preserved tokens; dense embeddings prevent complete recall collapse. \\
+Document Page & Clean Neural OCR & Answerable Factual Question & \textbf{Char 3--5g BM25 / TR-RRF} & 0.9471 [0.923, 0.969] & Char BM25 (0.9471), Word BM25 (0.9014) & Topical anchors in natural questions provide high discriminability for lexical engines. \\
+Natural Image & Unannotated Pixels & Descriptive Search & \textbf{SigLIP Base Patch16} & 0.6071 [0.573, 0.641] & SigLIP (0.6071), CLIP (0.4709) & Native pixel embeddings decisively beat machine captions (0.3728); text proxies fail on images. \\
+Multi-Hop Query & Precomputed Proxies & Relational Multi-Hop & \textbf{Extractive PRF Bridge} & 0.8200 [0.781, 0.859] & Extractive PRF (0.640 H@10), Generative LLM (0.640) & Rule-based entity extraction matches generative LLM bridging without API cost ($p=1.000$). \\
+\bottomrule
+\end{tabular}
+\end{table*}

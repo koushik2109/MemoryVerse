@@ -1,0 +1,100 @@
+Condition,Query_Slice,System,MRR,Hit1,Hit10,Diff_vs_Word,P_vs_Word,Diff_vs_Char3_5,P_vs_Char3_5
+Apple Clean OCR,Verbatim Lookup,Char 2-gram,0.7868,0.7026,0.9346,-0.0503,0.0105,-0.1568,0.0001
+Apple Clean OCR,Light Paraphrase,Char 2-gram,0.0665,0.0294,0.1176,-0.3676,0.0001,-0.1782,0.0001
+Apple Clean OCR,Answerable Question,Char 2-gram,0.0255,0.0065,0.0458,0.0067,0.3304,-0.0204,0.0211
+Apple Clean OCR,Verbatim Lookup,Char 3-gram,0.9328,0.9085,0.9771,0.0956,0.0001,-0.0109,0.0969
+Apple Clean OCR,Light Paraphrase,Char 3-gram,0.173,0.1242,0.2582,-0.2611,0.0001,-0.0718,0.0001
+Apple Clean OCR,Answerable Question,Char 3-gram,0.0421,0.0163,0.0915,0.0233,0.0001,-0.0039,0.1961
+Apple Clean OCR,Verbatim Lookup,Char 4-gram,0.9434,0.9216,0.9869,0.1063,0.0001,-0.0003,0.6203
+Apple Clean OCR,Light Paraphrase,Char 4-gram,0.2312,0.1536,0.3529,-0.203,0.0001,-0.0136,0.0181
+Apple Clean OCR,Answerable Question,Char 4-gram,0.0462,0.0229,0.0882,0.0274,0.0003,0.0002,0.968
+Apple Clean OCR,Verbatim Lookup,Char 5-gram,0.9408,0.9216,0.9804,0.1037,0.0001,-0.0029,0.5793
+Apple Clean OCR,Light Paraphrase,Char 5-gram,0.2647,0.2157,0.3856,-0.1694,0.0001,0.0199,0.0106
+Apple Clean OCR,Answerable Question,Char 5-gram,0.0373,0.0131,0.0686,0.0186,0.0006,-0.0086,0.0806
+Apple Clean OCR,Verbatim Lookup,Char 6-gram,0.9307,0.9118,0.9673,0.0935,0.0001,-0.013,0.0264
+Apple Clean OCR,Light Paraphrase,Char 6-gram,0.2219,0.1699,0.3791,-0.2122,0.0001,-0.0229,0.0202
+Apple Clean OCR,Answerable Question,Char 6-gram,0.0308,0.0098,0.0654,0.012,0.0127,-0.0152,0.0074
+Apple Clean OCR,Verbatim Lookup,Char 3-5gram (Combined),0.9437,0.9216,0.9837,0.1065,0.0001,0.0,1.0
+Apple Clean OCR,Light Paraphrase,Char 3-5gram (Combined),0.2448,0.1765,0.366,-0.1893,0.0001,0.0,1.0
+Apple Clean OCR,Answerable Question,Char 3-5gram (Combined),0.046,0.0196,0.0882,0.0272,0.0001,0.0,1.0
+Apple Clean OCR,Verbatim Lookup,WordPiece (BERT),0.8289,0.768,0.9477,-0.0083,0.3324,-0.1148,0.0001
+Apple Clean OCR,Light Paraphrase,WordPiece (BERT),0.3936,0.3039,0.5719,-0.0405,0.0027,0.1488,0.0001
+Apple Clean OCR,Answerable Question,WordPiece (BERT),0.0287,0.0098,0.049,0.0099,0.0001,-0.0173,0.0178
+Apple Clean OCR,Verbatim Lookup,BPE (GPT-2),0.669,0.5752,0.866,-0.1681,0.0001,-0.2746,0.0001
+Apple Clean OCR,Light Paraphrase,BPE (GPT-2),0.0728,0.0458,0.0948,-0.3613,0.0001,-0.172,0.0001
+Apple Clean OCR,Answerable Question,BPE (GPT-2),0.0173,0.0033,0.0163,-0.0015,0.8091,-0.0287,0.0012
+Apple Clean OCR,Verbatim Lookup,Word + Porter Stemming,0.8367,0.7843,0.9412,-0.0004,0.0001,-0.107,0.0001
+Apple Clean OCR,Light Paraphrase,Word + Porter Stemming,0.4286,0.3627,0.5621,-0.0055,0.0001,0.1838,0.0001
+Apple Clean OCR,Answerable Question,Word + Porter Stemming,0.0327,0.0131,0.0654,0.0139,0.047,-0.0132,0.1034
+Apple Clean OCR,Verbatim Lookup,Word + Fuzzy Expansion,0.8005,0.732,0.9314,-0.0367,0.0001,-0.1432,0.0001
+Apple Clean OCR,Light Paraphrase,Word + Fuzzy Expansion,0.4245,0.3562,0.5621,-0.0097,0.1712,0.1797,0.0001
+Apple Clean OCR,Answerable Question,Word + Fuzzy Expansion,0.0206,0.0033,0.0425,0.0018,0.2976,-0.0254,0.0001
+Apple Clean OCR,Verbatim Lookup,Word Standard,0.8371,0.7843,0.9444,0.0,1.0,-0.1065,0.0001
+Apple Clean OCR,Light Paraphrase,Word Standard,0.4341,0.3693,0.5784,0.0,1.0,0.1893,0.0001
+Apple Clean OCR,Answerable Question,Word Standard,0.0188,0.0033,0.0392,-0.0,1.0,-0.0272,0.0001
+Optical Blur Degraded,Verbatim Lookup,Char 2-gram,0.6136,0.5098,0.8039,-0.0691,0.0008,-0.195,0.0001
+Optical Blur Degraded,Light Paraphrase,Char 2-gram,0.0715,0.0327,0.1176,-0.2798,0.0001,-0.1362,0.0001
+Optical Blur Degraded,Answerable Question,Char 2-gram,0.0207,0.0033,0.0327,0.0083,0.1458,-0.0172,0.0202
+Optical Blur Degraded,Verbatim Lookup,Char 3-gram,0.7972,0.7582,0.8562,0.1145,0.0001,-0.0113,0.1317
+Optical Blur Degraded,Light Paraphrase,Char 3-gram,0.1301,0.0654,0.2484,-0.2212,0.0001,-0.0776,0.0001
+Optical Blur Degraded,Answerable Question,Char 3-gram,0.0359,0.0131,0.0719,0.0236,0.0001,-0.002,0.5375
+Optical Blur Degraded,Verbatim Lookup,Char 4-gram,0.807,0.7778,0.8725,0.1243,0.0001,-0.0015,0.5354
+Optical Blur Degraded,Light Paraphrase,Char 4-gram,0.2093,0.1373,0.3072,-0.142,0.0001,0.0016,0.6606
+Optical Blur Degraded,Answerable Question,Char 4-gram,0.0377,0.0163,0.0686,0.0253,0.0001,-0.0002,0.8708
+Optical Blur Degraded,Verbatim Lookup,Char 5-gram,0.7977,0.7712,0.8595,0.115,0.0001,-0.0108,0.0664
+Optical Blur Degraded,Light Paraphrase,Char 5-gram,0.2311,0.1536,0.3333,-0.1202,0.0001,0.0234,0.0007
+Optical Blur Degraded,Answerable Question,Char 5-gram,0.0303,0.0131,0.0392,0.018,0.0001,-0.0076,0.0376
+Optical Blur Degraded,Verbatim Lookup,Char 6-gram,0.7759,0.7451,0.8301,0.0932,0.0001,-0.0326,0.0001
+Optical Blur Degraded,Light Paraphrase,Char 6-gram,0.223,0.1438,0.317,-0.1284,0.0001,0.0153,0.0866
+Optical Blur Degraded,Answerable Question,Char 6-gram,0.0255,0.0098,0.049,0.0131,0.0001,-0.0124,0.0123
+Optical Blur Degraded,Verbatim Lookup,Char 3-5gram (Combined),0.8086,0.781,0.8725,0.1258,0.0001,-0.0,1.0
+Optical Blur Degraded,Light Paraphrase,Char 3-5gram (Combined),0.2077,0.1275,0.3235,-0.1436,0.0001,0.0,1.0
+Optical Blur Degraded,Answerable Question,Char 3-5gram (Combined),0.0379,0.0163,0.0719,0.0256,0.0001,-0.0,1.0
+Optical Blur Degraded,Verbatim Lookup,WordPiece (BERT),0.6608,0.5817,0.7974,-0.022,0.0201,-0.1478,0.0001
+Optical Blur Degraded,Light Paraphrase,WordPiece (BERT),0.3403,0.2647,0.4935,-0.011,0.2909,0.1326,0.0001
+Optical Blur Degraded,Answerable Question,WordPiece (BERT),0.0224,0.0098,0.0294,0.0101,0.0001,-0.0155,0.0196
+Optical Blur Degraded,Verbatim Lookup,BPE (GPT-2),0.5612,0.4706,0.7157,-0.1215,0.0001,-0.2474,0.0001
+Optical Blur Degraded,Light Paraphrase,BPE (GPT-2),0.0616,0.0327,0.1013,-0.2897,0.0001,-0.1461,0.0001
+Optical Blur Degraded,Answerable Question,BPE (GPT-2),0.0164,0.0033,0.0196,0.004,0.4713,-0.0215,0.005
+Optical Blur Degraded,Verbatim Lookup,Word + Porter Stemming,0.6824,0.6144,0.8137,-0.0003,0.5287,-0.1261,0.0001
+Optical Blur Degraded,Light Paraphrase,Word + Porter Stemming,0.3427,0.2712,0.4804,-0.0087,0.0034,0.135,0.0001
+Optical Blur Degraded,Answerable Question,Word + Porter Stemming,0.0243,0.0131,0.0327,0.0119,0.087,-0.0137,0.0773
+Optical Blur Degraded,Verbatim Lookup,Word + Fuzzy Expansion,0.6803,0.6176,0.8072,-0.0025,0.7911,-0.1283,0.0001
+Optical Blur Degraded,Light Paraphrase,Word + Fuzzy Expansion,0.3601,0.2843,0.4902,0.0088,0.2563,0.1524,0.0001
+Optical Blur Degraded,Answerable Question,Word + Fuzzy Expansion,0.0162,0.0033,0.0294,0.0038,0.1056,-0.0218,0.0001
+Optical Blur Degraded,Verbatim Lookup,Word Standard,0.6827,0.6144,0.8105,-0.0,1.0,-0.1258,0.0001
+Optical Blur Degraded,Light Paraphrase,Word Standard,0.3513,0.281,0.4837,-0.0,1.0,0.1436,0.0001
+Optical Blur Degraded,Answerable Question,Word Standard,0.0124,0.0033,0.0196,-0.0,1.0,-0.0256,0.0001
+Synthetic 20% Noise,Verbatim Lookup,Char 2-gram,0.4384,0.3301,0.6471,0.1229,0.0001,-0.2339,0.0001
+Synthetic 20% Noise,Light Paraphrase,Char 2-gram,0.0324,0.0033,0.0621,-0.1302,0.0001,-0.1231,0.0001
+Synthetic 20% Noise,Answerable Question,Char 2-gram,0.0202,0.0,0.0392,0.0087,0.0595,-0.0081,0.1682
+Synthetic 20% Noise,Verbatim Lookup,Char 3-gram,0.6918,0.598,0.866,0.3763,0.0001,0.0195,0.1051
+Synthetic 20% Noise,Light Paraphrase,Char 3-gram,0.0968,0.0588,0.1536,-0.0658,0.0007,-0.0588,0.0001
+Synthetic 20% Noise,Answerable Question,Char 3-gram,0.0328,0.0098,0.0686,0.0213,0.0001,0.0045,0.3009
+Synthetic 20% Noise,Verbatim Lookup,Char 4-gram,0.6767,0.585,0.8464,0.3612,0.0001,0.0044,0.4129
+Synthetic 20% Noise,Light Paraphrase,Char 4-gram,0.1473,0.1013,0.2157,-0.0153,0.3998,-0.0082,0.1503
+Synthetic 20% Noise,Answerable Question,Char 4-gram,0.026,0.0065,0.0588,0.0145,0.0001,-0.0023,0.0151
+Synthetic 20% Noise,Verbatim Lookup,Char 5-gram,0.6033,0.5098,0.7908,0.2878,0.0001,-0.069,0.0001
+Synthetic 20% Noise,Light Paraphrase,Char 5-gram,0.1433,0.1111,0.1928,-0.0193,0.2941,-0.0123,0.1169
+Synthetic 20% Noise,Answerable Question,Char 5-gram,0.0215,0.0065,0.0294,0.01,0.0071,-0.0068,0.0001
+Synthetic 20% Noise,Verbatim Lookup,Char 6-gram,0.5289,0.4542,0.6797,0.2134,0.0001,-0.1434,0.0001
+Synthetic 20% Noise,Light Paraphrase,Char 6-gram,0.1219,0.0915,0.1797,-0.0407,0.022,-0.0337,0.0011
+Synthetic 20% Noise,Answerable Question,Char 6-gram,0.0202,0.0065,0.0359,0.0086,0.0231,-0.0082,0.0001
+Synthetic 20% Noise,Verbatim Lookup,Char 3-5gram (Combined),0.6723,0.5784,0.8562,0.3568,0.0001,-0.0,1.0
+Synthetic 20% Noise,Light Paraphrase,Char 3-5gram (Combined),0.1556,0.1144,0.2124,-0.007,0.6958,-0.0,1.0
+Synthetic 20% Noise,Answerable Question,Char 3-5gram (Combined),0.0283,0.0065,0.0556,0.0168,0.0001,-0.0,1.0
+Synthetic 20% Noise,Verbatim Lookup,WordPiece (BERT),0.4095,0.3105,0.6176,0.094,0.0001,-0.2628,0.0001
+Synthetic 20% Noise,Light Paraphrase,WordPiece (BERT),0.1771,0.1176,0.281,0.0145,0.2975,0.0215,0.232
+Synthetic 20% Noise,Answerable Question,WordPiece (BERT),0.0174,0.0033,0.0229,0.0058,0.0001,-0.011,0.01
+Synthetic 20% Noise,Verbatim Lookup,BPE (GPT-2),0.393,0.3039,0.5621,0.0776,0.0019,-0.2792,0.0001
+Synthetic 20% Noise,Light Paraphrase,BPE (GPT-2),0.0327,0.0098,0.0588,-0.1299,0.0001,-0.1229,0.0001
+Synthetic 20% Noise,Answerable Question,BPE (GPT-2),0.0164,0.0033,0.0229,0.0049,0.3947,-0.0119,0.0763
+Synthetic 20% Noise,Verbatim Lookup,Word + Porter Stemming,0.3127,0.219,0.5,-0.0028,0.0997,-0.3596,0.0001
+Synthetic 20% Noise,Light Paraphrase,Word + Porter Stemming,0.1622,0.1176,0.2353,-0.0004,0.0133,0.0067,0.7094
+Synthetic 20% Noise,Answerable Question,Word + Porter Stemming,0.0168,0.0065,0.0229,0.0052,0.1367,-0.0116,0.0328
+Synthetic 20% Noise,Verbatim Lookup,Word + Fuzzy Expansion,0.3804,0.2712,0.5948,0.0649,0.0001,-0.2919,0.0001
+Synthetic 20% Noise,Light Paraphrase,Word + Fuzzy Expansion,0.1821,0.1242,0.2876,0.0195,0.065,0.0266,0.1037
+Synthetic 20% Noise,Answerable Question,Word + Fuzzy Expansion,0.0176,0.0065,0.0261,0.0061,0.0109,-0.0107,0.0464
+Synthetic 20% Noise,Verbatim Lookup,Word Standard,0.3155,0.2222,0.5,-0.0,1.0,-0.3568,0.0001
+Synthetic 20% Noise,Light Paraphrase,Word Standard,0.1626,0.1176,0.2353,0.0,1.0,0.007,0.6958
+Synthetic 20% Noise,Answerable Question,Word Standard,0.0115,0.0033,0.0163,-0.0,1.0,-0.0168,0.0001

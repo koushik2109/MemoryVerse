@@ -1,0 +1,17 @@
+\begin{table}[htbp]
+\centering
+\caption{Paraphrase Intensity Dose-Response Curve: Retrieval MRR Stratified by Measured Query--Document Token Overlap Across Generators ($N=1,730$).}
+\label{tab:paraphrase_dose_response}
+\small
+\begin{tabular}{lcccccc}
+\toprule
+\textbf{Overlap Bin} & \textbf{Mean Overlap} & $N$ & \textbf{Word BM25} & \textbf{Char 3--5g} & \textbf{Diff ($\Delta$)} & \textbf{Dominant Model} \\
+\midrule
+0.00 - 0.20 & 0.0693 & 340 & 0.0251 & 0.0492 & +0.0241 & Comparable / Tied \\
+0.20 - 0.40 & 0.2902 & 473 & \textbf{0.4098} & 0.2861 & \textbf{-0.1238} & Word BM25 Wins (Reversal) \\
+0.40 - 0.60 & 0.4963 & 411 & \textbf{0.6205} & 0.5206 & \textbf{-0.0999} & Word BM25 Wins (Reversal) \\
+0.60 - 0.80 & 0.6709 & 243 & 0.8740 & 0.8836 & +0.0096 & Comparable / Tied \\
+0.80 - 1.00 & 0.9816 & 463 & 0.7598 & \textbf{0.8462} & \textbf{+0.0864} & Char 3-5g BM25 Wins \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,9 @@
+Pool,Query_Slice,Image_Condition,ColQwen2_MRR,CI_95,Hit1,Hit10,Word_BM25_MRR,Char_BM25_MRR,Lift_vs_Word,Notes
+813 Distractor Pool (with COCO caption fallback),Verbatim Lookup,Clean Receipts,0.8417,"[0.805, 0.876]",0.7908,0.9444,0.8371,0.9436,0.0046,Standard Table II verbatim row
+813 Distractor Pool (with COCO caption fallback),Light Paraphrase,Clean Receipts,0.4962,"[0.448, 0.547]",0.4052,0.6569,0.4334,0.2427,0.0628,Standard Table II paraphrase row; ColQwen2 significantly beats Word BM25 (p=0.0072)
+813 Distractor Pool (with COCO caption fallback),Answerable Questions (Natural),Clean Receipts,0.8595,"[0.825, 0.892]",0.817,0.902,0.8841,0.9471,-0.0246,"True answerable questions; Char BM25 significantly beats ColQwen2 (+0.0876, p=0.00012)"
+813 Distractor Pool (with COCO caption fallback),Entity-Abstracted Control,Clean Receipts,0.0546,"[0.038, 0.076]",0.0261,0.1111,0.0401,0.0495,0.0145,Heavy paraphrase control where both lexical and visual systems collapse to floor (~0.05)
+813 Distractor Pool (with COCO caption fallback),Verbatim Lookup,Optical Blur Degraded,0.7207,"[0.677, 0.763]",0.6536,0.8497,0.6972,0.8248,0.0235,Table II optical blur verbatim row
+813 Distractor Pool (with COCO caption fallback),Light Paraphrase,Optical Blur Degraded,0.4449,"[0.395, 0.494]",0.3595,0.5915,0.3734,0.2045,0.0715,Table II optical blur light paraphrase row
+626 Pure Receipt Pool (no distractor fallback),Verbatim Lookup,Clean Receipts,0.8529,"[0.819, 0.887]",0.7941,0.9118,0.8324,0.9443,0.0205,v6 pure receipt benchmark
+626 Pure Receipt Pool (no distractor fallback),Light Paraphrase,Clean Receipts,0.5474,"[0.502, 0.592]",0.3791,0.7157,0.4003,0.2365,0.1471,v6 pure receipt benchmark; true matched pool lift is +0.1471 (not +0.0960)

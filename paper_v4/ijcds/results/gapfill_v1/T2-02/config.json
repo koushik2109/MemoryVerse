@@ -1,0 +1,17 @@
+{
+  "experiment_id": "T2-02",
+  "title": "TREC-5 Confusion Track Replication & Historical Newspaper Benchmark",
+  "git_commit": "6b9f2aaa8a873049f7d95fd831e22f868cd5e636",
+  "seed": 42,
+  "corpus": "NealCaren/newspaper-ocr-gold (Library of Congress Chronicling America, CC-BY-4.0)",
+  "documents_count": 98,
+  "queries_count": 98,
+  "error_rates": [
+    0.0,
+    0.05,
+    0.2
+  ],
+  "bootstrap_B": 2000,
+  "n_permutations": 50000,
+  "baseline_comparison": "Kantor & Voorhees (1996) TREC-5 Confusion Track (INQUERY, SMART, PIRCS, ETH Zurich)"
+}

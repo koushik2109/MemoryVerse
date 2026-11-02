@@ -77,8 +77,11 @@ def main():
     plt.tight_layout()
     OUT_FIG_PATH.parent.mkdir(parents=True, exist_ok=True)
     plt.savefig(OUT_FIG_PATH, dpi=300)
+    out_v4 = REPO_ROOT / "paper_v4" / "figures" / "fig_conformal_pareto.png"
+    out_v4.parent.mkdir(parents=True, exist_ok=True)
+    plt.savefig(out_v4, dpi=300)
     plt.close()
-    print(f"Successfully regenerated {OUT_FIG_PATH} from Table VI data.")
+    print(f"Successfully regenerated {OUT_FIG_PATH} and {out_v4} from Table VI data.")
 
 if __name__ == "__main__":
     main()

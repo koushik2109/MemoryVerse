@@ -1,0 +1,101 @@
+audit_id,qa_id,system,query,ground_truth,predicted_answer,correctness_label,faithfulness_label,relevance_label
+AUDIT-001,sroie_qa_073,Word BM25,On what date was the transaction completed at SANYU STATIONERY SHOP?,06/09/2017,19/07/2017,incorrect,unsupported,partial
+AUDIT-002,sroie_qa_018,Word BM25,What vendor or company issued the receipt totaling 12.37?,TIMES BOOKSTORES,UNANSWERABLE,incorrect,supported,direct
+AUDIT-003,docvqa_qa_018,Word BM25,Which year was the meeting held?,EXECUTIVE FACULTY,1975,incorrect,unsupported,off_topic
+AUDIT-004,sroie_qa_078,Word BM25,What vendor or company issued the receipt totaling 1.75?,AEON CO. (M) BHD,UNANSWERABLE,incorrect,supported,direct
+AUDIT-005,sroie_qa_076,Word BM25,What is the total amount paid on the receipt from RESTORAN WAN SHENG?,7.00,4.20,partially_correct,mixed,partial
+AUDIT-006,sroie_qa_032,Word BM25,What is the total amount paid on the receipt from SUN VICTORY SDN BHD?,RM4.00,RM4.00,correct,supported,direct
+AUDIT-007,sroie_qa_064,Word BM25,What is the total amount paid on the receipt from TEO HENG STATIONERY & BOOKS?,18.00,18.00,correct,supported,direct
+AUDIT-008,docvqa_qa_041,Word BM25,Who is the third person in CC,Packaging,UNANSWERABLE,incorrect,supported,direct
+AUDIT-009,sroie_qa_068,Word BM25,What is the total amount paid on the receipt from BHPETROL PALEKBANG?,6.00,RM 6.00,partially_correct,mixed,partial
+AUDIT-010,sroie_qa_081,Word BM25,On what date was the transaction completed at R&C VENTURE SDN BHD?,19-04-2018,19-04-2018,correct,supported,direct
+AUDIT-011,docvqa_qa_008,Word BM25,What is the Budget Estimate for CME Reviewer Provider Fee?,"3,000","$2,000.00",incorrect,unsupported,off_topic
+AUDIT-012,sroie_qa_013,Word BM25,On what date was the transaction completed at RESTORAN WAN SHENG?,09-06-2018,30-06-2018,partially_correct,supported,direct
+AUDIT-013,sroie_qa_036,Word BM25,What is the total amount paid on the receipt from THE MARCO POLO KITCH BUKIT INDAH?,15.15,RM 15.15,partially_correct,mixed,partial
+AUDIT-014,sroie_qa_009,Word BM25,On what date was the transaction completed at SANYU STATIONERY SHOP?,18/04/2017,19/07/2017,partially_correct,unsupported,partial
+AUDIT-015,sroie_qa_020,Word BM25,What is the total amount paid on the receipt from C W KHOO HARDWARE SDN BHD?,19.00,21.20,incorrect,unsupported,off_topic
+AUDIT-016,sroie_qa_056,Word BM25,What is the total amount paid on the receipt from UNIHAKKA INTERNATIONAL SDN BHD?,$7.10,$8.20,partially_correct,mixed,partial
+AUDIT-017,docvqa_qa_004,Word BM25,Which meeting is expected to have the highest ' attendance ' ?,"7,500 (AAPS)",AAPS -— American Association of Pharmaceutical Scientists 2004,incorrect,unsupported,off_topic
+AUDIT-018,sroie_qa_069,Word BM25,On what date was the transaction completed at POPULAR BOOK CO. (M) SDN BHD?,07/01/18,11/03/18,partially_correct,mixed,partial
+AUDIT-019,sroie_qa_055,Word BM25,What is the street or store address on the receipt from MR. D.I.Y. (M) SDN BHD?,"LOT 1851-A & 1851-B, JALAN KPB 6, KAWASAN PERINDUSTRIAN BALAKONG, 43300 SERI KEMBANGAN, SELANGOR","LOT 1851-A & 1851-B, JALAN KPB 6, KAWASAN PERINDUSTRIAN BALAKONG, 43300 SERI KEMBANGAN, SELANGOR",correct,supported,direct
+AUDIT-020,docvqa_qa_032,Word BM25,What is the ‘title’ of the plot?,eoor wmv,UNANSWERABLE,incorrect,supported,direct
+AUDIT-021,sroie_qa_073,Char 3-5g BM25,On what date was the transaction completed at SANYU STATIONERY SHOP?,06/09/2017,24/07/2017,partially_correct,mixed,partial
+AUDIT-022,sroie_qa_018,Char 3-5g BM25,What vendor or company issued the receipt totaling 12.37?,TIMES BOOKSTORES,UNANSWERABLE,incorrect,supported,direct
+AUDIT-023,docvqa_qa_018,Char 3-5g BM25,Which year was the meeting held?,EXECUTIVE FACULTY,1975,incorrect,unsupported,off_topic
+AUDIT-024,sroie_qa_077,Char 3-5g BM25,On what date was the transaction completed at ANZEL ADVERTISING (M) SDN BHD?,21/03/2018,"21 March, 2018",incorrect,unsupported,off_topic
+AUDIT-025,sroie_qa_076,Char 3-5g BM25,What is the total amount paid on the receipt from RESTORAN WAN SHENG?,7.00,5.00,partially_correct,mixed,partial
+AUDIT-026,sroie_qa_031,Char 3-5g BM25,What is the street or store address on the receipt from MR. D.I.Y. (M) SDN BHD?,"LOT 1851-A & 1851-B, JALAN KPB 6, KAWASAN PERINDUSTRIAN BALAKONG, 43300 SERI KEMBANGAN, SELANGOR","LOT 1851-A & 1851-B, JALAN KPB 6, KAWASAN PERINDUSTRIAN BALAKONG, 43300 SERI KEMBANGAN, SELANGOR",correct,supported,direct
+AUDIT-027,sroie_qa_063,Char 3-5g BM25,What is the street or store address on the receipt from PRINT EXPERT SDN BHD?,"NO 18, 20, 22, JALAN BUNGA TANJONG 2/16, 40000 SHAH ALAM, SELANGOR","NO 18, 20, 22, JALAN BUNGA TANJONG 2/16, 40000 SHAH ALAM, SELANGOR",correct,mixed,direct
+AUDIT-028,docvqa_qa_041,Char 3-5g BM25,Who is the third person in CC,Packaging,UNANSWERABLE,incorrect,supported,direct
+AUDIT-029,sroie_qa_067,Char 3-5g BM25,What is the street or store address on the receipt from GL HANDICRAFT & TAII ORING?,"19, JALAN KANCIL, OFF JALAN PUDU, 55100 KUALA LUMPUR MALAYSIA","19, JALAN ICANCIL, OFF JALAN PUDU 55100 KUALA LUMPUR MALAYSIA",correct,supported,direct
+AUDIT-030,sroie_qa_083,Char 3-5g BM25,What is the street or store address on the receipt from POPULAR BOOK CO. (M) SDN BHD?,"NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA","No 8, Jalan 7/118B, Desa Tun Razak, 56000 Kuala Lumpur, Malaysia",correct,supported,direct
+AUDIT-031,docvqa_qa_011,Char 3-5g BM25,What is the 10th 'title' in Contents ?,CONTENTS,UNANSWERABLE,incorrect,supported,direct
+AUDIT-032,sroie_qa_011,Char 3-5g BM25,What is the street or store address on the receipt from GARDENIA BAKERIES (KL) SDN BHD?,"LOT 3, JALAN PELABUR 23/1, 40300 SHAH ALAM, SELANGOR.","Lot 3, Jalan Pelabur 23/1, 40300 Shah Alam, Selangor.",correct,supported,direct
+AUDIT-033,sroie_qa_036,Char 3-5g BM25,What is the total amount paid on the receipt from THE MARCO POLO KITCH BUKIT INDAH?,15.15,RM 15.15,partially_correct,mixed,partial
+AUDIT-034,sroie_qa_009,Char 3-5g BM25,On what date was the transaction completed at SANYU STATIONERY SHOP?,18/04/2017,24/07/2017,incorrect,mixed,partial
+AUDIT-035,sroie_qa_019,Char 3-5g BM25,What is the street or store address on the receipt from 99 SPEED MART S/B?,"LOT P.T. 33198, BATU 4 JALAN KAPAR, MUKIM KAPAR 42100 KLANG, SELANGOR 1320-TMN BATU","LOT P.T. 2811, JALAN ANGSA, TAMAN BERKELEY 41150 KLANG, SELANGOR",incorrect,unsupported,off_topic
+AUDIT-036,sroie_qa_056,Char 3-5g BM25,What is the total amount paid on the receipt from UNIHAKKA INTERNATIONAL SDN BHD?,$7.10,$8.20,partially_correct,mixed,partial
+AUDIT-037,docvqa_qa_004,Char 3-5g BM25,Which meeting is expected to have the highest ' attendance ' ?,"7,500 (AAPS)",AAPS -— American Association of Pharmaceutical Scientists 2004,incorrect,unsupported,off_topic
+AUDIT-038,sroie_qa_069,Char 3-5g BM25,On what date was the transaction completed at POPULAR BOOK CO. (M) SDN BHD?,07/01/18,11/03/18,partially_correct,mixed,partial
+AUDIT-039,sroie_qa_055,Char 3-5g BM25,What is the street or store address on the receipt from MR. D.I.Y. (M) SDN BHD?,"LOT 1851-A & 1851-B, JALAN KPB 6, KAWASAN PERINDUSTRIAN BALAKONG, 43300 SERI KEMBANGAN, SELANGOR","LOT 1851-A & 1851-B, JALAN KPB 6, KAWASAN PERINDUSTRIAN BALAKONG, 43300 SERI KEMBANGAN, SELANGOR",correct,supported,direct
+AUDIT-040,docvqa_qa_032,Char 3-5g BM25,What is the ‘title’ of the plot?,eoor wmv,UNANSWERABLE,incorrect,mixed,direct
+AUDIT-041,sroie_qa_074,Dense BGE-small,What vendor or company issued the receipt totaling 25.00?,FARMASI LIGAMAS,UNANSWERABLE,incorrect,supported,direct
+AUDIT-042,sroie_qa_018,Dense BGE-small,What vendor or company issued the receipt totaling 12.37?,TIMES BOOKSTORES,UNANSWERABLE,incorrect,supported,direct
+AUDIT-043,docvqa_qa_018,Dense BGE-small,Which year was the meeting held?,EXECUTIVE FACULTY,1975,incorrect,unsupported,off_topic
+AUDIT-044,sroie_qa_078,Dense BGE-small,What vendor or company issued the receipt totaling 1.75?,AEON CO. (M) BHD,UNANSWERABLE,incorrect,supported,direct
+AUDIT-045,sroie_qa_076,Dense BGE-small,What is the total amount paid on the receipt from RESTORAN WAN SHENG?,7.00,8.60,incorrect,mixed,partial
+AUDIT-046,sroie_qa_031,Dense BGE-small,What is the street or store address on the receipt from MR. D.I.Y. (M) SDN BHD?,"LOT 1851-A & 1851-B, JALAN KPB 6, KAWASAN PERINDUSTRIAN BALAKONG, 43300 SERI KEMBANGAN, SELANGOR","LOT 1851-A & 1851-B, JALAN KPB 6, KAWASAN PERINDUSTRIAN BALAKONG, 43300 SERI KEMBANGAN, SELANGOR",correct,supported,direct
+AUDIT-047,sroie_qa_064,Dense BGE-small,What is the total amount paid on the receipt from TEO HENG STATIONERY & BOOKS?,18.00,18.00,correct,supported,direct
+AUDIT-048,docvqa_qa_041,Dense BGE-small,Who is the third person in CC,Packaging,UNANSWERABLE,incorrect,supported,direct
+AUDIT-049,sroie_qa_068,Dense BGE-small,What is the total amount paid on the receipt from BHPETROL PALEKBANG?,6.00,RM 6.00,partially_correct,mixed,partial
+AUDIT-050,sroie_qa_082,Dense BGE-small,What vendor or company issued the receipt totaling 250.00?,IN-SPARKLE TRADING SDN BHD,UNANSWERABLE,incorrect,supported,direct
+AUDIT-051,docvqa_qa_010,Dense BGE-small,What is the dividend payout in 2012?,* Crores,UNANSWERABLE,incorrect,supported,direct
+AUDIT-052,sroie_qa_012,Dense BGE-small,What is the total amount paid on the receipt from 99 SPEED MART S/B?,14.40,UNANSWERABLE,incorrect,supported,direct
+AUDIT-053,sroie_qa_036,Dense BGE-small,What is the total amount paid on the receipt from THE MARCO POLO KITCH BUKIT INDAH?,15.15,RM 15.15,partially_correct,unsupported,partial
+AUDIT-054,sroie_qa_009,Dense BGE-small,On what date was the transaction completed at SANYU STATIONERY SHOP?,18/04/2017,05/09/2017,partially_correct,mixed,partial
+AUDIT-055,sroie_qa_019,Dense BGE-small,What is the street or store address on the receipt from 99 SPEED MART S/B?,"LOT P.T. 33198, BATU 4 JALAN KAPAR, MUKIM KAPAR 42100 KLANG, SELANGOR 1320-TMN BATU","LOT P.T. 2811, JALAN ANGSA, TAMAN BERKELEY 41150 KLANG, SELANGOR",incorrect,unsupported,off_topic
+AUDIT-056,sroie_qa_056,Dense BGE-small,What is the total amount paid on the receipt from UNIHAKKA INTERNATIONAL SDN BHD?,$7.10,$7.10,partially_correct,supported,direct
+AUDIT-057,docvqa_qa_004,Dense BGE-small,Which meeting is expected to have the highest ' attendance ' ?,"7,500 (AAPS)",AAPS -— American Association of Pharmaceutical Scientists 2004,incorrect,unsupported,off_topic
+AUDIT-058,sroie_qa_069,Dense BGE-small,On what date was the transaction completed at POPULAR BOOK CO. (M) SDN BHD?,07/01/18,11/02/18,partially_correct,mixed,partial
+AUDIT-059,sroie_qa_055,Dense BGE-small,What is the street or store address on the receipt from MR. D.I.Y. (M) SDN BHD?,"LOT 1851-A & 1851-B, JALAN KPB 6, KAWASAN PERINDUSTRIAN BALAKONG, 43300 SERI KEMBANGAN, SELANGOR","LOT 1851-A & 1851-B, JALAN KPB 6, KAWASAN PERINDUSTRIAN BALAKONG, 43300 SERI KEMBANGAN, SELANGOR",correct,supported,direct
+AUDIT-060,docvqa_qa_032,Dense BGE-small,What is the ‘title’ of the plot?,eoor wmv,UNANSWERABLE,incorrect,supported,direct
+AUDIT-061,sroie_qa_073,ColQwen2-v1.0,On what date was the transaction completed at SANYU STATIONERY SHOP?,06/09/2017,19/07/2017,partially_correct,mixed,partial
+AUDIT-062,sroie_qa_018,ColQwen2-v1.0,What vendor or company issued the receipt totaling 12.37?,TIMES BOOKSTORES,UNANSWERABLE,incorrect,supported,direct
+AUDIT-063,docvqa_qa_018,ColQwen2-v1.0,Which year was the meeting held?,EXECUTIVE FACULTY,1975,incorrect,unsupported,off_topic
+AUDIT-064,sroie_qa_078,ColQwen2-v1.0,What vendor or company issued the receipt totaling 1.75?,AEON CO. (M) BHD,UNANSWERABLE,incorrect,supported,direct
+AUDIT-065,sroie_qa_076,ColQwen2-v1.0,What is the total amount paid on the receipt from RESTORAN WAN SHENG?,7.00,4.20,partially_correct,mixed,partial
+AUDIT-066,sroie_qa_031,ColQwen2-v1.0,What is the street or store address on the receipt from MR. D.I.Y. (M) SDN BHD?,"LOT 1851-A & 1851-B, JALAN KPB 6, KAWASAN PERINDUSTRIAN BALAKONG, 43300 SERI KEMBANGAN, SELANGOR","LOT 1851-A & 1851-B, JALAN KPB 6, KAWASAN PERINDUSTRIAN BALAKONG, 43300 SERI KEMBANGAN, SELANGOR",correct,mixed,direct
+AUDIT-067,sroie_qa_064,ColQwen2-v1.0,What is the total amount paid on the receipt from TEO HENG STATIONERY & BOOKS?,18.00,18.00,partially_correct,supported,direct
+AUDIT-068,docvqa_qa_041,ColQwen2-v1.0,Who is the third person in CC,Packaging,UNANSWERABLE,incorrect,supported,direct
+AUDIT-069,sroie_qa_068,ColQwen2-v1.0,What is the total amount paid on the receipt from BHPETROL PALEKBANG?,6.00,RM 6.00,partially_correct,mixed,partial
+AUDIT-070,sroie_qa_082,ColQwen2-v1.0,What vendor or company issued the receipt totaling 250.00?,IN-SPARKLE TRADING SDN BHD,UNANSWERABLE,incorrect,supported,direct
+AUDIT-071,docvqa_qa_010,ColQwen2-v1.0,What is the dividend payout in 2012?,* Crores,UNANSWERABLE,incorrect,supported,direct
+AUDIT-072,sroie_qa_012,ColQwen2-v1.0,What is the total amount paid on the receipt from 99 SPEED MART S/B?,14.40,RM 150.00,incorrect,unsupported,off_topic
+AUDIT-073,sroie_qa_036,ColQwen2-v1.0,What is the total amount paid on the receipt from THE MARCO POLO KITCH BUKIT INDAH?,15.15,RM 15.15,partially_correct,mixed,partial
+AUDIT-074,sroie_qa_009,ColQwen2-v1.0,On what date was the transaction completed at SANYU STATIONERY SHOP?,18/04/2017,19/07/2017,partially_correct,mixed,partial
+AUDIT-075,sroie_qa_019,ColQwen2-v1.0,What is the street or store address on the receipt from 99 SPEED MART S/B?,"LOT P.T. 33198, BATU 4 JALAN KAPAR, MUKIM KAPAR 42100 KLANG, SELANGOR 1320-TMN BATU","LOT P.T. 2811, JALAN ANGSA, TAMAN BERKELEY 41150 KLANG, SELANGOR",incorrect,unsupported,off_topic
+AUDIT-076,sroie_qa_056,ColQwen2-v1.0,What is the total amount paid on the receipt from UNIHAKKA INTERNATIONAL SDN BHD?,$7.10,$8.20,partially_correct,mixed,partial
+AUDIT-077,docvqa_qa_004,ColQwen2-v1.0,Which meeting is expected to have the highest ' attendance ' ?,"7,500 (AAPS)",AAPS -— American Association of Pharmaceutical Scientists 2004,incorrect,unsupported,off_topic
+AUDIT-078,sroie_qa_069,ColQwen2-v1.0,On what date was the transaction completed at POPULAR BOOK CO. (M) SDN BHD?,07/01/18,11/03/18,incorrect,mixed,partial
+AUDIT-079,sroie_qa_055,ColQwen2-v1.0,What is the street or store address on the receipt from MR. D.I.Y. (M) SDN BHD?,"LOT 1851-A & 1851-B, JALAN KPB 6, KAWASAN PERINDUSTRIAN BALAKONG, 43300 SERI KEMBANGAN, SELANGOR","LOT 1851-A & 1851-B, JALAN KPB 6, KAWASAN PERINDUSTRIAN BALAKONG, 43300 SERI KEMBANGAN, SELANGOR",correct,mixed,direct
+AUDIT-080,docvqa_qa_032,ColQwen2-v1.0,What is the ‘title’ of the plot?,eoor wmv,UNANSWERABLE,incorrect,supported,direct
+AUDIT-081,sroie_qa_073,Fusion (Word + ColQwen2),On what date was the transaction completed at SANYU STATIONERY SHOP?,06/09/2017,19/07/2017,partially_correct,mixed,partial
+AUDIT-082,sroie_qa_018,Fusion (Word + ColQwen2),What vendor or company issued the receipt totaling 12.37?,TIMES BOOKSTORES,UNANSWERABLE,incorrect,supported,direct
+AUDIT-083,docvqa_qa_018,Fusion (Word + ColQwen2),Which year was the meeting held?,EXECUTIVE FACULTY,1975,incorrect,unsupported,off_topic
+AUDIT-084,sroie_qa_078,Fusion (Word + ColQwen2),What vendor or company issued the receipt totaling 1.75?,AEON CO. (M) BHD,UNANSWERABLE,incorrect,supported,direct
+AUDIT-085,sroie_qa_076,Fusion (Word + ColQwen2),What is the total amount paid on the receipt from RESTORAN WAN SHENG?,7.00,4.20,partially_correct,mixed,partial
+AUDIT-086,sroie_qa_031,Fusion (Word + ColQwen2),What is the street or store address on the receipt from MR. D.I.Y. (M) SDN BHD?,"LOT 1851-A & 1851-B, JALAN KPB 6, KAWASAN PERINDUSTRIAN BALAKONG, 43300 SERI KEMBANGAN, SELANGOR","LOT 1851-A & 1851-B, JALAN KPB 6, KAWASAN PERINDUSTRIAN BALAKONG, 43300 SERI KEMBANGAN, SELANGOR",correct,supported,direct
+AUDIT-087,sroie_qa_064,Fusion (Word + ColQwen2),What is the total amount paid on the receipt from TEO HENG STATIONERY & BOOKS?,18.00,18.00,correct,supported,direct
+AUDIT-088,docvqa_qa_041,Fusion (Word + ColQwen2),Who is the third person in CC,Packaging,UNANSWERABLE,incorrect,supported,direct
+AUDIT-089,sroie_qa_067,Fusion (Word + ColQwen2),What is the street or store address on the receipt from GL HANDICRAFT & TAII ORING?,"19, JALAN KANCIL, OFF JALAN PUDU, 55100 KUALA LUMPUR MALAYSIA","19, JALAN ICANCIL, OFF JALAN PUDU 55100 KUALA LUMPUR MALAYSIA",partially_correct,supported,direct
+AUDIT-090,sroie_qa_082,Fusion (Word + ColQwen2),What vendor or company issued the receipt totaling 250.00?,IN-SPARKLE TRADING SDN BHD,UNANSWERABLE,incorrect,supported,direct
+AUDIT-091,docvqa_qa_010,Fusion (Word + ColQwen2),What is the dividend payout in 2012?,* Crores,UNANSWERABLE,incorrect,supported,direct
+AUDIT-092,sroie_qa_013,Fusion (Word + ColQwen2),On what date was the transaction completed at RESTORAN WAN SHENG?,09-06-2018,30-06-2018,correct,mixed,direct
+AUDIT-093,sroie_qa_036,Fusion (Word + ColQwen2),What is the total amount paid on the receipt from THE MARCO POLO KITCH BUKIT INDAH?,15.15,RM 15.15,partially_correct,mixed,partial
+AUDIT-094,sroie_qa_009,Fusion (Word + ColQwen2),On what date was the transaction completed at SANYU STATIONERY SHOP?,18/04/2017,19/07/2017,partially_correct,mixed,partial
+AUDIT-095,sroie_qa_019,Fusion (Word + ColQwen2),What is the street or store address on the receipt from 99 SPEED MART S/B?,"LOT P.T. 33198, BATU 4 JALAN KAPAR, MUKIM KAPAR 42100 KLANG, SELANGOR 1320-TMN BATU","LOT P.T. 2811, JALAN ANGSA, TAMAN BERKELEY 41150 KLANG, SELANGOR",incorrect,unsupported,off_topic
+AUDIT-096,sroie_qa_056,Fusion (Word + ColQwen2),What is the total amount paid on the receipt from UNIHAKKA INTERNATIONAL SDN BHD?,$7.10,$8.20,partially_correct,mixed,partial
+AUDIT-097,docvqa_qa_004,Fusion (Word + ColQwen2),Which meeting is expected to have the highest ' attendance ' ?,"7,500 (AAPS)",AAPS -— American Association of Pharmaceutical Scientists 2004,incorrect,unsupported,off_topic
+AUDIT-098,sroie_qa_069,Fusion (Word + ColQwen2),On what date was the transaction completed at POPULAR BOOK CO. (M) SDN BHD?,07/01/18,11/03/18,partially_correct,mixed,partial
+AUDIT-099,sroie_qa_055,Fusion (Word + ColQwen2),What is the street or store address on the receipt from MR. D.I.Y. (M) SDN BHD?,"LOT 1851-A & 1851-B, JALAN KPB 6, KAWASAN PERINDUSTRIAN BALAKONG, 43300 SERI KEMBANGAN, SELANGOR","LOT 1851-A & 1851-B, JALAN KPB 6, KAWASAN PERINDUSTRIAN BALAKONG, 43300 SERI KEMBANGAN, SELANGOR",correct,supported,direct
+AUDIT-100,docvqa_qa_032,Fusion (Word + ColQwen2),What is the ‘title’ of the plot?,eoor wmv,UNANSWERABLE,incorrect,supported,direct

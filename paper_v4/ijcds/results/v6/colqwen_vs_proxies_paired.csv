@@ -1,0 +1,5 @@
+Condition,Query_Type,ColQwen2_MRR,Proxy_MRR,Diff_MRR,Diff_CI_Lower,Diff_CI_Upper,P_Value,Verdict
+"Clean Receipts","verbatim",0.8529,0.0073,0.8457,0.8115,0.88,1e-05,"CONFIRMED: Document-native visual retrieval significantly beats text proxy (CI > 0)"
+"Clean Receipts","light_paraphrase",0.5474,0.4003,0.1471,0.0802,0.2135,3e-05,"CONFIRMED: Document-native visual retrieval significantly beats text proxy (CI > 0)"
+"Clean Receipts","heavy_question",0.8595,0.945,-0.0855,-0.1284,-0.0413,0.00012,"REFUTED: Text proxy significantly beats document-native visual retrieval (CI < 0)"
+"Degraded Blur","verbatim",0.6275,0.0073,0.6202,0.5701,0.6692,1e-05,"CONFIRMED: Document-native visual retrieval significantly beats text proxy (CI > 0)"

@@ -1,0 +1,9 @@
+system,category,mrr,diff_vs_best_proxy,z_stat,p_raw,p_holm,significant_alpha_05
+Baseline BLIP (MiniLM),Machine Caption Proxy,0.3728,-0.0852,-5.605,2.0793878618974304e-08,8.317551447589722e-08,True
+Baseline BLIP (BGE-base),Machine Caption Proxy,0.3695,-0.0885,-5.822,5.8019473669901345e-09,2.9009736834950672e-08,True
+BLIP-2 opt-2.7b,Machine Caption Proxy,0.4185,-0.0395,-2.599,0.00935818190493265,0.02807454571479795,True
+Florence-2 Detailed,Machine Caption Proxy,0.442,-0.016,-1.053,0.2925098781838851,0.5850197563677701,False
+Human Gold Single Caption,Human Gold Proxy (Upper Bound),0.5835,0.1255,8.257,2.220446049250313e-16,1.3322676295501878e-15,True
+Human Gold Multi-Caption (5 References),Human Gold Proxy (Upper Bound),0.621,0.163,10.724,0.0,0.0,True
+CLIP ViT-B/32,Native Pixel Representation,0.4709,0.0129,0.849,0.39605703444511065,0.5850197563677701,False
+SigLIP Base Patch16,Native Pixel Representation,0.6071,0.1491,9.809,0.0,0.0,True

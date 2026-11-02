@@ -1,0 +1,15 @@
+{
+  "item_id": "G-08",
+  "source_deliverable": "T2-01",
+  "title": "Quantitative 2D empirical retrieval regime crossover map",
+  "seed": 42,
+  "git_commit": "HEAD",
+  "files": [
+    "heldout_validation_predictions.csv",
+    "config.json",
+    "README.md",
+    "model_fit_quality.csv",
+    "regime_crossover_thresholds.csv",
+    "fig_quantitative_regime_map.png"
+  ]
+}

@@ -1,0 +1,10 @@
+category,system,hit1,hit5,hit10,mrr,ci_95,notes
+Machine Caption Proxy,Baseline BLIP (MiniLM),0.242,0.516,0.653,0.3728,"[0.35, 0.397]",Baseline off-the-shelf BLIP short caption
+Machine Caption Proxy,Baseline BLIP (BGE-base),0.243,0.505,0.646,0.3695,"[0.347, 0.393]",BLIP with BGE dense text embedding
+Machine Caption Proxy,BLIP-2 opt-2.7b,0.278,0.564,0.702,0.4185,"[0.395, 0.442]",Larger 2.7B parameter autoregressive captioner
+Machine Caption Proxy,Florence-2 Detailed,0.302,0.598,0.738,0.442,"[0.418, 0.466]",Detailed multi-sentence visual prompt representation
+Machine Caption Proxy,Multi-Caption Indexing (BLIP-2 + Florence-2),0.318,0.618,0.754,0.458,"[0.434, 0.482]",Concatenated multi-perspective machine proxies (BEST PROXY)
+Human Gold Proxy (Upper Bound),Human Gold Single Caption,0.458,0.737,0.832,0.5835,"[0.559, 0.608]",Single human-authored reference description
+Human Gold Proxy (Upper Bound),Human Gold Multi-Caption (5 References),0.495,0.778,0.871,0.621,"[0.597, 0.645]",Concatenated exhaustive 5-reference human gold captions
+Native Pixel Representation,CLIP ViT-B/32,0.339,0.618,0.757,0.4709,"[0.446, 0.497]",Standard cross-modal dual encoder
+Native Pixel Representation,SigLIP Base Patch16,0.48,0.768,0.867,0.6071,"[0.584, 0.633]",Sigmoid loss native visual representation

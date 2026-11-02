@@ -67,13 +67,16 @@ plt.tight_layout(pad=0.3)
 out_fig1 = repo_root / "ijcds" / "figures" / "fig_mrr_regime_systems.png"
 out_fig2 = repo_root / "figures" / "fig_mrr_regime_systems.png"
 out_fig3 = repo_root / "results" / "v10" / "fig_crossover_repro_v10.png"
+out_fig4 = repo_root / "paper_v4" / "figures" / "fig_mrr_regime_systems.png"
 
 out_fig1.parent.mkdir(parents=True, exist_ok=True)
 out_fig2.parent.mkdir(parents=True, exist_ok=True)
 out_fig3.parent.mkdir(parents=True, exist_ok=True)
+out_fig4.parent.mkdir(parents=True, exist_ok=True)
 
 plt.savefig(out_fig1, dpi=300)
 plt.savefig(out_fig2, dpi=300)
 plt.savefig(out_fig3, dpi=300)
+plt.savefig(out_fig4, dpi=300)
 plt.close()
-print("Updated scripts/make_regime_figure.py and regenerated images.")
+print("Updated scripts/make_regime_figure.py and regenerated images including paper_v4.")

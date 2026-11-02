@@ -1,0 +1,10 @@
+Text_Proxy,System,Proxy_MRR,ColQwen2_MRR,MRR_Diff,Permutation_p,Significance
+Tesseract 5.5 OCR,Word BM25,0.3119,0.645,-0.3331,< 1e-15,ColQwen2 Significantly Dominates
+Tesseract 5.5 OCR,Char 3-5g BM25,0.316,0.645,-0.329,< 1e-15,ColQwen2 Significantly Dominates
+Tesseract 5.5 OCR,Tuned Hybrid,0.3139,0.645,-0.3311,< 1e-15,ColQwen2 Significantly Dominates
+Layout-Aware Converter (Docling/Paddle format),Word BM25,0.3119,0.645,-0.3331,< 1e-15,ColQwen2 Significantly Dominates
+Layout-Aware Converter (Docling/Paddle format),Char 3-5g BM25,0.316,0.645,-0.329,< 1e-15,ColQwen2 Significantly Dominates
+Layout-Aware Converter (Docling/Paddle format),Tuned Hybrid,0.3139,0.645,-0.3311,< 1e-15,ColQwen2 Significantly Dominates
+VLM Detailed Page Descriptions,Word BM25,0.2777,0.645,-0.3673,< 1e-15,ColQwen2 Significantly Dominates
+VLM Detailed Page Descriptions,Char 3-5g BM25,0.2994,0.645,-0.3456,< 1e-15,ColQwen2 Significantly Dominates
+VLM Detailed Page Descriptions,Tuned Hybrid,0.2886,0.645,-0.3564,< 1e-15,ColQwen2 Significantly Dominates

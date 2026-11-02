@@ -1,0 +1,4 @@
+Comparison,RRF_MRR,Baseline_MRR,Diff_MRR,Permutation_p,Verdict,Cascade_MRR,ColQwen2_MRR,Retention_Pct,Latency_Speedup
+RRF (Word BM25 + ColQwen2) vs. Standalone ColQwen2,0.5745,0.4962,+0.0782,< 1e-5,RRF Significantly Dominates Both Single Streams,,,,
+RRF (Word BM25 + ColQwen2) vs. Standalone Word BM25,0.5745,0.4003,+0.1742,< 1e-5,RRF Significantly Dominates Both Single Streams,,,,
+Cascade (Word BM25 K=50 -> ColQwen2) vs. Standalone ColQwen2,,,-0.0140,,,0.4822,0.4962,97.2%,15.4x (16.2 ms vs 249.2 ms)

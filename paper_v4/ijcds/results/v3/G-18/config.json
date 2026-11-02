@@ -1,0 +1,16 @@
+{
+  "item_id": "G-18",
+  "source_deliverable": "T3-03",
+  "title": "Realistic camera degradation physics and non-linear document types",
+  "seed": 42,
+  "git_commit": "HEAD",
+  "files": [
+    "config.json",
+    "fig_realistic_vs_synthetic_degradation.png",
+    "realistic_degradation_results.csv",
+    "realistic_degradation_summary.csv",
+    "README.md",
+    "statistical_comparison_tests.csv",
+    "sroie_camera_simulated_tesseract_ocr.json"
+  ]
+}

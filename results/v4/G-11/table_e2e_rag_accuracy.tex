@@ -1,0 +1,18 @@
+\begin{table}[htbp]
+\centering
+\caption{End-to-End RAG Performance: Downstream Generation Accuracy (GPT-4o-mini) Under Retrieved Context Across Systems ($N=150$).}
+\label{tab:e2e_rag_accuracy}
+\small
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Context Retrieval Pipeline} & \textbf{Retrieval MRR} & \textbf{ANLS [95\% CI]} & \textbf{Exact Match} & \textbf{Faithfulness Rate} \\
+\midrule
+\textbf{Oracle Ground Truth} & 1.0000 & 0.5598 [0.484, 0.633] & 0.5600 & 0.8400 \\
+ColQwen2-v1.0 & 0.6978 & 0.3990 [0.330, 0.476] & 0.2933 & 0.6800 \\
+Fusion (Word + ColQwen2) & 0.6005 & 0.3656 [0.297, 0.439] & 0.2533 & 0.6400 \\
+Char 3-5g BM25 & 0.5934 & 0.3246 [0.259, 0.392] & 0.2400 & 0.6000 \\
+Word BM25 & 0.5774 & 0.3533 [0.286, 0.424] & 0.2400 & 0.6400 \\
+Dense BGE-small & 0.4125 & 0.3781 [0.312, 0.453] & 0.2333 & 0.6667 \\
+\bottomrule
+\end{tabular}
+\end{table}

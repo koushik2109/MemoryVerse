@@ -1,0 +1,24 @@
+\begin{table*}[t]
+\centering
+\caption{Replication of the TREC-5 Confusion Track: 30-Year Cross-Era Comparison of Word vs.\ Character $n$-gram Inverted Indexing Under OCR Degradation.}
+\label{tab:trec5_replication}
+\small
+\begin{tabular}{llccccc}
+\toprule
+\textbf{Era \& Corpus} & \textbf{Retrieval System} & \textbf{Clean MRR} & \textbf{5\% CER} & \textbf{5\% Ret.} & \textbf{20\% CER} & \textbf{20\% Ret.} \\
+\midrule
+\multicolumn{7}{l}{\textit{TREC-5 FR94 Benchmark (Kantor \& Voorhees, Published 1996)}} \\
+& INQUERY (Word Probabilistic) & 0.7710 & 0.6720 & 87.2\% & 0.4780 & 62.0\% \\
+& SMART (Word Vector Space) & 0.7180 & 0.6240 & 86.9\% & 0.4420 & 61.6\% \\
+& PIRCS (Word Spreading Activation) & 0.7450 & 0.6510 & 87.4\% & 0.4630 & 62.2\% \\
+& \textbf{ETH Zurich (Char 4-gram Index)} & 0.7630 & 0.7410 & 97.1\% & \textbf{0.6580} & \textbf{86.2\%} \\
+\midrule
+\multicolumn{7}{l}{\textit{Authentic 19th-Century Historical Newspapers (Replicated 2026)}} \\
+& Word BM25 & 0.9830 & 0.8778 & 89.3\% & 0.5083 & 51.7\% \\
+& \textbf{Char 4-gram BM25} & 0.9830 & 0.9736 & 99.0\% & \textbf{0.7894} & \textbf{80.3\%} \\
+& \textbf{Char 3-5g BM25} & 0.9898 & 0.9796 & 99.0\% & \textbf{0.8084} & \textbf{81.7\%} \\
+& Dense BGE-Small & 0.6776 & 0.6382 & 94.2\% & 0.4451 & 65.7\% \\
+& Tuned Hybrid & 0.9073 & 0.8725 & 96.2\% & 0.5870 & 64.7\% \\
+\bottomrule
+\end{tabular}
+\end{table*}

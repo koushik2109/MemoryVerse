@@ -1,0 +1,35 @@
+{
+  "item_id": "G-05",
+  "title": "Seed Variance & Ordering Stability across 20 Dev/Test Partition Seeds",
+  "git_commit": "ebc19dd07d31fe5b854467a62310cd3a0ff1fb32",
+  "seeds_evaluated": [
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61
+  ],
+  "n_seeds": 20,
+  "ordering_hold_rates": {
+    "char_gt_word_verbatim": "20/20 (100.0%)",
+    "word_gt_char_paraphrase": "20/20 (100.0%)",
+    "colqwen_gt_char_paraphrase": "20/20 (100.0%)",
+    "colqwen_gt_word_paraphrase": "20/20 (100.0%)",
+    "char_gt_word_answerable": "20/20 (100.0%)"
+  }
+}

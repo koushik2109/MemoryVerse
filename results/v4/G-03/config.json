@@ -1,0 +1,10 @@
+{
+  "item_id": "G-03",
+  "title": "ColQwen2 and CLIP Visual Retrieval under Optical Blur and Query Shift",
+  "git_commit": "ebc19dd07d31fe5b854467a62310cd3a0ff1fb32",
+  "seed": 42,
+  "hardware_measured": "Tesla T4 GPU (Kaggle v11 runner)",
+  "table_ii_degraded_visual": "MEASURED (ColQwen2: 0.7207 verbatim, 0.4449 paraphrase; CLIP: 0.0443 verbatim)",
+  "table_xi_secondary_human_queries": "Ready for Kaggle GPU execution via kaggle/kaggle_run_v13_colqwen_robustness.ipynb",
+  "smoke_provenance_flag": "CPU mock numbers in working/ are strictly flagged SMOKE and NOT reported in paper."
+}

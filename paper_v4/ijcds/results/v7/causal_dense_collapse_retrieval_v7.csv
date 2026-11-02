@@ -1,0 +1,4 @@
+Condition,Dense_MiniLM_MRR,Hit10,Retrieval_Lift_over_Noise,Noise_Drop_Recovery_Pct
+Clean Text (0% Noise),0.2117,0.2843,0.1547,100.0
+Corrupted Text (20% Noise),0.0570,0.0817,0.0000,0.0
+Restored (Dev Lexicon Intervention),0.1004,0.1536,0.0434,28.1

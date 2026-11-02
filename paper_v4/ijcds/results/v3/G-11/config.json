@@ -1,0 +1,15 @@
+{
+  "item_id": "G-11",
+  "source_deliverable": "T3-01",
+  "title": "Controlled query-formulation test isolating syntactic form from anchor mass",
+  "seed": 42,
+  "git_commit": "HEAD",
+  "files": [
+    "statistical_tests.json",
+    "config.json",
+    "query_formulation_summary.csv",
+    "statistical_tests.csv",
+    "README.md",
+    "query_formulation_results.csv"
+  ]
+}

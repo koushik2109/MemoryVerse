@@ -1,0 +1,15 @@
+{
+  "task_id": "T3-06",
+  "seed": 42,
+  "commit": "6b9f2aaa8a873049f7d95fd831e22f868cd5e636",
+  "b_bootstrap": 2000,
+  "document_types_evaluated": [
+    "Administrative Business Forms (FUNSD)",
+    "Charts, Plots & Visual Figures",
+    "Corporate Memos & Header Fields",
+    "Multi-Column Prose & Reports",
+    "Retail Receipts (SROIE)",
+    "Structured Tables & Financial Sheets"
+  ],
+  "total_queries_evaluated": 906
+}

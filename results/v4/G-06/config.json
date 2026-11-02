@@ -1,0 +1,29 @@
+{
+  "item_id": "G-06",
+  "title": "Sub-Word vs Character Effects Ablation Study",
+  "git_commit": "ebc19dd07d31fe5b854467a62310cd3a0ff1fb32",
+  "systems_evaluated": [
+    "Char 2-gram",
+    "Char 3-gram",
+    "Char 4-gram",
+    "Char 5-gram",
+    "Char 6-gram",
+    "Char 3-5gram (Combined)",
+    "WordPiece (BERT)",
+    "BPE (GPT-2)",
+    "Word Standard",
+    "Word + Porter Stemming",
+    "Word + Fuzzy Expansion"
+  ],
+  "noise_regimes": [
+    "Apple Clean OCR",
+    "Optical Blur Degraded",
+    "Synthetic 20% Noise"
+  ],
+  "query_slices": [
+    "Verbatim Lookup",
+    "Light Paraphrase",
+    "Answerable Question"
+  ],
+  "source_file": "results/gapfill_v1/T2-03/subword_ablation_summary.csv"
+}

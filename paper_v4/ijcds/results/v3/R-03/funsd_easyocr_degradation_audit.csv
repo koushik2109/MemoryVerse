@@ -1,0 +1,4 @@
+Dataset,OCR_Engine,Condition,Total_Documents,Mean_Char_Length,Min_Char_Length,Max_Char_Length,Zero_Char_Docs,Zero_Char_Pct,Sub_20_Char_Docs,Sub_20_Char_Pct,Retrieval_MRR_Verbatim_Word,Retrieval_MRR_Verbatim_Char,Status
+FUNSD Administrative Forms,EasyOCR 1.7.2 (CRAFT + ResNet-BiLSTM-CTC),Clean (Pristine),199,779.73,172,2359,0,0.0,0,0.0,0.7214,0.7581,Normal Extraction
+FUNSD Administrative Forms,EasyOCR 1.7.2 (CRAFT + ResNet-BiLSTM-CTC),"Optical Blur Degraded (sigma=1.5, 50% scale, Q20)",199,3.92,0,92,135,67.84,189,94.97,0.0227,0.0462,Catastrophic Text Detection Cliff (CRAFT Failure)
+FUNSD Administrative Forms,Tesseract 5.5 LSTM,Optical Blur Degraded,199,342.18,28,1140,0,0.0,0,0.0,0.3412,0.4725,Severe Text Degradation (Non-Empty)

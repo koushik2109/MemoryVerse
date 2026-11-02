@@ -1,0 +1,36 @@
+Bucket,Num_Probes,System,MRR_20pct_Noise
+Numeric-Heavy,217,BM25,0.3487
+Numeric-Heavy,217,BM25 (Char 3-5gram),0.4153
+Numeric-Heavy,217,Dense MiniLM,0.0325
+Numeric-Heavy,217,Dense BGE-base,0.0442
+Numeric-Heavy,217,Hybrid (Tuned),0.3487
+Numeric-Heavy,217,CLIP Visual,0.0404
+Numeric-Heavy,217,RAMP-RAG,0.355
+Short (<=4 tokens),194,BM25,0.3348
+Short (<=4 tokens),194,BM25 (Char 3-5gram),0.4731
+Short (<=4 tokens),194,Dense MiniLM,0.0684
+Short (<=4 tokens),194,Dense BGE-base,0.1378
+Short (<=4 tokens),194,Hybrid (Tuned),0.3348
+Short (<=4 tokens),194,CLIP Visual,0.0326
+Short (<=4 tokens),194,RAMP-RAG,0.345
+Rare-Token,167,BM25,0.429
+Rare-Token,167,BM25 (Char 3-5gram),0.6429
+Rare-Token,167,Dense MiniLM,0.1017
+Rare-Token,167,Dense BGE-base,0.2065
+Rare-Token,167,Hybrid (Tuned),0.429
+Rare-Token,167,CLIP Visual,0.062
+Rare-Token,167,RAMP-RAG,0.4266
+Named Entity / Acronym,248,BM25,0.3699
+Named Entity / Acronym,248,BM25 (Char 3-5gram),0.5037
+Named Entity / Acronym,248,Dense MiniLM,0.0824
+Named Entity / Acronym,248,Dense BGE-base,0.1629
+Named Entity / Acronym,248,Hybrid (Tuned),0.3699
+Named Entity / Acronym,248,CLIP Visual,0.0504
+Named Entity / Acronym,248,RAMP-RAG,0.3666
+Long (>=8 tokens),3,BM25,0.7778
+Long (>=8 tokens),3,BM25 (Char 3-5gram),0.7438
+Long (>=8 tokens),3,Dense MiniLM,0.2972
+Long (>=8 tokens),3,Dense BGE-base,0.4781
+Long (>=8 tokens),3,Hybrid (Tuned),0.7778
+Long (>=8 tokens),3,CLIP Visual,0.25
+Long (>=8 tokens),3,RAMP-RAG,0.6551
