@@ -1,0 +1,6 @@
+scope,comparison,mean_diff,diff_95ci,raw_p,holm_p,significant
+Shared MRR (N=250),MemoryVerse CAPF vs Blanket Redaction,-0.0547,"[-0.1288, +0.0257]",0.159,0.159,NO
+Shared MRR (N=250),MemoryVerse CAPF vs Unconstrained,0.0017,"[+0.0014, +0.0020]",0.0,0.0,YES (p < 0.05)
+Coherence ANLS (N=300),MemoryVerse CAPF vs Blanket Redaction,41.5274,"[+38.2387, +44.8826]",0.0,0.0,YES (p < 0.05)
+Privacy Leakage Reduction (N=300),MemoryVerse CAPF vs Unconstrained,0.23,"[+0.1833, +0.2767]",0.0,0.0,YES (p < 0.05)
+Privacy Leakage Reduction (N=300),MemoryVerse CAPF vs Heuristic Masking,0.04,"[+0.0200, +0.0633]",0.0004,0.0008,YES (p < 0.05)

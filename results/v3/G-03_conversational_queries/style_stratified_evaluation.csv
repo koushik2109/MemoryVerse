@@ -1,0 +1,91 @@
+Condition,Style,Architecture,N_Queries,MRR,MRR_95CI_Lower,MRR_95CI_Upper,Hit1,Hit5,Hit10
+clean,baseline_concise,Word BM25,200,0.5388,0.4832,0.5966,0.415,0.66,0.75
+clean,baseline_concise,Char 3-5g BM25,200,0.5597,0.4988,0.6162,0.46,0.65,0.74
+clean,baseline_concise,Dense MiniLM,200,0.3366,0.2805,0.3911,0.24,0.425,0.48
+clean,baseline_concise,Dense BGE-base,200,0.4855,0.426,0.5449,0.375,0.585,0.7
+clean,baseline_concise,Tuned Hybrid (Word),200,0.5867,0.532,0.6443,0.465,0.715,0.81
+clean,baseline_concise,Tuned Hybrid (Char),200,0.5852,0.5261,0.6407,0.47,0.71,0.765
+clean,conversational_dialogue,Word BM25,200,0.3914,0.3351,0.4442,0.265,0.495,0.625
+clean,conversational_dialogue,Char 3-5g BM25,200,0.5632,0.5026,0.6213,0.455,0.65,0.765
+clean,conversational_dialogue,Dense MiniLM,200,0.2916,0.237,0.3459,0.215,0.34,0.41
+clean,conversational_dialogue,Dense BGE-base,200,0.428,0.373,0.4858,0.31,0.55,0.68
+clean,conversational_dialogue,Tuned Hybrid (Word),200,0.5136,0.4533,0.5729,0.41,0.615,0.705
+clean,conversational_dialogue,Tuned Hybrid (Char),200,0.6012,0.5444,0.6582,0.5,0.685,0.81
+clean,underspecified_recall,Word BM25,200,0.0536,0.0321,0.0799,0.03,0.045,0.1
+clean,underspecified_recall,Char 3-5g BM25,200,0.1102,0.0814,0.1402,0.04,0.15,0.255
+clean,underspecified_recall,Dense MiniLM,200,0.0832,0.0543,0.1135,0.04,0.115,0.16
+clean,underspecified_recall,Dense BGE-base,200,0.1149,0.0806,0.1535,0.07,0.13,0.205
+clean,underspecified_recall,Tuned Hybrid (Word),200,0.0999,0.0697,0.1328,0.05,0.12,0.195
+clean,underspecified_recall,Tuned Hybrid (Char),200,0.1507,0.1131,0.1871,0.07,0.22,0.32
+clean,intent_task_oriented,Word BM25,200,0.0437,0.0253,0.065,0.015,0.055,0.09
+clean,intent_task_oriented,Char 3-5g BM25,200,0.0527,0.0378,0.0693,0.005,0.075,0.13
+clean,intent_task_oriented,Dense MiniLM,200,0.0425,0.0271,0.0612,0.01,0.06,0.11
+clean,intent_task_oriented,Dense BGE-base,200,0.0588,0.0414,0.077,0.01,0.085,0.165
+clean,intent_task_oriented,Tuned Hybrid (Word),200,0.0643,0.0437,0.0869,0.015,0.075,0.15
+clean,intent_task_oriented,Tuned Hybrid (Char),200,0.0616,0.0449,0.0805,0.005,0.08,0.15
+clean,temporal_constraint,Word BM25,200,0.1341,0.1021,0.1701,0.06,0.205,0.28
+clean,temporal_constraint,Char 3-5g BM25,200,0.1003,0.0736,0.1281,0.03,0.155,0.21
+clean,temporal_constraint,Dense MiniLM,200,0.0854,0.0566,0.118,0.045,0.1,0.16
+clean,temporal_constraint,Dense BGE-base,200,0.1024,0.0728,0.1341,0.05,0.15,0.23
+clean,temporal_constraint,Tuned Hybrid (Word),200,0.182,0.1435,0.2249,0.095,0.25,0.33
+clean,temporal_constraint,Tuned Hybrid (Char),200,0.1402,0.1037,0.1767,0.065,0.205,0.265
+real_ocr,baseline_concise,Word BM25,200,0.54,0.4825,0.5978,0.425,0.64,0.735
+real_ocr,baseline_concise,Char 3-5g BM25,200,0.556,0.4969,0.6152,0.455,0.66,0.76
+real_ocr,baseline_concise,Dense MiniLM,200,0.288,0.2372,0.3412,0.2,0.36,0.445
+real_ocr,baseline_concise,Dense BGE-base,200,0.4906,0.4359,0.5485,0.38,0.605,0.7
+real_ocr,baseline_concise,Tuned Hybrid (Word),200,0.5716,0.5137,0.6299,0.455,0.68,0.785
+real_ocr,baseline_concise,Tuned Hybrid (Char),200,0.5776,0.5177,0.6372,0.47,0.67,0.78
+real_ocr,conversational_dialogue,Word BM25,200,0.4092,0.353,0.464,0.29,0.53,0.685
+real_ocr,conversational_dialogue,Char 3-5g BM25,200,0.5945,0.5371,0.6511,0.485,0.7,0.8
+real_ocr,conversational_dialogue,Dense MiniLM,200,0.2598,0.2085,0.3095,0.185,0.33,0.38
+real_ocr,conversational_dialogue,Dense BGE-base,200,0.4376,0.3803,0.4954,0.335,0.54,0.665
+real_ocr,conversational_dialogue,Tuned Hybrid (Word),200,0.5061,0.4476,0.5636,0.375,0.635,0.79
+real_ocr,conversational_dialogue,Tuned Hybrid (Char),200,0.6155,0.5583,0.6705,0.515,0.7,0.845
+real_ocr,underspecified_recall,Word BM25,200,0.0523,0.0346,0.0733,0.015,0.065,0.125
+real_ocr,underspecified_recall,Char 3-5g BM25,200,0.1091,0.0812,0.1407,0.045,0.145,0.235
+real_ocr,underspecified_recall,Dense MiniLM,200,0.0835,0.0545,0.1154,0.045,0.09,0.145
+real_ocr,underspecified_recall,Dense BGE-base,200,0.1395,0.1009,0.181,0.085,0.155,0.23
+real_ocr,underspecified_recall,Tuned Hybrid (Word),200,0.117,0.0851,0.152,0.055,0.145,0.21
+real_ocr,underspecified_recall,Tuned Hybrid (Char),200,0.1397,0.1063,0.175,0.06,0.195,0.31
+real_ocr,intent_task_oriented,Word BM25,200,0.0395,0.0243,0.0582,0.01,0.045,0.08
+real_ocr,intent_task_oriented,Char 3-5g BM25,200,0.054,0.038,0.0721,0.01,0.075,0.12
+real_ocr,intent_task_oriented,Dense MiniLM,200,0.0394,0.0246,0.059,0.01,0.055,0.08
+real_ocr,intent_task_oriented,Dense BGE-base,200,0.0657,0.0438,0.0883,0.02,0.07,0.135
+real_ocr,intent_task_oriented,Tuned Hybrid (Word),200,0.0515,0.0351,0.0703,0.01,0.05,0.095
+real_ocr,intent_task_oriented,Tuned Hybrid (Char),200,0.0598,0.0412,0.0797,0.015,0.065,0.12
+real_ocr,temporal_constraint,Word BM25,200,0.1652,0.1268,0.2109,0.1,0.2,0.27
+real_ocr,temporal_constraint,Char 3-5g BM25,200,0.1014,0.0727,0.1306,0.04,0.13,0.215
+real_ocr,temporal_constraint,Dense MiniLM,200,0.0689,0.045,0.0967,0.035,0.085,0.13
+real_ocr,temporal_constraint,Dense BGE-base,200,0.1225,0.0877,0.1585,0.07,0.155,0.2
+real_ocr,temporal_constraint,Tuned Hybrid (Word),200,0.2116,0.1711,0.2579,0.12,0.26,0.385
+real_ocr,temporal_constraint,Tuned Hybrid (Char),200,0.1257,0.0951,0.1571,0.04,0.185,0.27
+syn_20,baseline_concise,Word BM25,200,0.1426,0.1079,0.1806,0.07,0.22,0.31
+syn_20,baseline_concise,Char 3-5g BM25,200,0.3703,0.3171,0.4247,0.265,0.47,0.61
+syn_20,baseline_concise,Dense MiniLM,200,0.0716,0.0478,0.1016,0.035,0.075,0.135
+syn_20,baseline_concise,Dense BGE-base,200,0.1461,0.1079,0.1888,0.085,0.19,0.25
+syn_20,baseline_concise,Tuned Hybrid (Word),200,0.2311,0.1861,0.282,0.15,0.325,0.405
+syn_20,baseline_concise,Tuned Hybrid (Char),200,0.3833,0.328,0.4359,0.27,0.48,0.58
+syn_20,conversational_dialogue,Word BM25,200,0.1081,0.0782,0.1429,0.055,0.15,0.21
+syn_20,conversational_dialogue,Char 3-5g BM25,200,0.4213,0.3658,0.4791,0.295,0.545,0.67
+syn_20,conversational_dialogue,Dense MiniLM,200,0.0561,0.0339,0.0832,0.03,0.06,0.12
+syn_20,conversational_dialogue,Dense BGE-base,200,0.0948,0.0661,0.1266,0.04,0.13,0.19
+syn_20,conversational_dialogue,Tuned Hybrid (Word),200,0.179,0.1378,0.2229,0.115,0.24,0.305
+syn_20,conversational_dialogue,Tuned Hybrid (Char),200,0.4212,0.3676,0.4767,0.3,0.535,0.68
+syn_20,underspecified_recall,Word BM25,200,0.0166,0.0101,0.0251,0.0,0.025,0.035
+syn_20,underspecified_recall,Char 3-5g BM25,200,0.0751,0.0527,0.1008,0.02,0.09,0.17
+syn_20,underspecified_recall,Dense MiniLM,200,0.0513,0.0292,0.0802,0.03,0.05,0.075
+syn_20,underspecified_recall,Dense BGE-base,200,0.0433,0.0242,0.0671,0.02,0.06,0.075
+syn_20,underspecified_recall,Tuned Hybrid (Word),200,0.0441,0.0277,0.064,0.01,0.065,0.1
+syn_20,underspecified_recall,Tuned Hybrid (Char),200,0.0969,0.0669,0.1293,0.05,0.1,0.17
+syn_20,intent_task_oriented,Word BM25,200,0.0259,0.0128,0.0426,0.01,0.035,0.05
+syn_20,intent_task_oriented,Char 3-5g BM25,200,0.0499,0.0323,0.0711,0.015,0.065,0.11
+syn_20,intent_task_oriented,Dense MiniLM,200,0.0322,0.0175,0.0499,0.01,0.045,0.065
+syn_20,intent_task_oriented,Dense BGE-base,200,0.0238,0.0118,0.04,0.01,0.015,0.045
+syn_20,intent_task_oriented,Tuned Hybrid (Word),200,0.0378,0.0248,0.0545,0.005,0.05,0.095
+syn_20,intent_task_oriented,Tuned Hybrid (Char),200,0.0419,0.0275,0.0596,0.01,0.055,0.085
+syn_20,temporal_constraint,Word BM25,200,0.0558,0.0373,0.078,0.015,0.09,0.15
+syn_20,temporal_constraint,Char 3-5g BM25,200,0.058,0.0406,0.0805,0.015,0.075,0.13
+syn_20,temporal_constraint,Dense MiniLM,200,0.0407,0.0232,0.0612,0.015,0.055,0.085
+syn_20,temporal_constraint,Dense BGE-base,200,0.0431,0.0239,0.0657,0.02,0.045,0.07
+syn_20,temporal_constraint,Tuned Hybrid (Word),200,0.1039,0.0728,0.1381,0.055,0.125,0.205
+syn_20,temporal_constraint,Tuned Hybrid (Char),200,0.0701,0.0487,0.096,0.025,0.08,0.155

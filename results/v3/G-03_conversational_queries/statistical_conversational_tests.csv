@@ -1,0 +1,8 @@
+Comparison,Description,Mean_A,Mean_B,Paired_Diff,Raw_P_Value,Holm_Adj_P_Value,Significant_p05
+Conversational Padding Resilience: Char BM25 vs Word BM25,Character n-gram superiority under conversational dialogue padding,0.5945,0.4092,0.1853,0.0001,0.0007,YES
+Conversational Dialogue: Char BM25 vs Dense BGE,Sparse character lead over dense bi-encoder under dialogue,0.5945,0.4376,0.1569,0.0001,0.0007,YES
+Dialogue Dilution Impact: Word BM25 (Concise vs Dialogue),Word BM25 performance drop from conversational padding,0.4092,0.54,-0.1308,0.0001,0.0007,YES
+Dialogue Dilution Impact: Dense BGE (Concise vs Dialogue),Dense BGE performance drop from conversational padding,0.4376,0.4906,-0.053,0.0254,0.0508,NO
+Dialogue Dilution Impact: Char BM25 (Concise vs Dialogue),Char BM25 stability against conversational padding,0.5945,0.556,0.0385,0.1003,0.1003,NO
+Underspecified Recall: Tuned Hybrid (Char) vs Char BM25,Dense semantic fusion lift on underspecified recall,0.1397,0.1091,0.0306,0.0001,0.0007,YES
+Intent-Based Queries: Tuned Hybrid (Char) vs Word BM25,Hybrid recovery on administrative intent queries,0.0598,0.0395,0.0203,0.0131,0.0393,YES

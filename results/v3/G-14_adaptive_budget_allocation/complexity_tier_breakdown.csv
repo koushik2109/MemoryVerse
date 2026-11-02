@@ -1,0 +1,13 @@
+tier,num_queries,paradigm,mrr,hit@1,hit@10,latency_ms
+Low Complexity,100,Static Fast,1.0,1.0,1.0,2.5
+Low Complexity,100,Static Hybrid,1.0,1.0,1.0,8.5
+Low Complexity,100,Static Full,1.0,1.0,1.0,28.0
+Low Complexity,100,MemoryVerse ACR (Default),1.0,1.0,1.0,8.5
+Medium Complexity,100,Static Fast,0.582,0.43,0.93,2.5
+Medium Complexity,100,Static Hybrid,1.0,1.0,1.0,8.5
+Medium Complexity,100,Static Full,1.0,1.0,1.0,28.0
+Medium Complexity,100,MemoryVerse ACR (Default),1.0,1.0,1.0,12.4
+High Complexity,100,Static Fast,0.0046,0.0,0.0,2.5
+High Complexity,100,Static Hybrid,0.0549,0.01,0.1,8.5
+High Complexity,100,Static Full,1.0,1.0,1.0,28.0
+High Complexity,100,MemoryVerse ACR (Default),1.0,1.0,1.0,28.0

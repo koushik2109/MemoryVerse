@@ -1,0 +1,15 @@
+{
+  "benchmark": "G-12: Video and Audio Modalities as Retrieval Targets",
+  "date": "2026-11-02",
+  "random_seed": 42,
+  "environmental_clips_total": 152,
+  "environmental_queries": 52,
+  "speech_items_total": 100,
+  "speech_queries": 200,
+  "video_items_total": 100,
+  "video_queries": 200,
+  "embedding_model": "BAAI/bge-base-en-v1.5",
+  "acoustic_model": "LAION-CLAP (Continuous Waveform)",
+  "bootstrap_samples": 2000,
+  "permutation_samples": 10000
+}

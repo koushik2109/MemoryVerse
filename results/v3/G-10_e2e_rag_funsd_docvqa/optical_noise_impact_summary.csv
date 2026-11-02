@@ -1,0 +1,6 @@
+system,num_queries,clean_retrieval_mrr,degraded_retrieval_mrr,delta_mrr,p_val_mrr,clean_anls,degraded_anls,delta_anls,p_val_anls,clean_exact_match,degraded_exact_match,delta_em
+Word BM25,100,0.5188,0.4677,-0.0511,0.06729,0.1905,0.1863,-0.0042,0.90731,0.15,0.12,-0.03
+Char 3-5g BM25,100,0.5552,0.5323,-0.0229,0.36176,0.2209,0.2184,-0.0025,0.93611,0.18,0.17,-0.01
+Dense BGE-base,100,0.3666,0.2865,-0.0801,0.0043,0.127,0.0677,-0.0592,0.08779,0.1,0.06,-0.04
+Tuned Hybrid,100,0.5671,0.5349,-0.0322,0.19318,0.2278,0.2181,-0.0097,0.81342,0.2,0.16,-0.04
+Multi-View Fusion,100,0.5221,0.4866,-0.0354,0.22598,0.2236,0.2047,-0.0189,0.60594,0.17,0.15,-0.02

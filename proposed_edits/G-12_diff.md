@@ -1,0 +1,13 @@
+# Proposed Edits: G-12 (Video and Audio Modalities as Retrieval Targets)
+
+### Target File: `paper_v3/ijcds_body.tex`
+### Location: Section 6.C (Dual-Tier Feasibility Pilots) & Section 6 (Limitations)
+
+```diff
+@@ -632,3 +632,5 @@
+ \subsection{Dual-Tier Feasibility Pilots}
+ Prior to establishing the frozen benchmark, exploratory pilots evaluated multimodal proxies across text ($N=334$) and physical media ($N=151$ probes: $N=85$ scene text, $N=13$ ESC-50 audio recordings \cite{piczak2015esc50} via LAION-CLAP \cite{wu2023clap}, and $N=53$ album photos via CLIP ViT-B/32 \cite{radford2021clip}). On physical media, sparse BM25 achieved MRR = 0.7916 on scene text, CLAP achieved MRR = 1.0000 on audio, and CLIP achieved Hit@10 = 0.792 (MRR = 0.6182) on raw photos, confirming modality-specific proxy bounds.
++
++\textbf{Systematic Acoustic, Speech, and Video Benchmarking under Noise:} Expanding audio and video retrieval beyond initial pilots, we systematically evaluated three distinct media regimes: (1) \textit{Environmental Non-Speech Audio} ($N=152$ corpus, 52 descriptive queries across ESC-50): Whisper ASR proxies collapse to 0.0860 MRR on environmental sounds, whereas Native LAION-CLAP achieves 1.0000 MRR on clean waveforms (diff $+0.9140$, $p_{\text{Holm}} < 0.0001$) and retains 0.9471 MRR under severe noise (SNR = 0\,dB), where tag-classifier proxies degrade to 0.2493 MRR. (2) \textit{Spoken Speech Audio} ($N=100$ items, $N=200$ queries): On spoken voice notes, Native CLAP lacks phonetic entity discrimination (MRR = 0.1411), while clean ASR text proxies achieve 0.3990 MRR (Tuned Hybrid $+0.2578$ lift over CLAP, $p_{\text{Holm}} < 0.0001$; Hit@10 = 100.0\% vs 30.5\%). Under severe acoustic babble and reverberation (SNR = 0\,dB, WER = 42.5\%), Word BM25 degrades from 0.3990 to 0.3125 and Dense BGE to 0.3069, whereas Character 3--5g BM25 retains 0.3092 MRR (0.3155 Tuned Hybrid; Hit@10 = 99.0\%), confirming subword tokenization buffers phonetic ASR corruption analogously to OCR degradation. (3) \textit{Personal Video Media} ($N=100$ clips, $N=200$ queries across 4 intent regimes): Single-stream models exhibit severe modality blindness (SigLIP achieves 1.0000 MRR on visual queries but $\le 0.1676$ on audio/dialogue; CLAP achieves 1.0000 on acoustic sounds but $\le 0.0732$ on visual/dialogue). Tri-modal RRF fusion ($k=60$) over Visual SigLIP, Acoustic CLAP, and Whisper Char BM25 unifies all regimes into an empirical ceiling of 0.5376 MRR overall (Hit@10 = 84.50\%, nDCG@10 = 0.6042; 0.9800 MRR on joint multimodal queries), outperforming Two-Stream visual-audio fusion (0.5210 MRR).
+```
+

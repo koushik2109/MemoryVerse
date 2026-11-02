@@ -1,0 +1,15 @@
+evaluation_scope,sample_size_N,comparison,siglip_mrr,gold_mrr,mean_diff,se,ci90,p_tost,power,verdict
+Split_1,1000,SigLIP vs Single Gold Caption,0.6071,0.4129,0.1942,0.01265,"[+0.1734, +0.2151]",1.0,0.0,INCONCLUSIVE
+Split_1,1000,SigLIP vs 5-Ref Gold Captions,0.6071,0.5676,0.0395,0.01281,"[+0.0184, +0.0606]",0.20669,0.2042,INCONCLUSIVE
+Split_2,1000,SigLIP vs Single Gold Caption,0.6058,0.4186,0.1872,0.01275,"[+0.1662, +0.2082]",1.0,0.0,INCONCLUSIVE
+Split_2,1000,SigLIP vs 5-Ref Gold Captions,0.6058,0.5847,0.0211,0.0127,"[+0.0002, +0.0420]",0.0115,0.7363,EQUIVALENT
+Split_3,1000,SigLIP vs Single Gold Caption,0.6071,0.4301,0.177,0.01287,"[+0.1558, +0.1982]",1.0,0.0,INCONCLUSIVE
+Split_3,1000,SigLIP vs 5-Ref Gold Captions,0.6071,0.5847,0.0224,0.01278,"[+0.0014, +0.0434]",0.01552,0.6966,EQUIVALENT
+Split_4,1000,SigLIP vs Single Gold Caption,0.6062,0.4169,0.1893,0.01287,"[+0.1681, +0.2105]",1.0,0.0,INCONCLUSIVE
+Split_4,1000,SigLIP vs 5-Ref Gold Captions,0.6062,0.5844,0.0218,0.01286,"[+0.0006, +0.0430]",0.01429,0.708,EQUIVALENT
+Split_5,1000,SigLIP vs Single Gold Caption,0.6063,0.4139,0.1924,0.01282,"[+0.1713, +0.2135]",1.0,0.0,INCONCLUSIVE
+Split_5,1000,SigLIP vs 5-Ref Gold Captions,0.6063,0.5664,0.0399,0.01272,"[+0.0190, +0.0609]",0.21417,0.197,INCONCLUSIVE
+"Pooled Suite (N=2,500)",2500,SigLIP vs Single Gold Caption,0.6064,0.4187,0.1878,0.00805,"[+0.1745, +0.2010]",1.0,0.0,INCONCLUSIVE
+"Pooled Suite (N=2,500)",2500,SigLIP vs 5-Ref Gold Captions,0.6064,0.578,0.0284,0.00807,"[+0.0151, +0.0417]",0.00377,0.8484,EQUIVALENT
+"Pooled Full Suite (N=5,000)",5000,SigLIP vs Single Gold Caption,0.6065,0.4185,0.188,0.00572,"[+0.1786, +0.1974]",1.0,0.0,INCONCLUSIVE
+"Pooled Full Suite (N=5,000)",5000,SigLIP vs 5-Ref Gold Captions,0.6065,0.5776,0.0289,0.00571,"[+0.0195, +0.0383]",0.00012,0.9794,EQUIVALENT

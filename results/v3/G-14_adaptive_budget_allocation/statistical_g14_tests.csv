@@ -1,0 +1,7 @@
+scope,comparison,mean_a,mean_b,mean_diff,diff_95ci,raw_p,holm_p,significant
+Overall (N=300),MemoryVerse ACR vs Static Fast,1.0,0.5289,0.4711,"[+0.4202, +0.5219]",0.0,0.0,YES (p < 0.05)
+Overall (N=300),MemoryVerse ACR vs Static Hybrid,1.0,0.685,0.315,"[+0.2657, +0.3663]",0.0,0.0,YES (p < 0.05)
+Overall (N=300),MemoryVerse ACR vs Static Full,1.0,1.0,0.0,"[+0.0000, +0.0000]",1.0,1.0,NO
+Overall (N=300),MemoryVerse ACR vs Random Allocation,1.0,0.7421,0.2579,"[+0.2108, +0.3035]",0.0,0.0,YES (p < 0.05)
+High Complexity (N=100),MemoryVerse ACR vs Static Fast,1.0,0.0046,0.9954,"[+0.9938, +0.9967]",0.0,0.0,YES (p < 0.05)
+High Complexity (N=100),MemoryVerse ACR vs Static Hybrid,1.0,0.0549,0.9451,"[+0.9146, +0.9679]",0.0,0.0,YES (p < 0.05)

@@ -1,0 +1,29 @@
+{
+  "benchmark": "G3: Broader Diversity of Human Conversational Queries",
+  "held_out_documents": 200,
+  "total_queries": 1000,
+  "styles_evaluated": [
+    "baseline_concise",
+    "conversational_dialogue",
+    "underspecified_recall",
+    "intent_task_oriented",
+    "temporal_constraint"
+  ],
+  "architectures_evaluated": [
+    "Word BM25",
+    "Char 3-5g BM25",
+    "Dense MiniLM",
+    "Dense BGE-base",
+    "Tuned Hybrid (Word)",
+    "Tuned Hybrid (Char)"
+  ],
+  "conditions_evaluated": [
+    "clean",
+    "real_ocr",
+    "syn_20"
+  ],
+  "n_permutations": 10000,
+  "n_bootstrap": 2000,
+  "device_used": "mps",
+  "timestamp": "2026-11-02 07:21:34 UTC"
+}

@@ -1,0 +1,34 @@
+{
+  "timestamp": "2026-11-02 14:49:07",
+  "git_commit": "1bdc1dae8a8bf26aef06f3b5bf5e6265c7bba617",
+  "primary_margin": 0.05,
+  "sample_sizes_swept": [
+    200,
+    400,
+    600,
+    800,
+    1000,
+    1200,
+    1400,
+    1482,
+    1600,
+    1800,
+    2000,
+    2500,
+    3000,
+    4000,
+    5000
+  ],
+  "margins_swept": [
+    0.03,
+    0.04,
+    0.05,
+    0.06,
+    0.08
+  ],
+  "required_n_80_single": 2292,
+  "required_n_90_single": 3174,
+  "required_n_80_5ref": 940,
+  "required_n_90_5ref": 1292,
+  "runtime_seconds": 46.2
+}

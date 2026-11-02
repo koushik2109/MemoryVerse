@@ -1,0 +1,17 @@
+participant_policy,num_queries,paradigm,unconsented_leakage_pct,coherence_anls_pct
+Public Participants,100,Unconstrained Baseline (No Privacy Controls),0.0,94.65
+Public Participants,100,Blanket Redaction (Heavy Censorship),0.0,51.95
+Public Participants,100,Heuristic Keyword Masking (Regex Only),0.0,88.41
+Public Participants,100,MemoryVerse CAPF (Consent-Aware Proposed),0.0,93.89
+Semi-Private (PII Protected),50,Unconstrained Baseline (No Privacy Controls),0.0,94.9
+Semi-Private (PII Protected),50,Blanket Redaction (Heavy Censorship),0.0,51.27
+Semi-Private (PII Protected),50,Heuristic Keyword Masking (Regex Only),0.0,88.06
+Semi-Private (PII Protected),50,MemoryVerse CAPF (Consent-Aware Proposed),0.0,94.03
+Face Opt-Out Users,100,Unconstrained Baseline (No Privacy Controls),69.0,94.44
+Face Opt-Out Users,100,Blanket Redaction (Heavy Censorship),0.0,52.41
+Face Opt-Out Users,100,Heuristic Keyword Masking (Regex Only),12.0,88.04
+Face Opt-Out Users,100,MemoryVerse CAPF (Consent-Aware Proposed),0.0,93.77
+Quarantined Vaults,50,Unconstrained Baseline (No Privacy Controls),0.0,94.41
+Quarantined Vaults,50,Blanket Redaction (Heavy Censorship),0.0,52.2
+Quarantined Vaults,50,Heuristic Keyword Masking (Regex Only),0.0,87.93
+Quarantined Vaults,50,MemoryVerse CAPF (Consent-Aware Proposed),0.0,92.0

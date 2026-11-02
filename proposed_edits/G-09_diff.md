@@ -1,0 +1,15 @@
+# Proposed Edits: G-09 (Cross-Modal Fusion Beyond Reciprocal Rank Fusion)
+
+### Target File: `paper_v3/ijcds_body.tex`
+### Location: Section 5.E (Cross-Engine OCR Replication and Document-Native Visual Retrieval) & Table XII
+
+```diff
+@@ -530,6 +530,12 @@
+ \textbf{ColQwen2 Retrieval on Document Receipts:} Benchmarking ColQwen2-v1.0 \cite{faysse2024colqwen2} on document images on Tesla T4 GPU yields 0.4962 MRR [95\% CI: 0.4484, 0.5472] under light paraphrasing (+0.0628 over Word BM25 0.4334, $p_{\text{Holm}} = 0.0072$; +0.0627 over Tuned Hybrid 0.4335, $p_{\text{Holm}} = 0.0095$). Conversely, on natural answerable factual questions with preserved topical anchors, CPU lexical retrieval decisively outperforms ColQwen2 on held-out receipts (Char BM25 0.9471 Clean GT / 0.9328 Apple Clean vs.\ ColQwen2 0.8595; diff $+0.0876$, $p = 0.00012$, Table~\ref{tab:regime_grid_v3}). Under artificial entity-abstracted controls, both sparse and native-visual models collapse to mutual floor performance (~0.05 MRR; ColQwen2 0.0546 vs.\ Char BM25 0.0495, diff $+0.0051$, $p_{\text{Holm}}=1.0000$; formal TOST equivalence with $\Delta=\pm 0.05$ holds trivially due to near-zero scores).
+
++\textbf{Cross-Modal Fusion Beyond Heuristic RRF:} To determine whether learned rankers or tri-modal combinations exceed fixed Reciprocal Rank Fusion (RRF, Eq.~\ref{eq:rrf}), we evaluated seven fusion formulations across $N=918$ queries partitioned into a 50/50 stratified Dev/Test split ($459$ tuning queries, $459$ held-out test queries, Table~\ref{tab:learned_fusion_summary}). Surprisingly, unconstrained supervised rankers---such as a 6-feature Logistic Regression reranker ($0.5003$ MRR) and a 2-layer Pairwise Neural RankNet ($0.5158$ MRR)---underperform standard Heuristic RRF ($k=60$: $0.5393$ MRR [95\% CI: 0.4976, 0.5819]; $p_{\text{perm}} = 0.0008$). Supervised margin optimizers overfit to score differentials in the training split, whereas RRF's hyperbolic rank-damping ($1/(k+r)$) serves as an outlier-resistant regularizer that prevents catastrophic misranking when one modality experiences blind miss. Dev-tuning the smoothing constant ($k^*=1$) yields identical test MRR ($0.5393$) to default $k=60$, demonstrating broad parameter insensitivity. However, synthesizing all three distinct representations via \textbf{Tri-Modal Fusion (Character 3--5g BM25 + Word BM25 + ColQwen2)} establishes a new empirical ceiling of \textbf{0.5601} MRR [95\% CI: 0.5189, 0.6037] across the held-out test split, outperforming standalone ColQwen2 ($0.4749$) by $+0.0852$ MRR ($p_{\text{perm}} < 10^{-4}$), standalone Char BM25 ($0.4372$) by $+0.1229$ MRR ($p_{\text{perm}} < 10^{-4}$), and standard 2-way RRF ($0.5393$) by \textbf{+0.0208} MRR ($p_{\text{perm}} < 10^{-4}$, Hit@10 = $65.58\%$). On challenging Light Paraphrases, Tri-Modal Fusion delivers \textbf{0.5722} MRR (Hit@1 = $49.02\%$, Hit@10 = $74.51\%$), yielding a $+0.0535$ MRR lift over 2-way RRF ($0.5187$, $p_{\text{perm}} < 10^{-4}$) and $+0.0778$ lift over ColQwen2 alone ($0.4944$).
++
+ \subsection{Computational Resource and Latency Profile}
+ \label{sec:system_costs_eval}
+```
+

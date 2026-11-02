@@ -1,0 +1,18 @@
+{
+  "benchmark": "G2: Conditional Conformal Risk Control & High-Probability RCPS",
+  "dataset_cache": "results/v3/conformal_pooled_cache.npz",
+  "n_pooled_instances": 2754,
+  "n_unique_clusters": 306,
+  "n_splits": 200,
+  "seed_range": "1000..1199",
+  "target_risk_epsilon": 0.05,
+  "confidence_level": 0.9,
+  "concentration_bounds": [
+    "Clopper-Pearson Exact",
+    "Empirical Bernstein",
+    "Hoeffding"
+  ],
+  "stage1_latency_ms": 0.44588435159579837,
+  "stage2_latency_ms": 84.76746169208424,
+  "timestamp": "2026-11-02 07:07:51 UTC"
+}

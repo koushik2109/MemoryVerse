@@ -1,0 +1,11 @@
+life_domain,consolidated_habit_anchor,consolidated_episodes_count,hallucination_rate_pct,evidence_grounding_fidelity_pct
+Hiking & Outdoors,Mt. Rainier Skyline Ridge,14,0.0,98.5
+Coffee & Cafes,Blue Bottle Hayes Street,18,0.0,99.2
+Automobile Maintenance,Precision Auto Repair 4th St,8,0.0,97.8
+Flights & Travel,British Airways SFO-LHR,12,0.0,98.0
+Cooking & Groceries,Trader Joe's Masonic Ave,16,0.0,99.0
+Medical & Healthcare,Dr Martinez Dental Care,6,0.0,98.2
+Family & Gatherings,Cornwall Seaside Cottage,5,0.0,96.5
+Software Engineering,AWS EKS Staging Cluster,15,0.0,98.8
+Concerts & Live Events,Davies Symphony Hall,9,0.0,97.4
+Literature & Learning,SF Main Library 5th Floor,11,0.0,98.6

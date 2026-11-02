@@ -1,0 +1,7 @@
+Architecture,baseline_concise,conversational_dialogue,underspecified_recall,intent_task_oriented,temporal_constraint,Overall_Conversational_Mean
+Char 3-5g BM25,0.556,0.5945,0.1091,0.054,0.1014,0.2148
+Dense BGE-base,0.4906,0.4376,0.1395,0.0657,0.1225,0.1913
+Dense MiniLM,0.288,0.2598,0.0835,0.0394,0.0689,0.1129
+Tuned Hybrid (Char),0.5776,0.6155,0.1397,0.0598,0.1257,0.2352
+Tuned Hybrid (Word),0.5716,0.5061,0.117,0.0515,0.2116,0.2216
+Word BM25,0.54,0.4092,0.0523,0.0395,0.1652,0.1666

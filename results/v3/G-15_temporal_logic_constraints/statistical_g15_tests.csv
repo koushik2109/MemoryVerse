@@ -1,0 +1,7 @@
+scope,comparison,mean_diff,diff_95ci,raw_p,holm_p,significant
+Overall MRR (N=300),MemoryVerse TLP vs Semantic Vector Search,0.7058,"[+0.6572, +0.7533]",0.0,0.0,YES (p < 0.05)
+Overall MRR (N=300),MemoryVerse TLP vs Naive Hard-Cut Filter,0.7046,"[+0.6548, +0.7508]",0.0,0.0,YES (p < 0.05)
+Overall MRR (N=300),MemoryVerse TLP vs Hybrid Retrieval,0.6191,"[+0.5669, +0.6685]",0.0,0.0,YES (p < 0.05)
+Interval-to-Interval MRR (N=75),MemoryVerse TLP vs Semantic Vector Search,0.8635,"[+0.8108, +0.9088]",0.0,0.0,YES (p < 0.05)
+Interval-to-Interval MRR (N=75),MemoryVerse TLP vs Naive Hard-Cut Filter,0.8635,"[+0.8153, +0.9085]",0.0,0.0,YES (p < 0.05)
+Relative Precedence MRR (N=75),MemoryVerse TLP vs Semantic Vector Search,0.9977,"[+0.9973, +0.9980]",0.0,0.0,YES (p < 0.05)

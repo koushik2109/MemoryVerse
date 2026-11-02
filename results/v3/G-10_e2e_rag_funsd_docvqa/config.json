@@ -1,0 +1,16 @@
+{
+  "timestamp": "2026-11-02 14:41:23",
+  "git_commit": "1bdc1dae8a8bf26aef06f3b5bf5e6265c7bba617",
+  "total_queries_evaluated": 150,
+  "funsd_queries": 100,
+  "docvqa_queries": 50,
+  "funsd_pool_size": 600,
+  "docvqa_pool_size": 500,
+  "generator_model": "gpt-4o-mini",
+  "temperature": 0.0,
+  "max_tokens": 60,
+  "seed": 42,
+  "b_boot": 2000,
+  "b_perm": 10000,
+  "runtime_seconds": 93.06
+}

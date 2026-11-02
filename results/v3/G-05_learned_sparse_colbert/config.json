@@ -1,0 +1,29 @@
+{
+  "item_id": "G-05",
+  "title": "Cross-Encoder Cascades, Learned-Sparse (SPLADE), and Late-Interaction (ColBERTv2) under OCR Noise",
+  "seed": 42,
+  "git_commit": "1bdc1dae8a8bf26aef06f3b5bf5e6265c7bba617",
+  "k_values": [
+    5,
+    10,
+    15,
+    20,
+    30,
+    50,
+    100
+  ],
+  "n_documents": 813,
+  "n_probes": 306,
+  "conditions": [
+    "Apple Clean Real-OCR",
+    "Apple Degraded Optical Blur"
+  ],
+  "query_slices": [
+    "Verbatim Lookup",
+    "Light Paraphrase",
+    "Answerable Question"
+  ],
+  "b_bootstrap": 2000,
+  "b_permutation": 10000,
+  "execution_time_sec": 54.92
+}

@@ -1,0 +1,25 @@
+{
+  "item_id": "G-06",
+  "title": "Real-World Retrieval Pool Contamination and Near-Duplicate Distractor Collisions",
+  "seed": 42,
+  "git_commit": "1bdc1dae8a8bf26aef06f3b5bf5e6265c7bba617",
+  "contamination_rates": [
+    0.0,
+    0.05,
+    0.1,
+    0.2,
+    0.4
+  ],
+  "n_base_documents": 813,
+  "n_max_documents": 1138,
+  "n_near_duplicates_injected": 325,
+  "n_probes": 306,
+  "query_slices": [
+    "Specific_Transaction",
+    "Coarse_Vendor",
+    "Natural_Question"
+  ],
+  "b_bootstrap": 2000,
+  "b_permutation": 10000,
+  "execution_time_sec": 217.59
+}

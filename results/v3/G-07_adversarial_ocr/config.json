@@ -1,0 +1,20 @@
+{
+  "item_id": "G-07",
+  "title": "Retrieval Robustness under Adversarial OCR Obfuscation & Homoglyphs",
+  "seed": 42,
+  "git_commit": "1bdc1dae8a8bf26aef06f3b5bf5e6265c7bba617",
+  "attack_regimes": [
+    "Clean Baseline",
+    "Homoglyph Substitution (25%)",
+    "Homoglyph Substitution (50%)",
+    "Zero-Width Space Injection",
+    "Leetspeak Obfuscation",
+    "Watermark Bleed (CONFIDENTIAL)",
+    "Combined Multi-Vector Attack"
+  ],
+  "n_documents": 813,
+  "n_probes": 306,
+  "b_bootstrap": 2000,
+  "b_permutation": 10000,
+  "execution_time_sec": 251.19
+}

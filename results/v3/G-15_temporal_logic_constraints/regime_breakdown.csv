@@ -1,0 +1,17 @@
+temporal_regime,num_queries,retrieval_paradigm,mrr,hit@1,hit@10,csr_pct,cvr_pct
+Point-to-Interval (After/Before),75,Standard Semantic Vector Search,0.1615,0.1467,0.2,66.67,33.33
+Point-to-Interval (After/Before),75,Naive Hard-Cut Date Filtering,0.1664,0.1467,0.2,100.0,0.0
+Point-to-Interval (After/Before),75,Hybrid Lexical + Dense (No Planner),0.1826,0.1467,0.2,77.33,22.67
+Point-to-Interval (After/Before),75,MemoryVerse Temporal Logic Planner (Proposed),0.1664,0.1467,0.2,100.0,0.0
+Interval-to-Interval (Between),75,Standard Semantic Vector Search,0.0365,0.0133,0.0533,1.33,98.67
+Interval-to-Interval (Between),75,Naive Hard-Cut Date Filtering,0.0365,0.0133,0.0533,1.33,98.67
+Interval-to-Interval (Between),75,Hybrid Lexical + Dense (No Planner),0.2328,0.1467,0.3733,14.67,85.33
+Interval-to-Interval (Between),75,MemoryVerse Temporal Logic Planner (Proposed),0.9,0.8,1.0,100.0,0.0
+Qualitative Overlap (During),75,Standard Semantic Vector Search,0.0428,0.0133,0.08,1.33,98.67
+Qualitative Overlap (During),75,Naive Hard-Cut Date Filtering,0.0428,0.0133,0.08,1.33,98.67
+Qualitative Overlap (During),75,Hybrid Lexical + Dense (No Planner),0.1708,0.1333,0.2,13.33,86.67
+Qualitative Overlap (During),75,MemoryVerse Temporal Logic Planner (Proposed),1.0,1.0,1.0,100.0,0.0
+Relative Precedence (Immediately After),75,Standard Semantic Vector Search,0.0023,0.0,0.0,0.0,100.0
+Relative Precedence (Immediately After),75,Naive Hard-Cut Date Filtering,0.0023,0.0,0.0,0.0,100.0
+Relative Precedence (Immediately After),75,Hybrid Lexical + Dense (No Planner),0.0039,0.0,0.0,0.0,100.0
+Relative Precedence (Immediately After),75,MemoryVerse Temporal Logic Planner (Proposed),1.0,1.0,1.0,100.0,0.0

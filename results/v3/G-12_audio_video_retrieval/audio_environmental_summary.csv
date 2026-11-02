@@ -1,0 +1,21 @@
+modality,condition,snr_db,retrieval_system,mrr,mrr_95ci,hit@1,hit@5,hit@10,ndcg@10,latency_ms
+Acoustic Environmental,Clean Audio (30 dB),30,Whisper Speech Proxy (Text BM25),0.086,"[0.0285, 0.1622]",0.0769,0.0769,0.0769,0.0769,0.08
+Acoustic Environmental,Clean Audio (30 dB),30,Tag-Classifier Proxy (Dense BGE),0.9007,"[0.8167, 0.9675]",0.8846,0.9423,0.9808,0.9185,18.4
+Acoustic Environmental,Clean Audio (30 dB),30,Native Acoustic CLAP (Continuous Waveform),1.0,"[1.0000, 1.0000]",1.0,1.0,1.0,1.0,42.6
+Acoustic Environmental,Clean Audio (30 dB),30,"Multimodal Fusion (CLAP + Tag Proxy, RRF k=60)",0.9835,"[0.9505, 1.0000]",0.9808,0.9808,1.0,0.9872,18.4
+Acoustic Environmental,SNR 15 dB,15,Whisper Speech Proxy (Text BM25),0.086,"[0.0285, 0.1622]",0.0769,0.0769,0.0769,0.0769,0.08
+Acoustic Environmental,SNR 15 dB,15,Tag-Classifier Proxy (Dense BGE),0.6965,"[0.5900, 0.8016]",0.5962,0.8269,0.9038,0.7423,18.4
+Acoustic Environmental,SNR 15 dB,15,Native Acoustic CLAP (Continuous Waveform),1.0,"[1.0000, 1.0000]",1.0,1.0,1.0,1.0,42.6
+Acoustic Environmental,SNR 15 dB,15,"Multimodal Fusion (CLAP + Tag Proxy, RRF k=60)",0.9515,"[0.8965, 0.9904]",0.9231,0.9808,1.0,0.9634,18.4
+Acoustic Environmental,SNR 5 dB,5,Whisper Speech Proxy (Text BM25),0.086,"[0.0285, 0.1622]",0.0769,0.0769,0.0769,0.0769,0.08
+Acoustic Environmental,SNR 5 dB,5,Tag-Classifier Proxy (Dense BGE),0.5203,"[0.4121, 0.6357]",0.4038,0.6346,0.75,0.5633,18.4
+Acoustic Environmental,SNR 5 dB,5,Native Acoustic CLAP (Continuous Waveform),1.0,"[1.0000, 1.0000]",1.0,1.0,1.0,1.0,42.6
+Acoustic Environmental,SNR 5 dB,5,"Multimodal Fusion (CLAP + Tag Proxy, RRF k=60)",0.8998,"[0.8349, 0.9615]",0.8462,0.9615,1.0,0.9242,18.4
+Acoustic Environmental,SNR 0 dB,0,Whisper Speech Proxy (Text BM25),0.086,"[0.0285, 0.1622]",0.0769,0.0769,0.0769,0.0769,0.08
+Acoustic Environmental,SNR 0 dB,0,Tag-Classifier Proxy (Dense BGE),0.2493,"[0.1737, 0.3335]",0.1154,0.4231,0.5962,0.3142,18.4
+Acoustic Environmental,SNR 0 dB,0,Native Acoustic CLAP (Continuous Waveform),0.9471,"[0.8990, 0.9857]",0.9038,1.0,1.0,0.9607,42.6
+Acoustic Environmental,SNR 0 dB,0,"Multimodal Fusion (CLAP + Tag Proxy, RRF k=60)",0.7352,"[0.6398, 0.8161]",0.5962,0.9038,1.0,0.7993,18.4
+Acoustic Environmental,SNR -5 dB,-5,Whisper Speech Proxy (Text BM25),0.086,"[0.0285, 0.1622]",0.0769,0.0769,0.0769,0.0769,0.08
+Acoustic Environmental,SNR -5 dB,-5,Tag-Classifier Proxy (Dense BGE),0.3163,"[0.2301, 0.4107]",0.1731,0.4423,0.7692,0.4118,18.4
+Acoustic Environmental,SNR -5 dB,-5,Native Acoustic CLAP (Continuous Waveform),0.8934,"[0.8261, 0.9535]",0.8269,0.9808,1.0,0.9198,42.6
+Acoustic Environmental,SNR -5 dB,-5,"Multimodal Fusion (CLAP + Tag Proxy, RRF k=60)",0.8073,"[0.7137, 0.8944]",0.7308,0.9038,0.9808,0.8474,18.4

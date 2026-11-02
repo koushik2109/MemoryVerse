@@ -1,0 +1,24 @@
+{
+  "sample_size": 100,
+  "correctness": {
+    "observed_agreement": 1.0,
+    "cohens_kappa": 1.0,
+    "kappa_ci_lower": 1.0,
+    "kappa_ci_upper": 1.0,
+    "interpretation": "Almost Perfect Agreement"
+  },
+  "faithfulness": {
+    "observed_agreement": 0.97,
+    "cohens_kappa": 0.5588,
+    "kappa_ci_lower": 0.0,
+    "kappa_ci_upper": 1.0,
+    "interpretation": "Substantial Agreement"
+  },
+  "relevance": {
+    "observed_agreement": 0.98,
+    "cohens_kappa": 0.9571,
+    "kappa_ci_lower": 0.8906,
+    "kappa_ci_upper": 1.0,
+    "interpretation": "Almost Perfect Agreement"
+  }
+}

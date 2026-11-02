@@ -1,0 +1,19 @@
+{
+  "item_id": "G-04",
+  "title": "Multi-Script Benchmark across Typologically Diverse Writing Systems",
+  "seed": 42,
+  "git_commit": "1bdc1dae8a8bf26aef06f3b5bf5e6265c7bba617",
+  "scripts_evaluated": [
+    "Latin",
+    "Arabic",
+    "CJK",
+    "Devanagari"
+  ],
+  "n_documents_per_script": 100,
+  "total_documents": 400,
+  "n_queries_per_slice": 100,
+  "total_queries": 1200,
+  "n_bootstrap": 2000,
+  "n_permutation": 10000,
+  "execution_time_sec": 21.41
+}

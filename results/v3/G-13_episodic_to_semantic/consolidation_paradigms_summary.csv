@@ -1,0 +1,17 @@
+evaluation_scope,num_queries,retrieval_paradigm,mrr,mrr_95ci,hit@1,hit@5,hit@10,ndcg@10,latency_ms,memory_mb
+Overall (N=300),300,Flat Unconsolidated Episodic RAG (Baseline),0.4088,"[0.3613, 0.4577]",0.35,0.43,0.51,0.4183,24.5,48.2
+Overall (N=300),300,Decay-Only Episodic RAG (Ebbinghaus Forgetting),0.5318,"[0.4793, 0.5824]",0.4533,0.5933,0.6467,0.5558,24.5,48.2
+Overall (N=300),300,Periodic Static Summary RAG,0.4194,"[0.3703, 0.4700]",0.36,0.44,0.52,0.4277,28.2,54.6
+Overall (N=300),300,MemoryVerse Dual-Store Consolidation (Proposed),0.9917,"[0.9833, 0.9983]",0.9833,1.0,1.0,0.9938,6.2,51.4
+Type A: Specific Episodic Recall,100,Flat Unconsolidated Episodic RAG (Baseline),0.9567,"[0.9250, 0.9850]",0.92,1.0,1.0,0.9679,24.5,48.2
+Type A: Specific Episodic Recall,100,Decay-Only Episodic RAG (Ebbinghaus Forgetting),0.0523,"[0.0227, 0.0863]",0.02,0.08,0.09,0.0557,24.5,48.2
+Type A: Specific Episodic Recall,100,Periodic Static Summary RAG,0.9567,"[0.9250, 0.9850]",0.92,1.0,1.0,0.9679,28.2,54.6
+Type A: Specific Episodic Recall,100,MemoryVerse Dual-Store Consolidation (Proposed),0.975,"[0.9500, 0.9950]",0.95,1.0,1.0,0.9815,6.2,51.4
+Type B: Semantic Habit Extraction,100,Flat Unconsolidated Episodic RAG (Baseline),0.2006,"[0.1393, 0.2650]",0.13,0.19,0.33,0.2128,24.5,48.2
+Type B: Semantic Habit Extraction,100,Decay-Only Episodic RAG (Ebbinghaus Forgetting),0.7288,"[0.6470, 0.8031]",0.64,0.8,0.85,0.7522,24.5,48.2
+Type B: Semantic Habit Extraction,100,Periodic Static Summary RAG,0.2324,"[0.1645, 0.3024]",0.16,0.22,0.36,0.2408,28.2,54.6
+Type B: Semantic Habit Extraction,100,MemoryVerse Dual-Store Consolidation (Proposed),1.0,"[1.0000, 1.0000]",1.0,1.0,1.0,1.0,6.2,51.4
+Type C: Cross-Tier Coordinated,100,Flat Unconsolidated Episodic RAG (Baseline),0.0691,"[0.0571, 0.0814]",0.0,0.1,0.2,0.0743,24.5,48.2
+Type C: Cross-Tier Coordinated,100,Decay-Only Episodic RAG (Ebbinghaus Forgetting),0.8143,"[0.7543, 0.8736]",0.7,0.9,1.0,0.8595,24.5,48.2
+Type C: Cross-Tier Coordinated,100,Periodic Static Summary RAG,0.0691,"[0.0571, 0.0814]",0.0,0.1,0.2,0.0743,28.2,54.6
+Type C: Cross-Tier Coordinated,100,MemoryVerse Dual-Store Consolidation (Proposed),1.0,"[1.0000, 1.0000]",1.0,1.0,1.0,1.0,6.2,51.4

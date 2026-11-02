@@ -1,0 +1,12 @@
+{
+  "benchmark": "G-13: Long-Term Episodic-to-Semantic Memory Consolidation",
+  "date": "2026-11-02",
+  "random_seed": 42,
+  "timeline_days": 730,
+  "total_episodic_memories": 1000,
+  "total_evaluation_queries": 300,
+  "embedding_model": "BAAI/bge-base-en-v1.5",
+  "rehearsal_boost_factor": 0.6,
+  "bootstrap_samples": 2000,
+  "permutation_samples": 10000
+}

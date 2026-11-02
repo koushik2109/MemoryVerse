@@ -1,0 +1,2802 @@
+[
+  {
+    "query_id": 0,
+    "target_doc_id": 0,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "across enterprise archives digital libraries and",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 1,
+    "target_doc_id": 0,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "Proxies Su\ufb03ce Abstract Multimodal",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 2,
+    "target_doc_id": 0,
+    "slice": "Cross-Column Relational",
+    "query_text": "Su\ufb03ce Regime evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 3,
+    "target_doc_id": 0,
+    "slice": "Topical Paraphrase",
+    "query_text": "What are the empirical retrieval results and latency trade-offs discussed in Main Manuscript p.1?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 4,
+    "target_doc_id": 1,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "1223 subwordsword is associated with the",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 5,
+    "target_doc_id": 1,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "latency environment speci\ufb01c serving",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 6,
+    "target_doc_id": 1,
+    "slice": "Cross-Column Relational",
+    "query_text": "latency entropy evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 7,
+    "target_doc_id": 1,
+    "slice": "Topical Paraphrase",
+    "query_text": "What are the empirical retrieval results and latency trade-offs discussed in Main Manuscript p.2?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 8,
+    "target_doc_id": 2,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "tional cascade rankers rely on empirical",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 9,
+    "target_doc_id": 2,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "with Prior System",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 10,
+    "target_doc_id": 2,
+    "slice": "Cross-Column Relational",
+    "query_text": "Comparison Information evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 11,
+    "target_doc_id": 2,
+    "slice": "Topical Paraphrase",
+    "query_text": "What are the empirical retrieval results and latency trade-offs discussed in Main Manuscript p.3?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 12,
+    "target_doc_id": 3,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "its source document as the unique",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 13,
+    "target_doc_id": 3,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "textproxy RAG preprocessing paths",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 14,
+    "target_doc_id": 3,
+    "slice": "Cross-Column Relational",
+    "query_text": "architecture blocks evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 15,
+    "target_doc_id": 3,
+    "slice": "Topical Paraphrase",
+    "query_text": "What are the empirical retrieval results and latency trade-offs discussed in Main Manuscript p.4?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 16,
+    "target_doc_id": 4,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "m  7 Con\ufb01dence intervals 95",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 17,
+    "target_doc_id": 4,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "95 bootstrap error bars",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 18,
+    "target_doc_id": 4,
+    "slice": "Cross-Column Relational",
+    "query_text": "e\ufb00ectiveness di\ufb00 evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 19,
+    "target_doc_id": 4,
+    "slice": "Topical Paraphrase",
+    "query_text": "What are the empirical retrieval results and latency trade-offs discussed in Main Manuscript p.5?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 20,
+    "target_doc_id": 5,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "Dense BGEbase unchunked 0276 0376",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 21,
+    "target_doc_id": 5,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "Analysis across Probes 813",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 22,
+    "target_doc_id": 5,
+    "slice": "Cross-Column Relational",
+    "query_text": "Proxy Held evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 23,
+    "target_doc_id": 5,
+    "slice": "Topical Paraphrase",
+    "query_text": "What are the empirical retrieval results and latency trade-offs discussed in Main Manuscript p.6?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 24,
+    "target_doc_id": 6,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "chor entities KeywordMatched Probes improves BGE",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 25,
+    "target_doc_id": 6,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "token overlap optical OCR",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 26,
+    "target_doc_id": 6,
+    "slice": "Cross-Column Relational",
+    "query_text": "response overlap evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 27,
+    "target_doc_id": 6,
+    "slice": "Topical Paraphrase",
+    "query_text": "What are the empirical retrieval results and latency trade-offs discussed in Main Manuscript p.7?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 28,
+    "target_doc_id": 7,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "Dense MiniLM FirstStage Stream Only K1",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 29,
+    "target_doc_id": 7,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "a WordPiece embedding drift",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 30,
+    "target_doc_id": 7,
+    "slice": "Cross-Column Relational",
+    "query_text": "dense rates evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 31,
+    "target_doc_id": 7,
+    "slice": "Topical Paraphrase",
+    "query_text": "What are the empirical retrieval results and latency trade-offs discussed in Main Manuscript p.8?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 32,
+    "target_doc_id": 8,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "Tuned Char  BGE 09436 09837",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 33,
+    "target_doc_id": 8,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "Cascade Ablation HeldOut Test",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 34,
+    "target_doc_id": 8,
+    "slice": "Cross-Column Relational",
+    "query_text": "Cross Figure evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 35,
+    "target_doc_id": 8,
+    "slice": "Topical Paraphrase",
+    "query_text": "What are the empirical retrieval results and latency trade-offs discussed in Main Manuscript p.9?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 36,
+    "target_doc_id": 9,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "In Table VIII we report both",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 37,
+    "target_doc_id": 9,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "Retrieval Per formance on",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 38,
+    "target_doc_id": 9,
+    "slice": "Cross-Column Relational",
+    "query_text": "Dataset across evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 39,
+    "target_doc_id": 9,
+    "slice": "Topical Paraphrase",
+    "query_text": "What are the empirical retrieval results and latency trade-offs discussed in Main Manuscript p.10?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 40,
+    "target_doc_id": 10,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "0089 0150 0081 0140 0055 0102",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 41,
+    "target_doc_id": 10,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "SROIE Retail 55 LSTM",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 42,
+    "target_doc_id": 10,
+    "slice": "Cross-Column Relational",
+    "query_text": "Engine Retail evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 43,
+    "target_doc_id": 10,
+    "slice": "Topical Paraphrase",
+    "query_text": "What are the empirical retrieval results and latency trade-offs discussed in Main Manuscript p.11?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 44,
+    "target_doc_id": 11,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "Retrieval Systems N 813 Index Pool",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 45,
+    "target_doc_id": 11,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "Paraphrase Retrieval under OpenWeight",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 46,
+    "target_doc_id": 11,
+    "slice": "Cross-Column Relational",
+    "query_text": "Robustness Supported evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 47,
+    "target_doc_id": 11,
+    "slice": "Topical Paraphrase",
+    "query_text": "What are the empirical retrieval results and latency trade-offs discussed in Main Manuscript p.12?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 48,
+    "target_doc_id": 12,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "Natural Unannotated Descriptive SigLIP Base 06071",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 49,
+    "target_doc_id": 12,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "System Builders p",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 50,
+    "target_doc_id": 12,
+    "slice": "Cross-Column Relational",
+    "query_text": "Empirical Optimal evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 51,
+    "target_doc_id": 12,
+    "slice": "Topical Paraphrase",
+    "query_text": "What are the empirical retrieval results and latency trade-offs discussed in Main Manuscript p.13?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 52,
+    "target_doc_id": 13,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "acter ngram robustness and dictionary reliability",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 53,
+    "target_doc_id": 13,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "08926 relevance 6 MultiHop",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 54,
+    "target_doc_id": 13,
+    "slice": "Cross-Column Relational",
+    "query_text": "8926 MRR evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 55,
+    "target_doc_id": 13,
+    "slice": "Topical Paraphrase",
+    "query_text": "What are the empirical retrieval results and latency trade-offs discussed in Main Manuscript p.14?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 56,
+    "target_doc_id": 14,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "Multimodal retrieval is what you need",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 57,
+    "target_doc_id": 14,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "Available httpshuggingfaceco 13 M",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 58,
+    "target_doc_id": 14,
+    "slice": "Cross-Column Relational",
+    "query_text": "2024 Angelopoulos evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 59,
+    "target_doc_id": 14,
+    "slice": "Topical Paraphrase",
+    "query_text": "What are the empirical retrieval results and latency trade-offs discussed in Main Manuscript p.15?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 60,
+    "target_doc_id": 15,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "ciated with query formulation mismatch answerable",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 61,
+    "target_doc_id": 15,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "MM et RAG frequently",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 62,
+    "target_doc_id": 15,
+    "slice": "Cross-Column Relational",
+    "query_text": "Sparse Noise evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 63,
+    "target_doc_id": 15,
+    "slice": "Topical Paraphrase",
+    "query_text": "What are the empirical retrieval results and latency trade-offs discussed in V10 Manuscript p.1?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 64,
+    "target_doc_id": 16,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "at 24921 ms on Tesla T4",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 65,
+    "target_doc_id": 16,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "clean Tesseract all pHolm",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 66,
+    "target_doc_id": 16,
+    "slice": "Cross-Column Relational",
+    "query_text": "blur Grounded evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 67,
+    "target_doc_id": 16,
+    "slice": "Topical Paraphrase",
+    "query_text": "What are the empirical retrieval results and latency trade-offs discussed in V10 Manuscript p.2?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 68,
+    "target_doc_id": 17,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "CPU text proxies match or exceed",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 69,
+    "target_doc_id": 17,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "pages using multivector visionlanguage",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 70,
+    "target_doc_id": 17,
+    "slice": "Cross-Column Relational",
+    "query_text": "index inverted evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 71,
+    "target_doc_id": 17,
+    "slice": "Topical Paraphrase",
+    "query_text": "What are the empirical retrieval results and latency trade-offs discussed in V10 Manuscript p.3?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 72,
+    "target_doc_id": 18,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "decomposition optional Otsu binarization 15 and",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 73,
+    "target_doc_id": 18,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "reducing computational The reference",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 74,
+    "target_doc_id": 18,
+    "slice": "Cross-Column Relational",
+    "query_text": "miss \u02c6Ssparse evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 75,
+    "target_doc_id": 18,
+    "slice": "Topical Paraphrase",
+    "query_text": "What are the empirical retrieval results and latency trade-offs discussed in V10 Manuscript p.4?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 76,
+    "target_doc_id": 19,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "TABLE II Architectural comparison of multimodal",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 77,
+    "target_doc_id": 19,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "with Prior System",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 78,
+    "target_doc_id": 19,
+    "slice": "Cross-Column Relational",
+    "query_text": "with Multi evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 79,
+    "target_doc_id": 19,
+    "slice": "Topical Paraphrase",
+    "query_text": "What are the empirical retrieval results and latency trade-offs discussed in V10 Manuscript p.5?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 80,
+    "target_doc_id": 20,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "12 \u03c4 Stage 1 ranking is",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 81,
+    "target_doc_id": 20,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "introduce A an uncorrupted",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 82,
+    "target_doc_id": 20,
+    "slice": "Cross-Column Relational",
+    "query_text": "sparse Degradation evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 83,
+    "target_doc_id": 20,
+    "slice": "Topical Paraphrase",
+    "query_text": "What are the empirical retrieval results and latency trade-offs discussed in V10 Manuscript p.6?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 84,
+    "target_doc_id": 21,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "BM25 Char 35gram 09653 0947 0982",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 85,
+    "target_doc_id": 21,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "Regime Analysis Test Split",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 86,
+    "target_doc_id": 21,
+    "slice": "Cross-Column Relational",
+    "query_text": "Text Regimes evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 87,
+    "target_doc_id": 21,
+    "slice": "Topical Paraphrase",
+    "query_text": "What are the empirical retrieval results and latency trade-offs discussed in V10 Manuscript p.7?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 88,
+    "target_doc_id": 22,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "displays greater structural resistance cosine similarity",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 89,
+    "target_doc_id": 22,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "b Embedding Fig 4",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 90,
+    "target_doc_id": 22,
+    "slice": "Cross-Column Relational",
+    "query_text": "Fig Attribution evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 91,
+    "target_doc_id": 22,
+    "slice": "Topical Paraphrase",
+    "query_text": "What are the empirical retrieval results and latency trade-offs discussed in V10 Manuscript p.8?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 92,
+    "target_doc_id": 23,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "09495 Dev MRR con\ufb01rming that dense",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 93,
+    "target_doc_id": 23,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "and Pro Table V",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 94,
+    "target_doc_id": 23,
+    "slice": "Cross-Column Relational",
+    "query_text": "Pipeline illustrating evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 95,
+    "target_doc_id": 23,
+    "slice": "Topical Paraphrase",
+    "query_text": "What are the empirical retrieval results and latency trade-offs discussed in V10 Manuscript p.9?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 96,
+    "target_doc_id": 24,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "OCR Candidate Depth K1  20",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 97,
+    "target_doc_id": 24,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "on Public Cluster Bootstrap",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 98,
+    "target_doc_id": 24,
+    "slice": "Cross-Column Relational",
+    "query_text": "Ablation Distractor evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 99,
+    "target_doc_id": 24,
+    "slice": "Topical Paraphrase",
+    "query_text": "What are the empirical retrieval results and latency trade-offs discussed in V10 Manuscript p.10?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 100,
+    "target_doc_id": 25,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "pletely compressed into synthetic machine tokens",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 101,
+    "target_doc_id": 25,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "1000 images native",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 102,
+    "target_doc_id": 25,
+    "slice": "Cross-Column Relational",
+    "query_text": "COCO minimum evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 103,
+    "target_doc_id": 25,
+    "slice": "Topical Paraphrase",
+    "query_text": "What are the empirical retrieval results and latency trade-offs discussed in V10 Manuscript p.11?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 104,
+    "target_doc_id": 26,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "As detailed in Table XII clean",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 105,
+    "target_doc_id": 26,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "and twotailed Comparison of",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 106,
+    "target_doc_id": 26,
+    "slice": "Cross-Column Relational",
+    "query_text": "discordant multi evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 107,
+    "target_doc_id": 26,
+    "slice": "Topical Paraphrase",
+    "query_text": "What are the empirical retrieval results and latency trade-offs discussed in V10 Manuscript p.12?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 108,
+    "target_doc_id": 27,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "TABLE XIV CrossDataset Replication on FUNSD",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 109,
+    "target_doc_id": 27,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "Replication Retrieval OCR and",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 110,
+    "target_doc_id": 27,
+    "slice": "Cross-Column Relational",
+    "query_text": "Engine Neural evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 111,
+    "target_doc_id": 27,
+    "slice": "Topical Paraphrase",
+    "query_text": "What are the empirical retrieval results and latency trade-offs discussed in V10 Manuscript p.13?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 112,
+    "target_doc_id": 28,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "Metric is MRR for rows 16",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 113,
+    "target_doc_id": 28,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "Latency Pro\ufb01le CPUGPU 16",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 114,
+    "target_doc_id": 28,
+    "slice": "Cross-Column Relational",
+    "query_text": "and Pool evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 115,
+    "target_doc_id": 28,
+    "slice": "Topical Paraphrase",
+    "query_text": "What are the empirical retrieval results and latency trade-offs discussed in V10 Manuscript p.14?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 116,
+    "target_doc_id": 29,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "03400 whereas answerable factual questions",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 117,
+    "target_doc_id": 29,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "exploratory power limits Query",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 118,
+    "target_doc_id": 29,
+    "slice": "Cross-Column Relational",
+    "query_text": "utility reverses evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 119,
+    "target_doc_id": 29,
+    "slice": "Topical Paraphrase",
+    "query_text": "What are the empirical retrieval results and latency trade-offs discussed in V10 Manuscript p.15?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 120,
+    "target_doc_id": 30,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "methods in Proc 32nd Int ACM",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 121,
+    "target_doc_id": 30,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "to bind them all",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 122,
+    "target_doc_id": 30,
+    "slice": "Cross-Column Relational",
+    "query_text": "embedding robust evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 123,
+    "target_doc_id": 30,
+    "slice": "Topical Paraphrase",
+    "query_text": "What are the empirical retrieval results and latency trade-offs discussed in V10 Manuscript p.16?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 124,
+    "target_doc_id": 31,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "Prior to establishing the frozen public",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 125,
+    "target_doc_id": 31,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "BLIP2 Bootstrapping languageimage pretraining",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 126,
+    "target_doc_id": 31,
+    "slice": "Cross-Column Relational",
+    "query_text": "BLIP Benchmarks evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 127,
+    "target_doc_id": 31,
+    "slice": "Topical Paraphrase",
+    "query_text": "What are the empirical retrieval results and latency trade-offs discussed in V10 Manuscript p.17?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 128,
+    "target_doc_id": 32,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "MRR to 05263 Hit10 7974 Conformal",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 129,
+    "target_doc_id": 32,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "pixels Evalu ating a",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 130,
+    "target_doc_id": 32,
+    "slice": "Cross-Column Relational",
+    "query_text": "Sparse Noise evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 131,
+    "target_doc_id": 32,
+    "slice": "Topical Paraphrase",
+    "query_text": "What are the empirical retrieval results and latency trade-offs discussed in V9 Manuscript p.1?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 132,
+    "target_doc_id": 33,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "at 24921 ms on Tesla T4",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 133,
+    "target_doc_id": 33,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "retrieval su periority under",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 134,
+    "target_doc_id": 33,
+    "slice": "Cross-Column Relational",
+    "query_text": "achieving encoders evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 135,
+    "target_doc_id": 33,
+    "slice": "Topical Paraphrase",
+    "query_text": "What are the empirical retrieval results and latency trade-offs discussed in V9 Manuscript p.2?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 136,
+    "target_doc_id": 34,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "feedback achieves parity in retrieval reachability",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 137,
+    "target_doc_id": 34,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "which sub millisecond CPU",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 138,
+    "target_doc_id": 34,
+    "slice": "Cross-Column Relational",
+    "query_text": "exact for evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 139,
+    "target_doc_id": 34,
+    "slice": "Topical Paraphrase",
+    "query_text": "What are the empirical retrieval results and latency trade-offs discussed in V9 Manuscript p.3?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 140,
+    "target_doc_id": 35,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "and ranking paradigms Note As demonstrated",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 141,
+    "target_doc_id": 35,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "with Prior System",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 142,
+    "target_doc_id": 35,
+    "slice": "Cross-Column Relational",
+    "query_text": "with Multi evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 143,
+    "target_doc_id": 35,
+    "slice": "Topical Paraphrase",
+    "query_text": "What are the empirical retrieval results and latency trade-offs discussed in V9 Manuscript p.4?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 144,
+    "target_doc_id": 36,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "tions independently preventing \ufb01negrained tokenlevel cross",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 145,
+    "target_doc_id": 36,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "Convex Combination Shybridq d",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 146,
+    "target_doc_id": 36,
+    "slice": "Cross-Column Relational",
+    "query_text": "Combination Retrieval evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 147,
+    "target_doc_id": 36,
+    "slice": "Topical Paraphrase",
+    "query_text": "What are the empirical retrieval results and latency trade-offs discussed in V9 Manuscript p.5?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 148,
+    "target_doc_id": 37,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "ous margins 12  \u03c4 top",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 149,
+    "target_doc_id": 37,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "zeroshot A SRAMPq d",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 150,
+    "target_doc_id": 37,
+    "slice": "Cross-Column Relational",
+    "query_text": "clean Degradation evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 151,
+    "target_doc_id": 37,
+    "slice": "Topical Paraphrase",
+    "query_text": "What are the empirical retrieval results and latency trade-offs discussed in V9 Manuscript p.6?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 152,
+    "target_doc_id": 38,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "BM25 Char 35gram 09653 0947 0982",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 153,
+    "target_doc_id": 38,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "Regime Analysis Test Split",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 154,
+    "target_doc_id": 38,
+    "slice": "Cross-Column Relational",
+    "query_text": "Text Regimes evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 155,
+    "target_doc_id": 38,
+    "slice": "Topical Paraphrase",
+    "query_text": "What are the empirical retrieval results and latency trade-offs discussed in V9 Manuscript p.7?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 156,
+    "target_doc_id": 39,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "retains high accuracy across all buckets",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 157,
+    "target_doc_id": 39,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "b Embedding Fig 4",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 158,
+    "target_doc_id": 39,
+    "slice": "Cross-Column Relational",
+    "query_text": "Fig Attribution evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 159,
+    "target_doc_id": 39,
+    "slice": "Topical Paraphrase",
+    "query_text": "What are the empirical retrieval results and latency trade-offs discussed in V9 Manuscript p.8?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 160,
+    "target_doc_id": 40,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "09495 Dev MRR con\ufb01rming that dense",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 161,
+    "target_doc_id": 40,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "on Public Cluster Bootstrap",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 162,
+    "target_doc_id": 40,
+    "slice": "Cross-Column Relational",
+    "query_text": "Ablation Distractor evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 163,
+    "target_doc_id": 40,
+    "slice": "Topical Paraphrase",
+    "query_text": "What are the empirical retrieval results and latency trade-offs discussed in V9 Manuscript p.9?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 164,
+    "target_doc_id": 41,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "is 00464 on verbatim lookups and",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 165,
+    "target_doc_id": 41,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "Calibration Corrected Marginal Loss",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 166,
+    "target_doc_id": 41,
+    "slice": "Cross-Column Relational",
+    "query_text": "Cascade image evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 167,
+    "target_doc_id": 41,
+    "slice": "Topical Paraphrase",
+    "query_text": "What are the empirical retrieval results and latency trade-offs discussed in V9 Manuscript p.10?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 168,
+    "target_doc_id": 42,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "outperforms sparse BM25 alone 8 net",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 169,
+    "target_doc_id": 42,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "and two tailed McNemar",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 170,
+    "target_doc_id": 42,
+    "slice": "Cross-Column Relational",
+    "query_text": "discordant Rates evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 171,
+    "target_doc_id": 42,
+    "slice": "Topical Paraphrase",
+    "query_text": "What are the empirical retrieval results and latency trade-offs discussed in V9 Manuscript p.11?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 172,
+    "target_doc_id": 43,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "TABLE XIII CrossDataset Replication on FUNSD",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 173,
+    "target_doc_id": 43,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "Replication Retrieval and OpenSource",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 174,
+    "target_doc_id": 43,
+    "slice": "Cross-Column Relational",
+    "query_text": "Engine Neural evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 175,
+    "target_doc_id": 43,
+    "slice": "Topical Paraphrase",
+    "query_text": "What are the empirical retrieval results and latency trade-offs discussed in V9 Manuscript p.12?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 176,
+    "target_doc_id": 44,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "p  104 due to semantic",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 177,
+    "target_doc_id": 44,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "MMRAG System Target Modality",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 178,
+    "target_doc_id": 44,
+    "slice": "Cross-Column Relational",
+    "query_text": "Guide Statistical evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 179,
+    "target_doc_id": 44,
+    "slice": "Topical Paraphrase",
+    "query_text": "What are the empirical retrieval results and latency trade-offs discussed in V9 Manuscript p.13?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 180,
+    "target_doc_id": 45,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "kenization across both commercial neural OCR",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 181,
+    "target_doc_id": 45,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "light para phrases and",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 182,
+    "target_doc_id": 45,
+    "slice": "Cross-Column Relational",
+    "query_text": "queries audio evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 183,
+    "target_doc_id": 45,
+    "slice": "Topical Paraphrase",
+    "query_text": "What are the empirical retrieval results and latency trade-offs discussed in V9 Manuscript p.14?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 184,
+    "target_doc_id": 46,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "and P Colombo ColPali Ef\ufb01cient document",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 185,
+    "target_doc_id": 46,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "robust ap proximate nearest",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 186,
+    "target_doc_id": 46,
+    "slice": "Cross-Column Relational",
+    "query_text": "Ef\ufb01cient language evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 187,
+    "target_doc_id": 46,
+    "slice": "Topical Paraphrase",
+    "query_text": "What are the empirical retrieval results and latency trade-offs discussed in V9 Manuscript p.15?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 188,
+    "target_doc_id": 47,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "100 50 singlehop 50 multihop queries",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 189,
+    "target_doc_id": 47,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "Audit Cali On an",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 190,
+    "target_doc_id": 47,
+    "slice": "Cross-Column Relational",
+    "query_text": "Hop DISTRIBUTION evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 191,
+    "target_doc_id": 47,
+    "slice": "Topical Paraphrase",
+    "query_text": "What are the empirical retrieval results and latency trade-offs discussed in V9 Manuscript p.16?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 192,
+    "target_doc_id": 48,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "05263 Hit10 7974 Conformal cascade calibration",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 193,
+    "target_doc_id": 48,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "raw pix els Evaluating",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 194,
+    "target_doc_id": 48,
+    "slice": "Cross-Column Relational",
+    "query_text": "Sparse Sai evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 195,
+    "target_doc_id": 48,
+    "slice": "Topical Paraphrase",
+    "query_text": "What are the empirical retrieval results and latency trade-offs discussed in V7 Manuscript p.1?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 196,
+    "target_doc_id": 49,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "biencoder collapse on document text is",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 197,
+    "target_doc_id": 49,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "104 We delineate its",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 198,
+    "target_doc_id": 49,
+    "slice": "Cross-Column Relational",
+    "query_text": "all diagnostic evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 199,
+    "target_doc_id": 49,
+    "slice": "Topical Paraphrase",
+    "query_text": "What are the empirical retrieval results and latency trade-offs discussed in V7 Manuscript p.2?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 200,
+    "target_doc_id": 50,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "paler color on each side of",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 201,
+    "target_doc_id": 50,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "make ex Iodine is",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 202,
+    "target_doc_id": 50,
+    "slice": "Cross-Column Relational",
+    "query_text": "and Peru evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 203,
+    "target_doc_id": 50,
+    "slice": "Topical Paraphrase",
+    "query_text": "What historical news and local events are reported on this Chronicling America page?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 204,
+    "target_doc_id": 51,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "the spirit of the Morehouse",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 205,
+    "target_doc_id": 51,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "of the that they",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 206,
+    "target_doc_id": 51,
+    "slice": "Cross-Column Relational",
+    "query_text": "Morehouse attain evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 207,
+    "target_doc_id": 51,
+    "slice": "Topical Paraphrase",
+    "query_text": "What historical news and local events are reported on this Chronicling America page?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 208,
+    "target_doc_id": 52,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "he was a bit hesitant about",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 209,
+    "target_doc_id": 52,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "and White seriousness Al",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 210,
+    "target_doc_id": 52,
+    "slice": "Cross-Column Relational",
+    "query_text": "and personnel evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 211,
+    "target_doc_id": 52,
+    "slice": "Topical Paraphrase",
+    "query_text": "What historical news and local events are reported on this Chronicling America page?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 212,
+    "target_doc_id": 53,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "course In it he launched the",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 213,
+    "target_doc_id": 53,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "favor of suasive speaking",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 214,
+    "target_doc_id": 53,
+    "slice": "Cross-Column Relational",
+    "query_text": "favor asserted evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 215,
+    "target_doc_id": 53,
+    "slice": "Topical Paraphrase",
+    "query_text": "What historical news and local events are reported on this Chronicling America page?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 216,
+    "target_doc_id": 54,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "Assembly to approve last session",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 217,
+    "target_doc_id": 54,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "leadership in reform agenda",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 218,
+    "target_doc_id": 54,
+    "slice": "Cross-Column Relational",
+    "query_text": "leadership for evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 219,
+    "target_doc_id": 54,
+    "slice": "Topical Paraphrase",
+    "query_text": "What historical news and local events are reported on this Chronicling America page?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 220,
+    "target_doc_id": 55,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "judgment of any of these groups",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 221,
+    "target_doc_id": 55,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "sees fit Lastly is",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 222,
+    "target_doc_id": 55,
+    "slice": "Cross-Column Relational",
+    "query_text": "fit act evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 223,
+    "target_doc_id": 55,
+    "slice": "Topical Paraphrase",
+    "query_text": "What historical news and local events are reported on this Chronicling America page?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 224,
+    "target_doc_id": 56,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "ing measures of good fortune and",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 225,
+    "target_doc_id": 56,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "OF 1992 Morehouse College",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 226,
+    "target_doc_id": 56,
+    "slice": "Cross-Column Relational",
+    "query_text": "1992 devel evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 227,
+    "target_doc_id": 56,
+    "slice": "Topical Paraphrase",
+    "query_text": "What historical news and local events are reported on this Chronicling America page?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 228,
+    "target_doc_id": 57,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "Freaknik began in 1982 when",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 229,
+    "target_doc_id": 57,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "is to make certain",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 230,
+    "target_doc_id": 57,
+    "slice": "Cross-Column Relational",
+    "query_text": "make Behavior evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 231,
+    "target_doc_id": 57,
+    "slice": "Topical Paraphrase",
+    "query_text": "What historical news and local events are reported on this Chronicling America page?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 232,
+    "target_doc_id": 58,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "anything Very carelessly you naturally assumed",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 233,
+    "target_doc_id": 58,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "opinions on As Apexs",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 234,
+    "target_doc_id": 58,
+    "slice": "Cross-Column Relational",
+    "query_text": "Spelman you evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 235,
+    "target_doc_id": 58,
+    "slice": "Topical Paraphrase",
+    "query_text": "What historical news and local events are reported on this Chronicling America page?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 236,
+    "target_doc_id": 59,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "annual model changes with the goal",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 237,
+    "target_doc_id": 59,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "the automobile to its",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 238,
+    "target_doc_id": 59,
+    "slice": "Cross-Column Relational",
+    "query_text": "world are evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 239,
+    "target_doc_id": 59,
+    "slice": "Topical Paraphrase",
+    "query_text": "What historical news and local events are reported on this Chronicling America page?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 240,
+    "target_doc_id": 60,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "women are in the workfield",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 241,
+    "target_doc_id": 60,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "in order to be",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 242,
+    "target_doc_id": 60,
+    "slice": "Cross-Column Relational",
+    "query_text": "and ditionally evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 243,
+    "target_doc_id": 60,
+    "slice": "Topical Paraphrase",
+    "query_text": "What historical news and local events are reported on this Chronicling America page?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 244,
+    "target_doc_id": 61,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "values of their social order Rather",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 245,
+    "target_doc_id": 61,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "Dec 12 Speaking to",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 246,
+    "target_doc_id": 61,
+    "slice": "Cross-Column Relational",
+    "query_text": "overflow basic evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 247,
+    "target_doc_id": 61,
+    "slice": "Topical Paraphrase",
+    "query_text": "What historical news and local events are reported on this Chronicling America page?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 248,
+    "target_doc_id": 62,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "opponentthat his main object is to",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 249,
+    "target_doc_id": 62,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "deliver a battle on",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 250,
+    "target_doc_id": 62,
+    "slice": "Cross-Column Relational",
+    "query_text": "intends newly evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 251,
+    "target_doc_id": 62,
+    "slice": "Topical Paraphrase",
+    "query_text": "What historical news and local events are reported on this Chronicling America page?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 252,
+    "target_doc_id": 63,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "lot of her sex in the",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 253,
+    "target_doc_id": 63,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "common sense about her",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 254,
+    "target_doc_id": 63,
+    "slice": "Cross-Column Relational",
+    "query_text": "that handful evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 255,
+    "target_doc_id": 63,
+    "slice": "Topical Paraphrase",
+    "query_text": "What historical news and local events are reported on this Chronicling America page?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 256,
+    "target_doc_id": 64,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "ness manager World bldg New York",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 257,
+    "target_doc_id": 64,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "CUBA the Western Team",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 258,
+    "target_doc_id": 64,
+    "slice": "Cross-Column Relational",
+    "query_text": "CUBA manager evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 259,
+    "target_doc_id": 64,
+    "slice": "Topical Paraphrase",
+    "query_text": "What historical news and local events are reported on this Chronicling America page?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 260,
+    "target_doc_id": 65,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "ment under threats of violence and",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 261,
+    "target_doc_id": 65,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "presentment dated April 12th",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 262,
+    "target_doc_id": 65,
+    "slice": "Cross-Column Relational",
+    "query_text": "dated with evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 263,
+    "target_doc_id": 65,
+    "slice": "Topical Paraphrase",
+    "query_text": "What historical news and local events are reported on this Chronicling America page?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 264,
+    "target_doc_id": 66,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "have summary process for persons and",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 265,
+    "target_doc_id": 66,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "offered the following resolution",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 266,
+    "target_doc_id": 66,
+    "slice": "Cross-Column Relational",
+    "query_text": "offered the evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 267,
+    "target_doc_id": 66,
+    "slice": "Topical Paraphrase",
+    "query_text": "What historical news and local events are reported on this Chronicling America page?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 268,
+    "target_doc_id": 67,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "of pity for she is doomed",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 269,
+    "target_doc_id": 67,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "be dis tinctly understood",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 270,
+    "target_doc_id": 67,
+    "slice": "Cross-Column Relational",
+    "query_text": "might for evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 271,
+    "target_doc_id": 67,
+    "slice": "Topical Paraphrase",
+    "query_text": "What historical news and local events are reported on this Chronicling America page?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 272,
+    "target_doc_id": 68,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "Is the cheapest morning paper published",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 273,
+    "target_doc_id": 68,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "DAILY 115",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 274,
+    "target_doc_id": 68,
+    "slice": "Cross-Column Relational",
+    "query_text": "CHIEF the evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 275,
+    "target_doc_id": 68,
+    "slice": "Topical Paraphrase",
+    "query_text": "What historical news and local events are reported on this Chronicling America page?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 276,
+    "target_doc_id": 69,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "Judge Mahoney for using profane and",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 277,
+    "target_doc_id": 69,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "City blew out his",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 278,
+    "target_doc_id": 69,
+    "slice": "Cross-Column Relational",
+    "query_text": "enfranchised that evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 279,
+    "target_doc_id": 69,
+    "slice": "Topical Paraphrase",
+    "query_text": "What historical news and local events are reported on this Chronicling America page?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 280,
+    "target_doc_id": 70,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "implicated a glance at conditions re",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 281,
+    "target_doc_id": 70,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "need o al laws",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 282,
+    "target_doc_id": 70,
+    "slice": "Cross-Column Relational",
+    "query_text": "need and evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 283,
+    "target_doc_id": 70,
+    "slice": "Topical Paraphrase",
+    "query_text": "What historical news and local events are reported on this Chronicling America page?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 284,
+    "target_doc_id": 71,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "nation of King George All this",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 285,
+    "target_doc_id": 71,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "a sad sary becauao",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 286,
+    "target_doc_id": 71,
+    "slice": "Cross-Column Relational",
+    "query_text": "Americans death evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 287,
+    "target_doc_id": 71,
+    "slice": "Topical Paraphrase",
+    "query_text": "What historical news and local events are reported on this Chronicling America page?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 288,
+    "target_doc_id": 72,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "notes taken for rent should not",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 289,
+    "target_doc_id": 72,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "time hinting that if",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 290,
+    "target_doc_id": 72,
+    "slice": "Cross-Column Relational",
+    "query_text": "time counts evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 291,
+    "target_doc_id": 72,
+    "slice": "Topical Paraphrase",
+    "query_text": "What historical news and local events are reported on this Chronicling America page?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 292,
+    "target_doc_id": 73,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "been womans editor of the Am",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 293,
+    "target_doc_id": 73,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "the fea tured attraction",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 294,
+    "target_doc_id": 73,
+    "slice": "Cross-Column Relational",
+    "query_text": "New Viola evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 295,
+    "target_doc_id": 73,
+    "slice": "Topical Paraphrase",
+    "query_text": "What historical news and local events are reported on this Chronicling America page?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 296,
+    "target_doc_id": 74,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "ress in the upper classes of",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 297,
+    "target_doc_id": 74,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "problem any race has",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 298,
+    "target_doc_id": 74,
+    "slice": "Cross-Column Relational",
+    "query_text": "problem constitute evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 299,
+    "target_doc_id": 74,
+    "slice": "Topical Paraphrase",
+    "query_text": "What historical news and local events are reported on this Chronicling America page?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 300,
+    "target_doc_id": 75,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "state that each and all of",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 301,
+    "target_doc_id": 75,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "eligible prof itable employment",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 302,
+    "target_doc_id": 75,
+    "slice": "Cross-Column Relational",
+    "query_text": "The the evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 303,
+    "target_doc_id": 75,
+    "slice": "Topical Paraphrase",
+    "query_text": "What historical news and local events are reported on this Chronicling America page?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 304,
+    "target_doc_id": 76,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "instant sur un bord de rivi\u00e8re",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 305,
+    "target_doc_id": 76,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "se trouvait au milieu",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 306,
+    "target_doc_id": 76,
+    "slice": "Cross-Column Relational",
+    "query_text": "trouvait chauds evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 307,
+    "target_doc_id": 76,
+    "slice": "Topical Paraphrase",
+    "query_text": "What historical news and local events are reported on this Chronicling America page?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 308,
+    "target_doc_id": 77,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "was very gratifying to see so",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 309,
+    "target_doc_id": 77,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "Disturbed By tion with",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 310,
+    "target_doc_id": 77,
+    "slice": "Cross-Column Relational",
+    "query_text": "Con And evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 311,
+    "target_doc_id": 77,
+    "slice": "Topical Paraphrase",
+    "query_text": "What historical news and local events are reported on this Chronicling America page?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 312,
+    "target_doc_id": 78,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "nomical and industrious citizens Probably there",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 313,
+    "target_doc_id": 78,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "humanity that they would",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 314,
+    "target_doc_id": 78,
+    "slice": "Cross-Column Relational",
+    "query_text": "cause col evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 315,
+    "target_doc_id": 78,
+    "slice": "Topical Paraphrase",
+    "query_text": "What historical news and local events are reported on this Chronicling America page?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 316,
+    "target_doc_id": 79,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "in many of the slave states",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 317,
+    "target_doc_id": 79,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "more papers Here the",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 318,
+    "target_doc_id": 79,
+    "slice": "Cross-Column Relational",
+    "query_text": "but just evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 319,
+    "target_doc_id": 79,
+    "slice": "Topical Paraphrase",
+    "query_text": "What historical news and local events are reported on this Chronicling America page?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 320,
+    "target_doc_id": 80,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "the south is made goods and",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 321,
+    "target_doc_id": 80,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "not gen erally known",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 322,
+    "target_doc_id": 80,
+    "slice": "Cross-Column Relational",
+    "query_text": "our while evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 323,
+    "target_doc_id": 80,
+    "slice": "Topical Paraphrase",
+    "query_text": "What historical news and local events are reported on this Chronicling America page?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 324,
+    "target_doc_id": 81,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "people will call us parsimonious and",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 325,
+    "target_doc_id": 81,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "draperies are very old",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 326,
+    "target_doc_id": 81,
+    "slice": "Cross-Column Relational",
+    "query_text": "and attire evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 327,
+    "target_doc_id": 81,
+    "slice": "Topical Paraphrase",
+    "query_text": "What historical news and local events are reported on this Chronicling America page?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 328,
+    "target_doc_id": 82,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "him with everlasting gratitude Scores and",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 329,
+    "target_doc_id": 82,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "been thoroughly overhauled the",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 330,
+    "target_doc_id": 82,
+    "slice": "Cross-Column Relational",
+    "query_text": "have mercy evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 331,
+    "target_doc_id": 82,
+    "slice": "Topical Paraphrase",
+    "query_text": "What historical news and local events are reported on this Chronicling America page?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 332,
+    "target_doc_id": 83,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "office for the good of the",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 333,
+    "target_doc_id": 83,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "is hardly necessary to",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 334,
+    "target_doc_id": 83,
+    "slice": "Cross-Column Relational",
+    "query_text": "say deem evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 335,
+    "target_doc_id": 83,
+    "slice": "Topical Paraphrase",
+    "query_text": "What historical news and local events are reported on this Chronicling America page?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 336,
+    "target_doc_id": 84,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "Mr and Mrs S B Brooks",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 337,
+    "target_doc_id": 84,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "Webster street It is",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 338,
+    "target_doc_id": 84,
+    "slice": "Cross-Column Relational",
+    "query_text": "For Sunday evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 339,
+    "target_doc_id": 84,
+    "slice": "Topical Paraphrase",
+    "query_text": "What historical news and local events are reported on this Chronicling America page?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 340,
+    "target_doc_id": 85,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "assents He is directed to choose",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 341,
+    "target_doc_id": 85,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "St Louis lately A",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 342,
+    "target_doc_id": 85,
+    "slice": "Cross-Column Relational",
+    "query_text": "Louis arrangement evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 343,
+    "target_doc_id": 85,
+    "slice": "Topical Paraphrase",
+    "query_text": "What historical news and local events are reported on this Chronicling America page?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 344,
+    "target_doc_id": 86,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "lot when she reportedly brought",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 345,
+    "target_doc_id": 86,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "to be Otis Evans",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 346,
+    "target_doc_id": 86,
+    "slice": "Cross-Column Relational",
+    "query_text": "this store evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 347,
+    "target_doc_id": 86,
+    "slice": "Topical Paraphrase",
+    "query_text": "What historical news and local events are reported on this Chronicling America page?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 348,
+    "target_doc_id": 87,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "joyed to see them capitaliz",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 349,
+    "target_doc_id": 87,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "the pace the fact",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 350,
+    "target_doc_id": 87,
+    "slice": "Cross-Column Relational",
+    "query_text": "off port evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 351,
+    "target_doc_id": 87,
+    "slice": "Topical Paraphrase",
+    "query_text": "What historical news and local events are reported on this Chronicling America page?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 352,
+    "target_doc_id": 88,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "mark made historical during the rush",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 353,
+    "target_doc_id": 88,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "and Her Companion in",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 354,
+    "target_doc_id": 88,
+    "slice": "Cross-Column Relational",
+    "query_text": "Rustler but evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 355,
+    "target_doc_id": 88,
+    "slice": "Topical Paraphrase",
+    "query_text": "What historical news and local events are reported on this Chronicling America page?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 356,
+    "target_doc_id": 89,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "to pass No 12 at our",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 357,
+    "target_doc_id": 89,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "that night Well I",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 358,
+    "target_doc_id": 89,
+    "slice": "Cross-Column Relational",
+    "query_text": "four out evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 359,
+    "target_doc_id": 89,
+    "slice": "Topical Paraphrase",
+    "query_text": "What historical news and local events are reported on this Chronicling America page?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 360,
+    "target_doc_id": 90,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "nations to turn from the UnitedStates",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 361,
+    "target_doc_id": 90,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "utilize all the world",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 362,
+    "target_doc_id": 90,
+    "slice": "Cross-Column Relational",
+    "query_text": "all has evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 363,
+    "target_doc_id": 90,
+    "slice": "Topical Paraphrase",
+    "query_text": "What historical news and local events are reported on this Chronicling America page?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 364,
+    "target_doc_id": 91,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "in my bed asleep and a",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 365,
+    "target_doc_id": 91,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "outrage committed Carolina upon",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 366,
+    "target_doc_id": 91,
+    "slice": "Cross-Column Relational",
+    "query_text": "committed they evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 367,
+    "target_doc_id": 91,
+    "slice": "Topical Paraphrase",
+    "query_text": "What historical news and local events are reported on this Chronicling America page?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 368,
+    "target_doc_id": 92,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "of the truest exponents of inter",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 369,
+    "target_doc_id": 92,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "23 ANP Dr William",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 370,
+    "target_doc_id": 92,
+    "slice": "Cross-Column Relational",
+    "query_text": "ANP which evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 371,
+    "target_doc_id": 92,
+    "slice": "Topical Paraphrase",
+    "query_text": "What historical news and local events are reported on this Chronicling America page?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 372,
+    "target_doc_id": 93,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "aimed to combat the venereal disease",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 373,
+    "target_doc_id": 93,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "sorority opened is fifth",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 374,
+    "target_doc_id": 93,
+    "slice": "Cross-Column Relational",
+    "query_text": "ANP been evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 375,
+    "target_doc_id": 93,
+    "slice": "Topical Paraphrase",
+    "query_text": "What historical news and local events are reported on this Chronicling America page?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 376,
+    "target_doc_id": 94,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "and their wild sympathy for the",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 377,
+    "target_doc_id": 94,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "their words of appeal",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 378,
+    "target_doc_id": 94,
+    "slice": "Cross-Column Relational",
+    "query_text": "But Saulsbury evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 379,
+    "target_doc_id": 94,
+    "slice": "Topical Paraphrase",
+    "query_text": "What historical news and local events are reported on this Chronicling America page?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 380,
+    "target_doc_id": 95,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "qualities as various and as complicated",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 381,
+    "target_doc_id": 95,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "the west ern part",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 382,
+    "target_doc_id": 95,
+    "slice": "Cross-Column Relational",
+    "query_text": "1847 There evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 383,
+    "target_doc_id": 95,
+    "slice": "Topical Paraphrase",
+    "query_text": "What historical news and local events are reported on this Chronicling America page?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 384,
+    "target_doc_id": 96,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "orkship training program at Walter Reed",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 385,
+    "target_doc_id": 96,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "three weeks Jinx Moore",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 386,
+    "target_doc_id": 96,
+    "slice": "Cross-Column Relational",
+    "query_text": "will 10th evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 387,
+    "target_doc_id": 96,
+    "slice": "Topical Paraphrase",
+    "query_text": "What historical news and local events are reported on this Chronicling America page?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 388,
+    "target_doc_id": 97,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "berated through these Georgia pines in",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 389,
+    "target_doc_id": 97,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "have been turned loose",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 390,
+    "target_doc_id": 97,
+    "slice": "Cross-Column Relational",
+    "query_text": "Virginia They evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 391,
+    "target_doc_id": 97,
+    "slice": "Topical Paraphrase",
+    "query_text": "What historical news and local events are reported on this Chronicling America page?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 392,
+    "target_doc_id": 98,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "ing a stranger from the South",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 393,
+    "target_doc_id": 98,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "your inter esting contributions",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 394,
+    "target_doc_id": 98,
+    "slice": "Cross-Column Relational",
+    "query_text": "have school evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 395,
+    "target_doc_id": 98,
+    "slice": "Topical Paraphrase",
+    "query_text": "What historical news and local events are reported on this Chronicling America page?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  },
+  {
+    "query_id": 396,
+    "target_doc_id": 99,
+    "slice": "Intra-Column Verbatim",
+    "query_text": "Mr Jas W Eichelberger Jr and",
+    "description": "Verbatim phrase residing wholly within a single column block"
+  },
+  {
+    "query_id": 397,
+    "target_doc_id": 99,
+    "slice": "Cross-Line Column-Spanning",
+    "query_text": "the AfroAmerican Ledger that",
+    "description": "Phrase broken across consecutive lines in Column 1, disrupted by horizontal reflow"
+  },
+  {
+    "query_id": 398,
+    "target_doc_id": 99,
+    "slice": "Cross-Column Relational",
+    "query_text": "Afro maining evaluation comparison",
+    "description": "Joint query connecting Column 1 entity with Column 2 metric/conclusion"
+  },
+  {
+    "query_id": 399,
+    "target_doc_id": 99,
+    "slice": "Topical Paraphrase",
+    "query_text": "What historical news and local events are reported on this Chronicling America page?",
+    "description": "Natural question capturing page topic without verbatim string matching"
+  }
+]

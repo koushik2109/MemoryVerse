@@ -1,0 +1,19 @@
+Policy,Regime_Type,Slice_Name,Mean_Threshold_Tau,Mean_Test_Miss_Risk,Risk_95CI_Lower,Risk_95CI_Upper,Risk_Exceeds_Nominal_5Pct,Slice_Coverage_Pct,Mean_Escalation_Rate_Pct,Mean_Realized_MRR
+marginal_conformal,Query Regime,Verbatim Lookups,0.2369,0.0464,0.0283,0.0632,NO (CONTROLLED),58.5,53.92,0.6932
+marginal_conformal,Query Regime,Light Paraphrases (Entity Rewrites),0.2369,0.0627,0.0413,0.0871,YES (VIOLATION),13.5,85.66,0.3395
+marginal_conformal,Query Regime,Heavy Paraphrases,0.2369,0.0391,0.024,0.0545,NO (CONTROLLED),87.5,95.58,0.0404
+marginal_conformal,Noise Regime,Clean Ground Truth / Neural OCR,0.2369,0.0104,0.0044,0.0174,NO (CONTROLLED),100.0,77.27,0.0
+marginal_conformal,Noise Regime,Synthetic 20% Random Noise,0.2369,0.1253,0.0871,0.17,YES (VIOLATION),0.0,82.25,0.0
+marginal_conformal,Noise Regime,Real Apple Vision OCR,0.2369,0.0124,0.0044,0.0196,NO (CONTROLLED),100.0,75.63,0.0
+cond_query_standard,Query Regime,Verbatim Lookups,0.2276,0.0501,0.0261,0.0828,YES (VIOLATION),47.5,53.07,0.6924
+cond_query_standard,Query Regime,Light Paraphrases (Entity Rewrites),0.2497,0.0483,0.0174,0.0741,NO (CONTROLLED),44.5,87.68,0.3387
+cond_query_standard,Query Regime,Heavy Paraphrases,0.2202,0.0497,0.0261,0.0828,NO (CONTROLLED),56.5,94.45,0.0407
+cond_query_rcps_clopper,Query Regime,Verbatim Lookups,0.2765,0.0334,0.0153,0.0589,NO (CONTROLLED),90.5,59.31,0.6868
+cond_query_rcps_clopper,Query Regime,Light Paraphrases (Entity Rewrites),0.2542,0.0276,0.0152,0.0523,NO (CONTROLLED),91.5,89.85,0.3384
+cond_query_rcps_clopper,Query Regime,Heavy Paraphrases,0.2481,0.0338,0.0152,0.0611,NO (CONTROLLED),88.0,96.23,0.0398
+cond_noise_standard,Noise Regime,Clean Ground Truth / Neural OCR,0.1402,0.0492,0.0261,0.085,NO (CONTROLLED),56.5,68.83,0.4477
+cond_noise_standard,Noise Regime,Synthetic 20% Random Noise,0.2887,0.0511,0.0261,0.0784,YES (VIOLATION),48.5,91.06,0.168
+cond_noise_standard,Noise Regime,Real Apple Vision OCR,0.1408,0.0486,0.0217,0.0763,NO (CONTROLLED),55.5,67.32,0.4558
+cond_noise_rcps_clopper,Noise Regime,Clean Ground Truth / Neural OCR,0.1601,0.0324,0.0152,0.0566,NO (CONTROLLED),92.0,71.09,0.4483
+cond_noise_rcps_clopper,Noise Regime,Synthetic 20% Random Noise,0.3309,0.0336,0.0153,0.0567,NO (CONTROLLED),90.5,93.15,0.1687
+cond_noise_rcps_clopper,Noise Regime,Real Apple Vision OCR,0.1586,0.0327,0.0131,0.0589,NO (CONTROLLED),89.0,70.13,0.4548
