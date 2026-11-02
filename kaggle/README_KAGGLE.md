@@ -118,3 +118,38 @@ Once the commit finishes, the **Output** tab will contain:
 ```
 - **Expected Runtime:** ~35 min on GPU T4 (~18 min ColQwen2 encoding + MaxSim scoring, ~12 min CLIP image/text feature scoring, ~5 min for 100,000 paired permutation tests).
 - **Smoke Test:** `python kaggle_run_v11_colqwen_degraded.py --smoke` (verifies entire statistical and IO pipeline in ~1 second).
+
+---
+
+## 7. Version 13 Suite: ColQwen2 Robustness on Secondary & Human Queries
+
+**Goal:** Evaluates `vidore/colqwen2-v1.0` across the 3 remaining robustness query sets on held-out SROIE receipts to obtain genuine empirical numbers to replace the three `—*` dashes in **Table VIII** (`tab:generator2_robustness`).
+
+### Query Sets Evaluated
+1. **Primary Gen.** (`gpt-4o-mini`, $N=306$) — Ground-truth sanity anchor (MRR = 0.4962)
+2. **Secondary Gen.** (`Qwen2.5-7B`, $N=306$) — From `results/v5/qwen_paraphrases_v5.json`
+3. **Human-Authored Queries** ($N=100$) — From `data/human_queries_200.csv`
+4. **Human-Authored Queries** ($N=200$) — From `data/human_queries_200.csv`
+
+### Artifacts Delivered
+1. **Interactive Notebook:** `kaggle/kaggle_run_v13_colqwen_robustness.ipynb`
+   - Complete 10-cell turnkey Jupyter notebook with built-in embedded fallback queries (can run against ANY existing Kaggle dataset like `frozen-inputs-v11` without requiring a new upload).
+2. **Standalone Runner:** `kaggle/kaggle_run_v13_colqwen_robustness.py`
+   - Resumable command-line runner with GPU auto-detection and `--smoke` verification.
+3. **Automatic Table Updater:** `scripts/update_table_viii_colqwen.py`
+   - Automatically parses `colqwen_robustness_summary.csv`, updates Table VIII in `paper_v3/ijcds_body.tex`, recompiles via Tectonic, and verifies the strict 15-page ceiling.
+
+### Kaggle Execution Steps
+1. Create a new notebook at [kaggle.com/code](https://www.kaggle.com/code).
+2. Right sidebar -> **Session options**:
+   - **Accelerator:** `GPU T4 x2` or `GPU P100`
+   - **Internet:** `ON`
+3. Attach Dataset: Under **Data** -> click **+ Add Data** -> select `memoryverse-frozen-inputs-v11` (or upload `kaggle/frozen_inputs_v11.zip`).
+4. Upload `kaggle/kaggle_run_v13_colqwen_robustness.ipynb` and click **Run All** (or run `!python kaggle_run_v13_colqwen_robustness.py --run all`).
+5. Execution takes ~12–15 minutes on Tesla T4 GPU.
+6. Once complete, download `results_v13_colqwen_final.zip` from `/kaggle/working` into the project root and run:
+   ```bash
+   unzip results_v13_colqwen_final.zip
+   python3 scripts/update_table_viii_colqwen.py
+   ```
+

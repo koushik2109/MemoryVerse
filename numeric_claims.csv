@@ -1533,242 +1533,225 @@ value,section_table_figure,metric,system,condition,N,source_file,status
 +0.04,Table XIV (line 626),p-value,General / Benchmark,General,306,results/v6/native_visual_receipts_results.csv,VERIFIED
 0.28,Table XIV (line 626),p-value,General / Benchmark,General,306,results/v6/tesseract_error_rates_v6.csv,VERIFIED
 0.0215,Table XIV (line 626),Exact McNemar p-value comparing LLM multi-hop bridging to Sparse BM25 alone,General / Benchmark,relational_multihop / Text Proxies,306,results/v3/multihop_paired_results.csv,VERIFIED
-334,Negative and Exploratory Findings > Ablation of Regime-Aware Multimodal Proxy (RAMP) Hypotheses H1 and H2 > Exploratory Multi-Hop Query Decomposition > Dual-Tier Feasibility Pilots (line 633),Tier-1 proxy consistency pilot records count,CLIP,all / Tier-1 Proxy Annotations,306,ai_engine/rag/data/tier1_proxy_consistency.json,VERIFIED
-151,Negative and Exploratory Findings > Ablation of Regime-Aware Multimodal Proxy (RAMP) Hypotheses H1 and H2 > Exploratory Multi-Hop Query Decomposition > Dual-Tier Feasibility Pilots (line 633),MRR,CLIP,General,306,results/v6/clip_receipt_eval_v6.csv,VERIFIED
-85,Negative and Exploratory Findings > Ablation of Regime-Aware Multimodal Proxy (RAMP) Hypotheses H1 and H2 > Exploratory Multi-Hop Query Decomposition > Dual-Tier Feasibility Pilots (line 633),Tier-2 scene text pilot probes count,CLIP,verbatim / Scene-text OCR,306,ai_engine/rag/data/ocr_benchmark_results.json,VERIFIED
-50,Negative and Exploratory Findings > Ablation of Regime-Aware Multimodal Proxy (RAMP) Hypotheses H1 and H2 > Exploratory Multi-Hop Query Decomposition > Dual-Tier Feasibility Pilots (line 633),Diagnostic multi-hop queries count,CLIP,multi_hop_diagnostic / cross_modal_album,306,results/v6/multihop_independent_v6.csv,VERIFIED
-53,Negative and Exploratory Findings > Ablation of Regime-Aware Multimodal Proxy (RAMP) Hypotheses H1 and H2 > Exploratory Multi-Hop Query Decomposition > Dual-Tier Feasibility Pilots (line 633),Tier-2 visual pilot probes count,CLIP,visual / Raw Image Pixels,306,ai_engine/rag/data/visual_benchmark_results.json,VERIFIED
-32,Negative and Exploratory Findings > Ablation of Regime-Aware Multimodal Proxy (RAMP) Hypotheses H1 and H2 > Exploratory Multi-Hop Query Decomposition > Dual-Tier Feasibility Pilots (line 633),Number of target hits (32/50) in multi-hop evaluation,CLIP,multi_hop_diagnostic / cross_modal_album,306,results/v6/multihop_independent_v6.csv,VERIFIED
-0.7916,Negative and Exploratory Findings > Ablation of Regime-Aware Multimodal Proxy (RAMP) Hypotheses H1 and H2 > Exploratory Multi-Hop Query Decomposition > Dual-Tier Feasibility Pilots (line 633),MRR,CLIP,General,306,results/v3/G-01_multicolumn/cache/ocr_corpora_cache.json,VERIFIED
-1.0000,Negative and Exploratory Findings > Ablation of Regime-Aware Multimodal Proxy (RAMP) Hypotheses H1 and H2 > Exploratory Multi-Hop Query Decomposition > Dual-Tier Feasibility Pilots (line 633),Exact McNemar p-value for multi-hop bridging,CLIP,multi_hop_diagnostic / cross_modal_album,306,results/v6/multihop_independent_v6.csv,VERIFIED
-0.792,Negative and Exploratory Findings > Ablation of Regime-Aware Multimodal Proxy (RAMP) Hypotheses H1 and H2 > Exploratory Multi-Hop Query Decomposition > Dual-Tier Feasibility Pilots (line 633),MRR,CLIP,General,306,results/v6/conformal_high_prob_v6.csv,VERIFIED
-0.6182,Negative and Exploratory Findings > Ablation of Regime-Aware Multimodal Proxy (RAMP) Hypotheses H1 and H2 > Exploratory Multi-Hop Query Decomposition > Dual-Tier Feasibility Pilots (line 633),MRR,CLIP,General,306,results/v3/G-08_streaming_freshness/streaming_sweep_summary.csv,VERIFIED
-626,Limitations and Threats to Validity (line 642),Total SROIE receipts evaluated,General / Benchmark,all / sroie_receipts,500,results/v6/tesseract_error_rates_v6.csv,VERIFIED
-100,Limitations and Threats to Validity (line 642),FUNSD forms test probe count,General / Benchmark,all / funsd_forms,500,results/v3/funsd_dataset_replication.csv,VERIFIED
-500,Limitations and Threats to Validity (line 642),DocVQA ViDoRe evaluation query and page count,General / Benchmark,human_qa / scanned_reports,500,results/v9/docvqa_benchmark_results.csv,VERIFIED
-1000,Limitations and Threats to Validity (line 642),MS-COCO Karpathy test image count,General / Benchmark,descriptive / unannotated_pixels_vs_captions,500,results/v3/coco_native_visual_v3.csv,VERIFIED
-5.5,Limitations and Threats to Validity (line 643),Tesseract LSTM OCR engine release version,Char BM25,all / tesseract_lstm,306,IEEE_Paper_v7.tex,VERIFIED
-1.7,Limitations and Threats to Validity (line 643),EasyOCR software release version 1.7.2,Char BM25,all / EasyOCR,306,results/v9/easyocr_replication_v9.csv,VERIFIED
-0.8433,Limitations and Threats to Validity (line 643),Char 3-5g BM25 MRR on FUNSD forms,Char BM25,verbatim / Apple Vision Clean OCR,306,results/v3/funsd_dataset_replication.csv,VERIFIED
-0.8364,Limitations and Threats to Validity (line 643),Word BM25 MRR on FUNSD forms,Char BM25,verbatim / Apple Vision Clean OCR,306,results/v3/funsd_dataset_replication.csv,VERIFIED
-+0.0069,Limitations and Threats to Validity (line 643),Margin of Char BM25 over Word BM25 on FUNSD (Statistical Tie),Char BM25,verbatim / Apple Vision Clean OCR,306,results/v3/funsd_dataset_replication.csv,VERIFIED
-0.4725,Limitations and Threats to Validity (line 643),MRR,Char BM25,Apple Clean OCR,306,results/gapfill_v1/T1-05/colqwen_resampled_multi_seed_results.csv,VERIFIED
-0.3412,Limitations and Threats to Validity (line 643),MRR,Char BM25,Apple Clean OCR,306,results/v6/dose_response_queries_v6.json,VERIFIED
-0.4334,Limitations and Threats to Validity (line 643),Word BM25 MRR under Light Paraphrasing,Char BM25,light_paraphrase / Apple Vision Clean OCR,306,results/v6/char_vs_word_bm25_v6.csv,VERIFIED
-0.2427,Limitations and Threats to Validity (line 643),Char 3-5g BM25 MRR under Light Paraphrasing,Char BM25,light_paraphrase / Apple Vision Clean OCR,306,results/v6/char_vs_word_bm25_v6.csv,VERIFIED
-0.2345,Limitations and Threats to Validity (line 643),MRR,Char BM25,Apple Clean OCR,306,results/v6/dose_response_queries_v6.json,VERIFIED
-0.1834,Limitations and Threats to Validity (line 643),Dense BGE-base MRR under Light Paraphrasing on FUNSD,Char BM25,light_paraphrase / Apple Vision Clean OCR,306,results/v3/funsd_dataset_replication.csv,VERIFIED
-0.1775,Limitations and Threats to Validity (line 643),MRR,Char BM25,Apple Clean OCR,306,results/v6/dose_response_queries_v6.json,VERIFIED
-0.1573,Limitations and Threats to Validity (line 643),Word BM25 MRR under Light Paraphrasing on FUNSD,Char BM25,light_paraphrase / Apple Vision Clean OCR,306,results/v3/funsd_dataset_replication.csv,VERIFIED
-0.02,Limitations and Threats to Validity (line 643),MRR,Char BM25,Apple Clean OCR,306,results/v6/claims_ledger_v6.csv,VERIFIED
-67.8\%,Limitations and Threats to Validity (line 643),MRR,Char BM25,Apple Clean OCR,306,results/v3/sroie_tesseract_degraded_ocr.json,VERIFIED
-0.0491,Limitations and Threats to Validity (line 644),MRR,General / Benchmark,General,2754,results/v6/claims_ledger_v6.csv,VERIFIED
-78.4\%,Limitations and Threats to Validity (line 644),Mean escalation rate to neural cross-encoder,General / Benchmark,pooled / heterogeneous_proxies,2754,results/v7/conformal_retest_summary_v7.csv,VERIFIED
-2754,Limitations and Threats to Validity (line 644),Total pooled query instances in conformal cascade cache,General / Benchmark,pooled_queries / Heterogeneous Proxies,2754,results/v3/conformal_pooled_cache.npz,VERIFIED
-200,Limitations and Threats to Validity (line 644),Number of random cluster-stratified conformal calibration splits,General / Benchmark,pooled / heterogeneous_proxies,2754,results/v7/conformal_retest_summary_v7.csv,VERIFIED
-58.5\%,Limitations and Threats to Validity (line 644),Empirical split coverage at risk <= 0.05 threshold,General / Benchmark,pooled / heterogeneous_proxies,2754,results/v7/conformal_retest_summary_v7.csv,VERIFIED
-0.3579,Limitations and Threats to Validity (line 644),Realized MRR under equal-escalation fixed margin cascade,General / Benchmark,pooled / heterogeneous_proxies,2754,results/v7/conformal_retest_summary_v7.csv,VERIFIED
-0.3577,Limitations and Threats to Validity (line 644),Realized MRR under conformal marginal risk cascade,General / Benchmark,pooled / heterogeneous_proxies,2754,results/v7/conformal_retest_summary_v7.csv,VERIFIED
-0.0627,Limitations and Threats to Validity (line 644),Entity rewrite test miss risk under conformal cascade,General / Benchmark,entity_rewrite / heterogeneous_proxies,2754,results/v7/conformal_retest_summary_v7.csv,VERIFIED
-110,Limitations and Threats to Validity (line 646),Number of audited cases in dual author evaluation,General / Benchmark,audit_110 / answer_evaluations,306,ai_engine/rag/data/master_human_agreement.json,VERIFIED
-0.8716,Limitations and Threats to Validity (line 646),Faithfulness Cohen kappa rated by two authors,General / Benchmark,audit_110 / answer_evaluations,306,ai_engine/rag/data/master_human_agreement.json,VERIFIED
-0.8926,Limitations and Threats to Validity (line 646),Relevance Cohen kappa rated by two authors,General / Benchmark,audit_110 / answer_evaluations,306,ai_engine/rag/data/master_human_agreement.json,VERIFIED
-0.9451,Limitations and Threats to Validity (line 646),Correctness Cohen kappa rated by two authors,General / Benchmark,audit_110 / answer_evaluations,306,ai_engine/rag/data/master_human_agreement.json,VERIFIED
-0.9031,Limitations and Threats to Validity (line 646),Overall mean Cohen kappa rated by two authors,General / Benchmark,audit_110 / answer_evaluations,306,ai_engine/rag/data/master_human_agreement.json,VERIFIED
-100,Limitations and Threats to Validity (line 647),FUNSD forms test probe count,Extractive PRF,all / funsd_forms,50,results/v3/funsd_dataset_replication.csv,VERIFIED
-50,Limitations and Threats to Validity (line 647),Diagnostic multi-hop queries count,Extractive PRF,multi_hop_diagnostic / cross_modal_album,50,results/v6/multihop_independent_v6.csv,VERIFIED
-0.0062,Limitations and Threats to Validity (line 647),Hit@10,Extractive PRF,General,50,results/v6/dev_alpha_curves.csv,VERIFIED
-0.8200,Limitations and Threats to Validity (line 647),Pooled 100-query Target Hit@10 (50 multi-hop + 50 single-hop controls),Extractive PRF,expanded_diagnostic / cross_modal_album,50,results/v6/multihop_100_summary_v6.csv,VERIFIED
-0.6400,Limitations and Threats to Validity (line 647),Generative LLM bridging Target Hit@10 on 50 multi-hop queries,Extractive PRF,multi_hop_diagnostic / cross_modal_album,50,results/v6/multihop_independent_v6.csv,VERIFIED
-1.0000,Limitations and Threats to Validity (line 647),Exact McNemar p-value for multi-hop bridging,Extractive PRF,multi_hop_diagnostic / cross_modal_album,50,results/v6/multihop_independent_v6.csv,VERIFIED
-394,Limitations and Threats to Validity (line 647),Hit@10,Extractive PRF,General,50,results/v6/paraphrase_audit_60.json,VERIFIED
-0.4037,Limitations and Threats to Validity (line 648),Apple Vision Word BM25 MRR drop under light paraphrasing (0.8371 to 0.4334),General / Benchmark,light_paraphrase / Apple Vision Clean OCR,306,results/v9/dose_response_drops_v9.csv,VERIFIED
-0.3400,Limitations and Threats to Validity (line 648),Word BM25 retrieval drop under semantic light paraphrase on Tesseract,General / Benchmark,verbatim vs light / Tesseract 5.5 Clean,306,results/v7/dose_response_table_v7.csv,VERIFIED
-0.9471,Limitations and Threats to Validity (line 648),Char 3-5gram BM25 MRR on answerable questions in headline regime grid,General / Benchmark,answerable_questions / Apple Vision Clean OCR,306,results/v3/headline_regime_grid_v3.csv,VERIFIED
-306,Limitations and Threats to Validity (line 650),Held-out test probe evaluation count,Char BM25,all / sroie_receipts,306,ai_engine/rag/data/v2/frozen_probes_with_paraphrases.json,VERIFIED
-200,Limitations and Threats to Validity (line 650),Number of random cluster-stratified conformal calibration splits,Char BM25,pooled / heterogeneous_proxies,306,results/v7/conformal_retest_summary_v7.csv,VERIFIED
-0.4334,Limitations and Threats to Validity (line 650),Word BM25 MRR under Light Paraphrasing,Char BM25,light_paraphrase / Apple Vision Clean OCR,306,results/v6/char_vs_word_bm25_v6.csv,VERIFIED
-0.2427,Limitations and Threats to Validity (line 650),Char 3-5g BM25 MRR under Light Paraphrasing,Char BM25,light_paraphrase / Apple Vision Clean OCR,306,results/v6/char_vs_word_bm25_v6.csv,VERIFIED
-0.5549,Limitations and Threats to Validity (line 650),MRR,Char BM25,Light Paraphrase,306,results/v3/G-01_multicolumn/cache/ocr_corpora_cache.json,VERIFIED
-0.5766,Limitations and Threats to Validity (line 650),MRR,Char BM25,Light Paraphrase,306,results/v3/G-04_multiscript/multiscript_summary.csv,VERIFIED
-0.1601,Limitations and Threats to Validity (line 650),MRR,Char BM25,Light Paraphrase,306,results/v9/dose_response_reconciled.csv,VERIFIED
-0.4909,Limitations and Threats to Validity (line 650),MRR,Char BM25,Light Paraphrase,306,results/v6/dose_response_queries_v6.json,VERIFIED
-1626,Conclusion and Future Work (line 657),Total public benchmark records count,General / Benchmark,all / multimodal,626,ai_engine/rag/data/v2/public_benchmark_v2.json,VERIFIED
-0.9436,Conclusion and Future Work (line 659),Char 3-5g BM25 MRR on Clean Apple OCR,ColQwen2,verbatim / Apple Vision Clean OCR,500,results/v6/char_vs_word_bm25_v6.csv,VERIFIED
-0.8371,Conclusion and Future Work (line 659),Word BM25 MRR on Clean Apple OCR,ColQwen2,verbatim / Apple Vision Clean OCR,500,results/v6/char_vs_word_bm25_v6.csv,VERIFIED
-0.8248,Conclusion and Future Work (line 659),Char 3-5g BM25 MRR on Degraded Blur Apple OCR,ColQwen2,verbatim / Apple Vision Degraded OCR,500,results/v6/char_vs_word_bm25_v6.csv,VERIFIED
-0.6972,Conclusion and Future Work (line 659),Word BM25 MRR on Degraded Blur Apple OCR,ColQwen2,verbatim / Apple Vision Degraded OCR,500,results/v6/char_vs_word_bm25_v6.csv,VERIFIED
-0.8412,Conclusion and Future Work (line 659),Char 3-5g BM25 MRR on Clean Tesseract 5.5,ColQwen2,verbatim / Tesseract 5.5 Clean OCR,500,results/v7/dose_response_table_v7.csv,VERIFIED
-0.7364,Conclusion and Future Work (line 659),Word BM25 MRR on Clean Tesseract 5.5,ColQwen2,verbatim / Tesseract 5.5 Clean OCR,500,results/v7/dose_response_table_v7.csv,VERIFIED
-0.4334,Conclusion and Future Work (line 659),Word BM25 MRR under Light Paraphrasing,ColQwen2,light_paraphrase / Apple Vision Clean OCR,500,results/v6/char_vs_word_bm25_v6.csv,VERIFIED
-0.2427,Conclusion and Future Work (line 659),Char 3-5g BM25 MRR under Light Paraphrasing,ColQwen2,light_paraphrase / Apple Vision Clean OCR,500,results/v6/char_vs_word_bm25_v6.csv,VERIFIED
-0.3256,Conclusion and Future Work (line 659),Dense BGE-base MRR on verbatim ground truth,ColQwen2,verbatim / Pristine Ground Truth Text,500,results/v6/dense_formulation_keyword_control_v6.csv,VERIFIED
-0.5263,Conclusion and Future Work (line 659),Dense BGE-base MRR under natural answerable questions,ColQwen2,answerable_questions / Pristine Ground Truth Text,500,results/v6/dense_formulation_keyword_control_v6.csv,VERIFIED
-0.6071,Conclusion and Future Work (line 659),SigLIP Base Patch16 native visual MRR on MS-COCO,ColQwen2,descriptive / MS-COCO Pixels,500,results/v3/coco_native_visual_v3.csv,VERIFIED
-0.3728,Conclusion and Future Work (line 659),Dense MiniLM on BLIP captions MRR on MS-COCO,ColQwen2,descriptive / BLIP Captions,500,results/v3/coco_native_visual_v3.csv,VERIFIED
-0.6210,Conclusion and Future Work (line 659),MRR,ColQwen2,Apple Clean OCR,500,results/v3/G-01_multicolumn/cache/ocr_corpora_cache.json,VERIFIED
--0.0139,Conclusion and Future Work (line 659),MRR,ColQwen2,Apple Clean OCR,500,results/v6/dev_alpha_curves.csv,VERIFIED
-0.321,Conclusion and Future Work (line 659),MRR,ColQwen2,Apple Clean OCR,500,results/v6/dense_query_formulation_v6.csv,VERIFIED
-0.0050,Conclusion and Future Work (line 659),MRR,ColQwen2,Apple Clean OCR,500,results/v9/conformal_retest_v9.csv,VERIFIED
--0.0369,Conclusion and Future Work (line 659),MRR,ColQwen2,Apple Clean OCR,500,results/v2/regime_grid_results.csv,VERIFIED
-+0.0091,Conclusion and Future Work (line 659),MRR,ColQwen2,Apple Clean OCR,500,results/v2/ablation_results.csv,VERIFIED
-0.6450,Conclusion and Future Work (line 659),ColQwen2-v1.0 Native Visual MRR on DocVQA benchmark,ColQwen2,human_questions / Native Raw Pixels,500,results/v9/docvqa_benchmark_results.csv,VERIFIED
-0.3507,Conclusion and Future Work (line 659),Tuned Hybrid MRR on DocVQA with 100% human-written questions,ColQwen2,human_questions / Tesseract 5.5 LSTM OCR,500,results/v9/docvqa_benchmark_results.csv,VERIFIED
-0.9471,Conclusion and Future Work (line 659),Char 3-5gram BM25 MRR on answerable questions in headline regime grid,ColQwen2,answerable_questions / Apple Vision Clean OCR,500,results/v3/headline_regime_grid_v3.csv,VERIFIED
-0.8595,Conclusion and Future Work (line 659),MRR,ColQwen2,Apple Clean OCR,500,results/v6/native_visual_receipts_results.csv,VERIFIED
-0.00012,Conclusion and Future Work (line 659),MRR,ColQwen2,Apple Clean OCR,500,results/v6/native_visual_receipts_results.csv,VERIFIED
-0.87,Conclusion and Future Work (line 659),Char 3-5g BM25 mean query latency (ms) on Apple Silicon CPU,ColQwen2,verbatim / CPU Batch 1,500,results/v6/standardized_latency_v6.csv,VERIFIED
--5.72,Conclusion and Future Work (line 659),Character 3-5gram BM25 mean query latency (ms) on answerable questions,ColQwen2,answerable_questions / Apple Vision Clean OCR,500,results/v3/headline_regime_grid_v3.csv,VERIFIED
-249.21,Conclusion and Future Work (line 659),ColQwen2-v1.0 Mean Query Latency (ms) on Nvidia Tesla T4 GPU,ColQwen2,light_paraphrase / Direct Document Image Pixels,500,results/v7/colqwen_receipts_measured_v7.csv,VERIFIED
-58.5\%,Conclusion and Future Work (line 661),Empirical split coverage at risk <= 0.05 threshold,Extractive PRF,pooled / heterogeneous_proxies,306,results/v7/conformal_retest_summary_v7.csv,VERIFIED
-82.0\%,Conclusion and Future Work (line 661),MRR,Extractive PRF,General,306,results/v6/conformal_high_prob_summary_v6.csv,VERIFIED
-0.3579,Conclusion and Future Work (line 661),Realized MRR under equal-escalation fixed margin cascade,Extractive PRF,pooled / heterogeneous_proxies,306,results/v7/conformal_retest_summary_v7.csv,VERIFIED
-0.3577,Conclusion and Future Work (line 661),Realized MRR under conformal marginal risk cascade,Extractive PRF,pooled / heterogeneous_proxies,306,results/v7/conformal_retest_summary_v7.csv,VERIFIED
-100,Conclusion and Future Work (line 661),FUNSD forms test probe count,Extractive PRF,all / funsd_forms,306,results/v3/funsd_dataset_replication.csv,VERIFIED
-0.820,Conclusion and Future Work (line 661),MRR,Extractive PRF,General,306,results/v9/number_provenance.csv,VERIFIED
-0.0062,Conclusion and Future Work (line 661),MRR,Extractive PRF,General,306,results/v6/dev_alpha_curves.csv,VERIFIED
-0.01,Conclusion and Future Work (line 661),Dense MiniLM and BGE isolated vector dot-product ranking latency (ms),Extractive PRF,all / Precomputed Vector Index,306,results/v3/headline_regime_grid_v3.csv,VERIFIED
-394,Conclusion and Future Work (line 661),MRR,Extractive PRF,General,306,results/v6/paraphrase_audit_60.json,VERIFIED
-00,Conclusion and Future Work (line 663),Unknown,General / Benchmark,General,306,,UNVERIFIED
-024,Conclusion and Future Work (line 665),Unknown,General / Benchmark,General,306,results/v6/claims_ledger_v6.csv,VERIFIED
-2402.01763,Conclusion and Future Work (line 666),Unknown,General / Benchmark,General,306,results/v3/G-01_multicolumn/cache/ocr_corpora_cache.json,VERIFIED
-020,Conclusion and Future Work (line 667),Unknown,General / Benchmark,General,306,results/v6/claims_ledger_v6.csv,VERIFIED
-33,Conclusion and Future Work (line 668),Latency (ms),General / Benchmark,General,306,,UNVERIFIED
-9459,Conclusion and Future Work (line 668),Latency (ms),General / Benchmark,General,306,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
--9474,Conclusion and Future Work (line 668),Latency (ms),General / Benchmark,General,306,results/v9/sroie_easyocr_degraded_ocr.json,VERIFIED
-2020,Conclusion and Future Work (line 668),Latency (ms),General / Benchmark,General,306,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
+334,Negative and Exploratory Findings > Ablation of Regime-Aware Multimodal Proxy (RAMP) Hypotheses H1 and H2 > Exploratory Multi-Hop Query Decomposition > Dual-Tier Feasibility Pilots and Systemic Extensions (line 633),Tier-1 proxy consistency pilot records count,CLIP,all / Tier-1 Proxy Annotations,306,ai_engine/rag/data/tier1_proxy_consistency.json,VERIFIED
+151,Negative and Exploratory Findings > Ablation of Regime-Aware Multimodal Proxy (RAMP) Hypotheses H1 and H2 > Exploratory Multi-Hop Query Decomposition > Dual-Tier Feasibility Pilots and Systemic Extensions (line 633),MRR,CLIP,General,306,results/v6/clip_receipt_eval_v6.csv,VERIFIED
+85,Negative and Exploratory Findings > Ablation of Regime-Aware Multimodal Proxy (RAMP) Hypotheses H1 and H2 > Exploratory Multi-Hop Query Decomposition > Dual-Tier Feasibility Pilots and Systemic Extensions (line 633),Tier-2 scene text pilot probes count,CLIP,verbatim / Scene-text OCR,306,ai_engine/rag/data/ocr_benchmark_results.json,VERIFIED
+50,Negative and Exploratory Findings > Ablation of Regime-Aware Multimodal Proxy (RAMP) Hypotheses H1 and H2 > Exploratory Multi-Hop Query Decomposition > Dual-Tier Feasibility Pilots and Systemic Extensions (line 633),Diagnostic multi-hop queries count,CLIP,multi_hop_diagnostic / cross_modal_album,306,results/v6/multihop_independent_v6.csv,VERIFIED
+53,Negative and Exploratory Findings > Ablation of Regime-Aware Multimodal Proxy (RAMP) Hypotheses H1 and H2 > Exploratory Multi-Hop Query Decomposition > Dual-Tier Feasibility Pilots and Systemic Extensions (line 633),Tier-2 visual pilot probes count,CLIP,visual / Raw Image Pixels,306,ai_engine/rag/data/visual_benchmark_results.json,VERIFIED
+32,Negative and Exploratory Findings > Ablation of Regime-Aware Multimodal Proxy (RAMP) Hypotheses H1 and H2 > Exploratory Multi-Hop Query Decomposition > Dual-Tier Feasibility Pilots and Systemic Extensions (line 633),Number of target hits (32/50) in multi-hop evaluation,CLIP,multi_hop_diagnostic / cross_modal_album,306,results/v6/multihop_independent_v6.csv,VERIFIED
+0.7916,Negative and Exploratory Findings > Ablation of Regime-Aware Multimodal Proxy (RAMP) Hypotheses H1 and H2 > Exploratory Multi-Hop Query Decomposition > Dual-Tier Feasibility Pilots and Systemic Extensions (line 633),MRR,CLIP,General,306,results/v3/G-01_multicolumn/cache/ocr_corpora_cache.json,VERIFIED
+1.0000,Negative and Exploratory Findings > Ablation of Regime-Aware Multimodal Proxy (RAMP) Hypotheses H1 and H2 > Exploratory Multi-Hop Query Decomposition > Dual-Tier Feasibility Pilots and Systemic Extensions (line 633),Exact McNemar p-value for multi-hop bridging,CLIP,multi_hop_diagnostic / cross_modal_album,306,results/v6/multihop_independent_v6.csv,VERIFIED
+0.792,Negative and Exploratory Findings > Ablation of Regime-Aware Multimodal Proxy (RAMP) Hypotheses H1 and H2 > Exploratory Multi-Hop Query Decomposition > Dual-Tier Feasibility Pilots and Systemic Extensions (line 633),MRR,CLIP,General,306,results/v6/conformal_high_prob_v6.csv,VERIFIED
+0.6182,Negative and Exploratory Findings > Ablation of Regime-Aware Multimodal Proxy (RAMP) Hypotheses H1 and H2 > Exploratory Multi-Hop Query Decomposition > Dual-Tier Feasibility Pilots and Systemic Extensions (line 633),MRR,CLIP,General,306,results/v3/G-08_streaming_freshness/streaming_sweep_summary.csv,VERIFIED
+1000,Negative and Exploratory Findings > Ablation of Regime-Aware Multimodal Proxy (RAMP) Hypotheses H1 and H2 > Exploratory Multi-Hop Query Decomposition > Dual-Tier Feasibility Pilots and Systemic Extensions (line 635),MS-COCO Karpathy test image count,General / Benchmark,descriptive / unannotated_pixels_vs_captions,1000,results/v3/coco_native_visual_v3.csv,VERIFIED
+0.2006,Negative and Exploratory Findings > Ablation of Regime-Aware Multimodal Proxy (RAMP) Hypotheses H1 and H2 > Exploratory Multi-Hop Query Decomposition > Dual-Tier Feasibility Pilots and Systemic Extensions (line 635),MRR,General / Benchmark,General,1000,results/v6/dose_response_queries_v6.json,VERIFIED
+0.9917,Negative and Exploratory Findings > Ablation of Regime-Aware Multimodal Proxy (RAMP) Hypotheses H1 and H2 > Exploratory Multi-Hop Query Decomposition > Dual-Tier Feasibility Pilots and Systemic Extensions (line 635),MRR,General / Benchmark,General,1000,results/v3/G-13_episodic_to_semantic/statistical_g13_tests.csv,VERIFIED
+3.95,Negative and Exploratory Findings > Ablation of Regime-Aware Multimodal Proxy (RAMP) Hypotheses H1 and H2 > Exploratory Multi-Hop Query Decomposition > Dual-Tier Feasibility Pilots and Systemic Extensions (line 635),MRR,General / Benchmark,General,1000,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
+6.2,Negative and Exploratory Findings > Ablation of Regime-Aware Multimodal Proxy (RAMP) Hypotheses H1 and H2 > Exploratory Multi-Hop Query Decomposition > Dual-Tier Feasibility Pilots and Systemic Extensions (line 635),MRR,General / Benchmark,General,1000,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
+24.5,Negative and Exploratory Findings > Ablation of Regime-Aware Multimodal Proxy (RAMP) Hypotheses H1 and H2 > Exploratory Multi-Hop Query Decomposition > Dual-Tier Feasibility Pilots and Systemic Extensions (line 635),MRR,General / Benchmark,General,1000,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
+300,Negative and Exploratory Findings > Ablation of Regime-Aware Multimodal Proxy (RAMP) Hypotheses H1 and H2 > Exploratory Multi-Hop Query Decomposition > Dual-Tier Feasibility Pilots and Systemic Extensions (line 635),MRR,General / Benchmark,General,1000,results/v6/paraphrase_audit_60.json,VERIFIED
+1.0000,Negative and Exploratory Findings > Ablation of Regime-Aware Multimodal Proxy (RAMP) Hypotheses H1 and H2 > Exploratory Multi-Hop Query Decomposition > Dual-Tier Feasibility Pilots and Systemic Extensions (line 635),Exact McNemar p-value for multi-hop bridging,General / Benchmark,multi_hop_diagnostic / cross_modal_album,1000,results/v6/multihop_independent_v6.csv,VERIFIED
+41.8\%,Negative and Exploratory Findings > Ablation of Regime-Aware Multimodal Proxy (RAMP) Hypotheses H1 and H2 > Exploratory Multi-Hop Query Decomposition > Dual-Tier Feasibility Pilots and Systemic Extensions (line 635),MRR,General / Benchmark,General,1000,results/v9/sroie_easyocr_clean_ocr.json,VERIFIED
+16.3,Negative and Exploratory Findings > Ablation of Regime-Aware Multimodal Proxy (RAMP) Hypotheses H1 and H2 > Exploratory Multi-Hop Query Decomposition > Dual-Tier Feasibility Pilots and Systemic Extensions (line 635),MRR,General / Benchmark,General,1000,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
+28.0,Negative and Exploratory Findings > Ablation of Regime-Aware Multimodal Proxy (RAMP) Hypotheses H1 and H2 > Exploratory Multi-Hop Query Decomposition > Dual-Tier Feasibility Pilots and Systemic Extensions (line 635),MRR,General / Benchmark,General,1000,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
+82.67\%,Negative and Exploratory Findings > Ablation of Regime-Aware Multimodal Proxy (RAMP) Hypotheses H1 and H2 > Exploratory Multi-Hop Query Decomposition > Dual-Tier Feasibility Pilots and Systemic Extensions (line 635),MRR,General / Benchmark,General,1000,results/v3/G-15_temporal_logic_constraints/temporal_logic_summary.csv,VERIFIED
+0.7666,Negative and Exploratory Findings > Ablation of Regime-Aware Multimodal Proxy (RAMP) Hypotheses H1 and H2 > Exploratory Multi-Hop Query Decomposition > Dual-Tier Feasibility Pilots and Systemic Extensions (line 635),MRR,General / Benchmark,General,1000,results/gapfill_v1/T2-05/e2e_per_query_results.csv,VERIFIED
+100\%,Negative and Exploratory Findings > Ablation of Regime-Aware Multimodal Proxy (RAMP) Hypotheses H1 and H2 > Exploratory Multi-Hop Query Decomposition > Dual-Tier Feasibility Pilots and Systemic Extensions (line 635),FUNSD forms test probe count,General / Benchmark,all / funsd_forms,1000,results/v3/funsd_dataset_replication.csv,VERIFIED
+0.0\%,Negative and Exploratory Findings > Ablation of Regime-Aware Multimodal Proxy (RAMP) Hypotheses H1 and H2 > Exploratory Multi-Hop Query Decomposition > Dual-Tier Feasibility Pilots and Systemic Extensions (line 635),MRR,General / Benchmark,General,1000,results/v6/multihop_independent_v6.csv,VERIFIED
+3.1,Negative and Exploratory Findings > Ablation of Regime-Aware Multimodal Proxy (RAMP) Hypotheses H1 and H2 > Exploratory Multi-Hop Query Decomposition > Dual-Tier Feasibility Pilots and Systemic Extensions (line 635),MRR,General / Benchmark,General,1000,results/v6/paraphrase_audit_60.json,VERIFIED
+23.0\%,Negative and Exploratory Findings > Ablation of Regime-Aware Multimodal Proxy (RAMP) Hypotheses H1 and H2 > Exploratory Multi-Hop Query Decomposition > Dual-Tier Feasibility Pilots and Systemic Extensions (line 635),MRR,General / Benchmark,General,1000,results/v6/clip_receipt_eval_v6.csv,VERIFIED
+94.6\%,Negative and Exploratory Findings > Ablation of Regime-Aware Multimodal Proxy (RAMP) Hypotheses H1 and H2 > Exploratory Multi-Hop Query Decomposition > Dual-Tier Feasibility Pilots and Systemic Extensions (line 635),MRR,General / Benchmark,General,1000,results/v3/G-16_privacy_collaborative_memory/leakage_policy_breakdown.csv,VERIFIED
+52.0\%,Negative and Exploratory Findings > Ablation of Regime-Aware Multimodal Proxy (RAMP) Hypotheses H1 and H2 > Exploratory Multi-Hop Query Decomposition > Dual-Tier Feasibility Pilots and Systemic Extensions (line 635),MRR,General / Benchmark,General,1000,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
+93.56\%,Negative and Exploratory Findings > Ablation of Regime-Aware Multimodal Proxy (RAMP) Hypotheses H1 and H2 > Exploratory Multi-Hop Query Decomposition > Dual-Tier Feasibility Pilots and Systemic Extensions (line 635),MRR,General / Benchmark,General,1000,results/v3/G-16_privacy_collaborative_memory/privacy_collaborative_summary.csv,VERIFIED
+0.3258,Negative and Exploratory Findings > Ablation of Regime-Aware Multimodal Proxy (RAMP) Hypotheses H1 and H2 > Exploratory Multi-Hop Query Decomposition > Dual-Tier Feasibility Pilots and Systemic Extensions (line 635),MRR,General / Benchmark,General,1000,results/v6/dose_response_queries_v6.json,VERIFIED
+626,Limitations and Threats to Validity (line 644),Total SROIE receipts evaluated,General / Benchmark,all / sroie_receipts,500,results/v6/tesseract_error_rates_v6.csv,VERIFIED
+100,Limitations and Threats to Validity (line 644),FUNSD forms test probe count,General / Benchmark,all / funsd_forms,500,results/v3/funsd_dataset_replication.csv,VERIFIED
+500,Limitations and Threats to Validity (line 644),DocVQA ViDoRe evaluation query and page count,General / Benchmark,human_qa / scanned_reports,500,results/v9/docvqa_benchmark_results.csv,VERIFIED
+1000,Limitations and Threats to Validity (line 644),MS-COCO Karpathy test image count,General / Benchmark,descriptive / unannotated_pixels_vs_captions,500,results/v3/coco_native_visual_v3.csv,VERIFIED
+306,Limitations and Threats to Validity (line 645),Held-out test probe evaluation count,General / Benchmark,all / sroie_receipts,306,ai_engine/rag/data/v2/frozen_probes_with_paraphrases.json,VERIFIED
+200,Limitations and Threats to Validity (line 645),Number of random cluster-stratified conformal calibration splits,General / Benchmark,pooled / heterogeneous_proxies,306,results/v7/conformal_retest_summary_v7.csv,VERIFIED
+0.0491,Limitations and Threats to Validity (line 646),Percentage / Rate,General / Benchmark,General,2754,results/v6/claims_ledger_v6.csv,VERIFIED
+78.4\%,Limitations and Threats to Validity (line 646),Mean escalation rate to neural cross-encoder,General / Benchmark,pooled / heterogeneous_proxies,2754,results/v7/conformal_retest_summary_v7.csv,VERIFIED
+2754,Limitations and Threats to Validity (line 646),Total pooled query instances in conformal cascade cache,General / Benchmark,pooled_queries / Heterogeneous Proxies,2754,results/v3/conformal_pooled_cache.npz,VERIFIED
+200,Limitations and Threats to Validity (line 646),Number of random cluster-stratified conformal calibration splits,General / Benchmark,pooled / heterogeneous_proxies,2754,results/v7/conformal_retest_summary_v7.csv,VERIFIED
+0.0627,Limitations and Threats to Validity (line 646),Entity rewrite test miss risk under conformal cascade,General / Benchmark,entity_rewrite / heterogeneous_proxies,2754,results/v7/conformal_retest_summary_v7.csv,VERIFIED
+0.4962,Limitations and Threats to Validity (line 647),ColQwen2-v1.0 MRR measured on Nvidia Tesla T4 GPU under Light Paraphrasing,General / Benchmark,light_paraphrase / Direct Document Image Pixels,306,results/v10/colqwen_paired_v10.csv,VERIFIED
+1626,Conclusion and Future Work (line 653),Total public benchmark records count,General / Benchmark,all / multimodal,626,ai_engine/rag/data/v2/public_benchmark_v2.json,VERIFIED
+0.9436,Conclusion and Future Work (line 655),Char 3-5g BM25 MRR on Clean Apple OCR,ColQwen2,verbatim / Apple Vision Clean OCR,500,results/v6/char_vs_word_bm25_v6.csv,VERIFIED
+0.8371,Conclusion and Future Work (line 655),Word BM25 MRR on Clean Apple OCR,ColQwen2,verbatim / Apple Vision Clean OCR,500,results/v6/char_vs_word_bm25_v6.csv,VERIFIED
+0.8248,Conclusion and Future Work (line 655),Char 3-5g BM25 MRR on Degraded Blur Apple OCR,ColQwen2,verbatim / Apple Vision Degraded OCR,500,results/v6/char_vs_word_bm25_v6.csv,VERIFIED
+0.6972,Conclusion and Future Work (line 655),Word BM25 MRR on Degraded Blur Apple OCR,ColQwen2,verbatim / Apple Vision Degraded OCR,500,results/v6/char_vs_word_bm25_v6.csv,VERIFIED
+0.8412,Conclusion and Future Work (line 655),Char 3-5g BM25 MRR on Clean Tesseract 5.5,ColQwen2,verbatim / Tesseract 5.5 Clean OCR,500,results/v7/dose_response_table_v7.csv,VERIFIED
+0.7364,Conclusion and Future Work (line 655),Word BM25 MRR on Clean Tesseract 5.5,ColQwen2,verbatim / Tesseract 5.5 Clean OCR,500,results/v7/dose_response_table_v7.csv,VERIFIED
+0.4334,Conclusion and Future Work (line 655),Word BM25 MRR under Light Paraphrasing,ColQwen2,light_paraphrase / Apple Vision Clean OCR,500,results/v6/char_vs_word_bm25_v6.csv,VERIFIED
+0.2427,Conclusion and Future Work (line 655),Char 3-5g BM25 MRR under Light Paraphrasing,ColQwen2,light_paraphrase / Apple Vision Clean OCR,500,results/v6/char_vs_word_bm25_v6.csv,VERIFIED
+0.3256,Conclusion and Future Work (line 655),Dense BGE-base MRR on verbatim ground truth,ColQwen2,verbatim / Pristine Ground Truth Text,500,results/v6/dense_formulation_keyword_control_v6.csv,VERIFIED
+0.5263,Conclusion and Future Work (line 655),Dense BGE-base MRR under natural answerable questions,ColQwen2,answerable_questions / Pristine Ground Truth Text,500,results/v6/dense_formulation_keyword_control_v6.csv,VERIFIED
+0.6071,Conclusion and Future Work (line 655),SigLIP Base Patch16 native visual MRR on MS-COCO,ColQwen2,descriptive / MS-COCO Pixels,500,results/v3/coco_native_visual_v3.csv,VERIFIED
+0.3728,Conclusion and Future Work (line 655),Dense MiniLM on BLIP captions MRR on MS-COCO,ColQwen2,descriptive / BLIP Captions,500,results/v3/coco_native_visual_v3.csv,VERIFIED
+0.6210,Conclusion and Future Work (line 655),MRR,ColQwen2,Apple Clean OCR,500,results/v3/G-01_multicolumn/cache/ocr_corpora_cache.json,VERIFIED
+-0.0139,Conclusion and Future Work (line 655),MRR,ColQwen2,Apple Clean OCR,500,results/v6/dev_alpha_curves.csv,VERIFIED
+0.321,Conclusion and Future Work (line 655),MRR,ColQwen2,Apple Clean OCR,500,results/v6/dense_query_formulation_v6.csv,VERIFIED
+0.0050,Conclusion and Future Work (line 655),MRR,ColQwen2,Apple Clean OCR,500,results/v9/conformal_retest_v9.csv,VERIFIED
+-0.0369,Conclusion and Future Work (line 655),MRR,ColQwen2,Apple Clean OCR,500,results/v2/regime_grid_results.csv,VERIFIED
++0.0091,Conclusion and Future Work (line 655),MRR,ColQwen2,Apple Clean OCR,500,results/v2/ablation_results.csv,VERIFIED
+0.6450,Conclusion and Future Work (line 655),ColQwen2-v1.0 Native Visual MRR on DocVQA benchmark,ColQwen2,human_questions / Native Raw Pixels,500,results/v9/docvqa_benchmark_results.csv,VERIFIED
+0.3507,Conclusion and Future Work (line 655),Tuned Hybrid MRR on DocVQA with 100% human-written questions,ColQwen2,human_questions / Tesseract 5.5 LSTM OCR,500,results/v9/docvqa_benchmark_results.csv,VERIFIED
+0.9471,Conclusion and Future Work (line 655),Char 3-5gram BM25 MRR on answerable questions in headline regime grid,ColQwen2,answerable_questions / Apple Vision Clean OCR,500,results/v3/headline_regime_grid_v3.csv,VERIFIED
+0.8595,Conclusion and Future Work (line 655),MRR,ColQwen2,Apple Clean OCR,500,results/v6/native_visual_receipts_results.csv,VERIFIED
+0.00012,Conclusion and Future Work (line 655),MRR,ColQwen2,Apple Clean OCR,500,results/v6/native_visual_receipts_results.csv,VERIFIED
+0.87,Conclusion and Future Work (line 655),Char 3-5g BM25 mean query latency (ms) on Apple Silicon CPU,ColQwen2,verbatim / CPU Batch 1,500,results/v6/standardized_latency_v6.csv,VERIFIED
+-5.72,Conclusion and Future Work (line 655),Character 3-5gram BM25 mean query latency (ms) on answerable questions,ColQwen2,answerable_questions / Apple Vision Clean OCR,500,results/v3/headline_regime_grid_v3.csv,VERIFIED
+249.21,Conclusion and Future Work (line 655),ColQwen2-v1.0 Mean Query Latency (ms) on Nvidia Tesla T4 GPU,ColQwen2,light_paraphrase / Direct Document Image Pixels,500,results/v7/colqwen_receipts_measured_v7.csv,VERIFIED
+58.5\%,Conclusion and Future Work (line 657),Empirical split coverage at risk <= 0.05 threshold,Extractive PRF,pooled / heterogeneous_proxies,306,results/v7/conformal_retest_summary_v7.csv,VERIFIED
+82.0\%,Conclusion and Future Work (line 657),MRR,Extractive PRF,General,306,results/v6/conformal_high_prob_summary_v6.csv,VERIFIED
+0.3579,Conclusion and Future Work (line 657),Realized MRR under equal-escalation fixed margin cascade,Extractive PRF,pooled / heterogeneous_proxies,306,results/v7/conformal_retest_summary_v7.csv,VERIFIED
+0.3577,Conclusion and Future Work (line 657),Realized MRR under conformal marginal risk cascade,Extractive PRF,pooled / heterogeneous_proxies,306,results/v7/conformal_retest_summary_v7.csv,VERIFIED
+100,Conclusion and Future Work (line 657),FUNSD forms test probe count,Extractive PRF,all / funsd_forms,306,results/v3/funsd_dataset_replication.csv,VERIFIED
+0.820,Conclusion and Future Work (line 657),MRR,Extractive PRF,General,306,results/v9/number_provenance.csv,VERIFIED
+0.0062,Conclusion and Future Work (line 657),MRR,Extractive PRF,General,306,results/v6/dev_alpha_curves.csv,VERIFIED
+0.01,Conclusion and Future Work (line 657),Dense MiniLM and BGE isolated vector dot-product ranking latency (ms),Extractive PRF,all / Precomputed Vector Index,306,results/v3/headline_regime_grid_v3.csv,VERIFIED
+394,Conclusion and Future Work (line 657),MRR,Extractive PRF,General,306,results/v6/paraphrase_audit_60.json,VERIFIED
+00,Conclusion and Future Work (line 659),Unknown,General / Benchmark,General,306,,UNVERIFIED
+024,Conclusion and Future Work (line 663),Unknown,General / Benchmark,General,306,results/v6/claims_ledger_v6.csv,VERIFIED
+2402.01763,Conclusion and Future Work (line 664),Unknown,General / Benchmark,General,306,results/v3/G-01_multicolumn/cache/ocr_corpora_cache.json,VERIFIED
+020,Conclusion and Future Work (line 665),Unknown,General / Benchmark,General,306,results/v6/claims_ledger_v6.csv,VERIFIED
+33,Conclusion and Future Work (line 666),Latency (ms),General / Benchmark,General,306,,UNVERIFIED
+9459,Conclusion and Future Work (line 666),Latency (ms),General / Benchmark,General,306,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
+-9474,Conclusion and Future Work (line 666),Latency (ms),General / Benchmark,General,306,results/v9/sroie_easyocr_degraded_ocr.json,VERIFIED
+2020,Conclusion and Future Work (line 666),Latency (ms),General / Benchmark,General,306,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
+025,Conclusion and Future Work (line 667),Unknown,General / Benchmark,General,306,results/v6/dev_tuned_parameters_v6.json,VERIFIED
+16776,Conclusion and Future Work (line 668),Unknown,General / Benchmark,General,306,results/v3/G-05_learned_sparse_colbert/statistical_g05_tests.csv,VERIFIED
+-16809,Conclusion and Future Work (line 668),Unknown,General / Benchmark,General,306,results/v5/coco_captions_v5.json,VERIFIED
 025,Conclusion and Future Work (line 669),Unknown,General / Benchmark,General,306,results/v6/dev_tuned_parameters_v6.json,VERIFIED
-16776,Conclusion and Future Work (line 670),Unknown,General / Benchmark,General,306,results/v3/G-05_learned_sparse_colbert/statistical_g05_tests.csv,VERIFIED
--16809,Conclusion and Future Work (line 670),Unknown,General / Benchmark,General,306,results/v5/coco_captions_v5.json,VERIFIED
-025,Conclusion and Future Work (line 671),Unknown,General / Benchmark,General,306,results/v6/dev_tuned_parameters_v6.json,VERIFIED
+024,Conclusion and Future Work (line 671),Unknown,General / Benchmark,General,306,results/v6/claims_ledger_v6.csv,VERIFIED
 024,Conclusion and Future Work (line 673),Unknown,General / Benchmark,General,306,results/v6/claims_ledger_v6.csv,VERIFIED
-024,Conclusion and Future Work (line 675),Unknown,General / Benchmark,General,306,results/v6/claims_ledger_v6.csv,VERIFIED
-000,Conclusion and Future Work (line 677),Unknown,General / Benchmark,General,306,results/v6/native_visual_receipts_results.csv,VERIFIED
-165,Conclusion and Future Work (line 678),Unknown,General / Benchmark,General,306,results/order_invariant_cer_summary.csv,VERIFIED
--176,Conclusion and Future Work (line 678),Unknown,General / Benchmark,General,306,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
-2000,Conclusion and Future Work (line 678),Number of cluster bootstrap iterations (B=2000),General / Benchmark,all / bootstrap,306,IEEE_Paper_v7.tex,VERIFIED
-004,Conclusion and Future Work (line 679),Unknown,General / Benchmark,General,306,results/v6/tesseract_error_rates_v6.csv,VERIFIED
-73,Conclusion and Future Work (line 680),Unknown,Char BM25,General,306,,UNVERIFIED
--97,Conclusion and Future Work (line 680),Unknown,Char BM25,General,306,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
-2004,Conclusion and Future Work (line 680),Unknown,Char BM25,General,306,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
-020,Conclusion and Future Work (line 681),Unknown,General / Benchmark,General,306,results/v6/claims_ledger_v6.csv,VERIFIED
-2020,Conclusion and Future Work (line 682),Unknown,General / Benchmark,General,306,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
-007,Conclusion and Future Work (line 683),Unknown,General / Benchmark,General,306,results/v6/native_visual_receipts_results.csv,VERIFIED
-629,Conclusion and Future Work (line 684),Unknown,General / Benchmark,Tesseract 5.5 OCR,306,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
--633,Conclusion and Future Work (line 684),Unknown,General / Benchmark,Tesseract 5.5 OCR,306,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
-2007,Conclusion and Future Work (line 684),Unknown,General / Benchmark,Tesseract 5.5 OCR,306,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
-020,Conclusion and Future Work (line 685),Unknown,General / Benchmark,General,306,results/v6/claims_ledger_v6.csv,VERIFIED
-80,Conclusion and Future Work (line 686),Unknown,General / Benchmark,EasyOCR 1.7.2,306,,UNVERIFIED
-2020,Conclusion and Future Work (line 686),Unknown,General / Benchmark,EasyOCR 1.7.2,306,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
-024,Conclusion and Future Work (line 687),Unknown,General / Benchmark,General,306,results/v6/claims_ledger_v6.csv,VERIFIED
-021,Conclusion and Future Work (line 689),Unknown,General / Benchmark,General,306,results/v6/conformal_high_prob_summary_v6.csv,VERIFIED
-2200,Conclusion and Future Work (line 690),Unknown,General / Benchmark,General,500,results/v6/paraphrase_audit_60.json,VERIFIED
--2209,Conclusion and Future Work (line 690),Unknown,General / Benchmark,General,500,results/v6/recipe_summary.csv,VERIFIED
-015,Conclusion and Future Work (line 691),Unknown,General / Benchmark,General,306,results/v6/paraphrase_audit_60.json,VERIFIED
-3128,Conclusion and Future Work (line 692),p-value,General / Benchmark,General,306,results/v6/dose_response_overlap_v6.csv,VERIFIED
--3137,Conclusion and Future Work (line 692),p-value,General / Benchmark,General,306,results/v6/conformal_high_prob_v6.csv,VERIFIED
-2015,Conclusion and Future Work (line 692),p-value,General / Benchmark,General,306,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
-014,Conclusion and Future Work (line 693),Unknown,General / Benchmark,General,306,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
-740,Conclusion and Future Work (line 694),Unknown,General / Benchmark,General,1000,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
--755,Conclusion and Future Work (line 694),Unknown,General / Benchmark,General,1000,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
-2014,Conclusion and Future Work (line 694),Unknown,General / Benchmark,General,1000,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
-023,Conclusion and Future Work (line 695),Unknown,General / Benchmark,General,306,results/v6/dev_tuned_parameters_v6.json,VERIFIED
-11975,Conclusion and Future Work (line 696),Unknown,General / Benchmark,General,306,results/v3/G-01_multicolumn/cache/ocr_corpora_cache.json,VERIFIED
--11986,Conclusion and Future Work (line 696),Unknown,General / Benchmark,General,306,results/v3/G-10_e2e_rag_funsd_docvqa/generation_cache.json,VERIFIED
-021,Conclusion and Future Work (line 697),Unknown,General / Benchmark,General,306,results/v6/conformal_high_prob_summary_v6.csv,VERIFIED
-8748,Conclusion and Future Work (line 698),Unknown,General / Benchmark,General,306,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
--8763,Conclusion and Future Work (line 698),Unknown,General / Benchmark,General,306,results/v9/conformal_retest_v9.csv,VERIFIED
-023,Conclusion and Future Work (line 699),Unknown,General / Benchmark,General,306,results/v6/dev_tuned_parameters_v6.json,VERIFIED
-15180,Conclusion and Future Work (line 700),Unknown,General / Benchmark,General,306,results/gapfill_v1/T3-03/realistic_degradation_summary.csv,VERIFIED
--15190,Conclusion and Future Work (line 700),Unknown,General / Benchmark,General,306,results/v3/G-06_near_duplicate_contamination/near_duplicate_sweep_summary.csv,VERIFIED
-009,Conclusion and Future Work (line 701),Unknown,General / Benchmark,General,306,results/v6/claims_ledger_v6.csv,VERIFIED
-333,Conclusion and Future Work (line 702),Unknown,General / Benchmark,General,306,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
--389,Conclusion and Future Work (line 702),Unknown,General / Benchmark,General,306,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
-2009,Conclusion and Future Work (line 702),Unknown,General / Benchmark,General,306,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
-995,Conclusion and Future Work (line 703),Unknown,General / Benchmark,General,306,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
-500,Conclusion and Future Work (line 704),DocVQA ViDoRe evaluation query and page count,General / Benchmark,human_qa / scanned_reports,500,results/v9/docvqa_benchmark_results.csv,VERIFIED
--225,Conclusion and Future Work (line 704),Unknown,General / Benchmark,General,500,results/v6/paraphrase_audit_60.json,VERIFIED
-109,Conclusion and Future Work (line 704),Unknown,General / Benchmark,General,500,results/v6/paraphrase_audit_60.json,VERIFIED
--126,Conclusion and Future Work (line 704),Unknown,General / Benchmark,General,500,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
-1995,Conclusion and Future Work (line 704),Unknown,General / Benchmark,General,500,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
+000,Conclusion and Future Work (line 675),Unknown,General / Benchmark,General,306,results/v6/native_visual_receipts_results.csv,VERIFIED
+165,Conclusion and Future Work (line 676),Unknown,General / Benchmark,General,306,results/order_invariant_cer_summary.csv,VERIFIED
+-176,Conclusion and Future Work (line 676),Unknown,General / Benchmark,General,306,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
+2000,Conclusion and Future Work (line 676),Number of cluster bootstrap iterations (B=2000),General / Benchmark,all / bootstrap,306,IEEE_Paper_v7.tex,VERIFIED
+004,Conclusion and Future Work (line 677),Unknown,General / Benchmark,General,306,results/v6/tesseract_error_rates_v6.csv,VERIFIED
+73,Conclusion and Future Work (line 678),Unknown,Char BM25,General,306,,UNVERIFIED
+-97,Conclusion and Future Work (line 678),Unknown,Char BM25,General,306,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
+2004,Conclusion and Future Work (line 678),Unknown,Char BM25,General,306,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
+020,Conclusion and Future Work (line 679),Unknown,General / Benchmark,General,306,results/v6/claims_ledger_v6.csv,VERIFIED
+2020,Conclusion and Future Work (line 680),Unknown,General / Benchmark,General,306,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
+007,Conclusion and Future Work (line 681),Unknown,General / Benchmark,General,306,results/v6/native_visual_receipts_results.csv,VERIFIED
+629,Conclusion and Future Work (line 682),Unknown,General / Benchmark,Tesseract 5.5 OCR,306,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
+-633,Conclusion and Future Work (line 682),Unknown,General / Benchmark,Tesseract 5.5 OCR,306,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
+2007,Conclusion and Future Work (line 682),Unknown,General / Benchmark,Tesseract 5.5 OCR,306,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
+020,Conclusion and Future Work (line 683),Unknown,General / Benchmark,General,306,results/v6/claims_ledger_v6.csv,VERIFIED
+80,Conclusion and Future Work (line 684),Unknown,General / Benchmark,EasyOCR 1.7.2,306,,UNVERIFIED
+2020,Conclusion and Future Work (line 684),Unknown,General / Benchmark,EasyOCR 1.7.2,306,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
+024,Conclusion and Future Work (line 685),Unknown,General / Benchmark,General,306,results/v6/claims_ledger_v6.csv,VERIFIED
+021,Conclusion and Future Work (line 687),Unknown,General / Benchmark,General,306,results/v6/conformal_high_prob_summary_v6.csv,VERIFIED
+2200,Conclusion and Future Work (line 688),Unknown,General / Benchmark,General,500,results/v6/paraphrase_audit_60.json,VERIFIED
+-2209,Conclusion and Future Work (line 688),Unknown,General / Benchmark,General,500,results/v6/recipe_summary.csv,VERIFIED
+015,Conclusion and Future Work (line 689),Unknown,General / Benchmark,General,306,results/v6/paraphrase_audit_60.json,VERIFIED
+3128,Conclusion and Future Work (line 690),p-value,General / Benchmark,General,306,results/v6/dose_response_overlap_v6.csv,VERIFIED
+-3137,Conclusion and Future Work (line 690),p-value,General / Benchmark,General,306,results/v6/conformal_high_prob_v6.csv,VERIFIED
+2015,Conclusion and Future Work (line 690),p-value,General / Benchmark,General,306,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
+014,Conclusion and Future Work (line 691),Unknown,General / Benchmark,General,306,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
+740,Conclusion and Future Work (line 692),Unknown,General / Benchmark,General,1000,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
+-755,Conclusion and Future Work (line 692),Unknown,General / Benchmark,General,1000,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
+2014,Conclusion and Future Work (line 692),Unknown,General / Benchmark,General,1000,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
+023,Conclusion and Future Work (line 693),Unknown,General / Benchmark,General,306,results/v6/dev_tuned_parameters_v6.json,VERIFIED
+11975,Conclusion and Future Work (line 694),Unknown,General / Benchmark,General,306,results/v3/G-01_multicolumn/cache/ocr_corpora_cache.json,VERIFIED
+-11986,Conclusion and Future Work (line 694),Unknown,General / Benchmark,General,306,results/v3/G-10_e2e_rag_funsd_docvqa/generation_cache.json,VERIFIED
+021,Conclusion and Future Work (line 695),Unknown,General / Benchmark,General,306,results/v6/conformal_high_prob_summary_v6.csv,VERIFIED
+8748,Conclusion and Future Work (line 696),Unknown,General / Benchmark,General,306,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
+-8763,Conclusion and Future Work (line 696),Unknown,General / Benchmark,General,306,results/v9/conformal_retest_v9.csv,VERIFIED
+023,Conclusion and Future Work (line 697),Unknown,General / Benchmark,General,306,results/v6/dev_tuned_parameters_v6.json,VERIFIED
+15180,Conclusion and Future Work (line 698),Unknown,General / Benchmark,General,306,results/gapfill_v1/T3-03/realistic_degradation_summary.csv,VERIFIED
+-15190,Conclusion and Future Work (line 698),Unknown,General / Benchmark,General,306,results/v3/G-06_near_duplicate_contamination/near_duplicate_sweep_summary.csv,VERIFIED
+009,Conclusion and Future Work (line 699),Unknown,General / Benchmark,General,306,results/v6/claims_ledger_v6.csv,VERIFIED
+333,Conclusion and Future Work (line 700),Unknown,General / Benchmark,General,306,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
+-389,Conclusion and Future Work (line 700),Unknown,General / Benchmark,General,306,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
+2009,Conclusion and Future Work (line 700),Unknown,General / Benchmark,General,306,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
+995,Conclusion and Future Work (line 701),Unknown,General / Benchmark,General,306,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
+500,Conclusion and Future Work (line 702),DocVQA ViDoRe evaluation query and page count,General / Benchmark,human_qa / scanned_reports,500,results/v9/docvqa_benchmark_results.csv,VERIFIED
+-225,Conclusion and Future Work (line 702),Unknown,General / Benchmark,General,500,results/v6/paraphrase_audit_60.json,VERIFIED
+109,Conclusion and Future Work (line 702),Unknown,General / Benchmark,General,500,results/v6/paraphrase_audit_60.json,VERIFIED
+-126,Conclusion and Future Work (line 702),Unknown,General / Benchmark,General,500,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
+1995,Conclusion and Future Work (line 702),Unknown,General / Benchmark,General,500,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
+024,Conclusion and Future Work (line 703),Unknown,General / Benchmark,General,306,results/v6/claims_ledger_v6.csv,VERIFIED
+2411.04952,Conclusion and Future Work (line 704),Unknown,General / Benchmark,General,306,results/v3/G-01_multicolumn/cache/ocr_corpora_cache.json,VERIFIED
 024,Conclusion and Future Work (line 705),Unknown,General / Benchmark,General,306,results/v6/claims_ledger_v6.csv,VERIFIED
-2411.04952,Conclusion and Future Work (line 706),Unknown,General / Benchmark,General,306,results/v3/G-01_multicolumn/cache/ocr_corpora_cache.json,VERIFIED
+2409.12191,Conclusion and Future Work (line 706),Unknown,General / Benchmark,General,306,results/v3/G-01_multicolumn/cache/ocr_corpora_cache.json,VERIFIED
 024,Conclusion and Future Work (line 707),Unknown,General / Benchmark,General,306,results/v6/claims_ledger_v6.csv,VERIFIED
-2409.12191,Conclusion and Future Work (line 708),Unknown,General / Benchmark,General,306,results/v3/G-01_multicolumn/cache/ocr_corpora_cache.json,VERIFIED
-024,Conclusion and Future Work (line 709),Unknown,General / Benchmark,General,306,results/v6/claims_ledger_v6.csv,VERIFIED
-2833,Conclusion and Future Work (line 710),Latency (ms),General / Benchmark,General,306,results/v6/dose_response_queries_v6.json,VERIFIED
-979,Conclusion and Future Work (line 711),Unknown,General / Benchmark,General,306,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
-62,Conclusion and Future Work (line 712),Latency (ms),General / Benchmark,General,306,,UNVERIFIED
--66,Conclusion and Future Work (line 712),Latency (ms),General / Benchmark,General,306,results/v6/paraphrase_audit_60.json,VERIFIED
-1979,Conclusion and Future Work (line 712),Latency (ms),General / Benchmark,General,306,results/v9/conformal_retest_v9.csv,VERIFIED
-962,Conclusion and Future Work (line 713),Unknown,General / Benchmark,General,306,results/v6/dose_response_overlap_v6.csv,VERIFIED
-3069654,Conclusion and Future Work (line 714),Unknown,General / Benchmark,General,306,,UNVERIFIED
-1962,Conclusion and Future Work (line 714),Unknown,General / Benchmark,General,306,results/v9/conformal_retest_v9.csv,VERIFIED
-019,Conclusion and Future Work (line 715),Unknown,General / Benchmark,General,306,results/v6/dev_tuned_parameters_v6.json,VERIFIED
-3982,Conclusion and Future Work (line 716),Unknown,General / Benchmark,General,306,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
--3992,Conclusion and Future Work (line 716),Unknown,General / Benchmark,General,306,results/v9/conformal_retest_v9.csv,VERIFIED
-2019,Conclusion and Future Work (line 716),Unknown,General / Benchmark,General,306,results/v6/multihop_cases_v6.csv,VERIFIED
-023,Conclusion and Future Work (line 717),Unknown,General / Benchmark,General,306,results/v6/dev_tuned_parameters_v6.json,VERIFIED
-2309.07597,Conclusion and Future Work (line 718),Unknown,General / Benchmark,General,306,results/v3/G-01_multicolumn/cache/ocr_corpora_cache.json,VERIFIED
-024,Conclusion and Future Work (line 719),Unknown,General / Benchmark,General,306,results/v6/claims_ledger_v6.csv,VERIFIED
-2402.03216,Conclusion and Future Work (line 720),Unknown,Dense BGE,General,306,results/v3/G-01_multicolumn/cache/ocr_corpora_cache.json,VERIFIED
-021,Conclusion and Future Work (line 721),Unknown,General / Benchmark,General,306,results/v6/conformal_high_prob_summary_v6.csv,VERIFIED
-2288,Conclusion and Future Work (line 722),Unknown,General / Benchmark,General,306,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
--2292,Conclusion and Future Work (line 722),Unknown,General / Benchmark,General,306,results/v6/conformal_high_prob_v6.csv,VERIFIED
-022,Conclusion and Future Work (line 723),Unknown,General / Benchmark,General,306,results/v6/paraphrase_audit_60.json,VERIFIED
-3715,Conclusion and Future Work (line 724),Unknown,General / Benchmark,Light Paraphrase,306,results/v6/conformal_high_prob_v6.csv,VERIFIED
--3734,Conclusion and Future Work (line 724),Unknown,General / Benchmark,Light Paraphrase,306,results/v9/conformal_retest_v9.csv,VERIFIED
-021,Conclusion and Future Work (line 725),Unknown,General / Benchmark,General,306,results/v6/conformal_high_prob_summary_v6.csv,VERIFIED
-34,Conclusion and Future Work (line 726),Latency (ms),General / Benchmark,General,306,,UNVERIFIED
-27670,Conclusion and Future Work (line 726),Latency (ms),General / Benchmark,General,306,results/v3/G-01_multicolumn/cache/ocr_corpora_cache.json,VERIFIED
--27682,Conclusion and Future Work (line 726),Latency (ms),General / Benchmark,General,306,results/v3/G-01_multicolumn/cache/ocr_corpora_cache.json,VERIFIED
-011,Conclusion and Future Work (line 727),Unknown,General / Benchmark,General,306,results/v6/claims_ledger_v6.csv,VERIFIED
-34,Conclusion and Future Work (line 728),Unknown,General / Benchmark,General,306,,UNVERIFIED
-105,Conclusion and Future Work (line 728),Unknown,General / Benchmark,General,306,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
--114,Conclusion and Future Work (line 728),Unknown,General / Benchmark,General,306,results/v6/paraphrase_audit_60.json,VERIFIED
-2011,Conclusion and Future Work (line 728),Unknown,General / Benchmark,General,306,results/v6/paraphrase_audit_60.json,VERIFIED
-019,Conclusion and Future Work (line 729),Unknown,General / Benchmark,General,306,results/v6/dev_tuned_parameters_v6.json,VERIFIED
--23,Conclusion and Future Work (line 730),Unknown,General / Benchmark,General,306,results/v6/paraphrase_audit_60.json,VERIFIED
-2019,Conclusion and Future Work (line 730),Unknown,General / Benchmark,General,306,results/v6/multihop_cases_v6.csv,VERIFIED
-021,Conclusion and Future Work (line 731),Unknown,General / Benchmark,General,306,results/v6/conformal_high_prob_summary_v6.csv,VERIFIED
-68,Conclusion and Future Work (line 732),Unknown,General / Benchmark,General,306,,UNVERIFIED
--34,Conclusion and Future Work (line 732),Unknown,General / Benchmark,General,306,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
-024,Conclusion and Future Work (line 733),Unknown,General / Benchmark,General,306,results/v6/claims_ledger_v6.csv,VERIFIED
-021,Conclusion and Future Work (line 735),Unknown,General / Benchmark,General,306,results/v6/conformal_high_prob_summary_v6.csv,VERIFIED
-2107.07511,Conclusion and Future Work (line 736),Unknown,General / Benchmark,General,306,results/v3/G-01_multicolumn/cache/ocr_corpora_cache.json,VERIFIED
-022,Conclusion and Future Work (line 737),Unknown,General / Benchmark,General,306,results/v6/paraphrase_audit_60.json,VERIFIED
-12888,Conclusion and Future Work (line 738),Unknown,BLIP / BLIP-2,General,306,results/v9/sroie_easyocr_clean_ocr.json,VERIFIED
--12900,Conclusion and Future Work (line 738),Unknown,BLIP / BLIP-2,General,306,results/v3/G-10_e2e_rag_funsd_docvqa/generation_cache.json,VERIFIED
-023,Conclusion and Future Work (line 739),Unknown,General / Benchmark,General,306,results/v6/dev_tuned_parameters_v6.json,VERIFIED
-19730,Conclusion and Future Work (line 740),Unknown,BLIP / BLIP-2,General,306,results/v3/funsd_standardized_pools_b08.csv,VERIFIED
--19742,Conclusion and Future Work (line 740),Unknown,BLIP / BLIP-2,General,306,results/v9/sroie_easyocr_clean_ocr.json,VERIFIED
-024,Conclusion and Future Work (line 741),Unknown,General / Benchmark,General,306,results/v6/claims_ledger_v6.csv,VERIFIED
+2833,Conclusion and Future Work (line 708),Latency (ms),General / Benchmark,General,306,results/v6/dose_response_queries_v6.json,VERIFIED
+979,Conclusion and Future Work (line 709),Unknown,General / Benchmark,General,306,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
+62,Conclusion and Future Work (line 710),Latency (ms),General / Benchmark,General,306,,UNVERIFIED
+-66,Conclusion and Future Work (line 710),Latency (ms),General / Benchmark,General,306,results/v6/paraphrase_audit_60.json,VERIFIED
+1979,Conclusion and Future Work (line 710),Latency (ms),General / Benchmark,General,306,results/v9/conformal_retest_v9.csv,VERIFIED
+962,Conclusion and Future Work (line 711),Unknown,General / Benchmark,General,306,results/v6/dose_response_overlap_v6.csv,VERIFIED
+3069654,Conclusion and Future Work (line 712),Unknown,General / Benchmark,General,306,,UNVERIFIED
+1962,Conclusion and Future Work (line 712),Unknown,General / Benchmark,General,306,results/v9/conformal_retest_v9.csv,VERIFIED
+019,Conclusion and Future Work (line 713),Unknown,General / Benchmark,General,306,results/v6/dev_tuned_parameters_v6.json,VERIFIED
+3982,Conclusion and Future Work (line 714),Unknown,General / Benchmark,General,306,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
+-3992,Conclusion and Future Work (line 714),Unknown,General / Benchmark,General,306,results/v9/conformal_retest_v9.csv,VERIFIED
+2019,Conclusion and Future Work (line 714),Unknown,General / Benchmark,General,306,results/v6/multihop_cases_v6.csv,VERIFIED
+023,Conclusion and Future Work (line 715),Unknown,General / Benchmark,General,306,results/v6/dev_tuned_parameters_v6.json,VERIFIED
+2309.07597,Conclusion and Future Work (line 716),Unknown,General / Benchmark,General,306,results/v3/G-01_multicolumn/cache/ocr_corpora_cache.json,VERIFIED
+024,Conclusion and Future Work (line 717),Unknown,General / Benchmark,General,306,results/v6/claims_ledger_v6.csv,VERIFIED
+2402.03216,Conclusion and Future Work (line 718),Unknown,Dense BGE,General,306,results/v3/G-01_multicolumn/cache/ocr_corpora_cache.json,VERIFIED
+021,Conclusion and Future Work (line 719),Unknown,General / Benchmark,General,306,results/v6/conformal_high_prob_summary_v6.csv,VERIFIED
+2288,Conclusion and Future Work (line 720),Unknown,General / Benchmark,General,306,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
+-2292,Conclusion and Future Work (line 720),Unknown,General / Benchmark,General,306,results/v6/conformal_high_prob_v6.csv,VERIFIED
+022,Conclusion and Future Work (line 721),Unknown,General / Benchmark,General,306,results/v6/paraphrase_audit_60.json,VERIFIED
+3715,Conclusion and Future Work (line 722),Unknown,General / Benchmark,Light Paraphrase,306,results/v6/conformal_high_prob_v6.csv,VERIFIED
+-3734,Conclusion and Future Work (line 722),Unknown,General / Benchmark,Light Paraphrase,306,results/v9/conformal_retest_v9.csv,VERIFIED
+021,Conclusion and Future Work (line 723),Unknown,General / Benchmark,General,306,results/v6/conformal_high_prob_summary_v6.csv,VERIFIED
+34,Conclusion and Future Work (line 724),Latency (ms),General / Benchmark,General,306,,UNVERIFIED
+27670,Conclusion and Future Work (line 724),Latency (ms),General / Benchmark,General,306,results/v3/G-01_multicolumn/cache/ocr_corpora_cache.json,VERIFIED
+-27682,Conclusion and Future Work (line 724),Latency (ms),General / Benchmark,General,306,results/v3/G-01_multicolumn/cache/ocr_corpora_cache.json,VERIFIED
+011,Conclusion and Future Work (line 725),Unknown,General / Benchmark,General,306,results/v6/claims_ledger_v6.csv,VERIFIED
+34,Conclusion and Future Work (line 726),Unknown,General / Benchmark,General,306,,UNVERIFIED
+105,Conclusion and Future Work (line 726),Unknown,General / Benchmark,General,306,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
+-114,Conclusion and Future Work (line 726),Unknown,General / Benchmark,General,306,results/v6/paraphrase_audit_60.json,VERIFIED
+2011,Conclusion and Future Work (line 726),Unknown,General / Benchmark,General,306,results/v6/paraphrase_audit_60.json,VERIFIED
+019,Conclusion and Future Work (line 727),Unknown,General / Benchmark,General,306,results/v6/dev_tuned_parameters_v6.json,VERIFIED
+-23,Conclusion and Future Work (line 728),Unknown,General / Benchmark,General,306,results/v6/paraphrase_audit_60.json,VERIFIED
+2019,Conclusion and Future Work (line 728),Unknown,General / Benchmark,General,306,results/v6/multihop_cases_v6.csv,VERIFIED
+021,Conclusion and Future Work (line 729),Unknown,General / Benchmark,General,306,results/v6/conformal_high_prob_summary_v6.csv,VERIFIED
+68,Conclusion and Future Work (line 730),Unknown,General / Benchmark,General,306,,UNVERIFIED
+-34,Conclusion and Future Work (line 730),Unknown,General / Benchmark,General,306,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
+024,Conclusion and Future Work (line 731),Unknown,General / Benchmark,General,306,results/v6/claims_ledger_v6.csv,VERIFIED
+021,Conclusion and Future Work (line 733),Unknown,General / Benchmark,General,306,results/v6/conformal_high_prob_summary_v6.csv,VERIFIED
+2107.07511,Conclusion and Future Work (line 734),Unknown,General / Benchmark,General,306,results/v3/G-01_multicolumn/cache/ocr_corpora_cache.json,VERIFIED
+022,Conclusion and Future Work (line 735),Unknown,General / Benchmark,General,306,results/v6/paraphrase_audit_60.json,VERIFIED
+12888,Conclusion and Future Work (line 736),Unknown,BLIP / BLIP-2,General,306,results/v9/sroie_easyocr_clean_ocr.json,VERIFIED
+-12900,Conclusion and Future Work (line 736),Unknown,BLIP / BLIP-2,General,306,results/v3/G-10_e2e_rag_funsd_docvqa/generation_cache.json,VERIFIED
+023,Conclusion and Future Work (line 737),Unknown,General / Benchmark,General,306,results/v6/dev_tuned_parameters_v6.json,VERIFIED
+19730,Conclusion and Future Work (line 738),Unknown,BLIP / BLIP-2,General,306,results/v3/funsd_standardized_pools_b08.csv,VERIFIED
+-19742,Conclusion and Future Work (line 738),Unknown,BLIP / BLIP-2,General,306,results/v9/sroie_easyocr_clean_ocr.json,VERIFIED
+024,Conclusion and Future Work (line 739),Unknown,General / Benchmark,General,306,results/v6/claims_ledger_v6.csv,VERIFIED
+023,Conclusion and Future Work (line 741),Unknown,General / Benchmark,General,306,results/v6/dev_tuned_parameters_v6.json,VERIFIED
+28492,Conclusion and Future Work (line 742),Unknown,General / Benchmark,General,306,results/v9/conformal_retest_v9.csv,VERIFIED
+-28518,Conclusion and Future Work (line 742),Unknown,General / Benchmark,General,306,results/v3/G-01_multicolumn/cache/ocr_corpora_cache.json,VERIFIED
 023,Conclusion and Future Work (line 743),Unknown,General / Benchmark,General,306,results/v6/dev_tuned_parameters_v6.json,VERIFIED
-28492,Conclusion and Future Work (line 744),Unknown,General / Benchmark,General,306,results/v9/conformal_retest_v9.csv,VERIFIED
--28518,Conclusion and Future Work (line 744),Unknown,General / Benchmark,General,306,results/v3/G-01_multicolumn/cache/ocr_corpora_cache.json,VERIFIED
-023,Conclusion and Future Work (line 745),Unknown,General / Benchmark,General,306,results/v6/dev_tuned_parameters_v6.json,VERIFIED
-009,Conclusion and Future Work (line 747),Unknown,General / Benchmark,General,306,results/v6/claims_ledger_v6.csv,VERIFIED
-32,Conclusion and Future Work (line 748),Number of target hits (32/50) in multi-hop evaluation,General / Benchmark,multi_hop_diagnostic / cross_modal_album,306,results/v6/multihop_independent_v6.csv,VERIFIED
-758,Conclusion and Future Work (line 748),Latency (ms),General / Benchmark,General,306,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
--759,Conclusion and Future Work (line 748),Latency (ms),General / Benchmark,General,306,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
-2009,Conclusion and Future Work (line 748),Latency (ms),General / Benchmark,General,306,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
+009,Conclusion and Future Work (line 745),Unknown,General / Benchmark,General,306,results/v6/claims_ledger_v6.csv,VERIFIED
+32,Conclusion and Future Work (line 746),Number of target hits (32/50) in multi-hop evaluation,General / Benchmark,multi_hop_diagnostic / cross_modal_album,306,results/v6/multihop_independent_v6.csv,VERIFIED
+758,Conclusion and Future Work (line 746),Latency (ms),General / Benchmark,General,306,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
+-759,Conclusion and Future Work (line 746),Latency (ms),General / Benchmark,General,306,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
+2009,Conclusion and Future Work (line 746),Latency (ms),General / Benchmark,General,306,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
+019,Conclusion and Future Work (line 747),Unknown,General / Benchmark,General,306,results/v6/dev_tuned_parameters_v6.json,VERIFIED
+1901.04085,Conclusion and Future Work (line 748),Unknown,General / Benchmark,General,306,results/v3/G-01_multicolumn/cache/ocr_corpora_cache.json,VERIFIED
+2019,Conclusion and Future Work (line 748),Unknown,General / Benchmark,General,306,results/v6/multihop_cases_v6.csv,VERIFIED
 019,Conclusion and Future Work (line 749),Unknown,General / Benchmark,General,306,results/v6/dev_tuned_parameters_v6.json,VERIFIED
-1901.04085,Conclusion and Future Work (line 750),Unknown,General / Benchmark,General,306,results/v3/G-01_multicolumn/cache/ocr_corpora_cache.json,VERIFIED
 2019,Conclusion and Future Work (line 750),Unknown,General / Benchmark,General,306,results/v6/multihop_cases_v6.csv,VERIFIED
+1516,Conclusion and Future Work (line 750),Unknown,General / Benchmark,General,306,results/v9/conformal_retest_v9.csv,VERIFIED
+-1520,Conclusion and Future Work (line 750),Unknown,General / Benchmark,General,306,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
 019,Conclusion and Future Work (line 751),Unknown,General / Benchmark,General,306,results/v6/dev_tuned_parameters_v6.json,VERIFIED
 2019,Conclusion and Future Work (line 752),Unknown,General / Benchmark,General,306,results/v6/multihop_cases_v6.csv,VERIFIED
-1516,Conclusion and Future Work (line 752),Unknown,General / Benchmark,General,306,results/v9/conformal_retest_v9.csv,VERIFIED
--1520,Conclusion and Future Work (line 752),Unknown,General / Benchmark,General,306,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
-019,Conclusion and Future Work (line 753),Unknown,General / Benchmark,General,306,results/v6/dev_tuned_parameters_v6.json,VERIFIED
-2019,Conclusion and Future Work (line 754),Unknown,General / Benchmark,General,306,results/v6/multihop_cases_v6.csv,VERIFIED
+024,Conclusion and Future Work (line 753),Unknown,General / Benchmark,General,306,results/v6/claims_ledger_v6.csv,VERIFIED
 024,Conclusion and Future Work (line 755),Unknown,General / Benchmark,General,306,results/v6/claims_ledger_v6.csv,VERIFIED
-024,Conclusion and Future Work (line 757),Unknown,General / Benchmark,General,306,results/v6/claims_ledger_v6.csv,VERIFIED
-023,Conclusion and Future Work (line 759),Unknown,General / Benchmark,General,306,results/v6/dev_tuned_parameters_v6.json,VERIFIED
-36,Conclusion and Future Work (line 760),Latency (ms),General / Benchmark,General,306,,UNVERIFIED
-46595,Conclusion and Future Work (line 760),Latency (ms),General / Benchmark,General,306,results/v3/G-06_near_duplicate_contamination/near_duplicate_sweep_summary.csv,VERIFIED
--46623,Conclusion and Future Work (line 760),Latency (ms),General / Benchmark,General,306,results/v6/conformal_high_prob_v6.csv,VERIFIED
-015,Conclusion and Future Work (line 761),Unknown,General / Benchmark,General,306,results/v6/paraphrase_audit_60.json,VERIFIED
-23,Conclusion and Future Work (line 762),Unknown,General / Benchmark,General,306,,UNVERIFIED
-1015,Conclusion and Future Work (line 762),Unknown,General / Benchmark,General,306,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
--1018,Conclusion and Future Work (line 762),Unknown,General / Benchmark,General,306,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
-2015,Conclusion and Future Work (line 762),Unknown,General / Benchmark,General,306,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
+023,Conclusion and Future Work (line 757),Unknown,General / Benchmark,General,306,results/v6/dev_tuned_parameters_v6.json,VERIFIED
+36,Conclusion and Future Work (line 758),Latency (ms),General / Benchmark,General,306,,UNVERIFIED
+46595,Conclusion and Future Work (line 758),Latency (ms),General / Benchmark,General,306,results/v3/G-06_near_duplicate_contamination/near_duplicate_sweep_summary.csv,VERIFIED
+-46623,Conclusion and Future Work (line 758),Latency (ms),General / Benchmark,General,306,results/v6/conformal_high_prob_v6.csv,VERIFIED
+015,Conclusion and Future Work (line 759),Unknown,General / Benchmark,General,306,results/v6/paraphrase_audit_60.json,VERIFIED
+23,Conclusion and Future Work (line 760),Unknown,General / Benchmark,General,306,,UNVERIFIED
+1015,Conclusion and Future Work (line 760),Unknown,General / Benchmark,General,306,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
+-1018,Conclusion and Future Work (line 760),Unknown,General / Benchmark,General,306,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED
+2015,Conclusion and Future Work (line 760),Unknown,General / Benchmark,General,306,results/v6/tesseract_severity_sweep_ocr.json,VERIFIED

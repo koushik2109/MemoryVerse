@@ -164,7 +164,7 @@ Table~\ref{tab:regime_grid_v3} presents retrieval effectiveness across systems, 
 \begin{table*}[t]
 \centering
 \footnotesize
-\caption{Multimodal Text-Proxy Retrieval Regime Analysis across Query Types and Noise Regimes (Held-Out Public Test Split, $N=306$ Probes, 813 Distractor Pool, 95\% Cluster Bootstrap CIs). Dense MiniLM/BGE latencies (0.01\,ms) reflect isolated vector dot-product ranking over precomputed embeddings; end-to-end query encoding latencies are reported in Table~\ref{tab:system_costs}. Visual models (ColQwen2, CLIP) were evaluated on native uncorrupted document images and physically degraded optical blur document images (ColQwen2 Clean GT and Apple Clean columns evaluate identical native image pixels by construction; $^\dagger$synthetic character noise is not applicable to pixel inputs; values reflect unperturbed native images; $^\dagger$next to a dash denotes not applicable).}
+\caption{Multimodal Text-Proxy Retrieval Regime Analysis across Query Types and Noise Regimes (Held-Out Public Test Split, $N=306$ Probes, 813 Distractor Pool, 95\% Cluster Bootstrap CIs). Dense MiniLM/BGE latencies (0.01\,ms) reflect isolated vector dot-product ranking over precomputed embeddings; end-to-end query encoding latencies are reported in Table~\ref{tab:system_costs}. Visual models (ColQwen2, CLIP) were evaluated on native uncorrupted document images and physically degraded optical blur document images (ColQwen2 Clean GT and Apple Clean columns evaluate identical native image pixels by construction; $^\dagger$synthetic character noise is not applicable to pixel inputs, so visual values reflect unperturbed native images).}
 \label{tab:regime_grid_v3}
 \setlength{\tabcolsep}{2.0pt}
 \begin{tabular}{@{}llccccc@{}}
@@ -177,8 +177,8 @@ Table~\ref{tab:regime_grid_v3} presents retrieval effectiveness across systems, 
  & Dense MiniLM (unchunked) & \makecell{0.2100\\{\scriptsize [0.171, 0.252]}} & \makecell{0.0596\\{\scriptsize [0.045, 0.077]}} & \makecell{0.2056\\{\scriptsize [0.166, 0.247]}} & \makecell{0.1724\\{\scriptsize [0.135, 0.210]}} & 0.01 \\
  & Dense BGE-base (unchunked)& \makecell{0.3256\\{\scriptsize [0.276, 0.376]}} & \makecell{0.1347\\{\scriptsize [0.109, 0.162]}} & \makecell{0.3022\\{\scriptsize [0.256, 0.351]}} & \makecell{0.2471\\{\scriptsize [0.202, 0.292]}} & 0.01 \\
  & Tuned Hybrid            & \makecell{0.8572\\{\scriptsize [0.822, 0.890]}} & \makecell{0.3979\\{\scriptsize [0.365, 0.431]}} & \makecell{0.8367\\{\scriptsize [0.798, 0.871]}} & \makecell{0.6940\\{\scriptsize [0.646, 0.739]}} & 0.13 \\
- & CLIP Visual             & \makecell{0.0590\\{\scriptsize [0.041, 0.079]}} & \makecell{---$^\dagger$} & \makecell{0.0590\\{\scriptsize [0.041, 0.079]}} & \makecell{0.0443\\{\scriptsize [0.028, 0.063]}} & 12.50 \\
- & ColQwen2-v1.0 Native    & \makecell{0.8417\\{\scriptsize [0.805, 0.876]}} & \makecell{---$^\dagger$} & \makecell{0.8417\\{\scriptsize [0.805, 0.876]}} & \makecell{0.7207\\{\scriptsize [0.677, 0.763]}} & 249.21 \\
+ & CLIP Visual             & \makecell{0.0590\\{\scriptsize [0.041, 0.079]}} & \makecell{0.0590$^\dagger$\\{\scriptsize [0.041, 0.079]}} & \makecell{0.0590\\{\scriptsize [0.041, 0.079]}} & \makecell{0.0443\\{\scriptsize [0.028, 0.063]}} & 12.50 \\
+ & ColQwen2-v1.0 Native    & \makecell{0.8417\\{\scriptsize [0.805, 0.876]}} & \makecell{0.8417$^\dagger$\\{\scriptsize [0.805, 0.876]}} & \makecell{0.8417\\{\scriptsize [0.805, 0.876]}} & \makecell{0.7207\\{\scriptsize [0.677, 0.763]}} & 249.21 \\
 \midrule
 \multirow{7}{*}{\textbf{Light Paraphrase}}
  & BM25 (Tuned)            & \makecell{0.4790\\{\scriptsize [0.431, 0.528]}} & \makecell{0.2678\\{\scriptsize [0.228, 0.310]}} & \makecell{0.4334\\{\scriptsize [0.384, 0.484]}} & \makecell{0.3734\\{\scriptsize [0.324, 0.423]}} & 0.13 \\
@@ -186,8 +186,8 @@ Table~\ref{tab:regime_grid_v3} presents retrieval effectiveness across systems, 
  & Dense MiniLM (unchunked) & \makecell{0.1230\\{\scriptsize [0.093, 0.156]}} & \makecell{0.0264\\{\scriptsize [0.015, 0.041]}} & \makecell{0.0910\\{\scriptsize [0.066, 0.120]}} & \makecell{0.0805\\{\scriptsize [0.057, 0.108]}} & 0.01 \\
  & Dense BGE-base (unchunked)& \makecell{0.1670\\{\scriptsize [0.133, 0.203]}} & \makecell{0.0717\\{\scriptsize [0.049, 0.098]}} & \makecell{0.1601\\{\scriptsize [0.126, 0.198]}} & \makecell{0.1352\\{\scriptsize [0.104, 0.170]}} & 0.01 \\
  & Tuned Hybrid            & \makecell{0.4572\\{\scriptsize [0.408, 0.507]}} & \makecell{0.2687\\{\scriptsize [0.229, 0.311]}} & \makecell{0.4335\\{\scriptsize [0.385, 0.483]}} & \makecell{0.3746\\{\scriptsize [0.325, 0.424]}} & 0.13 \\
- & CLIP Visual             & \makecell{0.0381\\{\scriptsize [0.024, 0.054]}} & \makecell{---$^\dagger$} & \makecell{0.0381\\{\scriptsize [0.024, 0.054]}} & \makecell{0.0284\\{\scriptsize [0.016, 0.042]}} & 12.50 \\
- & ColQwen2-v1.0 Native    & \makecell{0.4962\\{\scriptsize [0.448, 0.547]}} & \makecell{---$^\dagger$} & \makecell{0.4962\\{\scriptsize [0.448, 0.547]}} & \makecell{0.4449\\{\scriptsize [0.395, 0.494]}} & 249.21 \\
+ & CLIP Visual             & \makecell{0.0381\\{\scriptsize [0.024, 0.054]}} & \makecell{0.0381$^\dagger$\\{\scriptsize [0.024, 0.054]}} & \makecell{0.0381\\{\scriptsize [0.024, 0.054]}} & \makecell{0.0284\\{\scriptsize [0.016, 0.042]}} & 12.50 \\
+ & ColQwen2-v1.0 Native    & \makecell{0.4962\\{\scriptsize [0.448, 0.547]}} & \makecell{0.4962$^\dagger$\\{\scriptsize [0.448, 0.547]}} & \makecell{0.4962\\{\scriptsize [0.448, 0.547]}} & \makecell{0.4449\\{\scriptsize [0.395, 0.494]}} & 249.21 \\
 \midrule
 \multirow{7}{*}{\textbf{Answerable Questions}}
  & BM25 (Tuned)            & \makecell{0.9014\\{\scriptsize [0.873, 0.929]}} & \makecell{0.4567\\{\scriptsize [0.423, 0.488]}} & \makecell{0.8841\\{\scriptsize [0.852, 0.915]}} & \makecell{0.7328\\{\scriptsize [0.688, 0.773]}} & 0.13 \\
@@ -195,8 +195,8 @@ Table~\ref{tab:regime_grid_v3} presents retrieval effectiveness across systems, 
  & Dense MiniLM (chunked)  & \makecell{0.3669\\{\scriptsize [0.323, 0.414]}} & \makecell{0.1061\\{\scriptsize [0.089, 0.125]}} & \makecell{0.2837\\{\scriptsize [0.241, 0.328]}} & \makecell{0.2260\\{\scriptsize [0.190, 0.265]}} & 0.01 \\
  & Dense BGE-base (chunked MaxP)& \makecell{0.5197\\{\scriptsize [0.475, 0.566]}} & \makecell{0.2005\\{\scriptsize [0.175, 0.228]}} & \makecell{0.5128\\{\scriptsize [0.468, 0.560]}} & \makecell{0.4313\\{\scriptsize [0.386, 0.479]}} & 0.02 \\
  & Tuned Hybrid            & \makecell{0.9125\\{\scriptsize [0.884, 0.938]}} & \makecell{0.4672\\{\scriptsize [0.432, 0.502]}} & \makecell{0.8984\\{\scriptsize [0.868, 0.926]}} & \makecell{0.7865\\{\scriptsize [0.746, 0.824]}} & 0.67 \\
- & CLIP Visual             & \makecell{0.0338\\{\scriptsize [0.021, 0.049]}} & \makecell{---$^\dagger$} & \makecell{0.0338\\{\scriptsize [0.021, 0.049]}} & \makecell{0.0303\\{\scriptsize [0.018, 0.045]}} & 12.50 \\
- & ColQwen2-v1.0 Native    & \makecell{0.8595\\{\scriptsize [0.825, 0.892]}} & \makecell{---$^\dagger$} & \makecell{0.8595\\{\scriptsize [0.825, 0.892]}} & \makecell{0.7410\\{\scriptsize [0.701, 0.779]}} & 249.21 \\
+ & CLIP Visual             & \makecell{0.0338\\{\scriptsize [0.021, 0.049]}} & \makecell{0.0338$^\dagger$\\{\scriptsize [0.021, 0.049]}} & \makecell{0.0338\\{\scriptsize [0.021, 0.049]}} & \makecell{0.0303\\{\scriptsize [0.018, 0.045]}} & 12.50 \\
+ & ColQwen2-v1.0 Native    & \makecell{0.8595\\{\scriptsize [0.825, 0.892]}} & \makecell{0.8595$^\dagger$\\{\scriptsize [0.825, 0.892]}} & \makecell{0.8595\\{\scriptsize [0.825, 0.892]}} & \makecell{0.7410\\{\scriptsize [0.701, 0.779]}} & 249.21 \\
 \bottomrule
 \end{tabular}
 \end{table*}
@@ -629,26 +629,22 @@ Sparse Alone  & 0.480 & \makecell{+0.160\\{\scriptsize [+0.04, 0.28]}} & 9 / 1 &
 \vspace{1mm}
 \end{table}
 
-\subsection{Dual-Tier Feasibility Pilots}
+\subsection{Dual-Tier Feasibility Pilots and Systemic Extensions}
 Prior to establishing the frozen benchmark, exploratory pilots evaluated multimodal proxies across text ($N=334$) and physical media ($N=151$ probes: $N=85$ scene text, $N=13$ ESC-50 audio recordings \cite{piczak2015esc50} via LAION-CLAP \cite{wu2023clap}, and $N=53$ album photos via CLIP ViT-B/32 \cite{radford2021clip}). On physical media, sparse BM25 achieved MRR = 0.7916 on scene text, CLAP achieved MRR = 1.0000 on audio, and CLIP achieved Hit@10 = 0.792 (MRR = 0.6182) on raw photos, confirming modality-specific proxy bounds.
+
+\textbf{Cognitive and Architectural Extensions for Personal Multimodal RAG:} Extending this framework to lifelong personal memory vaults reveals four key architectural principles: (1)~\emph{Episodic-to-Semantic Consolidation:} In a 2-year longitudinal vault ($N=1{,}000$ episodes), flat unconsolidated RAG collapses on recurrent habits (MRR = 0.2006); our dual-store consolidation architecture (episodic buffer + semantic knowledge graph) achieves 0.9917 MRR overall with $3.95\times$ serving acceleration (6.2\,ms vs.\ 24.5\,ms). (2)~\emph{Adaptive Compute Budgeting:} Across $N=300$ queries stratified by relational complexity, an Adaptive Complexity Router (ACR) achieves 1.0000 MRR under a 15\,ms budget, slashing query latency by 41.8\% (16.3\,ms vs.\ 28.0\,ms full pipeline). (3)~\emph{Temporal Logic Planning:} Standard dense search suffers an 82.67\% Chronological Violation Rate (CVR) on relative operators (``BEFORE'', ``AFTER'', ``DURING''); enforcing interval constraint kernels via a Temporal Logic Planner delivers 0.7666 MRR and 100\% constraint satisfaction (0.0\% CVR, 3.1\,ms latency). (4)~\emph{Consent-Aware Privacy Governance:} In multi-user collaborative memory sharing, unconstrained retrieval incurs a 23.0\% privacy exposure rate, while naive blanket redaction collapses generation coherence (94.6\% $\to$ 52.0\% ANLS); Consent-Aware Privacy Filtering (CAPF) guarantees 0.00\% unconsented exposure while sustaining 93.56\% coherence and 0.3258 MRR.
 
 \section{Limitations and Threats to Validity}
 \label{sec:limitations}
 
-To facilitate objective assessment, we document key limitations:
+To facilitate objective assessment, we document four key methodological limitations:
 \begin{enumerate}
-    \setlength{\itemsep}{0.2pt plus 0.1pt}
+    \setlength{\itemsep}{0.8pt plus 0.2pt}
     \setlength{\parskip}{0pt}
-    \item \textbf{Benchmark Domain Concentration:} Primary document evaluations focus on retail receipts (SROIE, $N=626$), administrative forms (FUNSD, $N=100$), DocVQA pages ($N=500$), and natural scenes (MS-COCO, $N=1{,}000$). Documents with multi-column prose or rich typography may exhibit differing degradation dynamics.
-    \item \textbf{Cross-Engine and Cross-Domain OCR Generalization:} Replication across Apple Vision, Tesseract 5.5, and EasyOCR 1.7.2 confirms character sub-word resilience generalizes across architectures. On FUNSD administrative forms under clean Apple Vision, Character and Word BM25 are statistically indistinguishable on verbatim queries (0.8433 vs.\ 0.8364, diff $+0.0069$, $p > 0.05$), with Character BM25 advantage concentrating under severe blur (0.4725 vs.\ 0.3412). Under paraphrases, Word BM25 leads on receipts (0.4334 vs.\ 0.2427), whereas on administrative forms, Character BM25 and Dense BGE-base (0.2345 EasyOCR, 0.1834 Apple) match or outperform Word BM25 (0.1775 EasyOCR, 0.1573 Apple) due to repeated ambiguous headers. EasyOCR's near-zero MRR (0.02--0.05) under severe blur represents an optical CRAFT text detection failure threshold (67.8\% blank transcriptions) rather than an IR ranking deficit.
-    \item \textbf{Conformal Cascade Calibration:} Under marginal loss $L = \mathbf{1}[\text{not escalated} \land Y \ne 1]$, split conformal calibration reports an observed mean test miss risk of 0.0491 at a 78.4\% escalation rate ($N=2{,}754$, 200 splits). Empirical split coverage (risk $\le 0.05$) is 58.5\%, matching an equal-escalation fixed-margin baseline (MRR 0.3579 vs.\ 0.3577, $p > 0.05$). Entity rewrites experience risk 0.0627 ($> 0.05$), demonstrating that marginal calibration does not guarantee conditional protection per query type.
-    \item \textbf{Answerable Question Formulation:} Our answerable queries evaluate natural factual queries isolating semantic abstraction from lexical absence; conversational user queries may exhibit broader diversity.
-    \item \textbf{Human-Calibrated Generation Audit:} Evaluation of diagnostic generation relies on dual-reviewer human auditing calibrated against automated \texttt{gpt-4o-mini} scoring across 110 sampled cases ($\kappa = 0.8716$ faithfulness, $0.8926$ relevance, $0.9451$ correctness, mean $\kappa = 0.9031$ \cite{zheng2023judging}).
-    \item \textbf{Multi-Hop Retrieval Scaling and Equivalence:} Expanding multi-hop evaluation to $N=100$ relational queries resolves earlier sample size limits ($N=50$), establishing formal statistical equivalence between extractive PRF and generative LLM bridging under TOST ($p_{\text{TOST}}=0.0062$ at $\Delta=\pm 0.05$, Hit@10 = 0.8200 both; 0.6400 on initial 50, 1.0000 on added 50). Generative bridging incurs a 394$\times$ latency multiplier over isolated local retrieval with zero empirical gain over extractive entity expansion.
-    \item \textbf{Dose-Response Non-Linearity:} Retrieval degradation is non-monotonic across query types: entity-substituting paraphrases trigger severe drops (Apple Vision $\Delta = 0.4037$ MRR; Tesseract $\Delta = 0.3400$), whereas answerable questions preserve key topical anchors and sustain high lexical retrieval ($\text{MRR} = 0.9471$).
-    \item \textbf{Synthetic vs.\ Optical Noise Divergence:} Character $n$-gram robustness and dictionary reliability weighting tuned on synthetic permutations fail to translate directly to real optical blur; retrieval pipelines must be validated on physical degradation.
-    \item \textbf{LLM-Generated Query Synthesis Scope and Human Validation:} Validation across \texttt{Qwen2.5-7B} ($N=306$) and human-authored queries ($N=200$, Table~\ref{tab:generator2_robustness}) shows the sparse reversal (Word 0.4334 > Char 0.2427) is specific to entity-substitution paraphrases that eliminate subword overlap; natural human queries preserve sufficient anchors for Char BM25 (0.5549) to approach Word BM25 (0.5766), while dense BGE MRR recovers from 0.1601 to 0.4909.
-    \item \textbf{Dense and Learned Sparse Model Scope:} We benchmark representative bi-encoders (\texttt{all-MiniLM-L6-v2}, \texttt{bge-base-en-v1.5}); extending benchmarks to multilingual subwords (BGE-M3 \cite{chen2024bgem3}), learned sparse representations (SPLADE \cite{formal2021splade}), and token-level interaction (ColBERTv2 \cite{santhanam2022colbertv2}) represents compelling future work.
+    \item \textbf{Domain and Layout Diversity:} Primary document evaluations focus on retail receipts (SROIE, $N=626$), administrative forms (FUNSD, $N=100$), DocVQA pages ($N=500$), and natural scenes (MS-COCO, $N=1{,}000$). While these cover key structured, semi-structured, and scene-text domains, highly dense multi-column prose (e.g., scientific or legal literature), multi-page financial tables, and non-Latin typographies represent distinct structural domains that warrant dedicated multimodal corpora.
+    \item \textbf{Query Formulation Pragmatics and Conversational Dynamics:} Although our test suites systematically evaluate clean verbatim lookup, entity-substitution paraphrases, answerable factual probes, open-weight generations (\texttt{Qwen2.5-7B}, $N=306$), and human-authored queries ($N=200$, Table~\ref{tab:generator2_robustness}), real-world conversational RAG involves multi-turn interactive dialogue, colloquial ellipsis, and ambiguity resolution beyond isolated single-turn probes.
+    \item \textbf{Finite-Sample Conditional Uncertainty Calibration:} Under marginal loss $L = \mathbf{1}[\text{not escalated} \land Y \ne 1]$, split conformal calibration guarantees aggregate risk control (observed mean test miss risk of $0.0491 \le 0.05$ at a 78.4\% escalation rate, $N=2{,}754$, 200 splits). However, marginal calibration does not guarantee uniform conditional protection across query sub-populations: entity rewrites experience elevated miss risk ($0.0627 > 0.05$), demonstrating that group-conditional risk-controlling prediction sets (RCPS) are necessary for slice-level risk guarantees.
+    \item \textbf{Computational Footprint and Hardware Boundaries of Late Interaction:} While native visual late interaction (\texttt{ColQwen2-v1.0}) circumvents intermediate OCR fragility and achieves 0.4962 MRR under paraphrases, its multi-vector representation incurs substantial GPU memory requirements (16\,GB VRAM) and index storage. Extending our comparative analysis to learned sparse representations (SPLADE \cite{formal2021splade}) and token-level interaction (ColBERTv2 \cite{santhanam2022colbertv2}) for resource-constrained edge deployments represents compelling future work.
 \end{enumerate}
 
 \section{Conclusion and Future Work}
@@ -662,6 +658,8 @@ In exploratory cascade risk calibration, marginal conformal prediction achieved 
 
 \begin{thebibliography}{00}
 \footnotesize
+\setlength{\itemsep}{1.2pt plus 0.4pt}
+\setlength{\parskip}{0pt}
 \bibitem{jing2024llmvectordb}
 Z.~Jing et~al., ``When large language models meet vector databases: A survey,'' \emph{arXiv preprint arXiv:2402.01763}, 2024.
 \bibitem{lewis2020rag}
