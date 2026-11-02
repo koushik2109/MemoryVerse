@@ -40,3 +40,9 @@ Format: `[Item ID] Location | Old Value | New Value | Source File:Line | Rationa
 - **File:** `ijcds_body.tex:245-265` and `paper_v4/ijcds_body.tex:245-265`
 - **Old:** Narrow justified columns with wrapped/hyphenated query formulation labels (`Short Verbatim / Snippets`, `Length-Padded / Spans`, `Full Sentential Con- / text Queries`) and squeezed cells.
 - **New:** Clean, two-tier hierarchical table layout (`\multicolumn{2}{c}{\textbf{MiniLM-L6}}` and `\multicolumn{2}{c}{\textbf{BGE-Base}}` over `MRR` and `Hit@10`), with un-hyphenated single-line query formulation titles. Gutter margin to Column 2 expanded to 19.92 pt. Page budget maintained at strictly 15 pages.
+
+## 2026-11-03: Tier A High-Compute Modern Text Baselines (G-01) and Normalized Latency Profiling (G-03)
+- **Files:** `scripts/run_tier_a_baselines.py`, `results/v4/G-01/modern_baselines_consolidated.csv`, `results/v4/G-03/single_hardware_latency_profile.csv`, `results/v4/G-03/hardware_benchmark_summary.md`
+- **G-01 Results:** Evaluated `BAAI/bge-m3` (1024-dim dense representation) on SROIE Real-OCR test set ($N=813, N=306$ probes). Verbatim MRR = 0.3105 (Hit@10 = 0.3758); Light Paraphrase MRR = 0.2303 (Hit@10 = 0.3039). Proved that scaling embedding dimensionality from 384/768 to 1024 fails to close the dense deficit against Character 3–5g BM25 ($0.9445$, diff $> +0.63$, $p < 10^{-15}$). SPLADE collapses to 0.0774 MRR under OCR noise.
+- **G-03 Results:** Profiled single-hardware latency distributions on Apple M2 (batch=1, warm cache): Word BM25 (0.11 ms, 9,398 QPS, 0.68 MB RAM); Char BM25 (0.86 ms, 1,168 QPS, 11.93 MB RAM); MiniLM (4.31 ms, 232 QPS, 80 MB RAM); BGE-Base (11.90 ms, 84 QPS, 438 MB RAM); BGE-M3 (26.89 ms, 37 QPS, 2,240 MB RAM); ColQwen2-v1.0 (Pixel: 249.21 ms on Tesla T4 GPU, 8,420 ms on CPU).
+
