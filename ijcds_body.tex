@@ -245,22 +245,24 @@ Furthermore, to test the causal impact of tokenization fragmentation versus quer
 \begin{table}[htbp]
 \centering
 \scriptsize
-\caption{Dense Bi-Encoder Sensitivity to Query Formulation and Chunking on Clean Ground-Truth Receipt Text ($0\%$ noise, Test $N=306$).}
+\caption{Dense Bi-Encoder Sensitivity to Query Formulation on Clean Ground-Truth Receipt Text ($0\%$ noise, Test $N=306$).}
 \label{tab:dense_formulation_v6}
-\setlength{\tabcolsep}{1.5pt}
-\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}lcccc@{}}
+\setlength{\tabcolsep}{1.2pt}
+\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}l cccc @{}}
 \toprule
-\makecell[l]{\textbf{Query Formulation}} & \makecell{\textbf{MiniLM}\\\textbf{Unchk}} & \makecell{\textbf{MiniLM}\\\textbf{Chunk}} & \makecell{\textbf{BGE}\\\textbf{Unchk}} & \makecell{\textbf{BGE}\\\textbf{Chunk}} \\
+ & \multicolumn{2}{c}{\textbf{MiniLM-L6}} & \multicolumn{2}{c}{\textbf{BGE-Base}} \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-5}
+\textbf{Query Formulation} & \textbf{MRR} & \textbf{Hit@10} & \textbf{MRR} & \textbf{Hit@10} \\
 \midrule
-1. Short Verbatim Snippets         & 0.2100 & 0.2085 & 0.3256 & 0.3235 \\
-2. Length-Padded Spans             & 0.1949 & 0.1932 & 0.2571 & 0.2554 \\
-3. Sentential Context Queries      & 0.1670 & 0.1658 & 0.2740 & 0.2721 \\
-4. Keyword Multi-Entity            & 0.3840 & 0.3812 & 0.5500 & 0.5468 \\
-5. Natural Answerable Questions    & 0.3676 & 0.3669 & 0.5263 & 0.5197 \\
+1. Short Verbatim Snippets         & 0.2100 & 0.2843 & 0.3256 & 0.3824 \\
+2. Length-Padded Spans             & 0.1949 & 0.2484 & 0.2571 & 0.3366 \\
+3. Sentential Context Queries      & 0.1670 & 0.2320 & 0.2740 & 0.3399 \\
+4. Keyword Multi-Entity            & 0.3840 & 0.5817 & 0.5500 & 0.7843 \\
+5. Natural Answerable Questions    & 0.3676 & 0.5686 & 0.5263 & 0.7974 \\
 \bottomrule
 \end{tabular*}
 \vspace{0.5mm}\newline
-\raggedright\tiny Note: Chunked MaxP evaluates 150-word sliding windows ($\le 256$ tokens); difference between unchunked and chunked is $<0.007$ MRR across all formulations (Answerable Hit@10: MiniLM 0.5686, BGE 0.7974), confirming sequence truncation does not explain dense collapse.
+\raggedright\tiny Note: Chunked MaxP evaluates 150-word sliding windows ($\le 256$ tokens); difference between unchunked and chunked is $<0.007$ MRR across all formulations (e.g., Answerable chunked: MiniLM 0.3669, BGE 0.5197), confirming sequence truncation does not explain dense collapse.
 \end{table}
 
 \begin{figure*}[t]
