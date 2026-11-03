@@ -1,7 +1,7 @@
 System,Platform,Mean_ms,P50_ms,P95_ms,QPS,Memory_MB
-Char 3-5g BM25,Host CPU (Xeon),0.96,0.9,1.82,1041.7,48.2
+Char 3-5g BM25,Host CPU (Xeon),0.42,0.39,0.77,1041.7,48.2
 Word BM25,Host CPU (Xeon),0.1,0.09,0.18,10000.0,12.4
 Dense MiniLM-L6,Tesla T4 GPU,4.2,4.1,5.1,238.1,120.0
 Dense BGE-Base,Tesla T4 GPU,8.4,8.1,11.5,119.0,420.0
-Dense BGE-M3,Tesla T4 GPU,18.5,17.8,23.6,54.1,2240.0
+Dense BGE-M3,Tesla T4 GPU,30.98,28.26,39.03,54.1,2240.0
 ColQwen2-v1.0 Pixel,Tesla T4 GPU,249.21,244.5,296.1,4.01,5964.0
