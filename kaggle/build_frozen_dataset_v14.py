@@ -11,7 +11,16 @@ import zipfile
 import hashlib
 from pathlib import Path
 
-REPO_ROOT = Path(__file__).resolve().parents[1]
+if "__file__" in globals():
+    REPO_ROOT = Path(__file__).resolve().parents[1]
+else:
+    # Safe fallback when executed inside an interactive Jupyter / ipykernel cell
+    p = Path.cwd()
+    REPO_ROOT = p
+    for parent in [p] + list(p.parents):
+        if (parent / "ai_engine").exists() or (parent / "kaggle").exists():
+            REPO_ROOT = parent
+            break
 OUTPUT_ZIP = REPO_ROOT / "kaggle" / "frozen_inputs_v14.zip"
 
 FILES_TO_PACK = [
