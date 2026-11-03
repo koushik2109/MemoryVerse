@@ -153,3 +153,23 @@ Once the commit finishes, the **Output** tab will contain:
    python3 scripts/update_table_viii_colqwen.py
    ```
 
+---
+
+## 7. Stage v14: Master Reproducibility Notebook (Tier A Gapfills)
+
+**Notebook:** `kaggle/kaggle_run_v14_reproducibility.ipynb`  
+**Purpose:** End-to-end interactive replication of Tier A high-compute evaluations:
+- **G-01:** Modern Text Retrieval Baselines (BGE-M3 1024-dim, SPLADE-v3, ColBERTv2, Char BM25).
+- **G-02:** DocVQA Layout & OCR Converter Robustness (Docling/Paddle format vs Native ColQwen2).
+- **G-03:** Normalized Single-Hardware Latency Profiling (Batch=1, Tesla T4 GPU).
+
+### Execution Instructions on Kaggle
+1. Create a new notebook on [kaggle.com/code](https://www.kaggle.com/code).
+2. Under **Session options** (right sidebar):
+   - **Accelerator:** `GPU T4 x2`
+   - **Internet:** `ON`
+3. Upload `kaggle/kaggle_run_v14_reproducibility.ipynb` (or copy/paste cells) and click **Run All**.
+4. Execution runs in ~10–15 minutes on a Tesla T4 GPU (or instantly verifies across all pre-computed baseline arrays).
+5. All outputs, figures, and CSVs are written to `/kaggle/working/results/v4/`.
+
+
