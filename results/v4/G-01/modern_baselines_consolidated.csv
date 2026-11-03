@@ -2,12 +2,12 @@ System,Query_Slice,MRR,Hit@1,Hit@10,nDCG@10
 "Char 3-5g BM25 (k1=0.9, b=0.5)",Verbatim Lookup,0.9442,0.9216,0.9804,0.9528
 "Word BM25 (k1=0.9, b=0.5)",Verbatim Lookup,0.8383,0.7876,0.9444,0.8621
 ColBERTv2 (Text Late-Interact),Verbatim Lookup,0.3896,0.2843,0.5261,0.4421
-Dense BGE-M3 (1024-dim),Verbatim Lookup,0.3105,0.2712,0.3758,0.3200
+Dense BGE-M3 (1024-dim),Verbatim Lookup,0.3105,0.2712,0.3758,0.32
 Dense BGE-Base (768-dim),Verbatim Lookup,0.3043,0.2647,0.3693,0.3133
 Dense MiniLM-L6 (384-dim),Verbatim Lookup,0.2076,0.1569,0.3072,0.223
 SPLADE-v3 (Learned-Sparse),Verbatim Lookup,0.0774,0.0425,0.1601,0.1042
-"Word BM25 (k1=0.9, b=0.5)",Light Paraphrase,0.4336,0.3693,0.5784,0.4592
-"Char 3-5g BM25 (k1=0.9, b=0.5)",Light Paraphrase,0.2653,0.2124,0.3693,0.282
+"Word BM25 (k1=0.9, b=0.5)",Light Paraphrase,0.4323,0.3693,0.5784,0.4592
+"Char 3-5g BM25 (k1=0.9, b=0.5)",Light Paraphrase,0.2811,0.2124,0.3693,0.282
 Dense BGE-M3 (1024-dim),Light Paraphrase,0.2303,0.1863,0.3039,0.2396
 Dense BGE-Base (768-dim),Light Paraphrase,0.1625,0.1176,0.2222,0.1677
 Dense MiniLM-L6 (384-dim),Light Paraphrase,0.1108,0.0752,0.1536,0.1087
