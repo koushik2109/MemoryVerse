@@ -1,0 +1,5 @@
+System,Hardware,Device,Batch_Size,Latency_Mean_ms,P50_ms,P90_ms,P95_ms,P99_ms,Throughput_QPS,RAM_MB,Disk_MB
+Char 3-5g BM25 (CPU host),Tesla T4 Host CPU (Intel Xeon),CPU,1,0.96,0.9,1.45,1.82,2.6,1041.7,48.2,14.8
+Dense MiniLM-L6,NVIDIA Tesla T4 (16GB),GPU,1,4.2,4.1,4.8,5.1,6.3,238.1,120.0,90.0
+Dense BGE-Base,NVIDIA Tesla T4 (16GB),GPU,1,8.4,8.1,10.2,11.5,14.2,119.0,420.0,440.0
+ColQwen2-v1.0 (Pixel Native),NVIDIA Tesla T4 (16GB),GPU,1,249.21,244.5,278.3,296.1,342.8,4.01,5964.0,6800.0
