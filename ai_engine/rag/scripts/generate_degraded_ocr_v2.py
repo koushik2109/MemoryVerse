@@ -4,7 +4,7 @@ Generate Degraded Images and Real-OCR Noise (Phase 2.2)
 Applies realistic physical degradations before OCR:
 1. Gaussian blur (radius=1.5)
 2. 50% spatial downscale
-3. +-4 degree rotation (with white border fill)
+3. deterministic +-4 degree rotation (with white border fill)
 4. JPEG compression artifact (quality=20)
 
 Runs native Apple Vision OCR on the degraded images and measures resulting CER/WER.
@@ -74,8 +74,10 @@ def main():
                 # 2. Downscale 50%
                 w, h = img.size
                 img = img.resize((max(1, w // 2), max(1, h // 2)), Image.Resampling.BILINEAR)
-                # 3. Deterministic rotation +-4 deg
-                angle = 4.0 if (hash(stem) % 2 == 0) else -4.0
+                # 3. Deterministic rotation +-4 deg.  Do not use Python's
+                # process-randomized hash(), which would change the fixture
+                # across interpreter processes.
+                angle = 4.0 if (sum(stem.encode("utf-8")) % 2 == 0) else -4.0
                 img = img.rotate(angle, resample=Image.Resampling.BILINEAR, expand=True, fillcolor=(255, 255, 255))
                 # 4. Save with JPEG quality 20
                 img.save(dst_path, "JPEG", quality=20)

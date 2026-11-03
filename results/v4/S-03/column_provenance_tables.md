@@ -16,7 +16,7 @@ This document establishes the precise operational specification for every column
 | **Clean GT MRR** | Ground Truth Text | Verbatim ($N=306$), Light Paraphrase ($N=306$), Answerable ($N=306$) | Unchunked | 813 (313 SROIE + 500 COCO caption text) |
 | **Syn 20% MRR** | Synthetic 20% Character Sub/Del/Ins Noise | Verbatim ($N=306$), Light Paraphrase ($N=306$), Answerable ($N=306$) | Unchunked | 813 (313 SROIE perturbed + 500 COCO perturbed) |
 | **Apple Clean MRR** | Apple Vision Neural OCR (Clean Scans) | Verbatim ($N=306$), Light Paraphrase ($N=306$), Answerable ($N=306$) | Unchunked | 813 (313 SROIE OCR + 500 COCO caption text) |
-| **Apple Blur MRR** | Apple Vision Neural OCR (Optical Gaussian Blur $\sigma=2.5$) | Verbatim ($N=306$), Light Paraphrase ($N=306$), Answerable ($N=306$) | Unchunked | 813 (313 SROIE Blur OCR + 500 COCO caption text) |
+| **Apple Blur MRR** | Apple Vision Neural OCR (Gaussian blur $\sigma=1.5$, 50% downscale, deterministic rotation $\pm4^\circ$, JPEG Q20) | Verbatim ($N=306$), Light Paraphrase ($N=306$), Answerable ($N=306$) | Unchunked | 813 (313 SROIE Blur OCR + 500 COCO caption text) |
 | **Latency (ms)** | Profiling Hardware (Apple M2 CPU for sparse; M2 MPS for dense/CLIP; Tesla T4 for ColQwen2) | Single-probe execution latency | N/A | Batch Size = 1, Warm Cache |
 
 *Note on Visual Models in Table II:*

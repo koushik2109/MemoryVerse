@@ -9,4 +9,4 @@
 | Dense MiniLM (Verbatim)      |         306 |   4.30987   |   4.15594   |   4.62306  |   4.7064   |   9.49211  |         232.026  | Apple M2 (MPS)         |    80    |     90    |
 | Dense BGE-Base (Verbatim)    |         306 |  11.8954    |  10.9509    |  13.8115   |  18.6575   |  27.1841   |          84.0662 | Apple M2 (MPS)         |   438    |    440    |
 | Dense BGE-M3 (Verbatim)      |         306 |  26.894     |  23.8927    |  27.3918   |  28.6347   | 155.785    |          37.1831 | Apple M2 (MPS)         |  2240    |   2270    |
-| ColQwen2-v1.0 (Pixel Native) |         306 | 249.21      | 244.5       | 268.1      | 279.4      | 312        |           4.01   | Tesla T4 GPU (matched) |  5964.7  |     48    |
+| ColQwen2-v1.0 (Pixel Native) |         306 | 249.21      | 244.5       | 278.3      | 296.1      | 342.8      |           4.01   | Tesla T4 GPU (matched) |  5964.0  |   6,800   |

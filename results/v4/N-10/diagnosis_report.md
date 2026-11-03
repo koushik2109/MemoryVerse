@@ -1,5 +1,7 @@
 # Diagnosis Report: N-10 Generation Audit Kappa & Accuracy Analysis
 
+> **Superseded for the v4 manuscript:** This historical 110-case audit is retained for provenance, but the submission reports the later 100-output audit in `results/v4/G-11/human_audit_agreement.json` (correctness $\kappa=0.8731$, faithfulness $\kappa=0.8721$, relevance $\kappa=1.0000$). Do not use the values below as the current manuscript statistics.
+
 ## Executive Summary
 | Audit Property | Empirical Finding |
 |---|---|
@@ -113,4 +115,3 @@ From `master_reviewer_2.csv`:
    Add:
    > *"While our evaluation rigorously profiles retrieval metrics (MRR, Hit@$k$, nDCG) and verifies generation quality qualitatively via human-audited faithfulness and correctness rubrics, standard automated generation accuracy (e.g., Exact Match or ANLS) is not evaluated across the full corpus."*
 3. **Headline claim impacted?** No. This clarifies provenance, prevents a reviewer from assuming $\kappa$ was human-vs-LLM, and transparently scopes the generation evaluation.
-

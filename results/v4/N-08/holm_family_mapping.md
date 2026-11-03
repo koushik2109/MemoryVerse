@@ -41,7 +41,7 @@
 | **P-27** | Line 528 | FUNSD Apple Clean: Char vs. Word Verbatim (+0.0069) | $p > 0.05$ | $0.3800$ | Fam 5: FUNSD Forms ($m=4$) | $0.3800$ | No (Null) | Retain $p > 0.05$ |
 | **P-28** | Line 612, 626 | Multi-Hop N=50: LLM vs. Sparse Alone (+0.160) | $p = 0.0215$ | $0.0215$ | Fam 6: Multi-Hop ($m=5$) | $0.0645$ | Borderline / No | Clarify raw $p=0.0215$, $p_{\text{Holm}}=0.0645$ |
 | **P-29** | Line 612 | Multi-Hop N=50: PRF vs. LLM (+0.000) | $p = 1.0000$ | $1.0000$ | Fam 6: Multi-Hop ($m=5$) | $1.0000$ | No (Tie) | Retain $p=1.0000$ |
-| **P-30** | Line 576, 612, 657| Multi-Hop N=100: PRF vs. LLM TOST ($\Delta=\pm 0.05$) | $p_{\text{TOST}} = 0.0062$| $0.00727$ | Equivalence TOST | — | Yes (Equiv) | Update to exact $p_{\text{TOST}} = 0.0073$ |
+| **P-30** | Line 576, 612, 657| Multi-Hop N=100: PRF vs. LLM TOST ($\Delta=\pm 0.05$) | $p_{\text{TOST}} = 0.0073$| $0.00727$ | Equivalence TOST | — | Yes (Equiv) | Rounded manuscript value is $p_{\text{TOST}} = 0.0073$ |
 
 ---
 
@@ -58,4 +58,3 @@ Family 5: Cross-domain transfer on administrative forms (FUNSD, $m=4$);
 Family 6: Relational multi-hop bridging architectures ($m=5$).
 Equivalence hypotheses are tested via Two One-Sided Tests (TOST, $p_{\text{TOST}}$) at pre-specified margins $\Delta$. Confidence intervals (95\% CI) are computed via cluster bootstrap resampling at the document level (10,000 iterations).
 ```
-
