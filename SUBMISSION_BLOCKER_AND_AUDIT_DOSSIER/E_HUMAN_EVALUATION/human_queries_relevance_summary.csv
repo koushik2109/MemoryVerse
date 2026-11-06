@@ -1,0 +1,11 @@
+Evaluation Cohort,N,Word MRR,Word Hit@1,Word Hit@5,Word Hit@10,Char MRR,Char Hit@1,Char Hit@5,Char Hit@10
+All Probes (N=400) - Single-Target,400,0.59,0.485,0.6925,0.8025,0.5952,0.5,0.68,0.805
+All Probes (N=400) - Adjudicated Multi-Relevance,400,0.674,0.5825,0.795,0.85,0.6825,0.605,0.76,0.85
+Unique Probes (N=253) - Single-Target,253,0.7599,0.6877,0.834,0.8972,0.7658,0.7075,0.83,0.8972
+Unique Probes (N=253) - Multi-Relevance,253,0.7599,0.6877,0.834,0.8972,0.7658,0.7075,0.83,0.8972
+Ambiguous Repeated (N=147) - Single-Target,147,0.2976,0.1361,0.449,0.6395,0.3016,0.1429,0.4218,0.6463
+Ambiguous Repeated (N=147) - Multi-Relevance,147,0.5263,0.4014,0.7279,0.7687,0.5391,0.4286,0.6395,0.7687
+Tier 1 Manual (N=200) - Single-Target,200,0.6528,0.55,0.755,0.855,0.6418,0.55,0.735,0.835
+Tier 1 Manual (N=200) - Multi-Relevance,200,0.6816,0.585,0.785,0.87,0.6713,0.585,0.76,0.85
+Tier 2 Templated (N=200) - Single-Target,200,0.5273,0.42,0.63,0.75,0.5486,0.45,0.625,0.775
+Tier 2 Templated (N=200) - Multi-Relevance,200,0.6665,0.58,0.805,0.83,0.6937,0.625,0.76,0.85

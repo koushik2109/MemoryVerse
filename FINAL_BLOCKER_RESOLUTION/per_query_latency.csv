@@ -1,0 +1,501 @@
+query_id,K1_cutoff,query_text,stage1_bm25_latency_ms,stage2_colqwen_latency_ms,total_cascade_latency_ms
+q_000,10,Find receipt for books and modelling clay bought i,0.133,1.579,1.713
+q_001,10,What did I buy home decor items in Johor Jaya?,0.016,0.735,0.751
+q_002,10,Receipt for shopping at Yongfatt store on Christma,0.215,0.589,0.805
+q_003,10,Hardware bill for machinery tools and supplies at ,0.004,0.653,0.656
+q_004,10,Motorcycle repair and service bill in Sungai Rengi,0.004,0.691,0.695
+q_005,10,Breakfast porridge meal receipt at McDonalds Gerba,0.15,0.5,0.65
+q_006,10,Receipt for goods from Sam Sam Trading in Shah Ala,0.131,0.561,0.692
+q_007,10,Hardware shop bill for big stretch film packing ro,0.007,0.726,0.733
+q_008,10,School books and stationery purchase in Batang Ber,0.004,0.768,0.772
+q_009,10,Home maintenance and DIY tools bill from MR DIY,0.002,0.825,0.827
+q_010,10,Receipt from C W Khoo hardware store in Johor Bahr,0.264,0.747,1.011
+q_011,10,Dinner meal bill at Unihakka on 5th March,0.005,0.798,0.804
+q_012,10,Department store receipt for purchases at Aeon Mal,0.255,0.779,1.034
+q_013,10,Food order receipt from Unihakka Restaurant on 3rd,0.127,0.648,0.775
+q_014,10,Receipt from Perniagaan Zheng Hui store,0.241,0.766,1.007
+q_015,10,Lunch food bill at Unihakka Restaurant on 12 March,0.007,0.354,0.361
+q_016,10,Dinner bill from Unihakka restaurant on 14 March,0.003,0.315,0.318
+q_017,10,Store purchase at Aeon Tebrau City mall on 11 Marc,0.128,0.316,0.444
+q_018,10,Drinks and food bill at Three Stooges Bistro in Da,0.002,0.313,0.315
+q_019,10,Show bill for beers and dinner at 32 Pub and Bistr,0.004,0.412,0.415
+q_020,10,Dining receipt for food at Unihakka on 18 March,0.132,0.317,0.449
+q_021,10,Grocery shopping receipt from mini market in Perma,0.126,0.726,0.852
+q_022,10,Seafood dinner receipt from Sin Du Restaurant,0.128,0.684,0.812
+q_023,10,Hardware tools and construction parts from Yong Ta,0.002,0.838,0.84
+q_024,10,Receipt for items bought at Zheng Hui in Permas,0.154,0.537,0.691
+q_025,10,Dinner receipt for ribs at Morganfields Kitchenett,0.134,0.547,0.681
+q_026,10,Lunch bill at Carrefour restaurant in Permas,0.002,0.564,0.566
+q_027,10,Vegetable dish food receipt at Unihakka Restaurant,0.138,0.558,0.696
+q_028,10,Dinner receipt at Unihakka Restaurant on 29 March,0.15,0.564,0.714
+q_029,10,Receipt for Peri Peri chicken meal at Nandos,0.142,0.35,0.493
+q_030,10,Dining receipt for Chinese food at Sun Wong Kut,0.153,0.327,0.48
+q_031,10,Dinner meal bill at Jiawei House restaurant,0.003,0.474,0.477
+q_032,10,Vegetarian food bill at Lian Chi Pu Tian restauran,0.003,0.363,0.366
+q_033,10,Shopping receipt from Aeon Taman Maluri shopping c,0.132,0.346,0.478
+q_034,10,Office supplies and stationery bill from Lian Hing,0.002,0.353,0.355
+q_035,10,Thai food dinner bill at Thai Delicious in Bandar ,0.002,0.4,0.402
+q_036,10,Tools and household hardware items bought at MR DI,0.002,0.584,0.587
+q_037,10,Hardware supplies receipt from Hon Hwa Trading,0.132,0.795,0.926
+q_038,10,Pack of AAA batteries bought from MR DIY store,0.184,0.613,0.797
+q_039,10,Hardware equipment bill from Hon Hwa Trading,0.001,0.756,0.757
+q_040,10,Plastic cloth pegs bought at MR DIY hardware,0.01,0.798,0.808
+q_041,10,Padlock security lock purchased at MR DIY,0.008,0.664,0.672
+q_042,10,Store receipt from FY Eagle in Bukit Serdang,0.219,0.767,0.986
+q_043,10,Supermarket grocery bill from Mydin Mart in Sri Mu,0.008,0.299,0.306
+q_044,10,Receipt for items bought on third floor at Aeon Ma,0.126,0.296,0.421
+q_045,10,Shopping bill from Aeon department store,0.124,0.288,0.412
+q_046,10,Receipt for books and stationery bought at Popular,0.124,0.285,0.408
+q_047,10,Books purchase receipt from Popular Bookstore in J,0.192,0.294,0.485
+q_048,10,Plumbing and hardware items bought at Wahin Hardwa,0.002,1.064,1.066
+q_049,10,Hardware shop receipt from Gin Kee store,0.22,0.351,0.571
+q_050,10,Hardware Receipt from Syarikat Gin Kee store,0.205,0.335,0.54
+q_051,10,Receipt of IKEA Cheras Ikano Handel dated 23/12/17,0.153,0.343,0.497
+q_052,10,Receipt of Syarikat perniagaan gin kee in setapak ,0.131,0.814,0.945
+q_053,10,Food receipt from Chilis T.A.S. Leisure SDN BHD da,0.152,0.544,0.696
+q_054,10,Receipt from Lim Seng Tho Harware Trading,0.153,0.314,0.467
+q_055,10,Receipt from Lim Seng Tho Harware Trading,0.148,0.311,0.459
+q_056,10,Large hardware supply invoice from Gin Kee on 28 D,0.254,0.386,0.64
+q_057,10,Parking fee receipt at Solaris Dutamas dated 14/01,0.145,0.324,0.469
+q_058,10,Hardware store tools receipt from Gin Kee on 4th J,0.251,0.578,0.829
+q_059,10,Plumbing items bill from Gin Kee dated 10 Jan 2018,0.004,0.324,0.328
+q_060,10,Receipt for construction materials from Gin Kee on,0.153,0.338,0.491
+q_061,10,Hardware repair parts bill from Gin Kee on 11 Janu,0.003,0.346,0.349
+q_062,10,Small hardware screws purchase from Gin Kee on 13 ,0.002,0.345,0.348
+q_063,10,Hardware store bill from Gin Kee dated 02/01/2018,0.126,0.331,0.458
+q_064,10,Hardware items receipt from Gin Kee store on 12 Fe,0.209,0.342,0.55
+q_065,10,Building supplies bill from Gin Kee dated 03/02/20,0.001,0.705,0.707
+q_066,10,Receipt for small hardware item at Gin Kee in Janu,0.247,0.59,0.838
+q_067,10,Grocery bill from Mydin Mart Sri Muda dated 10/08/,0.002,0.305,0.307
+q_068,10,Electrical wiring and lighting supplies receipt on,0.127,0.287,0.414
+q_069,10,Chinese noodle lunch bill at Restoran Wan Sheng on,0.002,0.291,0.293
+q_070,10,Coffee and drink receipt from Wan Sheng on 14 Marc,0.126,0.284,0.411
+q_071,10,Dinner bill at PappaRich restaurant dated 24/03/20,0.009,0.304,0.314
+q_072,10,Retail purchase receipt from SWC Enterprise on 28 ,0.124,0.305,0.429
+q_073,10,Flower bouquet and gift craft bill dated 21 March ,0.003,0.289,0.292
+q_074,10,Toiletries and skincare shopping receipt from Wats,0.125,0.289,0.414
+q_075,10,Japanese food dinner bill at Kiku Restaurant on 17,0.003,0.286,0.288
+q_076,10,Ice cream receipt from Baskin Robbins dated 16/02/,0.124,0.285,0.409
+q_077,10,Party supplies and toy purchase bill from Fun N Ch,0.003,0.29,0.293
+q_078,10,Boba milk tea drink receipt from Tealive dated 21 ,0.123,0.283,0.406
+q_079,10,Weekly grocery shopping bill at 99 Speedmart on 17,0.003,1.201,1.204
+q_080,10,Korean BBQ chicken dinner bill at Mr Dakgalbi on 5,0.003,0.3,0.302
+q_081,10,Supermarket goods receipt from The Store dated 14/,0.228,0.349,0.578
+q_082,10,Traditional kuih and lunch receipt at Nyonya Color,0.146,0.346,0.492
+q_083,10,Taro ball shaved ice dessert bill from Yam Fresh o,0.004,0.357,0.361
+q_084,10,Pizza delivery dinner order bill dated 26/03/2018,0.002,0.316,0.317
+q_085,10,Prescription medicine bill from Happy Pharmacy on ,0.004,0.328,0.332
+q_086,10,Stationery supplies and pens receipt from Popular ,0.143,0.324,0.468
+q_087,10,Petrol fuel pump receipt from BHPetrol dated 24 Ma,0.14,0.341,0.481
+q_088,10,Bulk grocery shopping bill from Super Seven on 12 ,0.003,0.365,0.368
+q_089,10,Hardware store parts receipt from ENW Ara Damansar,0.243,0.33,0.573
+q_090,10,Department store clothing receipt from Aeon Maluri,0.234,0.332,0.566
+q_091,10,Bookstore notebook purchase from Popular on 11 Mar,0.007,0.342,0.349
+q_092,10,Hardware drill bit purchase bill dated 10/10/2017,0.002,0.342,0.344
+q_093,10,Household repair tools receipt from MR DIY on 26 M,0.157,0.33,0.487
+q_094,10,Home hardware supplies bill from MR DIY dated 25 M,0.004,0.34,0.343
+q_095,10,Tools and repair purchase receipt from MR DIY on 2,0.172,0.477,0.649
+q_096,10,Duplicate house key maker bill in Puchong dated 24,0.004,0.344,0.348
+q_097,10,Hardware store items receipt from MR DIY on 24 Mar,0.254,0.364,0.619
+q_098,10,Home furniture and curtains bill at Kaison Melawat,0.003,0.347,0.351
+q_099,10,Grocery sundry items purchase receipt dated 06/02/,0.142,0.355,0.497
+q_000,20,Find receipt for books and modelling clay bought i,0.141,0.708,0.849
+q_001,20,What did I buy home decor items in Johor Jaya?,0.004,0.652,0.656
+q_002,20,Receipt for shopping at Yongfatt store on Christma,0.206,0.718,0.924
+q_003,20,Hardware bill for machinery tools and supplies at ,0.012,0.734,0.746
+q_004,20,Motorcycle repair and service bill in Sungai Rengi,0.011,1.57,1.58
+q_005,20,Breakfast porridge meal receipt at McDonalds Gerba,0.136,0.647,0.783
+q_006,20,Receipt for goods from Sam Sam Trading in Shah Ala,0.124,0.625,0.749
+q_007,20,Hardware shop bill for big stretch film packing ro,0.005,0.594,0.599
+q_008,20,School books and stationery purchase in Batang Ber,0.003,0.584,0.587
+q_009,20,Home maintenance and DIY tools bill from MR DIY,0.003,0.554,0.557
+q_010,20,Receipt from C W Khoo hardware store in Johor Bahr,0.293,0.584,0.877
+q_011,20,Dinner meal bill at Unihakka on 5th March,0.005,0.851,0.856
+q_012,20,Department store receipt for purchases at Aeon Mal,0.224,0.778,1.002
+q_013,20,Food order receipt from Unihakka Restaurant on 3rd,0.15,0.683,0.833
+q_014,20,Receipt from Perniagaan Zheng Hui store,0.224,0.567,0.791
+q_015,20,Lunch food bill at Unihakka Restaurant on 12 March,0.003,0.683,0.685
+q_016,20,Dinner bill from Unihakka restaurant on 14 March,0.016,0.457,0.473
+q_017,20,Store purchase at Aeon Tebrau City mall on 11 Marc,0.13,0.398,0.528
+q_018,20,Drinks and food bill at Three Stooges Bistro in Da,0.002,0.404,0.406
+q_019,20,Show bill for beers and dinner at 32 Pub and Bistr,0.003,0.413,0.416
+q_020,20,Dining receipt for food at Unihakka on 18 March,0.149,0.392,0.541
+q_021,20,Grocery shopping receipt from mini market in Perma,0.125,0.419,0.544
+q_022,20,Seafood dinner receipt from Sin Du Restaurant,0.125,0.393,0.519
+q_023,20,Hardware tools and construction parts from Yong Ta,0.002,0.4,0.402
+q_024,20,Receipt for items bought at Zheng Hui in Permas,0.124,0.392,0.517
+q_025,20,Dinner receipt for ribs at Morganfields Kitchenett,0.144,0.402,0.546
+q_026,20,Lunch bill at Carrefour restaurant in Permas,0.001,0.427,0.429
+q_027,20,Vegetable dish food receipt at Unihakka Restaurant,0.125,0.987,1.111
+q_028,20,Dinner receipt at Unihakka Restaurant on 29 March,0.139,0.435,0.574
+q_029,20,Receipt for Peri Peri chicken meal at Nandos,0.147,0.5,0.647
+q_030,20,Dining receipt for Chinese food at Sun Wong Kut,0.145,0.396,0.541
+q_031,20,Dinner meal bill at Jiawei House restaurant,0.001,0.413,0.414
+q_032,20,Vegetarian food bill at Lian Chi Pu Tian restauran,0.001,0.533,0.535
+q_033,20,Shopping receipt from Aeon Taman Maluri shopping c,0.157,0.399,0.556
+q_034,20,Office supplies and stationery bill from Lian Hing,0.002,0.373,0.375
+q_035,20,Thai food dinner bill at Thai Delicious in Bandar ,0.002,0.387,0.39
+q_036,20,Tools and household hardware items bought at MR DI,0.002,0.374,0.376
+q_037,20,Hardware supplies receipt from Hon Hwa Trading,0.153,0.364,0.517
+q_038,20,Pack of AAA batteries bought from MR DIY store,0.152,0.366,0.517
+q_039,20,Hardware equipment bill from Hon Hwa Trading,0.002,0.378,0.38
+q_040,20,Plastic cloth pegs bought at MR DIY hardware,0.002,0.461,0.463
+q_041,20,Padlock security lock purchased at MR DIY,0.004,0.382,0.386
+q_042,20,Store receipt from FY Eagle in Bukit Serdang,0.272,0.412,0.684
+q_043,20,Supermarket grocery bill from Mydin Mart in Sri Mu,0.002,0.441,0.443
+q_044,20,Receipt for items bought on third floor at Aeon Ma,0.126,0.385,0.51
+q_045,20,Shopping bill from Aeon department store,0.126,0.375,0.501
+q_046,20,Receipt for books and stationery bought at Popular,0.124,0.435,0.559
+q_047,20,Books purchase receipt from Popular Bookstore in J,0.195,0.558,0.753
+q_048,20,Plumbing and hardware items bought at Wahin Hardwa,0.001,0.368,0.37
+q_049,20,Hardware shop receipt from Gin Kee store,0.202,0.357,0.559
+q_050,20,Hardware Receipt from Syarikat Gin Kee store,0.23,0.355,0.585
+q_051,20,Receipt of IKEA Cheras Ikano Handel dated 23/12/17,0.124,0.373,0.496
+q_052,20,Receipt of Syarikat perniagaan gin kee in setapak ,0.126,0.375,0.501
+q_053,20,Food receipt from Chilis T.A.S. Leisure SDN BHD da,0.125,0.346,0.47
+q_054,20,Receipt from Lim Seng Tho Harware Trading,0.123,0.367,0.49
+q_055,20,Receipt from Lim Seng Tho Harware Trading,0.123,0.348,0.471
+q_056,20,Large hardware supply invoice from Gin Kee on 28 D,0.228,0.355,0.583
+q_057,20,Parking fee receipt at Solaris Dutamas dated 14/01,0.124,0.846,0.971
+q_058,20,Hardware store tools receipt from Gin Kee on 4th J,0.234,0.662,0.896
+q_059,20,Plumbing items bill from Gin Kee dated 10 Jan 2018,0.003,0.37,0.373
+q_060,20,Receipt for construction materials from Gin Kee on,0.153,0.345,0.498
+q_061,20,Hardware repair parts bill from Gin Kee on 11 Janu,0.003,0.37,0.373
+q_062,20,Small hardware screws purchase from Gin Kee on 13 ,0.006,0.385,0.391
+q_063,20,Hardware store bill from Gin Kee dated 02/01/2018,0.138,0.357,0.495
+q_064,20,Hardware items receipt from Gin Kee store on 12 Fe,0.225,0.358,0.583
+q_065,20,Building supplies bill from Gin Kee dated 03/02/20,0.002,0.37,0.371
+q_066,20,Receipt for small hardware item at Gin Kee in Janu,0.243,0.36,0.603
+q_067,20,Grocery bill from Mydin Mart Sri Muda dated 10/08/,0.002,0.349,0.35
+q_068,20,Electrical wiring and lighting supplies receipt on,0.143,0.356,0.499
+q_069,20,Chinese noodle lunch bill at Restoran Wan Sheng on,0.004,0.358,0.362
+q_070,20,Coffee and drink receipt from Wan Sheng on 14 Marc,0.145,0.362,0.507
+q_071,20,Dinner bill at PappaRich restaurant dated 24/03/20,0.002,0.364,0.366
+q_072,20,Retail purchase receipt from SWC Enterprise on 28 ,0.162,0.5,0.663
+q_073,20,Flower bouquet and gift craft bill dated 21 March ,0.004,0.367,0.37
+q_074,20,Toiletries and skincare shopping receipt from Wats,0.146,0.373,0.52
+q_075,20,Japanese food dinner bill at Kiku Restaurant on 17,0.004,0.383,0.386
+q_076,20,Ice cream receipt from Baskin Robbins dated 16/02/,0.166,0.37,0.536
+q_077,20,Party supplies and toy purchase bill from Fun N Ch,0.004,0.359,0.363
+q_078,20,Boba milk tea drink receipt from Tealive dated 21 ,0.139,0.385,0.524
+q_079,20,Weekly grocery shopping bill at 99 Speedmart on 17,0.004,0.374,0.377
+q_080,20,Korean BBQ chicken dinner bill at Mr Dakgalbi on 5,0.003,0.52,0.523
+q_081,20,Supermarket goods receipt from The Store dated 14/,0.256,0.363,0.619
+q_082,20,Traditional kuih and lunch receipt at Nyonya Color,0.139,0.393,0.532
+q_083,20,Taro ball shaved ice dessert bill from Yam Fresh o,0.003,0.4,0.403
+q_084,20,Pizza delivery dinner order bill dated 26/03/2018,0.002,0.371,0.372
+q_085,20,Prescription medicine bill from Happy Pharmacy on ,0.003,0.368,0.371
+q_086,20,Stationery supplies and pens receipt from Popular ,0.139,0.401,0.54
+q_087,20,Petrol fuel pump receipt from BHPetrol dated 24 Ma,0.14,0.409,0.548
+q_088,20,Bulk grocery shopping bill from Super Seven on 12 ,0.003,0.406,0.408
+q_089,20,Hardware store parts receipt from ENW Ara Damansar,0.228,0.394,0.622
+q_090,20,Department store clothing receipt from Aeon Maluri,0.228,0.395,0.623
+q_091,20,Bookstore notebook purchase from Popular on 11 Mar,0.002,0.775,0.777
+q_092,20,Hardware drill bit purchase bill dated 10/10/2017,0.004,1.356,1.36
+q_093,20,Household repair tools receipt from MR DIY on 26 M,0.14,0.507,0.647
+q_094,20,Home hardware supplies bill from MR DIY dated 25 M,0.014,0.406,0.42
+q_095,20,Tools and repair purchase receipt from MR DIY on 2,0.157,0.51,0.667
+q_096,20,Duplicate house key maker bill in Puchong dated 24,0.014,0.382,0.396
+q_097,20,Hardware store items receipt from MR DIY on 24 Mar,0.232,0.371,0.603
+q_098,20,Home furniture and curtains bill at Kaison Melawat,0.003,0.407,0.411
+q_099,20,Grocery sundry items purchase receipt dated 06/02/,0.144,0.369,0.513
+q_000,50,Find receipt for books and modelling clay bought i,0.139,1.318,1.457
+q_001,50,What did I buy home decor items in Johor Jaya?,0.004,1.113,1.117
+q_002,50,Receipt for shopping at Yongfatt store on Christma,0.202,1.312,1.514
+q_003,50,Hardware bill for machinery tools and supplies at ,0.015,1.287,1.301
+q_004,50,Motorcycle repair and service bill in Sungai Rengi,0.004,2.227,2.231
+q_005,50,Breakfast porridge meal receipt at McDonalds Gerba,0.134,0.839,0.973
+q_006,50,Receipt for goods from Sam Sam Trading in Shah Ala,0.141,0.856,0.997
+q_007,50,Hardware shop bill for big stretch film packing ro,0.004,0.883,0.887
+q_008,50,School books and stationery purchase in Batang Ber,0.003,0.811,0.815
+q_009,50,Home maintenance and DIY tools bill from MR DIY,0.003,1.399,1.402
+q_010,50,Receipt from C W Khoo hardware store in Johor Bahr,0.383,1.311,1.695
+q_011,50,Dinner meal bill at Unihakka on 5th March,0.007,1.147,1.155
+q_012,50,Department store receipt for purchases at Aeon Mal,0.224,1.084,1.308
+q_013,50,Food order receipt from Unihakka Restaurant on 3rd,0.149,0.838,0.987
+q_014,50,Receipt from Perniagaan Zheng Hui store,0.24,0.829,1.069
+q_015,50,Lunch food bill at Unihakka Restaurant on 12 March,0.004,0.971,0.975
+q_016,50,Dinner bill from Unihakka restaurant on 14 March,0.005,1.87,1.875
+q_017,50,Store purchase at Aeon Tebrau City mall on 11 Marc,0.167,1.384,1.551
+q_018,50,Drinks and food bill at Three Stooges Bistro in Da,0.005,1.114,1.12
+q_019,50,Show bill for beers and dinner at 32 Pub and Bistr,0.004,0.827,0.831
+q_020,50,Dining receipt for food at Unihakka on 18 March,0.164,0.844,1.009
+q_021,50,Grocery shopping receipt from mini market in Perma,0.143,0.847,0.99
+q_022,50,Seafood dinner receipt from Sin Du Restaurant,0.146,0.898,1.045
+q_023,50,Hardware tools and construction parts from Yong Ta,0.003,1.02,1.023
+q_024,50,Receipt for items bought at Zheng Hui in Permas,0.151,1.406,1.557
+q_025,50,Dinner receipt for ribs at Morganfields Kitchenett,0.144,1.032,1.176
+q_026,50,Lunch bill at Carrefour restaurant in Permas,0.007,1.219,1.226
+q_027,50,Vegetable dish food receipt at Unihakka Restaurant,0.149,0.963,1.112
+q_028,50,Dinner receipt at Unihakka Restaurant on 29 March,0.14,1.059,1.199
+q_029,50,Receipt for Peri Peri chicken meal at Nandos,0.155,1.184,1.34
+q_030,50,Dining receipt for Chinese food at Sun Wong Kut,0.138,0.864,1.002
+q_031,50,Dinner meal bill at Jiawei House restaurant,0.003,1.793,1.796
+q_032,50,Vegetarian food bill at Lian Chi Pu Tian restauran,0.003,1.191,1.195
+q_033,50,Shopping receipt from Aeon Taman Maluri shopping c,0.145,0.84,0.985
+q_034,50,Office supplies and stationery bill from Lian Hing,0.003,0.845,0.848
+q_035,50,Thai food dinner bill at Thai Delicious in Bandar ,0.003,0.905,0.908
+q_036,50,Tools and household hardware items bought at MR DI,0.003,1.15,1.153
+q_037,50,Hardware supplies receipt from Hon Hwa Trading,0.204,1.192,1.395
+q_038,50,Pack of AAA batteries bought from MR DIY store,0.215,1.116,1.33
+q_039,50,Hardware equipment bill from Hon Hwa Trading,0.002,1.245,1.247
+q_040,50,Plastic cloth pegs bought at MR DIY hardware,0.007,1.088,1.095
+q_041,50,Padlock security lock purchased at MR DIY,0.002,1.115,1.117
+q_042,50,Store receipt from FY Eagle in Bukit Serdang,0.234,0.819,1.052
+q_043,50,Supermarket grocery bill from Mydin Mart in Sri Mu,0.001,0.823,0.825
+q_044,50,Receipt for items bought on third floor at Aeon Ma,0.142,0.828,0.971
+q_045,50,Shopping bill from Aeon department store,0.171,1.44,1.612
+q_046,50,Receipt for books and stationery bought at Popular,0.153,1.214,1.367
+q_047,50,Books purchase receipt from Popular Bookstore in J,0.158,0.835,0.993
+q_048,50,Plumbing and hardware items bought at Wahin Hardwa,0.002,0.879,0.881
+q_049,50,Hardware shop receipt from Gin Kee store,0.284,1.091,1.374
+q_050,50,Hardware Receipt from Syarikat Gin Kee store,0.247,1.35,1.597
+q_051,50,Receipt of IKEA Cheras Ikano Handel dated 23/12/17,0.15,1.29,1.44
+q_052,50,Receipt of Syarikat perniagaan gin kee in setapak ,0.161,1.448,1.61
+q_053,50,Food receipt from Chilis T.A.S. Leisure SDN BHD da,0.156,1.141,1.297
+q_054,50,Receipt from Lim Seng Tho Harware Trading,0.152,1.327,1.479
+q_055,50,Receipt from Lim Seng Tho Harware Trading,0.152,1.054,1.207
+q_056,50,Large hardware supply invoice from Gin Kee on 28 D,0.254,1.227,1.481
+q_057,50,Parking fee receipt at Solaris Dutamas dated 14/01,0.149,1.548,1.697
+q_058,50,Hardware store tools receipt from Gin Kee on 4th J,0.259,0.854,1.113
+q_059,50,Plumbing items bill from Gin Kee dated 10 Jan 2018,0.007,0.82,0.826
+q_060,50,Receipt for construction materials from Gin Kee on,0.153,1.123,1.276
+q_061,50,Hardware repair parts bill from Gin Kee on 11 Janu,0.009,1.371,1.38
+q_062,50,Small hardware screws purchase from Gin Kee on 13 ,0.005,1.46,1.465
+q_063,50,Hardware store bill from Gin Kee dated 02/01/2018,0.24,1.043,1.284
+q_064,50,Hardware items receipt from Gin Kee store on 12 Fe,0.254,0.907,1.162
+q_065,50,Building supplies bill from Gin Kee dated 03/02/20,0.003,1.239,1.242
+q_066,50,Receipt for small hardware item at Gin Kee in Janu,0.263,1.202,1.465
+q_067,50,Grocery bill from Mydin Mart Sri Muda dated 10/08/,0.003,1.21,1.212
+q_068,50,Electrical wiring and lighting supplies receipt on,0.157,1.28,1.436
+q_069,50,Chinese noodle lunch bill at Restoran Wan Sheng on,0.004,0.873,0.877
+q_070,50,Coffee and drink receipt from Wan Sheng on 14 Marc,0.157,1.957,2.113
+q_071,50,Dinner bill at PappaRich restaurant dated 24/03/20,0.006,1.059,1.065
+q_072,50,Retail purchase receipt from SWC Enterprise on 28 ,0.155,0.84,0.995
+q_073,50,Flower bouquet and gift craft bill dated 21 March ,0.003,0.84,0.842
+q_074,50,Toiletries and skincare shopping receipt from Wats,0.232,1.354,1.585
+q_075,50,Japanese food dinner bill at Kiku Restaurant on 17,0.009,1.407,1.416
+q_076,50,Ice cream receipt from Baskin Robbins dated 16/02/,0.201,0.915,1.116
+q_077,50,Party supplies and toy purchase bill from Fun N Ch,0.005,1.428,1.433
+q_078,50,Boba milk tea drink receipt from Tealive dated 21 ,0.171,1.529,1.7
+q_079,50,Weekly grocery shopping bill at 99 Speedmart on 17,0.004,1.227,1.231
+q_080,50,Korean BBQ chicken dinner bill at Mr Dakgalbi on 5,0.004,1.232,1.235
+q_081,50,Supermarket goods receipt from The Store dated 14/,0.304,0.887,1.191
+q_082,50,Traditional kuih and lunch receipt at Nyonya Color,0.182,1.712,1.895
+q_083,50,Taro ball shaved ice dessert bill from Yam Fresh o,0.013,1.164,1.176
+q_084,50,Pizza delivery dinner order bill dated 26/03/2018,0.002,1.29,1.292
+q_085,50,Prescription medicine bill from Happy Pharmacy on ,0.003,0.877,0.88
+q_086,50,Stationery supplies and pens receipt from Popular ,0.17,0.871,1.041
+q_087,50,Petrol fuel pump receipt from BHPetrol dated 24 Ma,0.178,1.322,1.499
+q_088,50,Bulk grocery shopping bill from Super Seven on 12 ,0.017,1.171,1.188
+q_089,50,Hardware store parts receipt from ENW Ara Damansar,0.335,1.428,1.763
+q_090,50,Department store clothing receipt from Aeon Maluri,0.269,0.915,1.184
+q_091,50,Bookstore notebook purchase from Popular on 11 Mar,0.005,1.276,1.281
+q_092,50,Hardware drill bit purchase bill dated 10/10/2017,0.004,1.123,1.127
+q_093,50,Household repair tools receipt from MR DIY on 26 M,0.18,1.288,1.468
+q_094,50,Home hardware supplies bill from MR DIY dated 25 M,0.003,0.853,0.856
+q_095,50,Tools and repair purchase receipt from MR DIY on 2,0.169,1.205,1.374
+q_096,50,Duplicate house key maker bill in Puchong dated 24,0.004,1.6,1.604
+q_097,50,Hardware store items receipt from MR DIY on 24 Mar,0.292,1.215,1.507
+q_098,50,Home furniture and curtains bill at Kaison Melawat,0.003,0.864,0.867
+q_099,50,Grocery sundry items purchase receipt dated 06/02/,0.173,1.19,1.363
+q_000,100,Find receipt for books and modelling clay bought i,0.134,1.686,1.821
+q_001,100,What did I buy home decor items in Johor Jaya?,0.004,1.595,1.599
+q_002,100,Receipt for shopping at Yongfatt store on Christma,0.238,2.758,2.996
+q_003,100,Hardware bill for machinery tools and supplies at ,0.008,1.297,1.305
+q_004,100,Motorcycle repair and service bill in Sungai Rengi,0.003,1.307,1.31
+q_005,100,Breakfast porridge meal receipt at McDonalds Gerba,0.198,1.573,1.771
+q_006,100,Receipt for goods from Sam Sam Trading in Shah Ala,0.156,2.068,2.224
+q_007,100,Hardware shop bill for big stretch film packing ro,0.003,1.799,1.802
+q_008,100,School books and stationery purchase in Batang Ber,0.011,1.528,1.54
+q_009,100,Home maintenance and DIY tools bill from MR DIY,0.007,1.127,1.135
+q_010,100,Receipt from C W Khoo hardware store in Johor Bahr,0.286,0.958,1.244
+q_011,100,Dinner meal bill at Unihakka on 5th March,0.003,0.968,0.971
+q_012,100,Department store receipt for purchases at Aeon Mal,0.281,3.362,3.643
+q_013,100,Food order receipt from Unihakka Restaurant on 3rd,0.161,0.974,1.135
+q_014,100,Receipt from Perniagaan Zheng Hui store,0.256,1.2,1.457
+q_015,100,Lunch food bill at Unihakka Restaurant on 12 March,0.009,1.215,1.224
+q_016,100,Dinner bill from Unihakka restaurant on 14 March,0.008,0.896,0.904
+q_017,100,Store purchase at Aeon Tebrau City mall on 11 Marc,0.198,1.469,1.668
+q_018,100,Drinks and food bill at Three Stooges Bistro in Da,0.009,1.601,1.611
+q_019,100,Show bill for beers and dinner at 32 Pub and Bistr,0.006,1.62,1.626
+q_020,100,Dining receipt for food at Unihakka on 18 March,0.195,1.807,2.002
+q_021,100,Grocery shopping receipt from mini market in Perma,0.152,1.632,1.785
+q_022,100,Seafood dinner receipt from Sin Du Restaurant,0.152,1.893,2.045
+q_023,100,Hardware tools and construction parts from Yong Ta,0.009,1.099,1.108
+q_024,100,Receipt for items bought at Zheng Hui in Permas,0.15,0.939,1.088
+q_025,100,Dinner receipt for ribs at Morganfields Kitchenett,0.153,1.239,1.392
+q_026,100,Lunch bill at Carrefour restaurant in Permas,0.004,1.13,1.134
+q_027,100,Vegetable dish food receipt at Unihakka Restaurant,0.221,0.994,1.215
+q_028,100,Dinner receipt at Unihakka Restaurant on 29 March,0.153,1.086,1.239
+q_029,100,Receipt for Peri Peri chicken meal at Nandos,0.162,1.102,1.264
+q_030,100,Dining receipt for Chinese food at Sun Wong Kut,0.154,1.355,1.509
+q_031,100,Dinner meal bill at Jiawei House restaurant,0.002,1.523,1.526
+q_032,100,Vegetarian food bill at Lian Chi Pu Tian restauran,0.003,2.634,2.637
+q_033,100,Shopping receipt from Aeon Taman Maluri shopping c,0.159,1.971,2.131
+q_034,100,Office supplies and stationery bill from Lian Hing,0.003,1.753,1.756
+q_035,100,Thai food dinner bill at Thai Delicious in Bandar ,0.002,1.263,1.265
+q_036,100,Tools and household hardware items bought at MR DI,0.003,1.754,1.757
+q_037,100,Hardware supplies receipt from Hon Hwa Trading,0.252,1.628,1.88
+q_038,100,Pack of AAA batteries bought from MR DIY store,0.239,1.722,1.961
+q_039,100,Hardware equipment bill from Hon Hwa Trading,0.002,1.571,1.574
+q_040,100,Plastic cloth pegs bought at MR DIY hardware,0.003,1.772,1.775
+q_041,100,Padlock security lock purchased at MR DIY,0.003,1.862,1.865
+q_042,100,Store receipt from FY Eagle in Bukit Serdang,0.28,2.168,2.448
+q_043,100,Supermarket grocery bill from Mydin Mart in Sri Mu,0.002,1.79,1.792
+q_044,100,Receipt for items bought on third floor at Aeon Ma,0.173,1.325,1.498
+q_045,100,Shopping bill from Aeon department store,0.189,1.613,1.802
+q_046,100,Receipt for books and stationery bought at Popular,0.209,2.15,2.359
+q_047,100,Books purchase receipt from Popular Bookstore in J,0.186,1.563,1.749
+q_048,100,Plumbing and hardware items bought at Wahin Hardwa,0.003,1.48,1.483
+q_049,100,Hardware shop receipt from Gin Kee store,0.301,1.801,2.102
+q_050,100,Hardware Receipt from Syarikat Gin Kee store,0.305,2.186,2.491
+q_051,100,Receipt of IKEA Cheras Ikano Handel dated 23/12/17,0.171,1.862,2.032
+q_052,100,Receipt of Syarikat perniagaan gin kee in setapak ,0.176,1.592,1.768
+q_053,100,Food receipt from Chilis T.A.S. Leisure SDN BHD da,0.175,1.413,1.588
+q_054,100,Receipt from Lim Seng Tho Harware Trading,0.28,2.296,2.576
+q_055,100,Receipt from Lim Seng Tho Harware Trading,0.188,1.989,2.177
+q_056,100,Large hardware supply invoice from Gin Kee on 28 D,0.318,1.75,2.068
+q_057,100,Parking fee receipt at Solaris Dutamas dated 14/01,0.181,1.807,1.987
+q_058,100,Hardware store tools receipt from Gin Kee on 4th J,0.333,2.789,3.123
+q_059,100,Plumbing items bill from Gin Kee dated 10 Jan 2018,0.005,1.639,1.643
+q_060,100,Receipt for construction materials from Gin Kee on,0.17,1.498,1.668
+q_061,100,Hardware repair parts bill from Gin Kee on 11 Janu,0.005,1.461,1.466
+q_062,100,Small hardware screws purchase from Gin Kee on 13 ,0.012,2.16,2.172
+q_063,100,Hardware store bill from Gin Kee dated 02/01/2018,0.286,1.97,2.256
+q_064,100,Hardware items receipt from Gin Kee store on 12 Fe,0.363,2.251,2.614
+q_065,100,Building supplies bill from Gin Kee dated 03/02/20,0.002,2.073,2.076
+q_066,100,Receipt for small hardware item at Gin Kee in Janu,0.387,1.899,2.286
+q_067,100,Grocery bill from Mydin Mart Sri Muda dated 10/08/,0.002,1.89,1.893
+q_068,100,Electrical wiring and lighting supplies receipt on,0.182,1.732,1.914
+q_069,100,Chinese noodle lunch bill at Restoran Wan Sheng on,0.007,1.686,1.693
+q_070,100,Coffee and drink receipt from Wan Sheng on 14 Marc,0.251,2.004,2.255
+q_071,100,Dinner bill at PappaRich restaurant dated 24/03/20,0.004,2.095,2.1
+q_072,100,Retail purchase receipt from SWC Enterprise on 28 ,0.209,1.99,2.2
+q_073,100,Flower bouquet and gift craft bill dated 21 March ,0.003,1.834,1.837
+q_074,100,Toiletries and skincare shopping receipt from Wats,0.196,1.87,2.066
+q_075,100,Japanese food dinner bill at Kiku Restaurant on 17,0.004,2.023,2.027
+q_076,100,Ice cream receipt from Baskin Robbins dated 16/02/,0.205,1.855,2.06
+q_077,100,Party supplies and toy purchase bill from Fun N Ch,0.006,1.66,1.666
+q_078,100,Boba milk tea drink receipt from Tealive dated 21 ,0.221,1.94,2.161
+q_079,100,Weekly grocery shopping bill at 99 Speedmart on 17,0.011,2.121,2.132
+q_080,100,Korean BBQ chicken dinner bill at Mr Dakgalbi on 5,0.005,1.845,1.85
+q_081,100,Supermarket goods receipt from The Store dated 14/,0.371,1.827,2.198
+q_082,100,Traditional kuih and lunch receipt at Nyonya Color,0.2,2.35,2.55
+q_083,100,Taro ball shaved ice dessert bill from Yam Fresh o,0.004,1.788,1.792
+q_084,100,Pizza delivery dinner order bill dated 26/03/2018,0.011,1.818,1.829
+q_085,100,Prescription medicine bill from Happy Pharmacy on ,0.006,1.665,1.671
+q_086,100,Stationery supplies and pens receipt from Popular ,0.24,2.137,2.377
+q_087,100,Petrol fuel pump receipt from BHPetrol dated 24 Ma,0.265,1.846,2.111
+q_088,100,Bulk grocery shopping bill from Super Seven on 12 ,0.005,2.158,2.162
+q_089,100,Hardware store parts receipt from ENW Ara Damansar,0.411,2.092,2.503
+q_090,100,Department store clothing receipt from Aeon Maluri,0.359,2.249,2.608
+q_091,100,Bookstore notebook purchase from Popular on 11 Mar,0.006,1.898,1.904
+q_092,100,Hardware drill bit purchase bill dated 10/10/2017,0.003,1.793,1.797
+q_093,100,Household repair tools receipt from MR DIY on 26 M,0.244,1.685,1.929
+q_094,100,Home hardware supplies bill from MR DIY dated 25 M,0.01,1.834,1.843
+q_095,100,Tools and repair purchase receipt from MR DIY on 2,0.354,1.978,2.331
+q_096,100,Duplicate house key maker bill in Puchong dated 24,0.005,1.982,1.987
+q_097,100,Hardware store items receipt from MR DIY on 24 Mar,0.405,1.754,2.159
+q_098,100,Home furniture and curtains bill at Kaison Melawat,0.005,2.176,2.181
+q_099,100,Grocery sundry items purchase receipt dated 06/02/,0.24,1.882,2.123
+q_000,813,Find receipt for books and modelling clay bought i,0.212,8.076,8.289
+q_001,813,What did I buy home decor items in Johor Jaya?,0.008,7.575,7.583
+q_002,813,Receipt for shopping at Yongfatt store on Christma,0.392,7.603,7.995
+q_003,813,Hardware bill for machinery tools and supplies at ,0.006,7.99,7.996
+q_004,813,Motorcycle repair and service bill in Sungai Rengi,0.009,6.439,6.449
+q_005,813,Breakfast porridge meal receipt at McDonalds Gerba,0.266,7.628,7.894
+q_006,813,Receipt for goods from Sam Sam Trading in Shah Ala,0.229,5.333,5.562
+q_007,813,Hardware shop bill for big stretch film packing ro,0.005,7.961,7.966
+q_008,813,School books and stationery purchase in Batang Ber,0.004,5.34,5.344
+q_009,813,Home maintenance and DIY tools bill from MR DIY,0.009,6.728,6.737
+q_010,813,Receipt from C W Khoo hardware store in Johor Bahr,0.502,6.714,7.216
+q_011,813,Dinner meal bill at Unihakka on 5th March,0.008,5.147,5.155
+q_012,813,Department store receipt for purchases at Aeon Mal,0.394,7.903,8.297
+q_013,813,Food order receipt from Unihakka Restaurant on 3rd,0.211,5.068,5.279
+q_014,813,Receipt from Perniagaan Zheng Hui store,0.386,6.249,6.635
+q_015,813,Lunch food bill at Unihakka Restaurant on 12 March,0.007,6.594,6.601
+q_016,813,Dinner bill from Unihakka restaurant on 14 March,0.006,4.918,4.923
+q_017,813,Store purchase at Aeon Tebrau City mall on 11 Marc,0.237,7.378,7.615
+q_018,813,Drinks and food bill at Three Stooges Bistro in Da,0.003,5.03,5.033
+q_019,813,Show bill for beers and dinner at 32 Pub and Bistr,0.007,5.095,5.102
+q_020,813,Dining receipt for food at Unihakka on 18 March,0.198,6.79,6.988
+q_021,813,Grocery shopping receipt from mini market in Perma,0.241,5.01,5.251
+q_022,813,Seafood dinner receipt from Sin Du Restaurant,0.264,5.366,5.63
+q_023,813,Hardware tools and construction parts from Yong Ta,0.008,5.621,5.629
+q_024,813,Receipt for items bought at Zheng Hui in Permas,0.203,5.103,5.307
+q_025,813,Dinner receipt for ribs at Morganfields Kitchenett,0.228,5.178,5.407
+q_026,813,Lunch bill at Carrefour restaurant in Permas,0.005,5.608,5.613
+q_027,813,Vegetable dish food receipt at Unihakka Restaurant,0.18,5.038,5.218
+q_028,813,Dinner receipt at Unihakka Restaurant on 29 March,0.179,4.958,5.137
+q_029,813,Receipt for Peri Peri chicken meal at Nandos,0.176,5.108,5.284
+q_030,813,Dining receipt for Chinese food at Sun Wong Kut,0.191,4.951,5.143
+q_031,813,Dinner meal bill at Jiawei House restaurant,0.005,4.932,4.937
+q_032,813,Vegetarian food bill at Lian Chi Pu Tian restauran,0.005,4.977,4.982
+q_033,813,Shopping receipt from Aeon Taman Maluri shopping c,0.343,4.933,5.275
+q_034,813,Office supplies and stationery bill from Lian Hing,0.005,4.981,4.986
+q_035,813,Thai food dinner bill at Thai Delicious in Bandar ,0.005,4.935,4.939
+q_036,813,Tools and household hardware items bought at MR DI,0.005,5.086,5.09
+q_037,813,Hardware supplies receipt from Hon Hwa Trading,0.413,5.163,5.576
+q_038,813,Pack of AAA batteries bought from MR DIY store,0.388,4.504,4.892
+q_039,813,Hardware equipment bill from Hon Hwa Trading,0.002,4.96,4.963
+q_040,813,Plastic cloth pegs bought at MR DIY hardware,0.003,5.039,5.042
+q_041,813,Padlock security lock purchased at MR DIY,0.008,4.631,4.639
+q_042,813,Store receipt from FY Eagle in Bukit Serdang,0.671,5.015,5.686
+q_043,813,Supermarket grocery bill from Mydin Mart in Sri Mu,0.016,5.287,5.303
+q_044,813,Receipt for items bought on third floor at Aeon Ma,0.589,4.734,5.323
+q_045,813,Shopping bill from Aeon department store,0.371,4.995,5.366
+q_046,813,Receipt for books and stationery bought at Popular,0.347,4.987,5.334
+q_047,813,Books purchase receipt from Popular Bookstore in J,0.508,4.709,5.217
+q_048,813,Plumbing and hardware items bought at Wahin Hardwa,0.006,4.941,4.947
+q_049,813,Hardware shop receipt from Gin Kee store,0.675,4.844,5.519
+q_050,813,Hardware Receipt from Syarikat Gin Kee store,0.533,4.234,4.767
+q_051,813,Receipt of IKEA Cheras Ikano Handel dated 23/12/17,0.474,4.904,5.378
+q_052,813,Receipt of Syarikat perniagaan gin kee in setapak ,0.571,5.293,5.864
+q_053,813,Food receipt from Chilis T.A.S. Leisure SDN BHD da,0.462,4.491,4.953
+q_054,813,Receipt from Lim Seng Tho Harware Trading,0.455,4.543,4.998
+q_055,813,Receipt from Lim Seng Tho Harware Trading,0.559,5.337,5.896
+q_056,813,Large hardware supply invoice from Gin Kee on 28 D,0.5,4.548,5.048
+q_057,813,Parking fee receipt at Solaris Dutamas dated 14/01,0.464,4.4,4.865
+q_058,813,Hardware store tools receipt from Gin Kee on 4th J,0.644,5.762,6.406
+q_059,813,Plumbing items bill from Gin Kee dated 10 Jan 2018,0.026,4.643,4.669
+q_060,813,Receipt for construction materials from Gin Kee on,0.323,4.441,4.764
+q_061,813,Hardware repair parts bill from Gin Kee on 11 Janu,0.007,5.67,5.677
+q_062,813,Small hardware screws purchase from Gin Kee on 13 ,0.007,5.079,5.086
+q_063,813,Hardware store bill from Gin Kee dated 02/01/2018,0.419,5.288,5.707
+q_064,813,Hardware items receipt from Gin Kee store on 12 Fe,0.59,5.644,6.234
+q_065,813,Building supplies bill from Gin Kee dated 03/02/20,0.016,5.706,5.722
+q_066,813,Receipt for small hardware item at Gin Kee in Janu,0.619,4.354,4.973
+q_067,813,Grocery bill from Mydin Mart Sri Muda dated 10/08/,0.002,4.851,4.854
+q_068,813,Electrical wiring and lighting supplies receipt on,0.195,5.249,5.443
+q_069,813,Chinese noodle lunch bill at Restoran Wan Sheng on,0.005,4.224,4.229
+q_070,813,Coffee and drink receipt from Wan Sheng on 14 Marc,0.44,6.027,6.467
+q_071,813,Dinner bill at PappaRich restaurant dated 24/03/20,0.017,4.564,4.581
+q_072,813,Retail purchase receipt from SWC Enterprise on 28 ,0.571,5.793,6.364
+q_073,813,Flower bouquet and gift craft bill dated 21 March ,0.01,5.017,5.027
+q_074,813,Toiletries and skincare shopping receipt from Wats,0.248,4.293,4.541
+q_075,813,Japanese food dinner bill at Kiku Restaurant on 17,0.031,5.76,5.791
+q_076,813,Ice cream receipt from Baskin Robbins dated 16/02/,0.208,5.419,5.627
+q_077,813,Party supplies and toy purchase bill from Fun N Ch,0.004,4.336,4.34
+q_078,813,Boba milk tea drink receipt from Tealive dated 21 ,0.378,5.139,5.517
+q_079,813,Weekly grocery shopping bill at 99 Speedmart on 17,0.012,5.129,5.141
+q_080,813,Korean BBQ chicken dinner bill at Mr Dakgalbi on 5,0.008,5.155,5.163
+q_081,813,Supermarket goods receipt from The Store dated 14/,0.914,5.926,6.84
+q_082,813,Traditional kuih and lunch receipt at Nyonya Color,0.5,4.449,4.949
+q_083,813,Taro ball shaved ice dessert bill from Yam Fresh o,0.005,4.733,4.738
+q_084,813,Pizza delivery dinner order bill dated 26/03/2018,0.005,5.166,5.17
+q_085,813,Prescription medicine bill from Happy Pharmacy on ,0.061,5.057,5.118
+q_086,813,Stationery supplies and pens receipt from Popular ,0.43,5.274,5.704
+q_087,813,Petrol fuel pump receipt from BHPetrol dated 24 Ma,0.28,5.322,5.602
+q_088,813,Bulk grocery shopping bill from Super Seven on 12 ,0.006,4.966,4.972
+q_089,813,Hardware store parts receipt from ENW Ara Damansar,0.456,5.488,5.944
+q_090,813,Department store clothing receipt from Aeon Maluri,0.476,4.958,5.434
+q_091,813,Bookstore notebook purchase from Popular on 11 Mar,0.005,4.617,4.622
+q_092,813,Hardware drill bit purchase bill dated 10/10/2017,0.004,5.487,5.491
+q_093,813,Household repair tools receipt from MR DIY on 26 M,0.194,4.484,4.678
+q_094,813,Home hardware supplies bill from MR DIY dated 25 M,0.008,5.496,5.505
+q_095,813,Tools and repair purchase receipt from MR DIY on 2,0.437,5.459,5.896
+q_096,813,Duplicate house key maker bill in Puchong dated 24,0.008,4.576,4.584
+q_097,813,Hardware store items receipt from MR DIY on 24 Mar,1.065,6.026,7.091
+q_098,813,Home furniture and curtains bill at Kaison Melawat,0.014,5.399,5.414
+q_099,813,Grocery sundry items purchase receipt dated 06/02/,0.302,4.641,4.943

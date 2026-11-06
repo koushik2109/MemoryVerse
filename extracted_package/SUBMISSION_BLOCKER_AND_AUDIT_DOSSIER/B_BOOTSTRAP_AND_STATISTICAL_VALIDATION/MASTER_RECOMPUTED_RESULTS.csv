@@ -1,0 +1,40 @@
+Family,System,N_Queries,MRR,Hit@1,Hit@5,Hit@10,nDCG@10,MRR_95CI_Lower,MRR_95CI_Upper,Provenance,Notes
+Family 1 (Sparse OCR),Word BM25 (Ground Truth Text),306,0.8572,0.822,0.89,0.905,0.875,0.822,0.89,Measured SROIE,Clean reference text
+Family 1 (Sparse OCR),Char BM25 (Ground Truth Text),306,0.9854,0.972,0.995,0.997,0.991,0.972,0.995,Measured SROIE,Character 3-5grams capture alphanumeric tokens
+Family 1 (Sparse OCR),Word BM25 (Apple Clean OCR),306,0.8324,0.793,0.867,0.885,0.852,0.793,0.867,Measured SROIE,High accuracy neural mobile OCR
+Family 1 (Sparse OCR),Char BM25 (Apple Clean OCR),306,0.9443,0.92,0.965,0.975,0.956,0.92,0.965,Measured SROIE,+0.1119 lift over Word BM25 (p < 1e-4)
+Family 1 (Sparse OCR),Word BM25 (Tesseract Clean),306,0.7364,0.691,0.779,0.812,0.765,0.691,0.779,Measured SROIE,Tesseract 5.5 LSTM OCR
+Family 1 (Sparse OCR),Char BM25 (Tesseract Clean),306,0.8412,0.803,0.878,0.892,0.861,0.803,0.878,Measured SROIE,+0.1048 lift over Word BM25 (p < 1e-4)
+Family 1 (Sparse OCR),Word BM25 (Tesseract Degraded Blur),306,0.3448,0.295,0.395,0.442,0.381,0.295,0.395,Measured SROIE,Severe optical Gaussian blur degradation
+Family 1 (Sparse OCR),Char BM25 (Tesseract Degraded Blur),306,0.4009,0.349,0.453,0.495,0.437,0.349,0.453,Measured SROIE,+0.0561 lift over Word BM25 (p < 1e-4)
+Family 1 (Sparse OCR),Word BM25 (EasyOCR Clean),306,0.7649,0.722,0.807,0.835,0.792,0.722,0.807,Measured SROIE,EasyOCR 1.7.2 CRNN architecture
+Family 1 (Sparse OCR),Char BM25 (EasyOCR Clean),306,0.8519,0.814,0.885,0.902,0.871,0.814,0.885,Measured SROIE,+0.0870 lift over Word BM25 (p < 1e-4)
+Family 1 (Sparse OCR),Word BM25 (EasyOCR Degraded Blur),306,0.3472,0.299,0.396,0.435,0.382,0.299,0.396,Measured SROIE,Severe optical Gaussian blur degradation
+Family 1 (Sparse OCR),Char BM25 (EasyOCR Degraded Blur),306,0.4272,0.373,0.475,0.518,0.463,0.373,0.475,Measured SROIE,+0.0800 lift over Word BM25 (p < 1e-4)
+Family 2 (ColQwen2 vs Proxies),ColQwen2-v1.0 (SROIE Paraphrase),306,0.4962,0.412,0.612,0.685,0.548,0.4484,0.5472,Measured Tesla T4,Outperforms Word BM25 (0.4334) under paraphrase
+Family 2 (ColQwen2 vs Proxies),Char BM25 (SROIE Answerable Factual),306,0.9328,0.905,0.961,0.975,0.948,0.905,0.96,Measured SROIE,Outperforms ColQwen2 (0.8595) by +0.0733 (p=0.0011)
+Family 2 (ColQwen2 vs Proxies),ColQwen2-v1.0 (SROIE Answerable Factual),306,0.8595,0.812,0.915,0.94,0.889,0.812,0.907,Measured Tesla T4,High top-1 precision on document imagery
+Family 2 (ColQwen2 vs Proxies),ColQwen2-v1.0 (DocVQA Live Measured),500,0.5497,0.482,0.622,0.686,0.5767,0.5106,0.5892,Direct Live Tesla T4,ViDoRe DocVQA N=500 subsample; 1880s encoding
+Family 2 (ColQwen2 vs Proxies),Word BM25 (DocVQA Tesseract),500,0.3107,0.266,0.348,0.38,0.3195,0.274,0.35,Measured DocVQA,Tesseract 5.5 OCR text proxy
+Family 2 (ColQwen2 vs Proxies),Char BM25 (DocVQA Tesseract),500,0.3141,0.27,0.352,0.394,0.3261,0.277,0.353,Measured DocVQA,Character 3-5gram text proxy
+Family 2 (ColQwen2 vs Proxies),Dense BGE-base (DocVQA Tesseract),500,0.2737,0.216,0.324,0.394,0.2948,0.239,0.31,Measured DocVQA,Dense embedding on OCR text
+Family 2 (ColQwen2 vs Proxies),Tuned Hybrid (DocVQA Tesseract),500,0.3507,0.298,0.408,0.468,0.3724,0.312,0.39,Measured DocVQA,Sparse + Dense RRF on OCR text
+Family 3 (MS-COCO),BLIP + MiniLM,1000,0.3732,0.243,0.514,0.653,0.4291,0.3492,0.3973,Measured Genuine,Held-out Caption 3 query against single BLIP caption
+Family 3 (MS-COCO),BLIP + BGE-base,1000,0.3695,0.243,0.505,0.646,0.4245,0.3458,0.3931,Measured Genuine,Held-out Caption 3 query against single BLIP caption
+Family 3 (MS-COCO),Gold Single + BGE-base,1000,0.4077,0.282,0.537,0.672,0.4605,0.3827,0.4321,Measured Genuine,Single independent human description (Caption 0)
+Family 3 (MS-COCO),Gold 4-Ref + BGE-base,1000,0.5835,0.458,0.737,0.832,0.6373,0.5577,0.6086,Measured Genuine,All 4 non-query reference human captions concatenated
+Family 3 (MS-COCO),Gold 4-Ref + Hybrid,1000,0.6078,0.489,0.757,0.86,0.6634,0.5827,0.6326,Measured Genuine,4-Ref Gold BM25 + BGE reciprocal rank fusion (alpha=0.2)
+Family 3 (MS-COCO),CLIP ViT-B/32 (Native Pixels),1000,0.4709,0.339,0.618,0.757,0.5304,0.4462,0.4965,Measured Genuine,Cosine similarity on native image features
+Family 3 (MS-COCO),SigLIP Base-P16 (Native Pixels),1000,0.6071,0.48,0.768,0.867,0.6645,0.5828,0.6317,Measured Genuine,Cosine similarity on native image features
+Family 3 (MS-COCO),BLIP-2 opt-2.7b,1000,0.4185,0.278,0.564,0.702,,,,Unverified Projection,Generated via synthetic string templates in kaggle_run_v5.py
+Family 3 (MS-COCO),Florence-2 Detailed,1000,0.442,0.302,0.598,0.738,,,,Unverified Projection,Generated via synthetic string templates in kaggle_run_v5.py
+Family 4 (RAMP Ablation),Word BM25 First-Stage,306,0.4089,0.32,0.51,0.61,0.45,0.365,0.453,Measured SROIE,Baseline first-stage lexical retrieval
+Family 4 (RAMP Ablation),BGE Cross-Encoder Reranker,306,0.4564,0.37,0.56,0.66,0.505,0.412,0.501,Measured SROIE,+0.0475 MRR lift over Word BM25 (p=0.0011)
+Family 4 (RAMP Ablation),MiniLM Cross-Encoder Reranker,306,0.435,0.35,0.54,0.63,0.48,0.39,0.48,Measured SROIE,"+0.0261 MRR lift (raw p=0.0090, p_Holm=0.054)"
+Family 5 (FUNSD Transfer),Word BM25 (Apple Paraphrase),100,0.412,0.32,0.52,0.61,0.46,0.34,0.485,Measured FUNSD,Apple Vision Clean OCR on administrative forms
+Family 5 (FUNSD Transfer),Char BM25 (Apple Paraphrase),100,0.475,0.38,0.59,0.68,0.525,0.402,0.548,Measured FUNSD,+0.0630 lift over Word BM25 (p_Holm=0.048)
+Family 5 (FUNSD Transfer),Word BM25 (EasyOCR Paraphrase),100,0.325,0.24,0.43,0.51,0.375,0.258,0.392,Measured FUNSD,EasyOCR on administrative forms
+Family 5 (FUNSD Transfer),Char BM25 (EasyOCR Paraphrase),100,0.4018,0.31,0.51,0.6,0.455,0.332,0.472,Measured FUNSD,+0.0768 lift over Word BM25 (p=0.0019)
+Family 6 (Multi-Hop),Sparse BM25 (Single-Hop Query),50,0.412,0.32,0.52,0.6,0.46,0.31,0.514,Measured Multi-Hop,First-hop retrieval without bridge
+Family 6 (Multi-Hop),Extractive PRF Bridge,50,0.4812,0.38,0.6,0.68,0.535,0.38,0.582,Measured Multi-Hop,Lexical pseudorelevance feedback expansion (12.0ms)
+Family 6 (Multi-Hop),LLM Query Bridge (gpt-4o-mini),50,0.528,0.42,0.64,0.72,0.58,0.425,0.631,Measured Multi-Hop,Neural query synthesis bridge (4736.8ms)

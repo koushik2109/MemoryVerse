@@ -1,0 +1,10 @@
+{
+  "corpus_id_sha256": "0e0f94cbce8e2bffb6fd354589467a6f8ea7122e8a6346369b2b026f097f8170",
+  "corpus_size": 813,
+  "human_probes_count": 200,
+  "torch_version": "2.11.0+cu130",
+  "cuda_device": "Tesla T4",
+  "encoding_time_seconds": 2513.3,
+  "mrr_human_100": 0.766,
+  "mrr_human_200": 0.6471
+}

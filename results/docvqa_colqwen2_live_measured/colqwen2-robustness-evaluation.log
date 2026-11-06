@@ -1,0 +1,104 @@
+[{"stream_name":"stderr","time":7.437385184,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.437430341,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.437434966,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.437438122,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":8.06223935,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.06228777,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.062292717,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.062296368,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":9.146146587,"data":"=== Setting up Environment \u0026 Dependencies ===\n"}
+,{"stream_name":"stdout","time":9.752670084,"data":"Found existing installation: torchao 0.10.0\n"}
+,{"stream_name":"stdout","time":9.836156914,"data":"Uninstalling torchao-0.10.0:\n"}
+,{"stream_name":"stdout","time":9.954887141,"data":"Found existing installation: torchao 0.10.0\n"}
+,{"stream_name":"stdout","time":9.954924344,"data":"Uninstalling torchao-0.10.0:\n"}
+,{"stream_name":"stdout","time":10.144077897,"data":"  Successfully uninstalled torchao-0.10.0\n"}
+,{"stream_name":"stdout","time":10.346345674,"data":"  Successfully uninstalled torchao-0.10.0\n"}
+,{"stream_name":"stdout","time":14.46106477,"data":"Dependencies installed successfully!\n"}
+,{"stream_name":"stdout","time":20.154770022,"data":"=== GPU Hardware Diagnostics ===\n"}
+,{"stream_name":"stdout","time":20.416049435,"data":"PyTorch Version: 2.11.0+cu130\n"}
+,{"stream_name":"stdout","time":20.611087805,"data":"CUDA Available:  True\n"}
+,{"stream_name":"stdout","time":20.61112421,"data":"Device Name:     Tesla T4\n"}
+,{"stream_name":"stdout","time":20.611127943,"data":"VRAM Total:      14.56 GB\n"}
+,{"stream_name":"stdout","time":20.678675869,"data":"BF16 Supported:  True\n"}
+,{"stream_name":"stdout","time":20.678704567,"data":"Selected Torch Precision: torch.bfloat16\n"}
+,{"stream_name":"stdout","time":23.915877041,"data":"=== Loading vidore/docvqa_test_subsampled from Hugging Face ===\n"}
+,{"stream_name":"stderr","time":24.147526227,"data":"Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stderr","time":24.147553028,"data":"\n"}
+,{"stream_name":"stderr","time":24.14755808,"data":"Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stdout","time":30.882133513,"data":"Loaded 500 evaluation items from ViDoRe DocVQA!\n"}
+,{"stream_name":"stdout","time":103.528741751,"data":"Sample 0 Query:     What is the dividend payout in 2012?\n"}
+,{"stream_name":"stdout","time":103.528781098,"data":"Sample 0 Filename:  rnbx0223\n"}
+,{"stream_name":"stdout","time":103.528785411,"data":"Sample 0 Doc ID:    4720\n"}
+,{"stream_name":"stdout","time":103.528789938,"data":"Total Unique Images: 500\n"}
+,{"stream_name":"stdout","time":121.94544604,"data":"=== Loading vidore/colqwen2-v1.0 on cuda:0 (torch.bfloat16) ===\n"}
+,{"stream_name":"stdout","time":175.763317639,"data":"Model loaded successfully!\n"}
+,{"stream_name":"stdout","time":175.780289269,"data":"=== Encoding 500 document images on GPU ===\n"}
+,{"stream_name":"stdout","time":194.385136957,"data":"  Encoded 4/500 images in 18.6s...\n"}
+,{"stream_name":"stdout","time":381.581899826,"data":"  Encoded 44/500 images in 205.8s...\n"}
+,{"stream_name":"stdout","time":570.895107851,"data":"  Encoded 84/500 images in 395.1s...\n"}
+,{"stream_name":"stdout","time":759.798373966,"data":"  Encoded 124/500 images in 584.0s...\n"}
+,{"stream_name":"stdout","time":949.006951069,"data":"  Encoded 164/500 images in 773.2s...\n"}
+,{"stream_name":"stdout","time":1138.959866331,"data":"  Encoded 204/500 images in 963.2s...\n"}
+,{"stream_name":"stdout","time":1326.95971859,"data":"  Encoded 244/500 images in 1151.2s...\n"}
+,{"stream_name":"stdout","time":1517.306736674,"data":"  Encoded 284/500 images in 1341.5s...\n"}
+,{"stream_name":"stdout","time":1705.583382564,"data":"  Encoded 324/500 images in 1529.8s...\n"}
+,{"stream_name":"stdout","time":1893.934273546,"data":"  Encoded 364/500 images in 1718.1s...\n"}
+,{"stream_name":"stdout","time":2084.39356808,"data":"  Encoded 404/500 images in 1908.6s...\n"}
+,{"stream_name":"stdout","time":2271.495857815,"data":"  Encoded 444/500 images in 2095.7s...\n"}
+,{"stream_name":"stdout","time":2460.091034116,"data":"  Encoded 484/500 images in 2284.3s...\n"}
+,{"stream_name":"stdout","time":2529.17208955,"data":"  Encoded 500/500 images in 2353.4s...\n"}
+,{"stream_name":"stdout","time":2529.173073987,"data":"Completed image encoding of 500 document pages in 2353.4s!\n"}
+,{"stream_name":"stdout","time":2529.263860264,"data":"Saved doc embeddings tensor list (500 docs) to disk.\n"}
+,{"stream_name":"stdout","time":2529.282267222,"data":"=== Encoding 500 human queries on GPU ===\n"}
+,{"stream_name":"stdout","time":2529.561279982,"data":"  Encoded 8/500 queries...\n"}
+,{"stream_name":"stdout","time":2534.644898407,"data":"  Encoded 128/500 queries...\n"}
+,{"stream_name":"stdout","time":2539.767408288,"data":"  Encoded 248/500 queries...\n"}
+,{"stream_name":"stdout","time":2545.280938302,"data":"  Encoded 368/500 queries...\n"}
+,{"stream_name":"stdout","time":2550.037610495,"data":"  Encoded 488/500 queries...\n"}
+,{"stream_name":"stdout","time":2550.60962281,"data":"  Encoded 500/500 queries...\n"}
+,{"stream_name":"stdout","time":2550.610635196,"data":"Completed query encoding of 500 queries in 21.3s!\n"}
+,{"stream_name":"stdout","time":2550.63323967,"data":"=== Computing Late-Interaction MaxSim Scores across All Pairs ===\n"}
+,{"stream_name":"stdout","time":2550.676440515,"data":"Pre-loaded all 500 document embeddings onto cuda:0 for fast scoring.\n"}
+,{"stream_name":"stdout","time":2552.940139332,"data":"  Scored 50/500 queries | Running MRR: 0.6436 | Running Hit@10: 0.8200\n"}
+,{"stream_name":"stdout","time":2555.116733747,"data":"  Scored 100/500 queries | Running MRR: 0.6215 | Running Hit@10: 0.7800\n"}
+,{"stream_name":"stdout","time":2557.301414564,"data":"  Scored 150/500 queries | Running MRR: 0.6197 | Running Hit@10: 0.7600\n"}
+,{"stream_name":"stdout","time":2559.472893919,"data":"  Scored 200/500 queries | Running MRR: 0.5874 | Running Hit@10: 0.7150\n"}
+,{"stream_name":"stdout","time":2561.699418639,"data":"  Scored 250/500 queries | Running MRR: 0.6004 | Running Hit@10: 0.7400\n"}
+,{"stream_name":"stdout","time":2563.875659164,"data":"  Scored 300/500 queries | Running MRR: 0.5826 | Running Hit@10: 0.7167\n"}
+,{"stream_name":"stdout","time":2566.130840565,"data":"  Scored 350/500 queries | Running MRR: 0.5743 | Running Hit@10: 0.7057\n"}
+,{"stream_name":"stdout","time":2568.326728383,"data":"  Scored 400/500 queries | Running MRR: 0.5705 | Running Hit@10: 0.7100\n"}
+,{"stream_name":"stdout","time":2570.519385771,"data":"  Scored 450/500 queries | Running MRR: 0.5547 | Running Hit@10: 0.6933\n"}
+,{"stream_name":"stdout","time":2572.728070507,"data":"  Scored 500/500 queries | Running MRR: 0.5497 | Running Hit@10: 0.6860\n"}
+,{"stream_name":"stdout","time":2572.742788339,"data":"\n"}
+,{"stream_name":"stdout","time":2572.742811613,"data":"Saved raw per-query results: /kaggle/working/colqwen2_docvqa_per_query.csv (500 rows)\n"}
+,{"stream_name":"stdout","time":2572.762014086,"data":"=== Computing 10,000 Bootstrap Confidence Intervals ===\n"}
+,{"stream_name":"stderr","time":2577.728408405,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":2577.729007453,"data":"  File \"\u003cstring\u003e\", line 1, in \u003cmodule\u003e\n"}
+,{"stream_name":"stderr","time":2577.729022566,"data":"    import sys;import papermill as pm;pm.execute_notebook(\"__notebook__.ipynb\",\"__notebook__.ipynb\",progress_bar=False,log_output=True,stdout_file=sys.stdout,stderr_file=sys.stderr,allow_errors=False,timeout=43200)\n"}
+,{"stream_name":"stderr","time":2577.729028794,"data":"                                      ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":2577.72903744,"data":"  File \"/usr/local/lib/python3.13/dist-packages/papermill/execute.py\", line 131, in execute_notebook\n"}
+,{"stream_name":"stderr","time":2577.729040938,"data":"    raise_for_execution_errors(nb, output_path)\n"}
+,{"stream_name":"stderr","time":2577.72904322,"data":"    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":2577.7290456,"data":"  File \"/usr/local/lib/python3.13/dist-packages/papermill/execute.py\", line 251, in raise_for_execution_errors\n"}
+,{"stream_name":"stderr","time":2577.729048215,"data":"    raise error\n"}
+,{"stream_name":"stderr","time":2577.729050541,"data":"papermill.exceptions.PapermillExecutionError: \n"}
+,{"stream_name":"stderr","time":2577.729052892,"data":"---------------------------------------------------------------------------\n"}
+,{"stream_name":"stderr","time":2577.729055261,"data":"Exception encountered at \"In [8]\":\n"}
+,{"stream_name":"stderr","time":2577.729057669,"data":"---------------------------------------------------------------------------\n"}
+,{"stream_name":"stderr","time":2577.729059946,"data":"TypeError                                 Traceback (most recent call last)\n"}
+,{"stream_name":"stderr","time":2577.729062255,"data":"/tmp/ipykernel_24/3992932132.py in \u003ccell line: 0\u003e()\n"}
+,{"stream_name":"stderr","time":2577.72906565,"data":"     47 \n"}
+,{"stream_name":"stderr","time":2577.729081697,"data":"     48 from tabulate import tabulate\n"}
+,{"stream_name":"stderr","time":2577.729085669,"data":"---\u003e 49 print(\"\\n\" + tabulate(df_summary, headers=\"keys\", tablefmt=\"github\", index=False))\n"}
+,{"stream_name":"stderr","time":2577.729090529,"data":"\n"}
+,{"stream_name":"stderr","time":2577.729094355,"data":"TypeError: tabulate() got an unexpected keyword argument 'index'\n"}
+,{"stream_name":"stderr","time":2577.729098942,"data":"\n"}
+,{"stream_name":"stderr","time":2579.958987699,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":2579.959016309,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":2580.12506823,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":2580.12509238,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":2580.883272455,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":2581.006100506,"data":"[NbConvertApp] Writing 329373 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":2583.518418202,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":2584.097753607,"data":"[NbConvertApp] Writing 588651 bytes to __results__.html\n"}
+]

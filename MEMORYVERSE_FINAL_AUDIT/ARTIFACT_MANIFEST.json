@@ -1,0 +1,209 @@
+{
+  "project": "MemoryVerse IJCDS Audit Deliverables",
+  "timestamp": "2026-11-04T22:15:30+05:30",
+  "target_journal": "International Journal of Computing and Digital Systems (IJCDS)",
+  "readiness_score": 0.912,
+  "status": "READY_FOR_SUBMISSION",
+  "artifacts": [
+    {
+      "relative_path": "CLAIM_TRACEABILITY.csv",
+      "size_bytes": 7957,
+      "sha256": "8be3690559a33d7e092822db5c9ed7801724ddf3ccebdcae2372a500f89a1b5c"
+    },
+    {
+      "relative_path": "EXECUTION_LOG.md",
+      "size_bytes": 10227,
+      "sha256": "dce4ee5fa9b21bd9d4b87199b21972a8dd5371cc0264315146fd0a0f7f2079c1"
+    },
+    {
+      "relative_path": "EXECUTIVE_SUMMARY.md",
+      "size_bytes": 17873,
+      "sha256": "c9cf11f5a99fddf2abea1804b9db8b573cb82d70c9a3fcb2400f51c42bb1d90c"
+    },
+    {
+      "relative_path": "EXPERIMENT_REUSE_MATRIX.csv",
+      "size_bytes": 7031,
+      "sha256": "18ea762ad2b82b84e04d06b10eb9ea4b3d085ebb8bc11d15f4064a6c0761afa7"
+    },
+    {
+      "relative_path": "FINAL_REVIEW/FINAL_SYNTHESIS.md",
+      "size_bytes": 4756,
+      "sha256": "a45b99d360ed9b849983454063b1dd24a7aa22082ca656d0dffe1599c88c3256"
+    },
+    {
+      "relative_path": "FINAL_REVIEW/REVIEWER_1_IR_ML.md",
+      "size_bytes": 4459,
+      "sha256": "fe0d31aa711d4dc52e5d0eefa1824827293b287983acda354ff973050bff00cd"
+    },
+    {
+      "relative_path": "FINAL_REVIEW/REVIEWER_2_STATISTICS.md",
+      "size_bytes": 4291,
+      "sha256": "90ab78ba4bdf058b7a4011eff1b7d6520445c6cc14360b4705214751098a9dbf"
+    },
+    {
+      "relative_path": "FINAL_REVIEW/REVIEWER_3_JOURNAL_EDITOR.md",
+      "size_bytes": 3263,
+      "sha256": "2d2fce31366c737c495b590764707cbf1983adf9f8bcace12d5ec4f0a8ef77a1"
+    },
+    {
+      "relative_path": "KAGGLE_NOTEBOOKS/KAGGLE_COLQWEN2_CASCADE_BENCHMARK.ipynb",
+      "size_bytes": 10923,
+      "sha256": "8f6d31b7db55cb7b21b2a035258c46b73eef39b5f795ce587cb82f1999a23bd1"
+    },
+    {
+      "relative_path": "KAGGLE_NOTEBOOKS/KAGGLE_EXTERNAL_DATASET_GPU_VALIDATION.ipynb",
+      "size_bytes": 6179,
+      "sha256": "b92122604e41f71433a8e5db546a25af1c18f25ba1393e83c7807f044dfa304c"
+    },
+    {
+      "relative_path": "KAGGLE_NOTEBOOKS/README.md",
+      "size_bytes": 3615,
+      "sha256": "636be263e20fcb97d211fdb0aea3e00c3d39554dd31c1a881b864aabae81956b"
+    },
+    {
+      "relative_path": "MANUSCRIPT_V2/IEEEtran.bst",
+      "size_bytes": 59216,
+      "sha256": "835ac3f8255969a4553e5d19f04df1f05ca20311a53d713375f7030ef5b1c33d"
+    },
+    {
+      "relative_path": "MANUSCRIPT_V2/IEEEtran.cls",
+      "size_bytes": 202702,
+      "sha256": "62d7ea9194b4dad218dbdc7e0cd9e642ad0173b909a3588256e46de8f3004b80"
+    },
+    {
+      "relative_path": "MANUSCRIPT_V2/diff_v1_to_v2.md",
+      "size_bytes": 6618,
+      "sha256": "2f5679073a22d8cc5397fa828eca0c49bb94eec14cb121435112c02dacce914e"
+    },
+    {
+      "relative_path": "MANUSCRIPT_V2/figures/fig_architecture.png",
+      "size_bytes": 499216,
+      "sha256": "6d9e0e7c70238a25b839e8dc2ee6b3e6af5e00c6629a67694897551ac3dfe948"
+    },
+    {
+      "relative_path": "MANUSCRIPT_V2/figures/fig_coco_native_vs_proxy.png",
+      "size_bytes": 126285,
+      "sha256": "934dfe7be6c35b46e0f77104eb89e96f09f08004d5126cbe84bca98c19bec6ba"
+    },
+    {
+      "relative_path": "MANUSCRIPT_V2/figures/fig_conformal_pareto.png",
+      "size_bytes": 366952,
+      "sha256": "8b4805b0b5ce373597a93f8d0f54ac03029f62e56e36aa0c18c2a74eca36860b"
+    },
+    {
+      "relative_path": "MANUSCRIPT_V2/figures/fig_generator_dose_response.png",
+      "size_bytes": 399695,
+      "sha256": "03fe5d589df5ad33b47578f0008a8858b5f91e4bcb6739342720155b5ee2979e"
+    },
+    {
+      "relative_path": "MANUSCRIPT_V2/figures/fig_mechanism_composite.png",
+      "size_bytes": 270473,
+      "sha256": "63fead7dc28ce6682817106d1f2c391864f15fc47190d3d5bcf05594f6cfe9a4"
+    },
+    {
+      "relative_path": "MANUSCRIPT_V2/figures/fig_mrr_regime_systems.png",
+      "size_bytes": 105806,
+      "sha256": "7298ba40176b0692321e9218036383f9fc714e5d46cef6b7d1cd0c84239cd6a5"
+    },
+    {
+      "relative_path": "MANUSCRIPT_V2/ijcds_body.tex",
+      "size_bytes": 111896,
+      "sha256": "4c5d4aa308aa4835ae89189cc7666343204b37d640f0c1761748e9c6d9ff9fca"
+    },
+    {
+      "relative_path": "MANUSCRIPT_V2/ijcds_header.tex",
+      "size_bytes": 4361,
+      "sha256": "8b11694da415b142b00285f9eb6d77f269f858912d3a1024edd1ee00cee94369"
+    },
+    {
+      "relative_path": "MANUSCRIPT_V2/main.pdf",
+      "size_bytes": 1915091,
+      "sha256": "3fa7eef576327ee35417db831a00bafa31ce82481d27245cdac233a00f8ee257"
+    },
+    {
+      "relative_path": "MANUSCRIPT_V2/main.tex",
+      "size_bytes": 140,
+      "sha256": "4125dcf29a27f02511a800ddb794cd9bd05086ae4b77ddb3a1192852bd72ba45"
+    },
+    {
+      "relative_path": "MANUSCRIPT_V2/references.bib",
+      "size_bytes": 18655,
+      "sha256": "3be94fea12a12a462b42bea0dbbc9fe655b277953de603bccf39e371ade853b3"
+    },
+    {
+      "relative_path": "MANUSCRIPT_V2/report.cls",
+      "size_bytes": 23718,
+      "sha256": "28728ecb5f00d88053a88ac94a91db6d5623678609764b55b99a2490ce97da78"
+    },
+    {
+      "relative_path": "MANUSCRIPT_V2/report.sty",
+      "size_bytes": 2469,
+      "sha256": "454c357bb092f62f0b69f3327bd3356d930550e179502c39917319528ccc2d0a"
+    },
+    {
+      "relative_path": "MANUSCRIPT_V2/ub_logo.png",
+      "size_bytes": 16074,
+      "sha256": "95de048a6e0302142b3965f2b0d0789dff0497d8a9f3cce44cf96932d618bcbe"
+    },
+    {
+      "relative_path": "MANUSCRIPT_V2/widetext.sty",
+      "size_bytes": 2461,
+      "sha256": "c18efef78913d8eaffcc60569962a78d8c3841dc4984f93c91ac6d2ceabc302c"
+    },
+    {
+      "relative_path": "METRIC_VERIFICATION.csv",
+      "size_bytes": 10222,
+      "sha256": "556c969175cf607c8af02b478e170b458f44a8995338a65d77ce724b052ef43f"
+    },
+    {
+      "relative_path": "PHASE1_HUMAN_EVALUATION.md",
+      "size_bytes": 9387,
+      "sha256": "6b0cebdfd95e10f356a2c314d2d6e58a9b79bdfdb0c23ca3b7a3bb30ec7e8efa"
+    },
+    {
+      "relative_path": "PHASE2_CROSSOVER.md",
+      "size_bytes": 8481,
+      "sha256": "9bdddde152beabb64e7c169af3c17021a321c3d97bc6ee4509b068c9f7255570"
+    },
+    {
+      "relative_path": "PHASE3_STATISTICS.md",
+      "size_bytes": 12567,
+      "sha256": "0a8cf2e2d4a4ad430db96d1b70199dbe4923bc2b928d0208f179e2ca4ad6e195"
+    },
+    {
+      "relative_path": "PHASE4_RCPS.md",
+      "size_bytes": 8065,
+      "sha256": "41368ebc49641e5a82c3c045af583053b2654de599d884e011eed0977ecf7322"
+    },
+    {
+      "relative_path": "PHASE5_FUNSD_DOCVQA.md",
+      "size_bytes": 5755,
+      "sha256": "dc7ac2be0a7e76a8747c52daed59f26652267f03eef58e3543a57ca61cf358c2"
+    },
+    {
+      "relative_path": "PHASE6_OCR.md",
+      "size_bytes": 5067,
+      "sha256": "1bb7c74fa97b9899d7dae84b533de2527f77e0025fe12506d05696bb1de82eaa"
+    },
+    {
+      "relative_path": "PHASE7_SYSTEMS.md",
+      "size_bytes": 6085,
+      "sha256": "ec5474aeace3c61ff71329135859cb4615ff79ed2fe709d81d13622ce19be853"
+    },
+    {
+      "relative_path": "PROJECT_INVENTORY.md",
+      "size_bytes": 9425,
+      "sha256": "7292f0ba770996521695fc582a1deed7bcbc169a83c5b42cbea5ebadd0480e64"
+    },
+    {
+      "relative_path": "REPRODUCIBILITY_MATRIX.csv",
+      "size_bytes": 4363,
+      "sha256": "7eae4ddc7a0dd4645d28eb8562bc8c3d882bfc3db4482a5be6c8e79fdd245e56"
+    },
+    {
+      "relative_path": "UNVERIFIED_CLAIMS.md",
+      "size_bytes": 7194,
+      "sha256": "ff943365051638aa543aa1dd5e2970bc9d0f00da8d0d8301bd8ab0daf4acbbbf"
+    }
+  ]
+}

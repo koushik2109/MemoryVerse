@@ -1,0 +1,4 @@
+condition,baseline_mrr,router_mrr,diff,unadj_p,p_holm,conclusion
+20_percent_noise,0.8371,0.8520,+0.0149,0.0420,0.1260,Non-Significant
+optical_blur,0.6972,0.7010,+0.0038,0.4100,0.8200,Non-Significant
+apple_clean,0.8371,0.8385,+0.0014,0.8200,0.8200,Non-Significant

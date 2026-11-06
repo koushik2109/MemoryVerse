@@ -1,0 +1,36 @@
+Family,System,N_Queries,MRR,Hit@1,Hit@5,Hit@10,nDCG@10,MRR_95CI_Lower,MRR_95CI_Upper,Evidence_Status,Notes
+Family 1 (Sparse OCR),Word BM25 (Clean GT Text),306,0.8571,0.8007,0.9248,0.9608,,0.8229,0.8898,DIRECTLY_MEASURED_FROM_RAW_OBSERVATIONS,Condition: clean_gt; 10k cluster bootstrap
+Family 1 (Sparse OCR),Char BM25 (Clean GT Text),306,0.9853,0.9771,0.9935,0.9935,,0.9724,0.9951,DIRECTLY_MEASURED_FROM_RAW_OBSERVATIONS,Condition: clean_gt; 10k cluster bootstrap
+Family 1 (Sparse OCR),Word BM25 (Apple Clean OCR),306,0.8371,0.7843,0.9052,0.9444,,0.8003,0.8724,DIRECTLY_MEASURED_FROM_RAW_OBSERVATIONS,Condition: apple_clean; 10k cluster bootstrap
+Family 1 (Sparse OCR),Char BM25 (Apple Clean OCR),306,0.9436,0.9216,0.9673,0.9837,,0.9194,0.9647,DIRECTLY_MEASURED_FROM_RAW_OBSERVATIONS,Condition: apple_clean; 10k cluster bootstrap
+Family 1 (Sparse OCR),Word BM25 (Tesseract Clean OCR),306,0.7361,0.6797,0.8105,0.8529,,0.6912,0.7794,DIRECTLY_MEASURED_FROM_RAW_OBSERVATIONS,Condition: tesseract_clean; 10k cluster bootstrap
+Family 1 (Sparse OCR),Char BM25 (Tesseract Clean OCR),306,0.841,0.8039,0.8791,0.9052,,0.803,0.8772,DIRECTLY_MEASURED_FROM_RAW_OBSERVATIONS,Condition: tesseract_clean; 10k cluster bootstrap
+Family 1 (Sparse OCR),Word BM25 (Degraded Blur OCR),306,0.6972,0.6275,0.7745,0.8268,,0.6505,0.7412,DIRECTLY_MEASURED_FROM_RAW_OBSERVATIONS,Condition: degraded_blur; 10k cluster bootstrap
+Family 1 (Sparse OCR),Char BM25 (Degraded Blur OCR),306,0.8248,0.7974,0.8529,0.8889,,0.784,0.8638,DIRECTLY_MEASURED_FROM_RAW_OBSERVATIONS,Condition: degraded_blur; 10k cluster bootstrap
+Family 1 (Sparse OCR),Word BM25 (Tesseract Degraded Blur),306,0.3438,0.3007,0.3987,0.4346,,0.2954,0.3935,DIRECTLY_MEASURED_FROM_RAW_OBSERVATIONS,Condition: tesseract_blur; 10k cluster bootstrap
+Family 1 (Sparse OCR),Char BM25 (Tesseract Degraded Blur),306,0.3998,0.3693,0.4379,0.4444,,0.348,0.4529,DIRECTLY_MEASURED_FROM_RAW_OBSERVATIONS,Condition: tesseract_blur; 10k cluster bootstrap
+Family 1 (Sparse OCR),Word BM25 (Synthetic 20% Noise),306,0.3465,0.2843,0.4314,0.4804,,0.299,0.395,DIRECTLY_MEASURED_FROM_RAW_OBSERVATIONS,Condition: syn_20; 10k cluster bootstrap
+Family 1 (Sparse OCR),Char BM25 (Synthetic 20% Noise),306,0.6636,0.5719,0.7712,0.8562,,0.6174,0.7097,DIRECTLY_MEASURED_FROM_RAW_OBSERVATIONS,Condition: syn_20; 10k cluster bootstrap
+Family 2 (DocVQA ViDoRe),Word BM25 (Tesseract 5.5),500,0.3107,0.266,0.348,0.38,,0.2733,0.3485,DIRECTLY_MEASURED_FROM_RAW_OBSERVATIONS,DocVQA 500 held-out queries; 10k query bootstrap
+Family 2 (DocVQA ViDoRe),Char 3-5g BM25 (Tesseract 5.5),500,0.3141,0.27,0.352,0.394,,0.2761,0.352,DIRECTLY_MEASURED_FROM_RAW_OBSERVATIONS,DocVQA 500 held-out queries; 10k query bootstrap
+Family 2 (DocVQA ViDoRe),Dense MiniLM (Tesseract 5.5),500,0.1209,0.09,0.136,0.17,,0.0966,0.1467,DIRECTLY_MEASURED_FROM_RAW_OBSERVATIONS,DocVQA 500 held-out queries; 10k query bootstrap
+Family 2 (DocVQA ViDoRe),Dense BGE-base (Tesseract 5.5),500,0.094,0.062,0.116,0.142,,0.0735,0.1162,DIRECTLY_MEASURED_FROM_RAW_OBSERVATIONS,DocVQA 500 held-out queries; 10k query bootstrap
+Family 2 (DocVQA ViDoRe),Tuned Hybrid (Sparse+Dense),500,0.3057,0.256,0.34,0.398,,0.2689,0.3428,DIRECTLY_MEASURED_FROM_RAW_OBSERVATIONS,DocVQA 500 held-out queries; 10k query bootstrap
+Family 2 (DocVQA ViDoRe),ColQwen2-v1.0 (Tesla T4 Live),500,0.5497,0.482,0.622,0.686,,0.5106,0.5892,DIRECTLY_MEASURED_FROM_RAW_OBSERVATIONS,DocVQA 500 held-out queries; 10k query bootstrap
+Family 2 (DocVQA ViDoRe),SigLIP Base Patch16 (Native Pixels),500,0.1327,0.102,0.162,0.2,,0.1074,0.1606,DIRECTLY_MEASURED_FROM_RAW_OBSERVATIONS,DocVQA 500 held-out queries; 10k query bootstrap
+Family 3 (MS-COCO),SigLIP Base Patch16 (Native Pixels),1000,0.6071,0.48,0.768,0.867,,0.5828,0.6317,DIRECTLY_MEASURED_FROM_RAW_OBSERVATIONS,MS-COCO Karpathy test 1000 queries; 10k query bootstrap
+Family 3 (MS-COCO),CLIP ViT-B/32 (Native Pixels),1000,0.4709,0.339,0.618,0.757,,0.4462,0.4965,DIRECTLY_MEASURED_FROM_RAW_OBSERVATIONS,MS-COCO Karpathy test 1000 queries; 10k query bootstrap
+Family 3 (MS-COCO),Single Gold Human Ref (BGE-base),1000,0.4077,0.282,0.537,0.672,,0.3827,0.4321,DIRECTLY_MEASURED_FROM_RAW_OBSERVATIONS,MS-COCO Karpathy test 1000 queries; 10k query bootstrap
+Family 3 (MS-COCO),4-Ref Gold Multi-Caption (BGE-base),1000,0.5835,0.458,0.737,0.832,,0.5577,0.6086,DIRECTLY_MEASURED_FROM_RAW_OBSERVATIONS,MS-COCO Karpathy test 1000 queries; 10k query bootstrap
+Family 3 (MS-COCO),4-Ref Gold Hybrid Multi-Caption,1000,0.6078,0.489,0.757,0.86,,0.5827,0.6326,DIRECTLY_MEASURED_FROM_RAW_OBSERVATIONS,MS-COCO Karpathy test 1000 queries; 10k query bootstrap
+Family 3 (MS-COCO),BLIP Machine Caption (MiniLM),1000,0.3732,0.243,0.514,0.653,,0.3492,0.3973,DIRECTLY_MEASURED_FROM_RAW_OBSERVATIONS,MS-COCO Karpathy test 1000 queries; 10k query bootstrap
+Family 3 (MS-COCO),BLIP Machine Caption (BGE-base),1000,0.3695,0.243,0.505,0.646,,0.3458,0.3931,DIRECTLY_MEASURED_FROM_RAW_OBSERVATIONS,MS-COCO Karpathy test 1000 queries; 10k query bootstrap
+Family 3 (MS-COCO),BLIP-2 Machine Caption (Historical Projection),1000,0.4185,,,0.528,,0.388,0.449,HISTORICAL_EXPLORATORY_PROJECTION,Projected from synthetic template scaling; not measured
+Family 3 (MS-COCO),Florence-2 Machine Caption (Historical Projection),1000,0.442,,,0.552,,0.411,0.473,HISTORICAL_EXPLORATORY_PROJECTION,Projected from synthetic template scaling; not measured
+Family 6 (Multi-Hop),"Extractive PRF Bridge (Hard Multi-Hop (Pure 2-Hop, N=50))",50,,,,0.64,,,,DIRECTLY_MEASURED_FROM_RAW_OBSERVATIONS,Binary Hit@10 observed; reciprocal rank not fabricated
+Family 6 (Multi-Hop),"LLM Query Bridge (Hard Multi-Hop (Pure 2-Hop, N=50))",50,,,,0.64,,,,DIRECTLY_MEASURED_FROM_RAW_OBSERVATIONS,Binary Hit@10 observed; reciprocal rank not fabricated
+Family 6 (Multi-Hop),Extractive PRF Bridge (Easy Relational Ceiling (N=50)),50,,,,1.0,,,,DIRECTLY_MEASURED_FROM_RAW_OBSERVATIONS,Binary Hit@10 observed; reciprocal rank not fabricated
+Family 6 (Multi-Hop),LLM Query Bridge (Easy Relational Ceiling (N=50)),50,,,,1.0,,,,DIRECTLY_MEASURED_FROM_RAW_OBSERVATIONS,Binary Hit@10 observed; reciprocal rank not fabricated
+Family 6 (Multi-Hop),Extractive PRF Bridge (Pooled Relational Suite (N=100)),100,,,,0.82,,,,DIRECTLY_MEASURED_FROM_RAW_OBSERVATIONS,Binary Hit@10 observed; reciprocal rank not fabricated
+Family 6 (Multi-Hop),LLM Query Bridge (Pooled Relational Suite (N=100)),100,,,,0.82,,,,DIRECTLY_MEASURED_FROM_RAW_OBSERVATIONS,Binary Hit@10 observed; reciprocal rank not fabricated
+Family 6 (Multi-Hop),"BM25 Baseline (Hard Multi-Hop, N=50)",50,,,,0.48,,,,DIRECTLY_MEASURED_FROM_RAW_OBSERVATIONS,Binary Hit@10 observed; single-hop baseline

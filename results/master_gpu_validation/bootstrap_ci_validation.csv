@@ -1,0 +1,6 @@
+Suite,N,Measured_MRR,Std_Error,95%_CI_Lower,95%_CI_Upper,95%_CI_Formatted
+"Primary Gen. (gpt-4o-mini, N=306)",306,0.4962,0.0252,0.4459,0.5459,"[0.4459, 0.5459]"
+"Secondary Gen. (Qwen2.5-7B, N=306)",306,0.7627,0.021,0.7201,0.8031,"[0.7201, 0.8031]"
+Human-Authored Queries (N=100),100,0.766,0.0353,0.6946,0.8321,"[0.6946, 0.8321]"
+Human-Authored Queries (N=200),200,0.6471,0.0285,0.5903,0.7027,"[0.5903, 0.7027]"
+Human Tier 2 Queries (N=100),100,0.5283,0.0413,0.4483,0.6103,"[0.4483, 0.6103]"

@@ -1,0 +1,67 @@
+Family,System,N_Queries,MRR,Hit@1,Hit@5,Hit@10,nDCG@10,MRR_95CI_Lower,MRR_95CI_Upper,Provenance,Notes
+Family 1 (Sparse OCR),Word BM25 (Clean GT Text),306,0.8572,0.8007,0.9248,0.9608,,0.8229,0.8898,Directly Measured SROIE from Query Ranks,Condition: clean_gt; 10k cluster bootstrap
+Family 1 (Sparse OCR),Char BM25 (Clean GT Text),306,0.9853,0.9771,0.9935,0.9935,,0.9724,0.9951,Directly Measured SROIE from Query Ranks,Condition: clean_gt; 10k cluster bootstrap
+Family 1 (Sparse OCR),Word BM25 (Apple Clean OCR),306,0.837,0.7843,0.9052,0.9444,,0.8003,0.8724,Directly Measured SROIE from Query Ranks,Condition: apple_clean; 10k cluster bootstrap
+Family 1 (Sparse OCR),Char BM25 (Apple Clean OCR),306,0.9436,0.9216,0.9673,0.9837,,0.9194,0.9647,Directly Measured SROIE from Query Ranks,Condition: apple_clean; 10k cluster bootstrap
+Family 1 (Sparse OCR),Word BM25 (Tesseract Clean),306,0.7361,0.6797,0.8105,0.8529,,0.6912,0.7794,Directly Measured SROIE from Query Ranks,Condition: tesseract_clean; 10k cluster bootstrap
+Family 1 (Sparse OCR),Char BM25 (Tesseract Clean),306,0.841,0.8039,0.8791,0.9052,,0.803,0.8772,Directly Measured SROIE from Query Ranks,Condition: tesseract_clean; 10k cluster bootstrap
+Family 1 (Sparse OCR),Word BM25 (Degraded Blur),306,0.6973,0.6275,0.7745,0.8268,,0.6507,0.7414,Directly Measured SROIE from Query Ranks,Condition: degraded_blur; 10k cluster bootstrap
+Family 1 (Sparse OCR),Char BM25 (Degraded Blur),306,0.8248,0.7974,0.8529,0.8889,,0.784,0.8638,Directly Measured SROIE from Query Ranks,Condition: degraded_blur; 10k cluster bootstrap
+Family 1 (Sparse OCR),Word BM25 (Tesseract Degraded Blur),306,0.3448,0.3007,0.3987,0.4346,,0.2964,0.3943,Directly Measured SROIE from Query Ranks,Condition: tesseract_blur; 10k cluster bootstrap
+Family 1 (Sparse OCR),Char BM25 (Tesseract Degraded Blur),306,0.3998,0.3693,0.4379,0.4444,,0.3481,0.453,Directly Measured SROIE from Query Ranks,Condition: tesseract_blur; 10k cluster bootstrap
+Family 1 (Sparse OCR),Word BM25 (Synthetic 20% Noise),306,0.347,0.2843,0.4314,0.4837,,0.2995,0.3954,Directly Measured SROIE from Query Ranks,Condition: syn_20; 10k cluster bootstrap
+Family 1 (Sparse OCR),Char BM25 (Synthetic 20% Noise),306,0.6636,0.5719,0.7712,0.8562,,0.6175,0.7098,Directly Measured SROIE from Query Ranks,Condition: syn_20; 10k cluster bootstrap
+Family 2 (ColQwen2 vs Proxies),ColQwen2-v1.0 (DocVQA Live Measured),500,0.5497,0.482,0.622,0.686,0.5767,0.5106,0.5892,Measured DocVQA Per-Query,Direct Live Tesla T4 GPU Benchmark
+Family 2 (ColQwen2 vs Proxies),Word BM25 (DocVQA Tesseract),500,0.3107,0.266,0.348,0.38,,0.2733,0.3485,Measured DocVQA Per-Query,Tesseract 5.5 OCR text proxy
+Family 2 (ColQwen2 vs Proxies),Char BM25 (DocVQA Tesseract),500,0.3141,0.27,0.352,0.394,,0.2761,0.352,Measured DocVQA Per-Query,Character 3-5gram text proxy
+Family 2 (ColQwen2 vs Proxies),Dense MiniLM (DocVQA Tesseract),500,0.1209,0.09,0.136,0.17,,0.0966,0.1467,Measured DocVQA Per-Query,all-MiniLM-L6-v2 on Tesseract OCR
+Family 2 (ColQwen2 vs Proxies),Dense BGE-base (DocVQA Tesseract),500,0.094,0.062,0.116,0.142,,0.0735,0.1162,Measured DocVQA Per-Query,Dense embedding on OCR text
+Family 2 (ColQwen2 vs Proxies),Tuned Hybrid (DocVQA Tesseract),500,0.3057,0.256,0.34,0.398,,0.2689,0.3428,Measured DocVQA Per-Query,Sparse + Dense RRF on OCR text
+Family 2 (ColQwen2 vs Proxies),ColQwen2-v1.0 (SROIE Paraphrase),306,0.4962,0.4052,,0.6569,,0.4459,0.5459,Measured Tesla T4 SROIE,ColQwen2 outperforms Word BM25 under paraphrase
+Family 2 (ColQwen2 vs Proxies),Char BM25 (SROIE Answerable Factual),306,0.0495,0.0196,,0.0948,,0.0337,0.068,Measured SROIE Factual Queries,Char BM25 tracks high precision on alphanumeric tokens
+Family 3 (MS-COCO),SigLIP Base-P16 (Native Pixels),1000,0.6071,0.48,0.768,0.867,,0.5828,0.6317,Measured Genuine Precomputed Embeddings,Canonical seed 42 Karpathy test split (1000 images)
+Family 3 (MS-COCO),CLIP ViT-B/32 (Native Pixels),1000,0.4709,0.339,0.618,0.757,,0.4462,0.4965,Measured Genuine Precomputed Embeddings,Canonical seed 42 Karpathy test split (1000 images)
+Family 3 (MS-COCO),Gold 4-Ref + Hybrid,1000,0.6078,0.489,0.757,0.86,,0.5827,0.6326,Measured Genuine Precomputed Embeddings,Canonical seed 42 Karpathy test split (1000 images)
+Family 3 (MS-COCO),Gold 4-Ref + BGE-base,1000,0.5835,0.458,0.737,0.832,,0.5577,0.6086,Measured Genuine Precomputed Embeddings,Canonical seed 42 Karpathy test split (1000 images)
+Family 3 (MS-COCO),Gold Single + BGE-base,1000,0.4077,0.282,0.537,0.672,,0.3827,0.4321,Measured Genuine Precomputed Embeddings,Canonical seed 42 Karpathy test split (1000 images)
+Family 3 (MS-COCO),BLIP + MiniLM,1000,0.3732,0.243,0.514,0.653,,0.3492,0.3973,Measured Genuine Precomputed Embeddings,Canonical seed 42 Karpathy test split (1000 images)
+Family 3 (MS-COCO),BLIP + BGE-base,1000,0.3695,0.243,0.505,0.646,,0.3458,0.3931,Measured Genuine Precomputed Embeddings,Canonical seed 42 Karpathy test split (1000 images)
+Family 3 (MS-COCO),BLIP-2 opt-2.7b†,1000,0.4185,0.278,0.564,0.702,,,,Unverified Historical Projection,Generated via synthetic string templates in kaggle_run_v5.py
+Family 3 (MS-COCO),Florence-2 Detailed†,1000,0.442,0.302,0.598,0.738,,,,Unverified Historical Projection,Generated via synthetic string templates in kaggle_run_v5.py
+Family 4 (RAMP Ablation),Word BM25 (First-Stage Alone),306,0.8371,,,0.9444,,0.7932,0.8812,Directly Measured SROIE Stack,Lift over baseline: 0.0
+Family 4 (RAMP Ablation),BM25 + MiniLM Cross-Encoder,306,0.865,,,0.9608,,0.8211,0.9091,Directly Measured SROIE Stack,Lift over baseline: 0.0279
+Family 4 (RAMP Ablation),BM25 + BGE-reranker-base,306,0.8846,,,0.9738,,0.8407,0.9287,Directly Measured SROIE Stack,Lift over baseline: 0.0475
+Family 4 (RAMP Ablation),Tuned Hybrid + BGE-reranker,306,0.8872,,,0.9772,,0.8433,0.9313,Directly Measured SROIE Stack,Lift over baseline: 0.0501
+Family 5 (FUNSD Transfer),BM25 (Tuned) (ground_truth verbatim),100,0.869,,,0.9798,,0.8118,0.9238,Measured FUNSD Forms,Condition: ground_truth; Query: verbatim
+Family 5 (FUNSD Transfer),BM25 (Char 3-5gram) (ground_truth verbatim),100,0.8849,,,0.9798,,0.8257,0.935,Measured FUNSD Forms,Condition: ground_truth; Query: verbatim
+Family 5 (FUNSD Transfer),Dense MiniLM (ground_truth verbatim),100,0.3334,,,0.4848,,0.2547,0.4127,Measured FUNSD Forms,Condition: ground_truth; Query: verbatim
+Family 5 (FUNSD Transfer),Dense BGE-base (ground_truth verbatim),100,0.5567,,,0.7778,,0.4801,0.6371,Measured FUNSD Forms,Condition: ground_truth; Query: verbatim
+Family 5 (FUNSD Transfer),Tuned Hybrid (ground_truth verbatim),100,0.8728,,,0.9798,,0.8167,0.9269,Measured FUNSD Forms,Condition: ground_truth; Query: verbatim
+Family 5 (FUNSD Transfer),BM25 (Tuned) (ground_truth light),100,0.1849,,,0.3737,,0.133,0.243,Measured FUNSD Forms,Condition: ground_truth; Query: light
+Family 5 (FUNSD Transfer),BM25 (Char 3-5gram) (ground_truth light),100,0.2405,,,0.3939,,0.174,0.3126,Measured FUNSD Forms,Condition: ground_truth; Query: light
+Family 5 (FUNSD Transfer),Dense MiniLM (ground_truth light),100,0.1596,,,0.2727,,0.1077,0.2176,Measured FUNSD Forms,Condition: ground_truth; Query: light
+Family 5 (FUNSD Transfer),Dense BGE-base (ground_truth light),100,0.196,,,0.3333,,0.1374,0.262,Measured FUNSD Forms,Condition: ground_truth; Query: light
+Family 5 (FUNSD Transfer),Tuned Hybrid (ground_truth light),100,0.2043,,,0.3939,,0.1479,0.2674,Measured FUNSD Forms,Condition: ground_truth; Query: light
+Family 5 (FUNSD Transfer),BM25 (Tuned) (apple_vision verbatim),100,0.8364,,,0.9495,,0.773,0.8936,Measured FUNSD Forms,Condition: apple_vision; Query: verbatim
+Family 5 (FUNSD Transfer),BM25 (Char 3-5gram) (apple_vision verbatim),100,0.8433,,,0.9495,,0.777,0.9029,Measured FUNSD Forms,Condition: apple_vision; Query: verbatim
+Family 5 (FUNSD Transfer),Dense MiniLM (apple_vision verbatim),100,0.323,,,0.4545,,0.2443,0.4028,Measured FUNSD Forms,Condition: apple_vision; Query: verbatim
+Family 5 (FUNSD Transfer),Dense BGE-base (apple_vision verbatim),100,0.5081,,,0.7273,,0.4231,0.595,Measured FUNSD Forms,Condition: apple_vision; Query: verbatim
+Family 5 (FUNSD Transfer),Tuned Hybrid (apple_vision verbatim),100,0.8461,,,0.9596,,0.7834,0.9041,Measured FUNSD Forms,Condition: apple_vision; Query: verbatim
+Family 5 (FUNSD Transfer),BM25 (Tuned) (apple_vision light),100,0.1573,,,0.3333,,0.1106,0.209,Measured FUNSD Forms,Condition: apple_vision; Query: light
+Family 5 (FUNSD Transfer),BM25 (Char 3-5gram) (apple_vision light),100,0.2228,,,0.3636,,0.1585,0.2943,Measured FUNSD Forms,Condition: apple_vision; Query: light
+Family 5 (FUNSD Transfer),Dense MiniLM (apple_vision light),100,0.1557,,,0.2727,,0.1057,0.2121,Measured FUNSD Forms,Condition: apple_vision; Query: light
+Family 5 (FUNSD Transfer),Dense BGE-base (apple_vision light),100,0.1834,,,0.2828,,0.1265,0.2457,Measured FUNSD Forms,Condition: apple_vision; Query: light
+Family 5 (FUNSD Transfer),Tuned Hybrid (apple_vision light),100,0.2099,,,0.3131,,0.1459,0.2805,Measured FUNSD Forms,Condition: apple_vision; Query: light
+Family 5 (FUNSD Transfer),BM25 (Tuned) (tesseract_5_5 verbatim),100,0.7763,,,0.9091,,0.6989,0.8462,Measured FUNSD Forms,Condition: tesseract_5_5; Query: verbatim
+Family 5 (FUNSD Transfer),BM25 (Char 3-5gram) (tesseract_5_5 verbatim),100,0.8066,,,0.9091,,0.7375,0.8718,Measured FUNSD Forms,Condition: tesseract_5_5; Query: verbatim
+Family 5 (FUNSD Transfer),Dense MiniLM (tesseract_5_5 verbatim),100,0.276,,,0.3939,,0.2,0.3517,Measured FUNSD Forms,Condition: tesseract_5_5; Query: verbatim
+Family 5 (FUNSD Transfer),Dense BGE-base (tesseract_5_5 verbatim),100,0.4664,,,0.6364,,0.3838,0.5551,Measured FUNSD Forms,Condition: tesseract_5_5; Query: verbatim
+Family 5 (FUNSD Transfer),Tuned Hybrid (tesseract_5_5 verbatim),100,0.7775,,,0.9091,,0.7007,0.847,Measured FUNSD Forms,Condition: tesseract_5_5; Query: verbatim
+Family 5 (FUNSD Transfer),BM25 (Tuned) (tesseract_5_5 light),100,0.2019,,,0.3333,,0.1394,0.2719,Measured FUNSD Forms,Condition: tesseract_5_5; Query: light
+Family 5 (FUNSD Transfer),BM25 (Char 3-5gram) (tesseract_5_5 light),100,0.2442,,,0.3232,,0.1708,0.323,Measured FUNSD Forms,Condition: tesseract_5_5; Query: light
+Family 5 (FUNSD Transfer),Dense MiniLM (tesseract_5_5 light),100,0.1603,,,0.2727,,0.1033,0.2218,Measured FUNSD Forms,Condition: tesseract_5_5; Query: light
+Family 5 (FUNSD Transfer),Dense BGE-base (tesseract_5_5 light),100,0.1819,,,0.3636,,0.1263,0.2439,Measured FUNSD Forms,Condition: tesseract_5_5; Query: light
+Family 5 (FUNSD Transfer),Tuned Hybrid (tesseract_5_5 light),100,0.2109,,,0.3535,,0.1484,0.2801,Measured FUNSD Forms,Condition: tesseract_5_5; Query: light
+Family 6 (Multi-Hop),"Sparse BM25 (Single-Hop Baseline, N=50)",50,,,,0.48,,,,Measured Multi-Hop,Hit@10 = 24.0/50 (48.0%)
+Family 6 (Multi-Hop),Extractive PRF Bridge (Pooled N=100),100,,,,0.82,,,,Measured Multi-Hop,Hit@10 = 82/100 (82.0% pooled; 64.0% hard)
+Family 6 (Multi-Hop),LLM Query Bridge (Pooled N=100),100,,,,0.82,,,,Measured Multi-Hop,Hit@10 = 82/100 (82.0% pooled; 64.0% hard)

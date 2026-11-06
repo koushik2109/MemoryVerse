@@ -1,0 +1,34 @@
+Family,System,Metric,N,Mean_Value,CI95_Lower,CI95_Upper,Bootstrap_Method,Status
+Family 1 (Sparse OCR),Word BM25 (Clean GT Text),MRR,306,0.8571,0.8229,0.8898,"Document-Cluster Bootstrap (10,000 resamples)",AUDITED_VERIFIED_FROM_RAW_RANKS
+Family 1 (Sparse OCR),Char BM25 (Clean GT Text),MRR,306,0.9853,0.9724,0.9951,"Document-Cluster Bootstrap (10,000 resamples)",AUDITED_VERIFIED_FROM_RAW_RANKS
+Family 1 (Sparse OCR),Word BM25 (Apple Clean OCR),MRR,306,0.8371,0.8003,0.8724,"Document-Cluster Bootstrap (10,000 resamples)",AUDITED_VERIFIED_FROM_RAW_RANKS
+Family 1 (Sparse OCR),Char BM25 (Apple Clean OCR),MRR,306,0.9436,0.9194,0.9647,"Document-Cluster Bootstrap (10,000 resamples)",AUDITED_VERIFIED_FROM_RAW_RANKS
+Family 1 (Sparse OCR),Word BM25 (Tesseract Clean OCR),MRR,306,0.7361,0.6912,0.7794,"Document-Cluster Bootstrap (10,000 resamples)",AUDITED_VERIFIED_FROM_RAW_RANKS
+Family 1 (Sparse OCR),Char BM25 (Tesseract Clean OCR),MRR,306,0.841,0.803,0.8772,"Document-Cluster Bootstrap (10,000 resamples)",AUDITED_VERIFIED_FROM_RAW_RANKS
+Family 1 (Sparse OCR),Word BM25 (Degraded Blur OCR),MRR,306,0.6972,0.6505,0.7412,"Document-Cluster Bootstrap (10,000 resamples)",AUDITED_VERIFIED_FROM_RAW_RANKS
+Family 1 (Sparse OCR),Char BM25 (Degraded Blur OCR),MRR,306,0.8248,0.784,0.8638,"Document-Cluster Bootstrap (10,000 resamples)",AUDITED_VERIFIED_FROM_RAW_RANKS
+Family 1 (Sparse OCR),Word BM25 (Tesseract Degraded Blur),MRR,306,0.3438,0.2954,0.3935,"Document-Cluster Bootstrap (10,000 resamples)",AUDITED_VERIFIED_FROM_RAW_RANKS
+Family 1 (Sparse OCR),Char BM25 (Tesseract Degraded Blur),MRR,306,0.3998,0.348,0.4529,"Document-Cluster Bootstrap (10,000 resamples)",AUDITED_VERIFIED_FROM_RAW_RANKS
+Family 1 (Sparse OCR),Word BM25 (Synthetic 20% Noise),MRR,306,0.3465,0.299,0.395,"Document-Cluster Bootstrap (10,000 resamples)",AUDITED_VERIFIED_FROM_RAW_RANKS
+Family 1 (Sparse OCR),Char BM25 (Synthetic 20% Noise),MRR,306,0.6636,0.6174,0.7097,"Document-Cluster Bootstrap (10,000 resamples)",AUDITED_VERIFIED_FROM_RAW_RANKS
+Family 2 (DocVQA ViDoRe),Word BM25 (Tesseract 5.5),MRR,500,0.3107,0.2733,0.3485,"Query-Level Percentile Bootstrap (10,000 resamples)",AUDITED_VERIFIED_FROM_RAW_RANKS
+Family 2 (DocVQA ViDoRe),Char 3-5g BM25 (Tesseract 5.5),MRR,500,0.3141,0.2761,0.352,"Query-Level Percentile Bootstrap (10,000 resamples)",AUDITED_VERIFIED_FROM_RAW_RANKS
+Family 2 (DocVQA ViDoRe),Dense MiniLM (Tesseract 5.5),MRR,500,0.1209,0.0966,0.1467,"Query-Level Percentile Bootstrap (10,000 resamples)",AUDITED_VERIFIED_FROM_RAW_RANKS
+Family 2 (DocVQA ViDoRe),Dense BGE-base (Tesseract 5.5),MRR,500,0.094,0.0735,0.1162,"Query-Level Percentile Bootstrap (10,000 resamples)",AUDITED_VERIFIED_FROM_RAW_RANKS
+Family 2 (DocVQA ViDoRe),Tuned Hybrid (Sparse+Dense),MRR,500,0.3057,0.2689,0.3428,"Query-Level Percentile Bootstrap (10,000 resamples)",AUDITED_VERIFIED_FROM_RAW_RANKS
+Family 2 (DocVQA ViDoRe),ColQwen2-v1.0 (Tesla T4 Live),MRR,500,0.5497,0.5106,0.5892,"Query-Level Percentile Bootstrap (10,000 resamples)",AUDITED_VERIFIED_FROM_RAW_RANKS
+Family 2 (DocVQA ViDoRe),SigLIP Base Patch16 (Native Pixels),MRR,500,0.1327,0.1074,0.1606,"Query-Level Percentile Bootstrap (10,000 resamples)",AUDITED_VERIFIED_FROM_RAW_RANKS
+Family 3 (MS-COCO),SigLIP Base Patch16 (Native Pixels),MRR,1000,0.6071,0.5828,0.6317,"Query-Level Percentile Bootstrap (10,000 resamples)",AUDITED_VERIFIED_FROM_RAW_RANKS
+Family 3 (MS-COCO),CLIP ViT-B/32 (Native Pixels),MRR,1000,0.4709,0.4462,0.4965,"Query-Level Percentile Bootstrap (10,000 resamples)",AUDITED_VERIFIED_FROM_RAW_RANKS
+Family 3 (MS-COCO),Single Gold Human Ref (BGE-base),MRR,1000,0.4077,0.3827,0.4321,"Query-Level Percentile Bootstrap (10,000 resamples)",AUDITED_VERIFIED_FROM_RAW_RANKS
+Family 3 (MS-COCO),4-Ref Gold Multi-Caption (BGE-base),MRR,1000,0.5835,0.5577,0.6086,"Query-Level Percentile Bootstrap (10,000 resamples)",AUDITED_VERIFIED_FROM_RAW_RANKS
+Family 3 (MS-COCO),4-Ref Gold Hybrid Multi-Caption,MRR,1000,0.6078,0.5827,0.6326,"Query-Level Percentile Bootstrap (10,000 resamples)",AUDITED_VERIFIED_FROM_RAW_RANKS
+Family 3 (MS-COCO),BLIP Machine Caption (MiniLM),MRR,1000,0.3732,0.3492,0.3973,"Query-Level Percentile Bootstrap (10,000 resamples)",AUDITED_VERIFIED_FROM_RAW_RANKS
+Family 3 (MS-COCO),BLIP Machine Caption (BGE-base),MRR,1000,0.3695,0.3458,0.3931,"Query-Level Percentile Bootstrap (10,000 resamples)",AUDITED_VERIFIED_FROM_RAW_RANKS
+Family 6 (Multi-Hop),"Extractive PRF Bridge (Hard Multi-Hop (Pure 2-Hop, N=50))",Hit@10,50,0.64,0.5,0.78,"Query-Level Percentile Bootstrap (10,000 resamples)",AUDITED_VERIFIED_FROM_RAW_OBSERVATIONS
+Family 6 (Multi-Hop),"LLM Query Bridge (Hard Multi-Hop (Pure 2-Hop, N=50))",Hit@10,50,0.64,0.5,0.78,"Query-Level Percentile Bootstrap (10,000 resamples)",AUDITED_VERIFIED_FROM_RAW_OBSERVATIONS
+Family 6 (Multi-Hop),Extractive PRF Bridge (Easy Relational Ceiling (N=50)),Hit@10,50,1.0,1.0,1.0,"Query-Level Percentile Bootstrap (10,000 resamples)",AUDITED_VERIFIED_FROM_RAW_OBSERVATIONS
+Family 6 (Multi-Hop),LLM Query Bridge (Easy Relational Ceiling (N=50)),Hit@10,50,1.0,1.0,1.0,"Query-Level Percentile Bootstrap (10,000 resamples)",AUDITED_VERIFIED_FROM_RAW_OBSERVATIONS
+Family 6 (Multi-Hop),Extractive PRF Bridge (Pooled Relational Suite (N=100)),Hit@10,100,0.82,0.74,0.89,"Query-Level Percentile Bootstrap (10,000 resamples)",AUDITED_VERIFIED_FROM_RAW_OBSERVATIONS
+Family 6 (Multi-Hop),LLM Query Bridge (Pooled Relational Suite (N=100)),Hit@10,100,0.82,0.74,0.89,"Query-Level Percentile Bootstrap (10,000 resamples)",AUDITED_VERIFIED_FROM_RAW_OBSERVATIONS
+Family 6 (Multi-Hop),"BM25 Baseline (Hard Multi-Hop, N=50)",Hit@10,50,0.48,0.34,0.62,"Query-Level Percentile Bootstrap (10,000 resamples)",AUDITED_VERIFIED_FROM_RAW_OBSERVATIONS

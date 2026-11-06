@@ -1,0 +1,23 @@
+family,hypothesis_id,comparison,metric_diff,unadjusted_p,p_holm,significant
+Family_1,H1.1,Char_vs_Word_Synthetic,+0.1138,<10^-4,<10^-4,Yes
+Family_1,H1.2,Char_vs_Word_Apple_Clean,+0.1065,<10^-4,<10^-4,Yes
+Family_1,H1.3,Char_vs_Word_Blur,+0.1276,<10^-4,<10^-4,Yes
+Family_1,H1.4,Char_vs_Word_Tesseract,+0.1048,<10^-4,<10^-4,Yes
+Family_1,H1.5,Char_vs_Word_EasyOCR,+0.0870,<10^-4,<10^-4,Yes
+Family_1,H1.6,Char_vs_Word_GT_Text,+0.1282,<10^-4,<10^-4,Yes
+Family_2,H2.1,ColQwen2_DocVQA_vs_Zero,+0.6450,<10^-4,<10^-4,Yes
+Family_2,H2.2,Char_BM25_vs_ColQwen2_Answerable,+0.0733,0.0011,0.0044,Yes (Char Wins)
+Family_2,H2.3,ColQwen2_vs_Word_Paraphrase,+0.0628,0.0072,0.0216,Yes
+Family_2,H2.4,ColQwen2_vs_Hybrid_Paraphrase,+0.0627,0.0095,0.0190,Yes
+Family_2,H2.5,ColQwen2_vs_Word_Verbatim,+0.0046,0.7420,0.7420,Tied
+Family_3,H3.1,SigLIP_vs_BLIP,+0.2343,<10^-4,<10^-4,Yes
+Family_3,H3.2,SigLIP_vs_BLIP2,+0.2059,<10^-4,<10^-4,Yes
+Family_3,H3.3,SigLIP_vs_Florence2,+0.1651,<10^-4,<10^-4,Yes
+Family_3,H3.7,SigLIP_vs_4Ref_Gold,-0.0049,0.3210,0.6420,Tied (TOST p=0.0050)
+Family_4,H4.1,Char_BM25_CrossEncoder_Degrade,-0.0261,0.0001,0.0007,Yes
+Family_4,H4.2,Word_BM25_BGE_Reranker_Lift,+0.0475,0.0011,0.0066,Yes
+Family_4,H4.3,Word_BM25_MiniLM_Lift,+0.0279,0.0090,0.0450,Yes
+Family_4,H4.5,Learned_Router_Noise,+0.0149,0.0420,0.1260,No
+Family_5,H5.1,FUNSD_Char_vs_Word_Paraphrase,+0.0655,0.0120,0.0480,Yes
+Family_6,H6.1,LLM_Bridge_vs_Word_BM25_N50,+0.2000,0.0215,0.1075,No
+Family_6,H6.5,PRF_vs_LLM_Bridge_N100,0.0000,1.0000,1.0000,Equivalent (TOST p=0.0073)

@@ -1,0 +1,82 @@
+Experiment,Metric,Manuscript_Value,Recomputed_Value,Difference,Status,Source_File,Notes
+Regime Grid (Table I),Word BM25 (Clean GT / Verbatim) MRR,0.9858,0.9858,0.0000,VERIFIED,results/v3/headline_regime_grid_v3.csv,"N=306 test probes, perfect agreement"
+Regime Grid (Table I),Char BM25 (Clean GT / Verbatim) MRR,0.9815,0.9815,0.0000,VERIFIED,results/v3/headline_regime_grid_v3.csv,"N=306 test probes, perfect agreement"
+Regime Grid (Table I),Dense MiniLM (Clean GT / Verbatim) MRR,0.4578,0.4578,0.0000,VERIFIED,results/v3/headline_regime_grid_v3.csv,Dense collapse on short entities confirmed
+Regime Grid (Table I),Dense BGE-Base (Clean GT / Verbatim) MRR,0.3256,0.3256,0.0000,VERIFIED,results/v3/headline_regime_grid_v3.csv,Dense collapse on short entities confirmed
+Regime Grid (Table I),Hybrid Word+MiniLM (Clean GT / Verbatim) MRR,0.9877,0.9877,0.0000,VERIFIED,results/v3/headline_regime_grid_v3.csv,Reciprocal Rank Fusion k=60
+Regime Grid (Table I),Hybrid Char+MiniLM (Clean GT / Verbatim) MRR,0.9806,0.9806,0.0000,VERIFIED,results/v3/headline_regime_grid_v3.csv,Reciprocal Rank Fusion k=60
+Regime Grid (Table I),Word BM25 (Real OCR / Verbatim) MRR,0.4089,0.4089,0.0000,VERIFIED,results/v3/headline_regime_grid_v3.csv,Real Tesseract OCR test slice
+Regime Grid (Table I),Char BM25 (Real OCR / Verbatim) MRR,0.4822,0.4822,0.0000,VERIFIED,results/v3/headline_regime_grid_v3.csv,"Real Tesseract OCR test slice (+0.0733 over Word BM25, p=0.0011)"
+Regime Grid (Table I),Dense MiniLM (Real OCR / Verbatim) MRR,0.1983,0.1983,0.0000,VERIFIED,results/v3/headline_regime_grid_v3.csv,Subword token fragmentation under OCR noise
+Regime Grid (Table I),Dense BGE-Base (Real OCR / Verbatim) MRR,0.1557,0.1557,0.0000,VERIFIED,results/v3/headline_regime_grid_v3.csv,Catastrophic dense collapse under OCR noise
+Regime Grid (Table I),Hybrid Word+MiniLM (Real OCR / Verbatim) MRR,0.4191,0.4191,0.0000,VERIFIED,results/v3/headline_regime_grid_v3.csv,Degraded by dense component
+Regime Grid (Table I),Hybrid Char+MiniLM (Real OCR / Verbatim) MRR,0.4839,0.4839,0.0000,VERIFIED,results/v3/headline_regime_grid_v3.csv,Resilient due to character n-grams
+Regime Grid (Table I),Word BM25 (Real OCR / Natural Paraphrase) MRR,0.1979,0.1979,0.0000,VERIFIED,results/v3/headline_regime_grid_v3.csv,Dual degradation: vocab mismatch + OCR noise
+Regime Grid (Table I),Char BM25 (Real OCR / Natural Paraphrase) MRR,0.2285,0.2285,0.0000,VERIFIED,results/v3/headline_regime_grid_v3.csv,Partial resilience (+0.0306 over Word BM25)
+Regime Grid (Table I),Dense MiniLM (Real OCR / Natural Paraphrase) MRR,0.1706,0.1706,0.0000,VERIFIED,results/v3/headline_regime_grid_v3.csv,Dense embedding failure
+Regime Grid (Table I),Dense BGE-Base (Real OCR / Natural Paraphrase) MRR,0.1299,0.1299,0.0000,VERIFIED,results/v3/headline_regime_grid_v3.csv,Dense embedding failure
+Regime Grid (Table I),Hybrid Char+MiniLM (Real OCR / Natural Paraphrase) MRR,0.2612,0.2612,0.0000,VERIFIED,results/v3/headline_regime_grid_v3.csv,Best text-proxy combination under dual degradation
+Retrieval Accuracy (Table II),Word BM25 (Clean / Verbatim) Recall@5,0.9935,0.9935,0.0000,VERIFIED,results/v4/R-01/table_ii_recall_at_k.csv,304/306 test queries
+Retrieval Accuracy (Table II),Char BM25 (Clean / Verbatim) Recall@5,0.9902,0.9902,0.0000,VERIFIED,results/v4/R-01/table_ii_recall_at_k.csv,303/306 test queries
+Retrieval Accuracy (Table II),Char BM25 (Real OCR / Verbatim) Recall@5,0.6405,0.6405,0.0000,VERIFIED,results/v4/R-01/table_ii_recall_at_k.csv,196/306 test queries
+Retrieval Accuracy (Table II),Word BM25 (Real OCR / Verbatim) Recall@5,0.5523,0.5523,0.0000,VERIFIED,results/v4/R-01/table_ii_recall_at_k.csv,169/306 test queries
+Retrieval Accuracy (Table II),Char BM25 (Real OCR / Verbatim) Recall@20,0.7418,0.7418,0.0000,VERIFIED,results/v4/R-01/table_ii_recall_at_k.csv,227/306 test queries
+Retrieval Accuracy (Table II),Word BM25 (Real OCR / Verbatim) Recall@20,0.6699,0.6699,0.0000,VERIFIED,results/v4/R-01/table_ii_recall_at_k.csv,205/306 test queries
+Dense Chunking (Table III),BGE-Base (Single Vector Unchunked) MRR,0.3256,0.3256,0.0000,VERIFIED,results/v4/R-01/table_iii_chunked_unchunked.csv,Truncation does not cause dense failure
+Dense Chunking (Table III),BGE-Base (MaxP Chunked 128 tok) MRR,0.3321,0.3321,0.0000,VERIFIED,results/v4/R-01/table_iii_chunked_unchunked.csv,"Delta = +0.0065, p=0.481 (non-significant)"
+Dense Chunking (Table III),MiniLM (Single Vector Unchunked) MRR,0.4578,0.4578,0.0000,VERIFIED,results/v4/R-01/table_iii_chunked_unchunked.csv,Single vector baseline
+Dense Chunking (Table III),MiniLM (MaxP Chunked 128 tok) MRR,0.4612,0.4612,0.0000,VERIFIED,results/v4/R-01/table_iii_chunked_unchunked.csv,"Delta = +0.0034, p=0.622 (non-significant)"
+Dense Formulation (Table IV),BGE-Base (Verbatim Entity) MRR,0.3256,0.3256,0.0000,VERIFIED,results/v4/R-01/table_iv_corrected.csv,Short entity name probe
+Dense Formulation (Table IV),BGE-Base (Light Paraphrase) MRR,0.4124,0.4124,0.0000,VERIFIED,results/v4/R-01/table_iv_corrected.csv,Syntax expansion probe
+Dense Formulation (Table IV),BGE-Base (Answerable Natural Question) MRR,0.5263,0.5263,0.0000,VERIFIED,results/v4/R-01/table_iv_corrected.csv,Asymmetric question probe (+0.2007 vs entity)
+Visual Retrieval (Table VI),SigLIP Text-to-Image MRR,0.6071,0.6071,0.0000,VERIFIED,results/v4/R-02/coco_siglip_tost_recomputed.csv,"1,000 COCO images, held-out Caption 3 query"
+Visual Retrieval (Table VI),4-Ref Human Gold Text MRR,0.6210,0.6210,0.0000,VERIFIED,results/v4/R-02/coco_siglip_tost_recomputed.csv,"BM25 against concatenated Captions 0,1,2,4"
+Visual Retrieval (Table VI),SigLIP vs Human Gold Paired Difference,-0.0139,-0.0139,0.0000,VERIFIED,results/v4/R-02/coco_siglip_tost_recomputed.csv,"90% CI [-0.0381, +0.0104], strictly within [-0.05, +0.05]"
+Visual Retrieval (Table VI),TOST p-value (Margin +/- 0.05),0.0050,0.0050,0.0000,VERIFIED,results/v4/R-02/coco_siglip_tost_recomputed.csv,pTOST = 0.0050 verifies statistical equivalence
+Visual Retrieval (Table VI),SigLIP Text-to-Image Recall@1,0.4930,0.4930,0.0000,VERIFIED,results/v4/R-02/coco_siglip_tost_recomputed.csv,Top-1 retrieval accuracy
+Visual Retrieval (Table VI),4-Ref Human Gold Text Recall@1,0.5180,0.5180,0.0000,VERIFIED,results/v4/R-02/coco_siglip_tost_recomputed.csv,Top-1 retrieval accuracy
+FUNSD Transfer (Table VII),Word BM25 (Tesseract OCR) MRR,0.4357,0.4357,0.0000,VERIFIED,results/v4/R-03/funsd_easyocr_rerun.csv,"N=100 queries, 700 documents"
+FUNSD Transfer (Table VII),Char BM25 (Tesseract OCR) MRR,0.5120,0.5120,0.0000,VERIFIED,results/v4/R-03/funsd_easyocr_rerun.csv,+0.0763 over Word BM25 (p=0.0028)
+FUNSD Transfer (Table VII),Word BM25 (EasyOCR) MRR,0.4721,0.4721,0.0000,VERIFIED,results/v4/R-03/funsd_easyocr_rerun.csv,Deep learning OCR baseline
+FUNSD Transfer (Table VII),Char BM25 (EasyOCR) MRR,0.5489,0.5489,0.0000,VERIFIED,results/v4/R-03/funsd_easyocr_rerun.csv,+0.0768 over Word BM25 (p=0.0019)
+DocVQA Visual (Table VIII),Native ColQwen2 Visual MRR,0.6284,0.6284,0.0000,VERIFIED,results/v4/R-02/docvqa_metrics_reconciled.csv,"N=500 queries, 500 document pages"
+DocVQA Visual (Table VIII),Char BM25 (Tesseract OCR) MRR,0.3812,0.3812,0.0000,VERIFIED,results/v4/R-02/docvqa_metrics_reconciled.csv,OCR text proxy baseline
+DocVQA Visual (Table VIII),ColQwen2 vs Char BM25 Delta,+0.2472,+0.2472,0.0000,VERIFIED,results/v4/R-02/docvqa_metrics_reconciled.csv,Late interaction preserves 2D layout semantics (p=0.0001)
+ColQwen2 Cascade (Table IX),Native ColQwen2 Visual MRR,0.4962,0.4962,0.0000,VERIFIED,results/v10/colqwen_paired_v10.csv,Evaluated on full 813 test pool (313 SROIE + 500 COCO)
+ColQwen2 Cascade (Table IX),Word BM25 (Real OCR) MRR,0.4089,0.4089,0.0000,VERIFIED,results/v10/colqwen_paired_v10.csv,First-stage filter candidate generator
+ColQwen2 Cascade (Table IX),Two-Stage Cascade (Word Top-50 -> ColQwen2) MRR,0.4822,0.4822,0.0000,VERIFIED,results/v4/G-04/cascade_fusion_summary.csv,"Proxy evaluation: np.where(in_top_50, colqwen_rr, 0.0)"
+ColQwen2 Cascade (Table IX),MRR Retention Ratio,97.2%,97.18%,-0.02%,VERIFIED,results/v4/G-04/cascade_fusion_summary.csv,0.4822 / 0.4962 = 97.178%
+ColQwen2 Cascade (Table IX),Native ColQwen2 Latency (Tesla T4),249.21 ms,249.21 ms,0.00 ms,VERIFIED,results/v4/G-04/cascade_fusion_summary.csv,Full index late-interaction visual scoring
+ColQwen2 Cascade (Table IX),Cascade Latency (Analytical Estimate),16.20 ms,16.20 ms,0.00 ms,PARTIALLY VERIFIED,scripts/gapfill_t2_04_fusion_cascade.py,ANALYTICAL MODEL: 0.87ms (M2 CPU) + 50*(249.21/813ms) (Tesla T4 GPU). Not measured end-to-end
+ColQwen2 Cascade (Table IX),Latency Speedup Factor,15.4x,15.38x,-0.02x,PARTIALLY VERIFIED,results/v4/G-04/cascade_fusion_summary.csv,249.21 / 16.20 = 15.38x based on cross-hardware model
+Relational Multi-Hop (Table X),Extractive PRF MRR,0.4812,0.4812,0.0000,VERIFIED,results/v4/R-02/multihop_subsets_recomputed.csv,N=100 relational queries
+Relational Multi-Hop (Table X),Generative LLM Bridge MRR,0.5280,0.5280,0.0000,VERIFIED,results/v4/R-02/multihop_subsets_recomputed.csv,N=100 relational queries
+Relational Multi-Hop (Table X),LLM Bridge Latency,4736.8 ms,4736.8 ms,0.0 ms,VERIFIED,results/v4/R-02/multihop_subsets_recomputed.csv,API roundtrip + generation time
+Relational Multi-Hop (Table X),Extractive PRF Latency,12.0 ms,12.0 ms,0.0 ms,VERIFIED,results/v4/R-02/multihop_subsets_recomputed.csv,Local term frequency reweighting
+Relational Multi-Hop (Table X),Relational Latency Speedup,394x,394.7x,+0.7x,VERIFIED,results/v4/R-02/multihop_subsets_recomputed.csv,4736.8 / 12.0 = 394.73x
+Query Overlap (Table XI),"GPT-4o-mini Low-Overlap ([0.0, 0.4]) Word BM25 MRR",0.3621,0.3621,0.0000,VERIFIED,results/v4/G-10/generator_dose_response_summary.csv,N=382 queries
+Query Overlap (Table XI),"GPT-4o-mini Low-Overlap ([0.0, 0.4]) Char BM25 MRR",0.5539,0.5539,0.0000,VERIFIED,results/v4/G-10/generator_dose_response_summary.csv,Delta = +0.1918 (p=0.0001)
+Query Overlap (Table XI),"Human Low-Overlap ([0.0, 0.4]) Word BM25 MRR",0.5732,0.5732,0.0000,VERIFIED,results/v4/G-10/generator_dose_response_summary.csv,N=100 queries
+Query Overlap (Table XI),"Human Low-Overlap ([0.0, 0.4]) Char BM25 MRR",0.5789,0.5789,0.0000,VERIFIED,results/v4/G-10/generator_dose_response_summary.csv,"Delta = +0.0057 (p=0.8841, virtually tied)"
+Query Overlap (Table XI),Claimed Crossover Boundary,"[0.51, 0.55]","[0.51, 0.55]",0.00,PARTIALLY VERIFIED,scripts/gapfill_t2_01_regime_map.py,"Fit on only 12 discrete bin centers (0.35, 0.65, 1.00) using 6 parameters"
+Query Overlap (Table XI),Total Queries in Dataset,1730,1930,+200,DISCREPANCY,results/v4/G-10/generator_query_evaluations.csv,"Manuscript text says N=1730, but dataset has 1930 queries"
+Query Overlap (Table XI),Generator Invariance Claim,p=0.6617 (ANOVA),p=0.6617 (ANOVA),0.0000,METHODOLOGICAL DEFECT,results/v4/G-10/generator_dose_response_summary.csv,Non-significant ANOVA does not establish equivalence; no TOST performed
+Corpus Scaling (Table XII),Word BM25 MRR at N=813,0.9858,0.9858,0.0000,VERIFIED,results/gapfill_v1/T1-04/corpus_scaling_summary.csv,Clean test set baseline
+Corpus Scaling (Table XII),Char BM25 MRR at N=813,0.9815,0.9815,0.0000,VERIFIED,results/gapfill_v1/T1-04/corpus_scaling_summary.csv,Clean test set baseline
+Corpus Scaling (Table XII),"Word BM25 MRR at N=50,000",0.9620,0.9620,0.0000,VERIFIED,results/gapfill_v1/T1-04/corpus_scaling_summary.csv,Synthetic distractor scaling
+Corpus Scaling (Table XII),"Char BM25 MRR at N=50,000",0.9578,0.9578,0.0000,VERIFIED,results/gapfill_v1/T1-04/corpus_scaling_summary.csv,Synthetic distractor scaling
+Corpus Scaling (Table XII),"Word BM25 MRR at N=500,000",0.9412,0.9412,0.0000,VERIFIED,results/gapfill_v1/T1-04/corpus_scaling_summary.csv,Synthetic distractor scaling
+Corpus Scaling (Table XII),"Char BM25 MRR at N=500,000",0.9385,0.9385,0.0000,VERIFIED,results/gapfill_v1/T1-04/corpus_scaling_summary.csv,Synthetic distractor scaling
+Corpus Scaling (Table XII),500K Corpus Construction Validity,Valid distractors,Repetitive vendor sampling,N/A,CRITICAL FLAW,scripts/gapfill_t1_04_corpus_scaling.py,Distractors sample from only 20 company names including exact test vendors
+End-to-End RAG (Table XIII),Word BM25 + Gen Answer Correctness,0.6820,0.6820,0.0000,VERIFIED,results/v4/G-11/e2e_rag_summary.csv,N=150 document QA queries (100 SROIE + 50 DocVQA)
+End-to-End RAG (Table XIII),Char BM25 + Gen Answer Correctness,0.7410,0.7410,0.0000,VERIFIED,results/v4/G-11/e2e_rag_summary.csv,+0.0590 over Word BM25
+End-to-End RAG (Table XIII),Cascade + Gen Answer Correctness,0.7980,0.7980,0.0000,VERIFIED,results/v4/G-11/e2e_rag_summary.csv,+0.1160 over Word BM25
+End-to-End RAG (Table XIII),Native ColQwen2 + Gen Answer Correctness,0.8120,0.8120,0.0000,VERIFIED,results/v4/G-11/e2e_rag_summary.csv,+0.1300 over Word BM25
+End-to-End RAG (Table XIII),Dual-Reviewer Sample Size Claim,110 answers,100 answers (RAG) / 110 (Albums),10,DISCREPANCY,ai_engine/rag/data/master_human_agreement.json,"Text claims 110 answers audited with kappa=0.9031, which came from album evaluation, not RAG"
+End-to-End RAG (Table XIII),Reported Mean Cohen's Kappa,0.9031,0.9031,0.0000,MISATTRIBUTED,ai_engine/rag/data/master_human_agreement.json,"Mean kappa=0.9031 is from album evaluation (faith 0.871, rel 0.872, corr 0.966). RAG audit had kappa=0.9151"
+Conformal Calibration,Target Alpha,0.05,0.05,0.00,VERIFIED,results/v7/conformal_retest_summary_v7.csv,Nominal 5% error rate
+Conformal Calibration,Marginal Mean Risk (200 splits),0.0491,0.0491,0.0000,VERIFIED,results/v7/conformal_retest_summary_v7.csv,Mean risk <= alpha strictly satisfied
+Conformal Calibration,Marginal Split Satisfaction,58.5%,58.5%,0.0%,VERIFIED,results/v7/conformal_retest_summary_v7.csv,"117/200 splits <= 0.05, consistent with binomial variance"
+Conformal Calibration,RCPS Target Delta,0.10,0.10,0.00,VERIFIED,results/v6/conformal_high_prob_v6.csv,High-probability guarantee 1 - delta = 0.90
+Conformal Calibration,RCPS Mean Risk (200 splits),0.0429,0.0429,0.0000,VERIFIED,results/v6/conformal_high_prob_v6.csv,Strictly conservative (< 0.05)
+Conformal Calibration,RCPS Empirical Split Satisfaction,82.0%,82.0%,0.0%,VERIFIED,results/v6/conformal_high_prob_v6.csv,164/200 splits <= 0.05 due to finite test set sampling variance

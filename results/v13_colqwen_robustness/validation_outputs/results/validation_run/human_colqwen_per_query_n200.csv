@@ -1,0 +1,201 @@
+query_idx,query_id,target_id,query_text,rank,reciprocal_rank,hit1,hit5,hit10
+0,human_0000,sroie_000,Find receipt for books and modelling clay bought in Taman Daya,1,1.0,1,1,1
+1,human_0001,sroie_001,What did I buy home decor items in Johor Jaya?,1,1.0,1,1,1
+2,human_0002,sroie_003,Receipt for shopping at Yongfatt store on Christmas,9,0.1111111111111111,0,0,1
+3,human_0003,sroie_006,Hardware bill for machinery tools and supplies at Soon Huat,1,1.0,1,1,1
+4,human_0004,sroie_007,Motorcycle repair and service bill in Sungai Rengit,1,1.0,1,1,1
+5,human_0005,sroie_009,Breakfast porridge meal receipt at McDonalds Gerbang Alaf,1,1.0,1,1,1
+6,human_0006,sroie_010,Receipt for goods from Sam Sam Trading in Shah Alam,1,1.0,1,1,1
+7,human_0007,sroie_011,Hardware shop bill for big stretch film packing roll,1,1.0,1,1,1
+8,human_0008,sroie_025,School books and stationery purchase in Batang Berjuntai,1,1.0,1,1,1
+9,human_0009,sroie_027,Home maintenance and DIY tools bill from MR DIY,11,0.09090909090909091,0,0,0
+10,human_0010,sroie_029,Receipt from C W Khoo hardware store in Johor Bahru,3,0.3333333333333333,0,1,1
+11,human_0011,sroie_030,Dinner meal bill at Unihakka on 5th March,3,0.3333333333333333,0,1,1
+12,human_0012,sroie_031,Department store receipt for purchases at Aeon Maluri,6,0.16666666666666666,0,0,1
+13,human_0013,sroie_032,Food order receipt from Unihakka Restaurant on 3rd March,1,1.0,1,1,1
+14,human_0014,sroie_034,Receipt from Perniagaan Zheng Hui store,2,0.5,0,1,1
+15,human_0015,sroie_035,Lunch food bill at Unihakka Restaurant on 12 March,1,1.0,1,1,1
+16,human_0016,sroie_036,Dinner bill from Unihakka restaurant on 14 March,5,0.2,0,1,1
+17,human_0017,sroie_038,Store purchase at Aeon Tebrau City mall on 11 March,1,1.0,1,1,1
+18,human_0018,sroie_040,Drinks and food bill at Three Stooges Bistro in Damansara,1,1.0,1,1,1
+19,human_0019,sroie_043,Show bill for beers and dinner at 32 Pub and Bistro in Damansara,1,1.0,1,1,1
+20,human_0020,sroie_044,Dining receipt for food at Unihakka on 18 March,6,0.16666666666666666,0,0,1
+21,human_0021,sroie_046,Grocery shopping receipt from mini market in Permas Jaya,1,1.0,1,1,1
+22,human_0022,sroie_047,Seafood dinner receipt from Sin Du Restaurant,1,1.0,1,1,1
+23,human_0023,sroie_048,Hardware tools and construction parts from Yong Tat,1,1.0,1,1,1
+24,human_0024,sroie_049,Receipt for items bought at Zheng Hui in Permas,1,1.0,1,1,1
+25,human_0025,sroie_050,Dinner receipt for ribs at Morganfields Kitchenette,1,1.0,1,1,1
+26,human_0026,sroie_054,Lunch bill at Carrefour restaurant in Permas,1,1.0,1,1,1
+27,human_0027,sroie_055,Vegetable dish food receipt at Unihakka Restaurant,6,0.16666666666666666,0,0,1
+28,human_0028,sroie_057,Dinner receipt at Unihakka Restaurant on 29 March,7,0.14285714285714285,0,0,1
+29,human_0029,sroie_061,Receipt for Peri Peri chicken meal at Nandos,1,1.0,1,1,1
+30,human_0030,sroie_064,Dining receipt for Chinese food at Sun Wong Kut,1,1.0,1,1,1
+31,human_0031,sroie_065,Dinner meal bill at Jiawei House restaurant,1,1.0,1,1,1
+32,human_0032,sroie_067,Vegetarian food bill at Lian Chi Pu Tian restaurant,1,1.0,1,1,1
+33,human_0033,sroie_071,Shopping receipt from Aeon Taman Maluri shopping centre,5,0.2,0,1,1
+34,human_0034,sroie_073,Office supplies and stationery bill from Lian Hing in Jalan Sultan,1,1.0,1,1,1
+35,human_0035,sroie_078,Thai food dinner bill at Thai Delicious in Bandar Puteri,1,1.0,1,1,1
+36,human_0036,sroie_079,Tools and household hardware items bought at MR DIY,19,0.05263157894736842,0,0,0
+37,human_0037,sroie_080,Hardware supplies receipt from Hon Hwa Trading,2,0.5,0,1,1
+38,human_0038,sroie_081,Pack of AAA batteries bought from MR DIY store,1,1.0,1,1,1
+39,human_0039,sroie_082,Hardware equipment bill from Hon Hwa Trading,1,1.0,1,1,1
+40,human_0040,sroie_084,Plastic cloth pegs bought at MR DIY hardware,1,1.0,1,1,1
+41,human_0041,sroie_085,Padlock security lock purchased at MR DIY,1,1.0,1,1,1
+42,human_0042,sroie_089,Store receipt from FY Eagle in Bukit Serdang,2,0.5,0,1,1
+43,human_0043,sroie_091,Supermarket grocery bill from Mydin Mart in Sri Muda,1,1.0,1,1,1
+44,human_0044,sroie_093,Receipt for items bought on third floor at Aeon Maluri,5,0.2,0,1,1
+45,human_0045,sroie_094,Shopping bill from Aeon department store,8,0.125,0,0,1
+46,human_0046,sroie_095,Receipt for books and stationery bought at Popular bookstore,3,0.3333333333333333,0,1,1
+47,human_0047,sroie_097,Books purchase receipt from Popular Bookstore in January,7,0.14285714285714285,0,0,1
+48,human_0048,sroie_098,Plumbing and hardware items bought at Wahin Hardware,1,1.0,1,1,1
+49,human_0049,sroie_099,Hardware shop receipt from Gin Kee store,2,0.5,0,1,1
+50,human_0050,sroie_101,Hardware Receipt from Syarikat Gin Kee store,1,1.0,1,1,1
+51,human_0051,sroie_102,Receipt of IKEA Cheras Ikano Handel dated 23/12/17,1,1.0,1,1,1
+52,human_0052,sroie_103,Receipt of Syarikat perniagaan gin kee in setapak dated 28/12/2017,1,1.0,1,1,1
+53,human_0053,sroie_104,Food receipt from Chilis T.A.S. Leisure SDN BHD dated 30/12/2017,1,1.0,1,1,1
+54,human_0054,sroie_108,Receipt from Lim Seng Tho Harware Trading,1,1.0,1,1,1
+55,human_0055,sroie_109,Receipt from Lim Seng Tho Harware Trading,2,0.5,0,1,1
+56,human_0056,sroie_111,Large hardware supply invoice from Gin Kee on 28 Dec 2017,6,0.16666666666666666,0,0,1
+57,human_0057,sroie_112,Parking fee receipt at Solaris Dutamas dated 14/01/2018,1,1.0,1,1,1
+58,human_0058,sroie_114,Hardware store tools receipt from Gin Kee on 4th January 2018,9,0.1111111111111111,0,0,1
+59,human_0059,sroie_115,Plumbing items bill from Gin Kee dated 10 Jan 2018,6,0.16666666666666666,0,0,1
+60,human_0060,sroie_117,Receipt for construction materials from Gin Kee on 3 Jan 2018,1,1.0,1,1,1
+61,human_0061,sroie_121,Hardware repair parts bill from Gin Kee on 11 January,11,0.09090909090909091,0,0,0
+62,human_0062,sroie_122,Small hardware screws purchase from Gin Kee on 13 Jan 2018,3,0.3333333333333333,0,1,1
+63,human_0063,sroie_123,Hardware store bill from Gin Kee dated 02/01/2018,1,1.0,1,1,1
+64,human_0064,sroie_124,Hardware items receipt from Gin Kee store on 12 Feb 2018,4,0.25,0,1,1
+65,human_0065,sroie_126,Building supplies bill from Gin Kee dated 03/02/2018,1,1.0,1,1,1
+66,human_0066,sroie_127,Receipt for small hardware item at Gin Kee in January,13,0.07692307692307693,0,0,0
+67,human_0067,sroie_134,Grocery bill from Mydin Mart Sri Muda dated 10/08/2017,1,1.0,1,1,1
+68,human_0068,sroie_135,Electrical wiring and lighting supplies receipt on 4 Dec 2017,1,1.0,1,1,1
+69,human_0069,sroie_141,Chinese noodle lunch bill at Restoran Wan Sheng on 12 March 2018,1,1.0,1,1,1
+70,human_0070,sroie_142,Coffee and drink receipt from Wan Sheng on 14 March 2018,1,1.0,1,1,1
+71,human_0071,sroie_146,Dinner bill at PappaRich restaurant dated 24/03/2018,1,1.0,1,1,1
+72,human_0072,sroie_150,Retail purchase receipt from SWC Enterprise on 28 March 2018,1,1.0,1,1,1
+73,human_0073,sroie_151,Flower bouquet and gift craft bill dated 21 March 2018,2,0.5,0,1,1
+74,human_0074,sroie_152,Toiletries and skincare shopping receipt from Watsons on 25 March 2018,1,1.0,1,1,1
+75,human_0075,sroie_156,Japanese food dinner bill at Kiku Restaurant on 17 Jan 2018,1,1.0,1,1,1
+76,human_0076,sroie_157,Ice cream receipt from Baskin Robbins dated 16/02/2018,1,1.0,1,1,1
+77,human_0077,sroie_159,Party supplies and toy purchase bill from Fun N Cheer on 5 Jan 2018,1,1.0,1,1,1
+78,human_0078,sroie_160,Boba milk tea drink receipt from Tealive dated 21 Jan 2018,1,1.0,1,1,1
+79,human_0079,sroie_163,Weekly grocery shopping bill at 99 Speedmart on 17 Feb 2018,1,1.0,1,1,1
+80,human_0080,sroie_165,Korean BBQ chicken dinner bill at Mr Dakgalbi on 5 Jan 2018,1,1.0,1,1,1
+81,human_0081,sroie_166,Supermarket goods receipt from The Store dated 14/01/2018,1,1.0,1,1,1
+82,human_0082,sroie_167,Traditional kuih and lunch receipt at Nyonya Colors on 18 March 2018,1,1.0,1,1,1
+83,human_0083,sroie_169,Taro ball shaved ice dessert bill from Yam Fresh on 18 March 2018,1,1.0,1,1,1
+84,human_0084,sroie_173,Pizza delivery dinner order bill dated 26/03/2018,1,1.0,1,1,1
+85,human_0085,sroie_174,Prescription medicine bill from Happy Pharmacy on 1 Feb 2018,1,1.0,1,1,1
+86,human_0086,sroie_175,Stationery supplies and pens receipt from Popular Book on 11 Feb 2018,1,1.0,1,1,1
+87,human_0087,sroie_181,Petrol fuel pump receipt from BHPetrol dated 24 March 2018,1,1.0,1,1,1
+88,human_0088,sroie_185,Bulk grocery shopping bill from Super Seven on 12 Feb 2018,1,1.0,1,1,1
+89,human_0089,sroie_191,Hardware store parts receipt from ENW Ara Damansara on 10 March 2018,1,1.0,1,1,1
+90,human_0090,sroie_194,Department store clothing receipt from Aeon Maluri dated 28 Feb 2018,1,1.0,1,1,1
+91,human_0091,sroie_196,Bookstore notebook purchase from Popular on 11 March 2018,2,0.5,0,1,1
+92,human_0092,sroie_199,Hardware drill bit purchase bill dated 10/10/2017,1,1.0,1,1,1
+93,human_0093,sroie_203,Household repair tools receipt from MR DIY on 26 March 2018,1,1.0,1,1,1
+94,human_0094,sroie_204,Home hardware supplies bill from MR DIY dated 25 March 2018,2,0.5,0,1,1
+95,human_0095,sroie_205,Tools and repair purchase receipt from MR DIY on 23 March 2018,7,0.14285714285714285,0,0,1
+96,human_0096,sroie_206,Duplicate house key maker bill in Puchong dated 24 March 2018,1,1.0,1,1,1
+97,human_0097,sroie_208,Hardware store items receipt from MR DIY on 24 March 2018,2,0.5,0,1,1
+98,human_0098,sroie_210,Home furniture and curtains bill at Kaison Melawati on 29 Jan 2018,1,1.0,1,1,1
+99,human_0099,sroie_214,Grocery sundry items purchase receipt dated 06/02/2018,1,1.0,1,1,1
+100,human_0100,sroie_016,Store shopping and payment receipt from Lightroom Gallery in Klang,1,1.0,1,1,1
+101,human_0101,sroie_216,Store shopping and payment receipt from Advanco Company in Kuala Lumpur,1,1.0,1,1,1
+102,human_0102,sroie_217,Store shopping and payment receipt from Ikano Handel in Kuala Lumpur,1,1.0,1,1,1
+103,human_0103,sroie_220,"Printing banners, signages, and document copy service bill at Print Expert",1,1.0,1,1,1
+104,human_0104,sroie_222,Bookstore purchase bill for books and stationery at Popular Book . (M) in Kuala Lumpur,5,0.2,0,1,1
+105,human_0105,sroie_223,Bookstore purchase bill for books and stationery at Popular Book . (M) in Kuala Lumpur,2,0.5,0,1,1
+106,human_0106,sroie_224,Store shopping and payment receipt from Boon Seng Paper in Shah Alam,1,1.0,1,1,1
+107,human_0107,sroie_225,Store shopping and payment receipt from Relais Total Oulmes in Malaysia,1,1.0,1,1,1
+108,human_0108,sroie_226,Skincare and beauty cosmetics shopping bill at TonyMoly store in Kuching,1,1.0,1,1,1
+109,human_0109,sroie_228,Skincare and beauty cosmetics shopping bill at TonyMoly store in Kuching,2,0.5,0,1,1
+110,human_0110,sroie_229,"Printing banners, signages, and document copy service bill at Anzel Advertising (M)",1,1.0,1,1,1
+111,human_0111,sroie_231,Home improvement tools and hardware supplies receipt from MR DIY in Seri Kembangan,4,0.25,0,1,1
+112,human_0112,sroie_232,Bookstore purchase bill for books and stationery at Premio Stationery in Petaling Jaya,1,1.0,1,1,1
+113,human_0113,sroie_233,Store shopping and payment receipt from Y Soon Fatt in Klang,1,1.0,1,1,1
+114,human_0114,sroie_234,Pharmacy medical and health essentials receipt from Bemed (Sp) in Shah Alam,2,0.5,0,1,1
+115,human_0115,sroie_236,Restaurant food and dining bill at B & Best Restaurant in Petaling Jaya,1,1.0,1,1,1
+116,human_0116,sroie_238,Pharmacy medical and health essentials receipt from Olive9 Pharmacy in Subang,2,0.5,0,1,1
+117,human_0117,sroie_239,Wholesale sundry goods and household groceries purchase at Segi Cash & Carry,2,0.5,0,1,1
+118,human_0118,sroie_242,Wholesale sundry goods and household groceries purchase at Segi Cash & Carry,4,0.25,0,1,1
+119,human_0119,sroie_243,Wholesale sundry goods and household groceries purchase at Segi Cash & Carry,1,1.0,1,1,1
+120,human_0120,sroie_244,Restaurant food and dining bill at Golden Arches Restaurants in Damansara,1,1.0,1,1,1
+121,human_0121,sroie_246,"Fresh pastry, buns, and cake bakery receipt from King'S Confectionery",1,1.0,1,1,1
+122,human_0122,sroie_248,Parking fee payment ticket receipt in Petaling Jaya,1,1.0,1,1,1
+123,human_0123,sroie_249,Clothing alterations and tailoring service invoice from Gl Handicraft & Taii Oring,2,0.5,0,1,1
+124,human_0124,sroie_250,Clothing alterations and tailoring service invoice from Gl Handicraft & Taii Oring,1,1.0,1,1,1
+125,human_0125,sroie_252,Bookstore purchase bill for books and stationery at Times Bookstores in shopping mall,1,1.0,1,1,1
+126,human_0126,sroie_256,Store shopping and payment receipt from Billion Six in Shah Alam,1,1.0,1,1,1
+127,human_0127,sroie_257,Parking fee payment ticket receipt in Shah Alam,1,1.0,1,1,1
+128,human_0128,sroie_259,Grocery shopping receipt at 99 Speedmart convenience store in Klang,7,0.14285714285714285,0,0,1
+129,human_0129,sroie_260,Store shopping and payment receipt from Perniagaan Riang Ria in Shah Alam,1,1.0,1,1,1
+130,human_0130,sroie_263,Store shopping and payment receipt from Hero Distribution in Subang,1,1.0,1,1,1
+131,human_0131,sroie_264,Wholesale sundry goods and household groceries purchase at Segi Cash & Carry,3,0.3333333333333333,0,1,1
+132,human_0132,sroie_269,Store shopping and payment receipt from In-Sparkle Trading in Cheras,1,1.0,1,1,1
+133,human_0133,sroie_270,Store shopping and payment receipt from Elken Service in Kuala Lumpur,1,1.0,1,1,1
+134,human_0134,sroie_271,Wholesale sundry goods and household groceries purchase at Five Star Cash & Carry,3,0.3333333333333333,0,1,1
+135,human_0135,sroie_272,Store shopping and payment receipt from Broadview Marketing in Shah Alam,1,1.0,1,1,1
+136,human_0136,sroie_273,Pharmacy medical and health essentials receipt from Bemed (Sp) in Shah Alam,1,1.0,1,1,1
+137,human_0137,sroie_274,Wholesale sundry goods and household groceries purchase at Super.Seven Cash & Carry,3,0.3333333333333333,0,1,1
+138,human_0138,sroie_276,Grocery shopping receipt at 99 Speedmart convenience store in Klang,9,0.1111111111111111,0,0,1
+139,human_0139,sroie_277,Bookstore purchase bill for books and stationery at S&Y Stationery in Shah Alam,3,0.3333333333333333,0,1,1
+140,human_0140,sroie_281,Restaurant food and dining bill at Di Huan Ya Restaurant in Johor,1,1.0,1,1,1
+141,human_0141,sroie_283,Store shopping and payment receipt from Unihakka International in Johor,15,0.06666666666666667,0,0,0
+142,human_0142,sroie_284,Store shopping and payment receipt from Unihakka International in Johor,16,0.0625,0,0,0
+143,human_0143,sroie_290,"Fresh pastry, buns, and cake bakery receipt from Lavender Confectionery & Bakery",2,0.5,0,1,1
+144,human_0144,sroie_292,Store shopping and payment receipt from Unihakka International in Johor,17,0.058823529411764705,0,0,0
+145,human_0145,sroie_295,Store shopping and payment receipt from Unihakka International in Johor,19,0.05263157894736842,0,0,0
+146,human_0146,sroie_296,Restaurant food and dining bill at Domino'S Pizza in Johor,2,0.5,0,1,1
+147,human_0147,sroie_299,Store shopping and payment receipt from De Maximum Thai Express in Malaysia,1,1.0,1,1,1
+148,human_0148,sroie_300,Store shopping and payment receipt from Aeon . (M) in Cheras,8,0.125,0,0,1
+149,human_0149,sroie_301,Store shopping and payment receipt from Aeon . (M) in Cheras,7,0.14285714285714285,0,0,1
+150,human_0150,sroie_306,Restaurant food and dining bill at The Toast F&B in Johor,1,1.0,1,1,1
+151,human_0151,sroie_310,Restaurant food and dining bill at Domino'S Pizza in Johor,1,1.0,1,1,1
+152,human_0152,sroie_311,Store shopping and payment receipt from Aeon . (M) in Cheras,11,0.09090909090909091,0,0,0
+153,human_0153,sroie_320,"Fresh pastry, buns, and cake bakery receipt from The Roti Man Bakery",1,1.0,1,1,1
+154,human_0154,sroie_321,Store shopping and payment receipt from Haxincone Resources in Malaysia,1,1.0,1,1,1
+155,human_0155,sroie_322,Store shopping and payment receipt from Familymart in Shah Alam,1,1.0,1,1,1
+156,human_0156,sroie_323,Store shopping and payment receipt from R&C Venture in Kuala Lumpur,1,1.0,1,1,1
+157,human_0157,sroie_326,Store shopping and payment receipt from Khiam Aik Chan in Subang,1,1.0,1,1,1
+158,human_0158,sroie_327,Pharmacy medical and health essentials receipt from Subang Healthcare in Subang,1,1.0,1,1,1
+159,human_0159,sroie_328,Bakery delivery and bread invoice from Gardenia in Shah Alam,22,0.045454545454545456,0,0,0
+160,human_0160,sroie_330,Bakery delivery and bread invoice from Gardenia in Shah Alam,8,0.125,0,0,1
+161,human_0161,sroie_332,Bakery delivery and bread invoice from Gardenia in Shah Alam,4,0.25,0,1,1
+162,human_0162,sroie_333,Bakery delivery and bread invoice from Gardenia in Shah Alam,7,0.14285714285714285,0,0,1
+163,human_0163,sroie_334,Bakery delivery and bread invoice from Gardenia in Shah Alam,5,0.2,0,1,1
+164,human_0164,sroie_337,Bakery delivery and bread invoice from Gardenia in Shah Alam,13,0.07692307692307693,0,0,0
+165,human_0165,sroie_342,Bakery delivery and bread invoice from Gardenia in Shah Alam,14,0.07142857142857142,0,0,0
+166,human_0166,sroie_343,Bakery delivery and bread invoice from Gardenia in Shah Alam,10,0.1,0,0,1
+167,human_0167,sroie_344,Bakery delivery and bread invoice from Gardenia in Shah Alam,17,0.058823529411764705,0,0,0
+168,human_0168,sroie_348,Bakery delivery and bread invoice from Gardenia in Shah Alam,16,0.0625,0,0,0
+169,human_0169,sroie_352,Bakery delivery and bread invoice from Gardenia in Shah Alam,19,0.05263157894736842,0,0,0
+170,human_0170,sroie_353,Bakery delivery and bread invoice from Gardenia in Shah Alam,20,0.05,0,0,0
+171,human_0171,sroie_362,Bakery delivery and bread invoice from Gardenia in Shah Alam,21,0.047619047619047616,0,0,0
+172,human_0172,sroie_363,Bakery delivery and bread invoice from Gardenia in Shah Alam,9,0.1111111111111111,0,0,1
+173,human_0173,sroie_365,Bakery delivery and bread invoice from Gardenia in Shah Alam,15,0.06666666666666667,0,0,0
+174,human_0174,sroie_366,Bakery delivery and bread invoice from Gardenia in Shah Alam,18,0.05555555555555555,0,0,0
+175,human_0175,sroie_367,Bakery delivery and bread invoice from Gardenia in Shah Alam,12,0.08333333333333333,0,0,0
+176,human_0176,sroie_368,Bakery delivery and bread invoice from Gardenia in Shah Alam,1,1.0,1,1,1
+177,human_0177,sroie_369,Bakery delivery and bread invoice from Gardenia in Shah Alam,11,0.09090909090909091,0,0,0
+178,human_0178,sroie_370,Bakery delivery and bread invoice from Gardenia in Shah Alam,3,0.3333333333333333,0,1,1
+179,human_0179,sroie_372,Bakery delivery and bread invoice from Gardenia in Shah Alam,23,0.043478260869565216,0,0,0
+180,human_0180,sroie_373,Bakery delivery and bread invoice from Gardenia in Shah Alam,2,0.5,0,1,1
+181,human_0181,sroie_374,Bakery delivery and bread invoice from Gardenia in Shah Alam,6,0.16666666666666666,0,0,1
+182,human_0182,sroie_378,Home improvement tools and hardware supplies receipt from MR DIY in Seri Kembangan,19,0.05263157894736842,0,0,0
+183,human_0183,sroie_379,Home improvement tools and hardware supplies receipt from MR DIY in Seri Kembangan,16,0.0625,0,0,0
+184,human_0184,sroie_381,Cosmetics and household nutritional supplements purchase receipt from Cosway,1,1.0,1,1,1
+185,human_0185,sroie_386,Pharmacy medical and health essentials receipt from Guardian Health And Beauty in town,1,1.0,1,1,1
+186,human_0186,sroie_387,Grocery shopping receipt at 99 Speedmart convenience store in Klang,15,0.06666666666666667,0,0,0
+187,human_0187,sroie_388,Store shopping and payment receipt from Chef Lee in Petaling Jaya,1,1.0,1,1,1
+188,human_0188,sroie_389,Home improvement tools and hardware supplies receipt from MR DIY in Seri Kembangan,23,0.043478260869565216,0,0,0
+189,human_0189,sroie_390,Home improvement tools and hardware supplies receipt from MR DIY in Seri Kembangan,21,0.047619047619047616,0,0,0
+190,human_0190,sroie_391,Grocery shopping receipt at 99 Speedmart convenience store in Klang,3,0.3333333333333333,0,1,1
+191,human_0191,sroie_392,Home improvement tools and hardware supplies receipt from MR DIY in Seri Kembangan,10,0.1,0,0,1
+192,human_0192,sroie_393,Restaurant food and dining bill at Golden Arches Restaurants in Damansara,2,0.5,0,1,1
+193,human_0193,sroie_394,Grocery shopping receipt at 99 Speedmart convenience store in Klang,8,0.125,0,0,1
+194,human_0194,sroie_396,Store shopping and payment receipt from Four Quarters in Damansara,1,1.0,1,1,1
+195,human_0195,sroie_397,Cosmetics and household nutritional supplements purchase receipt from Cosway,2,0.5,0,1,1
+196,human_0196,sroie_398,Grocery shopping receipt at 99 Speedmart convenience store in Klang,12,0.08333333333333333,0,0,0
+197,human_0197,sroie_400,Store shopping and payment receipt from Sin Thye & Company in Kuala Lumpur,1,1.0,1,1,1
+198,human_0198,sroie_401,Home improvement tools and hardware supplies receipt from MR DIY in Seri Kembangan,25,0.04,0,0,0
+199,human_0199,sroie_405,Grocery shopping receipt at 99 Speedmart convenience store in Klang,4,0.25,0,1,1

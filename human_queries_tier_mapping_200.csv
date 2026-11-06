@@ -1,0 +1,201 @@
+query_idx,target_receipt_id,tier,query_type,query_text,word_bm25_target_rank,word_bm25_target_rr,word_bm25_target_score,char_bm25_target_rank,char_bm25_target_rr,char_bm25_target_score
+0,sroie_000,Tier 1 (Original 100 Probes),handwritten_paraphrase,Find receipt for books and modelling clay bought in Taman Daya,1,1.0,18.0937,1,1.0,225.3551
+1,sroie_001,Tier 1 (Original 100 Probes),handwritten_paraphrase,What did I buy home decor items in Johor Jaya?,1,1.0,12.3487,1,1.0,158.6364
+2,sroie_003,Tier 1 (Original 100 Probes),handwritten_paraphrase,Receipt for shopping at Yongfatt store on Christmas,20,0.05,4.0027,3,0.3333,93.9277
+3,sroie_006,Tier 1 (Original 100 Probes),handwritten_paraphrase,Hardware bill for machinery tools and supplies at Soon Huat,1,1.0,11.5063,1,1.0,156.5177
+4,sroie_007,Tier 1 (Original 100 Probes),handwritten_paraphrase,Motorcycle repair and service bill in Sungai Rengit,1,1.0,11.4047,1,1.0,197.9022
+5,sroie_009,Tier 1 (Original 100 Probes),handwritten_paraphrase,Breakfast porridge meal receipt at McDonalds Gerbang Alaf,1,1.0,8.9124,1,1.0,200.5438
+6,sroie_010,Tier 1 (Original 100 Probes),handwritten_paraphrase,Receipt for goods from Sam Sam Trading in Shah Alam,1,1.0,16.2458,1,1.0,194.2464
+7,sroie_011,Tier 1 (Original 100 Probes),handwritten_paraphrase,Hardware shop bill for big stretch film packing roll,1,1.0,14.2772,1,1.0,200.5635
+8,sroie_025,Tier 1 (Original 100 Probes),handwritten_paraphrase,School books and stationery purchase in Batang Berjuntai,1,1.0,10.7666,1,1.0,179.3345
+9,sroie_027,Tier 1 (Original 100 Probes),handwritten_paraphrase,Home maintenance and DIY tools bill from MR DIY,75,0.0133,1.8524,266,0.0038,6.9336
+10,sroie_029,Tier 1 (Original 100 Probes),handwritten_paraphrase,Receipt from C W Khoo hardware store in Johor Bahru,1,1.0,11.0307,1,1.0,160.7153
+11,sroie_030,Tier 1 (Original 100 Probes),handwritten_paraphrase,Dinner meal bill at Unihakka on 5th March,4,0.25,4.5946,12,0.0833,61.9413
+12,sroie_031,Tier 1 (Original 100 Probes),handwritten_paraphrase,Department store receipt for purchases at Aeon Maluri,1,1.0,11.5961,4,0.25,115.8486
+13,sroie_032,Tier 1 (Original 100 Probes),handwritten_paraphrase,Food order receipt from Unihakka Restaurant on 3rd March,15,0.0667,4.4001,29,0.0345,60.5255
+14,sroie_034,Tier 1 (Original 100 Probes),handwritten_paraphrase,Receipt from Perniagaan Zheng Hui store,2,0.5,6.0774,2,0.5,103.0463
+15,sroie_035,Tier 1 (Original 100 Probes),handwritten_paraphrase,Lunch food bill at Unihakka Restaurant on 12 March,6,0.1667,6.2128,2,0.5,89.6448
+16,sroie_036,Tier 1 (Original 100 Probes),handwritten_paraphrase,Dinner bill from Unihakka restaurant on 14 March,11,0.0909,5.3359,6,0.1667,68.1889
+17,sroie_038,Tier 1 (Original 100 Probes),handwritten_paraphrase,Store purchase at Aeon Tebrau City mall on 11 March,2,0.5,17.3534,1,1.0,232.1977
+18,sroie_040,Tier 1 (Original 100 Probes),handwritten_paraphrase,Drinks and food bill at Three Stooges Bistro in Damansara,1,1.0,17.3143,1,1.0,274.345
+19,sroie_043,Tier 1 (Original 100 Probes),handwritten_paraphrase,Show bill for beers and dinner at 32 Pub and Bistro in Damansara,1,1.0,15.4043,1,1.0,145.9811
+20,sroie_044,Tier 1 (Original 100 Probes),handwritten_paraphrase,Dining receipt for food at Unihakka on 18 March,540,0.0019,0.0,313,0.0032,1.4839
+21,sroie_046,Tier 1 (Original 100 Probes),handwritten_paraphrase,Grocery shopping receipt from mini market in Permas Jaya,1,1.0,7.6992,6,0.1667,94.2341
+22,sroie_047,Tier 1 (Original 100 Probes),handwritten_paraphrase,Seafood dinner receipt from Sin Du Restaurant,1,1.0,9.6413,6,0.1667,96.8509
+23,sroie_048,Tier 1 (Original 100 Probes),handwritten_paraphrase,Hardware tools and construction parts from Yong Tat,1,1.0,8.7739,1,1.0,100.3939
+24,sroie_049,Tier 1 (Original 100 Probes),handwritten_paraphrase,Receipt for items bought at Zheng Hui in Permas,1,1.0,11.6699,1,1.0,146.8023
+25,sroie_050,Tier 1 (Original 100 Probes),handwritten_paraphrase,Dinner receipt for ribs at Morganfields Kitchenette,1,1.0,7.3844,1,1.0,225.8079
+26,sroie_054,Tier 1 (Original 100 Probes),handwritten_paraphrase,Lunch bill at Carrefour restaurant in Permas,1,1.0,9.978,1,1.0,198.3247
+27,sroie_055,Tier 1 (Original 100 Probes),handwritten_paraphrase,Vegetable dish food receipt at Unihakka Restaurant,562,0.0018,0.0,237,0.0042,11.7692
+28,sroie_057,Tier 1 (Original 100 Probes),handwritten_paraphrase,Dinner receipt at Unihakka Restaurant on 29 March,1,1.0,6.7793,1,1.0,93.3227
+29,sroie_061,Tier 1 (Original 100 Probes),handwritten_paraphrase,Receipt for Peri Peri chicken meal at Nandos,1,1.0,10.4485,1,1.0,186.2186
+30,sroie_064,Tier 1 (Original 100 Probes),handwritten_paraphrase,Dining receipt for Chinese food at Sun Wong Kut,1,1.0,10.7861,1,1.0,106.9552
+31,sroie_065,Tier 1 (Original 100 Probes),handwritten_paraphrase,Dinner meal bill at Jiawei House restaurant,1,1.0,11.1229,2,0.5,206.8228
+32,sroie_067,Tier 1 (Original 100 Probes),handwritten_paraphrase,Vegetarian food bill at Lian Chi Pu Tian restaurant,1,1.0,18.5346,1,1.0,241.5969
+33,sroie_071,Tier 1 (Original 100 Probes),handwritten_paraphrase,Shopping receipt from Aeon Taman Maluri shopping centre,7,0.1429,13.9102,7,0.1429,183.9485
+34,sroie_073,Tier 1 (Original 100 Probes),handwritten_paraphrase,Office supplies and stationery bill from Lian Hing in Jalan Sultan,1,1.0,10.3347,3,0.3333,135.2936
+35,sroie_078,Tier 1 (Original 100 Probes),handwritten_paraphrase,Thai food dinner bill at Thai Delicious in Bandar Puteri,1,1.0,18.7437,1,1.0,252.5892
+36,sroie_079,Tier 1 (Original 100 Probes),handwritten_paraphrase,Tools and household hardware items bought at MR DIY,103,0.0097,1.6252,244,0.0041,7.136
+37,sroie_080,Tier 1 (Original 100 Probes),handwritten_paraphrase,Hardware supplies receipt from Hon Hwa Trading,1,1.0,11.8409,1,1.0,122.3195
+38,sroie_081,Tier 1 (Original 100 Probes),handwritten_paraphrase,Pack of AAA batteries bought from MR DIY store,2,0.5,5.8472,1,1.0,60.9542
+39,sroie_082,Tier 1 (Original 100 Probes),handwritten_paraphrase,Hardware equipment bill from Hon Hwa Trading,2,0.5,8.2192,4,0.25,90.3065
+40,sroie_084,Tier 1 (Original 100 Probes),handwritten_paraphrase,Plastic cloth pegs bought at MR DIY hardware,1,1.0,6.6004,1,1.0,80.2282
+41,sroie_085,Tier 1 (Original 100 Probes),handwritten_paraphrase,Padlock security lock purchased at MR DIY,2,0.5,6.1415,1,1.0,67.1345
+42,sroie_089,Tier 1 (Original 100 Probes),handwritten_paraphrase,Store receipt from FY Eagle in Bukit Serdang,2,0.5,8.378,2,0.5,141.5663
+43,sroie_091,Tier 1 (Original 100 Probes),handwritten_paraphrase,Supermarket grocery bill from Mydin Mart in Sri Muda,1,1.0,13.9108,1,1.0,163.4763
+44,sroie_093,Tier 1 (Original 100 Probes),handwritten_paraphrase,Receipt for items bought on third floor at Aeon Maluri,1,1.0,13.6494,1,1.0,133.5042
+45,sroie_094,Tier 1 (Original 100 Probes),handwritten_paraphrase,Shopping bill from Aeon department store,6,0.1667,7.5226,5,0.2,81.8426
+46,sroie_095,Tier 1 (Original 100 Probes),handwritten_paraphrase,Receipt for books and stationery bought at Popular bookstore,5,0.2,10.0887,4,0.25,167.9627
+47,sroie_097,Tier 1 (Original 100 Probes),handwritten_paraphrase,Books purchase receipt from Popular Bookstore in January,6,0.1667,8.3552,4,0.25,156.1101
+48,sroie_098,Tier 1 (Original 100 Probes),handwritten_paraphrase,Plumbing and hardware items bought at Wahin Hardware,1,1.0,8.3446,1,1.0,137.4926
+49,sroie_099,Tier 1 (Original 100 Probes),handwritten_paraphrase,Hardware shop receipt from Gin Kee store,8,0.125,5.1529,42,0.0238,42.6917
+50,sroie_101,Tier 1 (Original 100 Probes),handwritten_paraphrase,Hardware Receipt from Syarikat Gin Kee store,1,1.0,7.9073,6,0.1667,91.99
+51,sroie_102,Tier 1 (Original 100 Probes),handwritten_paraphrase,Receipt of IKEA Cheras Ikano Handel dated 23/12/17,1,1.0,24.5944,1,1.0,303.2727
+52,sroie_103,Tier 1 (Original 100 Probes),handwritten_paraphrase,Receipt of Syarikat perniagaan gin kee in setapak dated 28/12/2017,2,0.5,17.5756,1,1.0,262.4202
+53,sroie_104,Tier 1 (Original 100 Probes),handwritten_paraphrase,Food receipt from Chilis T.A.S. Leisure SDN BHD dated 30/12/2017,1,1.0,17.0325,1,1.0,231.6083
+54,sroie_108,Tier 1 (Original 100 Probes),handwritten_paraphrase,Receipt from Lim Seng Tho Harware Trading,2,0.5,13.9355,1,1.0,184.6367
+55,sroie_109,Tier 1 (Original 100 Probes),handwritten_paraphrase,Receipt from Lim Seng Tho Harware Trading,1,1.0,14.0188,2,0.5,184.4268
+56,sroie_111,Tier 1 (Original 100 Probes),handwritten_paraphrase,Large hardware supply invoice from Gin Kee on 28 Dec 2017,7,0.1429,6.5843,91,0.011,49.4955
+57,sroie_112,Tier 1 (Original 100 Probes),handwritten_paraphrase,Parking fee receipt at Solaris Dutamas dated 14/01/2018,1,1.0,29.5088,1,1.0,428.0878
+58,sroie_114,Tier 1 (Original 100 Probes),handwritten_paraphrase,Hardware store tools receipt from Gin Kee on 4th January 2018,12,0.0833,5.3284,18,0.0556,56.4761
+59,sroie_115,Tier 1 (Original 100 Probes),handwritten_paraphrase,Plumbing items bill from Gin Kee dated 10 Jan 2018,2,0.5,7.2827,12,0.0833,60.1055
+60,sroie_117,Tier 1 (Original 100 Probes),handwritten_paraphrase,Receipt for construction materials from Gin Kee on 3 Jan 2018,12,0.0833,6.2079,58,0.0172,42.6414
+61,sroie_121,Tier 1 (Original 100 Probes),handwritten_paraphrase,Hardware repair parts bill from Gin Kee on 11 January,3,0.3333,6.3596,17,0.0588,62.9046
+62,sroie_122,Tier 1 (Original 100 Probes),handwritten_paraphrase,Small hardware screws purchase from Gin Kee on 13 Jan 2018,3,0.3333,7.4628,48,0.0208,51.007
+63,sroie_123,Tier 1 (Original 100 Probes),handwritten_paraphrase,Hardware store bill from Gin Kee dated 02/01/2018,3,0.3333,8.4841,1,1.0,105.6175
+64,sroie_124,Tier 1 (Original 100 Probes),handwritten_paraphrase,Hardware items receipt from Gin Kee store on 12 Feb 2018,13,0.0769,6.2015,32,0.0312,52.7054
+65,sroie_126,Tier 1 (Original 100 Probes),handwritten_paraphrase,Building supplies bill from Gin Kee dated 03/02/2018,2,0.5,8.278,1,1.0,99.1242
+66,sroie_127,Tier 1 (Original 100 Probes),handwritten_paraphrase,Receipt for small hardware item at Gin Kee in January,12,0.0833,6.2495,45,0.0222,51.3475
+67,sroie_134,Tier 1 (Original 100 Probes),handwritten_paraphrase,Grocery bill from Mydin Mart Sri Muda dated 10/08/2017,1,1.0,18.1764,1,1.0,229.2223
+68,sroie_135,Tier 1 (Original 100 Probes),handwritten_paraphrase,Electrical wiring and lighting supplies receipt on 4 Dec 2017,28,0.0357,6.1519,1,1.0,114.1982
+69,sroie_141,Tier 1 (Original 100 Probes),handwritten_paraphrase,Chinese noodle lunch bill at Restoran Wan Sheng on 12 March 2018,3,0.3333,10.1946,12,0.0833,122.2005
+70,sroie_142,Tier 1 (Original 100 Probes),handwritten_paraphrase,Coffee and drink receipt from Wan Sheng on 14 March 2018,2,0.5,8.3145,5,0.2,69.6036
+71,sroie_146,Tier 1 (Original 100 Probes),handwritten_paraphrase,Dinner bill at PappaRich restaurant dated 24/03/2018,15,0.0667,5.4328,5,0.2,92.7865
+72,sroie_150,Tier 1 (Original 100 Probes),handwritten_paraphrase,Retail purchase receipt from SWC Enterprise on 28 March 2018,1,1.0,10.0018,7,0.1429,96.7352
+73,sroie_151,Tier 1 (Original 100 Probes),handwritten_paraphrase,Flower bouquet and gift craft bill dated 21 March 2018,52,0.0192,3.0997,6,0.1667,55.2434
+74,sroie_152,Tier 1 (Original 100 Probes),handwritten_paraphrase,Toiletries and skincare shopping receipt from Watsons on 25 March 2018,5,0.2,6.4987,1,1.0,141.9341
+75,sroie_156,Tier 1 (Original 100 Probes),handwritten_paraphrase,Japanese food dinner bill at Kiku Restaurant on 17 Jan 2018,1,1.0,12.1928,1,1.0,144.8968
+76,sroie_157,Tier 1 (Original 100 Probes),handwritten_paraphrase,Ice cream receipt from Baskin Robbins dated 16/02/2018,1,1.0,12.3056,1,1.0,227.725
+77,sroie_159,Tier 1 (Original 100 Probes),handwritten_paraphrase,Party supplies and toy purchase bill from Fun N Cheer on 5 Jan 2018,1,1.0,14.5038,1,1.0,118.0296
+78,sroie_160,Tier 1 (Original 100 Probes),handwritten_paraphrase,Boba milk tea drink receipt from Tealive dated 21 Jan 2018,1,1.0,11.6523,1,1.0,127.9291
+79,sroie_163,Tier 1 (Original 100 Probes),handwritten_paraphrase,Weekly grocery shopping bill at 99 Speedmart on 17 Feb 2018,15,0.0667,4.6314,8,0.125,60.8637
+80,sroie_165,Tier 1 (Original 100 Probes),handwritten_paraphrase,Korean BBQ chicken dinner bill at Mr Dakgalbi on 5 Jan 2018,1,1.0,7.8597,1,1.0,98.1923
+81,sroie_166,Tier 1 (Original 100 Probes),handwritten_paraphrase,Supermarket goods receipt from The Store dated 14/01/2018,1,1.0,13.571,1,1.0,129.649
+82,sroie_167,Tier 1 (Original 100 Probes),handwritten_paraphrase,Traditional kuih and lunch receipt at Nyonya Colors on 18 March 2018,1,1.0,15.7791,1,1.0,170.7238
+83,sroie_169,Tier 1 (Original 100 Probes),handwritten_paraphrase,Taro ball shaved ice dessert bill from Yam Fresh on 18 March 2018,1,1.0,20.3341,1,1.0,142.6072
+84,sroie_173,Tier 1 (Original 100 Probes),handwritten_paraphrase,Pizza delivery dinner order bill dated 26/03/2018,1,1.0,8.6022,2,0.5,105.2007
+85,sroie_174,Tier 1 (Original 100 Probes),handwritten_paraphrase,Prescription medicine bill from Happy Pharmacy on 1 Feb 2018,1,1.0,10.2101,1,1.0,144.7914
+86,sroie_175,Tier 1 (Original 100 Probes),handwritten_paraphrase,Stationery supplies and pens receipt from Popular Book on 11 Feb 2018,1,1.0,13.2333,3,0.3333,162.4107
+87,sroie_181,Tier 1 (Original 100 Probes),handwritten_paraphrase,Petrol fuel pump receipt from BHPetrol dated 24 March 2018,1,1.0,10.9985,2,0.5,120.1264
+88,sroie_185,Tier 1 (Original 100 Probes),handwritten_paraphrase,Bulk grocery shopping bill from Super Seven on 12 Feb 2018,1,1.0,8.9389,1,1.0,113.7446
+89,sroie_191,Tier 1 (Original 100 Probes),handwritten_paraphrase,Hardware store parts receipt from ENW Ara Damansara on 10 March 2018,1,1.0,17.9431,2,0.5,158.4046
+90,sroie_194,Tier 1 (Original 100 Probes),handwritten_paraphrase,Department store clothing receipt from Aeon Maluri dated 28 Feb 2018,8,0.125,9.2057,9,0.1111,97.2371
+91,sroie_196,Tier 1 (Original 100 Probes),handwritten_paraphrase,Bookstore notebook purchase from Popular on 11 March 2018,2,0.5,7.4498,1,1.0,142.6139
+92,sroie_199,Tier 1 (Original 100 Probes),handwritten_paraphrase,Hardware drill bit purchase bill dated 10/10/2017,3,0.3333,6.6625,1,1.0,150.8065
+93,sroie_203,Tier 1 (Original 100 Probes),handwritten_paraphrase,Household repair tools receipt from MR DIY on 26 March 2018,6,0.1667,5.4945,78,0.0128,27.837
+94,sroie_204,Tier 1 (Original 100 Probes),handwritten_paraphrase,Home hardware supplies bill from MR DIY dated 25 March 2018,60,0.0167,3.7783,281,0.0036,11.3547
+95,sroie_205,Tier 1 (Original 100 Probes),handwritten_paraphrase,Tools and repair purchase receipt from MR DIY on 23 March 2018,7,0.1429,6.1457,67,0.0149,32.1718
+96,sroie_206,Tier 1 (Original 100 Probes),handwritten_paraphrase,Duplicate house key maker bill in Puchong dated 24 March 2018,1,1.0,20.1879,1,1.0,216.4023
+97,sroie_208,Tier 1 (Original 100 Probes),handwritten_paraphrase,Hardware store items receipt from MR DIY on 24 March 2018,23,0.0435,4.802,89,0.0112,34.8836
+98,sroie_210,Tier 1 (Original 100 Probes),handwritten_paraphrase,Home furniture and curtains bill at Kaison Melawati on 29 Jan 2018,1,1.0,10.2261,1,1.0,152.7191
+99,sroie_214,Tier 1 (Original 100 Probes),handwritten_paraphrase,Grocery sundry items purchase receipt dated 06/02/2018,17,0.0588,4.7037,19,0.0526,76.7406
+100,sroie_016,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Store shopping and payment receipt from Lightroom Gallery in Klang,3,0.3333,7.1537,1,1.0,145.1108
+101,sroie_216,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Store shopping and payment receipt from Advanco Company in Kuala Lumpur,1,1.0,10.4779,1,1.0,192.0169
+102,sroie_217,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Store shopping and payment receipt from Ikano Handel in Kuala Lumpur,1,1.0,11.9086,1,1.0,178.5525
+103,sroie_220,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,"Printing banners, signages, and document copy service bill at Print Expert",1,1.0,11.8441,1,1.0,152.0154
+104,sroie_222,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Bookstore purchase bill for books and stationery at Popular Book . (M) in Kuala Lumpur,7,0.1429,13.9614,7,0.1429,200.1671
+105,sroie_223,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Bookstore purchase bill for books and stationery at Popular Book . (M) in Kuala Lumpur,5,0.2,17.0213,6,0.1667,237.9657
+106,sroie_224,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Store shopping and payment receipt from Boon Seng Paper in Shah Alam,1,1.0,14.8734,1,1.0,175.7987
+107,sroie_225,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Store shopping and payment receipt from Relais Total Oulmes in Malaysia,1,1.0,12.314,1,1.0,197.7158
+108,sroie_226,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Skincare and beauty cosmetics shopping bill at TonyMoly store in Kuching,5,0.2,6.064,3,0.3333,131.1
+109,sroie_228,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Skincare and beauty cosmetics shopping bill at TonyMoly store in Kuching,2,0.5,8.5758,2,0.5,153.4644
+110,sroie_229,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,"Printing banners, signages, and document copy service bill at Anzel Advertising (M)",2,0.5,8.7286,1,1.0,216.2192
+111,sroie_231,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Home improvement tools and hardware supplies receipt from MR DIY in Seri Kembangan,55,0.0182,5.4884,80,0.0125,75.1974
+112,sroie_232,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Bookstore purchase bill for books and stationery at Premio Stationery in Petaling Jaya,1,1.0,17.1443,1,1.0,291.0495
+113,sroie_233,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Store shopping and payment receipt from Y Soon Fatt in Klang,1,1.0,8.7909,3,0.3333,98.043
+114,sroie_234,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Pharmacy medical and health essentials receipt from Bemed (Sp) in Shah Alam,2,0.5,11.3872,2,0.5,138.0279
+115,sroie_236,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Restaurant food and dining bill at B & Best Restaurant in Petaling Jaya,1,1.0,19.0524,1,1.0,242.0673
+116,sroie_238,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Pharmacy medical and health essentials receipt from Olive9 Pharmacy in Subang,104,0.0096,1.8536,10,0.1,67.1955
+117,sroie_239,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Wholesale sundry goods and household groceries purchase at Segi Cash & Carry,10,0.1,5.4322,3,0.3333,115.8213
+118,sroie_242,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Wholesale sundry goods and household groceries purchase at Segi Cash & Carry,1,1.0,9.9013,2,0.5,122.6763
+119,sroie_243,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Wholesale sundry goods and household groceries purchase at Segi Cash & Carry,3,0.3333,7.8743,1,1.0,130.6767
+120,sroie_244,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Restaurant food and dining bill at Golden Arches Restaurants in Damansara,1,1.0,16.0706,1,1.0,251.0614
+121,sroie_246,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,"Fresh pastry, buns, and cake bakery receipt from King'S Confectionery",1,1.0,9.2751,1,1.0,168.7697
+122,sroie_248,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Parking fee payment ticket receipt in Petaling Jaya,1,1.0,18.0128,1,1.0,234.6914
+123,sroie_249,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Clothing alterations and tailoring service invoice from Gl Handicraft & Taii Oring,2,0.5,12.6097,3,0.3333,195.1137
+124,sroie_250,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Clothing alterations and tailoring service invoice from Gl Handicraft & Taii Oring,1,1.0,13.0044,1,1.0,242.8309
+125,sroie_252,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Bookstore purchase bill for books and stationery at Times Bookstores in shopping mall,2,0.5,11.5949,1,1.0,214.1986
+126,sroie_256,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Store shopping and payment receipt from Billion Six in Shah Alam,1,1.0,11.791,1,1.0,152.7737
+127,sroie_257,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Parking fee payment ticket receipt in Shah Alam,1,1.0,16.8891,1,1.0,199.1845
+128,sroie_259,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Grocery shopping receipt at 99 Speedmart convenience store in Klang,3,0.3333,5.861,8,0.125,95.2478
+129,sroie_260,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Store shopping and payment receipt from Perniagaan Riang Ria in Shah Alam,1,1.0,18.6905,1,1.0,259.1712
+130,sroie_263,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Store shopping and payment receipt from Hero Distribution in Subang,1,1.0,10.6273,1,1.0,195.9609
+131,sroie_264,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Wholesale sundry goods and household groceries purchase at Segi Cash & Carry,34,0.0294,3.3979,7,0.1429,92.84
+132,sroie_269,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Store shopping and payment receipt from In-Sparkle Trading in Cheras,1,1.0,9.5449,1,1.0,163.6515
+133,sroie_270,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Store shopping and payment receipt from Elken Service in Kuala Lumpur,1,1.0,14.7503,1,1.0,228.9414
+134,sroie_271,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Wholesale sundry goods and household groceries purchase at Five Star Cash & Carry,1,1.0,14.1378,1,1.0,166.2378
+135,sroie_272,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Store shopping and payment receipt from Broadview Marketing in Shah Alam,1,1.0,11.7271,1,1.0,228.7421
+136,sroie_273,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Pharmacy medical and health essentials receipt from Bemed (Sp) in Shah Alam,1,1.0,12.9991,1,1.0,165.4405
+137,sroie_274,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Wholesale sundry goods and household groceries purchase at Super.Seven Cash & Carry,1,1.0,13.0523,1,1.0,204.0852
+138,sroie_276,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Grocery shopping receipt at 99 Speedmart convenience store in Klang,114,0.0088,1.7817,54,0.0185,51.4243
+139,sroie_277,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Bookstore purchase bill for books and stationery at S&Y Stationery in Shah Alam,18,0.0556,9.219,5,0.2,145.3739
+140,sroie_281,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Restaurant food and dining bill at Di Huan Ya Restaurant in Johor,1,1.0,15.6077,1,1.0,180.0368
+141,sroie_283,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Store shopping and payment receipt from Unihakka International in Johor,9,0.1111,11.9191,11,0.0909,192.3733
+142,sroie_284,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Store shopping and payment receipt from Unihakka International in Johor,5,0.2,12.4102,5,0.2,200.8398
+143,sroie_290,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,"Fresh pastry, buns, and cake bakery receipt from Lavender Confectionery & Bakery",1,1.0,9.7268,1,1.0,218.5828
+144,sroie_292,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Store shopping and payment receipt from Unihakka International in Johor,19,0.0526,9.9346,20,0.05,177.3426
+145,sroie_295,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Store shopping and payment receipt from Unihakka International in Johor,13,0.0769,11.7859,6,0.1667,198.5983
+146,sroie_296,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Restaurant food and dining bill at Domino'S Pizza in Johor,2,0.5,19.1147,2,0.5,250.265
+147,sroie_299,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Store shopping and payment receipt from De Maximum Thai Express in Malaysia,1,1.0,18.3847,1,1.0,261.4641
+148,sroie_300,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Store shopping and payment receipt from Aeon . (M) in Cheras,4,0.25,11.272,3,0.3333,129.6657
+149,sroie_301,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Store shopping and payment receipt from Aeon . (M) in Cheras,2,0.5,11.6123,1,1.0,139.3844
+150,sroie_306,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Restaurant food and dining bill at The Toast F&B in Johor,1,1.0,12.514,1,1.0,141.8875
+151,sroie_310,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Restaurant food and dining bill at Domino'S Pizza in Johor,1,1.0,19.785,1,1.0,253.2507
+152,sroie_311,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Store shopping and payment receipt from Aeon . (M) in Cheras,9,0.1111,8.556,11,0.0909,101.4707
+153,sroie_320,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,"Fresh pastry, buns, and cake bakery receipt from The Roti Man Bakery",1,1.0,12.8056,1,1.0,141.6632
+154,sroie_321,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Store shopping and payment receipt from Haxincone Resources in Malaysia,29,0.0345,4.0404,1,1.0,167.6241
+155,sroie_322,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Store shopping and payment receipt from Familymart in Shah Alam,1,1.0,9.8305,1,1.0,229.3612
+156,sroie_323,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Store shopping and payment receipt from R&C Venture in Kuala Lumpur,1,1.0,15.2567,1,1.0,179.0642
+157,sroie_326,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Store shopping and payment receipt from Khiam Aik Chan in Subang,1,1.0,15.3894,1,1.0,191.8154
+158,sroie_327,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Pharmacy medical and health essentials receipt from Subang Healthcare in Subang,3,0.3333,6.2174,1,1.0,176.139
+159,sroie_328,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Bakery delivery and bread invoice from Gardenia in Shah Alam,15,0.0667,7.5656,16,0.0625,108.1146
+160,sroie_330,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Bakery delivery and bread invoice from Gardenia in Shah Alam,16,0.0625,7.5656,22,0.0455,105.806
+161,sroie_332,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Bakery delivery and bread invoice from Gardenia in Shah Alam,13,0.0769,7.6189,20,0.05,106.9515
+162,sroie_333,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Bakery delivery and bread invoice from Gardenia in Shah Alam,24,0.0417,6.9353,7,0.1429,110.4731
+163,sroie_334,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Bakery delivery and bread invoice from Gardenia in Shah Alam,4,0.25,7.926,9,0.1111,109.5619
+164,sroie_337,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Bakery delivery and bread invoice from Gardenia in Shah Alam,21,0.0476,7.1648,2,0.5,113.9986
+165,sroie_342,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Bakery delivery and bread invoice from Gardenia in Shah Alam,11,0.0909,7.6729,17,0.0588,107.886
+166,sroie_343,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Bakery delivery and bread invoice from Gardenia in Shah Alam,23,0.0435,7.0253,6,0.1667,111.8307
+167,sroie_344,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Bakery delivery and bread invoice from Gardenia in Shah Alam,5,0.2,7.8398,14,0.0714,108.2012
+168,sroie_348,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Bakery delivery and bread invoice from Gardenia in Shah Alam,8,0.125,7.7834,18,0.0556,107.2962
+169,sroie_352,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Bakery delivery and bread invoice from Gardenia in Shah Alam,18,0.0556,7.5392,23,0.0435,105.806
+170,sroie_353,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Bakery delivery and bread invoice from Gardenia in Shah Alam,28,0.0357,6.4355,8,0.125,109.9626
+171,sroie_362,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Bakery delivery and bread invoice from Gardenia in Shah Alam,12,0.0833,7.6189,15,0.0667,108.1682
+172,sroie_363,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Bakery delivery and bread invoice from Gardenia in Shah Alam,6,0.1667,7.8398,11,0.0909,108.9975
+173,sroie_365,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Bakery delivery and bread invoice from Gardenia in Shah Alam,7,0.1429,7.8115,12,0.0833,108.3595
+174,sroie_366,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Bakery delivery and bread invoice from Gardenia in Shah Alam,9,0.1111,7.7834,13,0.0769,108.2362
+175,sroie_367,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Bakery delivery and bread invoice from Gardenia in Shah Alam,17,0.0588,7.5392,24,0.0417,105.2051
+176,sroie_368,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Bakery delivery and bread invoice from Gardenia in Shah Alam,19,0.0526,7.513,21,0.0476,106.6435
+177,sroie_369,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Bakery delivery and bread invoice from Gardenia in Shah Alam,10,0.1,7.7277,10,0.1,109.3812
+178,sroie_370,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Bakery delivery and bread invoice from Gardenia in Shah Alam,22,0.0455,7.0712,25,0.04,101.4498
+179,sroie_372,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Bakery delivery and bread invoice from Gardenia in Shah Alam,20,0.05,7.2367,5,0.2,113.2043
+180,sroie_373,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Bakery delivery and bread invoice from Gardenia in Shah Alam,3,0.3333,8.074,3,0.3333,113.6452
+181,sroie_374,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Bakery delivery and bread invoice from Gardenia in Shah Alam,14,0.0714,7.5921,19,0.0526,107.1745
+182,sroie_378,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Home improvement tools and hardware supplies receipt from MR DIY in Seri Kembangan,1,1.0,10.8014,12,0.0833,115.8701
+183,sroie_379,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Home improvement tools and hardware supplies receipt from MR DIY in Seri Kembangan,16,0.0625,8.2927,50,0.02,91.802
+184,sroie_381,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Cosmetics and household nutritional supplements purchase receipt from Cosway,1,1.0,7.5435,3,0.3333,116.5589
+185,sroie_386,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Pharmacy medical and health essentials receipt from Guardian Health And Beauty in town,1,1.0,19.2616,1,1.0,303.2422
+186,sroie_387,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Grocery shopping receipt at 99 Speedmart convenience store in Klang,8,0.125,5.6438,11,0.0909,93.2253
+187,sroie_388,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Store shopping and payment receipt from Chef Lee in Petaling Jaya,1,1.0,13.2255,1,1.0,189.1646
+188,sroie_389,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Home improvement tools and hardware supplies receipt from MR DIY in Seri Kembangan,6,0.1667,9.3561,44,0.0227,98.3254
+189,sroie_390,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Home improvement tools and hardware supplies receipt from MR DIY in Seri Kembangan,26,0.0385,6.2532,79,0.0127,75.6575
+190,sroie_391,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Grocery shopping receipt at 99 Speedmart convenience store in Klang,14,0.0714,5.355,4,0.25,100.6434
+191,sroie_392,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Home improvement tools and hardware supplies receipt from MR DIY in Seri Kembangan,27,0.037,6.2532,74,0.0135,81.2374
+192,sroie_393,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Restaurant food and dining bill at Golden Arches Restaurants in Damansara,2,0.5,14.0756,2,0.5,227.02
+193,sroie_394,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Grocery shopping receipt at 99 Speedmart convenience store in Klang,17,0.0588,5.0636,5,0.2,100.2453
+194,sroie_396,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Store shopping and payment receipt from Four Quarters in Damansara,1,1.0,12.4807,1,1.0,199.4202
+195,sroie_397,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Cosmetics and household nutritional supplements purchase receipt from Cosway,2,0.5,5.573,1,1.0,123.5439
+196,sroie_398,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Grocery shopping receipt at 99 Speedmart convenience store in Klang,6,0.1667,5.6821,6,0.1667,97.9862
+197,sroie_400,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Store shopping and payment receipt from Sin Thye & Company in Kuala Lumpur,1,1.0,12.6901,1,1.0,201.1727
+198,sroie_401,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Home improvement tools and hardware supplies receipt from MR DIY in Seri Kembangan,2,0.5,10.1482,32,0.0312,105.1095
+199,sroie_405,Tier 2 (Expanded 100 Probes),handwritten_paraphrase,Grocery shopping receipt at 99 Speedmart convenience store in Klang,37,0.027,3.1793,21,0.0476,69.2133

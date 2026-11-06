@@ -1,0 +1,4 @@
+feature_name,importance_score,correlation_with_accuracy,stability
+ocr_word_confidence,0.34,+0.22,Moderate
+query_length_tokens,0.28,-0.18,High
+character_jaccard_overlap,0.38,+0.45,High

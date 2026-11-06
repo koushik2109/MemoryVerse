@@ -1,0 +1,63 @@
+Experiment_Suite,Table_Location,Metric,Manuscript_Value,Raw_Artifact_Value,Recalculated_Value,Absolute_Diff,Relative_Diff_Pct,Statistical_Validity,Status,Evidence_File,Notes
+Regime Grid,Table I (p. 4),Word BM25 Clean GT Verbatim MRR,0.9858,0.9858,0.9858,0.0000,0.00%,Valid,VERIFIED,results/v3/headline_regime_grid_v3.csv,N=306 test probes
+Regime Grid,Table I (p. 4),Char BM25 Clean GT Verbatim MRR,0.9815,0.9815,0.9815,0.0000,0.00%,Valid,VERIFIED,results/v3/headline_regime_grid_v3.csv,N=306 test probes
+Regime Grid,Table I (p. 4),Dense MiniLM Clean GT Verbatim MRR,0.4578,0.4578,0.4578,0.0000,0.00%,Valid,VERIFIED,results/v3/headline_regime_grid_v3.csv,Dense collapse verified
+Regime Grid,Table I (p. 4),Dense BGE-base Clean GT Verbatim MRR,0.3256,0.3256,0.3256,0.0000,0.00%,Valid,VERIFIED,results/v3/headline_regime_grid_v3.csv,Dense collapse verified
+Regime Grid,Table I (p. 4),Word BM25 Real OCR Verbatim MRR,0.4089,0.4089,0.4089,0.0000,0.00%,Valid,VERIFIED,results/v3/headline_regime_grid_v3.csv,Real Tesseract OCR
+Regime Grid,Table I (p. 4),Char BM25 Real OCR Verbatim MRR,0.4822,0.4822,0.4822,0.0000,0.00%,Valid,VERIFIED,results/v3/headline_regime_grid_v3.csv,"Char beats Word (+0.0733, p=0.0011)"
+Regime Grid,Table I (p. 4),Dense MiniLM Real OCR Verbatim MRR,0.1983,0.1983,0.1983,0.0000,0.00%,Valid,VERIFIED,results/v3/headline_regime_grid_v3.csv,WordPiece subword drift
+Regime Grid,Table I (p. 4),Dense BGE-base Real OCR Verbatim MRR,0.1557,0.1557,0.1557,0.0000,0.00%,Valid,VERIFIED,results/v3/headline_regime_grid_v3.csv,Catastrophic collapse
+Regime Grid,Table I (p. 4),Hybrid Char+MiniLM Real OCR Verbatim MRR,0.4839,0.4839,0.4839,0.0000,0.00%,Valid,VERIFIED,results/v3/headline_regime_grid_v3.csv,RRF k=60
+Recall Accuracy,Table II (p. 5),Word BM25 Clean Verbatim Recall@5,0.9935,0.9935,0.9935,0.0000,0.00%,Valid,VERIFIED,results/v4/R-01/table_ii_recall_at_k.csv,304/306 queries
+Recall Accuracy,Table II (p. 5),Char BM25 Real OCR Verbatim Recall@5,0.6405,0.6405,0.6405,0.0000,0.00%,Valid,VERIFIED,results/v4/R-01/table_ii_recall_at_k.csv,196/306 queries
+Recall Accuracy,Table II (p. 5),Word BM25 Real OCR Verbatim Recall@5,0.5523,0.5523,0.5523,0.0000,0.00%,Valid,VERIFIED,results/v4/R-01/table_ii_recall_at_k.csv,169/306 queries
+Dense Chunking,Table III (p. 6),BGE-base Unchunked Single-Vector MRR,0.3256,0.3256,0.3256,0.0000,0.00%,Valid,VERIFIED,results/v4/R-01/table_iii_chunked_unchunked.csv,Baseline unchunked
+Dense Chunking,Table III (p. 6),BGE-base Chunked MaxP MRR,0.3321,0.3321,0.3321,0.0000,0.00%,Valid,VERIFIED,results/v4/R-01/table_iii_chunked_unchunked.csv,"Delta=+0.0065, p=0.481 (non-significant)"
+Dense Formulation,Table IV (p. 6),BGE-base Verbatim Entity MRR,0.3256,0.3256,0.3256,0.0000,0.00%,Valid,VERIFIED,results/v4/R-01/table_iv_corrected.csv,Entity name only
+Dense Formulation,Table IV (p. 6),BGE-base Answerable Question MRR,0.5263,0.5263,0.5263,0.0000,0.00%,Valid,VERIFIED,results/v4/R-01/table_iv_corrected.csv,Asymmetric question probe
+Visual TOST,Table VI (p. 8),SigLIP Text-to-Image MRR,0.6071,0.6071,0.6071,0.0000,0.00%,Valid,VERIFIED,results/v4/R-02/coco_siglip_tost_recomputed.csv,"N=1,000 Karpathy test"
+Visual TOST,Table VI (p. 8),4-Ref Human Gold Text MRR,0.6210,0.6210,0.6210,0.0000,0.00%,Valid,VERIFIED,results/v4/R-02/coco_siglip_tost_recomputed.csv,"Captions 0,1,2,4"
+Visual TOST,Table VI (p. 8),SigLIP vs Gold Paired Diff,-0.0139,-0.0139,-0.0139,0.0000,0.00%,Valid,VERIFIED,results/v4/R-02/coco_siglip_tost_recomputed.csv,SE=0.0140
+Visual TOST,Table VI (p. 8),TOST p-value (Delta = +/-0.05),0.0050,0.00498,0.00498,0.0000,0.00%,Parametric t-test,VERIFIED WITH CAVEATS,results/v4/R-02/coco_siglip_tost_recomputed.csv,"Parametric TOST t=2.5825, not permutation"
+FUNSD Transfer,Table VII (p. 9),Word BM25 Tesseract OCR MRR,0.4357,0.4357,0.4357,0.0000,0.00%,Valid,VERIFIED,results/v4/R-03/funsd_easyocr_rerun.csv,"N=100 queries, 700 docs"
+FUNSD Transfer,Table VII (p. 9),Char BM25 Tesseract OCR MRR,0.5120,0.5120,0.5120,0.0000,0.00%,Valid,VERIFIED,results/v4/R-03/funsd_easyocr_rerun.csv,Delta=+0.0763 (p=0.0028)
+FUNSD Transfer,Table VII (p. 9),Word BM25 EasyOCR MRR,0.4721,0.4721,0.4721,0.0000,0.00%,Valid,VERIFIED,results/v4/R-03/funsd_easyocr_rerun.csv,EasyOCR baseline
+FUNSD Transfer,Table VII (p. 9),Char BM25 EasyOCR MRR,0.5489,0.5489,0.5489,0.0000,0.00%,Valid,VERIFIED,results/v4/R-03/funsd_easyocr_rerun.csv,Delta=+0.0768 (p=0.0019)
+DocVQA Visual,Table VIII (p. 9),Native ColQwen2 Visual MRR,0.6284,0.6284,0.6284,0.0000,0.00%,Valid,VERIFIED,results/v4/R-02/docvqa_metrics_reconciled.csv,"N=500 queries, 500 pages"
+DocVQA Visual,Table VIII (p. 9),Char BM25 Tesseract OCR MRR,0.3812,0.3812,0.3812,0.0000,0.00%,Valid,VERIFIED,results/v4/R-02/docvqa_metrics_reconciled.csv,Text proxy baseline
+DocVQA Visual,Table VIII (p. 9),ColQwen2 vs Char BM25 Delta,+0.2472,+0.2472,+0.2472,0.0000,0.00%,Valid,VERIFIED,results/v4/R-02/docvqa_metrics_reconciled.csv,Paired perm p=0.0001
+ColQwen2 Cascade,Table IX (p. 10),Native ColQwen2 MRR,0.4962,0.4962,0.4962,0.0000,0.00%,Valid,VERIFIED,results/v10/colqwen_paired_v10.csv,Full 813 test pool
+ColQwen2 Cascade,Table IX (p. 10),Word BM25 Real OCR MRR,0.4089,0.4089,0.4089,0.0000,0.00%,Valid,VERIFIED,results/v10/colqwen_paired_v10.csv,Stage 1 candidate filter
+ColQwen2 Cascade,Table IX (p. 10),Two-Stage Cascade (K=50) MRR,0.4822,0.4822,0.4822,0.0000,0.00%,Proxy lookup,VERIFIED WITH CAVEATS,scripts/gapfill_t2_04_fusion_cascade.py,"Simulated via np.where(in_top_50, rr_col, 0.0)"
+ColQwen2 Cascade,Table IX (p. 10),Cascade MRR Retention,97.2%,97.18%,97.18%,0.02%,0.02%,Valid,VERIFIED,results/v4/G-04/cascade_fusion_summary.csv,0.4822 / 0.4962
+ColQwen2 Cascade,Table IX (p. 10),Native ColQwen2 Latency,249.21 ms,249.21 ms,249.21 ms,0.00 ms,0.00%,Direct GPU timing,VERIFIED,results/v4/G-04/cascade_fusion_summary.csv,Tesla T4 GPU (813 docs)
+ColQwen2 Cascade,Table IX (p. 10),Cascade Latency (K=50),16.20 ms,16.20 ms,16.20 ms,0.00 ms,0.00%,Analytical model,UNVERIFIED (MODELED),scripts/gapfill_t2_04_fusion_cascade.py,Formula: 0.87ms (M2 CPU) + 50*(249.21/813ms) (Tesla T4 GPU)
+ColQwen2 Cascade,Table IX (p. 10),Latency Speedup Factor,15.4x,15.38x,15.38x,0.02x,0.13%,Analytical model,UNVERIFIED (MODELED),results/v4/G-04/cascade_fusion_summary.csv,249.21 / 16.20 = 15.38x
+Relational Multi-Hop,Table X (p. 11),Extractive PRF Hit@10 (N=100),0.8200,0.8200,0.8200,0.0000,0.00%,Valid,VERIFIED,results/v4/R-02/multihop_subsets_recomputed.csv,82/100 queries
+Relational Multi-Hop,Table X (p. 11),Generative LLM Bridge Hit@10 (N=100),0.8200,0.8200,0.8200,0.0000,0.00%,Valid,VERIFIED,results/v4/R-02/multihop_subsets_recomputed.csv,82/100 queries
+Relational Multi-Hop,Table X (p. 11),Relational TOST p-value (Delta = +/-0.05),0.0073,0.0073,0.0073,0.0000,0.00%,Valid,VERIFIED,results/v4/R-02/multihop_subsets_recomputed.csv,Statistically equivalent
+Relational Multi-Hop,Table X (p. 11),Generative LLM Bridge Latency,4736.8 ms,4736.8 ms,4736.8 ms,0.0 ms,0.00%,Measured,VERIFIED,results/v4/R-02/multihop_subsets_recomputed.csv,API roundtrip + generation
+Relational Multi-Hop,Table X (p. 11),Extractive PRF Latency,12.0 ms,12.0 ms,12.0 ms,0.0 ms,0.00%,Measured,VERIFIED,results/v4/R-02/multihop_subsets_recomputed.csv,Local term frequency reweighting
+Relational Multi-Hop,Table X (p. 11),Relational Latency Speedup,394x,394.7x,394.7x,0.7x,0.18%,Measured ratio,VERIFIED,results/v4/R-02/multihop_subsets_recomputed.csv,4736.8 / 12.0 = 394.73x
+Query Overlap,Table XI (p. 12),Total Query Count,1730,1930,1930,+200,+11.56%,Count error,INCORRECT,results/v4/G-10/generator_query_evaluations.csv,Manuscript text says 1730; dataset has 1930 queries
+Query Overlap,Table XI (p. 12),GPT-4o-mini Low-Overlap Word MRR,0.3621,0.3621,0.3621,0.0000,0.00%,Valid,VERIFIED,results/v4/G-10/generator_dose_response_summary.csv,N=382 queries
+Query Overlap,Table XI (p. 12),GPT-4o-mini Low-Overlap Char MRR,0.5539,0.5539,0.5539,0.0000,0.00%,Valid,VERIFIED,results/v4/G-10/generator_dose_response_summary.csv,Delta=+0.1918 (p=0.0001)
+Query Overlap,Table XI (p. 12),Human Low-Overlap Word MRR,0.5732,0.5732,0.5732,0.0000,0.00%,Valid,VERIFIED,results/v4/G-10/generator_dose_response_summary.csv,N=100 queries
+Query Overlap,Table XI (p. 12),Human Low-Overlap Char MRR,0.5789,0.5789,0.5789,0.0000,0.00%,Valid,VERIFIED,results/v4/G-10/generator_dose_response_summary.csv,"Delta=+0.0057 (p=0.8841, tied)"
+Query Overlap,Table XI (p. 12),Claimed Crossover Boundary,"[0.51, 0.55]",0.51 - 0.55,Unstable,N/A,N/A,6-param fit on 12 pts,UNVERIFIED (MODEL ARTIFACT),scripts/gapfill_t2_01_regime_map.py,Fitted on 12 aggregate points with hardcoded coordinates
+Query Overlap,Table XI (p. 12),Generator Invariance Claim,p=0.6617 (ANOVA),p=0.6617,"F=0.413, p=0.6617",0.0000,0.00%,Misinterpreted null,INCORRECT,results/v4/G-10/generator_dose_response_summary.csv,Failure to reject diff != equivalence. Human curve is flat
+Corpus Scaling,Table XII (p. 13),Word BM25 MRR at N=813,0.9858,0.9858,0.9858,0.0000,0.00%,Valid,VERIFIED,results/gapfill_v1/T1-04/corpus_scaling_summary.csv,Clean test set
+Corpus Scaling,Table XII (p. 13),Char BM25 MRR at N=813,0.9815,0.9815,0.9815,0.0000,0.00%,Valid,VERIFIED,results/gapfill_v1/T1-04/corpus_scaling_summary.csv,Clean test set
+Corpus Scaling,Table XII (p. 13),"Word BM25 MRR at N=500,000",0.9412,0.9412,0.9412,0.0000,0.00%,Synthetic distractor,VERIFIED WITH CAVEATS,results/gapfill_v1/T1-04/corpus_scaling_summary.csv,Synthetic distractors repeat 20 vendor templates
+Corpus Scaling,Table XII (p. 13),"Char BM25 MRR at N=500,000",0.9385,0.9385,0.9385,0.0000,0.00%,Synthetic distractor,VERIFIED WITH CAVEATS,results/gapfill_v1/T1-04/corpus_scaling_summary.csv,Synthetic distractors repeat 20 vendor templates
+End-to-End RAG,Table XIII (p. 14),Word BM25 + Gen Answer Correctness,0.6820,0.6820,0.6820,0.0000,0.00%,Valid,VERIFIED,results/v4/G-11/e2e_rag_summary.csv,N=150 QA queries
+End-to-End RAG,Table XIII (p. 14),Char BM25 + Gen Answer Correctness,0.7410,0.7410,0.7410,0.0000,0.00%,Valid,VERIFIED,results/v4/G-11/e2e_rag_summary.csv,Delta=+0.0590 over Word
+End-to-End RAG,Table XIII (p. 14),Native ColQwen2 + Gen Correctness,0.8120,0.8120,0.8120,0.0000,0.00%,Valid,VERIFIED,results/v4/G-11/e2e_rag_summary.csv,Delta=+0.1300 over Word
+End-to-End RAG,Table XIII (p. 14),Dual-Reviewer Sample Size Claim,110 answers,100 (RAG) / 110 (Albums),110 (Albums),10,9.09%,Sample conflation,INCORRECT,ai_engine/rag/data/master_human_agreement.json,Text claims 110 RAG answers; 110 were albums; 100 RAG was simulated
+End-to-End RAG,Table XIII (p. 14),Reported Mean Cohen's Kappa,0.9031,0.9031,0.9031,0.0000,0.00%,Misattributed study,INCORRECT ATTRIBUTION,ai_engine/rag/data/master_human_agreement.json,"0.9031 is from 110-answer album evaluation, not the 150 document QA study"
+Conformal Risk,Section 5.C (p. 7),Nominal Risk Target Alpha,0.05,0.05,0.05,0.00,0.00%,Valid,VERIFIED,results/v7/conformal_retest_summary_v7.csv,5% nominal error bound
+Conformal Risk,Section 5.C (p. 7),Marginal Conformal Mean Test Risk,0.0491,0.0491,0.0491,0.0000,0.00%,Valid,VERIFIED,results/v7/conformal_retest_summary_v7.csv,Mean risk <= 0.05 satisfied
+Conformal Risk,Section 5.C (p. 7),Marginal Split Satisfaction Rate,58.5%,58.5%,58.5%,0.0%,0.00%,Valid,VERIFIED,results/v7/conformal_retest_summary_v7.csv,117/200 splits <= 0.05
+Conformal Risk,Section 5.C (p. 7),High-Probability RCPS Delta Target,0.10,0.10,0.10,0.00,0.00%,Valid,VERIFIED,results/v6/conformal_high_prob_v6.csv,90% confidence target
+Conformal Risk,Section 5.C (p. 7),High-Probability RCPS Mean Test Risk,0.0429,0.0429,0.0429,0.0000,0.00%,Valid,VERIFIED,results/v6/conformal_high_prob_v6.csv,Conservative test risk
+Conformal Risk,Section 5.C (p. 7),High-Probability RCPS Empirical Split Satisfaction,82.0%,82.0%,82.0%,0.0%,0.00%,Finite-sample variance,VERIFIED WITH CAVEATS,results/v6/conformal_high_prob_v6.csv,164/200 splits <= 0.05; test sampling variance explains 82% vs 90%

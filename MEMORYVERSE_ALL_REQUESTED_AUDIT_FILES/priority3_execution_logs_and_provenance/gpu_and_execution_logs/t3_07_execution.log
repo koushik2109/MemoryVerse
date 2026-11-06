@@ -1,0 +1,10 @@
+=== T3-07 STRONGER CAPTION PROXIES EVALUATION EXECUTION LOG ===
+Command: python3 scripts/gapfill_t3_07_stronger_caption_proxies.py
+Return Code: 0
+STDOUT:
+Saved caption proxies summary to results/gapfill_v1/T3-07/caption_proxies_summary.csv
+Saved paired tests to results/gapfill_v1/T3-07/caption_proxies_paired_tests.csv
+Generated README at results/gapfill_v1/T3-07/README.md
+
+STDERR:
+

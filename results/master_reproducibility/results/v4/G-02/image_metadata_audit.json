@@ -1,0 +1,6506 @@
+[
+  {
+    "id": "sroie_260",
+    "filename": "260.jpg",
+    "width": 705,
+    "height": 1474,
+    "mean_luminance": 239.0,
+    "contrast_std": 43.8
+  },
+  {
+    "id": "sroie_321",
+    "filename": "321.jpg",
+    "width": 439,
+    "height": 851,
+    "mean_luminance": 230.4,
+    "contrast_std": 67.3
+  },
+  {
+    "id": "sroie_504",
+    "filename": "504.jpg",
+    "width": 619,
+    "height": 1511,
+    "mean_luminance": 232.9,
+    "contrast_std": 53.1
+  },
+  {
+    "id": "sroie_475",
+    "filename": "475.jpg",
+    "width": 619,
+    "height": 1555,
+    "mean_luminance": 238.1,
+    "contrast_std": 36.5
+  },
+  {
+    "id": "sroie_514",
+    "filename": "514.jpg",
+    "width": 587,
+    "height": 1815,
+    "mean_luminance": 241.8,
+    "contrast_std": 19.2
+  },
+  {
+    "id": "sroie_244",
+    "filename": "244.jpg",
+    "width": 729,
+    "height": 1936,
+    "mean_luminance": 238.8,
+    "contrast_std": 58.6
+  },
+  {
+    "id": "sroie_299",
+    "filename": "299.jpg",
+    "width": 4961,
+    "height": 7016,
+    "mean_luminance": 252.7,
+    "contrast_std": 23.5
+  },
+  {
+    "id": "sroie_434",
+    "filename": "434.jpg",
+    "width": 4846,
+    "height": 6689,
+    "mean_luminance": 253.0,
+    "contrast_std": 21.0
+  },
+  {
+    "id": "sroie_326",
+    "filename": "326.jpg",
+    "width": 588,
+    "height": 1248,
+    "mean_luminance": 242.3,
+    "contrast_std": 33.5
+  },
+  {
+    "id": "sroie_160",
+    "filename": "160.jpg",
+    "width": 932,
+    "height": 2852,
+    "mean_luminance": 233.3,
+    "contrast_std": 56.4
+  },
+  {
+    "id": "sroie_372",
+    "filename": "372.jpg",
+    "width": 616,
+    "height": 1238,
+    "mean_luminance": 232.1,
+    "contrast_std": 49.0
+  },
+  {
+    "id": "sroie_277",
+    "filename": "277.jpg",
+    "width": 735,
+    "height": 1689,
+    "mean_luminance": 237.9,
+    "contrast_std": 43.9
+  },
+  {
+    "id": "sroie_572",
+    "filename": "572.jpg",
+    "width": 936,
+    "height": 1663,
+    "mean_luminance": 228.5,
+    "contrast_std": 35.1
+  },
+  {
+    "id": "sroie_461",
+    "filename": "461.jpg",
+    "width": 4961,
+    "height": 7016,
+    "mean_luminance": 252.8,
+    "contrast_std": 23.1
+  },
+  {
+    "id": "sroie_111",
+    "filename": "111.jpg",
+    "width": 934,
+    "height": 2789,
+    "mean_luminance": 243.1,
+    "contrast_std": 38.2
+  },
+  {
+    "id": "sroie_151",
+    "filename": "151.jpg",
+    "width": 616,
+    "height": 1182,
+    "mean_luminance": 232.6,
+    "contrast_std": 46.7
+  },
+  {
+    "id": "sroie_366",
+    "filename": "366.jpg",
+    "width": 619,
+    "height": 1220,
+    "mean_luminance": 227.5,
+    "contrast_std": 56.9
+  },
+  {
+    "id": "sroie_079",
+    "filename": "079.jpg",
+    "width": 932,
+    "height": 2220,
+    "mean_luminance": 237.2,
+    "contrast_std": 34.4
+  },
+  {
+    "id": "sroie_249",
+    "filename": "249.jpg",
+    "width": 700,
+    "height": 1574,
+    "mean_luminance": 246.8,
+    "contrast_std": 31.0
+  },
+  {
+    "id": "sroie_567",
+    "filename": "567.jpg",
+    "width": 932,
+    "height": 1741,
+    "mean_luminance": 241.9,
+    "contrast_std": 36.3
+  },
+  {
+    "id": "sroie_545",
+    "filename": "545.jpg",
+    "width": 791,
+    "height": 1623,
+    "mean_luminance": 242.3,
+    "contrast_std": 24.4
+  },
+  {
+    "id": "sroie_536",
+    "filename": "536.jpg",
+    "width": 4961,
+    "height": 7016,
+    "mean_luminance": 253.0,
+    "contrast_std": 22.2
+  },
+  {
+    "id": "sroie_503",
+    "filename": "503.jpg",
+    "width": 623,
+    "height": 1511,
+    "mean_luminance": 233.2,
+    "contrast_std": 53.8
+  },
+  {
+    "id": "sroie_442",
+    "filename": "442.jpg",
+    "width": 792,
+    "height": 1301,
+    "mean_luminance": 233.3,
+    "contrast_std": 50.9
+  },
+  {
+    "id": "sroie_199",
+    "filename": "199.jpg",
+    "width": 710,
+    "height": 1208,
+    "mean_luminance": 199.7,
+    "contrast_std": 41.4
+  },
+  {
+    "id": "sroie_502",
+    "filename": "502.jpg",
+    "width": 619,
+    "height": 1607,
+    "mean_luminance": 231.6,
+    "contrast_std": 54.8
+  },
+  {
+    "id": "sroie_194",
+    "filename": "194.jpg",
+    "width": 704,
+    "height": 2587,
+    "mean_luminance": 190.7,
+    "contrast_std": 48.9
+  },
+  {
+    "id": "sroie_443",
+    "filename": "443.jpg",
+    "width": 753,
+    "height": 1445,
+    "mean_luminance": 231.5,
+    "contrast_std": 53.4
+  },
+  {
+    "id": "sroie_530",
+    "filename": "530.jpg",
+    "width": 4961,
+    "height": 7016,
+    "mean_luminance": 251.6,
+    "contrast_std": 28.4
+  },
+  {
+    "id": "sroie_205",
+    "filename": "205.jpg",
+    "width": 708,
+    "height": 1302,
+    "mean_luminance": 194.8,
+    "contrast_std": 48.1
+  },
+  {
+    "id": "sroie_397",
+    "filename": "397.jpg",
+    "width": 880,
+    "height": 2900,
+    "mean_luminance": 231.1,
+    "contrast_std": 24.9
+  },
+  {
+    "id": "sroie_246",
+    "filename": "246.jpg",
+    "width": 705,
+    "height": 1394,
+    "mean_luminance": 237.8,
+    "contrast_std": 59.5
+  },
+  {
+    "id": "sroie_477",
+    "filename": "477.jpg",
+    "width": 623,
+    "height": 1407,
+    "mean_luminance": 233.1,
+    "contrast_std": 53.8
+  },
+  {
+    "id": "sroie_553",
+    "filename": "553.jpg",
+    "width": 791,
+    "height": 1334,
+    "mean_luminance": 245.1,
+    "contrast_std": 28.5
+  },
+  {
+    "id": "sroie_085",
+    "filename": "085.jpg",
+    "width": 936,
+    "height": 1681,
+    "mean_luminance": 233.3,
+    "contrast_std": 32.6
+  },
+  {
+    "id": "sroie_401",
+    "filename": "401.jpg",
+    "width": 888,
+    "height": 1813,
+    "mean_luminance": 228.0,
+    "contrast_std": 27.0
+  },
+  {
+    "id": "sroie_047",
+    "filename": "047.jpg",
+    "width": 1080,
+    "height": 1527,
+    "mean_luminance": 253.8,
+    "contrast_std": 15.7
+  },
+  {
+    "id": "sroie_007",
+    "filename": "007.jpg",
+    "width": 463,
+    "height": 797,
+    "mean_luminance": 243.8,
+    "contrast_std": 37.3
+  },
+  {
+    "id": "sroie_396",
+    "filename": "396.jpg",
+    "width": 928,
+    "height": 2068,
+    "mean_luminance": 247.6,
+    "contrast_std": 16.2
+  },
+  {
+    "id": "sroie_333",
+    "filename": "333.jpg",
+    "width": 620,
+    "height": 1298,
+    "mean_luminance": 237.9,
+    "contrast_std": 42.7
+  },
+  {
+    "id": "sroie_624",
+    "filename": "624.jpg",
+    "width": 583,
+    "height": 1303,
+    "mean_luminance": 251.4,
+    "contrast_std": 14.3
+  },
+  {
+    "id": "sroie_378",
+    "filename": "378.jpg",
+    "width": 888,
+    "height": 1681,
+    "mean_luminance": 226.8,
+    "contrast_std": 24.2
+  },
+  {
+    "id": "sroie_444",
+    "filename": "444.jpg",
+    "width": 787,
+    "height": 1490,
+    "mean_luminance": 232.0,
+    "contrast_std": 51.9
+  },
+  {
+    "id": "sroie_226",
+    "filename": "226.jpg",
+    "width": 949,
+    "height": 2153,
+    "mean_luminance": 142.6,
+    "contrast_std": 92.2
+  },
+  {
+    "id": "sroie_038",
+    "filename": "038.jpg",
+    "width": 1080,
+    "height": 1527,
+    "mean_luminance": 252.3,
+    "contrast_std": 23.4
+  },
+  {
+    "id": "sroie_498",
+    "filename": "498.jpg",
+    "width": 615,
+    "height": 1475,
+    "mean_luminance": 233.6,
+    "contrast_std": 51.5
+  },
+  {
+    "id": "sroie_236",
+    "filename": "236.jpg",
+    "width": 742,
+    "height": 1449,
+    "mean_luminance": 240.0,
+    "contrast_std": 56.6
+  },
+  {
+    "id": "sroie_400",
+    "filename": "400.jpg",
+    "width": 884,
+    "height": 2376,
+    "mean_luminance": 239.1,
+    "contrast_std": 36.8
+  },
+  {
+    "id": "sroie_524",
+    "filename": "524.jpg",
+    "width": 4961,
+    "height": 7016,
+    "mean_luminance": 251.6,
+    "contrast_std": 28.5
+  },
+  {
+    "id": "sroie_381",
+    "filename": "381.jpg",
+    "width": 880,
+    "height": 3123,
+    "mean_luminance": 236.5,
+    "contrast_std": 19.7
+  },
+  {
+    "id": "sroie_575",
+    "filename": "575.jpg",
+    "width": 748,
+    "height": 1397,
+    "mean_luminance": 222.8,
+    "contrast_std": 22.6
+  },
+  {
+    "id": "sroie_229",
+    "filename": "229.jpg",
+    "width": 828,
+    "height": 2022,
+    "mean_luminance": 144.8,
+    "contrast_std": 81.8
+  },
+  {
+    "id": "sroie_544",
+    "filename": "544.jpg",
+    "width": 794,
+    "height": 1354,
+    "mean_luminance": 245.3,
+    "contrast_std": 24.0
+  },
+  {
+    "id": "sroie_581",
+    "filename": "581.jpg",
+    "width": 936,
+    "height": 1749,
+    "mean_luminance": 238.2,
+    "contrast_std": 28.6
+  },
+  {
+    "id": "sroie_098",
+    "filename": "098.jpg",
+    "width": 704,
+    "height": 1883,
+    "mean_luminance": 193.5,
+    "contrast_std": 46.8
+  },
+  {
+    "id": "sroie_582",
+    "filename": "582.jpg",
+    "width": 748,
+    "height": 1444,
+    "mean_luminance": 240.5,
+    "contrast_std": 52.6
+  },
+  {
+    "id": "sroie_055",
+    "filename": "055.jpg",
+    "width": 1080,
+    "height": 1528,
+    "mean_luminance": 252.8,
+    "contrast_std": 20.5
+  },
+  {
+    "id": "sroie_419",
+    "filename": "419.jpg",
+    "width": 932,
+    "height": 2143,
+    "mean_luminance": 232.4,
+    "contrast_std": 50.6
+  },
+  {
+    "id": "sroie_206",
+    "filename": "206.jpg",
+    "width": 703,
+    "height": 1373,
+    "mean_luminance": 206.5,
+    "contrast_std": 43.9
+  },
+  {
+    "id": "sroie_031",
+    "filename": "031.jpg",
+    "width": 1080,
+    "height": 1527,
+    "mean_luminance": 251.7,
+    "contrast_std": 25.6
+  },
+  {
+    "id": "sroie_050",
+    "filename": "050.jpg",
+    "width": 1080,
+    "height": 1528,
+    "mean_luminance": 251.2,
+    "contrast_std": 26.7
+  },
+  {
+    "id": "sroie_330",
+    "filename": "330.jpg",
+    "width": 620,
+    "height": 1204,
+    "mean_luminance": 235.3,
+    "contrast_std": 45.5
+  },
+  {
+    "id": "sroie_334",
+    "filename": "334.jpg",
+    "width": 622,
+    "height": 1245,
+    "mean_luminance": 225.8,
+    "contrast_std": 58.8
+  },
+  {
+    "id": "sroie_593",
+    "filename": "593.jpg",
+    "width": 928,
+    "height": 1559,
+    "mean_luminance": 241.9,
+    "contrast_std": 37.1
+  },
+  {
+    "id": "sroie_608",
+    "filename": "608.jpg",
+    "width": 932,
+    "height": 2354,
+    "mean_luminance": 238.3,
+    "contrast_std": 41.4
+  },
+  {
+    "id": "sroie_435",
+    "filename": "435.jpg",
+    "width": 4961,
+    "height": 7016,
+    "mean_luminance": 252.4,
+    "contrast_std": 24.9
+  },
+  {
+    "id": "sroie_239",
+    "filename": "239.jpg",
+    "width": 702,
+    "height": 1433,
+    "mean_luminance": 237.7,
+    "contrast_std": 57.2
+  },
+  {
+    "id": "sroie_210",
+    "filename": "210.jpg",
+    "width": 986,
+    "height": 2559,
+    "mean_luminance": 206.2,
+    "contrast_std": 41.8
+  },
+  {
+    "id": "sroie_439",
+    "filename": "439.jpg",
+    "width": 4961,
+    "height": 7016,
+    "mean_luminance": 252.8,
+    "contrast_std": 23.1
+  },
+  {
+    "id": "sroie_181",
+    "filename": "181.jpg",
+    "width": 831,
+    "height": 1331,
+    "mean_luminance": 240.7,
+    "contrast_std": 48.0
+  },
+  {
+    "id": "sroie_594",
+    "filename": "594.jpg",
+    "width": 884,
+    "height": 1613,
+    "mean_luminance": 221.9,
+    "contrast_std": 47.7
+  },
+  {
+    "id": "sroie_446",
+    "filename": "446.jpg",
+    "width": 741,
+    "height": 1428,
+    "mean_luminance": 238.0,
+    "contrast_std": 43.4
+  },
+  {
+    "id": "sroie_049",
+    "filename": "049.jpg",
+    "width": 1080,
+    "height": 1527,
+    "mean_luminance": 251.2,
+    "contrast_std": 27.9
+  },
+  {
+    "id": "sroie_523",
+    "filename": "523.jpg",
+    "width": 4961,
+    "height": 7016,
+    "mean_luminance": 252.3,
+    "contrast_std": 24.5
+  },
+  {
+    "id": "sroie_097",
+    "filename": "097.jpg",
+    "width": 741,
+    "height": 1733,
+    "mean_luminance": 242.3,
+    "contrast_std": 47.5
+  },
+  {
+    "id": "sroie_208",
+    "filename": "208.jpg",
+    "width": 698,
+    "height": 1448,
+    "mean_luminance": 195.4,
+    "contrast_std": 49.2
+  },
+  {
+    "id": "sroie_391",
+    "filename": "391.jpg",
+    "width": 884,
+    "height": 1688,
+    "mean_luminance": 231.3,
+    "contrast_std": 29.8
+  },
+  {
+    "id": "sroie_124",
+    "filename": "124.jpg",
+    "width": 935,
+    "height": 1865,
+    "mean_luminance": 243.4,
+    "contrast_std": 38.0
+  },
+  {
+    "id": "sroie_242",
+    "filename": "242.jpg",
+    "width": 696,
+    "height": 2213,
+    "mean_luminance": 239.3,
+    "contrast_std": 56.5
+  },
+  {
+    "id": "sroie_295",
+    "filename": "295.jpg",
+    "width": 4961,
+    "height": 7016,
+    "mean_luminance": 252.9,
+    "contrast_std": 22.5
+  },
+  {
+    "id": "sroie_292",
+    "filename": "292.jpg",
+    "width": 4961,
+    "height": 7016,
+    "mean_luminance": 253.0,
+    "contrast_std": 22.1
+  },
+  {
+    "id": "sroie_529",
+    "filename": "529.jpg",
+    "width": 4961,
+    "height": 7016,
+    "mean_luminance": 251.2,
+    "contrast_std": 29.9
+  },
+  {
+    "id": "sroie_543",
+    "filename": "543.jpg",
+    "width": 4961,
+    "height": 7016,
+    "mean_luminance": 252.6,
+    "contrast_std": 24.3
+  },
+  {
+    "id": "sroie_437",
+    "filename": "437.jpg",
+    "width": 4961,
+    "height": 7016,
+    "mean_luminance": 253.6,
+    "contrast_std": 18.5
+  },
+  {
+    "id": "sroie_109",
+    "filename": "109.jpg",
+    "width": 936,
+    "height": 1698,
+    "mean_luminance": 247.7,
+    "contrast_std": 27.8
+  },
+  {
+    "id": "sroie_454",
+    "filename": "454.jpg",
+    "width": 624,
+    "height": 1273,
+    "mean_luminance": 242.0,
+    "contrast_std": 42.0
+  },
+  {
+    "id": "sroie_342",
+    "filename": "342.jpg",
+    "width": 616,
+    "height": 1182,
+    "mean_luminance": 235.8,
+    "contrast_std": 43.4
+  },
+  {
+    "id": "sroie_534",
+    "filename": "534.jpg",
+    "width": 4961,
+    "height": 7016,
+    "mean_luminance": 250.7,
+    "contrast_std": 32.1
+  },
+  {
+    "id": "sroie_121",
+    "filename": "121.jpg",
+    "width": 935,
+    "height": 1864,
+    "mean_luminance": 241.9,
+    "contrast_std": 40.9
+  },
+  {
+    "id": "sroie_263",
+    "filename": "263.jpg",
+    "width": 738,
+    "height": 1238,
+    "mean_luminance": 234.1,
+    "contrast_std": 48.3
+  },
+  {
+    "id": "sroie_411",
+    "filename": "411.jpg",
+    "width": 615,
+    "height": 1347,
+    "mean_luminance": 246.0,
+    "contrast_std": 32.1
+  },
+  {
+    "id": "sroie_169",
+    "filename": "169.jpg",
+    "width": 932,
+    "height": 1920,
+    "mean_luminance": 246.1,
+    "contrast_std": 29.3
+  },
+  {
+    "id": "sroie_016",
+    "filename": "016.jpg",
+    "width": 818,
+    "height": 1924,
+    "mean_luminance": 191.9,
+    "contrast_std": 43.7
+  },
+  {
+    "id": "sroie_034",
+    "filename": "034.jpg",
+    "width": 1080,
+    "height": 1527,
+    "mean_luminance": 249.1,
+    "contrast_std": 34.8
+  },
+  {
+    "id": "sroie_415",
+    "filename": "415.jpg",
+    "width": 884,
+    "height": 1840,
+    "mean_luminance": 231.2,
+    "contrast_std": 41.5
+  },
+  {
+    "id": "sroie_613",
+    "filename": "613.jpg",
+    "width": 936,
+    "height": 2248,
+    "mean_luminance": 240.1,
+    "contrast_std": 34.5
+  },
+  {
+    "id": "sroie_557",
+    "filename": "557.jpg",
+    "width": 928,
+    "height": 1738,
+    "mean_luminance": 236.1,
+    "contrast_std": 46.0
+  },
+  {
+    "id": "sroie_362",
+    "filename": "362.jpg",
+    "width": 620,
+    "height": 1208,
+    "mean_luminance": 236.3,
+    "contrast_std": 43.3
+  },
+  {
+    "id": "sroie_036",
+    "filename": "036.jpg",
+    "width": 1080,
+    "height": 1527,
+    "mean_luminance": 253.0,
+    "contrast_std": 20.5
+  },
+  {
+    "id": "sroie_003",
+    "filename": "003.jpg",
+    "width": 461,
+    "height": 933,
+    "mean_luminance": 245.9,
+    "contrast_std": 33.4
+  },
+  {
+    "id": "sroie_522",
+    "filename": "522.jpg",
+    "width": 4961,
+    "height": 7016,
+    "mean_luminance": 252.6,
+    "contrast_std": 23.7
+  },
+  {
+    "id": "sroie_453",
+    "filename": "453.jpg",
+    "width": 704,
+    "height": 1404,
+    "mean_luminance": 230.1,
+    "contrast_std": 57.1
+  },
+  {
+    "id": "sroie_512",
+    "filename": "512.jpg",
+    "width": 591,
+    "height": 1395,
+    "mean_luminance": 225.2,
+    "contrast_std": 28.5
+  },
+  {
+    "id": "sroie_283",
+    "filename": "283.jpg",
+    "width": 4961,
+    "height": 7016,
+    "mean_luminance": 253.0,
+    "contrast_std": 22.2
+  },
+  {
+    "id": "sroie_301",
+    "filename": "301.jpg",
+    "width": 4961,
+    "height": 7016,
+    "mean_luminance": 250.7,
+    "contrast_std": 31.7
+  },
+  {
+    "id": "sroie_010",
+    "filename": "010.jpg",
+    "width": 873,
+    "height": 1656,
+    "mean_luminance": 180.7,
+    "contrast_std": 47.1
+  },
+  {
+    "id": "sroie_173",
+    "filename": "173.jpg",
+    "width": 932,
+    "height": 2679,
+    "mean_luminance": 242.0,
+    "contrast_std": 35.7
+  },
+  {
+    "id": "sroie_547",
+    "filename": "547.jpg",
+    "width": 789,
+    "height": 1442,
+    "mean_luminance": 246.5,
+    "contrast_std": 26.5
+  },
+  {
+    "id": "sroie_115",
+    "filename": "115.jpg",
+    "width": 933,
+    "height": 1861,
+    "mean_luminance": 243.1,
+    "contrast_std": 36.0
+  },
+  {
+    "id": "sroie_126",
+    "filename": "126.jpg",
+    "width": 934,
+    "height": 2081,
+    "mean_luminance": 242.9,
+    "contrast_std": 39.5
+  },
+  {
+    "id": "sroie_061",
+    "filename": "061.jpg",
+    "width": 792,
+    "height": 2748,
+    "mean_luminance": 244.2,
+    "contrast_std": 35.5
+  },
+  {
+    "id": "sroie_231",
+    "filename": "231.jpg",
+    "width": 850,
+    "height": 2023,
+    "mean_luminance": 157.9,
+    "contrast_std": 79.1
+  },
+  {
+    "id": "sroie_264",
+    "filename": "264.jpg",
+    "width": 712,
+    "height": 1957,
+    "mean_luminance": 235.0,
+    "contrast_std": 45.2
+  },
+  {
+    "id": "sroie_528",
+    "filename": "528.jpg",
+    "width": 4961,
+    "height": 7016,
+    "mean_luminance": 252.0,
+    "contrast_std": 26.4
+  },
+  {
+    "id": "sroie_481",
+    "filename": "481.jpg",
+    "width": 623,
+    "height": 1471,
+    "mean_luminance": 233.4,
+    "contrast_std": 53.5
+  },
+  {
+    "id": "sroie_550",
+    "filename": "550.jpg",
+    "width": 783,
+    "height": 1583,
+    "mean_luminance": 245.8,
+    "contrast_std": 21.8
+  },
+  {
+    "id": "sroie_343",
+    "filename": "343.jpg",
+    "width": 612,
+    "height": 1254,
+    "mean_luminance": 227.9,
+    "contrast_std": 50.8
+  },
+  {
+    "id": "sroie_204",
+    "filename": "204.jpg",
+    "width": 708,
+    "height": 1330,
+    "mean_luminance": 195.7,
+    "contrast_std": 47.5
+  },
+  {
+    "id": "sroie_595",
+    "filename": "595.jpg",
+    "width": 791,
+    "height": 1794,
+    "mean_luminance": 242.9,
+    "contrast_std": 29.2
+  },
+  {
+    "id": "sroie_365",
+    "filename": "365.jpg",
+    "width": 620,
+    "height": 1176,
+    "mean_luminance": 236.7,
+    "contrast_std": 45.8
+  },
+  {
+    "id": "sroie_102",
+    "filename": "102.jpg",
+    "width": 804,
+    "height": 2157,
+    "mean_luminance": 193.5,
+    "contrast_std": 39.6
+  },
+  {
+    "id": "sroie_353",
+    "filename": "353.jpg",
+    "width": 616,
+    "height": 1200,
+    "mean_luminance": 239.2,
+    "contrast_std": 38.4
+  },
+  {
+    "id": "sroie_579",
+    "filename": "579.jpg",
+    "width": 936,
+    "height": 1741,
+    "mean_luminance": 233.8,
+    "contrast_std": 39.0
+  },
+  {
+    "id": "sroie_386",
+    "filename": "386.jpg",
+    "width": 812,
+    "height": 2214,
+    "mean_luminance": 243.2,
+    "contrast_std": 26.0
+  },
+  {
+    "id": "sroie_478",
+    "filename": "478.jpg",
+    "width": 623,
+    "height": 1467,
+    "mean_luminance": 237.7,
+    "contrast_std": 39.9
+  },
+  {
+    "id": "sroie_108",
+    "filename": "108.jpg",
+    "width": 933,
+    "height": 1697,
+    "mean_luminance": 238.2,
+    "contrast_std": 54.8
+  },
+  {
+    "id": "sroie_542",
+    "filename": "542.jpg",
+    "width": 4961,
+    "height": 7016,
+    "mean_luminance": 251.6,
+    "contrast_std": 28.3
+  },
+  {
+    "id": "sroie_310",
+    "filename": "310.jpg",
+    "width": 4961,
+    "height": 7016,
+    "mean_luminance": 251.6,
+    "contrast_std": 28.6
+  },
+  {
+    "id": "sroie_586",
+    "filename": "586.jpg",
+    "width": 748,
+    "height": 1271,
+    "mean_luminance": 241.9,
+    "contrast_std": 50.3
+  },
+  {
+    "id": "sroie_135",
+    "filename": "135.jpg",
+    "width": 1263,
+    "height": 2143,
+    "mean_luminance": 194.2,
+    "contrast_std": 37.9
+  },
+  {
+    "id": "sroie_084",
+    "filename": "084.jpg",
+    "width": 932,
+    "height": 1644,
+    "mean_luminance": 241.7,
+    "contrast_std": 34.0
+  },
+  {
+    "id": "sroie_623",
+    "filename": "623.jpg",
+    "width": 791,
+    "height": 1932,
+    "mean_luminance": 246.4,
+    "contrast_std": 25.8
+  },
+  {
+    "id": "sroie_243",
+    "filename": "243.jpg",
+    "width": 684,
+    "height": 1674,
+    "mean_luminance": 236.4,
+    "contrast_std": 60.5
+  },
+  {
+    "id": "sroie_337",
+    "filename": "337.jpg",
+    "width": 616,
+    "height": 1312,
+    "mean_luminance": 235.2,
+    "contrast_std": 44.6
+  },
+  {
+    "id": "sroie_518",
+    "filename": "518.jpg",
+    "width": 627,
+    "height": 1411,
+    "mean_luminance": 245.4,
+    "contrast_std": 32.9
+  },
+  {
+    "id": "sroie_064",
+    "filename": "064.jpg",
+    "width": 668,
+    "height": 1598,
+    "mean_luminance": 240.8,
+    "contrast_std": 38.1
+  },
+  {
+    "id": "sroie_392",
+    "filename": "392.jpg",
+    "width": 888,
+    "height": 2899,
+    "mean_luminance": 223.4,
+    "contrast_std": 36.5
+  },
+  {
+    "id": "sroie_272",
+    "filename": "272.jpg",
+    "width": 698,
+    "height": 1372,
+    "mean_luminance": 241.1,
+    "contrast_std": 24.1
+  },
+  {
+    "id": "sroie_568",
+    "filename": "568.jpg",
+    "width": 932,
+    "height": 1740,
+    "mean_luminance": 243.9,
+    "contrast_std": 35.5
+  },
+  {
+    "id": "sroie_035",
+    "filename": "035.jpg",
+    "width": 1080,
+    "height": 1519,
+    "mean_luminance": 252.8,
+    "contrast_std": 20.9
+  },
+  {
+    "id": "sroie_417",
+    "filename": "417.jpg",
+    "width": 888,
+    "height": 2016,
+    "mean_luminance": 240.3,
+    "contrast_std": 39.9
+  },
+  {
+    "id": "sroie_248",
+    "filename": "248.jpg",
+    "width": 522,
+    "height": 954,
+    "mean_luminance": 231.6,
+    "contrast_std": 67.1
+  },
+  {
+    "id": "sroie_374",
+    "filename": "374.jpg",
+    "width": 616,
+    "height": 1208,
+    "mean_luminance": 235.4,
+    "contrast_std": 43.7
+  },
+  {
+    "id": "sroie_043",
+    "filename": "043.jpg",
+    "width": 627,
+    "height": 1535,
+    "mean_luminance": 249.0,
+    "contrast_std": 24.2
+  },
+  {
+    "id": "sroie_040",
+    "filename": "040.jpg",
+    "width": 619,
+    "height": 1131,
+    "mean_luminance": 248.6,
+    "contrast_std": 24.9
+  },
+  {
+    "id": "sroie_290",
+    "filename": "290.jpg",
+    "width": 4961,
+    "height": 7016,
+    "mean_luminance": 250.2,
+    "contrast_std": 33.9
+  },
+  {
+    "id": "sroie_466",
+    "filename": "466.jpg",
+    "width": 616,
+    "height": 1614,
+    "mean_luminance": 237.3,
+    "contrast_std": 45.9
+  },
+  {
+    "id": "sroie_123",
+    "filename": "123.jpg",
+    "width": 932,
+    "height": 1973,
+    "mean_luminance": 243.5,
+    "contrast_std": 37.2
+  },
+  {
+    "id": "sroie_029",
+    "filename": "029.jpg",
+    "width": 748,
+    "height": 1338,
+    "mean_luminance": 241.3,
+    "contrast_std": 51.4
+  },
+  {
+    "id": "sroie_122",
+    "filename": "122.jpg",
+    "width": 932,
+    "height": 1864,
+    "mean_luminance": 241.8,
+    "contrast_std": 42.9
+  },
+  {
+    "id": "sroie_157",
+    "filename": "157.jpg",
+    "width": 932,
+    "height": 2222,
+    "mean_luminance": 240.2,
+    "contrast_std": 37.8
+  },
+  {
+    "id": "sroie_413",
+    "filename": "413.jpg",
+    "width": 754,
+    "height": 1279,
+    "mean_luminance": 211.9,
+    "contrast_std": 52.0
+  },
+  {
+    "id": "sroie_425",
+    "filename": "425.jpg",
+    "width": 4961,
+    "height": 7016,
+    "mean_luminance": 253.0,
+    "contrast_std": 22.2
+  },
+  {
+    "id": "sroie_449",
+    "filename": "449.jpg",
+    "width": 831,
+    "height": 1695,
+    "mean_luminance": 233.6,
+    "contrast_std": 54.8
+  },
+  {
+    "id": "sroie_185",
+    "filename": "185.jpg",
+    "width": 744,
+    "height": 1970,
+    "mean_luminance": 238.7,
+    "contrast_std": 57.2
+  },
+  {
+    "id": "sroie_507",
+    "filename": "507.jpg",
+    "width": 591,
+    "height": 1659,
+    "mean_luminance": 227.6,
+    "contrast_std": 24.3
+  },
+  {
+    "id": "sroie_009",
+    "filename": "009.jpg",
+    "width": 604,
+    "height": 1716,
+    "mean_luminance": 239.6,
+    "contrast_std": 44.0
+  },
+  {
+    "id": "sroie_556",
+    "filename": "556.jpg",
+    "width": 932,
+    "height": 1654,
+    "mean_luminance": 243.8,
+    "contrast_std": 34.2
+  },
+  {
+    "id": "sroie_165",
+    "filename": "165.jpg",
+    "width": 936,
+    "height": 2017,
+    "mean_luminance": 242.7,
+    "contrast_std": 35.3
+  },
+  {
+    "id": "sroie_306",
+    "filename": "306.jpg",
+    "width": 4961,
+    "height": 7016,
+    "mean_luminance": 252.6,
+    "contrast_std": 23.9
+  },
+  {
+    "id": "sroie_000",
+    "filename": "000.jpg",
+    "width": 463,
+    "height": 1013,
+    "mean_luminance": 244.8,
+    "contrast_std": 35.6
+  },
+  {
+    "id": "sroie_584",
+    "filename": "584.jpg",
+    "width": 532,
+    "height": 1305,
+    "mean_luminance": 241.9,
+    "contrast_std": 51.3
+  },
+  {
+    "id": "sroie_535",
+    "filename": "535.jpg",
+    "width": 4961,
+    "height": 7016,
+    "mean_luminance": 252.7,
+    "contrast_std": 23.6
+  },
+  {
+    "id": "sroie_472",
+    "filename": "472.jpg",
+    "width": 619,
+    "height": 1475,
+    "mean_luminance": 237.5,
+    "contrast_std": 40.6
+  },
+  {
+    "id": "sroie_398",
+    "filename": "398.jpg",
+    "width": 888,
+    "height": 1677,
+    "mean_luminance": 225.1,
+    "contrast_std": 39.7
+  },
+  {
+    "id": "sroie_552",
+    "filename": "552.jpg",
+    "width": 791,
+    "height": 1453,
+    "mean_luminance": 246.5,
+    "contrast_std": 22.5
+  },
+  {
+    "id": "sroie_082",
+    "filename": "082.jpg",
+    "width": 884,
+    "height": 2249,
+    "mean_luminance": 231.8,
+    "contrast_std": 50.1
+  },
+  {
+    "id": "sroie_495",
+    "filename": "495.jpg",
+    "width": 615,
+    "height": 1479,
+    "mean_luminance": 233.2,
+    "contrast_std": 52.8
+  },
+  {
+    "id": "sroie_191",
+    "filename": "191.jpg",
+    "width": 942,
+    "height": 2020,
+    "mean_luminance": 240.4,
+    "contrast_std": 46.1
+  },
+  {
+    "id": "sroie_078",
+    "filename": "078.jpg",
+    "width": 936,
+    "height": 1841,
+    "mean_luminance": 228.0,
+    "contrast_std": 44.5
+  },
+  {
+    "id": "sroie_101",
+    "filename": "101.jpg",
+    "width": 937,
+    "height": 1450,
+    "mean_luminance": 169.5,
+    "contrast_std": 73.9
+  },
+  {
+    "id": "sroie_311",
+    "filename": "311.jpg",
+    "width": 4945,
+    "height": 6981,
+    "mean_luminance": 249.5,
+    "contrast_std": 34.3
+  },
+  {
+    "id": "sroie_493",
+    "filename": "493.jpg",
+    "width": 619,
+    "height": 1547,
+    "mean_luminance": 236.2,
+    "contrast_std": 38.0
+  },
+  {
+    "id": "sroie_327",
+    "filename": "327.jpg",
+    "width": 588,
+    "height": 1728,
+    "mean_luminance": 244.5,
+    "contrast_std": 23.4
+  },
+  {
+    "id": "sroie_430",
+    "filename": "430.jpg",
+    "width": 4961,
+    "height": 7016,
+    "mean_luminance": 252.9,
+    "contrast_std": 22.4
+  },
+  {
+    "id": "sroie_152",
+    "filename": "152.jpg",
+    "width": 615,
+    "height": 1727,
+    "mean_luminance": 234.1,
+    "contrast_std": 68.7
+  },
+  {
+    "id": "sroie_320",
+    "filename": "320.jpg",
+    "width": 615,
+    "height": 935,
+    "mean_luminance": 246.3,
+    "contrast_std": 32.3
+  },
+  {
+    "id": "sroie_445",
+    "filename": "445.jpg",
+    "width": 825,
+    "height": 1568,
+    "mean_luminance": 219.6,
+    "contrast_std": 79.2
+  },
+  {
+    "id": "sroie_054",
+    "filename": "054.jpg",
+    "width": 1080,
+    "height": 1528,
+    "mean_luminance": 250.1,
+    "contrast_std": 31.8
+  },
+  {
+    "id": "sroie_467",
+    "filename": "467.jpg",
+    "width": 620,
+    "height": 1212,
+    "mean_luminance": 235.7,
+    "contrast_std": 52.9
+  },
+  {
+    "id": "sroie_259",
+    "filename": "259.jpg",
+    "width": 704,
+    "height": 1513,
+    "mean_luminance": 224.9,
+    "contrast_std": 63.5
+  },
+  {
+    "id": "sroie_091",
+    "filename": "091.jpg",
+    "width": 853,
+    "height": 2537,
+    "mean_luminance": 188.4,
+    "contrast_std": 47.3
+  },
+  {
+    "id": "sroie_516",
+    "filename": "516.jpg",
+    "width": 587,
+    "height": 1779,
+    "mean_luminance": 206.7,
+    "contrast_std": 9.6
+  },
+  {
+    "id": "sroie_256",
+    "filename": "256.jpg",
+    "width": 742,
+    "height": 1196,
+    "mean_luminance": 236.5,
+    "contrast_std": 46.7
+  },
+  {
+    "id": "sroie_134",
+    "filename": "134.jpg",
+    "width": 892,
+    "height": 2897,
+    "mean_luminance": 184.5,
+    "contrast_std": 49.6
+  },
+  {
+    "id": "sroie_368",
+    "filename": "368.jpg",
+    "width": 616,
+    "height": 1200,
+    "mean_luminance": 235.7,
+    "contrast_std": 41.8
+  },
+  {
+    "id": "sroie_448",
+    "filename": "448.jpg",
+    "width": 842,
+    "height": 1280,
+    "mean_luminance": 227.8,
+    "contrast_std": 61.8
+  },
+  {
+    "id": "sroie_369",
+    "filename": "369.jpg",
+    "width": 618,
+    "height": 1234,
+    "mean_luminance": 227.6,
+    "contrast_std": 55.1
+  },
+  {
+    "id": "sroie_488",
+    "filename": "488.jpg",
+    "width": 635,
+    "height": 1323,
+    "mean_luminance": 232.4,
+    "contrast_std": 52.6
+  },
+  {
+    "id": "sroie_001",
+    "filename": "001.jpg",
+    "width": 439,
+    "height": 1004,
+    "mean_luminance": 248.7,
+    "contrast_std": 23.2
+  },
+  {
+    "id": "sroie_232",
+    "filename": "232.jpg",
+    "width": 741,
+    "height": 1892,
+    "mean_luminance": 235.6,
+    "contrast_std": 63.1
+  },
+  {
+    "id": "sroie_580",
+    "filename": "580.jpg",
+    "width": 936,
+    "height": 1665,
+    "mean_luminance": 228.8,
+    "contrast_std": 34.5
+  },
+  {
+    "id": "sroie_222",
+    "filename": "222.jpg",
+    "width": 744,
+    "height": 2177,
+    "mean_luminance": 190.6,
+    "contrast_std": 41.9
+  },
+  {
+    "id": "sroie_150",
+    "filename": "150.jpg",
+    "width": 616,
+    "height": 1192,
+    "mean_luminance": 229.7,
+    "contrast_std": 56.3
+  },
+  {
+    "id": "sroie_583",
+    "filename": "583.jpg",
+    "width": 532,
+    "height": 1271,
+    "mean_luminance": 241.8,
+    "contrast_std": 50.7
+  },
+  {
+    "id": "sroie_174",
+    "filename": "174.jpg",
+    "width": 936,
+    "height": 1858,
+    "mean_luminance": 241.6,
+    "contrast_std": 41.2
+  },
+  {
+    "id": "sroie_328",
+    "filename": "328.jpg",
+    "width": 616,
+    "height": 1192,
+    "mean_luminance": 242.8,
+    "contrast_std": 31.5
+  },
+  {
+    "id": "sroie_393",
+    "filename": "393.jpg",
+    "width": 920,
+    "height": 1864,
+    "mean_luminance": 243.1,
+    "contrast_std": 32.9
+  },
+  {
+    "id": "sroie_560",
+    "filename": "560.jpg",
+    "width": 932,
+    "height": 1974,
+    "mean_luminance": 239.5,
+    "contrast_std": 38.0
+  },
+  {
+    "id": "sroie_117",
+    "filename": "117.jpg",
+    "width": 932,
+    "height": 2169,
+    "mean_luminance": 243.6,
+    "contrast_std": 37.6
+  },
+  {
+    "id": "sroie_011",
+    "filename": "011.jpg",
+    "width": 752,
+    "height": 2214,
+    "mean_luminance": 189.6,
+    "contrast_std": 46.4
+  },
+  {
+    "id": "sroie_257",
+    "filename": "257.jpg",
+    "width": 523,
+    "height": 1087,
+    "mean_luminance": 229.3,
+    "contrast_std": 61.6
+  },
+  {
+    "id": "sroie_479",
+    "filename": "479.jpg",
+    "width": 623,
+    "height": 1475,
+    "mean_luminance": 234.5,
+    "contrast_std": 52.8
+  },
+  {
+    "id": "sroie_390",
+    "filename": "390.jpg",
+    "width": 884,
+    "height": 2822,
+    "mean_luminance": 230.3,
+    "contrast_std": 26.5
+  },
+  {
+    "id": "sroie_394",
+    "filename": "394.jpg",
+    "width": 884,
+    "height": 1838,
+    "mean_luminance": 228.5,
+    "contrast_std": 29.6
+  },
+  {
+    "id": "sroie_065",
+    "filename": "065.jpg",
+    "width": 936,
+    "height": 1766,
+    "mean_luminance": 241.4,
+    "contrast_std": 39.3
+  },
+  {
+    "id": "sroie_598",
+    "filename": "598.jpg",
+    "width": 932,
+    "height": 2167,
+    "mean_luminance": 244.7,
+    "contrast_std": 27.7
+  },
+  {
+    "id": "sroie_599",
+    "filename": "599.jpg",
+    "width": 936,
+    "height": 1949,
+    "mean_luminance": 241.6,
+    "contrast_std": 32.4
+  },
+  {
+    "id": "sroie_156",
+    "filename": "156.jpg",
+    "width": 936,
+    "height": 1617,
+    "mean_luminance": 236.0,
+    "contrast_std": 47.4
+  },
+  {
+    "id": "sroie_112",
+    "filename": "112.jpg",
+    "width": 741,
+    "height": 1220,
+    "mean_luminance": 182.1,
+    "contrast_std": 54.3
+  },
+  {
+    "id": "sroie_048",
+    "filename": "048.jpg",
+    "width": 1080,
+    "height": 1527,
+    "mean_luminance": 251.8,
+    "contrast_std": 25.5
+  },
+  {
+    "id": "sroie_093",
+    "filename": "093.jpg",
+    "width": 697,
+    "height": 1481,
+    "mean_luminance": 236.1,
+    "contrast_std": 59.6
+  },
+  {
+    "id": "sroie_505",
+    "filename": "505.jpg",
+    "width": 591,
+    "height": 1779,
+    "mean_luminance": 231.0,
+    "contrast_std": 18.3
+  },
+  {
+    "id": "sroie_521",
+    "filename": "521.jpg",
+    "width": 4961,
+    "height": 7016,
+    "mean_luminance": 251.9,
+    "contrast_std": 27.0
+  },
+  {
+    "id": "sroie_141",
+    "filename": "141.jpg",
+    "width": 932,
+    "height": 1783,
+    "mean_luminance": 242.8,
+    "contrast_std": 36.2
+  },
+  {
+    "id": "sroie_551",
+    "filename": "551.jpg",
+    "width": 792,
+    "height": 1447,
+    "mean_luminance": 247.3,
+    "contrast_std": 22.3
+  },
+  {
+    "id": "sroie_577",
+    "filename": "577.jpg",
+    "width": 884,
+    "height": 1636,
+    "mean_luminance": 225.1,
+    "contrast_std": 38.5
+  },
+  {
+    "id": "sroie_408",
+    "filename": "408.jpg",
+    "width": 932,
+    "height": 2044,
+    "mean_luminance": 237.3,
+    "contrast_std": 42.1
+  },
+  {
+    "id": "sroie_438",
+    "filename": "438.jpg",
+    "width": 4961,
+    "height": 7016,
+    "mean_luminance": 252.9,
+    "contrast_std": 22.6
+  },
+  {
+    "id": "sroie_269",
+    "filename": "269.jpg",
+    "width": 890,
+    "height": 2264,
+    "mean_luminance": 234.6,
+    "contrast_std": 19.6
+  },
+  {
+    "id": "sroie_252",
+    "filename": "252.jpg",
+    "width": 705,
+    "height": 1877,
+    "mean_luminance": 242.8,
+    "contrast_std": 48.2
+  },
+  {
+    "id": "sroie_620",
+    "filename": "620.jpg",
+    "width": 795,
+    "height": 1784,
+    "mean_luminance": 246.0,
+    "contrast_std": 25.2
+  },
+  {
+    "id": "sroie_271",
+    "filename": "271.jpg",
+    "width": 708,
+    "height": 1463,
+    "mean_luminance": 238.4,
+    "contrast_std": 38.6
+  },
+  {
+    "id": "sroie_146",
+    "filename": "146.jpg",
+    "width": 936,
+    "height": 2283,
+    "mean_luminance": 237.2,
+    "contrast_std": 36.8
+  },
+  {
+    "id": "sroie_469",
+    "filename": "469.jpg",
+    "width": 623,
+    "height": 1471,
+    "mean_luminance": 236.9,
+    "contrast_std": 42.5
+  },
+  {
+    "id": "sroie_405",
+    "filename": "405.jpg",
+    "width": 884,
+    "height": 2620,
+    "mean_luminance": 227.2,
+    "contrast_std": 38.7
+  },
+  {
+    "id": "sroie_511",
+    "filename": "511.jpg",
+    "width": 587,
+    "height": 1783,
+    "mean_luminance": 240.7,
+    "contrast_std": 20.0
+  },
+  {
+    "id": "sroie_217",
+    "filename": "217.jpg",
+    "width": 619,
+    "height": 1331,
+    "mean_luminance": 244.3,
+    "contrast_std": 34.3
+  },
+  {
+    "id": "sroie_322",
+    "filename": "322.jpg",
+    "width": 443,
+    "height": 1319,
+    "mean_luminance": 238.8,
+    "contrast_std": 52.4
+  },
+  {
+    "id": "sroie_216",
+    "filename": "216.jpg",
+    "width": 770,
+    "height": 1290,
+    "mean_luminance": 211.8,
+    "contrast_std": 48.5
+  },
+  {
+    "id": "sroie_067",
+    "filename": "067.jpg",
+    "width": 932,
+    "height": 1987,
+    "mean_luminance": 245.6,
+    "contrast_std": 31.0
+  },
+  {
+    "id": "sroie_274",
+    "filename": "274.jpg",
+    "width": 744,
+    "height": 1787,
+    "mean_luminance": 238.5,
+    "contrast_std": 39.3
+  },
+  {
+    "id": "sroie_410",
+    "filename": "410.jpg",
+    "width": 623,
+    "height": 1607,
+    "mean_luminance": 244.1,
+    "contrast_std": 34.7
+  },
+  {
+    "id": "sroie_323",
+    "filename": "323.jpg",
+    "width": 623,
+    "height": 1371,
+    "mean_luminance": 242.9,
+    "contrast_std": 46.2
+  },
+  {
+    "id": "sroie_614",
+    "filename": "614.jpg",
+    "width": 660,
+    "height": 1243,
+    "mean_luminance": 226.9,
+    "contrast_std": 54.4
+  },
+  {
+    "id": "sroie_234",
+    "filename": "234.jpg",
+    "width": 725,
+    "height": 1388,
+    "mean_luminance": 234.2,
+    "contrast_std": 65.4
+  },
+  {
+    "id": "sroie_057",
+    "filename": "057.jpg",
+    "width": 1080,
+    "height": 1527,
+    "mean_luminance": 253.1,
+    "contrast_std": 19.7
+  },
+  {
+    "id": "sroie_332",
+    "filename": "332.jpg",
+    "width": 620,
+    "height": 1200,
+    "mean_luminance": 239.5,
+    "contrast_std": 38.2
+  },
+  {
+    "id": "sroie_224",
+    "filename": "224.jpg",
+    "width": 744,
+    "height": 1286,
+    "mean_luminance": 189.2,
+    "contrast_std": 47.5
+  },
+  {
+    "id": "sroie_276",
+    "filename": "276.jpg",
+    "width": 592,
+    "height": 1563,
+    "mean_luminance": 241.4,
+    "contrast_std": 29.8
+  },
+  {
+    "id": "sroie_388",
+    "filename": "388.jpg",
+    "width": 932,
+    "height": 2225,
+    "mean_luminance": 247.4,
+    "contrast_std": 24.9
+  },
+  {
+    "id": "sroie_473",
+    "filename": "473.jpg",
+    "width": 619,
+    "height": 1483,
+    "mean_luminance": 237.0,
+    "contrast_std": 41.8
+  },
+  {
+    "id": "sroie_167",
+    "filename": "167.jpg",
+    "width": 932,
+    "height": 1617,
+    "mean_luminance": 242.8,
+    "contrast_std": 34.4
+  },
+  {
+    "id": "sroie_622",
+    "filename": "622.jpg",
+    "width": 793,
+    "height": 1636,
+    "mean_luminance": 245.9,
+    "contrast_std": 26.4
+  },
+  {
+    "id": "sroie_546",
+    "filename": "546.jpg",
+    "width": 788,
+    "height": 1609,
+    "mean_luminance": 244.7,
+    "contrast_std": 24.0
+  },
+  {
+    "id": "sroie_175",
+    "filename": "175.jpg",
+    "width": 936,
+    "height": 2132,
+    "mean_luminance": 236.0,
+    "contrast_std": 50.8
+  },
+  {
+    "id": "sroie_073",
+    "filename": "073.jpg",
+    "width": 615,
+    "height": 931,
+    "mean_luminance": 246.8,
+    "contrast_std": 29.2
+  },
+  {
+    "id": "sroie_273",
+    "filename": "273.jpg",
+    "width": 751,
+    "height": 1370,
+    "mean_luminance": 232.0,
+    "contrast_std": 57.0
+  },
+  {
+    "id": "sroie_214",
+    "filename": "214.jpg",
+    "width": 841,
+    "height": 1424,
+    "mean_luminance": 208.9,
+    "contrast_std": 49.6
+  },
+  {
+    "id": "sroie_363",
+    "filename": "363.jpg",
+    "width": 612,
+    "height": 1160,
+    "mean_luminance": 235.7,
+    "contrast_std": 48.7
+  },
+  {
+    "id": "sroie_379",
+    "filename": "379.jpg",
+    "width": 888,
+    "height": 2185,
+    "mean_luminance": 227.2,
+    "contrast_std": 22.9
+  },
+  {
+    "id": "sroie_166",
+    "filename": "166.jpg",
+    "width": 812,
+    "height": 2864,
+    "mean_luminance": 129.3,
+    "contrast_std": 20.5
+  },
+  {
+    "id": "sroie_373",
+    "filename": "373.jpg",
+    "width": 604,
+    "height": 1172,
+    "mean_luminance": 230.8,
+    "contrast_std": 56.1
+  },
+  {
+    "id": "sroie_464",
+    "filename": "464.jpg",
+    "width": 4961,
+    "height": 7016,
+    "mean_luminance": 253.0,
+    "contrast_std": 21.9
+  },
+  {
+    "id": "sroie_596",
+    "filename": "596.jpg",
+    "width": 936,
+    "height": 1992,
+    "mean_luminance": 241.6,
+    "contrast_std": 35.8
+  },
+  {
+    "id": "sroie_590",
+    "filename": "590.jpg",
+    "width": 622,
+    "height": 1310,
+    "mean_luminance": 240.2,
+    "contrast_std": 45.8
+  },
+  {
+    "id": "sroie_103",
+    "filename": "103.jpg",
+    "width": 943,
+    "height": 1871,
+    "mean_luminance": 241.1,
+    "contrast_std": 44.0
+  },
+  {
+    "id": "sroie_610",
+    "filename": "610.jpg",
+    "width": 616,
+    "height": 1304,
+    "mean_luminance": 246.1,
+    "contrast_std": 31.0
+  },
+  {
+    "id": "sroie_081",
+    "filename": "081.jpg",
+    "width": 936,
+    "height": 1676,
+    "mean_luminance": 238.4,
+    "contrast_std": 40.9
+  },
+  {
+    "id": "sroie_296",
+    "filename": "296.jpg",
+    "width": 4961,
+    "height": 7016,
+    "mean_luminance": 251.7,
+    "contrast_std": 28.3
+  },
+  {
+    "id": "sroie_233",
+    "filename": "233.jpg",
+    "width": 702,
+    "height": 2053,
+    "mean_luminance": 238.2,
+    "contrast_std": 59.0
+  },
+  {
+    "id": "sroie_046",
+    "filename": "046.jpg",
+    "width": 1080,
+    "height": 1527,
+    "mean_luminance": 252.3,
+    "contrast_std": 23.0
+  },
+  {
+    "id": "sroie_071",
+    "filename": "071.jpg",
+    "width": 928,
+    "height": 2130,
+    "mean_luminance": 238.6,
+    "contrast_std": 42.9
+  },
+  {
+    "id": "sroie_196",
+    "filename": "196.jpg",
+    "width": 708,
+    "height": 1652,
+    "mean_luminance": 199.2,
+    "contrast_std": 40.1
+  },
+  {
+    "id": "sroie_370",
+    "filename": "370.jpg",
+    "width": 620,
+    "height": 1276,
+    "mean_luminance": 229.6,
+    "contrast_std": 48.4
+  },
+  {
+    "id": "sroie_300",
+    "filename": "300.jpg",
+    "width": 4961,
+    "height": 7016,
+    "mean_luminance": 251.8,
+    "contrast_std": 27.5
+  },
+  {
+    "id": "sroie_565",
+    "filename": "565.jpg",
+    "width": 932,
+    "height": 1659,
+    "mean_luminance": 243.0,
+    "contrast_std": 27.6
+  },
+  {
+    "id": "sroie_080",
+    "filename": "080.jpg",
+    "width": 884,
+    "height": 1678,
+    "mean_luminance": 222.6,
+    "contrast_std": 34.6
+  },
+  {
+    "id": "sroie_387",
+    "filename": "387.jpg",
+    "width": 884,
+    "height": 1677,
+    "mean_luminance": 234.3,
+    "contrast_std": 26.8
+  },
+  {
+    "id": "sroie_127",
+    "filename": "127.jpg",
+    "width": 935,
+    "height": 1859,
+    "mean_luminance": 243.5,
+    "contrast_std": 38.8
+  },
+  {
+    "id": "sroie_549",
+    "filename": "549.jpg",
+    "width": 794,
+    "height": 1515,
+    "mean_luminance": 243.1,
+    "contrast_std": 23.6
+  },
+  {
+    "id": "sroie_470",
+    "filename": "470.jpg",
+    "width": 623,
+    "height": 1515,
+    "mean_luminance": 233.8,
+    "contrast_std": 52.1
+  },
+  {
+    "id": "sroie_044",
+    "filename": "044.jpg",
+    "width": 1080,
+    "height": 1527,
+    "mean_luminance": 252.8,
+    "contrast_std": 21.5
+  },
+  {
+    "id": "sroie_270",
+    "filename": "270.jpg",
+    "width": 935,
+    "height": 3296,
+    "mean_luminance": 243.3,
+    "contrast_std": 41.6
+  },
+  {
+    "id": "sroie_352",
+    "filename": "352.jpg",
+    "width": 588,
+    "height": 1216,
+    "mean_luminance": 237.3,
+    "contrast_std": 43.4
+  },
+  {
+    "id": "sroie_367",
+    "filename": "367.jpg",
+    "width": 616,
+    "height": 1224,
+    "mean_luminance": 235.6,
+    "contrast_std": 40.3
+  },
+  {
+    "id": "sroie_099",
+    "filename": "099.jpg",
+    "width": 814,
+    "height": 1477,
+    "mean_luminance": 191.2,
+    "contrast_std": 45.9
+  },
+  {
+    "id": "sroie_389",
+    "filename": "389.jpg",
+    "width": 888,
+    "height": 1939,
+    "mean_luminance": 231.9,
+    "contrast_std": 29.5
+  },
+  {
+    "id": "sroie_094",
+    "filename": "094.jpg",
+    "width": 741,
+    "height": 1509,
+    "mean_luminance": 234.6,
+    "contrast_std": 62.0
+  },
+  {
+    "id": "sroie_619",
+    "filename": "619.jpg",
+    "width": 791,
+    "height": 1848,
+    "mean_luminance": 241.5,
+    "contrast_std": 26.8
+  },
+  {
+    "id": "sroie_344",
+    "filename": "344.jpg",
+    "width": 622,
+    "height": 1268,
+    "mean_luminance": 222.6,
+    "contrast_std": 62.6
+  },
+  {
+    "id": "sroie_220",
+    "filename": "220.jpg",
+    "width": 748,
+    "height": 1457,
+    "mean_luminance": 204.9,
+    "contrast_std": 36.9
+  },
+  {
+    "id": "sroie_159",
+    "filename": "159.jpg",
+    "width": 884,
+    "height": 1741,
+    "mean_luminance": 235.2,
+    "contrast_std": 29.2
+  },
+  {
+    "id": "sroie_601",
+    "filename": "601.jpg",
+    "width": 892,
+    "height": 1686,
+    "mean_luminance": 222.6,
+    "contrast_std": 45.4
+  },
+  {
+    "id": "sroie_348",
+    "filename": "348.jpg",
+    "width": 616,
+    "height": 1184,
+    "mean_luminance": 232.5,
+    "contrast_std": 49.1
+  },
+  {
+    "id": "sroie_615",
+    "filename": "615.jpg",
+    "width": 924,
+    "height": 1771,
+    "mean_luminance": 218.4,
+    "contrast_std": 45.8
+  },
+  {
+    "id": "sroie_163",
+    "filename": "163.jpg",
+    "width": 884,
+    "height": 1597,
+    "mean_luminance": 226.4,
+    "contrast_std": 38.4
+  },
+  {
+    "id": "sroie_006",
+    "filename": "006.jpg",
+    "width": 457,
+    "height": 1170,
+    "mean_luminance": 240.1,
+    "contrast_std": 44.4
+  },
+  {
+    "id": "sroie_284",
+    "filename": "284.jpg",
+    "width": 4961,
+    "height": 7016,
+    "mean_luminance": 253.1,
+    "contrast_std": 21.1
+  },
+  {
+    "id": "sroie_459",
+    "filename": "459.jpg",
+    "width": 4961,
+    "height": 7016,
+    "mean_luminance": 252.9,
+    "contrast_std": 22.5
+  },
+  {
+    "id": "sroie_225",
+    "filename": "225.jpg",
+    "width": 746,
+    "height": 768,
+    "mean_luminance": 196.6,
+    "contrast_std": 55.1
+  },
+  {
+    "id": "sroie_429",
+    "filename": "429.jpg",
+    "width": 4961,
+    "height": 7016,
+    "mean_luminance": 252.9,
+    "contrast_std": 22.5
+  },
+  {
+    "id": "sroie_618",
+    "filename": "618.jpg",
+    "width": 790,
+    "height": 1634,
+    "mean_luminance": 243.5,
+    "contrast_std": 26.6
+  },
+  {
+    "id": "sroie_203",
+    "filename": "203.jpg",
+    "width": 710,
+    "height": 1451,
+    "mean_luminance": 194.2,
+    "contrast_std": 48.0
+  },
+  {
+    "id": "sroie_574",
+    "filename": "574.jpg",
+    "width": 751,
+    "height": 1324,
+    "mean_luminance": 221.4,
+    "contrast_std": 26.8
+  },
+  {
+    "id": "sroie_027",
+    "filename": "027.jpg",
+    "width": 1654,
+    "height": 2339,
+    "mean_luminance": 246.2,
+    "contrast_std": 41.0
+  },
+  {
+    "id": "sroie_517",
+    "filename": "517.jpg",
+    "width": 612,
+    "height": 984,
+    "mean_luminance": 240.9,
+    "contrast_std": 34.9
+  },
+  {
+    "id": "sroie_238",
+    "filename": "238.jpg",
+    "width": 703,
+    "height": 1819,
+    "mean_luminance": 240.6,
+    "contrast_std": 55.4
+  },
+  {
+    "id": "sroie_223",
+    "filename": "223.jpg",
+    "width": 746,
+    "height": 1824,
+    "mean_luminance": 192.7,
+    "contrast_std": 42.0
+  },
+  {
+    "id": "sroie_095",
+    "filename": "095.jpg",
+    "width": 681,
+    "height": 1737,
+    "mean_luminance": 237.3,
+    "contrast_std": 49.6
+  },
+  {
+    "id": "sroie_030",
+    "filename": "030.jpg",
+    "width": 1080,
+    "height": 1527,
+    "mean_luminance": 252.9,
+    "contrast_std": 20.7
+  },
+  {
+    "id": "sroie_032",
+    "filename": "032.jpg",
+    "width": 1080,
+    "height": 1527,
+    "mean_luminance": 252.9,
+    "contrast_std": 20.7
+  },
+  {
+    "id": "sroie_432",
+    "filename": "432.jpg",
+    "width": 4961,
+    "height": 7016,
+    "mean_luminance": 253.2,
+    "contrast_std": 21.0
+  },
+  {
+    "id": "sroie_604",
+    "filename": "604.jpg",
+    "width": 928,
+    "height": 2143,
+    "mean_luminance": 240.6,
+    "contrast_std": 37.7
+  },
+  {
+    "id": "sroie_089",
+    "filename": "089.jpg",
+    "width": 710,
+    "height": 2020,
+    "mean_luminance": 242.4,
+    "contrast_std": 41.8
+  },
+  {
+    "id": "sroie_558",
+    "filename": "558.jpg",
+    "width": 928,
+    "height": 1828,
+    "mean_luminance": 242.8,
+    "contrast_std": 32.3
+  },
+  {
+    "id": "sroie_104",
+    "filename": "104.jpg",
+    "width": 782,
+    "height": 2213,
+    "mean_luminance": 195.0,
+    "contrast_std": 39.1
+  },
+  {
+    "id": "sroie_142",
+    "filename": "142.jpg",
+    "width": 932,
+    "height": 1692,
+    "mean_luminance": 241.9,
+    "contrast_std": 37.9
+  },
+  {
+    "id": "sroie_228",
+    "filename": "228.jpg",
+    "width": 932,
+    "height": 2050,
+    "mean_luminance": 144.4,
+    "contrast_std": 91.1
+  },
+  {
+    "id": "sroie_250",
+    "filename": "250.jpg",
+    "width": 705,
+    "height": 1564,
+    "mean_luminance": 243.5,
+    "contrast_std": 42.6
+  },
+  {
+    "id": "sroie_281",
+    "filename": "281.jpg",
+    "width": 4945,
+    "height": 6981,
+    "mean_luminance": 252.7,
+    "contrast_std": 22.2
+  },
+  {
+    "id": "sroie_025",
+    "filename": "025.jpg",
+    "width": 2481,
+    "height": 3508,
+    "mean_luminance": 249.8,
+    "contrast_std": 28.5
+  },
+  {
+    "id": "sroie_114",
+    "filename": "114.jpg",
+    "width": 932,
+    "height": 2172,
+    "mean_luminance": 243.0,
+    "contrast_std": 41.1
+  },
+  {
+    "id": "coco_0500",
+    "filename": "COCO_val2014_000000534733.jpg",
+    "width": 640,
+    "height": 424,
+    "mean_luminance": 83.7,
+    "contrast_std": 58.5
+  },
+  {
+    "id": "coco_0501",
+    "filename": "COCO_val2014_000000395124.jpg",
+    "width": 640,
+    "height": 426,
+    "mean_luminance": 60.8,
+    "contrast_std": 55.7
+  },
+  {
+    "id": "coco_0502",
+    "filename": "COCO_val2014_000000380143.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 137.0,
+    "contrast_std": 30.4
+  },
+  {
+    "id": "coco_0503",
+    "filename": "COCO_val2014_000000058393.jpg",
+    "width": 640,
+    "height": 486,
+    "mean_luminance": 136.5,
+    "contrast_std": 90.0
+  },
+  {
+    "id": "coco_0504",
+    "filename": "COCO_val2014_000000204640.jpg",
+    "width": 640,
+    "height": 457,
+    "mean_luminance": 59.3,
+    "contrast_std": 68.6
+  },
+  {
+    "id": "coco_0505",
+    "filename": "COCO_val2014_000000007288.jpg",
+    "width": 480,
+    "height": 640,
+    "mean_luminance": 81.6,
+    "contrast_std": 67.4
+  },
+  {
+    "id": "coco_0506",
+    "filename": "COCO_val2014_000000410979.jpg",
+    "width": 480,
+    "height": 640,
+    "mean_luminance": 109.7,
+    "contrast_std": 55.2
+  },
+  {
+    "id": "coco_0507",
+    "filename": "COCO_val2014_000000073521.jpg",
+    "width": 500,
+    "height": 375,
+    "mean_luminance": 126.4,
+    "contrast_std": 72.2
+  },
+  {
+    "id": "coco_0508",
+    "filename": "COCO_val2014_000000273493.jpg",
+    "width": 500,
+    "height": 333,
+    "mean_luminance": 110.5,
+    "contrast_std": 73.8
+  },
+  {
+    "id": "coco_0509",
+    "filename": "COCO_val2014_000000248111.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 160.5,
+    "contrast_std": 55.0
+  },
+  {
+    "id": "coco_0510",
+    "filename": "COCO_val2014_000000468302.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 139.8,
+    "contrast_std": 74.4
+  },
+  {
+    "id": "coco_0511",
+    "filename": "COCO_val2014_000000191390.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 164.0,
+    "contrast_std": 54.1
+  },
+  {
+    "id": "coco_0512",
+    "filename": "COCO_val2014_000000219632.jpg",
+    "width": 640,
+    "height": 426,
+    "mean_luminance": 123.9,
+    "contrast_std": 64.5
+  },
+  {
+    "id": "coco_0513",
+    "filename": "COCO_val2014_000000290839.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 49.2,
+    "contrast_std": 55.7
+  },
+  {
+    "id": "coco_0514",
+    "filename": "COCO_val2014_000000126502.jpg",
+    "width": 640,
+    "height": 424,
+    "mean_luminance": 70.3,
+    "contrast_std": 67.8
+  },
+  {
+    "id": "coco_0515",
+    "filename": "COCO_val2014_000000138675.jpg",
+    "width": 480,
+    "height": 640,
+    "mean_luminance": 176.8,
+    "contrast_std": 65.8
+  },
+  {
+    "id": "coco_0516",
+    "filename": "COCO_val2014_000000295134.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 117.1,
+    "contrast_std": 69.2
+  },
+  {
+    "id": "coco_0517",
+    "filename": "COCO_val2014_000000018480.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 74.6,
+    "contrast_std": 61.3
+  },
+  {
+    "id": "coco_0518",
+    "filename": "COCO_val2014_000000238989.jpg",
+    "width": 640,
+    "height": 478,
+    "mean_luminance": 84.2,
+    "contrast_std": 64.5
+  },
+  {
+    "id": "coco_0519",
+    "filename": "COCO_val2014_000000068864.jpg",
+    "width": 612,
+    "height": 612,
+    "mean_luminance": 110.5,
+    "contrast_std": 73.5
+  },
+  {
+    "id": "coco_0520",
+    "filename": "COCO_val2014_000000475906.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 76.5,
+    "contrast_std": 54.1
+  },
+  {
+    "id": "coco_0521",
+    "filename": "COCO_val2014_000000466882.jpg",
+    "width": 640,
+    "height": 218,
+    "mean_luminance": 144.2,
+    "contrast_std": 48.3
+  },
+  {
+    "id": "coco_0522",
+    "filename": "COCO_val2014_000000559773.jpg",
+    "width": 640,
+    "height": 424,
+    "mean_luminance": 154.4,
+    "contrast_std": 71.0
+  },
+  {
+    "id": "coco_0523",
+    "filename": "COCO_val2014_000000256337.jpg",
+    "width": 480,
+    "height": 640,
+    "mean_luminance": 66.7,
+    "contrast_std": 52.6
+  },
+  {
+    "id": "coco_0524",
+    "filename": "COCO_val2014_000000206112.jpg",
+    "width": 640,
+    "height": 361,
+    "mean_luminance": 116.8,
+    "contrast_std": 70.9
+  },
+  {
+    "id": "coco_0525",
+    "filename": "COCO_val2014_000000116208.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 100.2,
+    "contrast_std": 67.2
+  },
+  {
+    "id": "coco_0526",
+    "filename": "COCO_val2014_000000579240.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 151.9,
+    "contrast_std": 78.5
+  },
+  {
+    "id": "coco_0527",
+    "filename": "COCO_val2014_000000256899.jpg",
+    "width": 500,
+    "height": 375,
+    "mean_luminance": 115.4,
+    "contrast_std": 75.8
+  },
+  {
+    "id": "coco_0528",
+    "filename": "COCO_val2014_000000114744.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 61.8,
+    "contrast_std": 71.8
+  },
+  {
+    "id": "coco_0529",
+    "filename": "COCO_val2014_000000520043.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 88.6,
+    "contrast_std": 66.6
+  },
+  {
+    "id": "coco_0530",
+    "filename": "COCO_val2014_000000496604.jpg",
+    "width": 425,
+    "height": 640,
+    "mean_luminance": 151.5,
+    "contrast_std": 49.9
+  },
+  {
+    "id": "coco_0531",
+    "filename": "COCO_val2014_000000389464.jpg",
+    "width": 612,
+    "height": 612,
+    "mean_luminance": 119.8,
+    "contrast_std": 73.7
+  },
+  {
+    "id": "coco_0532",
+    "filename": "COCO_val2014_000000437126.jpg",
+    "width": 500,
+    "height": 378,
+    "mean_luminance": 153.6,
+    "contrast_std": 67.2
+  },
+  {
+    "id": "coco_0533",
+    "filename": "COCO_val2014_000000416968.jpg",
+    "width": 500,
+    "height": 375,
+    "mean_luminance": 113.8,
+    "contrast_std": 62.1
+  },
+  {
+    "id": "coco_0534",
+    "filename": "COCO_val2014_000000064152.jpg",
+    "width": 480,
+    "height": 640,
+    "mean_luminance": 90.0,
+    "contrast_std": 76.6
+  },
+  {
+    "id": "coco_0535",
+    "filename": "COCO_val2014_000000527575.jpg",
+    "width": 369,
+    "height": 500,
+    "mean_luminance": 44.3,
+    "contrast_std": 43.7
+  },
+  {
+    "id": "coco_0536",
+    "filename": "COCO_val2014_000000389644.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 109.1,
+    "contrast_std": 70.4
+  },
+  {
+    "id": "coco_0537",
+    "filename": "COCO_val2014_000000224757.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 88.7,
+    "contrast_std": 45.0
+  },
+  {
+    "id": "coco_0538",
+    "filename": "COCO_val2014_000000371957.jpg",
+    "width": 640,
+    "height": 426,
+    "mean_luminance": 105.1,
+    "contrast_std": 56.3
+  },
+  {
+    "id": "coco_0539",
+    "filename": "COCO_val2014_000000520787.jpg",
+    "width": 480,
+    "height": 640,
+    "mean_luminance": 112.3,
+    "contrast_std": 49.6
+  },
+  {
+    "id": "coco_0540",
+    "filename": "COCO_val2014_000000192932.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 140.3,
+    "contrast_std": 76.3
+  },
+  {
+    "id": "coco_0541",
+    "filename": "COCO_val2014_000000025181.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 115.0,
+    "contrast_std": 75.8
+  },
+  {
+    "id": "coco_0542",
+    "filename": "COCO_val2014_000000080000.jpg",
+    "width": 640,
+    "height": 426,
+    "mean_luminance": 141.9,
+    "contrast_std": 57.2
+  },
+  {
+    "id": "coco_0543",
+    "filename": "COCO_val2014_000000268363.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 86.3,
+    "contrast_std": 62.8
+  },
+  {
+    "id": "coco_0544",
+    "filename": "COCO_val2014_000000096351.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 79.3,
+    "contrast_std": 47.5
+  },
+  {
+    "id": "coco_0545",
+    "filename": "COCO_val2014_000000360504.jpg",
+    "width": 640,
+    "height": 510,
+    "mean_luminance": 105.0,
+    "contrast_std": 66.8
+  },
+  {
+    "id": "coco_0546",
+    "filename": "COCO_val2014_000000016848.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 108.1,
+    "contrast_std": 58.3
+  },
+  {
+    "id": "coco_0547",
+    "filename": "COCO_val2014_000000097156.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 90.2,
+    "contrast_std": 67.8
+  },
+  {
+    "id": "coco_0548",
+    "filename": "COCO_val2014_000000408757.jpg",
+    "width": 371,
+    "height": 640,
+    "mean_luminance": 124.8,
+    "contrast_std": 39.8
+  },
+  {
+    "id": "coco_0549",
+    "filename": "COCO_val2014_000000556158.jpg",
+    "width": 480,
+    "height": 640,
+    "mean_luminance": 143.7,
+    "contrast_std": 63.3
+  },
+  {
+    "id": "coco_0550",
+    "filename": "COCO_val2014_000000364340.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 140.9,
+    "contrast_std": 39.3
+  },
+  {
+    "id": "coco_0551",
+    "filename": "COCO_val2014_000000263858.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 188.6,
+    "contrast_std": 63.7
+  },
+  {
+    "id": "coco_0552",
+    "filename": "COCO_val2014_000000278934.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 199.8,
+    "contrast_std": 68.6
+  },
+  {
+    "id": "coco_0553",
+    "filename": "COCO_val2014_000000454907.jpg",
+    "width": 480,
+    "height": 640,
+    "mean_luminance": 106.0,
+    "contrast_std": 59.0
+  },
+  {
+    "id": "coco_0554",
+    "filename": "COCO_val2014_000000166478.jpg",
+    "width": 640,
+    "height": 426,
+    "mean_luminance": 71.2,
+    "contrast_std": 59.5
+  },
+  {
+    "id": "coco_0555",
+    "filename": "COCO_val2014_000000081354.jpg",
+    "width": 426,
+    "height": 640,
+    "mean_luminance": 145.4,
+    "contrast_std": 71.4
+  },
+  {
+    "id": "coco_0556",
+    "filename": "COCO_val2014_000000207292.jpg",
+    "width": 426,
+    "height": 640,
+    "mean_luminance": 71.9,
+    "contrast_std": 36.6
+  },
+  {
+    "id": "coco_0557",
+    "filename": "COCO_val2014_000000462026.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 112.8,
+    "contrast_std": 63.1
+  },
+  {
+    "id": "coco_0558",
+    "filename": "COCO_val2014_000000028156.jpg",
+    "width": 427,
+    "height": 640,
+    "mean_luminance": 89.5,
+    "contrast_std": 64.5
+  },
+  {
+    "id": "coco_0559",
+    "filename": "COCO_val2014_000000177015.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 71.2,
+    "contrast_std": 53.4
+  },
+  {
+    "id": "coco_0560",
+    "filename": "COCO_val2014_000000390301.jpg",
+    "width": 500,
+    "height": 364,
+    "mean_luminance": 144.4,
+    "contrast_std": 79.8
+  },
+  {
+    "id": "coco_0561",
+    "filename": "COCO_val2014_000000550349.jpg",
+    "width": 480,
+    "height": 640,
+    "mean_luminance": 123.4,
+    "contrast_std": 69.5
+  },
+  {
+    "id": "coco_0562",
+    "filename": "COCO_val2014_000000031016.jpg",
+    "width": 500,
+    "height": 375,
+    "mean_luminance": 123.5,
+    "contrast_std": 81.9
+  },
+  {
+    "id": "coco_0563",
+    "filename": "COCO_val2014_000000470623.jpg",
+    "width": 500,
+    "height": 338,
+    "mean_luminance": 70.9,
+    "contrast_std": 47.8
+  },
+  {
+    "id": "coco_0564",
+    "filename": "COCO_val2014_000000453297.jpg",
+    "width": 500,
+    "height": 375,
+    "mean_luminance": 135.7,
+    "contrast_std": 50.9
+  },
+  {
+    "id": "coco_0565",
+    "filename": "COCO_val2014_000000568107.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 171.8,
+    "contrast_std": 78.3
+  },
+  {
+    "id": "coco_0566",
+    "filename": "COCO_val2014_000000361992.jpg",
+    "width": 500,
+    "height": 375,
+    "mean_luminance": 80.9,
+    "contrast_std": 52.7
+  },
+  {
+    "id": "coco_0567",
+    "filename": "COCO_val2014_000000129548.jpg",
+    "width": 500,
+    "height": 336,
+    "mean_luminance": 134.3,
+    "contrast_std": 43.8
+  },
+  {
+    "id": "coco_0568",
+    "filename": "COCO_val2014_000000213538.jpg",
+    "width": 480,
+    "height": 640,
+    "mean_luminance": 112.2,
+    "contrast_std": 60.5
+  },
+  {
+    "id": "coco_0569",
+    "filename": "COCO_val2014_000000131138.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 88.0,
+    "contrast_std": 67.6
+  },
+  {
+    "id": "coco_0570",
+    "filename": "COCO_val2014_000000177938.jpg",
+    "width": 480,
+    "height": 640,
+    "mean_luminance": 92.1,
+    "contrast_std": 75.3
+  },
+  {
+    "id": "coco_0571",
+    "filename": "COCO_val2014_000000173391.jpg",
+    "width": 400,
+    "height": 343,
+    "mean_luminance": 106.8,
+    "contrast_std": 67.3
+  },
+  {
+    "id": "coco_0572",
+    "filename": "COCO_val2014_000000553447.jpg",
+    "width": 640,
+    "height": 428,
+    "mean_luminance": 124.1,
+    "contrast_std": 72.8
+  },
+  {
+    "id": "coco_0573",
+    "filename": "COCO_val2014_000000470366.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 108.9,
+    "contrast_std": 54.1
+  },
+  {
+    "id": "coco_0574",
+    "filename": "COCO_val2014_000000068120.jpg",
+    "width": 362,
+    "height": 640,
+    "mean_luminance": 96.9,
+    "contrast_std": 75.5
+  },
+  {
+    "id": "coco_0575",
+    "filename": "COCO_val2014_000000073702.jpg",
+    "width": 464,
+    "height": 640,
+    "mean_luminance": 117.9,
+    "contrast_std": 82.3
+  },
+  {
+    "id": "coco_0576",
+    "filename": "COCO_val2014_000000545039.jpg",
+    "width": 640,
+    "height": 426,
+    "mean_luminance": 90.5,
+    "contrast_std": 52.6
+  },
+  {
+    "id": "coco_0577",
+    "filename": "COCO_val2014_000000084674.jpg",
+    "width": 480,
+    "height": 640,
+    "mean_luminance": 64.9,
+    "contrast_std": 48.0
+  },
+  {
+    "id": "coco_0578",
+    "filename": "COCO_val2014_000000064710.jpg",
+    "width": 425,
+    "height": 640,
+    "mean_luminance": 136.9,
+    "contrast_std": 57.1
+  },
+  {
+    "id": "coco_0579",
+    "filename": "COCO_val2014_000000188416.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 88.5,
+    "contrast_std": 45.0
+  },
+  {
+    "id": "coco_0580",
+    "filename": "COCO_val2014_000000565389.jpg",
+    "width": 640,
+    "height": 425,
+    "mean_luminance": 101.6,
+    "contrast_std": 66.7
+  },
+  {
+    "id": "coco_0581",
+    "filename": "COCO_val2014_000000002690.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 142.4,
+    "contrast_std": 60.3
+  },
+  {
+    "id": "coco_0582",
+    "filename": "COCO_val2014_000000470984.jpg",
+    "width": 640,
+    "height": 426,
+    "mean_luminance": 178.2,
+    "contrast_std": 46.0
+  },
+  {
+    "id": "coco_0583",
+    "filename": "COCO_val2014_000000190015.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 123.9,
+    "contrast_std": 56.8
+  },
+  {
+    "id": "coco_0584",
+    "filename": "COCO_val2014_000000343394.jpg",
+    "width": 427,
+    "height": 640,
+    "mean_luminance": 200.8,
+    "contrast_std": 54.5
+  },
+  {
+    "id": "coco_0585",
+    "filename": "COCO_val2014_000000436676.jpg",
+    "width": 640,
+    "height": 475,
+    "mean_luminance": 75.8,
+    "contrast_std": 58.7
+  },
+  {
+    "id": "coco_0586",
+    "filename": "COCO_val2014_000000379190.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 57.4,
+    "contrast_std": 73.2
+  },
+  {
+    "id": "coco_0587",
+    "filename": "COCO_val2014_000000179921.jpg",
+    "width": 427,
+    "height": 640,
+    "mean_luminance": 108.6,
+    "contrast_std": 51.8
+  },
+  {
+    "id": "coco_0588",
+    "filename": "COCO_val2014_000000230936.jpg",
+    "width": 640,
+    "height": 360,
+    "mean_luminance": 120.9,
+    "contrast_std": 63.6
+  },
+  {
+    "id": "coco_0589",
+    "filename": "COCO_val2014_000000511583.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 48.4,
+    "contrast_std": 48.6
+  },
+  {
+    "id": "coco_0590",
+    "filename": "COCO_val2014_000000376322.jpg",
+    "width": 478,
+    "height": 640,
+    "mean_luminance": 98.1,
+    "contrast_std": 63.5
+  },
+  {
+    "id": "coco_0591",
+    "filename": "COCO_val2014_000000219269.jpg",
+    "width": 480,
+    "height": 640,
+    "mean_luminance": 144.5,
+    "contrast_std": 54.9
+  },
+  {
+    "id": "coco_0592",
+    "filename": "COCO_val2014_000000420113.jpg",
+    "width": 640,
+    "height": 424,
+    "mean_luminance": 130.2,
+    "contrast_std": 70.2
+  },
+  {
+    "id": "coco_0593",
+    "filename": "COCO_val2014_000000372252.jpg",
+    "width": 500,
+    "height": 377,
+    "mean_luminance": 112.5,
+    "contrast_std": 57.0
+  },
+  {
+    "id": "coco_0594",
+    "filename": "COCO_val2014_000000319654.jpg",
+    "width": 500,
+    "height": 333,
+    "mean_luminance": 126.5,
+    "contrast_std": 60.2
+  },
+  {
+    "id": "coco_0595",
+    "filename": "COCO_val2014_000000398810.jpg",
+    "width": 500,
+    "height": 500,
+    "mean_luminance": 76.6,
+    "contrast_std": 78.2
+  },
+  {
+    "id": "coco_0596",
+    "filename": "COCO_val2014_000000339426.jpg",
+    "width": 500,
+    "height": 324,
+    "mean_luminance": 106.4,
+    "contrast_std": 53.7
+  },
+  {
+    "id": "coco_0597",
+    "filename": "COCO_val2014_000000045550.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 64.7,
+    "contrast_std": 64.4
+  },
+  {
+    "id": "coco_0598",
+    "filename": "COCO_val2014_000000061414.jpg",
+    "width": 426,
+    "height": 640,
+    "mean_luminance": 52.5,
+    "contrast_std": 54.1
+  },
+  {
+    "id": "coco_0599",
+    "filename": "COCO_val2014_000000354533.jpg",
+    "width": 640,
+    "height": 310,
+    "mean_luminance": 143.2,
+    "contrast_std": 75.0
+  },
+  {
+    "id": "coco_0600",
+    "filename": "COCO_val2014_000000494566.jpg",
+    "width": 500,
+    "height": 375,
+    "mean_luminance": 130.8,
+    "contrast_std": 83.1
+  },
+  {
+    "id": "coco_0601",
+    "filename": "COCO_val2014_000000002822.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 141.9,
+    "contrast_std": 46.4
+  },
+  {
+    "id": "coco_0602",
+    "filename": "COCO_val2014_000000044244.jpg",
+    "width": 375,
+    "height": 500,
+    "mean_luminance": 114.3,
+    "contrast_std": 79.1
+  },
+  {
+    "id": "coco_0603",
+    "filename": "COCO_val2014_000000551987.jpg",
+    "width": 480,
+    "height": 640,
+    "mean_luminance": 98.3,
+    "contrast_std": 57.1
+  },
+  {
+    "id": "coco_0604",
+    "filename": "COCO_val2014_000000289754.jpg",
+    "width": 427,
+    "height": 640,
+    "mean_luminance": 83.7,
+    "contrast_std": 57.3
+  },
+  {
+    "id": "coco_0605",
+    "filename": "COCO_val2014_000000188718.jpg",
+    "width": 640,
+    "height": 448,
+    "mean_luminance": 129.8,
+    "contrast_std": 54.1
+  },
+  {
+    "id": "coco_0606",
+    "filename": "COCO_val2014_000000081897.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 127.8,
+    "contrast_std": 40.5
+  },
+  {
+    "id": "coco_0607",
+    "filename": "COCO_val2014_000000495985.jpg",
+    "width": 640,
+    "height": 428,
+    "mean_luminance": 125.0,
+    "contrast_std": 78.8
+  },
+  {
+    "id": "coco_0608",
+    "filename": "COCO_val2014_000000506458.jpg",
+    "width": 640,
+    "height": 428,
+    "mean_luminance": 122.1,
+    "contrast_std": 65.8
+  },
+  {
+    "id": "coco_0609",
+    "filename": "COCO_val2014_000000146865.jpg",
+    "width": 640,
+    "height": 602,
+    "mean_luminance": 113.3,
+    "contrast_std": 70.7
+  },
+  {
+    "id": "coco_0610",
+    "filename": "COCO_val2014_000000385005.jpg",
+    "width": 375,
+    "height": 500,
+    "mean_luminance": 131.3,
+    "contrast_std": 56.2
+  },
+  {
+    "id": "coco_0611",
+    "filename": "COCO_val2014_000000129645.jpg",
+    "width": 333,
+    "height": 500,
+    "mean_luminance": 110.0,
+    "contrast_std": 96.6
+  },
+  {
+    "id": "coco_0612",
+    "filename": "COCO_val2014_000000165752.jpg",
+    "width": 335,
+    "height": 500,
+    "mean_luminance": 74.9,
+    "contrast_std": 35.7
+  },
+  {
+    "id": "coco_0613",
+    "filename": "COCO_val2014_000000501652.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 108.6,
+    "contrast_std": 86.7
+  },
+  {
+    "id": "coco_0614",
+    "filename": "COCO_val2014_000000330369.jpg",
+    "width": 500,
+    "height": 335,
+    "mean_luminance": 101.4,
+    "contrast_std": 55.4
+  },
+  {
+    "id": "coco_0615",
+    "filename": "COCO_val2014_000000354685.jpg",
+    "width": 480,
+    "height": 640,
+    "mean_luminance": 88.1,
+    "contrast_std": 52.1
+  },
+  {
+    "id": "coco_0616",
+    "filename": "COCO_val2014_000000488539.jpg",
+    "width": 640,
+    "height": 431,
+    "mean_luminance": 90.8,
+    "contrast_std": 71.3
+  },
+  {
+    "id": "coco_0617",
+    "filename": "COCO_val2014_000000562419.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 63.5,
+    "contrast_std": 62.4
+  },
+  {
+    "id": "coco_0618",
+    "filename": "COCO_val2014_000000048530.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 86.7,
+    "contrast_std": 58.8
+  },
+  {
+    "id": "coco_0619",
+    "filename": "COCO_val2014_000000019443.jpg",
+    "width": 640,
+    "height": 359,
+    "mean_luminance": 113.8,
+    "contrast_std": 70.4
+  },
+  {
+    "id": "coco_0620",
+    "filename": "COCO_val2014_000000367843.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 104.0,
+    "contrast_std": 50.2
+  },
+  {
+    "id": "coco_0621",
+    "filename": "COCO_val2014_000000361400.jpg",
+    "width": 426,
+    "height": 640,
+    "mean_luminance": 35.3,
+    "contrast_std": 40.7
+  },
+  {
+    "id": "coco_0622",
+    "filename": "COCO_val2014_000000492132.jpg",
+    "width": 500,
+    "height": 375,
+    "mean_luminance": 123.4,
+    "contrast_std": 52.9
+  },
+  {
+    "id": "coco_0623",
+    "filename": "COCO_val2014_000000358055.jpg",
+    "width": 640,
+    "height": 426,
+    "mean_luminance": 99.9,
+    "contrast_std": 46.4
+  },
+  {
+    "id": "coco_0624",
+    "filename": "COCO_val2014_000000074460.jpg",
+    "width": 640,
+    "height": 426,
+    "mean_luminance": 96.2,
+    "contrast_std": 52.1
+  },
+  {
+    "id": "coco_0625",
+    "filename": "COCO_val2014_000000252927.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 134.8,
+    "contrast_std": 53.1
+  },
+  {
+    "id": "coco_0626",
+    "filename": "COCO_val2014_000000144795.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 122.8,
+    "contrast_std": 52.9
+  },
+  {
+    "id": "coco_0627",
+    "filename": "COCO_val2014_000000424220.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 129.9,
+    "contrast_std": 78.7
+  },
+  {
+    "id": "coco_0628",
+    "filename": "COCO_val2014_000000368088.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 161.2,
+    "contrast_std": 29.3
+  },
+  {
+    "id": "coco_0629",
+    "filename": "COCO_val2014_000000449114.jpg",
+    "width": 640,
+    "height": 426,
+    "mean_luminance": 133.6,
+    "contrast_std": 33.1
+  },
+  {
+    "id": "coco_0630",
+    "filename": "COCO_val2014_000000118432.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 121.9,
+    "contrast_std": 76.0
+  },
+  {
+    "id": "coco_0631",
+    "filename": "COCO_val2014_000000047837.jpg",
+    "width": 640,
+    "height": 428,
+    "mean_luminance": 55.5,
+    "contrast_std": 53.4
+  },
+  {
+    "id": "coco_0632",
+    "filename": "COCO_val2014_000000320524.jpg",
+    "width": 436,
+    "height": 640,
+    "mean_luminance": 114.7,
+    "contrast_std": 72.1
+  },
+  {
+    "id": "coco_0633",
+    "filename": "COCO_val2014_000000503826.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 88.3,
+    "contrast_std": 75.8
+  },
+  {
+    "id": "coco_0634",
+    "filename": "COCO_val2014_000000462814.jpg",
+    "width": 640,
+    "height": 426,
+    "mean_luminance": 88.8,
+    "contrast_std": 56.5
+  },
+  {
+    "id": "coco_0635",
+    "filename": "COCO_val2014_000000454195.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 117.2,
+    "contrast_std": 44.5
+  },
+  {
+    "id": "coco_0636",
+    "filename": "COCO_val2014_000000316240.jpg",
+    "width": 640,
+    "height": 640,
+    "mean_luminance": 107.2,
+    "contrast_std": 60.8
+  },
+  {
+    "id": "coco_0637",
+    "filename": "COCO_val2014_000000299023.jpg",
+    "width": 427,
+    "height": 640,
+    "mean_luminance": 124.8,
+    "contrast_std": 66.2
+  },
+  {
+    "id": "coco_0638",
+    "filename": "COCO_val2014_000000489739.jpg",
+    "width": 640,
+    "height": 359,
+    "mean_luminance": 96.7,
+    "contrast_std": 58.7
+  },
+  {
+    "id": "coco_0639",
+    "filename": "COCO_val2014_000000406329.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 121.4,
+    "contrast_std": 88.8
+  },
+  {
+    "id": "coco_0640",
+    "filename": "COCO_val2014_000000033904.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 68.1,
+    "contrast_std": 49.5
+  },
+  {
+    "id": "coco_0641",
+    "filename": "COCO_val2014_000000195673.jpg",
+    "width": 640,
+    "height": 426,
+    "mean_luminance": 132.9,
+    "contrast_std": 56.1
+  },
+  {
+    "id": "coco_0642",
+    "filename": "COCO_val2014_000000412813.jpg",
+    "width": 640,
+    "height": 425,
+    "mean_luminance": 108.8,
+    "contrast_std": 82.7
+  },
+  {
+    "id": "coco_0643",
+    "filename": "COCO_val2014_000000342334.jpg",
+    "width": 640,
+    "height": 416,
+    "mean_luminance": 147.4,
+    "contrast_std": 58.6
+  },
+  {
+    "id": "coco_0644",
+    "filename": "COCO_val2014_000000361527.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 122.9,
+    "contrast_std": 59.9
+  },
+  {
+    "id": "coco_0645",
+    "filename": "COCO_val2014_000000478528.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 107.9,
+    "contrast_std": 74.9
+  },
+  {
+    "id": "coco_0646",
+    "filename": "COCO_val2014_000000135399.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 70.3,
+    "contrast_std": 50.5
+  },
+  {
+    "id": "coco_0647",
+    "filename": "COCO_val2014_000000185781.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 81.2,
+    "contrast_std": 41.9
+  },
+  {
+    "id": "coco_0648",
+    "filename": "COCO_val2014_000000421361.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 83.7,
+    "contrast_std": 64.4
+  },
+  {
+    "id": "coco_0649",
+    "filename": "COCO_val2014_000000100848.jpg",
+    "width": 640,
+    "height": 424,
+    "mean_luminance": 104.8,
+    "contrast_std": 59.3
+  },
+  {
+    "id": "coco_0650",
+    "filename": "COCO_val2014_000000305695.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 120.0,
+    "contrast_std": 56.2
+  },
+  {
+    "id": "coco_0651",
+    "filename": "COCO_val2014_000000350099.jpg",
+    "width": 640,
+    "height": 428,
+    "mean_luminance": 133.1,
+    "contrast_std": 78.7
+  },
+  {
+    "id": "coco_0652",
+    "filename": "COCO_val2014_000000516178.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 117.8,
+    "contrast_std": 59.4
+  },
+  {
+    "id": "coco_0653",
+    "filename": "COCO_val2014_000000180336.jpg",
+    "width": 480,
+    "height": 640,
+    "mean_luminance": 121.6,
+    "contrast_std": 84.5
+  },
+  {
+    "id": "coco_0654",
+    "filename": "COCO_val2014_000000287663.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 99.7,
+    "contrast_std": 67.5
+  },
+  {
+    "id": "coco_0655",
+    "filename": "COCO_val2014_000000575367.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 132.0,
+    "contrast_std": 56.0
+  },
+  {
+    "id": "coco_0656",
+    "filename": "COCO_val2014_000000243090.jpg",
+    "width": 479,
+    "height": 640,
+    "mean_luminance": 88.2,
+    "contrast_std": 76.5
+  },
+  {
+    "id": "coco_0657",
+    "filename": "COCO_val2014_000000001425.jpg",
+    "width": 640,
+    "height": 512,
+    "mean_luminance": 139.3,
+    "contrast_std": 77.6
+  },
+  {
+    "id": "coco_0658",
+    "filename": "COCO_val2014_000000507686.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 107.1,
+    "contrast_std": 72.4
+  },
+  {
+    "id": "coco_0659",
+    "filename": "COCO_val2014_000000109316.jpg",
+    "width": 425,
+    "height": 640,
+    "mean_luminance": 114.9,
+    "contrast_std": 47.7
+  },
+  {
+    "id": "coco_0660",
+    "filename": "COCO_val2014_000000424998.jpg",
+    "width": 640,
+    "height": 526,
+    "mean_luminance": 75.9,
+    "contrast_std": 79.8
+  },
+  {
+    "id": "coco_0661",
+    "filename": "COCO_val2014_000000499537.jpg",
+    "width": 480,
+    "height": 640,
+    "mean_luminance": 109.5,
+    "contrast_std": 76.5
+  },
+  {
+    "id": "coco_0662",
+    "filename": "COCO_val2014_000000132612.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 121.3,
+    "contrast_std": 34.3
+  },
+  {
+    "id": "coco_0663",
+    "filename": "COCO_val2014_000000299631.jpg",
+    "width": 640,
+    "height": 434,
+    "mean_luminance": 107.1,
+    "contrast_std": 70.6
+  },
+  {
+    "id": "coco_0664",
+    "filename": "COCO_val2014_000000421109.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 83.9,
+    "contrast_std": 47.2
+  },
+  {
+    "id": "coco_0665",
+    "filename": "COCO_val2014_000000439472.jpg",
+    "width": 640,
+    "height": 426,
+    "mean_luminance": 63.9,
+    "contrast_std": 47.4
+  },
+  {
+    "id": "coco_0666",
+    "filename": "COCO_val2014_000000110435.jpg",
+    "width": 500,
+    "height": 375,
+    "mean_luminance": 152.4,
+    "contrast_std": 71.1
+  },
+  {
+    "id": "coco_0667",
+    "filename": "COCO_val2014_000000145009.jpg",
+    "width": 480,
+    "height": 640,
+    "mean_luminance": 141.3,
+    "contrast_std": 46.7
+  },
+  {
+    "id": "coco_0668",
+    "filename": "COCO_val2014_000000569976.jpg",
+    "width": 480,
+    "height": 640,
+    "mean_luminance": 129.0,
+    "contrast_std": 77.0
+  },
+  {
+    "id": "coco_0669",
+    "filename": "COCO_val2014_000000008483.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 93.3,
+    "contrast_std": 81.5
+  },
+  {
+    "id": "coco_0670",
+    "filename": "COCO_val2014_000000341603.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 73.5,
+    "contrast_std": 54.6
+  },
+  {
+    "id": "coco_0671",
+    "filename": "COCO_val2014_000000400235.jpg",
+    "width": 480,
+    "height": 640,
+    "mean_luminance": 109.1,
+    "contrast_std": 56.2
+  },
+  {
+    "id": "coco_0672",
+    "filename": "COCO_val2014_000000031000.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 118.5,
+    "contrast_std": 54.1
+  },
+  {
+    "id": "coco_0673",
+    "filename": "COCO_val2014_000000575916.jpg",
+    "width": 640,
+    "height": 425,
+    "mean_luminance": 17.9,
+    "contrast_std": 25.0
+  },
+  {
+    "id": "coco_0674",
+    "filename": "COCO_val2014_000000348708.jpg",
+    "width": 383,
+    "height": 640,
+    "mean_luminance": 109.1,
+    "contrast_std": 53.3
+  },
+  {
+    "id": "coco_0675",
+    "filename": "COCO_val2014_000000279387.jpg",
+    "width": 500,
+    "height": 333,
+    "mean_luminance": 150.3,
+    "contrast_std": 62.0
+  },
+  {
+    "id": "coco_0676",
+    "filename": "COCO_val2014_000000046011.jpg",
+    "width": 640,
+    "height": 360,
+    "mean_luminance": 123.4,
+    "contrast_std": 47.3
+  },
+  {
+    "id": "coco_0677",
+    "filename": "COCO_val2014_000000158109.jpg",
+    "width": 500,
+    "height": 375,
+    "mean_luminance": 100.1,
+    "contrast_std": 73.6
+  },
+  {
+    "id": "coco_0678",
+    "filename": "COCO_val2014_000000525297.jpg",
+    "width": 640,
+    "height": 422,
+    "mean_luminance": 106.4,
+    "contrast_std": 59.3
+  },
+  {
+    "id": "coco_0679",
+    "filename": "COCO_val2014_000000421923.jpg",
+    "width": 426,
+    "height": 640,
+    "mean_luminance": 100.8,
+    "contrast_std": 62.3
+  },
+  {
+    "id": "coco_0680",
+    "filename": "COCO_val2014_000000117458.jpg",
+    "width": 640,
+    "height": 428,
+    "mean_luminance": 173.0,
+    "contrast_std": 66.4
+  },
+  {
+    "id": "coco_0681",
+    "filename": "COCO_val2014_000000473754.jpg",
+    "width": 424,
+    "height": 640,
+    "mean_luminance": 122.1,
+    "contrast_std": 43.3
+  },
+  {
+    "id": "coco_0682",
+    "filename": "COCO_val2014_000000088784.jpg",
+    "width": 640,
+    "height": 361,
+    "mean_luminance": 100.1,
+    "contrast_std": 57.9
+  },
+  {
+    "id": "coco_0683",
+    "filename": "COCO_val2014_000000561491.jpg",
+    "width": 480,
+    "height": 640,
+    "mean_luminance": 109.8,
+    "contrast_std": 54.7
+  },
+  {
+    "id": "coco_0684",
+    "filename": "COCO_val2014_000000467755.jpg",
+    "width": 500,
+    "height": 375,
+    "mean_luminance": 147.9,
+    "contrast_std": 58.0
+  },
+  {
+    "id": "coco_0685",
+    "filename": "COCO_val2014_000000418106.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 140.6,
+    "contrast_std": 32.2
+  },
+  {
+    "id": "coco_0686",
+    "filename": "COCO_val2014_000000529813.jpg",
+    "width": 640,
+    "height": 439,
+    "mean_luminance": 145.0,
+    "contrast_std": 81.5
+  },
+  {
+    "id": "coco_0687",
+    "filename": "COCO_val2014_000000157617.jpg",
+    "width": 427,
+    "height": 640,
+    "mean_luminance": 101.2,
+    "contrast_std": 60.7
+  },
+  {
+    "id": "coco_0688",
+    "filename": "COCO_val2014_000000069236.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 73.1,
+    "contrast_std": 51.0
+  },
+  {
+    "id": "coco_0689",
+    "filename": "COCO_val2014_000000210012.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 100.9,
+    "contrast_std": 60.0
+  },
+  {
+    "id": "coco_0690",
+    "filename": "COCO_val2014_000000252220.jpg",
+    "width": 427,
+    "height": 640,
+    "mean_luminance": 103.5,
+    "contrast_std": 51.1
+  },
+  {
+    "id": "coco_0691",
+    "filename": "COCO_val2014_000000035498.jpg",
+    "width": 500,
+    "height": 375,
+    "mean_luminance": 118.3,
+    "contrast_std": 66.9
+  },
+  {
+    "id": "coco_0692",
+    "filename": "COCO_val2014_000000059383.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 132.3,
+    "contrast_std": 48.6
+  },
+  {
+    "id": "coco_0693",
+    "filename": "COCO_val2014_000000397404.jpg",
+    "width": 425,
+    "height": 640,
+    "mean_luminance": 75.7,
+    "contrast_std": 45.9
+  },
+  {
+    "id": "coco_0694",
+    "filename": "COCO_val2014_000000403378.jpg",
+    "width": 640,
+    "height": 425,
+    "mean_luminance": 78.1,
+    "contrast_std": 55.0
+  },
+  {
+    "id": "coco_0695",
+    "filename": "COCO_val2014_000000412604.jpg",
+    "width": 640,
+    "height": 428,
+    "mean_luminance": 65.4,
+    "contrast_std": 59.8
+  },
+  {
+    "id": "coco_0696",
+    "filename": "COCO_val2014_000000031965.jpg",
+    "width": 640,
+    "height": 360,
+    "mean_luminance": 162.3,
+    "contrast_std": 57.2
+  },
+  {
+    "id": "coco_0697",
+    "filename": "COCO_val2014_000000294855.jpg",
+    "width": 500,
+    "height": 375,
+    "mean_luminance": 97.1,
+    "contrast_std": 76.0
+  },
+  {
+    "id": "coco_0698",
+    "filename": "COCO_val2014_000000256250.jpg",
+    "width": 640,
+    "height": 482,
+    "mean_luminance": 135.3,
+    "contrast_std": 44.6
+  },
+  {
+    "id": "coco_0699",
+    "filename": "COCO_val2014_000000441473.jpg",
+    "width": 480,
+    "height": 640,
+    "mean_luminance": 94.1,
+    "contrast_std": 41.8
+  },
+  {
+    "id": "coco_0700",
+    "filename": "COCO_val2014_000000222146.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 108.5,
+    "contrast_std": 56.4
+  },
+  {
+    "id": "coco_0701",
+    "filename": "COCO_val2014_000000268885.jpg",
+    "width": 640,
+    "height": 513,
+    "mean_luminance": 93.9,
+    "contrast_std": 70.8
+  },
+  {
+    "id": "coco_0702",
+    "filename": "COCO_val2014_000000407532.jpg",
+    "width": 640,
+    "height": 474,
+    "mean_luminance": 96.4,
+    "contrast_std": 70.2
+  },
+  {
+    "id": "coco_0703",
+    "filename": "COCO_val2014_000000548703.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 118.5,
+    "contrast_std": 69.3
+  },
+  {
+    "id": "coco_0704",
+    "filename": "COCO_val2014_000000056405.jpg",
+    "width": 500,
+    "height": 341,
+    "mean_luminance": 102.3,
+    "contrast_std": 81.6
+  },
+  {
+    "id": "coco_0705",
+    "filename": "COCO_val2014_000000120792.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 116.9,
+    "contrast_std": 70.1
+  },
+  {
+    "id": "coco_0706",
+    "filename": "COCO_val2014_000000253964.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 101.0,
+    "contrast_std": 61.8
+  },
+  {
+    "id": "coco_0707",
+    "filename": "COCO_val2014_000000419371.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 94.2,
+    "contrast_std": 85.9
+  },
+  {
+    "id": "coco_0708",
+    "filename": "COCO_val2014_000000152388.jpg",
+    "width": 453,
+    "height": 640,
+    "mean_luminance": 152.3,
+    "contrast_std": 70.1
+  },
+  {
+    "id": "coco_0709",
+    "filename": "COCO_val2014_000000296231.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 130.0,
+    "contrast_std": 82.9
+  },
+  {
+    "id": "coco_0710",
+    "filename": "COCO_val2014_000000361027.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 103.0,
+    "contrast_std": 77.5
+  },
+  {
+    "id": "coco_0711",
+    "filename": "COCO_val2014_000000358254.jpg",
+    "width": 640,
+    "height": 512,
+    "mean_luminance": 100.0,
+    "contrast_std": 76.5
+  },
+  {
+    "id": "coco_0712",
+    "filename": "COCO_val2014_000000082933.jpg",
+    "width": 640,
+    "height": 429,
+    "mean_luminance": 100.5,
+    "contrast_std": 58.0
+  },
+  {
+    "id": "coco_0713",
+    "filename": "COCO_val2014_000000440871.jpg",
+    "width": 640,
+    "height": 428,
+    "mean_luminance": 126.5,
+    "contrast_std": 62.2
+  },
+  {
+    "id": "coco_0714",
+    "filename": "COCO_val2014_000000133090.jpg",
+    "width": 424,
+    "height": 640,
+    "mean_luminance": 123.3,
+    "contrast_std": 71.3
+  },
+  {
+    "id": "coco_0715",
+    "filename": "COCO_val2014_000000449180.jpg",
+    "width": 640,
+    "height": 424,
+    "mean_luminance": 79.7,
+    "contrast_std": 69.7
+  },
+  {
+    "id": "coco_0716",
+    "filename": "COCO_val2014_000000411630.jpg",
+    "width": 640,
+    "height": 640,
+    "mean_luminance": 109.4,
+    "contrast_std": 78.3
+  },
+  {
+    "id": "coco_0717",
+    "filename": "COCO_val2014_000000177489.jpg",
+    "width": 640,
+    "height": 478,
+    "mean_luminance": 113.8,
+    "contrast_std": 71.3
+  },
+  {
+    "id": "coco_0718",
+    "filename": "COCO_val2014_000000145727.jpg",
+    "width": 640,
+    "height": 360,
+    "mean_luminance": 132.2,
+    "contrast_std": 81.2
+  },
+  {
+    "id": "coco_0719",
+    "filename": "COCO_val2014_000000322719.jpg",
+    "width": 640,
+    "height": 426,
+    "mean_luminance": 148.7,
+    "contrast_std": 86.1
+  },
+  {
+    "id": "coco_0720",
+    "filename": "COCO_val2014_000000428447.jpg",
+    "width": 519,
+    "height": 640,
+    "mean_luminance": 115.3,
+    "contrast_std": 78.4
+  },
+  {
+    "id": "coco_0721",
+    "filename": "COCO_val2014_000000204930.jpg",
+    "width": 480,
+    "height": 640,
+    "mean_luminance": 124.9,
+    "contrast_std": 66.0
+  },
+  {
+    "id": "coco_0722",
+    "filename": "COCO_val2014_000000502419.jpg",
+    "width": 640,
+    "height": 424,
+    "mean_luminance": 104.7,
+    "contrast_std": 70.2
+  },
+  {
+    "id": "coco_0723",
+    "filename": "COCO_val2014_000000039914.jpg",
+    "width": 487,
+    "height": 640,
+    "mean_luminance": 82.5,
+    "contrast_std": 45.0
+  },
+  {
+    "id": "coco_0724",
+    "filename": "COCO_val2014_000000502936.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 166.4,
+    "contrast_std": 73.8
+  },
+  {
+    "id": "coco_0725",
+    "filename": "COCO_val2014_000000034662.jpg",
+    "width": 640,
+    "height": 428,
+    "mean_luminance": 75.6,
+    "contrast_std": 41.8
+  },
+  {
+    "id": "coco_0726",
+    "filename": "COCO_val2014_000000388770.jpg",
+    "width": 640,
+    "height": 424,
+    "mean_luminance": 139.3,
+    "contrast_std": 86.0
+  },
+  {
+    "id": "coco_0727",
+    "filename": "COCO_val2014_000000424585.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 122.3,
+    "contrast_std": 84.5
+  },
+  {
+    "id": "coco_0728",
+    "filename": "COCO_val2014_000000041867.jpg",
+    "width": 500,
+    "height": 379,
+    "mean_luminance": 143.7,
+    "contrast_std": 35.9
+  },
+  {
+    "id": "coco_0729",
+    "filename": "COCO_val2014_000000002295.jpg",
+    "width": 640,
+    "height": 457,
+    "mean_luminance": 42.4,
+    "contrast_std": 35.3
+  },
+  {
+    "id": "coco_0730",
+    "filename": "COCO_val2014_000000562356.jpg",
+    "width": 640,
+    "height": 429,
+    "mean_luminance": 137.0,
+    "contrast_std": 84.0
+  },
+  {
+    "id": "coco_0731",
+    "filename": "COCO_val2014_000000431545.jpg",
+    "width": 500,
+    "height": 334,
+    "mean_luminance": 122.5,
+    "contrast_std": 39.5
+  },
+  {
+    "id": "coco_0732",
+    "filename": "COCO_val2014_000000142189.jpg",
+    "width": 640,
+    "height": 360,
+    "mean_luminance": 108.1,
+    "contrast_std": 53.8
+  },
+  {
+    "id": "coco_0733",
+    "filename": "COCO_val2014_000000348896.jpg",
+    "width": 640,
+    "height": 426,
+    "mean_luminance": 140.6,
+    "contrast_std": 57.3
+  },
+  {
+    "id": "coco_0734",
+    "filename": "COCO_val2014_000000365139.jpg",
+    "width": 480,
+    "height": 640,
+    "mean_luminance": 128.6,
+    "contrast_std": 53.5
+  },
+  {
+    "id": "coco_0735",
+    "filename": "COCO_val2014_000000009727.jpg",
+    "width": 500,
+    "height": 375,
+    "mean_luminance": 186.8,
+    "contrast_std": 33.6
+  },
+  {
+    "id": "coco_0736",
+    "filename": "COCO_val2014_000000209935.jpg",
+    "width": 509,
+    "height": 640,
+    "mean_luminance": 87.6,
+    "contrast_std": 38.0
+  },
+  {
+    "id": "coco_0737",
+    "filename": "COCO_val2014_000000473406.jpg",
+    "width": 480,
+    "height": 640,
+    "mean_luminance": 88.3,
+    "contrast_std": 60.6
+  },
+  {
+    "id": "coco_0738",
+    "filename": "COCO_val2014_000000140963.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 94.6,
+    "contrast_std": 70.3
+  },
+  {
+    "id": "coco_0739",
+    "filename": "COCO_val2014_000000156292.jpg",
+    "width": 428,
+    "height": 640,
+    "mean_luminance": 118.0,
+    "contrast_std": 51.6
+  },
+  {
+    "id": "coco_0740",
+    "filename": "COCO_val2014_000000075055.jpg",
+    "width": 480,
+    "height": 640,
+    "mean_luminance": 123.3,
+    "contrast_std": 54.6
+  },
+  {
+    "id": "coco_0741",
+    "filename": "COCO_val2014_000000283113.jpg",
+    "width": 480,
+    "height": 640,
+    "mean_luminance": 104.4,
+    "contrast_std": 50.1
+  },
+  {
+    "id": "coco_0742",
+    "filename": "COCO_val2014_000000324500.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 130.6,
+    "contrast_std": 31.7
+  },
+  {
+    "id": "coco_0743",
+    "filename": "COCO_val2014_000000275202.jpg",
+    "width": 640,
+    "height": 361,
+    "mean_luminance": 124.7,
+    "contrast_std": 42.7
+  },
+  {
+    "id": "coco_0744",
+    "filename": "COCO_val2014_000000474974.jpg",
+    "width": 640,
+    "height": 425,
+    "mean_luminance": 106.2,
+    "contrast_std": 68.1
+  },
+  {
+    "id": "coco_0745",
+    "filename": "COCO_val2014_000000565198.jpg",
+    "width": 640,
+    "height": 484,
+    "mean_luminance": 119.5,
+    "contrast_std": 63.3
+  },
+  {
+    "id": "coco_0746",
+    "filename": "COCO_val2014_000000412355.jpg",
+    "width": 640,
+    "height": 459,
+    "mean_luminance": 131.7,
+    "contrast_std": 47.6
+  },
+  {
+    "id": "coco_0747",
+    "filename": "COCO_val2014_000000487685.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 127.6,
+    "contrast_std": 58.5
+  },
+  {
+    "id": "coco_0748",
+    "filename": "COCO_val2014_000000194756.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 92.4,
+    "contrast_std": 60.1
+  },
+  {
+    "id": "coco_0749",
+    "filename": "COCO_val2014_000000429283.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 106.2,
+    "contrast_std": 52.3
+  },
+  {
+    "id": "coco_0750",
+    "filename": "COCO_val2014_000000127263.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 97.8,
+    "contrast_std": 53.6
+  },
+  {
+    "id": "coco_0751",
+    "filename": "COCO_val2014_000000418143.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 166.7,
+    "contrast_std": 39.6
+  },
+  {
+    "id": "coco_0752",
+    "filename": "COCO_val2014_000000541664.jpg",
+    "width": 500,
+    "height": 375,
+    "mean_luminance": 142.3,
+    "contrast_std": 71.4
+  },
+  {
+    "id": "coco_0753",
+    "filename": "COCO_val2014_000000454252.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 128.8,
+    "contrast_std": 61.8
+  },
+  {
+    "id": "coco_0754",
+    "filename": "COCO_val2014_000000498583.jpg",
+    "width": 640,
+    "height": 428,
+    "mean_luminance": 124.8,
+    "contrast_std": 68.7
+  },
+  {
+    "id": "coco_0755",
+    "filename": "COCO_val2014_000000262347.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 72.8,
+    "contrast_std": 58.2
+  },
+  {
+    "id": "coco_0756",
+    "filename": "COCO_val2014_000000372384.jpg",
+    "width": 375,
+    "height": 500,
+    "mean_luminance": 117.4,
+    "contrast_std": 58.4
+  },
+  {
+    "id": "coco_0757",
+    "filename": "COCO_val2014_000000332545.jpg",
+    "width": 640,
+    "height": 493,
+    "mean_luminance": 120.2,
+    "contrast_std": 53.5
+  },
+  {
+    "id": "coco_0758",
+    "filename": "COCO_val2014_000000493797.jpg",
+    "width": 640,
+    "height": 360,
+    "mean_luminance": 163.1,
+    "contrast_std": 64.9
+  },
+  {
+    "id": "coco_0759",
+    "filename": "COCO_val2014_000000110282.jpg",
+    "width": 640,
+    "height": 418,
+    "mean_luminance": 138.9,
+    "contrast_std": 107.6
+  },
+  {
+    "id": "coco_0760",
+    "filename": "COCO_val2014_000000347666.jpg",
+    "width": 640,
+    "height": 489,
+    "mean_luminance": 109.5,
+    "contrast_std": 73.8
+  },
+  {
+    "id": "coco_0761",
+    "filename": "COCO_val2014_000000296731.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 125.7,
+    "contrast_std": 39.5
+  },
+  {
+    "id": "coco_0762",
+    "filename": "COCO_val2014_000000408049.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 139.0,
+    "contrast_std": 83.1
+  },
+  {
+    "id": "coco_0763",
+    "filename": "COCO_val2014_000000080117.jpg",
+    "width": 640,
+    "height": 360,
+    "mean_luminance": 128.0,
+    "contrast_std": 71.6
+  },
+  {
+    "id": "coco_0764",
+    "filename": "COCO_val2014_000000079139.jpg",
+    "width": 500,
+    "height": 375,
+    "mean_luminance": 101.9,
+    "contrast_std": 49.5
+  },
+  {
+    "id": "coco_0765",
+    "filename": "COCO_val2014_000000336232.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 92.6,
+    "contrast_std": 54.1
+  },
+  {
+    "id": "coco_0766",
+    "filename": "COCO_val2014_000000040946.jpg",
+    "width": 640,
+    "height": 406,
+    "mean_luminance": 97.0,
+    "contrast_std": 67.6
+  },
+  {
+    "id": "coco_0767",
+    "filename": "COCO_val2014_000000305004.jpg",
+    "width": 640,
+    "height": 360,
+    "mean_luminance": 87.0,
+    "contrast_std": 43.3
+  },
+  {
+    "id": "coco_0768",
+    "filename": "COCO_val2014_000000438850.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 135.6,
+    "contrast_std": 54.3
+  },
+  {
+    "id": "coco_0769",
+    "filename": "COCO_val2014_000000050006.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 144.1,
+    "contrast_std": 70.1
+  },
+  {
+    "id": "coco_0770",
+    "filename": "COCO_val2014_000000538819.jpg",
+    "width": 612,
+    "height": 612,
+    "mean_luminance": 146.4,
+    "contrast_std": 64.7
+  },
+  {
+    "id": "coco_0771",
+    "filename": "COCO_val2014_000000498439.jpg",
+    "width": 640,
+    "height": 428,
+    "mean_luminance": 97.4,
+    "contrast_std": 54.6
+  },
+  {
+    "id": "coco_0772",
+    "filename": "COCO_val2014_000000149371.jpg",
+    "width": 428,
+    "height": 640,
+    "mean_luminance": 113.2,
+    "contrast_std": 58.7
+  },
+  {
+    "id": "coco_0773",
+    "filename": "COCO_val2014_000000034617.jpg",
+    "width": 300,
+    "height": 432,
+    "mean_luminance": 121.4,
+    "contrast_std": 57.1
+  },
+  {
+    "id": "coco_0774",
+    "filename": "COCO_val2014_000000147068.jpg",
+    "width": 640,
+    "height": 425,
+    "mean_luminance": 76.4,
+    "contrast_std": 72.8
+  },
+  {
+    "id": "coco_0775",
+    "filename": "COCO_val2014_000000192730.jpg",
+    "width": 640,
+    "height": 424,
+    "mean_luminance": 96.7,
+    "contrast_std": 65.6
+  },
+  {
+    "id": "coco_0776",
+    "filename": "COCO_val2014_000000227851.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 121.4,
+    "contrast_std": 54.8
+  },
+  {
+    "id": "coco_0777",
+    "filename": "COCO_val2014_000000465087.jpg",
+    "width": 480,
+    "height": 640,
+    "mean_luminance": 100.2,
+    "contrast_std": 65.5
+  },
+  {
+    "id": "coco_0778",
+    "filename": "COCO_val2014_000000009217.jpg",
+    "width": 480,
+    "height": 640,
+    "mean_luminance": 143.5,
+    "contrast_std": 94.1
+  },
+  {
+    "id": "coco_0779",
+    "filename": "COCO_val2014_000000305821.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 114.1,
+    "contrast_std": 52.2
+  },
+  {
+    "id": "coco_0780",
+    "filename": "COCO_val2014_000000201207.jpg",
+    "width": 640,
+    "height": 443,
+    "mean_luminance": 79.1,
+    "contrast_std": 56.4
+  },
+  {
+    "id": "coco_0781",
+    "filename": "COCO_val2014_000000368994.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 105.8,
+    "contrast_std": 70.0
+  },
+  {
+    "id": "coco_0782",
+    "filename": "COCO_val2014_000000000359.jpg",
+    "width": 500,
+    "height": 332,
+    "mean_luminance": 109.5,
+    "contrast_std": 102.9
+  },
+  {
+    "id": "coco_0783",
+    "filename": "COCO_val2014_000000333756.jpg",
+    "width": 639,
+    "height": 640,
+    "mean_luminance": 75.0,
+    "contrast_std": 52.9
+  },
+  {
+    "id": "coco_0784",
+    "filename": "COCO_val2014_000000341010.jpg",
+    "width": 640,
+    "height": 640,
+    "mean_luminance": 104.8,
+    "contrast_std": 59.0
+  },
+  {
+    "id": "coco_0785",
+    "filename": "COCO_val2014_000000106046.jpg",
+    "width": 426,
+    "height": 640,
+    "mean_luminance": 116.4,
+    "contrast_std": 77.5
+  },
+  {
+    "id": "coco_0786",
+    "filename": "COCO_val2014_000000459665.jpg",
+    "width": 640,
+    "height": 425,
+    "mean_luminance": 122.1,
+    "contrast_std": 51.8
+  },
+  {
+    "id": "coco_0787",
+    "filename": "COCO_val2014_000000233830.jpg",
+    "width": 640,
+    "height": 428,
+    "mean_luminance": 93.4,
+    "contrast_std": 56.3
+  },
+  {
+    "id": "coco_0788",
+    "filename": "COCO_val2014_000000476939.jpg",
+    "width": 514,
+    "height": 640,
+    "mean_luminance": 108.0,
+    "contrast_std": 67.9
+  },
+  {
+    "id": "coco_0789",
+    "filename": "COCO_val2014_000000566634.jpg",
+    "width": 640,
+    "height": 428,
+    "mean_luminance": 84.8,
+    "contrast_std": 74.2
+  },
+  {
+    "id": "coco_0790",
+    "filename": "COCO_val2014_000000514468.jpg",
+    "width": 640,
+    "height": 426,
+    "mean_luminance": 168.5,
+    "contrast_std": 21.9
+  },
+  {
+    "id": "coco_0791",
+    "filename": "COCO_val2014_000000459374.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 30.9,
+    "contrast_std": 38.7
+  },
+  {
+    "id": "coco_0792",
+    "filename": "COCO_val2014_000000581033.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 127.6,
+    "contrast_std": 50.4
+  },
+  {
+    "id": "coco_0793",
+    "filename": "COCO_val2014_000000188173.jpg",
+    "width": 500,
+    "height": 375,
+    "mean_luminance": 124.8,
+    "contrast_std": 46.0
+  },
+  {
+    "id": "coco_0794",
+    "filename": "COCO_val2014_000000384723.jpg",
+    "width": 640,
+    "height": 428,
+    "mean_luminance": 115.5,
+    "contrast_std": 42.4
+  },
+  {
+    "id": "coco_0795",
+    "filename": "COCO_val2014_000000067587.jpg",
+    "width": 500,
+    "height": 333,
+    "mean_luminance": 130.5,
+    "contrast_std": 54.9
+  },
+  {
+    "id": "coco_0796",
+    "filename": "COCO_val2014_000000319933.jpg",
+    "width": 640,
+    "height": 426,
+    "mean_luminance": 92.3,
+    "contrast_std": 65.4
+  },
+  {
+    "id": "coco_0797",
+    "filename": "COCO_val2014_000000115178.jpg",
+    "width": 640,
+    "height": 458,
+    "mean_luminance": 130.3,
+    "contrast_std": 46.5
+  },
+  {
+    "id": "coco_0798",
+    "filename": "COCO_val2014_000000453302.jpg",
+    "width": 500,
+    "height": 375,
+    "mean_luminance": 122.3,
+    "contrast_std": 66.7
+  },
+  {
+    "id": "coco_0799",
+    "filename": "COCO_val2014_000000315249.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 144.8,
+    "contrast_std": 44.3
+  },
+  {
+    "id": "coco_0800",
+    "filename": "COCO_val2014_000000537982.jpg",
+    "width": 640,
+    "height": 478,
+    "mean_luminance": 105.3,
+    "contrast_std": 71.2
+  },
+  {
+    "id": "coco_0801",
+    "filename": "COCO_val2014_000000432799.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 117.1,
+    "contrast_std": 51.2
+  },
+  {
+    "id": "coco_0802",
+    "filename": "COCO_val2014_000000434915.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 123.4,
+    "contrast_std": 53.7
+  },
+  {
+    "id": "coco_0803",
+    "filename": "COCO_val2014_000000001590.jpg",
+    "width": 480,
+    "height": 640,
+    "mean_luminance": 117.5,
+    "contrast_std": 52.5
+  },
+  {
+    "id": "coco_0804",
+    "filename": "COCO_val2014_000000523816.jpg",
+    "width": 332,
+    "height": 500,
+    "mean_luminance": 148.6,
+    "contrast_std": 76.3
+  },
+  {
+    "id": "coco_0805",
+    "filename": "COCO_val2014_000000103496.jpg",
+    "width": 640,
+    "height": 428,
+    "mean_luminance": 109.2,
+    "contrast_std": 65.2
+  },
+  {
+    "id": "coco_0806",
+    "filename": "COCO_val2014_000000271892.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 114.0,
+    "contrast_std": 57.6
+  },
+  {
+    "id": "coco_0807",
+    "filename": "COCO_val2014_000000537991.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 88.9,
+    "contrast_std": 59.8
+  },
+  {
+    "id": "coco_0808",
+    "filename": "COCO_val2014_000000580778.jpg",
+    "width": 640,
+    "height": 444,
+    "mean_luminance": 94.3,
+    "contrast_std": 31.8
+  },
+  {
+    "id": "coco_0809",
+    "filename": "COCO_val2014_000000554241.jpg",
+    "width": 480,
+    "height": 640,
+    "mean_luminance": 124.8,
+    "contrast_std": 74.1
+  },
+  {
+    "id": "coco_0810",
+    "filename": "COCO_val2014_000000393031.jpg",
+    "width": 500,
+    "height": 343,
+    "mean_luminance": 126.5,
+    "contrast_std": 65.9
+  },
+  {
+    "id": "coco_0811",
+    "filename": "COCO_val2014_000000455299.jpg",
+    "width": 500,
+    "height": 400,
+    "mean_luminance": 93.6,
+    "contrast_std": 68.2
+  },
+  {
+    "id": "coco_0812",
+    "filename": "COCO_val2014_000000516408.jpg",
+    "width": 500,
+    "height": 375,
+    "mean_luminance": 59.7,
+    "contrast_std": 83.7
+  },
+  {
+    "id": "coco_0813",
+    "filename": "COCO_val2014_000000449191.jpg",
+    "width": 427,
+    "height": 640,
+    "mean_luminance": 66.5,
+    "contrast_std": 49.3
+  },
+  {
+    "id": "coco_0814",
+    "filename": "COCO_val2014_000000541474.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 125.1,
+    "contrast_std": 65.6
+  },
+  {
+    "id": "coco_0815",
+    "filename": "COCO_val2014_000000415880.jpg",
+    "width": 640,
+    "height": 370,
+    "mean_luminance": 105.1,
+    "contrast_std": 68.5
+  },
+  {
+    "id": "coco_0816",
+    "filename": "COCO_val2014_000000073527.jpg",
+    "width": 480,
+    "height": 640,
+    "mean_luminance": 97.5,
+    "contrast_std": 64.0
+  },
+  {
+    "id": "coco_0817",
+    "filename": "COCO_val2014_000000433904.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 138.0,
+    "contrast_std": 59.6
+  },
+  {
+    "id": "coco_0818",
+    "filename": "COCO_val2014_000000474934.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 204.2,
+    "contrast_std": 38.6
+  },
+  {
+    "id": "coco_0819",
+    "filename": "COCO_val2014_000000004246.jpg",
+    "width": 425,
+    "height": 640,
+    "mean_luminance": 140.0,
+    "contrast_std": 56.2
+  },
+  {
+    "id": "coco_0820",
+    "filename": "COCO_val2014_000000348877.jpg",
+    "width": 486,
+    "height": 640,
+    "mean_luminance": 126.5,
+    "contrast_std": 76.9
+  },
+  {
+    "id": "coco_0821",
+    "filename": "COCO_val2014_000000160351.jpg",
+    "width": 480,
+    "height": 640,
+    "mean_luminance": 42.5,
+    "contrast_std": 37.9
+  },
+  {
+    "id": "coco_0822",
+    "filename": "COCO_val2014_000000333018.jpg",
+    "width": 500,
+    "height": 478,
+    "mean_luminance": 55.4,
+    "contrast_std": 42.5
+  },
+  {
+    "id": "coco_0823",
+    "filename": "COCO_val2014_000000294908.jpg",
+    "width": 436,
+    "height": 640,
+    "mean_luminance": 120.9,
+    "contrast_std": 62.5
+  },
+  {
+    "id": "coco_0824",
+    "filename": "COCO_val2014_000000560010.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 141.7,
+    "contrast_std": 43.6
+  },
+  {
+    "id": "coco_0825",
+    "filename": "COCO_val2014_000000237618.jpg",
+    "width": 640,
+    "height": 383,
+    "mean_luminance": 187.0,
+    "contrast_std": 72.4
+  },
+  {
+    "id": "coco_0826",
+    "filename": "COCO_val2014_000000240274.jpg",
+    "width": 333,
+    "height": 500,
+    "mean_luminance": 145.0,
+    "contrast_std": 45.9
+  },
+  {
+    "id": "coco_0827",
+    "filename": "COCO_val2014_000000035807.jpg",
+    "width": 640,
+    "height": 415,
+    "mean_luminance": 122.1,
+    "contrast_std": 60.2
+  },
+  {
+    "id": "coco_0828",
+    "filename": "COCO_val2014_000000368117.jpg",
+    "width": 640,
+    "height": 425,
+    "mean_luminance": 102.3,
+    "contrast_std": 54.5
+  },
+  {
+    "id": "coco_0829",
+    "filename": "COCO_val2014_000000554291.jpg",
+    "width": 640,
+    "height": 428,
+    "mean_luminance": 102.7,
+    "contrast_std": 62.7
+  },
+  {
+    "id": "coco_0830",
+    "filename": "COCO_val2014_000000415020.jpg",
+    "width": 480,
+    "height": 640,
+    "mean_luminance": 83.6,
+    "contrast_std": 58.7
+  },
+  {
+    "id": "coco_0831",
+    "filename": "COCO_val2014_000000466156.jpg",
+    "width": 500,
+    "height": 375,
+    "mean_luminance": 101.7,
+    "contrast_std": 72.4
+  },
+  {
+    "id": "coco_0832",
+    "filename": "COCO_val2014_000000554859.jpg",
+    "width": 640,
+    "height": 426,
+    "mean_luminance": 125.6,
+    "contrast_std": 75.1
+  },
+  {
+    "id": "coco_0833",
+    "filename": "COCO_val2014_000000385378.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 147.1,
+    "contrast_std": 70.0
+  },
+  {
+    "id": "coco_0834",
+    "filename": "COCO_val2014_000000100187.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 91.8,
+    "contrast_std": 44.2
+  },
+  {
+    "id": "coco_0835",
+    "filename": "COCO_val2014_000000070426.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 134.1,
+    "contrast_std": 41.1
+  },
+  {
+    "id": "coco_0836",
+    "filename": "COCO_val2014_000000029656.jpg",
+    "width": 426,
+    "height": 640,
+    "mean_luminance": 91.8,
+    "contrast_std": 66.5
+  },
+  {
+    "id": "coco_0837",
+    "filename": "COCO_val2014_000000450728.jpg",
+    "width": 360,
+    "height": 270,
+    "mean_luminance": 128.5,
+    "contrast_std": 70.4
+  },
+  {
+    "id": "coco_0838",
+    "filename": "COCO_val2014_000000053454.jpg",
+    "width": 640,
+    "height": 423,
+    "mean_luminance": 122.5,
+    "contrast_std": 12.6
+  },
+  {
+    "id": "coco_0839",
+    "filename": "COCO_val2014_000000310611.jpg",
+    "width": 375,
+    "height": 500,
+    "mean_luminance": 129.2,
+    "contrast_std": 66.8
+  },
+  {
+    "id": "coco_0840",
+    "filename": "COCO_val2014_000000321542.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 71.0,
+    "contrast_std": 39.0
+  },
+  {
+    "id": "coco_0841",
+    "filename": "COCO_val2014_000000086582.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 98.0,
+    "contrast_std": 58.2
+  },
+  {
+    "id": "coco_0842",
+    "filename": "COCO_val2014_000000504747.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 107.7,
+    "contrast_std": 78.2
+  },
+  {
+    "id": "coco_0843",
+    "filename": "COCO_val2014_000000534444.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 163.2,
+    "contrast_std": 37.0
+  },
+  {
+    "id": "coco_0844",
+    "filename": "COCO_val2014_000000249643.jpg",
+    "width": 640,
+    "height": 461,
+    "mean_luminance": 121.8,
+    "contrast_std": 77.0
+  },
+  {
+    "id": "coco_0845",
+    "filename": "COCO_val2014_000000361919.jpg",
+    "width": 640,
+    "height": 425,
+    "mean_luminance": 114.4,
+    "contrast_std": 64.6
+  },
+  {
+    "id": "coco_0846",
+    "filename": "COCO_val2014_000000264347.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 135.2,
+    "contrast_std": 43.7
+  },
+  {
+    "id": "coco_0847",
+    "filename": "COCO_val2014_000000361924.jpg",
+    "width": 480,
+    "height": 640,
+    "mean_luminance": 84.7,
+    "contrast_std": 64.6
+  },
+  {
+    "id": "coco_0848",
+    "filename": "COCO_val2014_000000448795.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 188.9,
+    "contrast_std": 67.7
+  },
+  {
+    "id": "coco_0849",
+    "filename": "COCO_val2014_000000167235.jpg",
+    "width": 480,
+    "height": 640,
+    "mean_luminance": 109.9,
+    "contrast_std": 64.8
+  },
+  {
+    "id": "coco_0850",
+    "filename": "COCO_val2014_000000340654.jpg",
+    "width": 426,
+    "height": 640,
+    "mean_luminance": 83.0,
+    "contrast_std": 60.8
+  },
+  {
+    "id": "coco_0851",
+    "filename": "COCO_val2014_000000567011.jpg",
+    "width": 640,
+    "height": 426,
+    "mean_luminance": 160.3,
+    "contrast_std": 37.6
+  },
+  {
+    "id": "coco_0852",
+    "filename": "COCO_val2014_000000448365.jpg",
+    "width": 640,
+    "height": 428,
+    "mean_luminance": 147.3,
+    "contrast_std": 75.8
+  },
+  {
+    "id": "coco_0853",
+    "filename": "COCO_val2014_000000155736.jpg",
+    "width": 640,
+    "height": 348,
+    "mean_luminance": 141.2,
+    "contrast_std": 76.8
+  },
+  {
+    "id": "coco_0854",
+    "filename": "COCO_val2014_000000576714.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 126.2,
+    "contrast_std": 52.3
+  },
+  {
+    "id": "coco_0855",
+    "filename": "COCO_val2014_000000167529.jpg",
+    "width": 426,
+    "height": 640,
+    "mean_luminance": 102.5,
+    "contrast_std": 22.3
+  },
+  {
+    "id": "coco_0856",
+    "filename": "COCO_val2014_000000090365.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 158.4,
+    "contrast_std": 77.0
+  },
+  {
+    "id": "coco_0857",
+    "filename": "COCO_val2014_000000290289.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 94.6,
+    "contrast_std": 50.6
+  },
+  {
+    "id": "coco_0858",
+    "filename": "COCO_val2014_000000394608.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 124.9,
+    "contrast_std": 61.0
+  },
+  {
+    "id": "coco_0859",
+    "filename": "COCO_val2014_000000247428.jpg",
+    "width": 500,
+    "height": 332,
+    "mean_luminance": 108.6,
+    "contrast_std": 54.9
+  },
+  {
+    "id": "coco_0860",
+    "filename": "COCO_val2014_000000314914.jpg",
+    "width": 480,
+    "height": 640,
+    "mean_luminance": 123.9,
+    "contrast_std": 65.4
+  },
+  {
+    "id": "coco_0861",
+    "filename": "COCO_val2014_000000405811.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 127.7,
+    "contrast_std": 48.1
+  },
+  {
+    "id": "coco_0862",
+    "filename": "COCO_val2014_000000131504.jpg",
+    "width": 500,
+    "height": 333,
+    "mean_luminance": 123.2,
+    "contrast_std": 72.6
+  },
+  {
+    "id": "coco_0863",
+    "filename": "COCO_val2014_000000195800.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 119.6,
+    "contrast_std": 57.9
+  },
+  {
+    "id": "coco_0864",
+    "filename": "COCO_val2014_000000431615.jpg",
+    "width": 640,
+    "height": 424,
+    "mean_luminance": 62.6,
+    "contrast_std": 44.1
+  },
+  {
+    "id": "coco_0865",
+    "filename": "COCO_val2014_000000356500.jpg",
+    "width": 454,
+    "height": 640,
+    "mean_luminance": 157.9,
+    "contrast_std": 49.4
+  },
+  {
+    "id": "coco_0866",
+    "filename": "COCO_val2014_000000131418.jpg",
+    "width": 640,
+    "height": 457,
+    "mean_luminance": 104.7,
+    "contrast_std": 55.9
+  },
+  {
+    "id": "coco_0867",
+    "filename": "COCO_val2014_000000038938.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 173.7,
+    "contrast_std": 63.2
+  },
+  {
+    "id": "coco_0868",
+    "filename": "COCO_val2014_000000169858.jpg",
+    "width": 480,
+    "height": 640,
+    "mean_luminance": 45.2,
+    "contrast_std": 62.2
+  },
+  {
+    "id": "coco_0869",
+    "filename": "COCO_val2014_000000251367.jpg",
+    "width": 640,
+    "height": 428,
+    "mean_luminance": 83.1,
+    "contrast_std": 45.3
+  },
+  {
+    "id": "coco_0870",
+    "filename": "COCO_val2014_000000196490.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 133.5,
+    "contrast_std": 64.0
+  },
+  {
+    "id": "coco_0871",
+    "filename": "COCO_val2014_000000471869.jpg",
+    "width": 413,
+    "height": 500,
+    "mean_luminance": 153.4,
+    "contrast_std": 57.5
+  },
+  {
+    "id": "coco_0872",
+    "filename": "COCO_val2014_000000572055.jpg",
+    "width": 640,
+    "height": 428,
+    "mean_luminance": 135.5,
+    "contrast_std": 53.8
+  },
+  {
+    "id": "coco_0873",
+    "filename": "COCO_val2014_000000480215.jpg",
+    "width": 480,
+    "height": 640,
+    "mean_luminance": 111.6,
+    "contrast_std": 28.2
+  },
+  {
+    "id": "coco_0874",
+    "filename": "COCO_val2014_000000141962.jpg",
+    "width": 426,
+    "height": 640,
+    "mean_luminance": 116.9,
+    "contrast_std": 65.7
+  },
+  {
+    "id": "coco_0875",
+    "filename": "COCO_val2014_000000033638.jpg",
+    "width": 425,
+    "height": 640,
+    "mean_luminance": 67.9,
+    "contrast_std": 58.1
+  },
+  {
+    "id": "coco_0876",
+    "filename": "COCO_val2014_000000458177.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 123.4,
+    "contrast_std": 39.3
+  },
+  {
+    "id": "coco_0877",
+    "filename": "COCO_val2014_000000455275.jpg",
+    "width": 500,
+    "height": 473,
+    "mean_luminance": 86.6,
+    "contrast_std": 70.7
+  },
+  {
+    "id": "coco_0878",
+    "filename": "COCO_val2014_000000497067.jpg",
+    "width": 640,
+    "height": 623,
+    "mean_luminance": 123.1,
+    "contrast_std": 64.9
+  },
+  {
+    "id": "coco_0879",
+    "filename": "COCO_val2014_000000201637.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 129.2,
+    "contrast_std": 80.7
+  },
+  {
+    "id": "coco_0880",
+    "filename": "COCO_val2014_000000416991.jpg",
+    "width": 640,
+    "height": 329,
+    "mean_luminance": 73.5,
+    "contrast_std": 60.5
+  },
+  {
+    "id": "coco_0881",
+    "filename": "COCO_val2014_000000136584.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 119.0,
+    "contrast_std": 26.3
+  },
+  {
+    "id": "coco_0882",
+    "filename": "COCO_val2014_000000351335.jpg",
+    "width": 463,
+    "height": 500,
+    "mean_luminance": 65.1,
+    "contrast_std": 44.7
+  },
+  {
+    "id": "coco_0883",
+    "filename": "COCO_val2014_000000417696.jpg",
+    "width": 427,
+    "height": 640,
+    "mean_luminance": 100.3,
+    "contrast_std": 74.1
+  },
+  {
+    "id": "coco_0884",
+    "filename": "COCO_val2014_000000391400.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 106.5,
+    "contrast_std": 83.9
+  },
+  {
+    "id": "coco_0885",
+    "filename": "COCO_val2014_000000171241.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 64.9,
+    "contrast_std": 50.0
+  },
+  {
+    "id": "coco_0886",
+    "filename": "COCO_val2014_000000236049.jpg",
+    "width": 640,
+    "height": 640,
+    "mean_luminance": 104.8,
+    "contrast_std": 68.4
+  },
+  {
+    "id": "coco_0887",
+    "filename": "COCO_val2014_000000292685.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 140.1,
+    "contrast_std": 69.8
+  },
+  {
+    "id": "coco_0888",
+    "filename": "COCO_val2014_000000107511.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 115.8,
+    "contrast_std": 54.9
+  },
+  {
+    "id": "coco_0889",
+    "filename": "COCO_val2014_000000577526.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 110.4,
+    "contrast_std": 72.9
+  },
+  {
+    "id": "coco_0890",
+    "filename": "COCO_val2014_000000437789.jpg",
+    "width": 500,
+    "height": 334,
+    "mean_luminance": 103.1,
+    "contrast_std": 57.5
+  },
+  {
+    "id": "coco_0891",
+    "filename": "COCO_val2014_000000336802.jpg",
+    "width": 478,
+    "height": 640,
+    "mean_luminance": 104.5,
+    "contrast_std": 72.8
+  },
+  {
+    "id": "coco_0892",
+    "filename": "COCO_val2014_000000112634.jpg",
+    "width": 640,
+    "height": 443,
+    "mean_luminance": 109.2,
+    "contrast_std": 71.0
+  },
+  {
+    "id": "coco_0893",
+    "filename": "COCO_val2014_000000523194.jpg",
+    "width": 640,
+    "height": 425,
+    "mean_luminance": 98.8,
+    "contrast_std": 50.0
+  },
+  {
+    "id": "coco_0894",
+    "filename": "COCO_val2014_000000375205.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 153.8,
+    "contrast_std": 55.2
+  },
+  {
+    "id": "coco_0895",
+    "filename": "COCO_val2014_000000042408.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 125.0,
+    "contrast_std": 62.8
+  },
+  {
+    "id": "coco_0896",
+    "filename": "COCO_val2014_000000398882.jpg",
+    "width": 612,
+    "height": 612,
+    "mean_luminance": 88.4,
+    "contrast_std": 78.4
+  },
+  {
+    "id": "coco_0897",
+    "filename": "COCO_val2014_000000416184.jpg",
+    "width": 640,
+    "height": 479,
+    "mean_luminance": 103.0,
+    "contrast_std": 31.8
+  },
+  {
+    "id": "coco_0898",
+    "filename": "COCO_val2014_000000564088.jpg",
+    "width": 640,
+    "height": 424,
+    "mean_luminance": 137.4,
+    "contrast_std": 59.6
+  },
+  {
+    "id": "coco_0899",
+    "filename": "COCO_val2014_000000169802.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 108.7,
+    "contrast_std": 66.5
+  },
+  {
+    "id": "coco_0900",
+    "filename": "COCO_val2014_000000412240.jpg",
+    "width": 500,
+    "height": 375,
+    "mean_luminance": 123.2,
+    "contrast_std": 81.4
+  },
+  {
+    "id": "coco_0901",
+    "filename": "COCO_val2014_000000130826.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 122.2,
+    "contrast_std": 70.3
+  },
+  {
+    "id": "coco_0902",
+    "filename": "COCO_val2014_000000223738.jpg",
+    "width": 634,
+    "height": 640,
+    "mean_luminance": 118.6,
+    "contrast_std": 77.3
+  },
+  {
+    "id": "coco_0903",
+    "filename": "COCO_val2014_000000231991.jpg",
+    "width": 500,
+    "height": 375,
+    "mean_luminance": 82.2,
+    "contrast_std": 57.4
+  },
+  {
+    "id": "coco_0904",
+    "filename": "COCO_val2014_000000106849.jpg",
+    "width": 640,
+    "height": 573,
+    "mean_luminance": 102.8,
+    "contrast_std": 67.5
+  },
+  {
+    "id": "coco_0905",
+    "filename": "COCO_val2014_000000229274.jpg",
+    "width": 480,
+    "height": 640,
+    "mean_luminance": 73.0,
+    "contrast_std": 62.1
+  },
+  {
+    "id": "coco_0906",
+    "filename": "COCO_val2014_000000492506.jpg",
+    "width": 640,
+    "height": 409,
+    "mean_luminance": 132.7,
+    "contrast_std": 50.6
+  },
+  {
+    "id": "coco_0907",
+    "filename": "COCO_val2014_000000389480.jpg",
+    "width": 500,
+    "height": 375,
+    "mean_luminance": 72.3,
+    "contrast_std": 66.6
+  },
+  {
+    "id": "coco_0908",
+    "filename": "COCO_val2014_000000287636.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 151.7,
+    "contrast_std": 81.0
+  },
+  {
+    "id": "coco_0909",
+    "filename": "COCO_val2014_000000553576.jpg",
+    "width": 640,
+    "height": 426,
+    "mean_luminance": 116.0,
+    "contrast_std": 70.5
+  },
+  {
+    "id": "coco_0910",
+    "filename": "COCO_val2014_000000549136.jpg",
+    "width": 640,
+    "height": 434,
+    "mean_luminance": 137.7,
+    "contrast_std": 79.3
+  },
+  {
+    "id": "coco_0911",
+    "filename": "COCO_val2014_000000062706.jpg",
+    "width": 640,
+    "height": 426,
+    "mean_luminance": 66.5,
+    "contrast_std": 58.1
+  },
+  {
+    "id": "coco_0912",
+    "filename": "COCO_val2014_000000508302.jpg",
+    "width": 612,
+    "height": 612,
+    "mean_luminance": 118.1,
+    "contrast_std": 68.2
+  },
+  {
+    "id": "coco_0913",
+    "filename": "COCO_val2014_000000568961.jpg",
+    "width": 640,
+    "height": 428,
+    "mean_luminance": 83.6,
+    "contrast_std": 67.4
+  },
+  {
+    "id": "coco_0914",
+    "filename": "COCO_val2014_000000503183.jpg",
+    "width": 480,
+    "height": 640,
+    "mean_luminance": 110.9,
+    "contrast_std": 65.4
+  },
+  {
+    "id": "coco_0915",
+    "filename": "COCO_val2014_000000046847.jpg",
+    "width": 640,
+    "height": 335,
+    "mean_luminance": 107.8,
+    "contrast_std": 62.1
+  },
+  {
+    "id": "coco_0916",
+    "filename": "COCO_val2014_000000183014.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 119.6,
+    "contrast_std": 75.1
+  },
+  {
+    "id": "coco_0917",
+    "filename": "COCO_val2014_000000457900.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 114.9,
+    "contrast_std": 68.5
+  },
+  {
+    "id": "coco_0918",
+    "filename": "COCO_val2014_000000141879.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 172.0,
+    "contrast_std": 30.8
+  },
+  {
+    "id": "coco_0919",
+    "filename": "COCO_val2014_000000409100.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 147.6,
+    "contrast_std": 79.1
+  },
+  {
+    "id": "coco_0920",
+    "filename": "COCO_val2014_000000028532.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 92.4,
+    "contrast_std": 57.7
+  },
+  {
+    "id": "coco_0921",
+    "filename": "COCO_val2014_000000041077.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 196.9,
+    "contrast_std": 66.1
+  },
+  {
+    "id": "coco_0922",
+    "filename": "COCO_val2014_000000422326.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 106.3,
+    "contrast_std": 61.6
+  },
+  {
+    "id": "coco_0923",
+    "filename": "COCO_val2014_000000122302.jpg",
+    "width": 500,
+    "height": 375,
+    "mean_luminance": 110.4,
+    "contrast_std": 62.2
+  },
+  {
+    "id": "coco_0924",
+    "filename": "COCO_val2014_000000361147.jpg",
+    "width": 417,
+    "height": 640,
+    "mean_luminance": 113.4,
+    "contrast_std": 54.4
+  },
+  {
+    "id": "coco_0925",
+    "filename": "COCO_val2014_000000227220.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 89.6,
+    "contrast_std": 54.7
+  },
+  {
+    "id": "coco_0926",
+    "filename": "COCO_val2014_000000504891.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 128.0,
+    "contrast_std": 24.1
+  },
+  {
+    "id": "coco_0927",
+    "filename": "COCO_val2014_000000522427.jpg",
+    "width": 500,
+    "height": 375,
+    "mean_luminance": 107.4,
+    "contrast_std": 64.0
+  },
+  {
+    "id": "coco_0928",
+    "filename": "COCO_val2014_000000379108.jpg",
+    "width": 500,
+    "height": 333,
+    "mean_luminance": 76.7,
+    "contrast_std": 56.1
+  },
+  {
+    "id": "coco_0929",
+    "filename": "COCO_val2014_000000385508.jpg",
+    "width": 640,
+    "height": 360,
+    "mean_luminance": 91.3,
+    "contrast_std": 53.4
+  },
+  {
+    "id": "coco_0930",
+    "filename": "COCO_val2014_000000490620.jpg",
+    "width": 478,
+    "height": 640,
+    "mean_luminance": 104.7,
+    "contrast_std": 80.3
+  },
+  {
+    "id": "coco_0931",
+    "filename": "COCO_val2014_000000184384.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 105.4,
+    "contrast_std": 67.5
+  },
+  {
+    "id": "coco_0932",
+    "filename": "COCO_val2014_000000348793.jpg",
+    "width": 427,
+    "height": 640,
+    "mean_luminance": 105.9,
+    "contrast_std": 78.7
+  },
+  {
+    "id": "coco_0933",
+    "filename": "COCO_val2014_000000046761.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 141.1,
+    "contrast_std": 51.8
+  },
+  {
+    "id": "coco_0934",
+    "filename": "COCO_val2014_000000236000.jpg",
+    "width": 640,
+    "height": 413,
+    "mean_luminance": 101.8,
+    "contrast_std": 70.3
+  },
+  {
+    "id": "coco_0935",
+    "filename": "COCO_val2014_000000078420.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 106.2,
+    "contrast_std": 85.1
+  },
+  {
+    "id": "coco_0936",
+    "filename": "COCO_val2014_000000338703.jpg",
+    "width": 500,
+    "height": 406,
+    "mean_luminance": 152.4,
+    "contrast_std": 65.0
+  },
+  {
+    "id": "coco_0937",
+    "filename": "COCO_val2014_000000290570.jpg",
+    "width": 640,
+    "height": 424,
+    "mean_luminance": 96.2,
+    "contrast_std": 52.0
+  },
+  {
+    "id": "coco_0938",
+    "filename": "COCO_val2014_000000438038.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 65.9,
+    "contrast_std": 40.0
+  },
+  {
+    "id": "coco_0939",
+    "filename": "COCO_val2014_000000027186.jpg",
+    "width": 640,
+    "height": 428,
+    "mean_luminance": 94.5,
+    "contrast_std": 61.7
+  },
+  {
+    "id": "coco_0940",
+    "filename": "COCO_val2014_000000472732.jpg",
+    "width": 640,
+    "height": 244,
+    "mean_luminance": 150.9,
+    "contrast_std": 73.3
+  },
+  {
+    "id": "coco_0941",
+    "filename": "COCO_val2014_000000167422.jpg",
+    "width": 480,
+    "height": 640,
+    "mean_luminance": 122.6,
+    "contrast_std": 76.8
+  },
+  {
+    "id": "coco_0942",
+    "filename": "COCO_val2014_000000371945.jpg",
+    "width": 640,
+    "height": 360,
+    "mean_luminance": 108.1,
+    "contrast_std": 63.4
+  },
+  {
+    "id": "coco_0943",
+    "filename": "COCO_val2014_000000215622.jpg",
+    "width": 426,
+    "height": 640,
+    "mean_luminance": 27.3,
+    "contrast_std": 35.1
+  },
+  {
+    "id": "coco_0944",
+    "filename": "COCO_val2014_000000499181.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 108.9,
+    "contrast_std": 69.3
+  },
+  {
+    "id": "coco_0945",
+    "filename": "COCO_val2014_000000224848.jpg",
+    "width": 640,
+    "height": 425,
+    "mean_luminance": 76.9,
+    "contrast_std": 57.8
+  },
+  {
+    "id": "coco_0946",
+    "filename": "COCO_val2014_000000059015.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 109.7,
+    "contrast_std": 62.4
+  },
+  {
+    "id": "coco_0947",
+    "filename": "COCO_val2014_000000236784.jpg",
+    "width": 500,
+    "height": 400,
+    "mean_luminance": 109.2,
+    "contrast_std": 67.7
+  },
+  {
+    "id": "coco_0948",
+    "filename": "COCO_val2014_000000054959.jpg",
+    "width": 640,
+    "height": 193,
+    "mean_luminance": 96.7,
+    "contrast_std": 70.5
+  },
+  {
+    "id": "coco_0949",
+    "filename": "COCO_val2014_000000576363.jpg",
+    "width": 500,
+    "height": 375,
+    "mean_luminance": 63.3,
+    "contrast_std": 56.7
+  },
+  {
+    "id": "coco_0950",
+    "filename": "COCO_val2014_000000209527.jpg",
+    "width": 480,
+    "height": 640,
+    "mean_luminance": 77.2,
+    "contrast_std": 54.5
+  },
+  {
+    "id": "coco_0951",
+    "filename": "COCO_val2014_000000453895.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 94.5,
+    "contrast_std": 55.7
+  },
+  {
+    "id": "coco_0952",
+    "filename": "COCO_val2014_000000134255.jpg",
+    "width": 578,
+    "height": 453,
+    "mean_luminance": 110.3,
+    "contrast_std": 80.1
+  },
+  {
+    "id": "coco_0953",
+    "filename": "COCO_val2014_000000101473.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 114.2,
+    "contrast_std": 60.9
+  },
+  {
+    "id": "coco_0954",
+    "filename": "COCO_val2014_000000560218.jpg",
+    "width": 500,
+    "height": 375,
+    "mean_luminance": 95.4,
+    "contrast_std": 77.3
+  },
+  {
+    "id": "coco_0955",
+    "filename": "COCO_val2014_000000210032.jpg",
+    "width": 640,
+    "height": 401,
+    "mean_luminance": 118.3,
+    "contrast_std": 65.6
+  },
+  {
+    "id": "coco_0956",
+    "filename": "COCO_val2014_000000572408.jpg",
+    "width": 424,
+    "height": 640,
+    "mean_luminance": 116.4,
+    "contrast_std": 63.0
+  },
+  {
+    "id": "coco_0957",
+    "filename": "COCO_val2014_000000420963.jpg",
+    "width": 436,
+    "height": 640,
+    "mean_luminance": 81.9,
+    "contrast_std": 90.6
+  },
+  {
+    "id": "coco_0958",
+    "filename": "COCO_val2014_000000105234.jpg",
+    "width": 618,
+    "height": 640,
+    "mean_luminance": 162.8,
+    "contrast_std": 63.8
+  },
+  {
+    "id": "coco_0959",
+    "filename": "COCO_val2014_000000472101.jpg",
+    "width": 640,
+    "height": 424,
+    "mean_luminance": 114.9,
+    "contrast_std": 88.3
+  },
+  {
+    "id": "coco_0960",
+    "filename": "COCO_val2014_000000451990.jpg",
+    "width": 640,
+    "height": 429,
+    "mean_luminance": 169.0,
+    "contrast_std": 75.2
+  },
+  {
+    "id": "coco_0961",
+    "filename": "COCO_val2014_000000002240.jpg",
+    "width": 600,
+    "height": 600,
+    "mean_luminance": 117.5,
+    "contrast_std": 88.3
+  },
+  {
+    "id": "coco_0962",
+    "filename": "COCO_val2014_000000512760.jpg",
+    "width": 640,
+    "height": 426,
+    "mean_luminance": 135.2,
+    "contrast_std": 67.2
+  },
+  {
+    "id": "coco_0963",
+    "filename": "COCO_val2014_000000473728.jpg",
+    "width": 480,
+    "height": 640,
+    "mean_luminance": 122.9,
+    "contrast_std": 62.1
+  },
+  {
+    "id": "coco_0964",
+    "filename": "COCO_val2014_000000177262.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 133.0,
+    "contrast_std": 53.9
+  },
+  {
+    "id": "coco_0965",
+    "filename": "COCO_val2014_000000365325.jpg",
+    "width": 640,
+    "height": 426,
+    "mean_luminance": 88.0,
+    "contrast_std": 72.7
+  },
+  {
+    "id": "coco_0966",
+    "filename": "COCO_val2014_000000281409.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 120.0,
+    "contrast_std": 67.4
+  },
+  {
+    "id": "coco_0967",
+    "filename": "COCO_val2014_000000136911.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 105.4,
+    "contrast_std": 79.8
+  },
+  {
+    "id": "coco_0968",
+    "filename": "COCO_val2014_000000259854.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 170.7,
+    "contrast_std": 85.0
+  },
+  {
+    "id": "coco_0969",
+    "filename": "COCO_val2014_000000574672.jpg",
+    "width": 640,
+    "height": 409,
+    "mean_luminance": 146.3,
+    "contrast_std": 66.0
+  },
+  {
+    "id": "coco_0970",
+    "filename": "COCO_val2014_000000421999.jpg",
+    "width": 640,
+    "height": 478,
+    "mean_luminance": 109.4,
+    "contrast_std": 53.5
+  },
+  {
+    "id": "coco_0971",
+    "filename": "COCO_val2014_000000399851.jpg",
+    "width": 480,
+    "height": 640,
+    "mean_luminance": 130.3,
+    "contrast_std": 58.1
+  },
+  {
+    "id": "coco_0972",
+    "filename": "COCO_val2014_000000429913.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 113.3,
+    "contrast_std": 34.1
+  },
+  {
+    "id": "coco_0973",
+    "filename": "COCO_val2014_000000126257.jpg",
+    "width": 612,
+    "height": 612,
+    "mean_luminance": 130.7,
+    "contrast_std": 29.5
+  },
+  {
+    "id": "coco_0974",
+    "filename": "COCO_val2014_000000352228.jpg",
+    "width": 640,
+    "height": 425,
+    "mean_luminance": 122.6,
+    "contrast_std": 65.6
+  },
+  {
+    "id": "coco_0975",
+    "filename": "COCO_val2014_000000010935.jpg",
+    "width": 500,
+    "height": 375,
+    "mean_luminance": 104.6,
+    "contrast_std": 46.7
+  },
+  {
+    "id": "coco_0976",
+    "filename": "COCO_val2014_000000370678.jpg",
+    "width": 480,
+    "height": 640,
+    "mean_luminance": 123.8,
+    "contrast_std": 51.0
+  },
+  {
+    "id": "coco_0977",
+    "filename": "COCO_val2014_000000319127.jpg",
+    "width": 640,
+    "height": 478,
+    "mean_luminance": 189.7,
+    "contrast_std": 60.5
+  },
+  {
+    "id": "coco_0978",
+    "filename": "COCO_val2014_000000143103.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 152.2,
+    "contrast_std": 57.2
+  },
+  {
+    "id": "coco_0979",
+    "filename": "COCO_val2014_000000135900.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 93.6,
+    "contrast_std": 83.2
+  },
+  {
+    "id": "coco_0980",
+    "filename": "COCO_val2014_000000055810.jpg",
+    "width": 480,
+    "height": 640,
+    "mean_luminance": 134.1,
+    "contrast_std": 55.3
+  },
+  {
+    "id": "coco_0981",
+    "filename": "COCO_val2014_000000012204.jpg",
+    "width": 426,
+    "height": 640,
+    "mean_luminance": 91.6,
+    "contrast_std": 73.5
+  },
+  {
+    "id": "coco_0982",
+    "filename": "COCO_val2014_000000013985.jpg",
+    "width": 640,
+    "height": 426,
+    "mean_luminance": 77.6,
+    "contrast_std": 56.1
+  },
+  {
+    "id": "coco_0983",
+    "filename": "COCO_val2014_000000262175.jpg",
+    "width": 513,
+    "height": 640,
+    "mean_luminance": 103.2,
+    "contrast_std": 57.8
+  },
+  {
+    "id": "coco_0984",
+    "filename": "COCO_val2014_000000365685.jpg",
+    "width": 480,
+    "height": 640,
+    "mean_luminance": 92.7,
+    "contrast_std": 63.5
+  },
+  {
+    "id": "coco_0985",
+    "filename": "COCO_val2014_000000050443.jpg",
+    "width": 640,
+    "height": 425,
+    "mean_luminance": 20.4,
+    "contrast_std": 13.4
+  },
+  {
+    "id": "coco_0986",
+    "filename": "COCO_val2014_000000344003.jpg",
+    "width": 480,
+    "height": 640,
+    "mean_luminance": 157.4,
+    "contrast_std": 40.8
+  },
+  {
+    "id": "coco_0987",
+    "filename": "COCO_val2014_000000525373.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 90.8,
+    "contrast_std": 67.7
+  },
+  {
+    "id": "coco_0988",
+    "filename": "COCO_val2014_000000443949.jpg",
+    "width": 500,
+    "height": 335,
+    "mean_luminance": 61.5,
+    "contrast_std": 57.4
+  },
+  {
+    "id": "coco_0989",
+    "filename": "COCO_val2014_000000414228.jpg",
+    "width": 640,
+    "height": 339,
+    "mean_luminance": 126.3,
+    "contrast_std": 78.5
+  },
+  {
+    "id": "coco_0990",
+    "filename": "COCO_val2014_000000063602.jpg",
+    "width": 640,
+    "height": 425,
+    "mean_luminance": 92.6,
+    "contrast_std": 53.5
+  },
+  {
+    "id": "coco_0991",
+    "filename": "COCO_val2014_000000441363.jpg",
+    "width": 640,
+    "height": 427,
+    "mean_luminance": 81.7,
+    "contrast_std": 60.9
+  },
+  {
+    "id": "coco_0992",
+    "filename": "COCO_val2014_000000087912.jpg",
+    "width": 640,
+    "height": 471,
+    "mean_luminance": 148.2,
+    "contrast_std": 56.8
+  },
+  {
+    "id": "coco_0993",
+    "filename": "COCO_val2014_000000138821.jpg",
+    "width": 640,
+    "height": 480,
+    "mean_luminance": 95.6,
+    "contrast_std": 73.2
+  },
+  {
+    "id": "coco_0994",
+    "filename": "COCO_val2014_000000152543.jpg",
+    "width": 640,
+    "height": 407,
+    "mean_luminance": 152.7,
+    "contrast_std": 60.9
+  },
+  {
+    "id": "coco_0995",
+    "filename": "COCO_val2014_000000175948.jpg",
+    "width": 426,
+    "height": 640,
+    "mean_luminance": 106.5,
+    "contrast_std": 69.7
+  },
+  {
+    "id": "coco_0996",
+    "filename": "COCO_val2014_000000445668.jpg",
+    "width": 480,
+    "height": 640,
+    "mean_luminance": 131.7,
+    "contrast_std": 43.8
+  },
+  {
+    "id": "coco_0997",
+    "filename": "COCO_val2014_000000010764.jpg",
+    "width": 640,
+    "height": 424,
+    "mean_luminance": 73.4,
+    "contrast_std": 43.9
+  },
+  {
+    "id": "coco_0998",
+    "filename": "COCO_val2014_000000071596.jpg",
+    "width": 640,
+    "height": 428,
+    "mean_luminance": 74.8,
+    "contrast_std": 55.5
+  },
+  {
+    "id": "coco_0999",
+    "filename": "COCO_val2014_000000391016.jpg",
+    "width": 640,
+    "height": 355,
+    "mean_luminance": 140.1,
+    "contrast_std": 43.6
+  }
+]

@@ -3,7 +3,7 @@
 ## Overview
 This study rigorously defines and benchmarks the **Best Machine-Caption Proxy** against native visual representations (CLIP ViT-B/32 and SigLIP Base Patch16) across $N=1,000$ MS-COCO Karpathy-test images. It tests whether modern detailed VLMs (Florence-2 Detailed) or multi-caption concatenation indexing can eliminate the native-visual advantage.
 
-- **Git Commit:** `6b9f2aaa8a873049f7d95fd831e22f868cd5e636`
+- **Git Commit:** `bae52ccc7cc103b01f4ef7a3147692ff1574606e`
 - **Evaluation Split:** $N=1,000$ MS-COCO Karpathy test images & held-out queries
 - **Multiple Comparisons Correction:** Holm-Bonferroni step-down procedure across all candidate architectures.
 

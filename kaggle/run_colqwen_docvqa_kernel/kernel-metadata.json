@@ -1,0 +1,15 @@
+{
+  "id": "anuragkrishnavennela/colqwen2-robustness-evaluation",
+  "title": "colqwen2-robustness-evaluation",
+  "code_file": "kaggle_colqwen2_docvqa.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": "true",
+  "enable_gpu": "true",
+  "enable_tpu": "false",
+  "enable_internet": "true",
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": [],
+  "model_sources": []
+}

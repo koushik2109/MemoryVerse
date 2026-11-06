@@ -1,0 +1,152 @@
+[{"stream_name":"stderr","time":6.650185704,"data":"/usr/local/lib/python3.13/dist-packages/nbformat/validator.py:434: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":6.650230072,"data":"  _validate(nbdict, ref, version, version_minor, relax_add_props)\n"}
+,{"stream_name":"stderr","time":7.592698258,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.592727718,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.592738176,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.592741171,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":8.178023091,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.178049469,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.17805473,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.178058645,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":9.274893588,"data":"=== Python \u0026 Platform Diagnostics ===\n"}
+,{"stream_name":"stdout","time":9.274927243,"data":"Python Version: 3.13.16 (main, Oct  1 2026, 15:40:24) [GCC 13.3.0]\n"}
+,{"stream_name":"stdout","time":9.27575938,"data":"Working Directory: /kaggle/working\n"}
+,{"stream_name":"stdout","time":9.277349106,"data":"Kaggle cloud environment detected: verifying/installing dependencies...\n"}
+,{"stream_name":"stdout","time":9.888078074,"data":"Found existing installation: torchao 0.10.0\n"}
+,{"stream_name":"stdout","time":9.977570024,"data":"Uninstalling torchao-0.10.0:\n"}
+,{"stream_name":"stdout","time":10.090151379,"data":"Found existing installation: torchao 0.10.0\n"}
+,{"stream_name":"stdout","time":10.090175132,"data":"Uninstalling torchao-0.10.0:\n"}
+,{"stream_name":"stdout","time":10.314974875,"data":"  Successfully uninstalled torchao-0.10.0\n"}
+,{"stream_name":"stdout","time":10.5172536,"data":"  Successfully uninstalled torchao-0.10.0\n"}
+,{"stream_name":"stderr","time":21.701721655,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":21.701753632,"data":"bigframes 2.51.0 requires google-cloud-bigquery-storage\u003c3.0.0,\u003e=2.30.0, which is not installed.\n"}
+,{"stream_name":"stderr","time":21.701757669,"data":"cudf-cu13 26.6.0 requires pyarrow\u003c24,\u003e=19.0.0, but you have pyarrow 26.0.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":21.904842832,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":21.904876866,"data":"bigframes 2.51.0 requires google-cloud-bigquery-storage\u003c3.0.0,\u003e=2.30.0, which is not installed.\n"}
+,{"stream_name":"stderr","time":21.904880855000002,"data":"cudf-cu13 26.6.0 requires pyarrow\u003c24,\u003e=19.0.0, but you have pyarrow 26.0.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":21.904909747,"data":"\n"}
+,{"stream_name":"stderr","time":21.904914041,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":21.904918306,"data":"bigframes 2.51.0 requires google-cloud-bigquery-storage\u003c3.0.0,\u003e=2.30.0, which is not installed.\n"}
+,{"stream_name":"stderr","time":21.904922453,"data":"cudf-cu13 26.6.0 requires pyarrow\u003c24,\u003e=19.0.0, but you have pyarrow 26.0.1 which is incompatible.\n"}
+,{"stream_name":"stdout","time":21.94317273,"data":"Cloud dependencies verified successfully.\n"}
+,{"stream_name":"stdout","time":28.099634889,"data":"=== Compute Device Diagnostics ===\n"}
+,{"stream_name":"stdout","time":28.363346363,"data":"PyTorch Version: 2.11.0+cu130\n"}
+,{"stream_name":"stdout","time":28.364190278,"data":"CUDA Available: True\n"}
+,{"stream_name":"stdout","time":28.400846706,"data":"Primary GPU: Tesla T4\n"}
+,{"stream_name":"stdout","time":28.401759881,"data":"GPU Count:   2\n"}
+,{"stream_name":"stdout","time":28.402418515,"data":"Total VRAM:  14.56 GB\n"}
+,{"stream_name":"stdout","time":28.430728581,"data":"Thu Nov  5 17:28:38 2026       \n"}
+,{"stream_name":"stdout","time":28.430748597,"data":"+-----------------------------------------------------------------------------------------+\n"}
+,{"stream_name":"stdout","time":28.430753356,"data":"| NVIDIA-SMI 580.178.04             Driver Version: 580.178.04     CUDA Version: 13.0     |\n"}
+,{"stream_name":"stdout","time":28.430757001,"data":"+-----------------------------------------+------------------------+----------------------+\n"}
+,{"stream_name":"stdout","time":28.430760522,"data":"| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |\n"}
+,{"stream_name":"stdout","time":28.430764347,"data":"| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |\n"}
+,{"stream_name":"stdout","time":28.43076788,"data":"|                                         |                        |               MIG M. |\n"}
+,{"stream_name":"stdout","time":28.430771998,"data":"|=========================================+========================+======================|\n"}
+,{"stream_name":"stdout","time":28.463533085999998,"data":"|   0  Tesla T4                       Off |   00000000:00:04.0 Off |                    0 |\n"}
+,{"stream_name":"stdout","time":28.463551759,"data":"| N/A   42C    P8             10W /   70W |       3MiB /  15360MiB |      0%      Default |\n"}
+,{"stream_name":"stdout","time":28.463557207,"data":"|                                         |                        |                  N/A |\n"}
+,{"stream_name":"stdout","time":28.463560908,"data":"+-----------------------------------------+------------------------+----------------------+\n"}
+,{"stream_name":"stdout","time":28.463564547,"data":"|   1  Tesla T4                       Off |   00000000:00:05.0 Off |                    0 |\n"}
+,{"stream_name":"stdout","time":28.463568001,"data":"| N/A   47C    P8             11W /   70W |       3MiB /  15360MiB |      0%      Default |\n"}
+,{"stream_name":"stdout","time":28.463572217,"data":"|                                         |                        |                  N/A |\n"}
+,{"stream_name":"stdout","time":28.463576387,"data":"+-----------------------------------------+------------------------+----------------------+\n"}
+,{"stream_name":"stdout","time":28.464048153,"data":"\n"}
+,{"stream_name":"stdout","time":28.464058367,"data":"+-----------------------------------------------------------------------------------------+\n"}
+,{"stream_name":"stdout","time":28.464072536,"data":"| Processes:                                                                              |\n"}
+,{"stream_name":"stdout","time":28.464078092,"data":"|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |\n"}
+,{"stream_name":"stdout","time":28.464085174,"data":"|        ID   ID                                                               Usage      |\n"}
+,{"stream_name":"stdout","time":28.464087567,"data":"|=========================================================================================|\n"}
+,{"stream_name":"stdout","time":28.465650204,"data":"|  No running processes found                                                             |\n"}
+,{"stream_name":"stdout","time":28.465681468,"data":"+-----------------------------------------------------------------------------------------+\n"}
+,{"stream_name":"stdout","time":28.564569746,"data":"Thu Nov  5 17:28:38 2026       \n"}
+,{"stream_name":"stdout","time":28.56458763,"data":"+-----------------------------------------------------------------------------------------+\n"}
+,{"stream_name":"stdout","time":28.564596799,"data":"| NVIDIA-SMI 580.178.04             Driver Version: 580.178.04     CUDA Version: 13.0     |\n"}
+,{"stream_name":"stdout","time":28.564601953,"data":"+-----------------------------------------+------------------------+----------------------+\n"}
+,{"stream_name":"stdout","time":28.564607163,"data":"| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |\n"}
+,{"stream_name":"stdout","time":28.564612371,"data":"| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |\n"}
+,{"stream_name":"stdout","time":28.564617571,"data":"|                                         |                        |               MIG M. |\n"}
+,{"stream_name":"stdout","time":28.564622793,"data":"|=========================================+========================+======================|\n"}
+,{"stream_name":"stdout","time":28.564627971,"data":"|   0  Tesla T4                       Off |   00000000:00:04.0 Off |                    0 |\n"}
+,{"stream_name":"stdout","time":28.56463318,"data":"| N/A   42C    P8             10W /   70W |       3MiB /  15360MiB |      0%      Default |\n"}
+,{"stream_name":"stdout","time":28.564638391,"data":"|                                         |                        |                  N/A |\n"}
+,{"stream_name":"stdout","time":28.564643558,"data":"+-----------------------------------------+------------------------+----------------------+\n"}
+,{"stream_name":"stdout","time":28.564648711,"data":"|   1  Tesla T4                       Off |   00000000:00:05.0 Off |                    0 |\n"}
+,{"stream_name":"stdout","time":28.56465393,"data":"| N/A   47C    P8             11W /   70W |       3MiB /  15360MiB |      0%      Default |\n"}
+,{"stream_name":"stdout","time":28.56467104,"data":"|                                         |                        |                  N/A |\n"}
+,{"stream_name":"stdout","time":28.564676497,"data":"+-----------------------------------------+------------------------+----------------------+\n"}
+,{"stream_name":"stdout","time":28.564681458,"data":"\n"}
+,{"stream_name":"stdout","time":28.564686796,"data":"+-----------------------------------------------------------------------------------------+\n"}
+,{"stream_name":"stdout","time":28.564691816,"data":"| Processes:                                                                              |\n"}
+,{"stream_name":"stdout","time":28.56469703,"data":"|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |\n"}
+,{"stream_name":"stdout","time":28.564702226,"data":"|        ID   ID                                                               Usage      |\n"}
+,{"stream_name":"stdout","time":28.564718293,"data":"|=========================================================================================|\n"}
+,{"stream_name":"stdout","time":28.564723251,"data":"|  No running processes found                                                             |\n"}
+,{"stream_name":"stdout","time":28.564728983,"data":"+-----------------------------------------------------------------------------------------+\n"}
+,{"stream_name":"stdout","time":29.73390233,"data":"[2026-11-05T17:28:40Z] Resolved Dataset Root: /kaggle/input/datasets/anuragkrishnavennela/frozenv11\n"}
+,{"stream_name":"stdout","time":29.734988945,"data":"[2026-11-05T17:28:40Z] Resolved Output Dir:   /kaggle/working/results/v11_degraded_visual\n"}
+,{"stream_name":"stdout","time":29.758447106,"data":"Statistical test helpers and BM25 indexing engine initialized.\n"}
+,{"stream_name":"stdout","time":29.936555248,"data":"Test Corpus Size:  813 items\n"}
+,{"stream_name":"stdout","time":29.937430852,"data":"Probes Loaded:    306 verbatim, 306 light, 306 answerable\n"}
+,{"stream_name":"stdout","time":29.951062165,"data":"Visual scoring functions defined.\n"}
+,{"stream_name":"stdout","time":29.98740723,"data":"[2026-11-05T17:28:40Z] Starting Stage v11 Degraded Visual Retrieval Evaluation (smoke=False)\n"}
+,{"stream_name":"stdout","time":30.785596118,"data":"[2026-11-05T17:28:41Z] GPU detected: Initializing ColQwen2 and CLIP on GPU...\n"}
+,{"stream_name":"stderr","time":54.646395776,"data":"Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stderr","time":54.646429848,"data":"\n"}
+,{"stream_name":"stderr","time":54.646435869,"data":"Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stderr","time":54.647487554,"data":"WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stderr","time":54.647509959,"data":"\n"}
+,{"stream_name":"stderr","time":54.64751603,"data":"WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stdout","time":113.037466112,"data":"[2026-11-05T17:30:03Z] Processing visual corpus for: Clean Receipts from /kaggle/input/datasets/anuragkrishnavennela/frozenv11/ai_engine/rag/data/sroie/img\n"}
+,{"stream_name":"stdout","time":158.224951879,"data":"[2026-11-05T17:30:48Z] Embedding 813 images with ColQwen2...\n"}
+,{"stream_name":"stdout","time":1597.363421961,"data":"[2026-11-05T17:54:47Z] Evaluating Clean Receipts on verbatim (306 probes)...\n"}
+,{"stream_name":"stdout","time":1667.119451603,"data":"[2026-11-05T17:55:57Z] Evaluating Clean Receipts on light_paraphrase (306 probes)...\n"}
+,{"stream_name":"stdout","time":1737.251047376,"data":"[2026-11-05T17:57:07Z] Evaluating Clean Receipts on answerable_question (306 probes)...\n"}
+,{"stream_name":"stdout","time":1807.662222912,"data":"[2026-11-05T17:58:17Z] Processing visual corpus for: Optical Blur Degraded from /kaggle/input/datasets/anuragkrishnavennela/frozenv11/ai_engine/rag/data/sroie/img_degraded\n"}
+,{"stream_name":"stdout","time":1838.23794924,"data":"[2026-11-05T17:58:48Z] Embedding 813 images with ColQwen2...\n"}
+,{"stream_name":"stdout","time":2788.312483308,"data":"[2026-11-05T18:14:38Z] Evaluating Optical Blur Degraded on verbatim (306 probes)...\n"}
+,{"stream_name":"stdout","time":2855.139108726,"data":"[2026-11-05T18:15:45Z] Evaluating Optical Blur Degraded on light_paraphrase (306 probes)...\n"}
+,{"stream_name":"stdout","time":2922.718007674,"data":"[2026-11-05T18:16:53Z] Evaluating Optical Blur Degraded on answerable_question (306 probes)...\n"}
+,{"stream_name":"stdout","time":2990.330133919,"data":"[2026-11-05T18:18:00Z] Stage v11 complete! Artifacts written to /kaggle/working/results/v11_degraded_visual\n"}
+,{"stream_name":"stdout","time":2990.440777907,"data":"=== ColQwen2 Degraded Evaluation (v11) ===\n"}
+,{"stream_name":"stdout","time":2990.440816513,"data":"\n"}
+,{"stream_name":"stdout","time":2990.485714582,"data":"\n"}
+,{"stream_name":"stdout","time":2990.485744233,"data":"=== CLIP Degraded Evaluation (v11) ===\n"}
+,{"stream_name":"stdout","time":2990.485748462,"data":"\n"}
+,{"stream_name":"stdout","time":2990.493933185,"data":"\n"}
+,{"stream_name":"stdout","time":2990.493954709,"data":"=== Paired Permutation Statistical Tests (v11) ===\n"}
+,{"stream_name":"stdout","time":2990.493961509,"data":"\n"}
+,{"stream_name":"stdout","time":2990.503291677,"data":"\n"}
+,{"stream_name":"stdout","time":2990.503313366,"data":"=== Provenance Audit Log ===\n"}
+,{"stream_name":"stdout","time":2990.504408034,"data":"============================================================\n"}
+,{"stream_name":"stdout","time":2990.504425621,"data":"Degraded Visual Retrieval Provenance — v11\n"}
+,{"stream_name":"stdout","time":2990.504432017,"data":"============================================================\n"}
+,{"stream_name":"stdout","time":2990.504447995,"data":"Timestamp:   2026-11-05T18:18:00Z\n"}
+,{"stream_name":"stdout","time":2990.504453777,"data":"ColQwen2:    vidore/colqwen2-v1.0\n"}
+,{"stream_name":"stdout","time":2990.504458649,"data":"CLIP:        openai/clip-vit-base-patch32\n"}
+,{"stream_name":"stdout","time":2990.504463686,"data":"Seeds:       [42, 43, 44]\n"}
+,{"stream_name":"stdout","time":2990.504468692,"data":"Bootstrap B: 2000\n"}
+,{"stream_name":"stdout","time":2990.504473835,"data":"Permutations:100000\n"}
+,{"stream_name":"stdout","time":2990.504479009,"data":"============================================================\n"}
+,{"stream_name":"stdout","time":2990.504484137,"data":"\n"}
+,{"stream_name":"stdout","time":2990.504489444,"data":"Clean Receipts [verbatim]: ColQwen=0.8417, CharBM25=0.9854, Diff=-0.1436, p_holm=0.0001 (MEASURED)\n"}
+,{"stream_name":"stdout","time":2990.504495083,"data":"Clean Receipts [light_paraphrase]: ColQwen=0.4985, CharBM25=0.2526, Diff=+0.2459, p_holm=0.0001 (MEASURED)\n"}
+,{"stream_name":"stdout","time":2990.504500371,"data":"Clean Receipts [answerable_question]: ColQwen=0.0870, CharBM25=0.0497, Diff=+0.0372, p_holm=0.0040 (MEASURED)\n"}
+,{"stream_name":"stdout","time":2990.504505186,"data":"Optical Blur Degraded [verbatim]: ColQwen=0.7207, CharBM25=0.9443, Diff=-0.2236, p_holm=0.0001 (MEASURED)\n"}
+,{"stream_name":"stdout","time":2990.504510496,"data":"Optical Blur Degraded [light_paraphrase]: ColQwen=0.4449, CharBM25=0.2365, Diff=+0.2084, p_holm=0.0001 (MEASURED)\n"}
+,{"stream_name":"stdout","time":2990.50451544,"data":"Optical Blur Degraded [answerable_question]: ColQwen=0.0701, CharBM25=0.0495, Diff=+0.0207, p_holm=0.0508 (MEASURED)\n"}
+,{"stream_name":"stdout","time":2990.504520803,"data":"\n"}
+,{"stream_name":"stdout","time":2990.52463427,"data":"\n"}
+,{"stream_name":"stdout","time":2990.524673539,"data":"=== Output Archives Created Successfully ===\n"}
+,{"stream_name":"stdout","time":2990.525648376,"data":"Primary Archive: results_v11_final.zip (0.00 MB, SHA-256: 799bc9ee2de24864682abdfd155f2bc55907644d311f4e009c802146b3e93107)\n"}
+,{"stream_name":"stdout","time":2990.526588849,"data":"Alias Archive:   results_v11_degraded_visual.zip\n"}
+,{"stream_name":"stdout","time":2990.528239193,"data":"Ready for download from the Kaggle Output panel!\n"}
+,{"stream_name":"stderr","time":2996.213614362,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":2996.213654566,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":2996.401635907,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":2996.401690396,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":2997.187857828,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":2997.315804853,"data":"[NbConvertApp] Writing 444281 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":2999.811095624,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":3000.476496807,"data":"[NbConvertApp] Writing 728123 bytes to __results__.html\n"}
+]

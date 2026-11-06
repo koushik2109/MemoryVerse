@@ -1,0 +1,87 @@
+{
+  "project_metadata": {
+    "project_name": "MemoryVerse",
+    "evaluation_title": "Verified Forensic Recomputation Pipeline",
+    "manuscript_venue": "IJCDS 2026",
+    "created_at": "2026-11-06T18:22:00Z",
+    "author_auditor": "Independent Scientific Statistical Auditor"
+  },
+  "runtime_parameters": {
+    "random_seed": 42,
+    "bootstrap_replicates": 10000,
+    "permutation_replicates": 100000,
+    "confidence_level": 0.95,
+    "tost_default_margin_delta": 0.05,
+    "rcps_target_risk_epsilon": 0.05,
+    "rcps_delta_confidence": 0.10
+  },
+  "raw_input_paths": {
+    "public_benchmark_v2": "raw_data/public_benchmark_v2.json",
+    "sroie_tesseract_clean_ocr": "raw_data/sroie_tesseract_clean_ocr.json",
+    "sroie_degraded_ocr": "raw_data/sroie_degraded_ocr.json",
+    "sroie_tesseract_degraded_ocr": "raw_data/sroie_tesseract_degraded_ocr.json",
+    "sroie_human_rankings_n400": "raw_data/bm25_human_rankings_all_n400.csv",
+    "docvqa_per_query_rankings": "raw_data/docvqa_per_query_rankings.csv",
+    "colqwen2_docvqa_summary": "raw_data/colqwen2_docvqa_summary.csv",
+    "sroie_colqwen_per_query": "raw_data/colqwen_per_query_v10.csv",
+    "sroie_colqwen_robustness": "raw_data/colqwen_robustness_per_query.csv",
+    "coco_per_query_n1000": "raw_data/coco_per_query_rankings_n1000.csv",
+    "ramp_candidate_depth_sweep": "raw_data/per_query_g05_evaluations.csv",
+    "ramp_cascade_depth_summary": "raw_data/CASCADE_DEPTH_RESULTS.csv",
+    "ramp_stack_ablation_summary": "raw_data/practical_stack_ablation_v7.csv",
+    "funsd_probes": "raw_data/funsd_probes.json",
+    "funsd_apple_vision_ocr": "raw_data/funsd_apple_vision_ocr.json",
+    "funsd_tesseract_ocr": "raw_data/funsd_tesseract_ocr.json",
+    "funsd_easyocr_clean_ocr": "raw_data/funsd_easyocr_clean_ocr.json",
+    "funsd_dataset_replication": "raw_data/funsd_dataset_replication.csv",
+    "multihop_expanded_json": "raw_data/expanded_multihop_results.json",
+    "multihop_100_cases_csv": "raw_data/multihop_100_cases_v6.csv",
+    "conformal_cascade_splits": "raw_data/conformal_cascade_v6.csv",
+    "conformal_high_prob_splits": "raw_data/conformal_high_prob_v6.csv",
+    "master_reviewer_1": "raw_data/master_reviewer_1.csv",
+    "master_reviewer_2": "raw_data/master_reviewer_2.csv",
+    "standardized_latency": "raw_data/standardized_latency_v6.csv"
+  },
+  "hypothesis_families": {
+    "family_1": {
+      "name": "Family 1 (Sparse OCR Optical Noise)",
+      "num_hypotheses": 6,
+      "method": "Paired Sign-Flip Permutation (100k) with Holm-Bonferroni adjustment",
+      "test_queries_count": 306,
+      "corpus_documents_count": 813
+    },
+    "family_2": {
+      "name": "Family 2 (Document Retrieval / DocVQA & ColQwen2)",
+      "num_hypotheses": 5,
+      "method": "Paired Sign-Flip Permutation (100k) with Holm-Bonferroni adjustment",
+      "docvqa_queries_count": 500
+    },
+    "family_3": {
+      "name": "Family 3 (MS-COCO Cross-Modal Search)",
+      "num_hypotheses": 8,
+      "method": "Paired Sign-Flip Permutation (100k) with Holm-Bonferroni adjustment and TOST",
+      "queries_count": 1000
+    },
+    "family_4": {
+      "name": "Family 4 (RAMP Architectural Ablation)",
+      "num_hypotheses": 7,
+      "method": "Paired Sign-Flip Permutation with Holm-Bonferroni adjustment",
+      "queries_count": 306,
+      "reproducibility_caveat": "Candidate depth K1=20 directly recomputed from raw queries (N=306). Router/Reliability H1/H2 lack raw per-query CSVs and are classified as NOT REPRODUCIBLE."
+    },
+    "family_5": {
+      "name": "Family 5 (FUNSD Form Transfer)",
+      "num_hypotheses": 4,
+      "method": "Paired Sign-Flip Permutation with Holm-Bonferroni adjustment",
+      "probes_count": 99,
+      "reproducibility_caveat": "BM25 Word vs Char recomputed directly from raw form OCR. Dense BGE lacks raw embeddings in repo and is classified as NOT REPRODUCIBLE."
+    },
+    "family_6": {
+      "name": "Family 6 (Multi-Hop Relational Reasoning)",
+      "num_hypotheses": 5,
+      "method": "Exact McNemar paired test and Two One-Sided Tests (TOST)",
+      "hard_cohort_count": 50,
+      "pooled_cohort_count": 100
+    }
+  }
+}

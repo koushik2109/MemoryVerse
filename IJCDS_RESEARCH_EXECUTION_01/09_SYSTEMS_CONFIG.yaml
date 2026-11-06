@@ -1,0 +1,15 @@
+hardware_profiles:
+  host_cpu:
+    device: "Apple M2 (8 cores: 4 performance + 4 efficiency)"
+    ram: "16 GB Unified Memory"
+    batch_size: 1
+    cache_mode: "Warm cache"
+  cloud_gpu:
+    device: "Nvidia Tesla T4"
+    vram: "14.56 GB"
+    batch_size: 1
+    precision: "FP16 / BF16"
+cascade_parameters:
+  candidate_depth_k1: 50
+  prefilter_engine: "Word BM25"
+  rerank_engine: "ColQwen2-v1.0"

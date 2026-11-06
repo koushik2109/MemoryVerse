@@ -1,0 +1,25 @@
+{
+  "model_id": "vidore/colqwen2-v1.0",
+  "benchmark": "vidore/docvqa_test_subsampled",
+  "queries_count": 500,
+  "images_count": 500,
+  "device": "Tesla T4",
+  "vram_gb": 14.56,
+  "torch_version": "2.11.0+cu130",
+  "precision": "torch.bfloat16",
+  "batch_size_images": 4,
+  "batch_size_queries": 8,
+  "image_encoding_time_s": 2353.4,
+  "query_encoding_time_s": 21.3,
+  "measured_mrr": 0.5497,
+  "mrr_std_error": 0.0202,
+  "mrr_95_ci": [
+    0.5106,
+    0.5892
+  ],
+  "measured_hit1": 0.482,
+  "measured_hit5": 0.622,
+  "measured_hit10": 0.686,
+  "measured_ndcg10": 0.5767,
+  "provenance": "Live Kaggle GPU execution (Version 8, Tesla T4 x2)"
+}

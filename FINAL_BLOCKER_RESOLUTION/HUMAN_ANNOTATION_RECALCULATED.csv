@@ -1,0 +1,13 @@
+evaluation_cohort,evaluation_dimension,n_records,agreed_count,disagreed_count,observed_agreement_pct,cohens_kappa,ci95_low,ci95_high,interpretation
+All 110 Pooled,Faithfulness,110,105,5,95.45,0.8716,0.7534,0.9711,Almost Perfect Agreement
+All 110 Pooled,Query_Relevance,110,106,4,96.36,0.8926,0.7814,0.9762,Almost Perfect Agreement
+All 110 Pooled,Answer_Correctness,110,108,2,98.18,0.9451,0.8559,1.0,Almost Perfect Agreement
+All 110 Pooled,Composite_Mean,110,319,11,96.66,0.9031,0.7969,0.9824,Almost Perfect Agreement
+Relational Reasoning (AUDIT-001 to 050),Faithfulness,50,45,5,90.0,0.8054,0.6318,0.9596,Substantial Agreement
+Relational Reasoning (AUDIT-001 to 050),Query_Relevance,50,46,4,92.0,0.8431,0.6894,0.9603,Almost Perfect Agreement
+Relational Reasoning (AUDIT-001 to 050),Answer_Correctness,50,48,2,96.0,0.9196,0.7954,1.0,Almost Perfect Agreement
+Relational Reasoning (AUDIT-001 to 050),Composite_Mean,50,139,11,92.67,0.8561,0.7055,0.9733,Almost Perfect Agreement
+Photo Albums (L10-A1 to A3),Faithfulness,60,60,0,100.0,Undefined (100% agree),N/A,N/A,Unanimous 100% Agreement (Single-Class Degenerate Kappa)
+Photo Albums (L10-A1 to A3),Query_Relevance,60,60,0,100.0,Undefined (100% agree),N/A,N/A,Unanimous 100% Agreement (Single-Class Degenerate Kappa)
+Photo Albums (L10-A1 to A3),Answer_Correctness,60,60,0,100.0,Undefined (100% agree),N/A,N/A,Unanimous 100% Agreement (Single-Class Degenerate Kappa)
+Photo Albums (L10-A1 to A3),Composite_Mean,60,180,0,100.0,Undefined (100% agree),N/A,N/A,Unanimous 100% Agreement

@@ -1,0 +1,10 @@
+{
+  "gpu_name": "Tesla T4",
+  "vram_gb": 14.56,
+  "query_encoding_mean_ms": 124.54,
+  "query_encoding_p50_ms": 124.45,
+  "query_encoding_p95_ms": 125.6,
+  "k1_50_cascade_ms": 1.16,
+  "full_index_813_ms": 6.29,
+  "empirical_cascade_speedup": 5.42
+}

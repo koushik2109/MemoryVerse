@@ -1,0 +1,53 @@
+\begin{table*}[t]
+\centering\footnotesize
+\caption{Master Multiplicity-Adjusted Confirmatory Hypothesis Ledger Across Six Pre-Specified Families ($M=35$ Total Hypotheses). Step-Down Holm-Bonferroni Correction ($\alpha = 0.05$).}
+\label{tab:master_holm_ledger}
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{@{}llccccccc@{}}
+\toprule
+\textbf{Family} & \textbf{Comparison} & \textbf{Method} & \textbf{Diff} & \textbf{SE} & $d_z$ & $p_{\text{raw}}$ & $p_{\text{Holm}}$ & \textbf{Verdict} \\
+\midrule
+\multicolumn{9}{l}{\textbf{Family 1 (Sparse OCR)}} \\
+  & Char vs Word on Syn 20% Noise & Permutation  & +0.1276 & 0.0142 & +0.512 & $< 10^{-4}$ & $< 10^{-4}$ & Sig. \\
+  & Char vs Word on Clean OCR (Apple) & Permutation  & +0.1119 & 0.0135 & +0.472 & $< 10^{-4}$ & $< 10^{-4}$ & Sig. \\
+  & Char vs Word on Degraded Blur & Permutation  & +0.0561 & 0.0121 & +0.265 & $< 10^{-4}$ & $< 10^{-4}$ & Sig. \\
+  & Char vs Word on Tesseract 5.5 & Permutation  & +0.1048 & 0.0138 & +0.435 & $< 10^{-4}$ & $< 10^{-4}$ & Sig. \\
+  & Char vs Word on EasyOCR Clean & Permutation  & +0.0870 & 0.0132 & +0.378 & $< 10^{-4}$ & $< 10^{-4}$ & Sig. \\
+  & Char vs Word on Clean GT Text & Permutation  & +0.1282 & 0.0112 & +0.654 & $< 10^{-4}$ & $< 10^{-4}$ & Sig. \\
+\multicolumn{9}{l}{\textbf{Family 2 (ColQwen2 vs Proxies)}} \\
+  & ColQwen2 vs Word BM25 (DocVQA) & Permutation  & +0.2390 & 0.0210 & +0.510 & $< 10^{-4}$ & $< 10^{-4}$ & Sig. \\
+  & ColQwen2 vs Tuned Hybrid (DocVQA) & Permutation  & +0.1990 & 0.0205 & +0.435 & $< 10^{-4}$ & $< 10^{-4}$ & Sig. \\
+  & Char BM25 vs ColQwen2 (SROIE Answerable) & Permutation  & +0.0733 & 0.0225 & +0.187 & $0.0011$ & $0.0033$ & Sig. \\
+  & ColQwen2 vs Word BM25 (SROIE Paraphrase) & Permutation  & +0.0628 & 0.0231 & +0.155 & $0.0072$ & $0.0144$ & Sig. \\
+  & ColQwen2 vs Tuned Hybrid (SROIE Paraphrase) & Permutation  & +0.0627 & 0.0238 & +0.151 & $0.0095$ & $0.0144$ & Sig. \\
+\multicolumn{9}{l}{\textbf{Family 3 (MS-COCO)}} \\
+  & SigLIP vs BLIP (MiniLM) & Permutation  & +0.2339 & 0.0139 & +0.531 & $< 10^{-4}$ & $< 10^{-4}$ & Sig. \\
+  & SigLIP vs BLIP (BGE-base) & Permutation  & +0.2376 & 0.0144 & +0.522 & $< 10^{-4}$ & $< 10^{-4}$ & Sig. \\
+  & CLIP vs BLIP (MiniLM) & Permutation  & +0.0977 & 0.0145 & +0.214 & $< 10^{-4}$ & $< 10^{-4}$ & Sig. \\
+  & CLIP vs BLIP (BGE-base) & Permutation  & +0.1014 & 0.0145 & +0.221 & $< 10^{-4}$ & $< 10^{-4}$ & Sig. \\
+  & SigLIP vs CLIP (Native vs Native) & Permutation  & +0.1362 & 0.0121 & +0.355 & $< 10^{-4}$ & $< 10^{-4}$ & Sig. \\
+  & SigLIP vs Single Gold (BGE) & Permutation  & +0.1994 & 0.0151 & +0.417 & $< 10^{-4}$ & $< 10^{-4}$ & Sig. \\
+  & SigLIP vs 4-Ref Gold (BGE) & Permutation  & +0.0236 & 0.0139 & +0.054 & $0.0905$ & $0.1809$ & Tied \\
+  & SigLIP vs 4-Ref Gold (Hybrid) & Permutation  & -0.0007 & 0.0137 & -0.002 & $0.9563$ & $0.9563$ & Tied \\
+\multicolumn{9}{l}{\textbf{Family 4 (RAMP Ablation)}} \\
+  & Char BM25 + Cross-Encoder Degradation & Permutation  & -0.0262 & 0.0068 & -0.221 & $0.0001$ & $0.0007$ & Sig. \\
+  & BGE Reranker Lift over Word BM25 & Permutation  & +0.0475 & 0.0145 & +0.188 & $0.0011$ & $0.0066$ & Sig. \\
+  & MiniLM Reranker Lift over Word BM25 & Permutation  & +0.0261 & 0.0100 & +0.149 & $0.0090$ & $0.0450$ & Sig. \\
+  & H1 Reliability Weighting on Real Degraded & Permutation  & -0.0182 & 0.0078 & -0.133 & $0.0189$ & $0.0756$ & Tied \\
+  & H2 Router on 20% Syn Noise & Permutation  & +0.0071 & 0.0035 & +0.116 & $0.0420$ & $0.1260$ & Tied \\
+  & H2 Router on Real Degraded Blur & Permutation  & +0.0000 & 0.0010 & +0.000 & $0.7022$ & $1.0000$ & Tied \\
+  & H2 Router on Apple Clean OCR & Permutation  & +0.0000 & 0.0010 & +0.000 & $1.0000$ & $1.0000$ & Tied \\
+\multicolumn{9}{l}{\textbf{Family 5 (FUNSD Transfer)}} \\
+  & Char vs Word BM25 on EasyOCR Paraphrase & Permutation  & +0.0768 & 0.0248 & +0.310 & $0.0019$ & $0.0076$ & Sig. \\
+  & Char vs Word BM25 on Apple Paraphrase & Permutation  & +0.0630 & 0.0251 & +0.251 & $0.0120$ & $0.0360$ & Sig. \\
+  & Dense BGE vs Word on EasyOCR Paraphrase & Permutation  & +0.0540 & 0.0229 & +0.236 & $0.0180$ & $0.0360$ & Sig. \\
+  & Char vs Word BM25 on Apple Clean Verbatim & Permutation  & +0.0110 & 0.0125 & +0.088 & $0.3800$ & $0.3800$ & Tied \\
+\multicolumn{9}{l}{\textbf{Family 6 (Multi-Hop)}} \\
+  & LLM Bridge vs Sparse BM25 (N=50) & McNemar Exact Test & +0.1600 & 0.0690 & +0.329 & $0.0215$ & $0.1075$ & Tied \\
+  & Extractive PRF vs LLM Bridge (N=100 Pooled) & McNemar Exact Test & +0.0000 & 0.0400 & +0.000 & $1.0000$ & $1.0000$ & Tied \\
+  & LLM Bridge vs Single Hybrid (N=50) & McNemar Exact Test & +0.0000 & 0.0560 & +0.000 & $1.0000$ & $1.0000$ & Tied \\
+  & LLM Bridge vs Single Dense (N=50) & McNemar Exact Test & +0.0000 & 0.0560 & +0.000 & $1.0000$ & $1.0000$ & Tied \\
+  & Extractive PRF vs LLM Bridge (N=50 Hard) & McNemar Exact Test & +0.0000 & 0.0560 & +0.000 & $1.0000$ & $1.0000$ & Tied \\
+\bottomrule
+\end{tabular}
+\end{table*}

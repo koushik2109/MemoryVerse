@@ -1,0 +1,4 @@
+cohort,sample_size,word_mrr,char_mrr,dense_mrr,colqwen2_mrr
+Authoritative_400_Single_Target,400,0.5900,0.5952,0.4909,0.6471
+Authoritative_400_Multi_Relevance,400,0.6740,0.6825,0.5840,0.7320
+Authoritative_253_Unique_Subset,253,0.7599,0.7658,0.5920,0.7410

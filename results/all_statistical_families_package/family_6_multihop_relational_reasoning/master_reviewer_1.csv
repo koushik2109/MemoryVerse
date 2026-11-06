@@ -1,0 +1,111 @@
+audit_id,faithfulness_label,relevance_label,correctness_label,notes
+L10-A1-001,supported,direct,correct,
+L10-A1-002,supported,direct,correct,
+L10-A1-003,supported,direct,correct,
+L10-A1-004,supported,direct,correct,
+L10-A1-005,supported,direct,correct,
+L10-A1-006,supported,direct,correct,
+L10-A1-007,supported,direct,correct,
+L10-A1-008,supported,direct,correct,
+L10-A1-009,supported,direct,correct,
+L10-A1-010,supported,direct,correct,
+L10-A1-011,supported,direct,correct,
+L10-A1-012,supported,direct,correct,
+L10-A1-013,supported,direct,correct,
+L10-A1-014,supported,direct,correct,
+L10-A1-015,supported,direct,correct,
+L10-A1-016,supported,direct,correct,
+L10-A1-017,supported,direct,correct,
+L10-A1-018,supported,direct,correct,
+L10-A1-019,supported,direct,correct,
+L10-A1-020,supported,direct,correct,
+L10-A2-001,supported,direct,correct,
+L10-A2-002,supported,direct,correct,
+L10-A2-003,supported,direct,correct,
+L10-A2-004,supported,direct,correct,
+L10-A2-005,supported,direct,correct,
+L10-A2-006,supported,direct,correct,
+L10-A2-007,supported,direct,correct,
+L10-A2-008,supported,direct,correct,
+L10-A2-009,supported,direct,correct,
+L10-A2-010,supported,direct,correct,
+L10-A2-011,supported,direct,correct,
+L10-A2-012,supported,direct,correct,
+L10-A2-013,supported,direct,correct,
+L10-A2-014,supported,direct,correct,
+L10-A2-015,supported,direct,correct,
+L10-A2-016,supported,direct,correct,
+L10-A2-017,supported,direct,correct,
+L10-A2-018,supported,direct,correct,
+L10-A2-019,supported,direct,correct,
+L10-A2-020,supported,direct,correct,
+L10-A3-001,supported,direct,correct,
+L10-A3-002,supported,direct,correct,
+L10-A3-003,supported,direct,correct,
+L10-A3-004,supported,direct,correct,
+L10-A3-005,supported,direct,correct,
+L10-A3-006,supported,direct,correct,
+L10-A3-007,supported,direct,correct,
+L10-A3-008,supported,direct,correct,
+L10-A3-009,supported,direct,correct,
+L10-A3-010,supported,direct,correct,
+L10-A3-011,supported,direct,correct,
+L10-A3-012,supported,direct,correct,
+L10-A3-013,supported,direct,correct,
+L10-A3-014,supported,direct,correct,
+L10-A3-015,supported,direct,correct,
+L10-A3-016,supported,direct,correct,
+L10-A3-017,supported,direct,correct,
+L10-A3-018,supported,direct,correct,
+L10-A3-019,supported,direct,correct,
+L10-A3-020,supported,direct,correct,
+AUDIT-001,supported,direct,correct,
+AUDIT-002,supported,direct,correct,
+AUDIT-003,supported,direct,correct,
+AUDIT-004,supported,direct,correct,
+AUDIT-005,supported,direct,correct,
+AUDIT-006,supported,direct,correct,
+AUDIT-007,mixed,direct,correct,"it did not check the image for drone, it should've been sure that there were no drone formation, but was skeptical"
+AUDIT-008,supported,direct,correct,
+AUDIT-009,supported,direct,correct,
+AUDIT-010,mixed,direct,correct,"the images of quiet beach is generated, but why does answer say not generated"
+AUDIT-011,supported,direct,correct,
+AUDIT-012,supported,direct,correct,
+AUDIT-013,supported,direct,correct,
+AUDIT-014,mixed,partial,uncertain,"isn't it a dinosaur, re check once"
+AUDIT-015,mixed,partial,correct,"picture is right, but it couldn't tell that it is subway"
+AUDIT-016,mixed,partial,uncertain,check if the spicy dining dish really exists
+AUDIT-017,supported,direct,correct,
+AUDIT-018,mixed,partial,uncertain,Flagged for review.
+AUDIT-019,mixed,partial,uncertain,Flagged for review.
+AUDIT-020,mixed,partial,uncertain,"no image of vacuum cleaner retrieved, check of It actually exists"
+AUDIT-021,mixed,partial,uncertain,Flagged for review.
+AUDIT-022,mixed,partial,uncertain,Flagged for review.
+AUDIT-023,mixed,partial,uncertain,Flagged for review.
+AUDIT-024,mixed,partial,uncertain,Flagged for review.
+AUDIT-025,mixed,partial,uncertain,Flagged for review.
+AUDIT-026,supported,direct,correct,
+AUDIT-027,mixed,partial,uncertain,Flagged for review.
+AUDIT-028,supported,direct,correct,
+AUDIT-029,mixed,partial,uncertain,Flagged for review.
+AUDIT-030,supported,direct,correct,
+AUDIT-031,mixed,partial,uncertain,Flagged for review.
+AUDIT-032,mixed,partial,uncertain,Flagged for review.
+AUDIT-033,supported,direct,correct,
+AUDIT-034,mixed,partial,uncertain,Flagged for review.
+AUDIT-035,supported,direct,correct,
+AUDIT-036,supported,direct,correct,
+AUDIT-037,mixed,partial,uncertain,Flagged for review.
+AUDIT-038,supported,direct,correct,
+AUDIT-039,mixed,partial,uncertain,check if there are images of driverless cars first
+AUDIT-040,mixed,partial,uncertain,Flagged for review.
+AUDIT-041,supported,direct,correct,Flagged for review.
+AUDIT-042,mixed,partial,uncertain,Flagged for review.
+AUDIT-043,mixed,partial,uncertain,It retrieved image of croissant
+AUDIT-044,mixed,partial,uncertain,Flagged for review.
+AUDIT-045,supported,direct,correct,
+AUDIT-046,mixed,partial,uncertain,Flagged for review.
+AUDIT-047,supported,direct,correct,
+AUDIT-048,mixed,partial,uncertain,Flagged for review.
+AUDIT-049,supported,direct,correct,
+AUDIT-050,mixed,partial,uncertain,Flagged for review.

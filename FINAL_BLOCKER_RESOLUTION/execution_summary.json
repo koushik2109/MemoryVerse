@@ -1,0 +1,80 @@
+{
+  "benchmark": "Live Two-Stage Retrieval Cascade & ColQwen2 MaxSim Profiling",
+  "timestamp": "2026-11-04T17:24:47Z",
+  "environment": {
+    "python": "3.14.7",
+    "pytorch": "2.14.1",
+    "device": "mps",
+    "device_backend": "Apple Silicon Metal Performance Shaders (MPS)",
+    "n_documents_indexed": 813,
+    "n_queries_evaluated": 100,
+    "n_warmup_runs": 10
+  },
+  "measured_benchmarks": [
+    {
+      "K1_cutoff": 10,
+      "device": "mps",
+      "stage1_bm25_mean_ms": 0.095,
+      "stage2_colqwen_mean_ms": 0.478,
+      "total_mean_latency_ms": 0.572,
+      "total_p50_ms": 0.492,
+      "total_p90_ms": 0.841,
+      "total_p95_ms": 1.008,
+      "total_p99_ms": 1.209,
+      "total_std_ms": 0.242
+    },
+    {
+      "K1_cutoff": 20,
+      "device": "mps",
+      "stage1_bm25_mean_ms": 0.094,
+      "stage2_colqwen_mean_ms": 0.475,
+      "total_mean_latency_ms": 0.569,
+      "total_p50_ms": 0.524,
+      "total_p90_ms": 0.835,
+      "total_p95_ms": 0.926,
+      "total_p99_ms": 1.362,
+      "total_std_ms": 0.207
+    },
+    {
+      "K1_cutoff": 50,
+      "device": "mps",
+      "stage1_bm25_mean_ms": 0.109,
+      "stage2_colqwen_mean_ms": 1.15,
+      "total_mean_latency_ms": 1.259,
+      "total_p50_ms": 1.219,
+      "total_p90_ms": 1.61,
+      "total_p95_ms": 1.765,
+      "total_p99_ms": 2.114,
+      "total_std_ms": 0.291
+    },
+    {
+      "K1_cutoff": 100,
+      "device": "mps",
+      "stage1_bm25_mean_ms": 0.133,
+      "stage2_colqwen_mean_ms": 1.747,
+      "total_mean_latency_ms": 1.88,
+      "total_p50_ms": 1.847,
+      "total_p90_ms": 2.452,
+      "total_p95_ms": 2.608,
+      "total_p99_ms": 3.128,
+      "total_std_ms": 0.469
+    },
+    {
+      "K1_cutoff": 813,
+      "device": "mps",
+      "stage1_bm25_mean_ms": 0.231,
+      "stage2_colqwen_mean_ms": 5.36,
+      "total_mean_latency_ms": 5.591,
+      "total_p50_ms": 5.315,
+      "total_p90_ms": 6.999,
+      "total_p95_ms": 7.897,
+      "total_p99_ms": 8.289,
+      "total_std_ms": 0.918
+    }
+  ],
+  "key_takeaways": {
+    "stage1_latency": "Sub-millisecond CPU lookup: ~0.13 ms",
+    "K1_50_cascade": "At K1=50, live end-to-end latency is 1.259 ms",
+    "speedup_vs_full": "Cascade at K1=50 achieves 4.4x live speedup over full corpus pass (5.591 ms)"
+  }
+}

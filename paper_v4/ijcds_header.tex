@@ -8,11 +8,6 @@
 \usepackage{subcaption}
 \usepackage{tabulary,longtable,makecell,multirow,color,colortbl}
 \usepackage[colorlinks=false,linkcolor=black,urlcolor=gray,citecolor=black]{hyperref}
-\hypersetup{
-    pdftitle={When Do Text Proxies Suffice? A Regime Analysis of Sparse, Dense, and Native-Visual Retrieval Under Proxy Noise},
-    pdfauthor={},
-    pdfsubject={Multimodal retrieval under proxy noise}
-}
 \usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
 \usepackage[T1]{fontenc}
 \usepackage{authblk,lipsum,txfonts,float,morefloats,gensymb,graphicx,setspace,fancyhdr,cite,booktabs,array,marvosym,xhfill}
@@ -22,7 +17,7 @@
 
 %for A4 Paper size:
 
-\usepackage[includeheadfoot,paperwidth=21cm,paperheight=29.7cm,top=1cm,bottom=1.75cm,left=2cm,right=2cm,footskip=.22in,headheight=40pt,headsep=10pt,heightrounded]{geometry}
+\usepackage[includeheadfoot,paperwidth=21cm,paperheight=29.7cm,top=1cm,bottom=1.58cm,left=2cm,right=2cm,footskip=.22in,headheight=40pt,headsep=10pt,heightrounded]{geometry}
 
 % for letter paper size
 
@@ -77,12 +72,15 @@
 \setcounter{secnumdepth}{4}
 \date{}
 
+\makeatletter
+\def\IEEEbibitemsep{0.5pt plus 0.2pt minus 0.1pt}
+\gdef\@openbib@code{\setlength{\itemsep}{0pt}\setlength{\parsep}{0pt}\setlength{\parskip}{0pt}}
+\makeatother
+
 \title{\vspace{-1cm}{\includegraphics[height=0.5in,keepaspectratio=true]{ub_logo}\hfill\parbox{15cm}{\raggedleft\sublargesize{\color{myred}\bfseries{International Journal of Computing and Digital Systems}}}\\\vspace{1cm}{\bfseries{\fontsize{18}{21.6}When Do Text Proxies Suffice? A Regime Analysis of Sparse, Dense, and Native-Visual Retrieval Under Proxy Noise}}}}
 
 \subtitle{}
 
-% Author block intentionally blank for double-blind review; identifying details
-% are supplied separately through the submission system.
 \author{}
 
 \fancypagestyle{firstpage}{%
@@ -98,3 +96,4 @@
     \fancyhead[LR]{\vspace{2.5cm}}
     \fancyfoot[L]{}
     \fancyfoot[R]{\vspace{5mm}\textsl{\color{gray}{\textsf{\url{}}}}}}
+

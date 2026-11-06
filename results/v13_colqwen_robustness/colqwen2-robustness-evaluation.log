@@ -1,0 +1,80 @@
+[{"stream_name":"stderr","time":6.9113998599999995,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":6.91146215,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":6.911469508,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":6.911473612,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":7.464515724,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.46453805,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.464541476,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.464544104,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":8.505269606,"data":"=== Setting up Environment \u0026 Dependencies ===\n"}
+,{"stream_name":"stdout","time":9.129240458,"data":"Found existing installation: torchao 0.10.0\n"}
+,{"stream_name":"stdout","time":9.204946462,"data":"Uninstalling torchao-0.10.0:\n"}
+,{"stream_name":"stdout","time":9.331623855,"data":"Found existing installation: torchao 0.10.0\n"}
+,{"stream_name":"stdout","time":9.331662096,"data":"Uninstalling torchao-0.10.0:\n"}
+,{"stream_name":"stdout","time":9.51322276,"data":"  Successfully uninstalled torchao-0.10.0\n"}
+,{"stream_name":"stdout","time":9.715483681,"data":"  Successfully uninstalled torchao-0.10.0\n"}
+,{"stream_name":"stdout","time":13.118437164,"data":"Dependencies installed successfully!\n"}
+,{"stream_name":"stdout","time":19.040878263,"data":"PyTorch Version: 2.11.0+cu130\n"}
+,{"stream_name":"stdout","time":19.040919359,"data":"CUDA Available:  True\n"}
+,{"stream_name":"stdout","time":19.040924578,"data":"Device Name:     Tesla T4\n"}
+,{"stream_name":"stdout","time":19.040928699,"data":"Device Count:    2\n"}
+,{"stream_name":"stdout","time":19.040932116,"data":"VRAM Total:      14.56 GB\n"}
+,{"stream_name":"stdout","time":20.171221316,"data":"Resolved Data Directory:    /kaggle/input/datasets/anuragkrishnavennela/frozenv11\n"}
+,{"stream_name":"stdout","time":20.171253184,"data":"Resolved Working Directory: /kaggle/working\n"}
+,{"stream_name":"stdout","time":21.321927618,"data":"Loaded 813 test corpus documents.\n"}
+,{"stream_name":"stdout","time":22.454670519,"data":"Primary Queries:   306\n"}
+,{"stream_name":"stdout","time":22.454700479,"data":"Qwen2.5-7B Queries: 306\n"}
+,{"stream_name":"stdout","time":22.454705503,"data":"Human-100 Queries: 100\n"}
+,{"stream_name":"stdout","time":22.45470906,"data":"Human-200 Queries: 200\n"}
+,{"stream_name":"stdout","time":43.198164782,"data":"Loading vidore/colqwen2-v1.0 on cuda:0 (torch.bfloat16)...\n"}
+,{"stream_name":"stderr","time":44.181546622,"data":"Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stderr","time":44.181575954,"data":"\n"}
+,{"stream_name":"stderr","time":44.181581927,"data":"Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stderr","time":44.181587392,"data":"WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stderr","time":44.181608341,"data":"\n"}
+,{"stream_name":"stderr","time":44.181612175,"data":"WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stdout","time":101.773820628,"data":"Model loaded successfully!\n"}
+,{"stream_name":"stdout","time":102.093187554,"data":"Encoding 813 document images on GPU...\n"}
+,{"stream_name":"stdout","time":117.879116957,"data":"  Encoded 4/813 images...\n"}
+,{"stream_name":"stdout","time":515.894634231,"data":"  Encoded 104/813 images...\n"}
+,{"stream_name":"stdout","time":914.722396148,"data":"  Encoded 204/813 images...\n"}
+,{"stream_name":"stdout","time":1317.794267929,"data":"  Encoded 304/813 images...\n"}
+,{"stream_name":"stdout","time":1507.466969649,"data":"  Encoded 404/813 images...\n"}
+,{"stream_name":"stdout","time":1675.526548918,"data":"  Encoded 504/813 images...\n"}
+,{"stream_name":"stdout","time":1848.343254996,"data":"  Encoded 604/813 images...\n"}
+,{"stream_name":"stdout","time":2016.317685982,"data":"  Encoded 704/813 images...\n"}
+,{"stream_name":"stdout","time":2189.049982254,"data":"  Encoded 804/813 images...\n"}
+,{"stream_name":"stdout","time":2205.164026937,"data":"Completed image encoding in 2103.1s!\n"}
+,{"stream_name":"stdout","time":2205.280375237,"data":"Saved doc embeddings to /kaggle/working/colqwen_doc_embeddings.pt\n"}
+,{"stream_name":"stdout","time":2205.304051509,"data":"Scoring Primary Gen. (gpt-4o-mini, N=306) (306 queries)...\n"}
+,{"stream_name":"stdout","time":2278.264887444,"data":"  -\u003e MRR = 0.4962 [0.4492, 0.5473] in 73.0s\n"}
+,{"stream_name":"stdout","time":2278.265869744,"data":"Scoring Secondary Gen. (Qwen2.5-7B, N=306) (306 queries)...\n"}
+,{"stream_name":"stdout","time":2352.34466208,"data":"  -\u003e MRR = 0.7627 [0.7194, 0.8039] in 74.1s\n"}
+,{"stream_name":"stdout","time":2352.345626347,"data":"Scoring Human-Authored Queries (N=100) (100 queries)...\n"}
+,{"stream_name":"stdout","time":2376.284447425,"data":"  -\u003e MRR = 0.7660 [0.6957, 0.8347] in 23.9s\n"}
+,{"stream_name":"stdout","time":2376.285388311,"data":"Scoring Human-Authored Queries (N=200) (200 queries)...\n"}
+,{"stream_name":"stdout","time":2424.52661589,"data":"  -\u003e MRR = 0.6471 [0.5888, 0.7030] in 48.2s\n"}
+,{"stream_name":"stdout","time":2424.576813841,"data":"\n"}
+,{"stream_name":"stdout","time":2424.576851099,"data":"=== TABLE VIII COMPLETED RESULTS ===\n"}
+,{"stream_name":"stdout","time":2424.576858561,"data":"| Query Source                       |   N Probes |   Word BM25 |   Char 3-5g BM25 |   Dense BGE |   ColQwen2 MRR | 95% CI           |   Hit@1 |   Hit@5 |   Hit@10 |   Elapsed (s) | Mode     |\n"}
+,{"stream_name":"stdout","time":2424.576864714,"data":"|:-----------------------------------|-----------:|------------:|-----------------:|------------:|---------------:|:-----------------|--------:|--------:|---------:|--------------:|:---------|\n"}
+,{"stream_name":"stdout","time":2424.576869325,"data":"| Primary Gen. (gpt-4o-mini, N=306)  |        306 |      0.4334 |           0.2427 |      0.1601 |         0.4962 | [0.4492, 0.5473] |  0.4052 |  0.598  |   0.6569 |          73   | MEASURED |\n"}
+,{"stream_name":"stdout","time":2424.576874231,"data":"| Secondary Gen. (Qwen2.5-7B, N=306) |        306 |      0.6292 |           0.5802 |      0.2685 |         0.7627 | [0.7194, 0.8039] |  0.6863 |  0.8595 |   0.9118 |          74.1 | MEASURED |\n"}
+,{"stream_name":"stdout","time":2424.576878889,"data":"| Human-Authored Queries (N=100)     |        100 |      0.6353 |           0.6059 |      0.502  |         0.766  | [0.6957, 0.8347] |  0.68   |  0.85   |   0.96   |          23.9 | MEASURED |\n"}
+,{"stream_name":"stdout","time":2424.576895747,"data":"| Human-Authored Queries (N=200)     |        200 |      0.5626 |           0.5605 |      0.4909 |         0.6471 | [0.5888, 0.7030] |  0.545  |  0.745  |   0.855  |          48.2 | MEASURED |\n"}
+,{"stream_name":"stdout","time":2424.576901224,"data":"\n"}
+,{"stream_name":"stdout","time":2424.576904322,"data":"Saved summary CSV to: /kaggle/working/results/v13_colqwen_robustness/colqwen_robustness_summary.csv\n"}
+,{"stream_name":"stdout","time":2424.576907737,"data":"Saved per-query rankings to: /kaggle/working/results/v13_colqwen_robustness/colqwen_robustness_per_query.csv\n"}
+,{"stream_name":"stdout","time":2424.595184429,"data":"=== Final Archive Created ===\n"}
+,{"stream_name":"stdout","time":2424.595210132,"data":"File: /kaggle/working/results_v13_colqwen_final.zip\n"}
+,{"stream_name":"stdout","time":2424.595215387,"data":"Size: 18.4 KB\n"}
+,{"stream_name":"stdout","time":2424.595219584,"data":"Download this zip from Kaggle Output tab and drop into your repo!\n"}
+,{"stream_name":"stderr","time":2430.00058719,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":2430.000621368,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":2430.149178175,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":2430.149221559,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":2430.870014547,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":2430.975357306,"data":"[NbConvertApp] Writing 338617 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":2433.419866234,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":2434.09998259,"data":"[NbConvertApp] Writing 733826 bytes to __results__.html\n"}
+]

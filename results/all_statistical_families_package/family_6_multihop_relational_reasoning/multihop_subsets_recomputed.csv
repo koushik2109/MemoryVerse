@@ -1,0 +1,4 @@
+Subset,N,PRF_Hit10,LLM_Hit10,Mean_Diff,SE,CI90_Lower,CI90_Upper,p_TOST_delta_0.05,p_TOST_delta_0.07,Verdict_delta_0.05
+Hard (Pure 2-Hop Bridge),50,0.64,0.64,0.0,0.0404,-0.0677,0.0677,0.11091,0.04475,UNDERPOWERED / INCONCLUSIVE
+Easy (Relational Entity Ceiling),50,1.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,EQUIVALENT (p < 0.01)
+Pooled Relational Benchmark,100,0.82,0.82,0.0,0.0201,-0.0334,0.0334,0.00727,0.00037,EQUIVALENT (p < 0.01)

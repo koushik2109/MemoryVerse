@@ -1,0 +1,77 @@
+================================================================================
+MEMORYVERSE EXPERIMENTAL EXTENSION RUNNER (V5)
+Data Directory:    /Users/anuragkrishnavennela/Projects/MemoryVerse
+Working Directory: /Users/anuragkrishnavennela/Projects/MemoryVerse/working
+Run Profile:       all
+Smoke Test Mode:   True
+Resume Mode:       False
+================================================================================
+Logged environment report to /Users/anuragkrishnavennela/Projects/MemoryVerse/working/env_report.txt
+[2026-10-25T11:21:51Z] Starting run profile 'all' (smoke=True, resume=False).
+
+================================================================================
+STARTING TASK 3: QUERY-SIDE TYPO NOISE VS OCR NOISE
+================================================================================
+Saved Task 3 results to /Users/anuragkrishnavennela/Projects/MemoryVerse/working/results/v5/query_side_noise_results.csv
+[2026-10-25T11:21:51Z] Completed Task 3: Query-Side Typo Noise vs OCR Noise.
+
+Building archive: /Users/anuragkrishnavennela/Projects/MemoryVerse/working/results_v5_partial.zip...
+Archive created: results_v5_partial.zip (0.00 MB, SHA-256: a0fd72a9f5bd2edda28270b8b2b1cd10e4c028fb4c97828d1170eaffa5eae980)
+
+================================================================================
+STARTING TASK 4: PARAPHRASE ROBUSTNESS ACROSS MULTI-LLM GENERATORS
+================================================================================
+Saved Task 4 results to /Users/anuragkrishnavennela/Projects/MemoryVerse/working/results/v5/paraphrase_llm_comparison.csv
+[2026-10-25T11:21:51Z] Completed Task 4: Paraphrase Robustness Across Multi-LLM Generators.
+
+Building archive: /Users/anuragkrishnavennela/Projects/MemoryVerse/working/results_v5_partial.zip...
+Archive created: results_v5_partial.zip (0.00 MB, SHA-256: 174f8249bb4e4ede3711cadf82a27f94def15b7437d6dd6f08c9d8f7351f8cad)
+
+================================================================================
+STARTING TASK 2: PROXY-QUALITY AXIS ON NATURAL IMAGES (COCO)
+================================================================================
+Saved Task 2 results to /Users/anuragkrishnavennela/Projects/MemoryVerse/working/results/v5/proxy_quality_axis_results.csv
+[2026-10-25T11:21:51Z] Completed Task 2: Proxy-Quality Axis on Natural Images (COCO).
+
+Building archive: /Users/anuragkrishnavennela/Projects/MemoryVerse/working/results_v5_partial.zip...
+Archive created: results_v5_partial.zip (0.08 MB, SHA-256: 6760406f5957c7bd65938a3c3794ec32bf868ec30931a905f77a64d3c4852299)
+
+================================================================================
+STARTING TASK 1: DOCUMENT-NATIVE VISUAL RETRIEVAL (COLQWEN2)
+================================================================================
+Saved Task 1 results to /Users/anuragkrishnavennela/Projects/MemoryVerse/working/results/v5/native_visual_receipts_results.csv and checkpoint to /Users/anuragkrishnavennela/Projects/MemoryVerse/working/CHECKPOINT1.md
+
+Building archive: /Users/anuragkrishnavennela/Projects/MemoryVerse/working/checkpoint1_native_visual.zip...
+Archive created: checkpoint1_native_visual.zip (0.08 MB, SHA-256: b573469daecb4bab624822aa746c195caae18c236f25f42f1c680c1c769ca337)
+[2026-10-25T11:21:51Z] Completed Task 1: Document-Native Visual Retrieval (ColQwen2). Produced Checkpoint 1.
+
+Building archive: /Users/anuragkrishnavennela/Projects/MemoryVerse/working/results_v5_partial.zip...
+Archive created: results_v5_partial.zip (0.08 MB, SHA-256: 8110f161aaf289c0c8e19cbdcc85ac9fdfe512844d0b550a877c4dad788d694a)
+
+================================================================================
+STARTING TASK 6: SUPPORTING ENGINEERING & STATISTICAL ANALYSES
+================================================================================
+Saved Task 6 engineering analyses to /Users/anuragkrishnavennela/Projects/MemoryVerse/working/results/v5
+[2026-10-25T11:21:51Z] Completed Task 6: Supporting Engineering & Statistical Analyses.
+
+Building archive: /Users/anuragkrishnavennela/Projects/MemoryVerse/working/results_v5_partial.zip...
+Archive created: results_v5_partial.zip (0.08 MB, SHA-256: 318dc929acf57043e8bb7906056126a4c5fb2dacfbd9c71f89dd711aefd7aaca)
+
+================================================================================
+STARTING TASK 5: AUTOMATED EMPIRICAL DECISION GUIDE
+================================================================================
+Saved Task 5 decision guide to /Users/anuragkrishnavennela/Projects/MemoryVerse/working/results/v5/decision_guide.csv and /Users/anuragkrishnavennela/Projects/MemoryVerse/working/latex_fragments/table_decision_guide.tex
+[2026-10-25T11:21:51Z] Completed Task 5: Automated Empirical Decision Guide.
+
+Building archive: /Users/anuragkrishnavennela/Projects/MemoryVerse/working/results_v5_partial.zip...
+Archive created: results_v5_partial.zip (0.08 MB, SHA-256: c2c454f3c8362fb905d49df080464af215e1fed99a101c1574ba49e23887bc1d)
+
+================================================================================
+GENERATING FINAL RESULTS ARCHIVE (results_v5_final.zip)
+================================================================================
+
+Building archive: /Users/anuragkrishnavennela/Projects/MemoryVerse/working/results_v5_final.zip...
+Archive created: results_v5_final.zip (0.08 MB, SHA-256: c2c454f3c8362fb905d49df080464af215e1fed99a101c1574ba49e23887bc1d)
+[2026-10-25T11:21:51Z] All requested stages executed. Final archive results_v5_final.zip generated successfully.
+
+RUN COMPLETED SUCCESSFULLY.

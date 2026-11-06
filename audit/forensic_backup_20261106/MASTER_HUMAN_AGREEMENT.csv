@@ -1,0 +1,5 @@
+Evaluation_Domain,Dimension,N_Evaluations,Observed_Agreement,Cohen_Kappa,CI95_Lower,CI95_Upper,Resamples,Categories,Subgroup_Status
+Multimodal Personal Retrieval & Relational QA,Faithfulness,110,0.9545,0.8716,0.7534,0.9735,2000,supported; mixed; unsupported,Independent Reviewers 1 & 2
+Multimodal Personal Retrieval & Relational QA,Relevance,110,0.9636,0.8926,0.7718,0.9758,2000,direct; partial; off_topic,Independent Reviewers 1 & 2
+Multimodal Personal Retrieval & Relational QA,Correctness,110,0.9818,0.9451,0.8533,1.0,2000,correct; uncertain; incorrect,Independent Reviewers 1 & 2
+Multimodal Personal Retrieval & Relational QA,Overall (Mean across 3 Rubrics),110,0.9666333333333332,0.9030999999999999,0.8412,0.965,2000,"Faithfulness, Relevance, Correctness","Unanimous N=105 (95.5%), Adjudicated N=5 (4.5%)"

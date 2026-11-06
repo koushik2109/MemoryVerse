@@ -1,0 +1,82 @@
+[{"stream_name":"stderr","time":7.005216456,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.005292582,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.005299936,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.005304802,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":7.590049336,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.590120564,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.590127132,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.590131589,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":8.689151067,"data":"=== Setting up Environment \u0026 Dependencies ===\n"}
+,{"stream_name":"stdout","time":9.302849017,"data":"Found existing installation: torchao 0.10.0\n"}
+,{"stream_name":"stdout","time":9.380711148,"data":"Uninstalling torchao-0.10.0:\n"}
+,{"stream_name":"stdout","time":9.505177553,"data":"Found existing installation: torchao 0.10.0\n"}
+,{"stream_name":"stdout","time":9.505211198,"data":"Uninstalling torchao-0.10.0:\n"}
+,{"stream_name":"stdout","time":9.67988791,"data":"  Successfully uninstalled torchao-0.10.0\n"}
+,{"stream_name":"stdout","time":9.882227137,"data":"  Successfully uninstalled torchao-0.10.0\n"}
+,{"stream_name":"stdout","time":13.517814062,"data":"Dependencies installed successfully!\n"}
+,{"stream_name":"stdout","time":19.274774651,"data":"PyTorch Version: 2.11.0+cu130\n"}
+,{"stream_name":"stdout","time":19.27481102,"data":"CUDA Available:  True\n"}
+,{"stream_name":"stdout","time":19.274814709,"data":"Device Name:     Tesla T4\n"}
+,{"stream_name":"stdout","time":19.274817033,"data":"Device Count:    2\n"}
+,{"stream_name":"stdout","time":19.274819327,"data":"VRAM Total:      14.56 GB\n"}
+,{"stream_name":"stdout","time":20.66548797,"data":"Resolved Data Directory:    /kaggle/input/datasets/anuragkrishnavennela/frozenv11\n"}
+,{"stream_name":"stdout","time":20.665522329,"data":"Resolved Working Directory: /kaggle/working\n"}
+,{"stream_name":"stdout","time":21.873430438,"data":"Loaded 813 test corpus documents.\n"}
+,{"stream_name":"stdout","time":23.847678965,"data":"Primary Queries:   306\n"}
+,{"stream_name":"stdout","time":23.847713409,"data":"Qwen2.5-7B Queries: 306\n"}
+,{"stream_name":"stdout","time":23.847716897,"data":"Human-100 Queries: 100\n"}
+,{"stream_name":"stdout","time":23.847719508,"data":"Human-200 Queries: 200\n"}
+,{"stream_name":"stdout","time":43.536835227,"data":"Loading vidore/colqwen2-v1.0 on cuda:0 (torch.bfloat16)...\n"}
+,{"stream_name":"stderr","time":43.694701903,"data":"Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stderr","time":43.69472987,"data":"\n"}
+,{"stream_name":"stderr","time":43.694734907,"data":"Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stderr","time":43.695905489,"data":"WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stderr","time":43.695965625,"data":"\n"}
+,{"stream_name":"stderr","time":43.695972003,"data":"WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stdout","time":94.13400493,"data":"Model loaded successfully!\n"}
+,{"stream_name":"stdout","time":94.451019816,"data":"Encoding 813 document images on GPU...\n"}
+,{"stream_name":"stdout","time":111.357680642,"data":"  Encoded 4/813 images...\n"}
+,{"stream_name":"stdout","time":546.911198068,"data":"  Encoded 104/813 images...\n"}
+,{"stream_name":"stdout","time":979.986136243,"data":"  Encoded 204/813 images...\n"}
+,{"stream_name":"stdout","time":1416.1120592,"data":"  Encoded 304/813 images...\n"}
+,{"stream_name":"stdout","time":1622.384703694,"data":"  Encoded 404/813 images...\n"}
+,{"stream_name":"stdout","time":1805.0596687,"data":"  Encoded 504/813 images...\n"}
+,{"stream_name":"stdout","time":1992.895022276,"data":"  Encoded 604/813 images...\n"}
+,{"stream_name":"stdout","time":2174.591599916,"data":"  Encoded 704/813 images...\n"}
+,{"stream_name":"stdout","time":2362.793714032,"data":"  Encoded 804/813 images...\n"}
+,{"stream_name":"stdout","time":2379.416650876,"data":"Completed image encoding in 2285.0s!\n"}
+,{"stream_name":"stdout","time":2379.439921302,"data":"Scoring Primary Gen. (gpt-4o-mini, N=306) (306 queries)...\n"}
+,{"stream_name":"stdout","time":2455.156069212,"data":"  -\u003e MRR = 0.4962 [0.4492, 0.5473] in 75.7s\n"}
+,{"stream_name":"stdout","time":2455.157074423,"data":"Scoring Secondary Gen. (Qwen2.5-7B, N=306) (306 queries)...\n"}
+,{"stream_name":"stdout","time":2533.021744075,"data":"  -\u003e MRR = 0.7627 [0.7194, 0.8039] in 77.9s\n"}
+,{"stream_name":"stdout","time":2533.022690964,"data":"Scoring Human-Authored Queries (N=100) (100 queries)...\n"}
+,{"stream_name":"stdout","time":2558.430446776,"data":"  -\u003e MRR = 0.7660 [0.6957, 0.8347] in 25.4s\n"}
+,{"stream_name":"stdout","time":2558.431279582,"data":"Scoring Human-Authored Queries (N=200) (200 queries)...\n"}
+,{"stream_name":"stdout","time":2609.165411034,"data":"  -\u003e MRR = 0.6471 [0.5888, 0.7030] in 50.7s\n"}
+,{"stream_name":"stderr","time":2612.184097832,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":2612.184875528,"data":"  File \"\u003cstring\u003e\", line 1, in \u003cmodule\u003e\n"}
+,{"stream_name":"stderr","time":2612.184897498,"data":"    import sys;import papermill as pm;pm.execute_notebook(\"__notebook__.ipynb\",\"__notebook__.ipynb\",progress_bar=False,log_output=True,stdout_file=sys.stdout,stderr_file=sys.stderr,allow_errors=False,timeout=43200)\n"}
+,{"stream_name":"stderr","time":2612.184907124,"data":"                                      ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":2612.184913211,"data":"  File \"/usr/local/lib/python3.13/dist-packages/papermill/execute.py\", line 131, in execute_notebook\n"}
+,{"stream_name":"stderr","time":2612.184918805,"data":"    raise_for_execution_errors(nb, output_path)\n"}
+,{"stream_name":"stderr","time":2612.184924113,"data":"    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":2612.184928791,"data":"  File \"/usr/local/lib/python3.13/dist-packages/papermill/execute.py\", line 251, in raise_for_execution_errors\n"}
+,{"stream_name":"stderr","time":2612.184933411,"data":"    raise error\n"}
+,{"stream_name":"stderr","time":2612.184938009,"data":"papermill.exceptions.PapermillExecutionError: \n"}
+,{"stream_name":"stderr","time":2612.184955758,"data":"---------------------------------------------------------------------------\n"}
+,{"stream_name":"stderr","time":2612.184959453,"data":"Exception encountered at \"In [8]\":\n"}
+,{"stream_name":"stderr","time":2612.184963032,"data":"  File \"/tmp/ipykernel_23/3649562971.py\", line 3\n"}
+,{"stream_name":"stderr","time":2612.184983296,"data":"    print(\"\n"}
+,{"stream_name":"stderr","time":2612.184987077,"data":"          ^\n"}
+,{"stream_name":"stderr","time":2612.184990817,"data":"SyntaxError: unterminated string literal (detected at line 3)\n"}
+,{"stream_name":"stderr","time":2612.184994754,"data":"\n"}
+,{"stream_name":"stderr","time":2612.184998279,"data":"\n"}
+,{"stream_name":"stderr","time":2614.372307539,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":2614.372346474,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":2614.52073112,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":2614.520765724,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":2615.237823454,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":2615.348343324,"data":"[NbConvertApp] Writing 336619 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":2617.805384862,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":2618.508389584,"data":"[NbConvertApp] Writing 731900 bytes to __results__.html\n"}
+]

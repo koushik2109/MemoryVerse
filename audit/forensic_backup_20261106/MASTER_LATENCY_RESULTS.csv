@@ -1,0 +1,23 @@
+System_or_Operation,Hardware,Candidate_Depth_K,Mean_Latency_ms,P50_Latency_ms,P95_Latency_ms,Speedup_vs_Flat_ColQwen,Source_Type
+Word BM25,Apple M2 CPU (Standardized),N/A,0.13,0.14,0.24,N/A,Directly Measured Benchmark
+Char 3-5gram BM25,Apple M2 CPU (Standardized),N/A,0.96,0.93,2.19,N/A,Directly Measured Benchmark
+Dense MiniLM,Apple M2 CPU (Standardized),N/A,4.56,4.28,6.4,N/A,Directly Measured Benchmark
+Dense BGE-base,Apple M2 CPU (Standardized),N/A,11.62,10.98,15.86,N/A,Directly Measured Benchmark
+Tuned Hybrid,Apple M2 CPU (Standardized),N/A,5.34,4.56,9.34,N/A,Directly Measured Benchmark
+BM25 + BGE Cross-Encoder (Top-20),Apple M2 CPU (Standardized),N/A,1451.77,1310.93,2208.76,N/A,Directly Measured Benchmark
+Conformal Cascade (21.6% Escalation),Apple M2 CPU (Standardized),N/A,748.89,0.44,2372.8,N/A,Directly Measured Benchmark
+CLIP ViT-B/32,Apple M2 CPU (Standardized),N/A,9.93,9.7,13.02,N/A,Directly Measured Benchmark
+SigLIP Base Patch16,Apple M2 CPU (Standardized),N/A,11.38,9.65,18.62,N/A,Directly Measured Benchmark
+ColQwen2 Cascade Rerank (K=5),Apple M2 CPU,5,2.4,N/A,N/A,103.8x (Analytical),Analytical Queue Model
+ColQwen2 Cascade Rerank (K=10),Apple M2 CPU,10,3.787,3.651,5.451,50.01x,Live Measured CPU
+ColQwen2 Cascade Rerank (K=10),Apple M2 MPS,10,0.572,0.492,1.008,9.77x,Live Measured MPS
+ColQwen2 Cascade Rerank (K=20),Apple M2 CPU,20,4.931,4.901,5.403,38.40x,Live Measured CPU
+ColQwen2 Cascade Rerank (K=20),Apple M2 MPS,20,0.569,0.524,0.926,9.83x,Live Measured MPS
+ColQwen2 Cascade Rerank (K=30),Apple M2 CPU,30,10.07,N/A,N/A,24.7x (Analytical),Analytical Queue Model
+ColQwen2 Cascade Rerank (K=50),Apple M2 CPU,50,12.177,11.968,13.359,15.55x,Live Measured CPU
+ColQwen2 Cascade Rerank (K=50),Apple M2 MPS,50,1.259,1.219,1.765,4.44x,Live Measured MPS
+ColQwen2 Cascade Rerank (K=75),Apple M2 CPU,75,23.86,N/A,N/A,10.4x (Analytical),Analytical Queue Model
+ColQwen2 Cascade Rerank (K=100),Apple M2 CPU,100,23.775,23.383,25.853,7.97x,Live Measured CPU
+ColQwen2 Cascade Rerank (K=100),Apple M2 MPS,100,1.88,1.847,2.608,2.97x,Live Measured MPS
+ColQwen2 Cascade Rerank (K=150),Apple M2 CPU,150,46.85,N/A,N/A,5.3x (Analytical),Analytical Queue Model
+ColQwen2 Cascade Rerank (K=200),Apple M2 CPU,200,62.18,N/A,N/A,4.0x (Analytical),Analytical Queue Model

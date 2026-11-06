@@ -1,0 +1,2 @@
+Benchmark,System,N_Queries,MRR,MRR_StdError,MRR_95%_CI,Hit@1,Hit@5,Hit@10,nDCG@10,Mode
+"DocVQA (ViDoRe Subsampled, N=500)",ColQwen2-v1.0 (Live Measured Tesla T4),500,0.5497,0.0202,"[0.5106, 0.5892]",0.482,0.622,0.686,0.5767,MEASURED_LIVE_GPU

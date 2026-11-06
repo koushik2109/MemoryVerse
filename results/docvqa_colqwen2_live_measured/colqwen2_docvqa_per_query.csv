@@ -1,0 +1,501 @@
+question_id,doc_id,target_image_filename,query,target_rank,reciprocal_rank,hit1,hit5,hit10,ndcg10,top10_retrieved_filenames
+57344,4720,rnbx0223,What is the dividend payout in 2012?,1,1.0,1,1,1,1.0,rnbx0223;lmcn0226;trgj0223;gggn0226;tybx0223;rjxn0226;tnbx0223;jhkp0227;xnbx0223;hjpj0226
+16384,5160,lflm0081,What is the name of the person in the CC field ?,2,0.5,0,1,1,0.63093,kgpj0226;lflm0081;shcn0226;gnjf0226;qqbl0037;fxxj0037;sncj0037;qmld0217;mjbw0217;yfpj0226
+61870,8103,hrfw0227,What is the personnel costs in the 4th year?,1,1.0,1,1,1,1.0,hrfw0227;njxw0228;szhw0228;qsnc0227;fjvg0227;jpbv0228;ygjd0228;sgwb0228;trgj0223;krcy0227
+65129,10743,zlmg0227,What is the table number?,5,0.2,0,1,1,0.386853,qsnc0227;qpbx0227;hldg0227;hmjf0226;zlmg0227;pmyc0227;flwg0227;fsbf0227;fqvw0217;ggxn0226
+16390,5167,fryn0081,What is the Log-in No. ?,1,1.0,1,1,1,1.0,fryn0081;hffm0227;mjxn0226;xfbd0003;qtyp0227;gscv0079;qmhh0078;txcj0037;hsmw0228;jfgv0079
+46240,13225,ysbw0217,Which meeting is expected to have the highest ' attendance ' ?,1,1.0,1,1,1,1.0,ysbw0217;tnbx0223;nlwg0227;nngv0228;lzbw0217;xngv0228;jjnl0052;nhlg0227;zhjl0226;ltvw0217
+65127,10723,mslw0227,What is plotted along the x axis ?,10,0.1,0,0,1,0.289065,qhxh0228;hjxn0226;zhlg0227;njpf0227;fmbb0228;qjhc0228;fxcv0079;jyxg0226;pybv0228;mslw0227
+49186,14215,hhbv0228,What is the 10th 'title' in Contents ?,2,0.5,0,1,1,0.63093,yqxd0227;hhbv0228;mqxv0228;jhpc0227;fsbn0226;nncc0228;kqnl0226;jnnf0227;lfxv0228;slcn0226
+63509,9283,kkwg0227,What is No. 2-26 of subheading H ?,1,1.0,1,1,1,1.0,kkwg0227;hldw0228;sphv0228;sngx0227;ghlw0228;sqxg0023;slcn0226;mfng0227;jrgn0226;rycg0227
+61883,8104,jknf0227,What is the second subheading?,10,0.1,0,0,1,0.289065,jhpc0227;kfhd0227;jqbn0226;szhw0228;thcn0226;mpgn0226;yljf0226;skww0217;xqdw0217;jknf0227
+61886,8211,yjdv0228,Which is the railways company?,2,0.5,0,1,1,0.63093,lxkp0227;yjdv0228;xrcy0227;hfcl0079;hkdv0228;yqgl0228;zpxl0226;lfyx0078;trgj0223;ggjh0227
+63516,9285,jycf0227,Under Private service how many patients were discharged in Neurology?,1,1.0,1,1,1,1.0,jycf0227;kqbf0227;flwg0227;smvd0227;hffn0226;ggxn0226;hjxn0226;jnpv0228;njxw0228;fxbw0217
+57422,4783,snbx0223,What is the brand name of the ITC personal care product advertised here?,1,1.0,1,1,1,1.0,snbx0223;khbw0217;sjvw0217;hjcw0217;gycp0080;jtnk0226;rnbx0223;qqnn0081;hyhk0037;znbx0223
+32850,9249,kqbf0227,How many adult deaths were in 1978 as per 2nd quarter report ?,1,1.0,1,1,1,1.0,kqbf0227;jycf0227;tmlb0228;klbm0227;qjgn0226;rflm0227;hxnp0227;qpbx0227;lmyc0227;ppjb0228
+57433,4809,znbx0223,What Tobacco brand of GPI is shown in the picture?,1,1.0,1,1,1,1.0,znbx0223;tzbj0037;psjf0226;sncj0037;krcy0227;lycj0037;trgj0223;txcj0037;hffm0227;sqxg0023
+16478,5198,hsyn0081,What is the % Promoted Volume in EDLP stores?,1,1.0,1,1,1,1.0,hsyn0081;ylyf0023;xfpj0226;hsmw0228;lspm0020;trgj0223;smvd0227;kggn0020;rgcw0217;jrcy0227
+32866,9256,jhhd0227,Which year was the meeting held?,7,0.142857,0,0,1,0.333333,hpmp0227;mlbw0217;jpdd0228;tzbn0226;zzhg0227;gmvg0227;jhhd0227;sncj0037;yzbd0227;jppp0227
+63520,9286,hqlf0227,What is the full form of AHA?,17,0.058824,0,0,0,0.0,hgpf0227;rqvg0227;smvd0227;prvl0037;zkvm0227;hgfc0228;thcn0226;khxj0037;gmvg0227;kqbw0217
+49254,14275,grvv0228,Which year's Budget was this?,1,1.0,1,1,1,1.0,grvv0228;fmxn0226;jkxw0228;szhw0228;lmvw0217;xqdw0217;lzbw0217;njxw0228;lzcw0217;lpcw0217
+32884,9516,mfng0227,What is the order no. ?,1,1.0,1,1,1,1.0,mfng0227;lzkg0078;hsmw0228;tkwg0227;gscv0079;lxkp0227;stbm0227;lfgn0226;yskd0228;sjxn0226
+16512,5226,fxbw0217,What is the fullform of AAN?,1,1.0,1,1,1,1.0,fxbw0217;thcn0226;rqvg0227;mfdw0217;ysbw0217;nzvv0228;zkvm0227;pkck0226;ljwg0227;kzbn0226
+32895,9258,hfyf0227,Which hospital is mentioned in Appendix V ?,1,1.0,1,1,1,1.0,hfyf0227;snyc0227;jhpc0227;jycf0227;slcn0226;mtvd0227;yscw0217;smvd0227;ztvw0217;fsbn0226
+32901,9431,qhmf0227,When is the memorandum dated?,19,0.052632,0,0,0,0.0,lflm0081;kgpj0226;ksnm0227;xlvb0228;lrgn0226;jrgn0226;nhlg0227;kljw0228;thym0227;jxjh0227
+63529,9289,hldg0227,What is the table number?,3,0.333333,0,1,1,0.5,qpbx0227;zlmg0227;hldg0227;hmjf0226;qsnc0227;fsbf0227;ggxn0226;fqvw0217;flwg0227;jjmf0227
+49295,14295,ppjb0228,Which year's report was this?,9,0.111111,0,0,1,0.30103,kxxn0226;rybx0223;nncc0228;tybx0223;mppk0037;gggn0226;zzhg0227;jsbn0226;ppjb0228;snbx0223
+46246,13353,rnww0217,"What is the date and time mentioned at the top of the page, outside of the Tabular representation?",324,0.003086,0,0,0,0.0,yhpv0001;fqvw0217;hmjf0226;xhxj0037;qpbx0227;fsbf0227;rzbj0037;ppjb0228;zhyk0226;zrww0228
+61905,8124,jrgv0228,What is the day and date of Meeting?,62,0.016129,0,0,0,0.0,hpmp0227;mlbw0217;tzbn0226;sncj0037;yzbw0217;fyvb0228;jjnl0052;ktgn0226;jpdd0228;yzbd0227
+49340,14373,nzvv0228,What is the name of the medical association?,1,1.0,1,1,1,1.0,nzvv0228;qtlc0228;kqbw0217;zkvm0227;gmvg0227;rqvg0227;qhmf0227;hqlf0227;jpwd0227;pzyy0078
+32967,9287,jpwd0227,What is the deadline date?,1,1.0,1,1,1,1.0,jpwd0227;rkww0217;lhfd0079;mjbw0217;tkdk0226;xfbd0003;mrdw0217;fxbw0217;fryn0081;sxvw0217
+16584,5248,kqbw0217,What is the title of the document ?,233,0.004292,0,0,0,0.0,pzwd0228;ngxl0226;zhjl0226;yskd0228;rrlw0227;fmxf0227;zhdw0228;fphl0226;ngxh0227;kljw0228
+40745,11598,lmyc0227,What is the number of live births for Alabama?,1,1.0,1,1,1,1.0,lmyc0227;ggbm0227;sqxg0023;sgwb0228;flbx0227;tybx0223;jycf0227;rtnk0226;lxkp0227;gshk0226
+49353,14371,pybv0228,What is the ‘title’ of the plot?,3,0.333333,0,1,1,0.5,mslw0227;lknp0227;pybv0228;xqdw0217;fmbb0228;qqnn0081;sjbw0217;khbw0217;ygjd0228;kzgn0226
+32973,9301,gxxh0227,What is the negotiated budget for Rutgers Med. Sch. given in the document?,1,1.0,1,1,1,1.0,gxxh0227;hgfc0228;jkxw0228;ffhv0228;ymkm0227;jpbv0228;fqgv0228;rycg0227;szhw0228;nxym0227
+206,210,fgfl0228,What is SCGP?,1,1.0,1,1,1,1.0,fgfl0228;txcj0037;shcn0226;ysbw0217;tzbj0037;pmwn0226;lqcw0217;psjf0226;ygjd0228;tzbn0226
+209,222,yqgl0228,What is written in red ink at the top?,57,0.017544,0,0,0,0.0,tzbj0037;hyhk0037;hxxj0037;tynx0037;mjbw0217;qqbl0037;gxxh0227;fgfl0228;jpwd0227;kqbw0217
+221,212,fsgl0228,Experiences of the which branch of the clan will you be most interested in?,1,1.0,1,1,1,1.0,fsgl0228;sgwb0228;xnbl0037;yjkg0227;jtlh0227;jsbn0226;tqvc0228;stbm0227;kmvj0078;klbm0227
+57573,4787,tnbx0223,What are the letters in the monogram logo at the top right of the document?,228,0.004386,0,0,0,0.0,nggw0228;rhlm0227;qyhw0228;zznp0227;fjmv0079;hlhp0053;pnbv0228;lzjf0226;xlvb0228;thcn0226
+57574,4484,hlvj0223,"What is the number in parentheses [ ], between the two Tables?",6,0.166667,0,0,1,0.356207,jtlh0227;hmjf0226;fsbn0226;hhbv0228;slcn0226;hlvj0223;rmcd0228;mlcf0227;rqcy0227;tkyg0227
+57579,4846,xnbx0223,What is the income tax for 2003?,1,1.0,1,1,1,1.0,xnbx0223;lxpj0226;rgcw0217;lmvw0217;trgj0223;fmxn0226;znbx0223;hqvw0217;rnww0217;ffhv0228
+238,231,trhk0037,Which work area is this related?,1,1.0,1,1,1,1.0,trhk0037;ksvv0228;kglw0228;pflf0024;fjvg0227;rzcb0228;frgl0228;kggn0020;zhjl0226;mldg0227
+246,232,fxxj0037,Who is the third person in CC,2,0.5,0,1,1,0.63093,shcn0226;fxxj0037;kgpj0226;qmld0217;sncj0037;qqbl0037;lflm0081;gnjf0226;khxj0037;mjbw0217
+249,233,tzbj0037,Who is this question addressed to?,90,0.011111,0,0,0,0.0,fjpk0226;hznv0228;qslg0227;pnbv0228;rxnv0079;ljgg0227;nkvx0227;zrww0228;zqww0228;msdl0226
+257,236,hyhk0037,"How much menthol does KOOL ""C"" have?",1,1.0,1,1,1,1.0,hyhk0037;tzbj0037;trhk0037;sncj0037;mxxj0037;hkbp0078;rzyj0226;trhk0226;lrwp0078;hzyj0226
+260,238,hxxj0037,Where is this Philip Morris office located at?,2,0.5,0,1,1,0.63093,hjxj0037;hxxj0037;xhxj0037;sqvx0227;spjf0226;lzbw0217;ymkp0227;hfcl0079;qsnc0227;xrvm0227
+262,243,tynx0037,Whose contact is given at the end?,1,1.0,1,1,1,1.0,tynx0037;hlhp0053;fkmj0226;yzbw0217;npbn0226;sjxn0226;shcn0226;fypn0000;ylkw0228;srjf0226
+46250,13343,mjbw0217,Who is the Medical Monitor or designee?,1,1.0,1,1,1,1.0,mjbw0217;mrdw0217;phvd0227;smvd0227;ymkp0227;sgwb0228;znvw0008;lfdw0217;ksvv0228;fkkj0079
+49409,14327,qmjb0228,What is vitamin A requirement for age group 8-10 years ?,1,1.0,1,1,1,1.0,qmjb0228;qpbx0227;pybl0226;qsnc0227;zhyk0226;rrlw0227;fmbb0228;mqyg0227;lkwg0227;mlcf0227
+268,246,qqbl0037,Who signed this?,43,0.023256,0,0,0,0.0,tgph0227;fjpk0226;nrcj0037;xgmw0227;xhmw0227;zybd0227;qfmw0227;fxxj0037;mkhg0227;qmld0217
+16653,5264,rkww0217,What is the purchase order number?,1,1.0,1,1,1,1.0,rkww0217;sqxg0023;gkvw0217;hffm0227;mfng0227;lrwn0081;jfgv0079;hjpj0226;tkwg0227;srhl0226
+272,251,xhxj0037,To whom is the letter is addressed?,1,1.0,1,1,1,1.0,xhxj0037;hxxj0037;zslg0227;hjxj0037;prvl0037;jzlw0227;qslg0227;qfmw0227;zggb0228;nhlg0227
+277,253,xnbl0037,What is the average age of camel smoker?,1,1.0,1,1,1,1.0,xnbl0037;tynx0037;lfyx0078;hlhp0053;hjbl0037;qtyc0003;mfbf0023;yhpv0001;txpn0095;gycp0080
+280,254,hjxj0037,To whom the letter is addressed?,39,0.025641,0,0,0,0.0,nhlg0227;qfmw0227;msdl0226;kjvl0226;hjxc0228;nfnw0228;zzfv0228;fybd0227;sjkg0227;qmld0217
+286,257,mppk0037,What is the heading?,124,0.008065,0,0,0,0.0,xfbd0003;jxbx0227;gggn0226;mzmk0226;sgwb0228;qmld0217;jxmk0226;tqnh0227;pyfg0227;fkkj0079
+46251,13220,mrdw0217,What is the Manuscript number specified in the 'Title' ?,1,1.0,1,1,1,1.0,mrdw0217;mjbw0217;xgmw0227;hqvw0217;lmvw0217;yxvw0217;lpcw0217;fryn0081;rkww0217;znvw0008
+291,250,sncj0037,When was the meeting held?,5,0.2,0,1,1,0.386853,mlbw0217;jpdd0228;hpmp0227;nlwg0227;sncj0037;xfpj0226;fyvb0228;yzbd0227;tzbn0226;qqbl0037
+16673,5273,fpbw0217,What is osteoporosis corelated to?,1,1.0,1,1,1,1.0,fpbw0217;qpbx0227;ysbw0217;jycf0227;hffn0226;lspm0020;rpgn0226;sncj0037;jjnl0052;lfgn0226
+37507,10736,mqyg0227,What is the value given for girls of 13-15 yrs for 3 months?,1,1.0,1,1,1,1.0,mqyg0227;fmbb0228;qmjb0228;mslw0227;zhyk0226;rnbx0223;xkbw0217;sphv0228;hjxn0226;gfpg0227
+37508,10801,xgvg0227,what is written at the middle of round seal?,9,0.111111,0,0,1,0.30103,xlvb0228;ljgg0227;jfgf0077;zkbg0227;phjc0228;jgbg0227;nkvx0227;lqcg0227;xgvg0227;zznp0227
+301,265,mxxj0037,For when is startup of the wiegand evaporator system at park 500 is scheduled?,1,1.0,1,1,1,1.0,mxxj0037;flkk0079;fmxn0226;lzbw0217;nkhd0227;hxnp0227;snyc0227;jxbx0227;lsgj0223;njxw0228
+302,267,hgbl0037,what is the slope of set #1?,1,1.0,1,1,1,1.0,hgbl0037;yjxn0226;sncj0037;hffn0226;pnbx0223;mjxn0226;rxnv0079;symf0227;hmjf0226;sqxg0023
+16690,5283,jycw0217,What is the name of the company on top of the document ?,128,0.007812,0,0,0,0.0,kggn0020;srhl0226;xnbx0223;hlvj0223;hyhk0037;txpn0095;txcj0037;znvw0008;nlgk0226;fmvj0223
+310,269,txcj0037,At what rate is Methoprene currently added to B&W's tobaccos?,1,1.0,1,1,1,1.0,txcj0037;tzbj0037;trhk0037;hyhk0037;mxxj0037;lrwn0081;qqbl0037;hkbp0078;sncj0037;lycj0037
+311,270,phxj0037,What is the heading of the document?,455,0.002198,0,0,0,0.0,pzwd0228;hkdv0228;zhjl0226;fjmv0079;rrlw0227;fmxf0227;tllg0227;fphl0226;ngxh0227;yhxd0227
+57663,5011,fqvw0217,What is the Page Number?,105,0.009524,0,0,0,0.0,jhhd0227;jlxn0226;lkwg0227;kqbn0226;ptcj0227;trgj0223;mgbv0228;sjbw0217;tfjh0227;njpf0227
+322,276,lycj0037,What is cut tobacco no in this page?,1,1.0,1,1,1,1.0,lycj0037;qqbl0037;lrwn0081;xhxj0037;tzbj0037;qtyc0003;tllg0227;mynp0227;hkbp0078;lfyx0078
+327,277,khxj0037,what is the title of this page ?,98,0.010204,0,0,0,0.0,zhdw0228;fsgl0228;xhfl0228;ylwn0226;mhfk0226;thcn0226;lmcn0226;ysmc0228;gycp0080;pybv0228
+16724,5290,sjbw0217,What is the abbreviation of Hormone Intelligent Notification Transmission?,1,1.0,1,1,1,1.0,sjbw0217;kgww0217;kqbw0217;nkkh0227;jsjk0226;lfxv0228;xpww0217;jxjh0227;tzbj0037;yskd0228
+350,285,prvl0037,what is the subject of this letter?,1,1.0,1,1,1,1.0,prvl0037;xhxj0037;hjxj0037;srjf0226;tllk0226;ltvw0217;yfpj0226;sncj0037;hxxj0037;lflm0081
+354,286,hjbl0037,What has to be provided to SULT/SLT development?,1,1.0,1,1,1,1.0,hjbl0037;pkck0226;hkbp0078;kkwg0227;lrgn0226;ktgn0226;nhyk0226;yjxn0226;mxxj0037;zhjl0226
+49540,14355,mgbv0228,which floor details are mentioned in the document?,1,1.0,1,1,1,1.0,mgbv0228;hxnp0227;pnbv0228;rtnk0226;lhfd0079;kggn0226;szhw0228;lzbw0217;zqww0228;kkbm0227
+57745,5982,stbm0227,What is the name of the bank?,1,1.0,1,1,1,1.0,stbm0227;frcy0227;jhkp0227;jppp0227;tnkp0227;trgj0223;yxpj0226;tllg0227;nkvx0227;yhpj0226
+16804,5317,mfdw0217,What is the title of the document ?,259,0.003861,0,0,0,0.0,ngxl0226;zhdw0228;zzhg0227;fsgl0228;hyhk0037;phxj0037;sjbw0217;mtvd0227;njpf0227;xhfl0228
+16810,5319,fsdw0217,What is the name of the company on the letter head ?,77,0.012987,0,0,0,0.0,srhl0226;txcj0037;hmvx0227;txpn0095;lxpj0226;ytyp0227;flcv0228;nkvx0227;lfxv0228;sqvx0227
+57772,4829,ynbx0223,What % of vests is available for conversion after 3 year?,1,1.0,1,1,1,1.0,ynbx0223;ggxn0226;xkbw0217;fgxn0226;qmjb0228;sgwb0228;hjxn0226;rnbx0223;mynp0227;lxpj0226
+37537,10805,tkyg0227,Which is the first year on x-axis?,3,0.333333,0,1,1,0.5,pybv0228;tmlb0228;tkyg0227;fmbb0228;xhfl0228;hjxn0226;rqcy0227;fmxf0227;qhxh0228;zhlg0227
+57792,14888,lxkp0227,What is the name of the airline?,1,1.0,1,1,1,1.0,lxkp0227;xrcy0227;hkdv0228;yjdv0228;krcy0227;zqww0228;kglw0228;spjf0226;qtyp0227;qsnc0227
+57796,14885,zggb0228,What is the amount of check?,1,1.0,1,1,1,1.0,zggb0228;rzgm0227;frcy0227;jhkp0227;nxym0227;jppp0227;mkhg0227;yslp0227;tlgw0228;hnnp0227
+49610,14392,fmbb0228,What is the figure number?,7,0.142857,0,0,1,0.333333,pybv0228;zhlg0227;lhcb0228;sphv0228;yzdc0228;tqcy0227;fmbb0228;mslw0227;ylvd0228;rqcy0227
+57806,4858,trgj0223,What is the page number?,199,0.005025,0,0,0,0.0,tfjh0227;lkwg0227;rycg0227;ztnk0226;tkdk0226;sgwb0228;fgjh0227;ghpj0226;hrfw0227;jhhd0227
+470,307,rzbj0037,what is the index of shared of the 21-25 segment,1,1.0,1,1,1,1.0,rzbj0037;lsgj0223;kkwg0227;sphv0228;yqxd0227;nncc0228;mslw0227;sgwb0228;tnkp0227;rnbx0223
+45685,13200,hyml0226,Which director is the president of the 'colonial sugars company'?,1,1.0,1,1,1,1.0,hyml0226;khgg0227;ngxl0226;smvd0227;nkhd0227;ggbm0227;fkbk0226;mhfk0226;tfjh0227;xfpj0226
+57828,4886,hnvw0217,What is the name of the client?,6,0.166667,0,0,1,0.356207,kkww0217;mnvw0217;prvw0217;lkvw0217;lqcw0217;hnvw0217;gkvw0217;jfgf0077;flkk0079;pzyy0078
+49642,14393,nqhb0228,What is the name of the foundation?,3,0.333333,0,1,1,0.5,xngv0228;nngv0228;nqhb0228;zzhg0227;ksnm0227;lkdv0228;hyml0226;qlbk0226;pyfg0227;tllk0226
+57850,4892,sjvw0217,What is the date of submission?,5,0.2,0,1,1,0.386853,kkww0217;hqvw0217;kjvw0217;ysbw0217;sjvw0217;yxvw0217;prvw0217;ksvv0228;hxnp0227;lfyx0078
+63601,9332,gfpg0227,What is the RDA for Calories for Sedentary woman(1948 report)?,1,1.0,1,1,1,1.0,gfpg0227;qpbx0227;hjpj0226;qmjb0228;kqbn0226;mppk0037;lmyc0227;qsnc0227;jycf0227;hgbl0037
+16897,5345,lpcw0217,What is the budget offered for 3 Posters( including production)?,1,1.0,1,1,1,1.0,lpcw0217;lmvw0217;lzcw0217;mfdw0217;gkvw0217;hnvw0217;njxw0228;hrfw0227;plhx0227;lzbw0217
+16913,5350,lzcw0217,What Budget Estimate is given in this document?,2,0.5,0,1,1,0.63093,lzbw0217;lzcw0217;hrfw0227;tkww0217;xqdw0217;njxw0228;lmvw0217;sjbw0217;fmxn0226;ksvv0228
+57874,6661,sngx0227,What is the table number?,14,0.071429,0,0,0,0.0,qpbx0227;hldg0227;hmjf0226;zlmg0227;qsnc0227;pmyc0227;ggxn0226;flwg0227;fsbf0227;fqvw0217
+16925,5352,htdw0217,Who is the sender of the Fax?,5,0.2,0,1,1,0.386853,kyvw0217;mfbf0023;ylkw0228;jycw0217;htdw0217;mljf0226;fsdw0217;kqbw0217;nfnw0228;jjnl0052
+57892,4896,hqvw0217,What is the report on?,26,0.038462,0,0,0,0.0,kxxn0226;mppk0037;ynbx0223;sncj0037;yjxn0226;jjnl0052;tnbx0223;kkbm0227;yxpj0226;rpgn0226
+16939,5355,lzbw0217,What is the Budget Estimate for CME Reviewer Provider Fee?,1,1.0,1,1,1,1.0,lzbw0217;skww0217;yfpj0226;npbn0226;rqcy0227;jpbv0228;smwn0226;jjnl0052;fncv0228;hzbn0226
+57911,4579,pnbx0223,What is the heading of the document?,68,0.014706,0,0,0,0.0,pzwd0228;hkdv0228;zhjl0226;fjmv0079;rrlw0227;fmxf0227;tllg0227;fphl0226;ngxh0227;yhxd0227
+16955,5356,kyvw0217,What is the Fax no of Karen Mittleman?,2,0.5,0,1,1,0.63093,htdw0217;kyvw0217;rkww0217;ylkw0228;rrcw0217;ztvw0217;fsdw0217;yxgg0227;lzcw0217;jjnl0052
+16960,5359,lfdw0217,Which company's fax message is this?,1,1.0,1,1,1,1.0,lfdw0217;fsdw0217;htdw0217;jycw0217;kyvw0217;mfbf0023;zqww0228;ymkp0227;kldk0226;ylkw0228
+592,356,lxpj0226,What is the net operating revenue for the year 2010?,1,1.0,1,1,1,1.0,lxpj0226;pnbx0223;rybx0223;rnbx0223;tlgw0228;trgj0223;rgcw0217;yhpj0226;jhkp0227;tybx0223
+57937,4913,mkvw0217,What is the Priority of Article P2(3)?,1,1.0,1,1,1,1.0,mkvw0217;gkvw0217;lqcw0217;hqvw0217;yxvw0217;hnvw0217;tnkp0227;kkww0217;znvw0008;hffn0226
+57943,4914,prvw0217,What type of report is this?,14,0.071429,0,0,0,0.0,kxxn0226;mppk0037;sncj0037;jsbn0226;yfpj0226;yhxd0227;yjxn0226;lqcw0217;rpgn0226;mnvw0217
+45711,13546,ysvw0217,When is the next meeting held?,1,1.0,1,1,1,1.0,ysvw0217;trjv0001;pkck0226;hldw0228;jjnl0052;hgpf0227;ysbw0217;jrgn0226;qhmf0227;sncj0037
+47340,13808,nxym0227,What is the Dept.No?,1,1.0,1,1,1,1.0,nxym0227;qjvc0228;lfgn0226;gscv0079;jtkw0228;hldw0228;txpn0095;kldk0226;ljgg0227;yhxd0227
+631,368,ghpj0226,Which proposed section would require food processors promulgated by FDA?,1,1.0,1,1,1,1.0,ghpj0226;lhcn0226;mgpj0226;nlcn0226;zhjl0226;xrvm0227;hjpj0226;rzcb0228;kglw0228;xfpj0226
+57990,4926,mnvw0217,What is the progress Report number?,5,0.2,0,1,1,0.386853,prvw0217;kkww0217;lqcw0217;lkvw0217;mnvw0217;gkvw0217;zhjl0226;hnvw0217;rpgn0226;trhk0037
+57996,4927,fyvw0217,Who are the medical journals for?,1,1.0,1,1,1,1.0,fyvw0217;kgww0217;sjbw0217;mkvw0217;yxvw0217;kqbw0217;pzwd0228;nmmk0226;yzbw0217;xfpj0226
+58002,4929,lmvw0217,What is the Strategic Publication Development Budget?,1,1.0,1,1,1,1.0,lmvw0217;lzcw0217;mfdw0217;ysvw0217;lpcw0217;rgcw0217;smnp0227;tkww0217;sjbw0217;jkxw0228
+58010,4938,lkvw0217,What is the progress Report number?,4,0.25,0,1,1,0.430677,prvw0217;kkww0217;lqcw0217;lkvw0217;mnvw0217;gkvw0217;zhjl0226;hnvw0217;rpgn0226;trhk0037
+679,383,yhpj0226,what is re written in place of 34.8gallons,2,0.5,0,1,1,0.63093,lycj0037;yhpj0226;hjpj0226;ffjw0228;ysvw0217;hxnp0227;mljf0226;hldg0227;kkwg0227;gfhd0082
+49837,14398,jpbv0228,What type of letter is this?,86,0.011628,0,0,0,0.0,rzcb0228;kjvl0226;smnp0227;prvl0037;fjpk0226;qslg0227;zkvm0227;hjxj0037;zzfv0228;lhjh0227
+58031,5485,qmhh0078,What is the phone number given at the top left end of the page?,26,0.038462,0,0,0,0.0,mrnl0226;zqww0228;pzyy0078;fkmj0226;htdw0217;mfbf0023;ppbn0226;spjf0226;lsww0228;npbn0226
+58037,5306,ltvw0217,How many countries has approved Totelle(R) dossier?,1,1.0,1,1,1,1.0,ltvw0217;prvw0217;lkvw0217;lqcw0217;kkww0217;hqvw0217;yxvw0217;sxvw0217;mgpj0226;hldw0228
+58040,5490,gycp0080,Which cigarette brand beats Marlboro lights?,1,1.0,1,1,1,1.0,gycp0080;xnbl0037;mxxj0037;txpn0095;khxj0037;xhxj0037;tzbj0037;hkbp0078;tynx0037;hjxj0037
+58041,4950,gkvw0217,Who is the client?,7,0.142857,0,0,1,0.333333,kkww0217;prvw0217;lkvw0217;mnvw0217;hnvw0217;flkk0079;gkvw0217;lqcw0217;jfgf0077;lknp0227
+58051,14877,nfnw0228,Which university ‘letterhead’ is given?,1,1.0,1,1,1,1.0,nfnw0228;smnp0227;lhjh0227;hffm0227;hfyf0227;kldk0226;jzfv0228;hjxc0228;nxym0227;qhmf0227
+58063,5309,mlbw0217,What is written at the bottom right end of the ‘page’?,328,0.003049,0,0,0,0.0,sgwb0228;phwk0226;hrfw0227;yskd0228;hjxn0226;ysbw0217;srhl0226;zhdw0228;fpbw0217;xgvg0227
+58065,5298,rgcw0217,What is the phone number given?,57,0.017544,0,0,0,0.0,mrnl0226;mfbf0023;zqww0228;pzyy0078;spjf0226;lsww0228;fkmj0226;htdw0217;ppbn0226;nxym0227
+52251,14679,hgfc0228,What is the amount shown for the recipient ‘Nutrition Fdn.NY’?,1,1.0,1,1,1,1.0,hgfc0228;yslp0227;zggb0228;ksnm0227;ymkp0227;qtyp0227;nngv0228;xngv0228;ggbm0227;smnp0227
+17155,5404,xqdw0217,What is the Budget estimate for recruit editorial board/monthly newsletter development?,1,1.0,1,1,1,1.0,xqdw0217;tkww0217;sjbw0217;njxw0228;lzbw0217;lzcw0217;lmvw0217;hrfw0227;plhx0227;lpcw0217
+21320,6350,hnnp0227,what is the name of the university ?,18,0.055556,0,0,0,0.0,kljw0228;hjxc0228;nhyk0226;kmhx0227;jzfv0228;smnp0227;hqlf0227;nfnw0228;sjkg0227;lxjw0228
+17160,5405,lqcw0217,What is the client name mentioned in this document?,1,1.0,1,1,1,1.0,lqcw0217;kkww0217;mnvw0217;prvw0217;hnvw0217;lkvw0217;gkvw0217;jfgf0077;pzyy0078;flkk0079
+41734,11849,kxxn0226,Who is the Chairman of special Committee members?,1,1.0,1,1,1,1.0,kxxn0226;xrvm0227;qtvb0228;ynbx0223;hgpf0227;yxgg0227;khgg0227;hyml0226;jsbn0226;jpwd0227
+41809,11867,fgxn0226,"When dealing with patients, what would appear to be a safer and more appropriate solution?",1,1.0,1,1,1,1.0,fgxn0226;hmwn0226;fpbw0217;lhcn0226;hffn0226;qlbk0226;lfxv0228;snbx0223;gfhd0082;srjf0226
+25428,7235,yxgg0227,Who is the Professor of History of Religions?,1,1.0,1,1,1,1.0,yxgg0227;ysmp0227;mynp0227;ppbn0226;smvd0227;fqgv0228;pyfg0227;nkhd0227;hyml0226;jrgv0228
+856,428,mgpj0226,What is the name of addressee in this letter?,22,0.045455,0,0,0,0.0,qfmw0227;msdl0226;prvl0037;hjxj0037;hznv0228;jzlw0227;xhxj0037;qslg0227;rqvg0227;hmvx0227
+25442,7236,yzbd0227,When was this meeting happened?,5,0.2,0,1,1,0.386853,mlbw0217;hpmp0227;tzbn0226;fyvb0228;yzbd0227;jpdd0228;sncj0037;nlwg0227;yzbw0217;ktgn0226
+46600,13455,psdw0217,What is the text printed on the bottom right corner of the page?,119,0.008403,0,0,0,0.0,fsgl0228;fpbw0217;mxxj0037;phxj0037;jnnf0227;symf0227;phwk0226;rjxg0227;fkxn0226;sgwb0228
+894,434,kgpj0226,Who is the sender of this letter?,63,0.015873,0,0,0,0.0,prvl0037;smnp0227;srjf0226;xhxj0037;tqnh0227;mgpj0226;hjxj0037;qfmw0227;sqvx0227;ljmk0226
+911,440,kkpj0226,Which company is mentioned in this document?,64,0.015625,0,0,0,0.0,srhl0226;txcj0037;ztnk0226;hmvx0227;lzcw0217;hqvw0217;mkvw0217;lzjf0226;yqgl0228;fjmv0079
+25492,7241,phvd0227,Who sent this form?,7,0.142857,0,0,1,0.333333,fryn0081;lsww0228;txpn0095;qjvc0228;hkpv0001;lqcg0227;phvd0227;xfbd0003;gxyd0217;kldk0226
+928,445,yfpj0226,What is the subject line of this email?,1,1.0,1,1,1,1.0,yfpj0226;ltvw0217;fgbd0079;zqww0228;srjf0226;hjxj0037;nrcj0037;npbn0226;yxpj0226;sqvx0227
+41928,11911,ktgn0226,"When is the Knee Panel Meeting held in Chicago, IL?",1,1.0,1,1,1,1.0,ktgn0226;hffn0226;zhjl0226;lynf0227;nlwg0227;lrwn0081;ysvw0217;ysbw0217;fpbw0217;tzbn0226
+58316,4992,yxvw0217,What is the priority of the Article WMC(2)?,1,1.0,1,1,1,1.0,yxvw0217;prvw0217;mnvw0217;jggn0226;hnvw0217;gkvw0217;zybd0227;fqgv0228;nncc0228;hqvw0217
+50124,14514,jtkw0228,What is the name of the book store?,1,1.0,1,1,1,1.0,jtkw0228;hxnp0227;hffm0227;nfnw0228;zhdw0228;hqlf0227;jrcy0227;hmvx0227;ghlw0228;rflm0227
+58324,5299,nmww0217,What is the Day 2 event for the time 9:00-10:30 am?,1,1.0,1,1,1,1.0,nmww0217;mldg0227;thym0227;gzlf0227;rtnk0226;jrgv0228;fpcw0217;fncv0228;ysvw0217;tzwm0227
+47414,13629,pmyc0227,By what statistical 'method' is the the data collected ?,1,1.0,1,1,1,1.0,pmyc0227;gycp0080;lzkg0078;ylvd0228;lhcb0228;kzbn0226;tqvc0228;fsbf0227;nlcn0226;qpbx0227
+50143,14521,gqjw0228,What is the name of the company?,117,0.008547,0,0,0,0.0,srhl0226;mfng0227;ylyf0023;kkpj0226;txpn0095;hlvj0223;hyhk0037;znvw0008;xgcc0228;lxpj0226
+58339,5314,tkww0217,What is the ‘heading’?,324,0.003086,0,0,0,0.0,frhw0081;fjpk0226;xgvv0228;jqbn0226;xmwn0226;zhjl0226;jpbv0228;xnbl0037;khbw0217;nkkh0227
+996,485,lzjf0226,What does this document relate to ?,1,1.0,1,1,1,1.0,lzjf0226;lhfd0079;ylvd0228;srjf0226;fgxn0226;yscw0217;trjv0001;yskd0228;spjf0226;nrcj0037
+58342,5304,khbw0217,What is the letter in the single initial monogram based on header?,257,0.003891,0,0,0,0.0,trjv0001;xlvb0228;nggw0228;ltvw0217;xfbd0003;fjmv0079;mfbf0023;qmld0217;hhhh0224;fjpk0226
+41958,11916,sjxn0226,What is the Requisition No. given in the document?,1,1.0,1,1,1,1.0,sjxn0226;mfng0227;ygjd0228;rpgn0226;hffm0227;pyfg0227;gscv0079;lrwn0081;qmhh0078;yjxn0226
+58359,4955,kjvw0217,Who is the ‘Senior Product Manager ‘of Wyeth-Ayerst Pharmaceuticals?,1,1.0,1,1,1,1.0,kjvw0217;mlbw0217;sjvw0217;sjbw0217;yzbw0217;ltvw0217;lqcw0217;lfdw0217;hnvw0217;khbw0217
+1016,493,gnjf0226,What is the team leader's name?,1,1.0,1,1,1,1.0,gnjf0226;trhk0037;khbw0217;hfcl0079;mljf0226;fgfl0228;kmvj0078;lkgb0228;ppbn0226;qjvc0228
+50167,14525,tlgw0228,What is the name of the company mentioned at the top of the page?,329,0.00304,0,0,0,0.0,srhl0226;hyhk0037;txpn0095;nlgk0226;lxpj0226;ytyp0227;xgcc0228;flcv0228;gnjf0226;mfng0227
+58362,14841,qyhw0228,Which number is repeated several times on the page?,1,1.0,1,1,1,1.0,qyhw0228;rmwn0226;yqxd0227;symf0227;frgl0228;lfyx0078;lkwg0227;tlgw0228;gfhd0082;lynf0227
+1027,496,psjf0226,What is indicated as second or third line treatment of type 2 diabetes mellitus?,1,1.0,1,1,1,1.0,psjf0226;fqvw0217;hffn0226;xkbw0217;hqvw0217;gxyd0217;zhyk0226;kkww0217;lkvw0217;sxvw0217
+58376,5336,kkww0217,What is the name of the Client given in the report?,1,1.0,1,1,1,1.0,kkww0217;mnvw0217;lqcw0217;prvw0217;hnvw0217;gkvw0217;lkvw0217;jfgf0077;flkk0079;yjxn0226
+50198,14531,rzgm0227,What is the VO. NO.?,1,1.0,1,1,1,1.0,rzgm0227;hfcl0079;tllg0227;qmhh0078;lynf0227;lqcg0227;flkk0079;ggyf0227;nlgk0226;jqbn0226
+1050,498,zfkf0226,When did the term of this agreement commence?,1,1.0,1,1,1,1.0,zfkf0226;lrgn0226;mfmh0227;klbm0227;ynbx0223;ygjd0228;mhfk0226;krlf0023;lspm0020;rkww0217
+56376,14775,jnpv0228,Which fiscal year's currency use is shown in the pie chart?,1,1.0,1,1,1,1.0,jnpv0228;ffhv0228;gqjw0228;xnbx0223;fmvj0223;fmxn0226;hffn0226;jpwd0227;tkww0217;klbm0227
+58412,5909,qpbx0227,What is the title of table 3?,1,1.0,1,1,1,1.0,qpbx0227;mlcf0227;hldg0227;qsnc0227;rmcd0228;fqvw0217;hffn0226;flwg0227;lmyc0227;hmjf0226
+25644,7307,mldg0227,where did this program happen?,7,0.142857,0,0,1,0.333333,jzhd0227;rgcw0217;rhlm0227;rmjl0226;gmvg0227;pmwm0227;mldg0227;nggv0228;gzlf0227;nzvv0228
+47433,13637,lyfm0227,What is the underlined text on the top right corner of the page?,153,0.006536,0,0,0,0.0,jnpv0228;fsgl0228;mtvd0227;xnbl0037;mfmh0227;symf0227;phwk0226;xgmw0227;htnk0226;xmwn0226
+50242,14535,rmcd0228,What is the full form of I.P. ?,1,1.0,1,1,1,1.0,rmcd0228;spjf0226;lrwp0078;kggn0020;jhpc0227;yzbw0217;srjf0226;jnnf0227;rxnv0079;zhdw0228
+25671,7312,jzhd0227,Who is the staff representative as per the agenda?,1,1.0,1,1,1,1.0,jzhd0227;ngxh0227;shcn0226;tnbx0223;jxxg0226;nlwg0227;hgpf0227;smwn0226;mjbw0217;yxgg0227
+25688,7316,lfxd0227,What is the page no mentioned in this document?,156,0.00641,0,0,0,0.0,mxxj0037;phxj0037;lkwg0227;kfhd0227;ztnk0226;rycg0227;ggbm0227;phwk0226;tkdk0226;fkxn0226
+58460,5392,hjcw0217,What is the page number?,82,0.012195,0,0,0,0.0,tfjh0227;lkwg0227;rycg0227;ztnk0226;tkdk0226;sgwb0228;fgjh0227;ghpj0226;hrfw0227;jhhd0227
+58470,5320,skww0217,What is the CME Expense?,1,1.0,1,1,1,1.0,skww0217;xkbw0217;lzbw0217;hlmd0217;hlhp0053;rxnv0079;fxcv0079;jfgf0077;fjmv0079;lspm0020
+25699,7318,hgpf0227,When was the Nutrition Committee held?,1,1.0,1,1,1,1.0,hgpf0227;khgg0227;xgmw0227;qtvb0228;xrvm0227;jpdd0228;pnbv0228;njxw0228;htnk0226;qznc0227
+58473,6106,rybx0223,Which company’s annual report is shown?,4,0.25,0,1,1,0.430677,tybx0223;gggn0226;nncc0228;rybx0223;tlgw0228;nggw0228;hfcl0079;jhkp0227;snbx0223;rjxn0226
+58476,5372,kgww0217,What is point number 1?,31,0.032258,0,0,0,0.0,flbx0227;nfdl0227;ysmc0228;lkwg0227;ymjf0226;qqnn0081;zhjl0226;zpxl0226;lrwp0078;thcn0226
+50285,14502,lsww0228,"W ho from ""Garvw Travel in Boston"" has telephoned ?",1,1.0,1,1,1,1.0,lsww0228;hkdv0228;mhfk0226;yhxd0227;fsgl0228;tkwg0227;krcy0227;ypcx0078;skww0217;rzgm0227
+25742,7337,lynf0227,What is the page no mentioned in this newspaper?,9,0.111111,0,0,1,0.30103,yxpj0226;mhfk0226;xfpj0226;pkck0226;fybd0227;hfcl0079;sgwb0228;fmbk0226;lynf0227;mzmk0226
+1172,534,hmjf0226,what is the carcinoma(transitional cell )  of group 1 ?,1,1.0,1,1,1,1.0,hmjf0226;zznp0227;prvw0217;phxj0037;xnbx0223;hxnp0227;trjv0001;hffn0226;qpbx0227;sgwb0228
+50324,14578,thym0227,What is the date at the top right corner of the page?,111,0.009009,0,0,0,0.0,kggn0020;lflm0081;yskd0228;kljw0228;fryn0081;trhk0037;tzbj0037;hxxj0037;mjbw0217;qqbl0037
+1187,537,qtjf0226,who is the lead responsibility for evaluating data from study OCT020,1,1.0,1,1,1,1.0,qtjf0226;mjbw0217;mljf0226;pmwn0226;trhk0037;jhhd0227;xpww0217;jfgv0079;jjnl0052;jrcy0227
+50368,14591,pnbv0228,What is the ext.?,2,0.5,0,1,1,0.63093,mrnl0226;pnbv0228;lflm0081;tkwg0227;lsww0228;hxnp0227;hgfc0228;tqcy0227;hpmp0227;txpn0095
+58564,5530,gfhd0082,What is the page number?,175,0.005714,0,0,0,0.0,tfjh0227;lkwg0227;rycg0227;ztnk0226;tkdk0226;fgjh0227;hrfw0227;ghpj0226;jhhd0227;khxj0037
+58568,5826,hffm0227,Which company bill is given?,14,0.071429,0,0,0,0.0,pzyy0078;jrcy0227;jtkw0228;frhw0081;jfgf0077;hffn0226;sjxn0226;kkpj0226;txpn0095;ghlw0228
+58574,5927,ptcj0227,Which is precurser (d) of Tuberculosis ?,1,1.0,1,1,1,1.0,ptcj0227;trjv0001;ysvw0217;hzbn0226;snyc0227;xnbx0223;ltvw0217;pybv0228;thym0227;hxnp0227
+9424,3136,sqxg0023,What is the Direct account name?,2,0.5,0,1,1,0.63093,rxnv0079;sqxg0023;fypn0000;krlf0023;fjmv0079;ylyf0023;hkpv0001;tnkp0227;sgwb0228;flcv0228
+50403,14592,njxw0228,Who is the secretary?,11,0.090909,0,0,0,0.0,nqhb0228;hyml0226;fkbk0226;fybd0227;jhkp0227;qtvb0228;zggb0228;tlgw0228;xrvm0227;ylkw0228
+58599,5442,frhw0081,What is the ‘EXPIRATION DATE’ of the Manufacturer coupon?,1,1.0,1,1,1,1.0,frhw0081;mjxn0226;jxjh0227;lrwp0078;hffm0227;ypcx0078;tkwg0227;qtyc0003;hsmw0228;jyxg0226
+58602,5524,lfyx0078,What is written at the top of the page in bold capital letters?,90,0.011111,0,0,0,0.0,ngxl0226;yskd0228;zhdw0228;srhl0226;hyhk0037;xnbl0037;mxxj0037;phxj0037;sjbw0217;fpcw0217
+58607,5481,hfcl0079,What is the heading of the first Article?,16,0.0625,0,0,0,0.0,kgww0217;kqnl0226;yxpj0226;mhfk0226;hqvw0217;xfpj0226;mkvw0217;tllg0227;lynf0227;ymkm0227
+1284,559,jfkf0226,What is the component that needs to included?,1,1.0,1,1,1,1.0,jfkf0226;lqcg0227;mlcj0227;mjbw0217;ylkw0228;lycj0037;znvw0008;txpn0095;hjpj0226;mrdw0217
+1288,564,ynjf0226,what is the trend of patient growth?,1,1.0,1,1,1,1.0,ynjf0226;flwg0227;mpgn0226;jycf0227;hrfw0227;fmxf0227;ggxn0226;hffn0226;zhlg0227;hjxn0226
+1293,566,ymjf0226,What is the title of the document ?,150,0.006667,0,0,0,0.0,mrdw0217;sncj0037;fpbw0217;xgvg0227;mxxj0037;phxj0037;fqvw0217;ggyf0227;rydb0228;xrcy0227
+58642,5877,nfdl0227,What is the page number?,59,0.016949,0,0,0,0.0,tfjh0227;lkwg0227;rycg0227;ztnk0226;tkdk0226;fgjh0227;hrfw0227;ghpj0226;jhhd0227;khxj0037
+50455,216,frgl0228,What is the heading printed in red?,469,0.002132,0,0,0,0.0,zhdw0228;kkbm0227;frhw0081;qyhw0228;gycp0080;hjbl0037;hffn0226;xgcc0228;mlcj0227;qmld0217
+1306,607,yljf0226,What is the latency period associated with cancer?,1,1.0,1,1,1,1.0,yljf0226;hmjf0226;hjxn0226;mhfk0226;mqyg0227;phxj0037;gfpg0227;hffn0226;fsbn0226;rpph0227
+1330,347,nrcj0037,What is the name of the person who has signed the letter?,14,0.071429,0,0,0,0.0,qfmw0227;yjkg0227;fjpk0226;hkbp0078;sjkg0227;nqhb0228;qmld0217;prvl0037;sqvx0227;lhjh0227
+50495,224,pycj0037,What is the page no.?,78,0.012821,0,0,0,0.0,tfjh0227;lkwg0227;ztnk0226;rycg0227;tkdk0226;sjbw0217;sgwb0228;fkxn0226;jknf0227;jhhd0227
+58693,5581,lrwp0078,What is the discount for Safeway employees on race tickets?,1,1.0,1,1,1,1.0,lrwp0078;lfyx0078;pflf0024;ylyf0023;yjdv0228;lspm0020;zpxl0226;hmvx0227;hxnp0227;krcy0227
+58704,5618,fxcv0079,What is plotted along the x axis ?,7,0.142857,0,0,1,0.333333,qhxh0228;hjxn0226;zhlg0227;njpf0227;fmbb0228;qjhc0228;fxcv0079;jyxg0226;pybv0228;mslw0227
+58714,5624,hkvd0079,What is the date mentioned at the top of the page?,363,0.002755,0,0,0,0.0,kljw0228;hpmp0227;hznv0228;pyfg0227;fkkj0079;kggn0226;fkxn0226;zznp0227;hjxc0228;mkhg0227
+42333,12066,rpgn0226,what is the project number ?,3,0.333333,0,1,1,0.5,trhk0037;yjxn0226;rpgn0226;pyfg0227;lrwn0081;mnvw0217;gkvw0217;prvw0217;lkvw0217;hqlf0227
+58731,5512,flkk0079,Who is the client in the document?,6,0.166667,0,0,1,0.356207,kkww0217;prvw0217;mnvw0217;lkvw0217;hnvw0217;flkk0079;lqcw0217;gkvw0217;jfgf0077;pzyy0078
+58735,5601,lzkg0078,Who is the Dealer?,1,1.0,1,1,1,1.0,lzkg0078;ghlw0228;sjxn0226;ylyf0023;xrcy0227;znvw0008;stbm0227;mrdw0217;phvd0227;hffn0226
+58745,5606,hjyc0079,What is the date of the document mentioned at the top?,150,0.006667,0,0,0,0.0,yskd0228;lflm0081;yqgl0228;mjbw0217;hjxj0037;mppk0037;mrdw0217;txcj0037;zslg0227;nhlg0227
+58747,5688,hkbp0078,What is the name of the laboratory?,1,1.0,1,1,1,1.0,hkbp0078;mlbw0217;yzbw0217;lqcg0227;lfdw0217;mgbv0228;kldk0226;pzyy0078;fgfl0228;mljf0226
+58757,5834,xrvm0227,Who is the president of NATIONAL ACADEMY OF SCIENCES-NATIONAL RESEARCH COUNCIL?,1,1.0,1,1,1,1.0,xrvm0227;xhmw0227;jnnf0227;jpdd0228;zznp0227;lyfm0227;fxbw0217;slcn0226;hyml0226;smvd0227
+58765,5736,rxnv0079,When to return the complete account information form?,1,1.0,1,1,1,1.0,rxnv0079;jpwd0227;lhfd0079;txpn0095;ytyp0227;hkbp0078;gxyd0217;jfgf0077;kggn0226;ghpj0226
+58780,5783,kmvj0078,What is the ‘heading’?,291,0.003436,0,0,0,0.0,frhw0081;fjpk0226;xgvv0228;jqbn0226;xmwn0226;zhjl0226;jpbv0228;xnbl0037;tkdk0226;khbw0217
+58795,5764,rqjw0081,What date is given on the top of the document?,146,0.006849,0,0,0,0.0,kggn0020;lflm0081;yskd0228;kljw0228;fryn0081;rmjl0226;trhk0037;tzbj0037;hxxj0037;mjbw0217
+58798,6049,plhx0227,Who are the photographers?,1,1.0,1,1,1,1.0,plhx0227;lynf0227;smvd0227;jxxg0226;zznp0227;fkbk0226;lknp0227;hxnp0227;ngxl0226;znbx0223
+42433,12115,mpgn0226,What is the page no mentioned in this document?,219,0.004566,0,0,0,0.0,mxxj0037;phxj0037;lkwg0227;kfhd0227;ztnk0226;rycg0227;ggbm0227;phwk0226;tkdk0226;fkxn0226
+58834,5849,rflm0227,Who is the winner of the 1978 Christopher Book award?,1,1.0,1,1,1,1.0,rflm0227;prxn0226;zhdw0228;ggbm0227;nggw0228;hlhp0053;zznp0227;yhpj0226;znbx0223;zybd0227
+34265,9722,mlcf0227,what is the minimum value of sodium in mg/100kcal?,1,1.0,1,1,1,1.0,mlcf0227;kzng0227;hslf0227;pryh0227;tgph0227;yhph0227;hjpj0226;qpbx0227;lgph0227;gfpg0227
+58844,5870,tzwm0227,What is the day and date of the program?,14,0.071429,0,0,0,0.0,jzhd0227;nggv0228;mldg0227;rgcw0217;rhlm0227;gmvg0227;gzlf0227;fncv0228;nzvv0228;kljw0228
+34275,9727,ljwg0227,What is the Title of the document?,222,0.004505,0,0,0,0.0,thcn0226;pzwd0228;hkdv0228;zhjl0226;fjmv0079;rrlw0227;fmxf0227;tllg0227;fphl0226;ngxh0227
+42639,12187,fmxn0226,How much is the 'Meetings Budget' of RAISH in $?,1,1.0,1,1,1,1.0,fmxn0226;ysbw0217;lkgb0228;tnbx0223;yhxd0227;lzbw0217;jjnl0052;ffhv0228;slcn0226;ktgn0226
+58881,5881,kkbm0227,What is the announcement on?,1,1.0,1,1,1,1.0,kkbm0227;hxnp0227;tllk0226;rycg0227;frhw0081;mzmk0226;gycp0080;zqww0228;lfyx0078;hzyj0226
+47880,14182,lkgb0228,How much funds ‘from Reserve’?,1,1.0,1,1,1,1.0,lkgb0228;gqjw0228;stbm0227;tybx0223;lsgj0223;yhxd0227;xnbx0223;hxnp0227;fqgv0228;thwm0227
+50786,14754,kglw0228,What is the weight of the shipment?,3,0.333333,0,1,1,0.5,sqxg0023;ymkp0227;kglw0228;pzyy0078;hsmw0228;tkwg0227;frgl0228;xrcy0227;lxkp0227;krlf0023
+9769,2161,hhhh0224,When is the effective date mentioned in the form?,3,0.333333,0,1,1,0.5,ygjd0228;ylyf0023;hhhh0224;qtyc0003;lfgn0226;hlmd0217;jfgv0079;krlf0023;tkwg0227;txpn0095
+58960,6186,lrwn0081,What is the test name?,1,1.0,1,1,1,1.0,lrwn0081;rpgn0226;yjxn0226;khxj0037;lfgn0226;hjxn0226;lxkp0227;pzyy0078;jrgn0226;qmhh0078
+58971,6225,rhlm0227,What is the ‘one day postgraduate course’?,1,1.0,1,1,1,1.0,rhlm0227;jpbv0228;prxn0226;rzcb0228;lrwp0078;fxbw0217;sxvw0217;nngv0228;rgcw0217;hldw0228
+50783,14755,frcy0227,What is the amount ?,376,0.00266,0,0,0,0.0,lxjw0228;gggn0226;mzmk0226;sgwb0228;qmld0217;jxmk0226;tqnh0227;pyfg0227;fkkj0079;kggn0226
+58977,5769,jfgf0077,What number written at the bottom right end of the page?,400,0.0025,0,0,0,0.0,lfgn0226;ljmk0226;lhfd0079;lhjh0227;yjxn0226;jkxw0228;ytyp0227;ypcx0078;gscv0079;hgbl0037
+53677,14623,jpdd0228,Which US city's name is given at the bottom?,9,0.111111,0,0,1,0.30103,nkvx0227;xngv0228;nngv0228;mhfk0226;mgpj0226;ymkp0227;gmvg0227;hqlf0227;jpdd0228;gycp0080
+1637,460,spjf0226,What is the fullform of ils?,1,1.0,1,1,1,1.0,spjf0226;pkck0226;mxxj0037;kldk0226;zggb0228;lsgj0223;lyfm0227;hgfc0228;ngxl0226;rtnk0226
+50794,14751,ysmc0228,What shortens life?,1,1.0,1,1,1,1.0,ysmc0228;sgwb0228;fkxn0226;hpmp0227;zybd0227;rflm0227;znbx0223;ptcj0227;flbx0227;ghkw0228
+14981,5028,sxvw0217,What is the name of the meeting?,22,0.045455,0,0,0,0.0,hpmp0227;jjnl0052;mlbw0217;ktgn0226;zhjl0226;tzbn0226;sncj0037;ghkw0228;ysvw0217;xpww0217
+50807,397,hzyj0226,Which advertisement theme did the 'coke adds life to ..' campaign replace?,1,1.0,1,1,1,1.0,hzyj0226;rzyj0226;yxpj0226;yfpj0226;yhpj0226;gycp0080;hjpj0226;snbx0223;lrwp0078;frhw0081
+50809,14745,qjhc0228,What is on the X axis of this plot?,2,0.5,0,1,1,0.63093,njpf0227;qjhc0228;zhlg0227;qhxh0228;ylvd0228;fmbb0228;fxcv0079;jyxg0226;mslw0227;pybv0228
+50811,14744,yzdc0228,protein solution mixed with what makes a stable dispersion?,1,1.0,1,1,1,1.0,yzdc0228;lycj0037;tgph0227;ggyf0227;lgph0227;symf0227;hjcw0217;ggjh0227;pryh0227;yhph0227
+50822,398,yxpj0226,What is the name of the magazine mentioned at the top left of the page?,4,0.25,0,1,1,0.430677,hzyj0226;frhw0081;zybd0227;yxpj0226;fybd0227;kqnl0226;pkck0226;fmbk0226;lynf0227;hfcl0079
+50828,399,xfpj0226,Who is the prime minister of Japan mentioned here?,1,1.0,1,1,1,1.0,xfpj0226;khxj0037;xhfl0228;tzgv0228;mljf0226;mhfk0226;gzlf0227;gnjf0226;nkhd0227;qtjf0226
+9869,3371,ylyf0023,R J Reynolds Tobacco Company made this offer for which markets,1,1.0,1,1,1,1.0,ylyf0023;hfcl0079;qmhh0078;fjmv0079;lspm0020;znvw0008;mfbf0023;sqxg0023;txpn0095;kggn0020
+1675,506,mljf0226,what is the company's name on the letter head?,6,0.166667,0,0,1,0.356207,hmvx0227;txpn0095;ljmk0226;lfxv0228;mfbf0023;mljf0226;fjmv0079;lxpj0226;flcv0228;ltvw0217
+50833,405,hjpj0226,For which brand  of soft drink is the product information provided?,1,1.0,1,1,1,1.0,hjpj0226;hyhk0037;yhpj0226;hzyj0226;hffm0227;khbw0217;gycp0080;krcy0227;frhw0081;yxpj0226
+59035,14809,yslp0227,For which school the contribution was done?,1,1.0,1,1,1,1.0,yslp0227;smnp0227;ysmp0227;nggw0228;xnbx0223;tybx0223;htnk0226;thwm0227;sgwb0228;gqjw0228
+50846,14740,ghlw0228,"In which country is ""The Bronze Gallery""?",1,1.0,1,1,1,1.0,ghlw0228;njnp0227;nfnw0228;hzyj0226;hldw0228;pmwm0227;fgfl0228;fkmj0226;tzgv0228;fqvw0217
+50852,14735,nggw0228,Who was in editorial committee in 1985-1987 period?,1,1.0,1,1,1,1.0,nggw0228;tlgw0228;phxj0037;fkkj0079;ffjw0228;hfcl0079;klbm0227;tkyg0227;gqjw0228;hyml0226
+50854,14734,zqww0228,What is the phone number to reach Dr Donald?,3,0.333333,0,1,1,0.5,ppbn0226;qlbk0226;zqww0228;qmhh0078;ymkm0227;thwm0227;ptdg0227;rmjl0226;nfnw0228;zggb0228
+50857,14733,hpmp0227,Which institute's medical advisory board meeting is mentioned here?,1,1.0,1,1,1,1.0,hpmp0227;fncv0228;qtvb0228;nzvv0228;jpdd0228;nmww0217;zhjl0226;hfcl0079;fybd0227;qtlc0228
+59048,14811,ylkw0228,Who is this fax for?,2,0.5,0,1,1,0.63093,kyvw0217;ylkw0228;mfbf0023;jycw0217;htdw0217;lfdw0217;fsdw0217;qtyc0003;gnjf0226;mljf0226
+59052,14815,jrcy0227,What is the name of the hotel?,4,0.25,0,1,1,0.430677,nzvv0228;hpmp0227;qyhw0228;jrcy0227;jzhd0227;gmvg0227;lzbw0217;fncv0228;nlwg0227;hlmd0217
+50870,14730,phjc0228,What is the cost of postage ( see the postal stamp at top left)?,3,0.333333,0,1,1,0.5,ljgg0227;rqvg0227;phjc0228;ymkp0227;zkbg0227;nkvx0227;jzfv0228;nfnw0228;hkbp0078;qtyp0227
+16624,5260,ztvw0217,From which university does James V. Fiorca come ?,1,1.0,1,1,1,1.0,ztvw0217;nkvx0227;ffjw0228;yscw0217;hxnp0227;qtvb0228;hffm0227;hldw0228;pycj0037;kljw0228
+50872,14728,ylvd0228,What is on the Y axis of the plot?,4,0.25,0,1,1,0.430677,fmbb0228;zhlg0227;njpf0227;ylvd0228;qjhc0228;qhxh0228;jyxg0226;pybv0228;fxcv0079;mslw0227
+50888,419,rzyj0226,What is the name of this commercial track for Coca-Cola?,2,0.5,0,1,1,0.63093,hzyj0226;rzyj0226;yxpj0226;yfpj0226;lrwp0078;lfyx0078;hjpj0226;yhpj0226;nlgk0226;lxpj0226
+42695,12238,mjxn0226,Which is the 10% neutral buffered formalin used?,1,1.0,1,1,1,1.0,mjxn0226;qpbx0227;lhcn0226;rqvg0227;yqgl0228;hjpj0226;jtnk0226;ksnm0227;hffn0226;nlgk0226
+50896,14721,lhcb0228,What is the date for wind data from baltimore,1,1.0,1,1,1,1.0,lhcb0228;thwm0227;ffjw0228;hxnp0227;lrwp0078;kggn0226;ysbw0217;lxjw0228;rjxn0226;jycf0227
+50908,14718,zrww0228,At what time did Charles Muller call Dr. Darby?,1,1.0,1,1,1,1.0,zrww0228;tlgw0228;qznc0227;lfxd0227;xgcc0228;fncv0228;sjkg0227;pnbv0228;hgpf0227;qtvb0228
+26336,7648,zkbg0227,To Whom is this letter addressed to?,454,0.002203,0,0,0,0.0,srjf0226;hznv0228;hxxj0037;hjxj0037;nhlg0227;kjvl0226;xhxj0037;qfmw0227;zkvm0227;hjxc0228
+50917,459,srjf0226,What is the date of the letter ?,47,0.021277,0,0,0,0.0,nhlg0227;kjvl0226;msdl0226;nfnw0228;tqnh0227;qmld0217;zkvm0227;hjxc0228;zzfv0228;lhjh0227
+59136,6376,tqvc0228,What is the title of the document?,268,0.003731,0,0,0,0.0,ngxl0226;yskd0228;zhdw0228;zzhg0227;hjxn0226;ysbw0217;xnbx0223;hyhk0037;phxj0037;fqvw0217
+54088,3461,pflf0024,Who will bring cots and EMS equipment?,1,1.0,1,1,1,1.0,pflf0024;hrfw0227;jjnl0052;rtnk0226;lzbw0217;rqjw0081;hkpv0001;rpph0227;jxxg0226;ylwn0226
+1799,756,npbn0226,What is the full form of FERS?,1,1.0,1,1,1,1.0,npbn0226;ylkw0228;hnvw0217;hkpv0001;mzmk0226;ggjh0227;lfxd0227;gkvw0217;hgpf0227;ggyf0227
+1804,766,nlcn0226,What is the full form of EPA?,1,1.0,1,1,1,1.0,nlcn0226;jsbn0226;jqbn0226;kzbn0226;tzbn0226;lhcn0226;shcn0226;jzbn0226;fsbn0226;slcn0226
+38960,10213,hlmd0217,Were CME credits offered?,1,1.0,1,1,1,1.0,hlmd0217;skww0217;lzbw0217;tnkp0227;xkbw0217;jrcy0227;qjhc0228;lycj0037;ljwg0227;hlhp0053
+60612,7258,nkhd0227,What time is the lunch?,7,0.142857,0,0,1,0.333333,lfxd0227;jrgv0228;fyvb0228;mldg0227;ghkw0228;hgpf0227;nkhd0227;krcy0227;gzlf0227;htdw0217
+51009,14716,tmlb0228,In which period is average annual number the highest?,1,1.0,1,1,1,1.0,tmlb0228;lhcb0228;nzvv0228;qsnc0227;jhhd0227;pmyc0227;sgwb0228;fxcv0079;jycf0227;xnbl0037
+51014,14686,nncc0228,In which year ( 1970 or 1969) net sales worldwide is larger?,1,1.0,1,1,1,1.0,nncc0228;fmbk0226;hzyj0226;pybv0228;rqcy0227;xhfl0228;nkhd0227;hxnp0227;mgpj0226;mynp0227
+23166,6700,qtvb0228,which committee is mentioned in the document?,1,1.0,1,1,1,1.0,qtvb0228;jpdd0228;xrvm0227;kxxn0226;hgpf0227;khgg0227;tqvc0228;nlwg0227;fncv0228;jppp0227
+1895,835,tzbn0226,Whose name is mentioned first under EPA Attendees?,1,1.0,1,1,1,1.0,tzbn0226;ltvw0217;nlcn0226;lzbw0217;jqbn0226;jtnk0226;jsbn0226;lhcn0226;nngv0228;tlgw0228
+1897,839,thcn0226,What is the title?,23,0.043478,0,0,0,0.0,zhdw0228;zzhg0227;fsgl0228;hyhk0037;xnbl0037;sncj0037;phxj0037;rrcw0217;kfhd0227;xhfl0228
+1904,864,lmcn0226,What is the last for profit sponsor listed here?,1,1.0,1,1,1,1.0,lmcn0226;mjbw0217;rgcw0217;mrdw0217;lrwp0078;zhjl0226;fypn0000;sjvw0217;xfpj0226;nhyk0226
+1906,865,hzbn0226,What is step 6 in the flow chart?,1,1.0,1,1,1,1.0,hzbn0226;frgl0228;txpn0095;lycj0037;ymjf0226;qqbl0037;slcn0226;tzbj0037;yljf0226;jqbn0226
+1912,875,slcn0226,On which page is Appendix D?,1,1.0,1,1,1,1.0,slcn0226;jhpc0227;fsbn0226;hfyf0227;mqxv0228;snyc0227;hxnp0227;rnbx0223;hhhh0224;symf0227
+59267,6030,thwm0227,What is the time of the reception?,2,0.5,0,1,1,0.63093,pnbv0228;thwm0227;kljw0228;pkck0226;kmhx0227;yzbd0227;sjxn0226;lzbw0217;thym0227;gshk0226
+59275,6031,ymkm0227,What is the underlined text?,250,0.004,0,0,0,0.0,jnpv0228;mfmh0227;xmwn0226;mtvd0227;jfgf0077;rzyj0226;psdw0217;xnbl0037;phxj0037;sncj0037
+59279,6042,pmwm0227,What is the name of chocolate brand?,288,0.003472,0,0,0,0.0,nncc0228;txpn0095;kkpj0226;snbx0223;pycj0037;frhw0081;khbw0217;hjpj0226;krcy0227;flkk0079
+59284,6080,rrgj0223,What is the heading of the first column of the table?,229,0.004367,0,0,0,0.0,tkdk0226;pzwd0228;hkdv0228;zhjl0226;fjmv0079;rrlw0227;fmxf0227;tllg0227;fphl0226;ngxh0227
+51094,674,kqbn0226,What is the heading?,85,0.011765,0,0,0,0.0,xfbd0003;jxbx0227;gggn0226;mzmk0226;sgwb0228;qmld0217;jxmk0226;tqnh0227;pyfg0227;fkkj0079
+59296,6087,tybx0223,What is the name of the company mentioned just below the logo?,27,0.037037,0,0,0,0.0,flcv0228;kkpj0226;ylyf0023;srhl0226;mfng0227;fphl0226;txcj0037;hlvj0223;kggn0226;sqvx0227
+59309,6114,lsgj0223,What is the name of the company in the logo?,162,0.006173,0,0,0,0.0,flcv0228;kkpj0226;rhlm0227;rzbj0037;frhw0081;nggw0228;jtkw0228;thcn0226;hffm0227;yxpj0226
+51118,686,fsbn0226,What is the page number of Introduction?,3,0.333333,0,1,1,0.5,mqxv0228;mldg0227;fsbn0226;gzlf0227;hhbv0228;kmvj0078;tzbn0226;ghkw0228;jxxg0226;jfkf0226
+1966,902,jqbn0226,What is the Doc #?,1,1.0,1,1,1,1.0,jqbn0226;hgbl0037;ggbm0227;mfbf0023;rpgn0226;tnkp0227;hsmw0228;ylkw0228;ngxh0227;ggxn0226
+59321,6125,ttgj0223,What is the Total years of experience of the first employee?,1,1.0,1,1,1,1.0,ttgj0223;fqgv0228;sphv0228;rpph0227;sgwb0228;nncc0228;npbn0226;fsgl0228;fmxf0227;jqbn0226
+56413,14762,tqcy0227,What is the educational qualification of the Chairman?,5,0.2,0,1,1,0.386853,fqgv0228;fkbk0226;tzwm0227;mlcj0227;tqcy0227;prxn0226;xgvv0228;kmhx0227;jrgv0228;mgpj0226
+59332,6172,qqnn0081,What is the page number?,165,0.006061,0,0,0,0.0,ztnk0226;ghpj0226;tfjh0227;hrfw0227;fgjh0227;jhhd0227;fpbw0217;yskd0228;lkwg0227;jnnf0227
+1989,1077,mqxv0228,"In which page number is ""Introduction""?",1,1.0,1,1,1,1.0,mqxv0228;mldg0227;fsbn0226;gzlf0227;hhbv0228;tzbn0226;kmvj0078;ghkw0228;jxxg0226;thym0227
+51144,732,kzbn0226,Which organization has suggested the definition of Best available science ?,1,1.0,1,1,1,1.0,kzbn0226;jzbn0226;zznp0227;nggw0228;sgwb0228;mynp0227;lmcn0226;jnnf0227;xhmw0227;zybd0227
+1992,1029,khnk0226,Whose picture is given?,7,0.142857,0,0,1,0.333333,rflm0227;lknp0227;xgvv0228;pybl0226;zybd0227;njnp0227;khnk0226;fkbk0226;znbx0223;yxpj0226
+51155,834,lhcn0226,By whom are the 'Observations/ concerns' raised?,1,1.0,1,1,1,1.0,lhcn0226;hmwn0226;qpbx0227;npbn0226;lynf0227;yxvw0217;yjkg0227;lfxv0228;nrcj0037;ymkm0227
+38504,11070,hslf0227,"What is the highest value for ""Intake, mg/1000 kcal "" plotted on the 'X' axis of the graph?",1,1.0,1,1,1,1.0,hslf0227;mlcf0227;kzng0227;njpf0227;hldg0227;mslw0227;pybv0228;qpbx0227;ggyf0227;fmxf0227
+59358,6221,kmhx0227,Which session is mentioned here?,1,1.0,1,1,1,1.0,kmhx0227;yskd0228;nzvv0228;smnp0227;yzbd0227;jrgv0228;qtvb0228;hnnp0227;rtnk0226;lfyx0078
+59365,6211,jzfv0228,What type of Mail is it?,1,1.0,1,1,1,1.0,jzfv0228;ymkp0227;txpn0095;fryn0081;jgbg0227;nkvx0227;ljgg0227;rqvg0227;zkbg0227;phjc0228
+59382,6215,fncv0228,What type of communication is it?,281,0.003559,0,0,0,0.0,jxjh0227;xhxj0037;kldk0226;jsjk0226;xyyv0228;lfxv0228;nkkh0227;hjxj0037;ltvw0217;thwm0227
+59389,6216,mhjb0228,What is the name of the company mentioned at the top of the table?,357,0.002801,0,0,0,0.0,srhl0226;ylyf0023;mfng0227;kkpj0226;fphl0226;hyhk0037;hlvj0223;kggn0020;ztnk0226;qtyp0227
+43027,12060,smwn0226,What is the heading?,69,0.014493,0,0,0,0.0,mlcj0227;sgwb0228;qmld0217;jxmk0226;tqnh0227;pyfg0227;fkkj0079;kggn0226;fkxn0226;kzgn0226
+43032,12391,jlxn0226,What is the title of the article?,243,0.004115,0,0,0,0.0,hqvw0217;kkbm0227;mkvw0217;kgww0217;lynf0227;yxpj0226;kqbw0217;nlgk0226;yxvw0217;mhfk0226
+51234,881,jsbn0226,What is the name of the filer?,1,1.0,1,1,1,1.0,jsbn0226;jfgv0079;lxkp0227;hxxj0037;gxyd0217;jfgf0077;znvw0008;ysvw0217;xfbd0003;xrvm0227
+59434,6227,nggv0228,What time does registration open?,1,1.0,1,1,1,1.0,nggv0228;gzlf0227;nkhd0227;rtnk0226;jxxg0226;pflf0024;rgcw0217;ghpj0226;lrwp0078;nlcn0226
+43046,12392,lrgn0226,what type of communication is this?,46,0.021739,0,0,0,0.0,jxjh0227;xhxj0037;kldk0226;jsjk0226;zqww0228;ltvw0217;hjxj0037;qslg0227;lfxv0228;thwm0227
+32982,9303,jycg0227,Which department is mentioned in the document?,2,0.5,0,1,1,0.63093,yscw0217;jycg0227;hjxc0228;lhfd0079;xlvb0228;rzcb0228;slcn0226;mppk0037;ljgg0227;phvd0227
+10294,3369,hlhp0053,What is the company's name on the letter head?,88,0.011364,0,0,0,0.0,hmvx0227;lfxv0228;txpn0095;srhl0226;sqvx0227;mljf0226;mfbf0023;ljmk0226;fjmv0079;nlgk0226
+59446,6260,mynp0227,What is the professional title of Dr.Albert Siegel ?,1,1.0,1,1,1,1.0,mynp0227;sjkg0227;fncv0228;kmhx0227;snyc0227;pybl0226;yzbw0217;smvd0227;ggjh0227;prbn0226
+10297,3373,krlf0023,What is written in the top right of the document ?,77,0.012987,0,0,0,0.0,lxjw0228;gggn0226;mzmk0226;sgwb0228;qmld0217;jxmk0226;tqnh0227;pyfg0227;fkkj0079;kggn0226
+59453,6268,lknp0227,Whose picture is given?,2,0.5,0,1,1,0.63093,rflm0227;lknp0227;xgvv0228;pybl0226;zybd0227;njnp0227;khnk0226;fkbk0226;znbx0223;yxpj0226
+10307,3380,mfbf0023,Which Company's Fax transmission Cover Sheet is this ?,1,1.0,1,1,1,1.0,mfbf0023;rpgn0226;jycw0217;htdw0217;lfdw0217;ylkw0228;fsdw0217;sqxg0023;kyvw0217;mljf0226
+60665,7259,qznc0227,What is the date of the memorandum?,8,0.125,0,0,1,0.315465,jsjk0226;jxjh0227;lflm0081;lfxv0228;jrgn0226;qhmf0227;nkkh0227;qznc0227;lrgn0226;ksnm0227
+43084,12394,qjgn0226,"What is the name of the company issuing the ' royalty payment form',  mentioned at the top of the document?",1,1.0,1,1,1,1.0,qjgn0226;fmvj0223;yjdv0228;nxym0227;hkpv0001;gscv0079;lxkp0227;xfbd0003;sjxn0226;fggw0081
+59472,6258,szhw0228,How much is the grand total of the budget of the Institution?,1,1.0,1,1,1,1.0,szhw0228;mgbv0228;jkxw0228;grvv0228;pnbx0223;fmxn0226;tkww0217;zfkf0226;lzbw0217;njxw0228
+59482,6247,xlvb0228,To whom the memoranda submitted?,1,1.0,1,1,1,1.0,xlvb0228;lflm0081;sqvx0227;ksnm0227;xgcc0228;qhmf0227;qznc0227;lxjw0228;jsjk0226;lfxv0228
+18532,5671,fggw0081,What is the title of the document ?,313,0.003195,0,0,0,0.0,ngxl0226;yskd0228;zhdw0228;kljw0228;zzhg0227;ysbw0217;hjxn0226;hhbv0228;kkwg0227;jknf0227
+59501,6526,tzgv0228,Who is Dr.Robert Tilden?,1,1.0,1,1,1,1.0,tzgv0228;rmjl0226;qqbl0037;smvd0227;fncv0228;ngxl0226;jhhd0227;nkhd0227;qlbk0226;zkbg0227
+59504,6269,hxnp0227,What is the page number?,176,0.005682,0,0,0,0.0,ztnk0226;rycg0227;hrfw0227;fgjh0227;jhhd0227;tfjh0227;ghpj0226;yskd0228;lkwg0227;fpcw0217
+51316,832,shcn0226,Who should you contact if you have any questions? And what is the contact number?,2,0.5,0,1,1,0.63093,fypn0000;shcn0226;npbn0226;txpn0095;jrgn0226;lflm0081;tynx0037;zzfv0228;htdw0217;srjf0226
+59517,6528,rydb0228,What is the item# ?,36,0.027778,0,0,0,0.0,kggn0020;hkpv0001;fjmv0079;sqxg0023;lycj0037;rxnv0079;njnp0227;ggxn0226;kglw0228;mfbf0023
+59513,6530,xrcy0227,How many points are there in the ‘conditions of Contract’?,1,1.0,1,1,1,1.0,xrcy0227;lxkp0227;shcn0226;jfgf0077;zfkf0226;ynbx0223;lrwp0078;gnjf0226;ztnk0226;mfbf0023
+2178,1599,nkkh0227,What is the subject?,9,0.111111,0,0,1,0.30103,sncj0037;tzbj0037;hjxj0037;tllk0226;hxxj0037;xhxj0037;prvl0037;lflm0081;nkkh0227;phvd0227
+51333,791,jzbn0226,What is the heading in sl.no ‘V’?,18,0.055556,0,0,0,0.0,jhpc0227;kkwg0227;hfcl0079;mgbv0228;nlgk0226;yqxd0227;fxbw0217;grvv0228;ghpj0226;jnnf0227
+2183,1612,jsjk0226,Who is this letter sent to ?,69,0.014493,0,0,0,0.0,srjf0226;nrcj0037;hxxj0037;jzlw0227;qslg0227;qfmw0227;hjxj0037;xhxj0037;hkbp0078;hznv0228
+59526,6235,ffhv0228,"How much is included for renovation expenses of Helen Keller International,Incorporated?",1,1.0,1,1,1,1.0,ffhv0228;krcy0227;tzgv0228;nncc0228;yfpj0226;tzwm0227;htnk0226;fgfl0228;plhx0227;mkhg0227
+59527,6529,fqgv0228,What type of document is this?,327,0.003058,0,0,0,0.0,nggw0228;frgl0228;zhdw0228;kljw0228;mtvd0227;ztnk0226;zzhg0227;rmjl0226;kfhd0227;rzcb0228
+48276,13997,xgvv0228,"Through her noteworthy career, what did she work as?",1,1.0,1,1,1,1.0,xgvv0228;smvd0227;hlhp0053;nggw0228;fqgv0228;pybl0226;znbx0223;mlcj0227;khnk0226;ppbn0226
+51344,14333,ksvv0228,How much estimated hours for salary and wages under ‘direct labor’?,1,1.0,1,1,1,1.0,ksvv0228;tllg0227;jxbx0227;tybx0223;fjvg0227;slcn0226;nhyk0226;jfgv0079;jhkp0227;ygjd0228
+18592,5683,fgbd0079,What is the title of the sheet?,1,1.0,1,1,1,1.0,fgbd0079;rpgn0226;mfbf0023;hpmp0227;sqxg0023;kkpj0226;mqxv0228;qtlc0228;smwn0226;ynjf0226
+51361,1473,gshk0226,What is the ‘heading’?,439,0.002278,0,0,0,0.0,frhw0081;xgvv0228;fjpk0226;jqbn0226;xmwn0226;zhjl0226;sjkg0227;xnbl0037;nkkh0227;ylvd0228
+59554,6532,njnp0227,What is the color of the walking stick?,1,1.0,1,1,1,1.0,njnp0227;nzvv0228;kggn0226;zybd0227;jggn0226;gycp0080;xmwn0226;flkk0079;krcy0227;ffjw0228
+2219,1466,trhk0226,Which company is Martin Miller associated with?,1,1.0,1,1,1,1.0,trhk0226;sjxn0226;gshk0226;nkhd0227;lfyx0078;qtyc0003;hlhp0053;nmmk0226;ghkw0228;hxnp0227
+2224,1519,sqvx0227,Who is the secretary of chamber of commerce?,1,1.0,1,1,1,1.0,sqvx0227;ggjh0227;ynbx0223;snyc0227;khnk0226;hyml0226;fkbk0226;kxxn0226;xrvm0227;tzbn0226
+43185,12411,lfgn0226,What is the location code?,2,0.5,0,1,1,0.63093,ygjd0228;lfgn0226;pkck0226;hkpv0001;fkmj0226;fryn0081;hsmw0228;xgvv0228;kldk0226;lsww0228
+59573,6544,nngv0228,What is the name of the country mentioned at the top of the page?,15,0.066667,0,0,0,0.0,pybv0228;yscw0217;fsgl0228;mtvd0227;sxvw0217;yqgl0228;xhfl0228;ptdg0227;rlbl0226;ghkw0228
+2230,1602,lfxv0228,What is the PO box number of Mr and Mrs. Edward Lehman?,1,1.0,1,1,1,1.0,lfxv0228;gshk0226;sqvx0227;tqcy0227;nkhd0227;zkvm0227;lhjh0227;tqnh0227;msdl0226;yxgg0227
+43190,12412,hmwn0226,"Under the ' Risk/Consequence Questions', what is the heading for the first type of Risk questions?",1,1.0,1,1,1,1.0,hmwn0226;ynjf0226;slcn0226;qpbx0227;lfxd0227;yljf0226;tnbx0223;ylwn0226;lmcn0226;kggn0226
+59583,6546,xgcc0228,What is the page number?,42,0.02381,0,0,0,0.0,lkwg0227;rycg0227;ztnk0226;tkdk0226;sgwb0228;jhhd0227;tfjh0227;ghpj0226;hrfw0227;fgjh0227
+33011,9338,fsbf0227,How much is the Mean square value of the Children variation?,1,1.0,1,1,1,1.0,fsbf0227;flwg0227;njpf0227;mslw0227;pmyc0227;ggyf0227;hgbl0037;qsnc0227;xkbw0217;fxcv0079
+59593,6707,zzfv0228,Who wrote the ‘letter’?,25,0.04,0,0,0,0.0,fjpk0226;yjkg0227;qfmw0227;tqnh0227;ymkm0227;hkbp0078;prvl0037;msdl0226;sjkg0227;jzlw0227
+18637,5690,gscv0079,What is the name of the person repsonsible for implementing ?,1,1.0,1,1,1,1.0,gscv0079;hjbl0037;qqnn0081;hkvd0079;hyhk0037;hffn0226;krlf0023;hjxj0037;ylwn0226;trjv0001
+18644,5699,ypcx0078,What kind of voucher is given here?,1,1.0,1,1,1,1.0,ypcx0078;tllg0227;nxym0227;jxjh0227;txpn0095;tqnh0227;yhxd0227;frhw0081;jhkp0227;frcy0227
+59629,6615,ytyp0227,What is written at the bottom right end of the ‘notice’?,4,0.25,0,1,1,0.430677,xrcy0227;lfgn0226;pyfg0227;ytyp0227;kglw0228;fjpk0226;zybd0227;jgbg0227;zrww0228;zqww0228
+59642,6575,jkxw0228,What is the amount of  'Research support for Scholars'?,1,1.0,1,1,1,1.0,jkxw0228;gqjw0228;htnk0226;rrcw0217;mhjb0228;jqbn0226;qlbk0226;mxxj0037;lkgb0228;xgcc0228
+43259,12434,yjxn0226,What is the project number?,1,1.0,1,1,1,1.0,yjxn0226;rpgn0226;trhk0037;pyfg0227;lrwn0081;hqlf0227;mnvw0217;gkvw0217;prvw0217;lkvw0217
+2300,1017,lhjh0227,What is the P.O.Box Number?,9,0.111111,0,0,1,0.30103,kkpj0226;jfgf0077;ghlw0228;sqvx0227;ngxh0227;jzfv0228;hkbp0078;jtnk0226;lhjh0227;lfxv0228
+18684,5716,lhfd0079,Which department is mentioned in this document?,3,0.333333,0,1,1,0.5,yscw0217;jycg0227;lhfd0079;hjxc0228;slcn0226;xlvb0228;mppk0037;rzcb0228;phvd0227;kldk0226
+2312,1021,ljmk0226,What is the date on which the letter has been filed?,109,0.009174,0,0,0,0.0,kxxn0226;jqbn0226;phvd0227;mpgn0226;kldk0226;mhfk0226;hznv0228;lflm0081;ylkw0228;phjc0228
+2325,1022,hznv0228,Who is the sender ?,13,0.076923,0,0,0,0.0,hxxj0037;hjxj0037;kjvl0226;qslg0227;zslg0227;qfmw0227;jzlw0227;prvl0037;smnp0227;phjc0228
+2328,1024,tllk0226,What is the date of sending on the letter?,41,0.02439,0,0,0,0.0,msdl0226;nkvx0227;yfpj0226;phjc0228;ljgg0227;zkbg0227;prvl0037;ylkw0228;xhxj0037;tqnh0227
+51488,2297,trjv0001,What is the 4th point in the agenda of EIG MEETING?,1,1.0,1,1,1,1.0,trjv0001;zhjl0226;zpxl0226;yzbw0217;sphv0228;fncv0228;hyml0226;jjnl0052;mhfk0226;fxbw0217
+51491,849,ppbn0226,Whose nomination is endorsed ?,1,1.0,1,1,1,1.0,ppbn0226;mynp0227;nggw0228;jsbn0226;zybd0227;fqgv0228;spjf0226;mlcj0227;thwm0227;xhmw0227
+59683,6627,mlcj0227,What is the name written under the sponsor ‘s signature (2)?,2,0.5,0,1,1,0.63093,lmcn0226;mlcj0227;lrwp0078;xfbd0003;mjbw0217;rpgn0226;sqxg0023;mrdw0217;pybv0228;jfgf0077
+59686,6632,smnp0227,What course Mr.Bill has to present at Eleventh Graduate Summer Session in Epidemiology held at the University of Minnesota?,1,1.0,1,1,1,1.0,smnp0227;hnnp0227;prxn0226;kmhx0227;gshk0226;fkbk0226;nkhd0227;ztvw0217;sqvx0227;nzvv0228
+59688,6659,lxjw0228,"What amount was requested by Lange, L.G, Washington University Medical Center?",1,1.0,1,1,1,1.0,lxjw0228;ztvw0217;nmmk0226;mlcj0227;prxn0226;jxjh0227;rrlw0227;tqnh0227;khnk0226;smvd0227
+51510,2407,xfbd0003,What is the ‘heading’?,140,0.007143,0,0,0,0.0,frhw0081;fjpk0226;xgvv0228;jqbn0226;xmwn0226;zhjl0226;sjkg0227;xnbl0037;hffm0227;hlmd0217
+59721,6643,rzcb0228,Who is operating ‘Pine Bluff Arsenal’?,1,1.0,1,1,1,1.0,rzcb0228;ghpj0226;hldw0228;lfgn0226;sjxn0226;sqvx0227;lhfd0079;jfgf0077;krcy0227;rgcw0217
+60662,7253,rjxg0227,What is the title on page 2?,31,0.032258,0,0,0,0.0,phwk0226;sgwb0228;kggn0226;mqxv0228;trhk0226;kqbf0227;yqxd0227;kkbm0227;nncc0228;lfxd0227
+26953,7543,mkhg0227,What is written in top of the document ?,352,0.002841,0,0,0,0.0,pzwd0228;hkdv0228;zhjl0226;fjmv0079;rrlw0227;fmxf0227;tllg0227;fphl0226;ngxh0227;yhxd0227
+51539,14654,hjxc0228,Which university ‘letterhead’ is given?,8,0.125,0,0,1,0.315465,nfnw0228;smnp0227;lhjh0227;hffm0227;hfyf0227;kldk0226;jzfv0228;hjxc0228;nxym0227;qhmf0227
+43350,12459,kzgn0226,What is the title of the pie chart ?,1,1.0,1,1,1,1.0,kzgn0226;jnpv0228;fryn0081;pzyy0078;pyfg0227;znvw0008;txcj0037;hkbp0078;nhyk0226;lmcn0226
+43353,12460,fkxn0226,what is the name of the company mentioned on the bottom left of the page ?,64,0.015625,0,0,0,0.0,frhw0081;kggn0020;hlvj0223;srhl0226;znvw0008;txpn0095;nlgk0226;hyhk0037;nkvx0227;flcv0228
+43354,12456,kggn0226,What is the ID number?,1,1.0,1,1,1,1.0,kggn0226;jggn0226;txpn0095;xhmw0227;rxnv0079;hsmw0228;xfbd0003;stbm0227;rpgn0226;zrww0228
+18786,5740,fkkj0079,What is the title of the document ?,171,0.005848,0,0,0,0.0,pzwd0228;fgfl0228;rnbx0223;fsgl0228;tnbx0223;hlvj0223;xnbx0223;ngxl0226;yskd0228;zhdw0228
+26982,7555,pyfg0227,What is the Title of the document ?,342,0.002924,0,0,0,0.0,thcn0226;pzwd0228;hkdv0228;zhjl0226;fjmv0079;rrlw0227;fmxf0227;tllg0227;fphl0226;ngxh0227
+51560,1127,tqnh0227,Who is ‘ Charlotte McDaniel’?,1,1.0,1,1,1,1.0,tqnh0227;jxjh0227;ztvw0217;fryn0081;rjxg0227;kxxn0226;ppbn0226;tynx0037;yxvw0217;hffn0226
+51575,1271,jxmk0226,How many points are there under the title ‘distribution’?,1,1.0,1,1,1,1.0,jxmk0226;smwn0226;lrgn0226;jhpc0227;ljwg0227;lyfm0227;fjvg0227;mzmk0226;ltvw0217;xgvg0227
+35201,10157,qmld0217,what is the docket number?,1,1.0,1,1,1,1.0,qmld0217;yzbw0217;kjvw0217;qtyp0227;mfdw0217;jqbn0226;lkgb0228;lzcw0217;tnkp0227;lzkg0078
+59778,6600,sgwb0228,Who is shown in the picture/photo?,60,0.016667,0,0,0,0.0,lknp0227;rflm0227;pybl0226;znbx0223;zybd0227;xgvv0228;khnk0226;jxxg0226;lynf0227;yxpj0226
+51591,1640,mzmk0226,What is written in bold letters?,332,0.003012,0,0,0,0.0,ghkw0228;pzwd0228;hkdv0228;zhjl0226;fjmv0079;rrlw0227;fmxf0227;tllg0227;fphl0226;ngxh0227
+43403,12468,gggn0226,what is the 'Effective rate %' for ' 5.15 % debentures due 2012' in the year 2011?,1,1.0,1,1,1,1.0,gggn0226;rnbx0223;lxpj0226;trgj0223;xnbx0223;lmcn0226;fmvj0223;prvl0037;lzkg0078;ptcj0227
+51613,1089,jxbx0227,What is the total cost of fertilizer?,1,1.0,1,1,1,1.0,jxbx0227;ksvv0228;jtlh0227;tkww0217;flkk0079;yhxd0227;yjdv0228;jkxw0228;szhw0228;lzcw0217
+59818,14883,rqcy0227,What is  the title of figure 4?,2,0.5,0,1,1,0.63093,lhcb0228;rqcy0227;ggyf0227;jyxg0226;mslw0227;fmbb0228;hldg0227;fyvb0228;yzdc0228;ylvd0228
+59828,6767,zkvm0227,What is the date of the letter mentioned by William J Darby?,2,0.5,0,1,1,0.63093,nfnw0228;zkvm0227;thwm0227;zzfv0228;ggbm0227;yslp0227;smnp0227;qtvb0228;xgcc0228;nggw0228
+18883,5761,pzyy0078,What is the name of the company on the letter head?,67,0.014925,0,0,0,0.0,srhl0226;hyhk0037;znvw0008;txcj0037;hmvx0227;nlgk0226;txpn0095;lxpj0226;zkvm0227;flcv0228
+51665,1264,jtlh0227,What is the page number?,23,0.043478,0,0,0,0.0,tfjh0227;ghpj0226;jhhd0227;mxxj0037;phxj0037;mgbv0228;khxj0037;yskd0228;sjbw0217;lkwg0227
+51666,1220,pryh0227,What is the date of Analysis?,2,0.5,0,1,1,0.63093,lgph0227;pryh0227;tgph0227;yhph0227;msyh0227;yqgl0228;fsbf0227;hjxn0226;lxpj0226;yjxn0226
+59868,6785,xngv0228,What is the preferred location for the meeting?,2,0.5,0,1,1,0.63093,nngv0228;xngv0228;jjnl0052;ktgn0226;ysvw0217;mlbw0217;hpmp0227;ghkw0228;rnww0217;fpcw0217
+59886,6801,mzbx0227,What is given in the footer?,348,0.002874,0,0,0,0.0,nlgk0226;prbn0226;thcn0226;kqbn0226;qqnn0081;jpdd0228;hfcl0079;kmvj0078;qyhw0228;lyfm0227
+59889,6804,qjvc0228,What is the heading below SECTION 1?,1,1.0,1,1,1,1.0,qjvc0228;fsbn0226;jhpc0227;mgbv0228;lsgj0223;slcn0226;pmwn0226;mqxv0228;kgww0217;srhl0226
+59900,6932,pkck0226,What is the name of the financial company mentioned at the top?,112,0.008929,0,0,0,0.0,yhpj0226;stbm0227;hkdv0228;frcy0227;flcv0228;hffm0227;nkvx0227;sqvx0227;yxpj0226;srhl0226
+35331,10165,gxyd0217,What is the study experience?,1,1.0,1,1,1,1.0,gxyd0217;ttgj0223;fqgv0228;nmmk0226;mjbw0217;sgwb0228;hffn0226;fxcv0079;pmwn0226;ysmc0228
+51732,1303,nkvx0227,Where is ‘Spreckels’ newest processing plant’?,1,1.0,1,1,1,1.0,nkvx0227;zhjl0226;trgj0223;hyml0226;flkk0079;tnkp0227;krcy0227;hffn0226;jtnk0226;rgcw0217
+59933,6825,ggbm0227,Who is from Indiana?,5,0.2,0,1,1,0.386853,phjc0228;kggn0226;mhjb0228;ymkp0227;ggbm0227;qjgn0226;fsgl0228;sjxn0226;jggn0226;flbx0227
+59947,6835,flcv0228,What is the name of the company?,16,0.0625,0,0,0,0.0,srhl0226;mfng0227;ylyf0023;kkpj0226;txpn0095;hlvj0223;hyhk0037;znvw0008;yjxn0226;lxpj0226
+59953,6822,ffjw0228,Who is receiving the ALCOHOLIC BEVERAGE MEDICAL RESEARCH FOUNDATION ‘s Research Grant Awards for Massachusetts General Hospital?,1,1.0,1,1,1,1.0,ffjw0228;prxn0226;lxjw0228;smvd0227;fncv0228;qtvb0228;plhx0227;rgcw0217;fkbk0226;hyml0226
+47739,13844,ksnm0227,What is the subject of Memorandum?,3,0.333333,0,1,1,0.5,lflm0081;sncj0037;ksnm0227;xhxj0037;ltvw0217;phvd0227;tllk0226;prvl0037;jrgn0226;qznc0227
+43586,12503,ylwn0226,From which decade onwards 'metal-on-metal' bearings was being used in the U.S.?,1,1.0,1,1,1,1.0,ylwn0226;fgxn0226;yjxn0226;hmwn0226;lrgn0226;rpgn0226;jrgn0226;lmyc0227;flkk0079;qmld0217
+59971,6903,kldk0226,What type of document is this?,70,0.014286,0,0,0,0.0,nggw0228;frgl0228;kljw0228;ngxl0226;rmjl0226;zhlg0227;fxxj0037;zhdw0228;qqbl0037;sncj0037
+59976,6907,phwk0226,How many hours of sound sleep needed each night for good health?,1,1.0,1,1,1,1.0,phwk0226;pybl0226;smnp0227;zlmg0227;nfdl0227;kggn0226;hffn0226;mlcf0227;trgj0223;krcy0227
+59982,6908,fmbk0226,What is the ‘heading’?,240,0.004167,0,0,0,0.0,frhw0081;xgvv0228;jqbn0226;fjpk0226;xmwn0226;zhjl0226;hffm0227;xhfl0228;qtlc0228;jpbv0228
+51793,1336,jxjh0227,Which company’s memorandum is given?,5,0.2,0,1,1,0.386853,jsjk0226;jrgn0226;lrgn0226;lfxv0228;jxjh0227;lflm0081;nkkh0227;ksnm0227;qhmf0227;qznc0227
+19034,5780,jfgv0079,What is the name of the originator ?,2,0.5,0,1,1,0.63093,gscv0079;jfgv0079;pmwn0226;xfbd0003;zrww0228;fkmj0226;nxym0227;ymkp0227;lsww0228;znvw0008
+51804,1333,rpph0227,What is the page number?,20,0.05,0,0,0,0.0,ztnk0226;tkdk0226;ghpj0226;hrfw0227;tfjh0227;fgjh0227;jhhd0227;fpbw0217;lkwg0227;jnnf0227
+59997,6871,hldw0228,What is the heading?,45,0.022222,0,0,0,0.0,hjxc0228;pzyy0078;zkvm0227;rqcy0227;jxbx0227;gggn0226;mzmk0226;sgwb0228;qmld0217;jxmk0226
+51806,14656,ghkw0228,Which meeting is this?,6,0.166667,0,0,1,0.356207,hpmp0227;mlbw0217;tzbn0226;jjnl0052;ktgn0226;ghkw0228;yzbd0227;ysvw0217;sncj0037;zhjl0226
+60014,6898,mhfk0226,Who claimed government's move to be a wise decision?,1,1.0,1,1,1,1.0,mhfk0226;xfpj0226;flkk0079;hfcl0079;jqbn0226;zybd0227;hjxj0037;mgpj0226;hlhp0053;lhcn0226
+60018,6910,nlgk0226,What is the name of the excerpt/reprint?,1,1.0,1,1,1,1.0,nlgk0226;zznp0227;pzwd0228;fmbk0226;hxnp0227;mrnl0226;lflm0081;hffn0226;ymkp0227;kqbf0227
+60025,6945,qlbk0226,What memo is it?,2,0.5,0,1,1,0.63093,yhpj0226;qlbk0226;xyyv0228;lflm0081;qznc0227;jsjk0226;xgmw0227;yfpj0226;ymkm0227;jrgn0226
+63605,9333,fgvh0227,What is the goal for CB < 175?,1,1.0,1,1,1,1.0,fgvh0227;slcn0226;hkdv0228;hslf0227;symf0227;jycf0227;lzkg0078;hgbl0037;pnbx0223;mlcf0227
+60036,6948,tkdk0226,What is the page number?,20,0.05,0,0,0,0.0,ghpj0226;fgjh0227;jhhd0227;tfjh0227;phxj0037;yskd0228;fpbw0217;fxxj0037;jnnf0227;ggyf0227
+43662,12525,pmwn0226,What is the tracking number of the form?,1,1.0,1,1,1,1.0,pmwn0226;mjxn0226;lxkp0227;hkpv0001;fypn0000;sqxg0023;txpn0095;ytyp0227;jggn0226;lhfd0079
+60050,6999,pybl0226,Whose picture is on the page?,6,0.166667,0,0,1,0.356207,lknp0227;rflm0227;zybd0227;xgvv0228;njnp0227;pybl0226;fkbk0226;znbx0223;khnk0226;lynf0227
+60057,7003,rlbl0226,What is the date of receipt stamped?,19,0.052632,0,0,0,0.0,stbm0227;phjc0228;ljgg0227;nkvx0227;zkbg0227;ymkp0227;pkck0226;rqvg0227;yslp0227;zggb0228
+60062,7021,nhyk0226,What is the title of the research project?,1,1.0,1,1,1,1.0,nhyk0226;pyfg0227;zggb0228;hqlf0227;mppk0037;yjxn0226;fjvg0227;trhk0037;hqvw0217;rpgn0226
+60063,7001,htnk0226,"Which comes under ""Clusters of Colleges"" other than ""Instructors Meeting"" ?",1,1.0,1,1,1,1.0,htnk0226;hxnp0227;sgwb0228;tqcy0227;rtnk0226;hgfc0228;fqgv0228;smnp0227;rycg0227;nggv0228
+37230,10698,kzng0227,Which is the last food specified in the page ?,2,0.5,0,1,1,0.63093,rrlw0227;kzng0227;jtnk0226;pybl0226;symf0227;nfdl0227;qpbx0227;flbx0227;lkwg0227;hjpj0226
+60081,6947,fkbk0226,Who is there in the first photo?,1,1.0,1,1,1,1.0,fkbk0226;rflm0227;lynf0227;lknp0227;znbx0223;pybl0226;xgvv0228;zybd0227;smvd0227;plhx0227
+27317,7963,zznp0227,What is the year specified in the logo?,1,1.0,1,1,1,1.0,zznp0227;rhlm0227;qyhw0228;nzvv0228;nggw0228;hqlf0227;gmvg0227;tllk0226;lknp0227;kljw0228
+60089,7037,rtnk0226,At what intervals does FASEB Bus Service operate?,1,1.0,1,1,1,1.0,rtnk0226;pycj0037;lmyc0227;ypcx0078;ggyf0227;zqww0228;lrwp0078;ygjd0228;lxkp0227;yhxd0227
+43715,12531,xmwn0226,what is the first quote written at the top right of the page?,4,0.25,0,1,1,0.430677,hffn0226;zhdw0228;nzvv0228;xmwn0226;phwk0226;znbx0223;zybd0227;sgwb0228;snbx0223;symf0227
+60113,13670,ysmp0227,Who is the assistant director of center for International studies?,1,1.0,1,1,1,1.0,ysmp0227;jkxw0228;fkbk0226;yfpj0226;hyml0226;tqcy0227;fqgv0228;spjf0226;trgj0223;plhx0227
+19204,688,prbn0226,what is the date mentioned in the given page ?,107,0.009346,0,0,0,0.0,kljw0228;hkdv0228;zhjl0226;fjmv0079;kggn0020;fmxf0227;yskd0228;fphl0226;zpxl0226;yhxd0227
+49408,14330,jppp0227,What is the number printed at the top right of first slip?,38,0.026316,0,0,0,0.0,jzfv0228;symf0227;rxnv0079;ymkp0227;kkbm0227;rjxg0227;khnk0226;gmvg0227;frgl0228;sqxg0023
+60174,13446,xkbw0217,What is the y-axis of the plot?,19,0.052632,0,0,0,0.0,ylvd0228;njpf0227;fmbb0228;qjhc0228;zhlg0227;qhxh0228;fxcv0079;mslw0227;pybv0228;jyxg0226
+37235,10745,jhpc0227,What is the first title under the heading TABLE OF CONTENTS?,1,1.0,1,1,1,1.0,jhpc0227;fsbn0226;yqxd0227;mqxv0228;hhbv0228;nncc0228;hgbl0037;slcn0226;jnpv0228;yhpv0001
+55936,4378,fmvj0223,Which year is the percentage of raw material imported higher (current/previous)?,1,1.0,1,1,1,1.0,fmvj0223;xfpj0226;kglw0228;pnbx0223;fjmv0079;tkdk0226;ksvv0228;xnbx0223;qpbx0227;mzmk0226
+39655,11355,kfhd0227,"What was the duration of the course ""teaching of epidomiology"" in hours?",1,1.0,1,1,1,1.0,kfhd0227;smnp0227;rycg0227;hnnp0227;hldw0228;rtnk0226;hxnp0227;smvd0227;fkbk0226;nkhd0227
+52119,1795,xhfl0228,What is the title of the plot?,24,0.041667,0,0,0,0.0,mslw0227;pybv0228;fmbb0228;kzgn0226;lknp0227;khbw0217;xqdw0217;jyxg0226;plhx0227;tmlb0228
+3026,1200,msyh0227,What is the kind of water ?,5,0.2,0,1,1,0.386853,pryh0227;yhph0227;lgph0227;tgph0227;msyh0227;xrcy0227;yzdc0228;rrlw0227;tkwg0227;kzbn0226
+52179,1999,txpn0095,What is the name of the company?,14,0.071429,0,0,0,0.0,ylyf0023;srhl0226;hzyj0226;flcv0228;kkpj0226;hffm0227;hjpj0226;lxpj0226;fphl0226;mfng0227
+3035,1202,xyyv0228,What is the name of the memo ?,2,0.5,0,1,1,0.63093,qlbk0226;xyyv0228;yhpj0226;qznc0227;lflm0081;jrgn0226;hxxj0037;yfpj0226;prvl0037;xgmw0227
+3054,1207,tgph0227,What is the name of the factory ?,2,0.5,0,1,1,0.63093,pryh0227;tgph0227;lgph0227;yhph0227;msyh0227;krcy0227;fsgl0228;hffm0227;yhpj0226;nkvx0227
+60409,7140,fjpk0226,Who has written the note?,1,1.0,1,1,1,1.0,fjpk0226;qslg0227;xhmw0227;hznv0228;txcj0037;srhl0226;lsww0228;nkvx0227;yjkg0227;zslg0227
+60413,7142,zhyk0226,What is the body weight of Pig#2 at 3 days of age?,1,1.0,1,1,1,1.0,zhyk0226;zhlg0227;ylvd0228;njpf0227;rxnv0079;rtnk0226;qjhc0228;jtkw0228;psjf0226;kggn0020
+52225,1780,mfmh0227,What is the first heading of the table?,26,0.038462,0,0,0,0.0,ngxl0226;yskd0228;zhdw0228;zzhg0227;srhl0226;hlvj0223;hyhk0037;xnbl0037;sncj0037;mxxj0037
+60420,7150,kjvl0226,Who is the letter from?,8,0.125,0,0,1,0.315465,hxxj0037;xhxj0037;hjxj0037;jzlw0227;qslg0227;qfmw0227;zslg0227;kjvl0226;mkhg0227;qmld0217
+38063,10949,snyc0227,What is the main heading of the document given under APPENDIX V-9?,1,1.0,1,1,1,1.0,snyc0227;hfyf0227;jhpc0227;ypcx0078;slcn0226;zhyk0226;trjv0001;hxnp0227;lfxd0227;lsgj0223
+3095,1214,yhph0227,What is the analysis about?,4,0.25,0,1,1,0.430677,pryh0227;msyh0227;lgph0227;yhph0227;yqgl0228;tgph0227;fsbf0227;hjxn0226;lxpj0226;jycf0227
+60441,7078,jtnk0226,"Which chicken entrees is made with good chicken broth,meat and green peppers?",1,1.0,1,1,1,1.0,jtnk0226;hfcl0079;symf0227;rrlw0227;rpph0227;nfdl0227;krcy0227;qpbx0227;jsbn0226;xgcc0228
+3108,1215,lgph0227,What is the name of the factory ?,3,0.333333,0,1,1,0.5,pryh0227;tgph0227;lgph0227;yhph0227;msyh0227;krcy0227;fsgl0228;hffm0227;yhpj0226;nkvx0227
+60458,6850,fyvb0228,What is the ‘heading’?,267,0.003745,0,0,0,0.0,frhw0081;fjpk0226;xgvv0228;jqbn0226;xmwn0226;zhjl0226;jpbv0228;xnbl0037;pyfg0227;khbw0217
+60461,7168,ztnk0226,What is the page number?,1,1.0,1,1,1,1.0,ztnk0226;ghpj0226;tfjh0227;hrfw0227;fgjh0227;jhhd0227;fpbw0217;yskd0228;lkwg0227;jnnf0227
+11345,3776,jjnl0052,What is the telephone number mentioned at the beginning?,16,0.0625,0,0,0,0.0,flcv0228;nfnw0228;fkmj0226;qlbk0226;fybd0227;hfcl0079;hffm0227;jtnk0226;hkdv0228;tlgw0228
+44113,13201,msdl0226,What is the date of the letter enclosed?,1,1.0,1,1,1,1.0,msdl0226;fybd0227;tqnh0227;ljmk0226;lflm0081;phjc0228;ljgg0227;tlgw0228;nfnw0228;fsdw0217
+47847,14016,sphv0228,What is the title of the chart on the right ?,4,0.25,0,1,1,0.430677,xhfl0228;tkyg0227;fmxf0227;sphv0228;rrlw0227;ggyf0227;kzgn0226;rnbx0223;jggn0226;pybl0226
+60526,7174,symf0227,"In Dinner #16, what is in the cup?",1,1.0,1,1,1,1.0,symf0227;thwm0227;hnnp0227;jlxn0226;pnbx0223;ktgn0226;nncc0228;rrlw0227;rxnv0079;hjpj0226
+47995,14166,qtyp0227,When is the remittance due ?,1,1.0,1,1,1,1.0,qtyp0227;jtlh0227;thwm0227;trgj0223;rxnv0079;ttgj0223;gggn0226;mrdw0217;yhxd0227;rzyj0226
+46368,13371,yscw0217,To which department the address for Correspondence is written?,1,1.0,1,1,1,1.0,yscw0217;hfcl0079;tqnh0227;rkww0217;lhjh0227;hjxj0037;xhxj0037;rzcb0228;hjxc0228;ltvw0217
+60584,7222,yqxd0227,What is the title of the page?,401,0.002494,0,0,0,0.0,zhdw0228;ylwn0226;fkxn0226;thcn0226;kqbn0226;fsbn0226;jfkf0226;qyhw0228;pzwd0228;hkdv0228
+52398,2276,qtyc0003,What is the date of the Approval note?,1,1.0,1,1,1,1.0,qtyc0003;xfbd0003;txcj0037;fryn0081;trjv0001;gscv0079;tnkp0227;srhl0226;lxjw0228;ksvv0228
+60590,7228,rycg0227,What is subheading X ?,1,1.0,1,1,1,1.0,rycg0227;mgbv0228;hmwn0226;jhpc0227;jkxw0228;qjhc0228;jzbn0226;lsgj0223;jggn0226;qqbl0037
+52424,2193,hkpv0001,What is the heading of the form?,4,0.25,0,1,1,0.430677,nlwg0227;fypn0000;kldk0226;hkpv0001;qjvc0228;qjgn0226;mjxn0226;nxym0227;krlf0023;ylyf0023
+52438,1289,hmvx0227,What is written at the top right end of the page?,389,0.002571,0,0,0,0.0,pzwd0228;hkdv0228;zhjl0226;fjmv0079;rrlw0227;fmxf0227;tllg0227;fphl0226;ngxh0227;yhxd0227
+52446,2788,lspm0020,What is the ‘heading’?,179,0.005587,0,0,0,0.0,frhw0081;fjpk0226;xgvv0228;jqbn0226;xmwn0226;zhjl0226;jpbv0228;xnbl0037;pyfg0227;khbw0217
+52451,2045,jyxg0226,What is the title of first plot?,2,0.5,0,1,1,0.63093,mslw0227;jyxg0226;lhcb0228;gkvw0217;rnbx0223;hnvw0217;xkbw0217;sphv0228;yzdc0228;khxj0037
+52470,2052,jxxg0226,What time is the ‘formal presentation’?,1,1.0,1,1,1,1.0,jxxg0226;hnvw0217;gkvw0217;fryn0081;thym0227;sxvw0217;jzhd0227;fpcw0217;lkvw0217;psdw0217
+52473,2007,fkmj0226,What is the ‘heading’?,107,0.009346,0,0,0,0.0,xgvv0228;frhw0081;jqbn0226;fjpk0226;xmwn0226;zhjl0226;xhfl0228;sjkg0227;nkkh0227;hffm0227
+52488,2328,yhpv0001,What is the page no mentioned in this document?,347,0.002882,0,0,0,0.0,yskd0228;mxxj0037;phxj0037;lkwg0227;ggyf0227;kfhd0227;ztnk0226;rycg0227;phwk0226;tkdk0226
+46256,13355,rrcw0217,What is page number printed at the bottom of the page?,179,0.005587,0,0,0,0.0,fxxj0037;fpbw0217;mxxj0037;phxj0037;lkwg0227;jnnf0227;kfhd0227;ztnk0226;symf0227;rycg0227
+52506,2078,qhxh0228,What is plotted along the y axis ?,2,0.5,0,1,1,0.63093,fmbb0228;qhxh0228;zhlg0227;jyxg0226;ylvd0228;njpf0227;fxcv0079;hjxn0226;pybv0228;tkyg0227
+46373,13377,fpcw0217,What is the text printed on the bottom right corner of the page?,449,0.002227,0,0,0,0.0,fsgl0228;fpbw0217;mxxj0037;phxj0037;jnnf0227;symf0227;phwk0226;rjxg0227;fkxn0226;sgwb0228
+36146,10410,fjvg0227,what is the budget bureau no.?,1,1.0,1,1,1,1.0,fjvg0227;pyfg0227;tllg0227;qtyc0003;rjxg0227;ksvv0228;hkpv0001;flkk0079;slcn0226;xyyv0228
+60751,7547,mtvd0227,What is the name of the doctor?,7,0.142857,0,0,1,0.333333,gxyd0217;hffn0226;pnbv0228;kggn0226;jggn0226;zhyk0226;mtvd0227;tzgv0228;ppbn0226;jtkw0228
+52566,2411,znvw0008,What is the charge number given in the form?,1,1.0,1,1,1,1.0,znvw0008;tkwg0227;qtyp0227;tnkp0227;rzgm0227;jrcy0227;fypn0000;xfbd0003;lxkp0227;jfgv0079
+60776,7568,jzlw0227,Who is the letter from?,4,0.25,0,1,1,0.430677,xhxj0037;hjxj0037;hxxj0037;jzlw0227;zslg0227;qfmw0227;qslg0227;msdl0226;hmvx0227;mkhg0227
+60818,7207,smvd0227,Whose photograph is shown at the top left side of the page ?,11,0.090909,0,0,0,0.0,lknp0227;zybd0227;rflm0227;xgvv0228;znbx0223;njnp0227;fkbk0226;khnk0226;lynf0227;pybl0226
+60824,13453,xpww0217,What is the document about?,435,0.002299,0,0,0,0.0,pzwd0228;hkdv0228;zhjl0226;fjmv0079;rrlw0227;fmxf0227;tllg0227;fphl0226;ngxh0227;yhxd0227
+60854,7322,jjmf0227,What is the table number?,12,0.083333,0,0,0,0.0,qpbx0227;hldg0227;qsnc0227;zlmg0227;pmyc0227;hmjf0226;ggxn0226;fqvw0217;fsbf0227;flwg0227
+52691,2243,fypn0000,What is the date of the order?,43,0.023256,0,0,0,0.0,tllg0227;pzyy0078;lzkg0078;mfng0227;hffm0227;jppp0227;rmjl0226;mljf0226;hkpv0001;xfbd0003
+3551,1728,flbx0227,How many facts are listed here?,1,1.0,1,1,1,1.0,flbx0227;ysmc0228;yhpj0226;xgvg0227;thcn0226;hjbl0037;lhcn0226;hsyn0081;jnnf0227;nlcn0226
+60926,7361,lkwg0227,What is the page number?,2,0.5,0,1,1,0.63093,tfjh0227;lkwg0227;rycg0227;ztnk0226;tkdk0226;fgjh0227;hrfw0227;ghpj0226;jhhd0227;khxj0037
+60939,7658,hsmw0228,What is the invoice no.?,1,1.0,1,1,1,1.0,hsmw0228;mfng0227;tnkp0227;yskd0228;ghlw0228;yjdv0228;hffm0227;mtvd0227;qmhh0078;hldg0227
+60948,7651,zslg0227,Who is the letter to ?,11,0.090909,0,0,0,0.0,hznv0228;jzlw0227;qfmw0227;xhxj0037;msdl0226;tqnh0227;ljmk0226;hmvx0227;prvl0037;hjxc0228
+60980,7608,qfmw0227,Who is the letter from?,4,0.25,0,1,1,0.430677,hxxj0037;zslg0227;hjxj0037;qfmw0227;jzlw0227;xhxj0037;nhlg0227;qslg0227;msdl0226;kjvl0226
+60984,7601,ptdg0227,What form of communication is used?,26,0.038462,0,0,0,0.0,kldk0226;nkvx0227;phjc0228;qslg0227;zqww0228;jsjk0226;nlwg0227;fypn0000;nkkh0227;ppbn0226
+60991,7590,xhmw0227,Who has signed the card?,1,1.0,1,1,1,1.0,xhmw0227;ljgg0227;zkbg0227;zybd0227;rlbl0226;nqhb0228;nggw0228;fjpk0226;lsww0228;nkvx0227
+36410,10499,lqcg0227,what is the heading mentioned in the given page ?,122,0.008197,0,0,0,0.0,fqgv0228;ytyp0227;gscv0079;fsbf0227;xgcc0228;hmwn0226;nngv0228;lfgn0226;sqvx0227;trhk0226
+61002,7620,qslg0227,Who is the note to?,9,0.111111,0,0,1,0.30103,srhl0226;fjpk0226;hznv0228;txcj0037;qtvb0228;zkvm0227;jzlw0227;zqww0228;qslg0227;nqhb0228
+20073,6054,klbm0227,What is the Title of the document?,431,0.00232,0,0,0,0.0,pzwd0228;hkdv0228;zhjl0226;fjmv0079;rrlw0227;fmxf0227;tllg0227;fphl0226;ngxh0227;yhxd0227
+44699,12846,rmwn0226,Which number is printed last on the first column of the table?,1,1.0,1,1,1,1.0,rmwn0226;sngx0227;lmyc0227;fjmv0079;rxnv0079;tkdk0226;qyhw0228;jknf0227;ggjh0227;tfjh0227
+36489,10520,jnnf0227,what is the heading of the page ?,396,0.002525,0,0,0,0.0,tkwg0227;lkdv0228;zhlg0227;mrnl0226;srhl0226;rmjl0226;hjxn0226;zzhg0227;rnww0217;jrgv0228
+36494,10523,zybd0227,in which state is Wisdom at ?,1,1.0,1,1,1,1.0,zybd0227;mhfk0226;xfpj0226;zkvm0227;pybl0226;trhk0226;nfnw0228;ksnm0227;spjf0226;rpgn0226
+61081,7628,xgmw0227,What is the subject?,31,0.032258,0,0,0,0.0,sncj0037;tzbj0037;hjxj0037;tllk0226;xhxj0037;hxxj0037;prvl0037;lflm0081;phvd0227;nkkh0227
+61085,7617,jgbg0227,What is the title in uppercase?,151,0.006623,0,0,0,0.0,jfkf0226;kgww0217;hffn0226;xfbd0003;rqcy0227;jxbx0227;gggn0226;smnp0227;mlcj0227;ppbn0226
+61090,7613,rqvg0227,Whose Logo is it?,66,0.015152,0,0,0,0.0,yhpv0001;kkpj0226;nggw0228;hzyj0226;xgvv0228;flcv0228;znbx0223;xhmw0227;khbw0217;hqlf0227
+61101,7611,nhlg0227,What type of letter is this?,35,0.028571,0,0,0,0.0,rzcb0228;kjvl0226;smnp0227;prvl0037;fjpk0226;qslg0227;zkvm0227;hjxj0037;sqvx0227;ymkm0227
+44723,12855,ggxn0226,What is the table number mentioned at the top centre of the page?,8,0.125,0,0,1,0.315465,qpbx0227;pmyc0227;qsnc0227;zlmg0227;fqvw0217;hmjf0226;fsbf0227;ggxn0226;hldg0227;rmcd0228
+36532,10536,nlwg0227,in which city is QM Food & Container Institute at ?,1,1.0,1,1,1,1.0,nlwg0227;rjxg0227;hffm0227;zzfv0228;qyhw0228;hpmp0227;rrlw0227;symf0227;smnp0227;hjpj0226
+61115,7381,ggyf0227,"In fig 3, what is plotted along x axis?",1,1.0,1,1,1,1.0,ggyf0227;njpf0227;zhlg0227;jyxg0226;ylvd0228;hjxn0226;qjhc0228;mslw0227;fmbb0228;qhxh0228
+3794,1397,tfjh0227,"What is the name of the ""Mayor"" ?",1,1.0,1,1,1,1.0,tfjh0227;fgjh0227;znvw0008;nkhd0227;mtvd0227;ymkp0227;ngxl0226;hffn0226;lsww0228;lzjf0226
+61140,7561,njpf0227,What is the figure number?,11,0.090909,0,0,0,0.0,pybv0228;zhlg0227;lhcb0228;sphv0228;yzdc0228;tqcy0227;fmbb0228;mslw0227;ylvd0228;rqcy0227
+61148,7595,yjkg0227,Who is the note from?,6,0.166667,0,0,1,0.356207,fjpk0226;txcj0037;zqww0228;qslg0227;srhl0226;yjkg0227;qtvb0228;xhxj0037;qfmw0227;xyyv0228
+61152,7577,sjkg0227,Who is the note from?,12,0.083333,0,0,0,0.0,fjpk0226;txcj0037;zqww0228;qslg0227;srhl0226;yjkg0227;qtvb0228;xhxj0037;qfmw0227;xyyv0228
+3812,1414,fgjh0227,what is the designation of 'Harlan Seaworth' ?,1,1.0,1,1,1,1.0,fgjh0227;rtnk0226;yxgg0227;hjxn0226;nlwg0227;trhk0226;zggb0228;tlgw0228;gfhd0082;ysmp0227
+44767,12864,hffn0226,What is the title given above the cartoon in right side of the page?,31,0.032258,0,0,0,0.0,xmwn0226;gycp0080;hqlf0227;fsgl0228;phwk0226;hzyj0226;kkbm0227;yxpj0226;lfyx0078;qyhw0228
+3823,1420,nmmk0226,Who did the research on Sugar and cardiovascular disease?,1,1.0,1,1,1,1.0,nmmk0226;jnnf0227;gzlf0227;hyml0226;flbx0227;fpbw0217;lynf0227;rmjl0226;khnk0226;ngxl0226
+61174,7964,gmvg0227,What is the year mentioned at the top?,5,0.2,0,1,1,0.386853,zzhg0227;njpf0227;fmbk0226;lknp0227;gmvg0227;jppp0227;lhfd0079;gfpg0227;sjvw0217;mhjb0228
+61180,7455,fybd0227,What is the name of the publication given?,8,0.125,0,0,1,0.315465,hzyj0226;zhdw0228;fxbw0217;sjvw0217;psdw0217;fgfl0228;zybd0227;fybd0227;kqbw0217;kgww0217
+61186,13408,yzbw0217,What is serial number I of the ‘Wyeth-Ayers Laboratories’ Meeting agenda?,1,1.0,1,1,1,1.0,yzbw0217;mlbw0217;ltvw0217;zhjl0226;gkvw0217;lzbw0217;sjbw0217;lfdw0217;kjvw0217;hnvw0217
+3848,1428,ggjh0227,Who is the owner of Edson Express ?,1,1.0,1,1,1,1.0,ggjh0227;ymkp0227;slcn0226;frhw0081;gggn0226;krcy0227;pnbx0223;smvd0227;htnk0226;kjvw0217
+61197,7635,ljgg0227,Whose picture is given in the square shaped UNITED STATES POSTAGE?,1,1.0,1,1,1,1.0,ljgg0227;zkbg0227;phjc0228;rqvg0227;nkvx0227;ymkp0227;jzfv0228;njnp0227;nzvv0228;zybd0227
+61200,7415,khgg0227,What is the document heading?,17,0.058824,0,0,0,0.0,mppk0037;mrdw0217;sncj0037;fxxj0037;tzbj0037;hyhk0037;hxxj0037;tynx0037;nmmk0226;rnww0217
+61207,7754,tnkp0227,What is the folio number of the bill?,1,1.0,1,1,1,1.0,tnkp0227;yskd0228;hsmw0228;ksvv0228;pzyy0078;njnp0227;hffm0227;lgph0227;ghlw0228;jrcy0227
+61216,7965,gzlf0227,What is the meeting on?,90,0.011111,0,0,0,0.0,fyvb0228;tzbn0226;nlwg0227;hpmp0227;yzbw0217;jjnl0052;jzhd0227;fncv0228;sncj0037;trjv0001
+61222,7626,ngxh0227,Which is the birth defects special treatment center in North Carolina?,1,1.0,1,1,1,1.0,ngxh0227;kkbm0227;txpn0095;mhjb0228;mlcj0227;trgj0223;npbn0226;ygjd0228;frhw0081;lmyc0227
+62643,8666,yhxd0227,What was the parking fee at St. Luis airport?,1,1.0,1,1,1,1.0,yhxd0227;ypcx0078;jppp0227;lxkp0227;yjdv0228;krcy0227;mkhg0227;zkbg0227;jfgf0077;ggbm0227
+44832,12891,prxn0226,Who is the holder of this curriculum vitae?,1,1.0,1,1,1,1.0,prxn0226;mlcj0227;prbn0226;nggw0228;mynp0227;ltvw0217;hyhk0037;zhdw0228;fqgv0228;lzjf0226
+44861,12896,rjxn0226,What is title given at the top of the page?,94,0.010638,0,0,0,0.0,fryn0081;txcj0037;znvw0008;zhdw0228;zhlg0227;xnbx0223;rmjl0226;kqnl0226;mjbw0217;trhk0037
+61254,7712,krcy0227,What is the phone number of PINK&BLACK CORAL FACTORY?,1,1.0,1,1,1,1.0,krcy0227;lmcn0226;hkbp0078;hffn0226;jtnk0226;rgcw0217;xfpj0226;pzyy0078;mfbf0023;hffm0227
+61262,7662,jhkp0227,What is the Received date stamped?,8,0.125,0,0,1,0.315465,yfpj0226;phjc0228;rlbl0226;yslp0227;jfgv0079;yhpv0001;yskd0228;jhkp0227;xyyv0228;fgbd0079
+44873,12908,jrgn0226,"What type of communication is this, as mentioned on the top left corner of the page?",17,0.058824,0,0,0,0.0,xyyv0228;jsjk0226;thwm0227;jxjh0227;nkkh0227;fjpk0226;kldk0226;qslg0227;ltvw0217;nkvx0227
+61277,7860,qtlc0228,What type of communication is this?,375,0.002667,0,0,0,0.0,jxjh0227;jsjk0226;xyyv0228;hjxj0037;nkkh0227;xhxj0037;ltvw0217;thwm0227;zqww0228;fjpk0226
+61284,7851,pzwd0228,What is the last line on the page?,319,0.003135,0,0,0,0.0,fsgl0228;zhdw0228;rmjl0226;phwk0226;hxnp0227;xrcy0227;ysmc0228;qyhw0228;gycp0080;kkpj0226
+61291,7663,hkdv0228,What is the name of the travel agency?,1,1.0,1,1,1,1.0,hkdv0228;lsww0228;lxkp0227;yhxd0227;krcy0227;fsgl0228;flkk0079;hxnp0227;tkwg0227;ypcx0078
+44916,12946,zhjl0226,What is the date of the executive committee meeting ?,1,1.0,1,1,1,1.0,zhjl0226;hyml0226;qtvb0228;ltvw0217;hgpf0227;nggw0228;xfpj0226;trjv0001;xpww0217;jhhd0227
+18709,5722,fjmv0079,What is the RJR Account number ?,1,1.0,1,1,1,1.0,fjmv0079;fypn0000;yhpv0001;qmhh0078;pzyy0078;krlf0023;sqxg0023;gscv0079;hkdv0228;hjbl0037
+36798,10612,rrlw0227,What is the number shown below the heading on top right corner?,167,0.005988,0,0,0,0.0,qyhw0228;xmwn0226;hzyj0226;yjdv0228;phjc0228;zzhg0227;lkdv0228;lflm0081;xgvg0227;mxxj0037
+36824,10621,fmxf0227,During which period were the Part III examinations held?,1,1.0,1,1,1,1.0,fmxf0227;psdw0217;yxvw0217;hffn0226;mpgn0226;sxvw0217;nggv0228;tkyg0227;hqvw0217;jhpc0227
+36842,10625,tllg0227,What is Payee's Account No?,1,1.0,1,1,1,1.0,tllg0227;hhhh0224;jhkp0227;qtyp0227;tnkp0227;jppp0227;trgj0223;qmhh0078;lxkp0227;lkdv0228
+45047,13021,fphl0226,What is the date given?,136,0.007353,0,0,0,0.0,kljw0228;kggn0020;lflm0081;yskd0228;fryn0081;trhk0037;hxxj0037;mjbw0217;qqbl0037;rkww0217
+45072,13031,zpxl0226,How many bullet points are there?,32,0.03125,0,0,0,0.0,ysmc0228;thcn0226;xgvg0227;flbx0227;fkxn0226;kqbn0226;jfkf0226;yqxd0227;yljf0226;hjbl0037
+45075,12407,jggn0226,Which page of the form is this,3,0.333333,0,1,1,0.5,jknf0227;kggn0226;jggn0226;ksvv0228;hlmd0217;fggw0081;qjvc0228;zhdw0228;lqcg0227;fryn0081
+36930,10650,qsnc0227,Which city is mentioned in the table 30 ?,1,1.0,1,1,1,1.0,qsnc0227;qpbx0227;gqjw0228;hldw0228;rjxn0226;rxnv0079;gfpg0227;qtyp0227;hgfc0228;srjf0226
+61512,7762,ymkp0227,What is the name of the courrier Service?,1,1.0,1,1,1,1.0,ymkp0227;xrcy0227;tkwg0227;kldk0226;qmld0217;ygjd0228;lhjh0227;sjxn0226;sqxg0023;kljw0228
+36942,10649,tkwg0227,What is mentioned in 'Purpose of Temporary Duty' ?,1,1.0,1,1,1,1.0,tkwg0227;ypcx0078;hxnp0227;fjvg0227;lfgn0226;hqvw0217;mkvw0217;ygjd0228;frgl0228;sxvw0217
+61523,7783,lkdv0228,What statement is this?,3,0.333333,0,1,1,0.5,gqjw0228;jtkw0228;lkdv0228;nhyk0226;slcn0226;jhkp0227;mynp0227;gfhd0082;hjyc0079;yqxd0227
+36965,10666,zhlg0227,What do the values in the y-axis depict ?,6,0.166667,0,0,1,0.356207,fxcv0079;qhxh0228;ylvd0228;hjxn0226;njpf0227;zhlg0227;fmbb0228;tmlb0228;jyxg0226;tkyg0227
+45159,13055,mrnl0226,What is the name printed on the top of the page?,487,0.002053,0,0,0,0.0,thwm0227;pzwd0228;hkdv0228;zhjl0226;fjmv0079;rrlw0227;fmxf0227;tllg0227;fphl0226;ngxh0227
+45164,13059,srhl0226,What is the name of the sugar company?,1,1.0,1,1,1,1.0,srhl0226;lfxv0228;sqvx0227;jxjh0227;nkvx0227;hjpj0226;lhjh0227;ylyf0023;lzjf0226;flbx0227
+45166,13060,rmjl0226,What is the date mentioned at the bottom of the page?,97,0.010309,0,0,0,0.0,nggv0228;fgbd0079;jsjk0226;nkkh0227;fggw0081;qznc0227;mfbf0023;krlf0023;hlhp0053;lrgn0226
+43171,12466,hjxn0226,What is the document heading?,490,0.002041,0,0,0,0.0,pzwd0228;hkdv0228;zhjl0226;fjmv0079;rrlw0227;fmxf0227;tllg0227;fphl0226;ngxh0227;yhxd0227
+61563,8791,zzhg0227,What is the year mentioned?,4,0.25,0,1,1,0.430677,njpf0227;gmvg0227;fmbk0226;zzhg0227;lknp0227;lyfm0227;qtlc0228;mhjb0228;lhfd0079;rybx0223
+45180,13062,kqnl0226,What is the first name of the month mentioned at the top of the page?,35,0.028571,0,0,0,0.0,plhx0227;mkhg0227;fyvw0217;tkww0217;hxnp0227;jycf0227;pycj0037;ygjd0228;qhxh0228;ksvv0228
+61569,7984,flwg0227,What is the table number?,12,0.083333,0,0,0,0.0,qpbx0227;hldg0227;qsnc0227;zlmg0227;hmjf0226;ggxn0226;fsbf0227;jjmf0227;pmyc0227;gfpg0227
+61584,8873,ygjd0228,What is the name?,321,0.003115,0,0,0,0.0,thwm0227;fkbk0226;pzyy0078;zkvm0227;rqcy0227;jxbx0227;gggn0226;mzmk0226;sgwb0228;ppbn0226
+61620,7883,kljw0228,What is the day and date of dinner?,1,1.0,1,1,1,1.0,kljw0228;symf0227;thym0227;ktgn0226;lhjh0227;yhpv0001;krcy0227;ypcx0078;nggv0228;jzhd0227
+61625,7890,zhdw0228,What is the name of the city mentioned?,32,0.03125,0,0,0,0.0,gmvg0227;gycp0080;zzhg0227;hkpv0001;nqhb0228;mfng0227;xngv0228;smnp0227;ymkp0227;hlmd0217
+61631,7875,yskd0228,Which session of 85th congress is mentioned in this document?,1,1.0,1,1,1,1.0,yskd0228;hfcl0079;nzvv0228;hldw0228;sngx0227;gscv0079;qyhw0228;nngv0228;tkyg0227;xngv0228
+53442,2736,kggn0020,What is the DTS date?,1,1.0,1,1,1,1.0,kggn0020;sqxg0023;fsdw0217;qqbl0037;fsbn0226;jhkp0227;kljw0228;ypcx0078;mfdw0217;rkww0217
+45280,13090,ngxl0226,"who is the president of sugar research foundation,inc.?",1,1.0,1,1,1,1.0,ngxl0226;hyml0226;rmjl0226;fkbk0226;qlbk0226;tllk0226;yslp0227;nngv0228;smnp0227;nkhd0227

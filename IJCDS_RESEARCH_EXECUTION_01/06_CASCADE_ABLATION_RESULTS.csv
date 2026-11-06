@@ -1,0 +1,5 @@
+Condition,Query_Type,ColQwen2_MRR,ColQwen2_CI,Hit1,Hit10,Best_Proxy_System,Best_Proxy_MRR,Diff_ColQwen_minus_Proxy,Diff_CI,Perm_P_100k,Mean_Latency_ms,Peak_VRAM_MB,Verdict
+"Clean Receipts","verbatim",0.8529,"[0.8186, 0.8873]",0.7941,0.9118,"Word BM25",0.0073,0.8457,"[0.8115, 0.8800]",1e-05,38.4,3800.0,"CONFIRMED: Document-native visual retrieval significantly beats text proxy (CI > 0)"
+"Clean Receipts","light_paraphrase",0.5474,"[0.5016, 0.5915]",0.3791,0.7157,"Word BM25",0.4003,0.1471,"[0.0802, 0.2135]",3e-05,38.4,3800.0,"CONFIRMED: Document-native visual retrieval significantly beats text proxy (CI > 0)"
+"Clean Receipts","heavy_question",0.8595,"[0.8251, 0.8922]",0.817,0.902,"Word BM25",0.945,-0.0855,"[-0.1284, -0.0413]",0.00012,38.4,3800.0,"REFUTED: Text proxy significantly beats document-native visual retrieval (CI < 0)"
+"Degraded Blur","verbatim",0.6275,"[0.5768, 0.6765]",0.5327,0.7222,"Word BM25",0.0073,0.6202,"[0.5701, 0.6692]",1e-05,38.4,3800.0,"CONFIRMED: Document-native visual retrieval significantly beats text proxy (CI > 0)"

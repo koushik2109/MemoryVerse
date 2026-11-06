@@ -1,0 +1,101 @@
+[{"stream_name":"stderr","time":8.707815563,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.707864408,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.707869548,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.707872504000001,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":9.317225729,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":9.317249496,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":9.317252751,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":9.317255639,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":10.465866659,"data":"=== Setting up Environment \u0026 Installing Dependencies ===\n"}
+,{"stream_name":"stdout","time":11.138046527,"data":"Found existing installation: torchao 0.10.0\n"}
+,{"stream_name":"stdout","time":11.248973163,"data":"Uninstalling torchao-0.10.0:\n"}
+,{"stream_name":"stdout","time":11.340228887,"data":"Found existing installation: torchao 0.10.0\n"}
+,{"stream_name":"stdout","time":11.340250822,"data":"Uninstalling torchao-0.10.0:\n"}
+,{"stream_name":"stdout","time":11.635671733,"data":"  Successfully uninstalled torchao-0.10.0\n"}
+,{"stream_name":"stdout","time":11.838414314,"data":"  Successfully uninstalled torchao-0.10.0\n"}
+,{"stream_name":"stdout","time":15.934210052,"data":"Dependencies installed successfully!\n"}
+,{"stream_name":"stdout","time":23.254095211,"data":"=== GPU Hardware Diagnostics ===\n"}
+,{"stream_name":"stdout","time":23.255012067,"data":"PyTorch Version:  2.11.0+cu130\n"}
+,{"stream_name":"stdout","time":23.255027646,"data":"CUDA Available:   True\n"}
+,{"stream_name":"stdout","time":23.455058594,"data":"Device Name:      Tesla T4\n"}
+,{"stream_name":"stdout","time":23.455091868,"data":"Device Count:     2\n"}
+,{"stream_name":"stdout","time":23.455097434,"data":"Total VRAM:       14.56 GB\n"}
+,{"stream_name":"stdout","time":23.534371337,"data":"bf16 Supported:   True\n"}
+,{"stream_name":"stdout","time":24.559450696,"data":"Resolved Data Directory:    /kaggle/input/datasets/anuragkrishnavennela/frozenv11\n"}
+,{"stream_name":"stdout","time":24.559483441,"data":"Resolved Working Directory: /kaggle/working\n"}
+,{"stream_name":"stdout","time":25.89069159,"data":"Test Corpus Documents: 813 (Expected: 813)\n"}
+,{"stream_name":"stdout","time":25.890727538,"data":"Corpus Ordering SHA256: 0e0f94cbce8e2bffb6fd354589467a6f8ea7122e8a6346369b2b026f097f8170\n"}
+,{"stream_name":"stdout","time":26.596261952,"data":"Human Queries Loaded:  200 (Missing targets in corpus: 0)\n"}
+,{"stream_name":"stdout","time":26.904371804,"data":"Primary Queries:       306 (Expected: 306)\n"}
+,{"stream_name":"stdout","time":26.904427346,"data":"Secondary Qwen Queries: 306 (Expected: 306)\n"}
+,{"stream_name":"stdout","time":49.940062019,"data":"Loading vidore/colqwen2-v1.0 on cuda:0 (torch.bfloat16)...\n"}
+,{"stream_name":"stderr","time":50.969219326,"data":"Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stderr","time":50.969242948,"data":"\n"}
+,{"stream_name":"stderr","time":50.969248386,"data":"Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stderr","time":50.970028514,"data":"WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stderr","time":50.970041478,"data":"\n"}
+,{"stream_name":"stderr","time":50.97004547,"data":"WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stdout","time":108.755647482,"data":"Model loaded successfully!\n"}
+,{"stream_name":"stdout","time":108.756547554,"data":"Processor configuration: {\n"}
+,{"stream_name":"stdout","time":108.756567031,"data":"  \"model_id\": \"vidore/colqwen2-v1.0\",\n"}
+,{"stream_name":"stdout","time":108.756573237,"data":"  \"dtype\": \"torch.bfloat16\",\n"}
+,{"stream_name":"stdout","time":108.756577817,"data":"  \"device\": \"cuda:0\",\n"}
+,{"stream_name":"stdout","time":108.756582083,"data":"  \"image_processor_type\": \"Qwen2VLImageProcessor\",\n"}
+,{"stream_name":"stdout","time":108.756586687,"data":"  \"tokenizer_vocab_size\": 151643\n"}
+,{"stream_name":"stdout","time":108.756590839,"data":"}\n"}
+,{"stream_name":"stdout","time":109.081150404,"data":"Encoding 813 document images on GPU...\n"}
+,{"stream_name":"stdout","time":119.054276325,"data":"  Encoded 4/813 images...\n"}
+,{"stream_name":"stdout","time":309.334334286,"data":"  Encoded 104/813 images...\n"}
+,{"stream_name":"stdout","time":511.431574288,"data":"  Encoded 204/813 images...\n"}
+,{"stream_name":"stdout","time":716.068586681,"data":"  Encoded 304/813 images...\n"}
+,{"stream_name":"stdout","time":918.758948883,"data":"  Encoded 404/813 images...\n"}
+,{"stream_name":"stdout","time":1128.040206461,"data":"  Encoded 504/813 images...\n"}
+,{"stream_name":"stdout","time":1607.254387316,"data":"  Encoded 604/813 images...\n"}
+,{"stream_name":"stdout","time":2089.702378494,"data":"  Encoded 704/813 images...\n"}
+,{"stream_name":"stdout","time":2578.73602227,"data":"  Encoded 804/813 images...\n"}
+,{"stream_name":"stdout","time":2622.341002832,"data":"Completed live image encoding in 2513.3s!\n"}
+,{"stream_name":"stdout","time":2622.466442863,"data":"Saved doc embeddings to /kaggle/working/colqwen_doc_embeddings.pt\n"}
+,{"stream_name":"stdout","time":2622.49148643,"data":"Scoring all 200 Human Probes live on GPU...\n"}
+,{"stream_name":"stdout","time":2674.542275599,"data":"Scoring Primary Probes (N=306)...\n"}
+,{"stream_name":"stdout","time":2752.565527771,"data":"Scoring Secondary Qwen Probes (N=306)...\n"}
+,{"stream_name":"stdout","time":2833.042116264,"data":"\n"}
+,{"stream_name":"stdout","time":2833.042164112,"data":"=== STABILITY \u0026 PARTITION SWEEP (Validation 1 \u0026 2) ===\n"}
+,{"stream_name":"stdout","time":2833.042188812,"data":"| Cohort                                |   N |      MRR |   Hit1 |   Hit5 |   Hit10 |\n"}
+,{"stream_name":"stdout","time":2833.04219528,"data":"|:--------------------------------------|----:|---------:|-------:|-------:|--------:|\n"}
+,{"stream_name":"stdout","time":2833.042200171,"data":"| Human All (N=200)                     | 200 | 0.647147 |  0.545 |  0.745 |   0.855 |\n"}
+,{"stream_name":"stdout","time":2833.042205081,"data":"| Human Tier 1 (First 100)              | 100 | 0.766038 |  0.68  |  0.85  |   0.96  |\n"}
+,{"stream_name":"stdout","time":2833.042209427,"data":"| Human Tier 2 (Second 100)             | 100 | 0.528255 |  0.41  |  0.64  |   0.75  |\n"}
+,{"stream_name":"stdout","time":2833.042214271,"data":"| Human Random Sample N=100 (Seed 42)   | 100 | 0.649964 |  0.55  |  0.73  |   0.85  |\n"}
+,{"stream_name":"stdout","time":2833.04222931,"data":"| Human Random Sample N=100 (Seed 123)  | 100 | 0.680085 |  0.61  |  0.73  |   0.85  |\n"}
+,{"stream_name":"stdout","time":2833.042233663,"data":"| Human Random Sample N=100 (Seed 456)  | 100 | 0.623985 |  0.52  |  0.71  |   0.85  |\n"}
+,{"stream_name":"stdout","time":2833.042237307,"data":"| Human Random Sample N=100 (Seed 789)  | 100 | 0.619302 |  0.51  |  0.71  |   0.82  |\n"}
+,{"stream_name":"stdout","time":2833.042240701,"data":"| Human Random Sample N=100 (Seed 1024) | 100 | 0.634119 |  0.54  |  0.7   |   0.85  |\n"}
+,{"stream_name":"stdout","time":2834.274096756,"data":"\n"}
+,{"stream_name":"stdout","time":2834.27417054,"data":"=== 10,000 BOOTSTRAP UNCERTAINTY ESTIMATES (Validation 5) ===\n"}
+,{"stream_name":"stdout","time":2834.274177652,"data":"| Suite                              |   N |   Measured_MRR |   Std_Error |   95%_CI_Lower |   95%_CI_Upper | 95%_CI_Formatted   |\n"}
+,{"stream_name":"stdout","time":2834.274184538,"data":"|:-----------------------------------|----:|---------------:|------------:|---------------:|---------------:|:-------------------|\n"}
+,{"stream_name":"stdout","time":2834.274188937,"data":"| Primary Gen. (gpt-4o-mini, N=306)  | 306 |         0.4962 |      0.0252 |         0.4459 |         0.5459 | [0.4459, 0.5459]   |\n"}
+,{"stream_name":"stdout","time":2834.274193515,"data":"| Secondary Gen. (Qwen2.5-7B, N=306) | 306 |         0.7627 |      0.021  |         0.7201 |         0.8031 | [0.7201, 0.8031]   |\n"}
+,{"stream_name":"stdout","time":2834.274197752,"data":"| Human-Authored Queries (N=100)     | 100 |         0.766  |      0.0353 |         0.6946 |         0.8321 | [0.6946, 0.8321]   |\n"}
+,{"stream_name":"stdout","time":2834.274202018,"data":"| Human-Authored Queries (N=200)     | 200 |         0.6471 |      0.0285 |         0.5903 |         0.7027 | [0.5903, 0.7027]   |\n"}
+,{"stream_name":"stdout","time":2834.274206442,"data":"| Human Tier 2 Queries (N=100)       | 100 |         0.5283 |      0.0413 |         0.4483 |         0.6103 | [0.4483, 0.6103]   |\n"}
+,{"stream_name":"stdout","time":2834.294224991,"data":"\n"}
+,{"stream_name":"stdout","time":2834.294243516,"data":"=== CROSS-SYSTEM COMPARISON TABLE (Table XI Authoritative Basis) ===\n"}
+,{"stream_name":"stdout","time":2834.294248065,"data":"| System                   |   Human_N100_MRR |   Human_N200_MRR | Source                      |\n"}
+,{"stream_name":"stdout","time":2834.294251704,"data":"|:-------------------------|-----------------:|-----------------:|:----------------------------|\n"}
+,{"stream_name":"stdout","time":2834.294255362,"data":"| Word BM25                |           0.6353 |           0.5626 | Unified Test Index (N=813)  |\n"}
+,{"stream_name":"stdout","time":2834.294258533,"data":"| Char 3-5g BM25           |           0.6059 |           0.5605 | Unified Test Index (N=813)  |\n"}
+,{"stream_name":"stdout","time":2834.294261825,"data":"| Dense BGE-M3             |           0.502  |           0.4909 | Unified Test Index (N=813)  |\n"}
+,{"stream_name":"stdout","time":2834.294265085,"data":"| ColQwen2-v1.0 (Live GPU) |           0.766  |           0.6471 | Live Tesla T4 GPU Execution |\n"}
+,{"stream_name":"stdout","time":2834.327146327,"data":"\n"}
+,{"stream_name":"stdout","time":2834.327213548,"data":"All validation artifacts successfully packaged to: /kaggle/working/colqwen2_human_validation_results.zip\n"}
+,{"stream_name":"stdout","time":2834.327219017,"data":"Archive size: 6.6 KB\n"}
+,{"stream_name":"stderr","time":2840.257351417,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":2840.257396714,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":2840.43070016,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":2840.43072847,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":2841.227595284,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":2841.337695019,"data":"[NbConvertApp] Writing 345867 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":2843.873655007,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":2844.631656988,"data":"[NbConvertApp] Writing 758039 bytes to __results__.html\n"}
+]

@@ -1,0 +1,716 @@
+{
+  "random_seed": 42,
+  "dev_corpus_size": 96,
+  "test_corpus_size": 97,
+  "dev_record_ids": [
+    "ocr_doc_IEEE_Paper_MemoryVerse_p1",
+    "ocr_photo_2017-11-05 130529",
+    "ocr_photo_2017-11-05 145018",
+    "ocr_photo_2017-11-05 145407",
+    "ocr_photo_2017-11-05 150002",
+    "ocr_photo_2017-11-05 150808",
+    "ocr_photo_2017-11-05 151340",
+    "ocr_photo_2017-11-05 151838",
+    "ocr_photo_2017-11-05 153533",
+    "ocr_photo_2017-11-05 153546",
+    "ocr_photo_2017-11-05 155728",
+    "ocr_photo_2017-11-05 155740",
+    "ocr_photo_2017-11-05 164059",
+    "ocr_photo_2018-04-01 170511",
+    "ocr_photo_2018-04-15 073828",
+    "ocr_photo_2018-06-28 121602",
+    "ocr_photo_IMG_0085",
+    "ocr_photo_IMG_0219",
+    "ocr_photo_IMG_0536",
+    "ocr_photo_IMG_0548",
+    "ocr_photo_IMG_0556",
+    "ocr_photo_IMG_0761",
+    "ocr_photo_IMG_0781",
+    "ocr_photo_IMG_0789",
+    "ocr_photo_IMG_0860",
+    "ocr_photo_IMG_1011",
+    "ocr_photo_IMG_1015",
+    "ocr_photo_IMG_1017",
+    "ocr_photo_IMG_1179",
+    "ocr_photo_IMG_1192",
+    "ocr_photo_IMG_1193",
+    "ocr_photo_IMG_1366",
+    "ocr_photo_IMG_1369",
+    "ocr_photo_IMG_1386",
+    "ocr_photo_IMG_1390",
+    "ocr_photo_IMG_1400",
+    "ocr_photo_IMG_1483",
+    "ocr_photo_IMG_1483 2",
+    "ocr_photo_IMG_1780",
+    "ocr_photo_IMG_20220623_212642",
+    "ocr_photo_IMG_20220624_134949",
+    "ocr_photo_IMG_20220624_152213",
+    "ocr_photo_IMG_20220716_141621",
+    "ocr_photo_IMG_20220716_141625",
+    "ocr_photo_IMG_20220730_164002",
+    "ocr_photo_IMG_20220731_204544",
+    "ocr_photo_IMG_20220801_092920",
+    "ocr_photo_IMG_2032",
+    "ocr_photo_IMG_2032 2",
+    "ocr_photo_IMG_2036",
+    "ocr_photo_IMG_2061",
+    "ocr_photo_IMG_2626",
+    "ocr_photo_IMG_2670",
+    "ocr_photo_IMG_2696",
+    "ocr_photo_IMG_2702",
+    "ocr_photo_IMG_3066",
+    "ocr_photo_IMG_3779",
+    "ocr_photo_IMG_3803",
+    "ocr_photo_IMG_4146",
+    "ocr_photo_IMG_4395",
+    "ocr_photo_IMG_4399 2",
+    "ocr_photo_IMG_4540",
+    "ocr_photo_IMG_4548",
+    "ocr_photo_IMG_4724",
+    "ocr_photo_IMG_4824",
+    "ocr_photo_IMG_4831",
+    "ocr_photo_IMG_5243 2",
+    "ocr_photo_IMG_5255",
+    "ocr_photo_IMG_5257",
+    "ocr_photo_IMG_5259",
+    "ocr_photo_IMG_5265",
+    "ocr_photo_IMG_5608",
+    "ocr_photo_IMG_5625",
+    "ocr_photo_IMG_5974",
+    "ocr_photo_IMG_6022",
+    "ocr_photo_IMG_6023",
+    "ocr_photo_IMG_6222",
+    "ocr_photo_IMG_6227(1)",
+    "ocr_photo_IMG_6343",
+    "ocr_photo_IMG_6344",
+    "ocr_photo_IMG_6437",
+    "ocr_photo_IMG_6438",
+    "ocr_photo_IMG_6457",
+    "ocr_photo_IMG_6458",
+    "ocr_photo_IMG_7333",
+    "ocr_photo_IMG_7380",
+    "ocr_photo_IMG_7633",
+    "ocr_photo_IMG_7742",
+    "ocr_photo_IMG_7898",
+    "ocr_photo_IMG_7955",
+    "ocr_photo_IMG_8542 2",
+    "ocr_photo_IMG_8684",
+    "ocr_photo_IMG_8725",
+    "ocr_photo_IMG_8870",
+    "ocr_photo_IMG_8871",
+    "ocr_photo_IMG_9675"
+  ],
+  "test_record_ids": [
+    "ocr_doc_Enhancing_Interactive_Querying_with_a_Multimodal_RAG_System_Integrating_Text_Video_and_Document_Analysis_via_LLaMA3_p1",
+    "ocr_photo_2017-11-05 145421",
+    "ocr_photo_2017-11-05 145912",
+    "ocr_photo_2017-11-05 150513",
+    "ocr_photo_2017-11-05 150755",
+    "ocr_photo_2017-11-05 151308",
+    "ocr_photo_2017-11-05 151427",
+    "ocr_photo_2017-11-05 151451",
+    "ocr_photo_2017-11-05 152200",
+    "ocr_photo_2017-11-05 152601",
+    "ocr_photo_2017-11-05 152623",
+    "ocr_photo_2017-11-05 152724",
+    "ocr_photo_2017-11-05 153809",
+    "ocr_photo_2017-11-05 161103",
+    "ocr_photo_2017-11-05 164041",
+    "ocr_photo_2017-11-05 164429",
+    "ocr_photo_2017-11-05 164457",
+    "ocr_photo_2018-04-01 200541",
+    "ocr_photo_2018-04-01 201022",
+    "ocr_photo_2018-04-01 201025",
+    "ocr_photo_2019-01-01 164619",
+    "ocr_photo_IMG_0143",
+    "ocr_photo_IMG_0185",
+    "ocr_photo_IMG_0191",
+    "ocr_photo_IMG_0220",
+    "ocr_photo_IMG_0354",
+    "ocr_photo_IMG_0517",
+    "ocr_photo_IMG_0520",
+    "ocr_photo_IMG_0542",
+    "ocr_photo_IMG_0555",
+    "ocr_photo_IMG_0760",
+    "ocr_photo_IMG_0837",
+    "ocr_photo_IMG_1013",
+    "ocr_photo_IMG_1018",
+    "ocr_photo_IMG_1019",
+    "ocr_photo_IMG_1178",
+    "ocr_photo_IMG_1191",
+    "ocr_photo_IMG_1194",
+    "ocr_photo_IMG_1195",
+    "ocr_photo_IMG_1371",
+    "ocr_photo_IMG_1388",
+    "ocr_photo_IMG_1396",
+    "ocr_photo_IMG_1472",
+    "ocr_photo_IMG_1478",
+    "ocr_photo_IMG_1483 3",
+    "ocr_photo_IMG_1484",
+    "ocr_photo_IMG_1485",
+    "ocr_photo_IMG_1570",
+    "ocr_photo_IMG_1570 2",
+    "ocr_photo_IMG_1779",
+    "ocr_photo_IMG_20220502_163720",
+    "ocr_photo_IMG_20220502_224357",
+    "ocr_photo_IMG_20220624_151900",
+    "ocr_photo_IMG_20220624_151905",
+    "ocr_photo_IMG_20220730_181336",
+    "ocr_photo_IMG_20220801_092909",
+    "ocr_photo_IMG_20230404_080916",
+    "ocr_photo_IMG_20230523_101625",
+    "ocr_photo_IMG_2028(1)",
+    "ocr_photo_IMG_2049",
+    "ocr_photo_IMG_2697",
+    "ocr_photo_IMG_2698",
+    "ocr_photo_IMG_2699",
+    "ocr_photo_IMG_2742",
+    "ocr_photo_IMG_3672",
+    "ocr_photo_IMG_3725",
+    "ocr_photo_IMG_3726",
+    "ocr_photo_IMG_3801",
+    "ocr_photo_IMG_4022(1)",
+    "ocr_photo_IMG_4350",
+    "ocr_photo_IMG_4542",
+    "ocr_photo_IMG_4555",
+    "ocr_photo_IMG_4556",
+    "ocr_photo_IMG_4563",
+    "ocr_photo_IMG_4609",
+    "ocr_photo_IMG_4753",
+    "ocr_photo_IMG_4790",
+    "ocr_photo_IMG_4823",
+    "ocr_photo_IMG_5156",
+    "ocr_photo_IMG_5159",
+    "ocr_photo_IMG_5241",
+    "ocr_photo_IMG_5254",
+    "ocr_photo_IMG_5592",
+    "ocr_photo_IMG_5966",
+    "ocr_photo_IMG_7658",
+    "ocr_photo_IMG_7954",
+    "ocr_photo_IMG_7996",
+    "ocr_photo_IMG_7999",
+    "ocr_photo_IMG_8506",
+    "ocr_photo_IMG_8527",
+    "ocr_photo_IMG_8637",
+    "ocr_photo_IMG_8808",
+    "ocr_photo_IMG_8878",
+    "ocr_photo_IMG_8890",
+    "ocr_photo_IMG_9610",
+    "ocr_photo_IMG_9616",
+    "ocr_photo_IMG_9913"
+  ],
+  "dev_probes": [
+    {
+      "query": "Baotu Spring cultural stone inscription 泉突约 趵突泉",
+      "ground_truth": [
+        "ocr_photo_IMG_1192"
+      ]
+    },
+    {
+      "query": "Shandong modern history museum anti-invasion 半殖民地化",
+      "ground_truth": [
+        "ocr_photo_IMG_1386"
+      ]
+    },
+    {
+      "query": "where is china on the horizon 天涯何处是神州",
+      "ground_truth": [
+        "ocr_photo_IMG_1386"
+      ]
+    },
+    {
+      "query": "nation should wake up today 国民知醒宜今醒",
+      "ground_truth": [
+        "ocr_photo_IMG_1390"
+      ]
+    },
+    {
+      "query": "Boxer movement anti-imperialist patriotic 义和团 辛亥革命",
+      "ground_truth": [
+        "ocr_photo_IMG_1390"
+      ]
+    },
+    {
+      "query": "rising sun red flag flutters 旭日东升 红旗飘扬 齐鲁大地",
+      "ground_truth": [
+        "ocr_photo_IMG_1400"
+      ]
+    },
+    {
+      "query": "stand-up comedy show SOOGLE COMEDY 松果 脱口秀",
+      "ground_truth": [
+        "ocr_photo_IMG_6222"
+      ]
+    },
+    {
+      "query": "stand-up comedy show talk show 松果 脱口秀",
+      "ground_truth": [
+        "ocr_photo_IMG_4146"
+      ]
+    },
+    {
+      "query": "Yang family barbecue 1995 杨家烤肉",
+      "ground_truth": [
+        "ocr_photo_IMG_4540"
+      ]
+    },
+    {
+      "query": "all living things are grass唯你是青山 众生皆草木",
+      "ground_truth": [
+        "ocr_photo_IMG_6022"
+      ]
+    },
+    {
+      "query": "firmly loved is better than anything 被坚定的爱着",
+      "ground_truth": [
+        "ocr_photo_IMG_6023"
+      ]
+    },
+    {
+      "query": "Japanese thick cut fried steak 日式厚切体統 3F13-07",
+      "ground_truth": [
+        "ocr_photo_IMG_7955"
+      ]
+    },
+    {
+      "query": "Fuying leadership summit 2018福婴 领袖高峰会",
+      "ground_truth": [
+        "ocr_photo_2018-04-01 170511"
+      ]
+    },
+    {
+      "query": "National forest park visitor service 国家森林公园 游客服务点",
+      "ground_truth": [
+        "ocr_photo_2018-04-15 073828"
+      ]
+    },
+    {
+      "query": "Changshou Road police station alarm 22048084 长寿路派出所 江宁路",
+      "ground_truth": [
+        "ocr_photo_IMG_20220623_212642"
+      ]
+    },
+    {
+      "query": "Multi-Stage Multimodal RAG with Text-Proxy Hybrid Retrieval",
+      "ground_truth": [
+        "ocr_doc_IEEE_Paper_MemoryVerse_p1"
+      ]
+    },
+    {
+      "query": "Candidate Reranking and Multi-Hop Query Bridging",
+      "ground_truth": [
+        "ocr_doc_IEEE_Paper_MemoryVerse_p1"
+      ]
+    },
+    {
+      "query": "National Institute of Technology Warangal Computer Science",
+      "ground_truth": [
+        "ocr_doc_IEEE_Paper_MemoryVerse_p1"
+      ]
+    },
+    {
+      "query": "Anurag Krishna Vennela Sai Balaji Koushik",
+      "ground_truth": [
+        "ocr_doc_IEEE_Paper_MemoryVerse_p1"
+      ]
+    },
+    {
+      "query": "Otsu binarization and Hough transform skew correction",
+      "ground_truth": [
+        "ocr_doc_IEEE_Paper_MemoryVerse_p1"
+      ]
+    },
+    {
+      "query": "Dual-Signal Candidate Reranking Overlap",
+      "ground_truth": [
+        "ocr_doc_IEEE_Paper_MemoryVerse_p1"
+      ]
+    },
+    {
+      "query": "Tesseract OCR engine ICDAR benchmark",
+      "ground_truth": [
+        "ocr_doc_IEEE_Paper_MemoryVerse_p1"
+      ]
+    },
+    {
+      "query": "Reciprocal Rank Fusion RRF k=60",
+      "ground_truth": [
+        "ocr_doc_IEEE_Paper_MemoryVerse_p1"
+      ]
+    },
+    {
+      "query": "Whisper ASR speech recognition acoustic",
+      "ground_truth": [
+        "ocr_doc_IEEE_Paper_MemoryVerse_p1"
+      ]
+    },
+    {
+      "query": "Proxy consistency benchmark HitRate evaluation",
+      "ground_truth": [
+        "ocr_doc_IEEE_Paper_MemoryVerse_p1"
+      ]
+    },
+    {
+      "query": "Sentence-BERT Siamese network cosine similarity",
+      "ground_truth": [
+        "ocr_doc_IEEE_Paper_MemoryVerse_p1"
+      ]
+    },
+    {
+      "query": "convex score fusion alpha parameter",
+      "ground_truth": [
+        "ocr_doc_IEEE_Paper_MemoryVerse_p1"
+      ]
+    },
+    {
+      "query": "Confidence-Triggered Cascade Ranking cross-encoder ms-marco",
+      "ground_truth": [
+        "ocr_doc_IEEE_Paper_MemoryVerse_p1"
+      ]
+    },
+    {
+      "query": "heterogeneous media retrieval exact lexical cues",
+      "ground_truth": [
+        "ocr_doc_IEEE_Paper_MemoryVerse_p1"
+      ]
+    },
+    {
+      "query": "Apple Vision framework OCR pipeline text extraction",
+      "ground_truth": [
+        "ocr_doc_IEEE_Paper_MemoryVerse_p1"
+      ]
+    }
+  ],
+  "test_probes": [
+    {
+      "query": "fresh probiotic flavored fermented milk 新鮮 益生菌 风味发酵乳",
+      "ground_truth": [
+        "ocr_photo_IMG_20220502_163720"
+      ]
+    },
+    {
+      "query": "room 406 hotel room 严想篡州",
+      "ground_truth": [
+        "ocr_photo_IMG_5241"
+      ]
+    },
+    {
+      "query": "ice pop 5支起售 淡素 图片仅供参考",
+      "ground_truth": [
+        "ocr_photo_IMG_20220624_151900"
+      ]
+    },
+    {
+      "query": "T MIND brand exhibition 04.18 06.29",
+      "ground_truth": [
+        "ocr_photo_IMG_7996"
+      ]
+    },
+    {
+      "query": "XULAITAI chicken cat grass cat treats 全价主食猫条",
+      "ground_truth": [
+        "ocr_photo_IMG_5159"
+      ]
+    },
+    {
+      "query": "ticket booth scenic entrance 售票处 捡票处",
+      "ground_truth": [
+        "ocr_photo_IMG_1191"
+      ]
+    },
+    {
+      "query": "mall emergency exit opening hours 10-22:00 EXI",
+      "ground_truth": [
+        "ocr_photo_IMG_7954"
+      ]
+    },
+    {
+      "query": "flambe glazed porcelain vase 窑变釉瓶 馆藏胡清官金",
+      "ground_truth": [
+        "ocr_photo_IMG_1478"
+      ]
+    },
+    {
+      "query": "poet Yuan Haowen stone inscription 元好问 1190-1257",
+      "ground_truth": [
+        "ocr_photo_2019-01-01 164619"
+      ]
+    },
+    {
+      "query": "thick cut fried yogurt dessert 12.8元 四块体验装 厚切炒酸奶",
+      "ground_truth": [
+        "ocr_photo_IMG_20220624_151905"
+      ]
+    },
+    {
+      "query": "Sino-Japanese war general Zuo Baogui 中日甲午战争 左宝贵",
+      "ground_truth": [
+        "ocr_photo_IMG_1388"
+      ]
+    },
+    {
+      "query": "Weihaiwei Jiaozhou Bay Qingdao concessions 英租威海 德占胶澳 日占青岛",
+      "ground_truth": [
+        "ocr_photo_IMG_1388"
+      ]
+    },
+    {
+      "query": "vintage postal stamp label code T.L.19-9-5",
+      "ground_truth": [
+        "ocr_photo_2017-11-05 152200"
+      ]
+    },
+    {
+      "query": "flambe glaze antique porcelain jar 密变釉瓶 体北産",
+      "ground_truth": [
+        "ocr_photo_IMG_1483 3"
+      ]
+    },
+    {
+      "query": "studio workshop door sign 工作巫",
+      "ground_truth": [
+        "ocr_photo_IMG_4022(1)"
+      ]
+    },
+    {
+      "query": "bakery store signboard BAKESHOP 1OP BO",
+      "ground_truth": [
+        "ocr_photo_IMG_1472"
+      ]
+    },
+    {
+      "query": "Yintai department store mall 银泰 辛好",
+      "ground_truth": [
+        "ocr_photo_IMG_9610"
+      ]
+    },
+    {
+      "query": "ONYENAN museum souvenir gift shop ONYENAN",
+      "ground_truth": [
+        "ocr_photo_IMG_1013"
+      ]
+    },
+    {
+      "query": "chemical reagent batch code 希脯黒磷 18/2128620",
+      "ground_truth": [
+        "ocr_photo_IMG_1570 2"
+      ]
+    },
+    {
+      "query": "PP tiger cartoon mascot logo PP虎",
+      "ground_truth": [
+        "ocr_photo_IMG_0555"
+      ]
+    },
+    {
+      "query": "pet nutrition chicken cat grass 90% meat 全价主食猫条",
+      "ground_truth": [
+        "ocr_photo_IMG_5156"
+      ]
+    },
+    {
+      "query": "XU.AITAS pet nutrition chicken cat grass",
+      "ground_truth": [
+        "ocr_photo_IMG_5156"
+      ]
+    },
+    {
+      "query": "fried yogurt sweet dessert 颜值高 厚订炒酸如 調額間食",
+      "ground_truth": [
+        "ocr_photo_IMG_20220730_181336"
+      ]
+    },
+    {
+      "query": "gourmet wild food snacks 野食準口 钓欲玫跳婴釉花盐",
+      "ground_truth": [
+        "ocr_photo_IMG_1019"
+      ]
+    },
+    {
+      "query": "market fruit stall signboard 产宙瓜 公主州 请每",
+      "ground_truth": [
+        "ocr_photo_IMG_9616"
+      ]
+    },
+    {
+      "query": "summer festival exhibition poster SET9O 枸南 04.18-06.29",
+      "ground_truth": [
+        "ocr_photo_IMG_7999"
+      ]
+    },
+    {
+      "query": "traditional handicraft heritage 延术豆金",
+      "ground_truth": [
+        "ocr_photo_IMG_1018"
+      ]
+    },
+    {
+      "query": "phosphorus chemical container label 希脯黒磷 18/2128620",
+      "ground_truth": [
+        "ocr_photo_IMG_1570"
+      ]
+    },
+    {
+      "query": "La Jeunesse dawn light torch 新青年 黎明曙光 大道新火",
+      "ground_truth": [
+        "ocr_photo_IMG_1396"
+      ]
+    },
+    {
+      "query": "red flag of the future world 试看将来的环球 必是赤旗的世界",
+      "ground_truth": [
+        "ocr_photo_IMG_1396"
+      ]
+    },
+    {
+      "query": "Enhancing Interactive Querying with a Multimodal RAG System",
+      "ground_truth": [
+        "ocr_doc_Enhancing_Interactive_Querying_with_a_Multimodal_RAG_System_Integrating_Text_Video_and_Document_Analysis_via_LLaMA3_p1"
+      ]
+    },
+    {
+      "query": "Integrating Text Video and Document Analysis via LLaMA3",
+      "ground_truth": [
+        "ocr_doc_Enhancing_Interactive_Querying_with_a_Multimodal_RAG_System_Integrating_Text_Video_and_Document_Analysis_via_LLaMA3_p1"
+      ]
+    },
+    {
+      "query": "Anjali Patel Rajpurohit Shivani Bangalore Institute of Technology",
+      "ground_truth": [
+        "ocr_doc_Enhancing_Interactive_Querying_with_a_Multimodal_RAG_System_Integrating_Text_Video_and_Document_Analysis_via_LLaMA3_p1"
+      ]
+    },
+    {
+      "query": "N.V.Usha Dr. Shruthiba A BIT Bangalore",
+      "ground_truth": [
+        "ocr_doc_Enhancing_Interactive_Querying_with_a_Multimodal_RAG_System_Integrating_Text_Video_and_Document_Analysis_via_LLaMA3_p1"
+      ]
+    },
+    {
+      "query": "Department of Artificial Intelligence and Machine Learning BIT Bangalore",
+      "ground_truth": [
+        "ocr_doc_Enhancing_Interactive_Querying_with_a_Multimodal_RAG_System_Integrating_Text_Video_and_Document_Analysis_via_LLaMA3_p1"
+      ]
+    },
+    {
+      "query": "International Conference on Emerging Technologies in Computing and Communication ETCC",
+      "ground_truth": [
+        "ocr_doc_Enhancing_Interactive_Querying_with_a_Multimodal_RAG_System_Integrating_Text_Video_and_Document_Analysis_via_LLaMA3_p1"
+      ]
+    },
+    {
+      "query": "streamline interaction and information retrieval across diverse data formats",
+      "ground_truth": [
+        "ocr_doc_Enhancing_Interactive_Querying_with_a_Multimodal_RAG_System_Integrating_Text_Video_and_Document_Analysis_via_LLaMA3_p1"
+      ]
+    },
+    {
+      "query": "Retrieval-Augmented Generation RAG system across readable and non-readable sources",
+      "ground_truth": [
+        "ocr_doc_Enhancing_Interactive_Querying_with_a_Multimodal_RAG_System_Integrating_Text_Video_and_Document_Analysis_via_LLaMA3_p1"
+      ]
+    },
+    {
+      "query": "video frame chunking audio transcription and document analysis via LLaMA3",
+      "ground_truth": [
+        "ocr_doc_Enhancing_Interactive_Querying_with_a_Multimodal_RAG_System_Integrating_Text_Video_and_Document_Analysis_via_LLaMA3_p1"
+      ]
+    },
+    {
+      "query": "Milvus vector database storing ImageBind multimodal embeddings",
+      "ground_truth": [
+        "ocr_doc_Enhancing_Interactive_Querying_with_a_Multimodal_RAG_System_Integrating_Text_Video_and_Document_Analysis_via_LLaMA3_p1"
+      ]
+    },
+    {
+      "query": "heterogeneous data formats documents videos images and audio",
+      "ground_truth": [
+        "ocr_doc_Enhancing_Interactive_Querying_with_a_Multimodal_RAG_System_Integrating_Text_Video_and_Document_Analysis_via_LLaMA3_p1"
+      ]
+    },
+    {
+      "query": "video processing frame extraction and visual context capture",
+      "ground_truth": [
+        "ocr_doc_Enhancing_Interactive_Querying_with_a_Multimodal_RAG_System_Integrating_Text_Video_and_Document_Analysis_via_LLaMA3_p1"
+      ]
+    },
+    {
+      "query": "audio processing Whisper speech-to-text conversion",
+      "ground_truth": [
+        "ocr_doc_Enhancing_Interactive_Querying_with_a_Multimodal_RAG_System_Integrating_Text_Video_and_Document_Analysis_via_LLaMA3_p1"
+      ]
+    },
+    {
+      "query": "text embedding generation for document chunks via LLaMA3",
+      "ground_truth": [
+        "ocr_doc_Enhancing_Interactive_Querying_with_a_Multimodal_RAG_System_Integrating_Text_Video_and_Document_Analysis_via_LLaMA3_p1"
+      ]
+    },
+    {
+      "query": "combining visual text and acoustic embeddings in unified vector space",
+      "ground_truth": [
+        "ocr_doc_Enhancing_Interactive_Querying_with_a_Multimodal_RAG_System_Integrating_Text_Video_and_Document_Analysis_via_LLaMA3_p1"
+      ]
+    },
+    {
+      "query": "cross-modal semantic alignment using ImageBind model",
+      "ground_truth": [
+        "ocr_doc_Enhancing_Interactive_Querying_with_a_Multimodal_RAG_System_Integrating_Text_Video_and_Document_Analysis_via_LLaMA3_p1"
+      ]
+    },
+    {
+      "query": "similarity search in Milvus vector database using cosine distance",
+      "ground_truth": [
+        "ocr_doc_Enhancing_Interactive_Querying_with_a_Multimodal_RAG_System_Integrating_Text_Video_and_Document_Analysis_via_LLaMA3_p1"
+      ]
+    },
+    {
+      "query": "LLaMA3 generation augmented with multimodal retrieved context",
+      "ground_truth": [
+        "ocr_doc_Enhancing_Interactive_Querying_with_a_Multimodal_RAG_System_Integrating_Text_Video_and_Document_Analysis_via_LLaMA3_p1"
+      ]
+    },
+    {
+      "query": "comprehensive query answering across video transcripts and PDF pages",
+      "ground_truth": [
+        "ocr_doc_Enhancing_Interactive_Querying_with_a_Multimodal_RAG_System_Integrating_Text_Video_and_Document_Analysis_via_LLaMA3_p1"
+      ]
+    },
+    {
+      "query": "evaluation metrics precision recall latency in multimodal RAG",
+      "ground_truth": [
+        "ocr_doc_Enhancing_Interactive_Querying_with_a_Multimodal_RAG_System_Integrating_Text_Video_and_Document_Analysis_via_LLaMA3_p1"
+      ]
+    },
+    {
+      "query": "audio feature extraction acoustic representations ETCC 2025",
+      "ground_truth": [
+        "ocr_doc_Enhancing_Interactive_Querying_with_a_Multimodal_RAG_System_Integrating_Text_Video_and_Document_Analysis_via_LLaMA3_p1"
+      ]
+    },
+    {
+      "query": "dense vector retrieval over multi-format knowledge repositories",
+      "ground_truth": [
+        "ocr_doc_Enhancing_Interactive_Querying_with_a_Multimodal_RAG_System_Integrating_Text_Video_and_Document_Analysis_via_LLaMA3_p1"
+      ]
+    },
+    {
+      "query": "interactive querying system text video audio document integration",
+      "ground_truth": [
+        "ocr_doc_Enhancing_Interactive_Querying_with_a_Multimodal_RAG_System_Integrating_Text_Video_and_Document_Analysis_via_LLaMA3_p1"
+      ]
+    },
+    {
+      "query": "Patel Shivani Usha Shruthiba multimodal RAG framework",
+      "ground_truth": [
+        "ocr_doc_Enhancing_Interactive_Querying_with_a_Multimodal_RAG_System_Integrating_Text_Video_and_Document_Analysis_via_LLaMA3_p1"
+      ]
+    },
+    {
+      "query": "enterprise scale multimodal information retrieval LLaMA3 architecture",
+      "ground_truth": [
+        "ocr_doc_Enhancing_Interactive_Querying_with_a_Multimodal_RAG_System_Integrating_Text_Video_and_Document_Analysis_via_LLaMA3_p1"
+      ]
+    }
+  ]
+}

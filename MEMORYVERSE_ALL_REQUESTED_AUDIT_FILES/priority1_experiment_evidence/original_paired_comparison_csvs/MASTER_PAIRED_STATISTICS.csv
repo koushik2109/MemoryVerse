@@ -1,0 +1,36 @@
+Family,Comparison,Mean_Diff,Std_Error,Cohen_dz,p_raw,Test_Method,Rank,m,alpha_crit,p_Holm,Significant_Holm,Verdict
+Family 1 (Sparse OCR),Char vs Word on Syn 20% Noise,0.3167,0.0238,0.7615,1e-05,Paired Sign-Flip Permutation (100k),1,6,0.00833,6e-05,True,Statistically Significant
+Family 1 (Sparse OCR),Char vs Word on Clean OCR (Apple),0.1066,0.0166,0.366,1e-05,Paired Sign-Flip Permutation (100k),2,6,0.01,5e-05,True,Statistically Significant
+Family 1 (Sparse OCR),Char vs Word on Degraded Blur,0.1275,0.0169,0.4316,1e-05,Paired Sign-Flip Permutation (100k),3,6,0.0125,4e-05,True,Statistically Significant
+Family 1 (Sparse OCR),Char vs Word on Tesseract 5.5,0.1049,0.0156,0.3841,1e-05,Paired Sign-Flip Permutation (100k),4,6,0.01667,3e-05,True,Statistically Significant
+Family 1 (Sparse OCR),Char vs Word on Clean GT Text,0.1282,0.0164,0.4475,1e-05,Paired Sign-Flip Permutation (100k),5,6,0.025,2e-05,True,Statistically Significant
+Family 1 (Sparse OCR),Char vs Word on Tesseract Degraded Blur,0.0551,0.0145,0.2174,0.00016,Paired Sign-Flip Permutation (100k),6,6,0.05,0.00016,True,Statistically Significant
+Family 2 (ColQwen2 vs Proxies),ColQwen2 vs Word BM25 (DocVQA),0.239,0.0165,0.6492,1e-05,Paired Sign-Flip Permutation (100k),1,5,0.01,5e-05,True,Statistically Significant
+Family 2 (ColQwen2 vs Proxies),ColQwen2 vs Tuned Hybrid (DocVQA),0.244,0.017,0.6427,1e-05,Paired Sign-Flip Permutation (100k),2,5,0.0125,4e-05,True,Statistically Significant
+Family 2 (ColQwen2 vs Proxies),ColQwen2 vs Tuned Hybrid (SROIE Paraphrase),0.25,0.0229,0.6255,1e-05,Paired Sign-Flip Permutation (100k),3,5,0.01667,3e-05,True,Statistically Significant
+Family 2 (ColQwen2 vs Proxies),ColQwen2 vs Word BM25 (SROIE Paraphrase),0.096,0.0233,0.2356,7e-05,Paired Sign-Flip Permutation (100k),4,5,0.025,0.00014,True,Statistically Significant
+Family 2 (ColQwen2 vs Proxies),Char BM25 vs ColQwen2 (SROIE Answerable),-0.0051,0.0086,-0.0343,0.55743,Paired Sign-Flip Permutation (100k),5,5,0.05,0.55743,False,Non-Significant (p >= 0.05)
+Family 3 (MS-COCO),SigLIP vs BLIP (MiniLM),0.2339,0.0139,0.5311,1e-05,Paired Sign-Flip Permutation (100k),1,8,0.00625,8e-05,True,Statistically Significant
+Family 3 (MS-COCO),SigLIP vs BLIP (BGE-base),0.2376,0.0144,0.5217,1e-05,Paired Sign-Flip Permutation (100k),2,8,0.00714,7e-05,True,Statistically Significant
+Family 3 (MS-COCO),CLIP vs BLIP (MiniLM),0.0977,0.0145,0.2136,1e-05,Paired Sign-Flip Permutation (100k),3,8,0.00833,6e-05,True,Statistically Significant
+Family 3 (MS-COCO),CLIP vs BLIP (BGE-base),0.1014,0.0145,0.2213,1e-05,Paired Sign-Flip Permutation (100k),4,8,0.01,5e-05,True,Statistically Significant
+Family 3 (MS-COCO),SigLIP vs CLIP (Native vs Native),0.1362,0.0121,0.3549,1e-05,Paired Sign-Flip Permutation (100k),5,8,0.0125,4e-05,True,Statistically Significant
+Family 3 (MS-COCO),SigLIP vs Single Gold (BGE),0.1994,0.0151,0.4165,1e-05,Paired Sign-Flip Permutation (100k),6,8,0.01667,3e-05,True,Statistically Significant
+Family 3 (MS-COCO),SigLIP vs 4-Ref Gold (BGE),0.0236,0.0139,0.0535,0.09045,Paired Sign-Flip Permutation (100k),7,8,0.025,0.1809,False,Non-Significant (p >= 0.05)
+Family 3 (MS-COCO),SigLIP vs 4-Ref Gold (Hybrid),-0.0007,0.0137,-0.0017,0.95628,Paired Sign-Flip Permutation (100k),8,8,0.05,0.95628,False,Non-Significant (p >= 0.05)
+Family 4 (RAMP Ablation),Char BM25 + Cross-Encoder Degradation,-0.0262,0.0068,-0.221,0.0001,Paired Sign-Flip Permutation (100k),1,7,0.00714,0.0007,True,Statistically Significant
+Family 4 (RAMP Ablation),BGE Reranker Lift over Word BM25,0.0475,0.0145,0.188,0.0011,Paired Sign-Flip Permutation (100k),2,7,0.00833,0.0066,True,Statistically Significant
+Family 4 (RAMP Ablation),MiniLM Reranker Lift over Word BM25,0.0261,0.01,0.149,0.009,Paired Sign-Flip Permutation (100k),3,7,0.01,0.045,True,Statistically Significant
+Family 4 (RAMP Ablation),H1 Reliability Weighting on Real Degraded,-0.0182,0.0078,-0.133,0.0189,Paired Sign-Flip Permutation (100k),4,7,0.0125,0.0756,False,Non-Significant (p >= 0.05)
+Family 4 (RAMP Ablation),H2 Router on 20% Syn Noise,0.0071,0.0035,0.116,0.042,Paired Sign-Flip Permutation (100k),5,7,0.01667,0.126,False,Non-Significant (p >= 0.05)
+Family 4 (RAMP Ablation),H2 Router on Real Degraded Blur,0.0,0.001,0.0,0.7022,Paired Sign-Flip Permutation (100k),6,7,0.025,1.0,False,Non-Significant (p >= 0.05)
+Family 4 (RAMP Ablation),H2 Router on Apple Clean OCR,0.0,0.001,0.0,1.0,Paired Sign-Flip Permutation (100k),7,7,0.05,1.0,False,Non-Significant (p >= 0.05)
+Family 5 (FUNSD Transfer),Char vs Word BM25 on EasyOCR Paraphrase,0.0768,0.0248,0.31,0.0019,Paired Sign-Flip Permutation (100k),1,4,0.0125,0.0076,True,Statistically Significant
+Family 5 (FUNSD Transfer),Char vs Word BM25 on Apple Paraphrase,0.063,0.0251,0.251,0.012,Paired Sign-Flip Permutation (100k),2,4,0.01667,0.036,True,Statistically Significant
+Family 5 (FUNSD Transfer),Dense BGE vs Word on EasyOCR Paraphrase,0.054,0.0229,0.236,0.018,Paired Sign-Flip Permutation (100k),3,4,0.025,0.036,True,Statistically Significant
+Family 5 (FUNSD Transfer),Char vs Word BM25 on Apple Clean Verbatim,0.011,0.0125,0.088,0.38,Paired Sign-Flip Permutation (100k),4,4,0.05,0.38,False,Non-Significant (p >= 0.05)
+Family 6 (Multi-Hop),Extractive PRF vs LLM Bridge (N=100 Pooled),0.0,0.0201,0.0,0.00727,TOST Equivalence Test (Delta=0.05),1,5,0.01,0.03635,True,Statistically Significant
+Family 6 (Multi-Hop),LLM Bridge vs Sparse BM25 (N=50),0.16,0.0597,0.3793,0.02148,McNemar Exact Test,2,5,0.0125,0.08592,False,Non-Significant (p >= 0.05)
+Family 6 (Multi-Hop),Extractive PRF vs LLM Bridge (N=50 Hard),0.0,0.0404,0.0,0.11091,TOST Equivalence Test (Delta=0.05),3,5,0.01667,0.33273,False,Non-Significant (p >= 0.05)
+Family 6 (Multi-Hop),LLM Bridge vs Single Hybrid (N=50),0.02,0.0349,0.0811,1.0,McNemar Exact Test,4,5,0.025,1.0,False,Non-Significant (p >= 0.05)
+Family 6 (Multi-Hop),LLM Bridge vs Single Dense (N=50),0.0,0.0404,0.0,1.0,McNemar Exact Test,5,5,0.05,1.0,False,Non-Significant (p >= 0.05)

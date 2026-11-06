@@ -1,0 +1,4 @@
+dataset_name,domain,sample_size,task,raw_location,licensing
+FUNSD,Administrative Scanned Forms,100 forms (400 queries),Document Retrieval,ai_engine/rag/data/funsd/,Academic Non-Commercial
+DocVQA,Visual Layout Question Answering,500 document pages,Document Retrieval & VQA,ai_engine/rag/data/docvqa/,Academic Research
+MS-COCO,Natural Photographic Scenes,1000 images (Karpathy split),Text-to-Image Ranking,ai_engine/rag/data/coco_karpathy_test.json,Creative Commons Attribution

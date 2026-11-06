@@ -1,0 +1,24 @@
+Component_Type,Manuscript_Identifier,Display_Name,Execution_Environment,Input_Data_Dependencies,Compute_Requirements,Estimated_Runtime,Reproducibility_Status,Canonical_Output_Path
+Table,Table I,Taxonomy of Representations,Literature / None,Theoretical survey,None,Instant,REPRODUCIBLE,IEEE_Paper_MemoryVerse.tex
+Table,Table II,Primary Retrieval Grid (1626 docs),Local CPU / PyTorch,dataset/sroie/ + dataset/coco/,CPU (BM25) / GPU (ColQwen2),~4 minutes,REPRODUCIBLE,results/v4/primary_benchmark_results.csv
+Table,Table III,MS-COCO Distillation & TOST,Local CPU,results/v4/R-02/coco_siglip_tost_recomputed.csv,CPU (Stats),~2 seconds,REPRODUCIBLE,results/v4/R-02/coco_siglip_tost_recomputed.csv
+Table,Table IV,OCR Degradation Sweep Grid,Local CPU,results/v4/R-01/synthetic_ocr_degradation_grid.csv,CPU (BM25),~30 seconds,REPRODUCIBLE,results/v4/R-01/ocr_degradation_metrics.csv
+Table,Table V,Crossover Overlap Tiers (1930 q),Local CPU,results/v6/generator_query_evaluations.csv,CPU (Pandas / Scipy),~5 seconds,REPRODUCIBLE,results/v6/generator_query_evaluations.csv
+Table,Table VI,500K Distractor Pool Scaling,Local CPU,results/v6/scaling_500k_rankings.csv,CPU (>= 8GB RAM),~2 minutes,REPRODUCIBLE,results/v6/scaling_500k_metrics.csv
+Table,Table VII,Two-Stage Cascade Retention & Latency,Kaggle GPU / Local Model,results/v4/R-02/cascade_tradeoff_summary.csv,GPU (Tesla T4 / P100),~3 minutes,REPRODUCIBLE VIA KAGGLE,results/v4/R-02/cascade_tradeoff_summary.csv
+Table,Table VIII,Conformal Calibration (200 Splits),Local CPU,results/v4/R-04/conformal_splits_200.csv,CPU (SciPy Stats),~10 seconds,REPRODUCIBLE,results/v4/R-04/conformal_splits_200.csv
+Table,Table IX,DocVQA ViDoRe Visual Layout,Local CPU / Kaggle GPU,results/v9/docvqa_benchmark_results.csv,GPU (ColQwen2),~5 minutes,REPRODUCIBLE VIA KAGGLE,results/v9/docvqa_benchmark_results.csv
+Table,Table X,RAMP Hypothesis Multiplicity Table,Local CPU,results/v4/R-02/holm_family_complete_table.csv,CPU (Stats),~2 seconds,REPRODUCIBLE,results/v4/R-02/holm_family_complete_table.csv
+Table,Table XI,Multi-Generator Robustness Grid,Local CPU,results/v6/generator_query_evaluations.csv,CPU (Pandas),~5 seconds,REPRODUCIBLE,results/v6/generator_query_evaluations.csv
+Table,Table XII,Cross-Encoder Latency Profile,Local CPU / MPS,results/v4/cross_encoder_benchmark_results.json,CPU / MPS,~15 seconds,REPRODUCIBLE,results/v4/cross_encoder_benchmark_results.json
+Table,Table XIII,Architectural Decision Guide,Synthesis / Local CPU,results/v4/R-02/decision_guide_metrics.json,CPU (Synthesis),~2 seconds,REPRODUCIBLE,results/v4/R-02/decision_guide_metrics.json
+Section,Sec 6.2,Dual-Reviewer Agreement (N=110),Local CPU,ai_engine/rag/data/master_reviewer_*.csv,CPU (compute_human_agreement.py),~1 second,REPRODUCIBLE,ai_engine/rag/data/master_human_agreement.json
+Section,Sec 6.2,Document QA Benchmark (N=150),Local CPU / API,results/v4/G-11/e2e_rag_summary.csv,API (GPT-4o-mini),~1 minute,REPRODUCIBLE,results/v4/G-11/e2e_rag_summary.csv
+Figure,Figure 1,Conceptual Architecture Diagram,LaTeX TikZ / PNG,submission_package_ijcds/source/figures/,None,Instant,REPRODUCIBLE,submission_package_ijcds/source/figures/
+Figure,Figure 2,Regime Response Surface Plot,Python Matplotlib,scripts/make_regime_figure.py,CPU (Matplotlib),~4 seconds,REPRODUCIBLE,figures/fig_mrr_regime_systems.png
+Figure,Figure 3,SigLIP vs BLIP/Gold Comparison,Python Matplotlib,scripts/make_coco_figure.py,CPU (Matplotlib),~3 seconds,REPRODUCIBLE,figures/fig_coco_native_vs_proxy.png
+Figure,Figure 4,Conformal Pareto Escalation Curve,Python Matplotlib,scripts/plot_conformal_pareto.py,CPU (Matplotlib),~3 seconds,REPRODUCIBLE,ijcds/figures/fig_conformal_pareto.png
+Figure,Figure 5,Cascade Latency vs MRR Retention,Python Matplotlib,scripts/plot_cascade_tradeoffs.py,CPU (Matplotlib),~3 seconds,REPRODUCIBLE,results/v4/R-02/fig_cascade_pareto.png
+Notebook,Kaggle Cascade,Live ColQwen2 Cascade Benchmark,Kaggle GPU Environment,MEMORYVERSE_FINAL_AUDIT/KAGGLE_NOTEBOOKS/,GPU (Tesla T4),~4 minutes,READY FOR KAGGLE EXECUTION,MEMORYVERSE_FINAL_AUDIT/KAGGLE_NOTEBOOKS/KAGGLE_COLQWEN2_CASCADE_BENCHMARK.ipynb
+Notebook,Kaggle External,Live External GPU Validation,Kaggle GPU Environment,MEMORYVERSE_FINAL_AUDIT/KAGGLE_NOTEBOOKS/,GPU (Tesla T4),~5 minutes,READY FOR KAGGLE EXECUTION,MEMORYVERSE_FINAL_AUDIT/KAGGLE_NOTEBOOKS/KAGGLE_EXTERNAL_DATASET_GPU_VALIDATION.ipynb
+

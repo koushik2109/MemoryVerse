@@ -1,0 +1,12 @@
+Metric,Standard Expected Risk (Bates 2021),High-Probability RCPS (delta = 0.10)
+Mean Calibrated Tau*,0.2369,0.2468
+Mean Test Miss Risk,0.0494,0.0429
+Test Risk 95% CI,"[0.0355, 0.0654]","[0.0298, 0.0588]"
+Test Risk Quantile (p10),0.0399,0.0326
+Test Risk Quantile (p50),0.0479,0.0428
+Test Risk Quantile (p90),0.0603,0.0523
+Test Risk Quantile (p95),0.0625,0.0552
+Empirical Split Coverage (Risk <= 0.05),58.5%,82.0%
+Mean Escalation Rate,78.4%,79.5%
+Mean Savings vs All-Escalate,21.6%,20.5%
+Mean Realized MRR,0.3577,0.3569

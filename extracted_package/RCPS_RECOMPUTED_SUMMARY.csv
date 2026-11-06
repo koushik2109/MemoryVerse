@@ -1,0 +1,8 @@
+Metric,Standard_Expected_Risk_Bates2021,High_Probability_RCPS_delta010,Marginal_Loss_Cascade_v6
+Mean Calibrated Tau*,0.2369,0.2468,0.2375
+Mean Test Miss Risk,0.0494,0.0429,0.0491
+Test Risk 95% Empirical Range,"[0.0355, 0.0654]","[0.0298, 0.0588]","[0.0348, 0.0633]"
+Empirical Split Coverage (Risk <= 0.05),58.5%,82.0%,58.5%
+Mean Escalation Rate,78.4%,79.5%,78.4%
+Mean Compute Savings vs All-Escalate,21.6%,20.5%,21.6%
+Mean Realized MRR,0.3577,0.3569,0.3577

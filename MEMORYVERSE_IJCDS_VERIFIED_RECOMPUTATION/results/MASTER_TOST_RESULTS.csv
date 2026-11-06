@@ -1,0 +1,20 @@
+N,Mean_Diff,Std_Error,Equivalence_Margin_Delta,CI90_Lower,CI90_Upper,CI95_Lower,CI95_Upper,t1_stat,p1,t2_stat,p2,p_TOST,Equivalence_Verdict,Comparison_ID,System_1,System_2
+1000,0.0236,0.0139,0.01,0.0006,0.0466,-0.0038,0.051,2.4087,0.00809,0.9751,0.83511,0.83511,INCONCLUSIVE / UNDERPOWERED,SigLIP vs 4-Ref Gold Multi-Caption (BGE),SigLIP Base Patch16,4-Ref Gold BGE-base
+1000,-0.0007,0.0137,0.01,-0.0234,0.0219,-0.0277,0.0262,0.6739,0.25025,-0.7823,0.2171,0.25025,INCONCLUSIVE / UNDERPOWERED,SigLIP vs 4-Ref Gold Hybrid Multi-Caption,SigLIP Base Patch16,4-Ref Gold Hybrid
+1000,0.0236,0.0139,0.02,0.0006,0.0466,-0.0038,0.051,3.1256,0.00091,0.2582,0.60185,0.60185,INCONCLUSIVE / UNDERPOWERED,SigLIP vs 4-Ref Gold Multi-Caption (BGE),SigLIP Base Patch16,4-Ref Gold BGE-base
+1000,-0.0007,0.0137,0.02,-0.0234,0.0219,-0.0277,0.0262,1.4021,0.0806,-1.5105,0.06562,0.0806,INCONCLUSIVE / UNDERPOWERED,SigLIP vs 4-Ref Gold Hybrid Multi-Caption,SigLIP Base Patch16,4-Ref Gold Hybrid
+1000,0.0236,0.0139,0.03,0.0006,0.0466,-0.0038,0.051,3.8424,6e-05,-0.4586,0.32329,0.32329,INCONCLUSIVE / UNDERPOWERED,SigLIP vs 4-Ref Gold Multi-Caption (BGE),SigLIP Base Patch16,4-Ref Gold BGE-base
+1000,-0.0007,0.0137,0.03,-0.0234,0.0219,-0.0277,0.0262,2.1302,0.0167,-2.2386,0.0127,0.0167,EQUIVALENT (p < 0.05),SigLIP vs 4-Ref Gold Hybrid Multi-Caption,SigLIP Base Patch16,4-Ref Gold Hybrid
+1000,0.0236,0.0139,0.04,0.0006,0.0466,-0.0038,0.051,4.5593,0.0,-1.1755,0.12004,0.12004,INCONCLUSIVE / UNDERPOWERED,SigLIP vs 4-Ref Gold Multi-Caption (BGE),SigLIP Base Patch16,4-Ref Gold BGE-base
+1000,-0.0007,0.0137,0.04,-0.0234,0.0219,-0.0277,0.0262,2.8584,0.00217,-2.9668,0.00154,0.00217,EQUIVALENT (p < 0.05),SigLIP vs 4-Ref Gold Hybrid Multi-Caption,SigLIP Base Patch16,4-Ref Gold Hybrid
+1000,0.0236,0.0139,0.05,0.0006,0.0466,-0.0038,0.051,5.2761,0.0,-1.8923,0.02937,0.02937,EQUIVALENT (p < 0.05),SigLIP vs 4-Ref Gold Multi-Caption (BGE),SigLIP Base Patch16,4-Ref Gold BGE-base
+1000,-0.0007,0.0137,0.05,-0.0234,0.0219,-0.0277,0.0262,3.5865,0.00018,-3.6949,0.00012,0.00018,EQUIVALENT (p < 0.05),SigLIP vs 4-Ref Gold Hybrid Multi-Caption,SigLIP Base Patch16,4-Ref Gold Hybrid
+1000,0.0236,0.0139,0.06,0.0006,0.0466,-0.0038,0.051,5.993,0.0,-2.6092,0.00461,0.00461,EQUIVALENT (p < 0.05),SigLIP vs 4-Ref Gold Multi-Caption (BGE),SigLIP Base Patch16,4-Ref Gold BGE-base
+1000,-0.0007,0.0137,0.06,-0.0234,0.0219,-0.0277,0.0262,4.3146,1e-05,-4.423,1e-05,1e-05,EQUIVALENT (p < 0.05),SigLIP vs 4-Ref Gold Hybrid Multi-Caption,SigLIP Base Patch16,4-Ref Gold Hybrid
+1000,0.0236,0.0139,0.08,0.0006,0.0466,-0.0038,0.051,7.4267,0.0,-4.0429,3e-05,3e-05,EQUIVALENT (p < 0.05),SigLIP vs 4-Ref Gold Multi-Caption (BGE),SigLIP Base Patch16,4-Ref Gold BGE-base
+1000,-0.0007,0.0137,0.08,-0.0234,0.0219,-0.0277,0.0262,5.7709,0.0,-5.8793,0.0,0.0,EQUIVALENT (p < 0.05),SigLIP vs 4-Ref Gold Hybrid Multi-Caption,SigLIP Base Patch16,4-Ref Gold Hybrid
+1000,0.0236,0.0139,0.1,0.0006,0.0466,-0.0038,0.051,8.8604,0.0,-5.4766,0.0,0.0,EQUIVALENT (p < 0.05),SigLIP vs 4-Ref Gold Multi-Caption (BGE),SigLIP Base Patch16,4-Ref Gold BGE-base
+1000,-0.0007,0.0137,0.1,-0.0234,0.0219,-0.0277,0.0262,7.2272,0.0,-7.3356,0.0,0.0,EQUIVALENT (p < 0.05),SigLIP vs 4-Ref Gold Hybrid Multi-Caption,SigLIP Base Patch16,4-Ref Gold Hybrid
+50,0.0,0.0404,0.05,-0.0677,0.0677,-0.0812,0.0812,1.2374,0.11091,-1.2374,0.11091,0.11091,INCONCLUSIVE / UNDERPOWERED,"Extractive PRF vs LLM Bridge (Hard Multi-Hop (Pure 2-Hop, N=50))",Extractive PRF Bridge,LLM Query Bridge
+50,0.0,0.0,0.05,0.0,0.0,0.0,0.0,,0.0,,0.0,0.0,EQUIVALENT (Identical Observations; Zero Variance),Extractive PRF vs LLM Bridge (Easy Relational Ceiling (N=50)),Extractive PRF Bridge,LLM Query Bridge
+100,0.0,0.0201,0.05,-0.0334,0.0334,-0.0399,0.0399,2.4875,0.00727,-2.4875,0.00727,0.00727,EQUIVALENT (p < 0.05),Extractive PRF vs LLM Bridge (Pooled Relational Suite (N=100)),Extractive PRF Bridge,LLM Query Bridge

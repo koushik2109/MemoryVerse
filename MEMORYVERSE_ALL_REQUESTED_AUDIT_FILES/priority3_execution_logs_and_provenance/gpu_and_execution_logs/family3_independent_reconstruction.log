@@ -1,0 +1,66 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+================================================================================
+INDEPENDENT RECONSTRUCTION PIPELINE: MS-COCO FAMILY 3
+Device: mps | Random Seed: 42 | Resamples: 10000
+================================================================================
+Aligned N=1000 evaluation instances.
+
+[1/5] Building lexical BM25 indexes...
+
+[2/5] Encoding dense representations with MiniLM...
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 12646.02it/s]
+
+[3/5] Encoding dense representations with BGE-base...
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 9412.86it/s]
+
+[4/5] Computing CLIP Native visual retrieval...
+Loading weights:   0%|          | 0/398 [00:00<?, ?it/s]Loading weights: 100%|██████████| 398/398 [00:00<00:00, 54874.36it/s]
+[transformers] Model config: bos_token_id must be `None` or an integer within the vocabulary (between 0 and 31999), got 49406. This may result in unexpected behavior.
+[transformers] Model config: eos_token_id must be `None` or an integer within the vocabulary (between 0 and 31999), got 49407. This may result in unexpected behavior.
+
+[5/5] Computing SigLIP Native visual retrieval...
+Loading weights:   0%|          | 0/408 [00:00<?, ?it/s]Loading weights: 100%|██████████| 408/408 [00:00<00:00, 12063.90it/s]
+
+[Saved] Per-query results (1000 rows) -> /Users/anuragkrishnavennela/Projects/MemoryVerse/FAMILY3_PER_QUERY_RESULTS.csv
+[Saved] Recomputed summary metrics -> /Users/anuragkrishnavennela/Projects/MemoryVerse/FAMILY3_RECOMPUTED_METRICS.csv
+
+================================================================================
+PHASE 3: GENUINE PAIRED STATISTICAL TESTING
+================================================================================
+  SigLIP vs Baseline BLIP Proxy (MiniLM)       : Diff=+0.2339 [+0.2068, +0.2611] | p_perm=0.00001 | p_Holm=0.00010 -> Significant Superior (p < 0.05)
+  SigLIP vs Baseline BLIP Proxy (BGE)          : Diff=+0.2376 [+0.2097, +0.2661] | p_perm=0.00001 | p_Holm=0.00010 -> Significant Superior (p < 0.05)
+  CLIP vs Baseline BLIP Proxy (MiniLM)         : Diff=+0.0977 [+0.0695, +0.1265] | p_perm=0.00001 | p_Holm=0.00010 -> Significant Superior (p < 0.05)
+  CLIP vs Baseline BLIP Proxy (BGE)            : Diff=+0.1014 [+0.0733, +0.1305] | p_perm=0.00001 | p_Holm=0.00010 -> Significant Superior (p < 0.05)
+  SigLIP vs CLIP (Native vs Native)            : Diff=+0.1362 [+0.1124, +0.1600] | p_perm=0.00001 | p_Holm=0.00010 -> Significant Superior (p < 0.05)
+  SigLIP vs Single Gold Human Reference        : Diff=+0.1994 [+0.1693, +0.2293] | p_perm=0.00001 | p_Holm=0.00010 -> Significant Superior (p < 0.05)
+  SigLIP vs 4-Ref Gold Multi-Caption (BGE)     : Diff=+0.0236 [-0.0033, +0.0513] | p_perm=0.09046 | p_Holm=0.18092 -> Statistically Tied (p >= 0.05)
+  SigLIP vs 4-Ref Gold Hybrid Multi-Caption    : Diff=-0.0007 [-0.0272, +0.0264] | p_perm=0.95628 | p_Holm=0.95628 -> Statistically Tied (p >= 0.05)
+  CLIP vs Single Gold Human Reference          : Diff=+0.0632 [+0.0329, +0.0939] | p_perm=0.00010 | p_Holm=0.00030 -> Significant Superior (p < 0.05)
+  CLIP vs 4-Ref Gold Multi-Caption             : Diff=-0.1126 [-0.1412, -0.0841] | p_perm=0.00001 | p_Holm=0.00010 -> Significant Inferior
+
+[Saved] Paired statistics -> /Users/anuragkrishnavennela/Projects/MemoryVerse/FAMILY3_PAIRED_STATISTICS.csv
+
+================================================================================
+PHASE 4: TOST EQUIVALENCE AUDIT & MARGIN SENSITIVITY SWEEP
+================================================================================
+
+--- SigLIP vs Single Gold Human Reference ---
+  Observed Diff: +0.1994, SE: 0.0151
+  Margin Delta=±0.03: 90% CI=[+0.1745, +0.2243] | p_TOST=1.00000 | Power=0.0% -> INCONCLUSIVE (p >= 0.05)
+  Margin Delta=±0.05: 90% CI=[+0.1745, +0.2243] | p_TOST=1.00000 | Power=0.0% -> INCONCLUSIVE (p >= 0.05)
+
+--- SigLIP vs 4-Ref Gold Multi-Caption (BGE) ---
+  Observed Diff: +0.0236, SE: 0.0139
+  Margin Delta=±0.03: 90% CI=[+0.0006, +0.0466] | p_TOST=0.32329 | Power=11.7% -> INCONCLUSIVE (p >= 0.05)
+  Margin Delta=±0.05: 90% CI=[+0.0006, +0.0466] | p_TOST=0.02937 | Power=59.7% -> EQUIVALENT (p < 0.05)
+
+--- SigLIP vs 4-Ref Gold Hybrid Multi-Caption ---
+  Observed Diff: -0.0007, SE: 0.0137
+  Margin Delta=±0.03: 90% CI=[-0.0234, +0.0219] | p_TOST=0.01670 | Power=68.6% -> EQUIVALENT (p < 0.05)
+  Margin Delta=±0.05: 90% CI=[-0.0234, +0.0219] | p_TOST=0.00018 | Power=97.4% -> EQUIVALENT (p < 0.05)
+
+[Saved] TOST sensitivity sweep -> /Users/anuragkrishnavennela/Projects/MemoryVerse/FAMILY3_TOST_SENSITIVITY.csv
+
+================================================================================
+ALL PHASES COMPLETED SUCCESSFULLY.
+================================================================================

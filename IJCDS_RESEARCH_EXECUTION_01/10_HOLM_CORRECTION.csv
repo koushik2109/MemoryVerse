@@ -1,0 +1,7 @@
+family,m_hypotheses,alpha,procedure,status
+Family_1,6,0.05,Sequential Step-Down Holm-Bonferroni,All 6 Significant
+Family_2,5,0.05,Sequential Step-Down Holm-Bonferroni,4 Significant, 1 Tied
+Family_3,8,0.05,Sequential Step-Down Holm-Bonferroni,6 Significant, 1 Tied, 1 Gold Wins
+Family_4,7,0.05,Sequential Step-Down Holm-Bonferroni,3 Significant, 4 Non-Significant
+Family_5,4,0.05,Sequential Step-Down Holm-Bonferroni,1 Significant, 3 Non-Significant
+Family_6,5,0.05,Sequential Step-Down Holm-Bonferroni,0 Significant on N=50, 1 Equivalent on N=100

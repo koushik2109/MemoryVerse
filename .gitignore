@@ -49,3 +49,7 @@ ai_engine/rag/data/raw_media/
 
 # Kaggle local simulation scratch directory
 working/
+
+# PyTorch large model and embedding checkpoints
+*.pt
+

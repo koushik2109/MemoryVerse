@@ -1,0 +1,17 @@
+============================================================
+Degraded Visual Retrieval Provenance — v11
+============================================================
+Timestamp:   2026-11-05T18:18:00Z
+ColQwen2:    vidore/colqwen2-v1.0
+CLIP:        openai/clip-vit-base-patch32
+Seeds:       [42, 43, 44]
+Bootstrap B: 2000
+Permutations:100000
+============================================================
+
+Clean Receipts [verbatim]: ColQwen=0.8417, CharBM25=0.9854, Diff=-0.1436, p_holm=0.0001 (MEASURED)
+Clean Receipts [light_paraphrase]: ColQwen=0.4985, CharBM25=0.2526, Diff=+0.2459, p_holm=0.0001 (MEASURED)
+Clean Receipts [answerable_question]: ColQwen=0.0870, CharBM25=0.0497, Diff=+0.0372, p_holm=0.0040 (MEASURED)
+Optical Blur Degraded [verbatim]: ColQwen=0.7207, CharBM25=0.9443, Diff=-0.2236, p_holm=0.0001 (MEASURED)
+Optical Blur Degraded [light_paraphrase]: ColQwen=0.4449, CharBM25=0.2365, Diff=+0.2084, p_holm=0.0001 (MEASURED)
+Optical Blur Degraded [answerable_question]: ColQwen=0.0701, CharBM25=0.0495, Diff=+0.0207, p_holm=0.0508 (MEASURED)

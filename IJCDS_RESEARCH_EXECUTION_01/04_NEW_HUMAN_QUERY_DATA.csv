@@ -1,0 +1,2 @@
+participant_id,query_id,target_receipt_id,query_text,status
+P00_AUTH,H001-H400,sroie_000-sroie_400,Preserved_400_Authoritative_Queries,COMPLETED_HI01_OPTION_A

@@ -1,0 +1,61 @@
+Condition,Query_Type,System,Subset,N,MRR,Hit10
+EasyOCR Clean,verbatim,BM25 (Tuned),all_probes,99,0.7213,0.8384
+EasyOCR Clean,verbatim,BM25 (Tuned),non_blank,29,0.8433,0.931
+EasyOCR Clean,verbatim,BM25 (Tuned),blank,70,0.6708,0.8
+EasyOCR Clean,verbatim,BM25 (Char 3-5gram),all_probes,99,0.758,0.8788
+EasyOCR Clean,verbatim,BM25 (Char 3-5gram),non_blank,29,0.8463,0.9655
+EasyOCR Clean,verbatim,BM25 (Char 3-5gram),blank,70,0.7215,0.8429
+EasyOCR Clean,verbatim,Dense MiniLM,all_probes,99,0.2794,0.4141
+EasyOCR Clean,verbatim,Dense MiniLM,non_blank,29,0.2957,0.4483
+EasyOCR Clean,verbatim,Dense MiniLM,blank,70,0.2727,0.4
+EasyOCR Clean,verbatim,Dense BGE-base,all_probes,99,0.4524,0.6768
+EasyOCR Clean,verbatim,Dense BGE-base,non_blank,29,0.3981,0.6897
+EasyOCR Clean,verbatim,Dense BGE-base,blank,70,0.4748,0.6714
+EasyOCR Clean,verbatim,Tuned Hybrid,all_probes,99,0.7226,0.8586
+EasyOCR Clean,verbatim,Tuned Hybrid,non_blank,29,0.8423,0.931
+EasyOCR Clean,verbatim,Tuned Hybrid,blank,70,0.673,0.8286
+EasyOCR Clean,light,BM25 (Tuned),all_probes,99,0.1774,0.3333
+EasyOCR Clean,light,BM25 (Tuned),non_blank,29,0.2057,0.4483
+EasyOCR Clean,light,BM25 (Tuned),blank,70,0.1657,0.2857
+EasyOCR Clean,light,BM25 (Char 3-5gram),all_probes,99,0.2334,0.3636
+EasyOCR Clean,light,BM25 (Char 3-5gram),non_blank,29,0.227,0.4138
+EasyOCR Clean,light,BM25 (Char 3-5gram),blank,70,0.2361,0.3429
+EasyOCR Clean,light,Dense MiniLM,all_probes,99,0.1636,0.2727
+EasyOCR Clean,light,Dense MiniLM,non_blank,29,0.0933,0.1724
+EasyOCR Clean,light,Dense MiniLM,blank,70,0.1927,0.3143
+EasyOCR Clean,light,Dense BGE-base,all_probes,99,0.2345,0.3636
+EasyOCR Clean,light,Dense BGE-base,non_blank,29,0.154,0.2759
+EasyOCR Clean,light,Dense BGE-base,blank,70,0.2678,0.4
+EasyOCR Clean,light,Tuned Hybrid,all_probes,99,0.2019,0.3434
+EasyOCR Clean,light,Tuned Hybrid,non_blank,29,0.203,0.4483
+EasyOCR Clean,light,Tuned Hybrid,blank,70,0.2015,0.3
+EasyOCR Blur,verbatim,BM25 (Tuned),all_probes,99,0.0101,0.0101
+EasyOCR Blur,verbatim,BM25 (Tuned),non_blank,29,0.0345,0.0345
+EasyOCR Blur,verbatim,BM25 (Tuned),blank,70,0.0,0.0
+EasyOCR Blur,verbatim,BM25 (Char 3-5gram),all_probes,99,0.0437,0.0505
+EasyOCR Blur,verbatim,BM25 (Char 3-5gram),non_blank,29,0.1492,0.1724
+EasyOCR Blur,verbatim,BM25 (Char 3-5gram),blank,70,0.0,0.0
+EasyOCR Blur,verbatim,Dense MiniLM,all_probes,99,0.0247,0.0303
+EasyOCR Blur,verbatim,Dense MiniLM,non_blank,29,0.0569,0.1034
+EasyOCR Blur,verbatim,Dense MiniLM,blank,70,0.0114,0.0
+EasyOCR Blur,verbatim,Dense BGE-base,all_probes,99,0.0435,0.0606
+EasyOCR Blur,verbatim,Dense BGE-base,non_blank,29,0.095,0.2069
+EasyOCR Blur,verbatim,Dense BGE-base,blank,70,0.0222,0.0
+EasyOCR Blur,verbatim,Tuned Hybrid,all_probes,99,0.0359,0.0404
+EasyOCR Blur,verbatim,Tuned Hybrid,non_blank,29,0.0768,0.1379
+EasyOCR Blur,verbatim,Tuned Hybrid,blank,70,0.0189,0.0
+EasyOCR Blur,light,BM25 (Tuned),all_probes,99,0.0202,0.0202
+EasyOCR Blur,light,BM25 (Tuned),non_blank,29,0.069,0.069
+EasyOCR Blur,light,BM25 (Tuned),blank,70,0.0,0.0
+EasyOCR Blur,light,BM25 (Char 3-5gram),all_probes,99,0.023,0.0303
+EasyOCR Blur,light,BM25 (Char 3-5gram),non_blank,29,0.0786,0.1034
+EasyOCR Blur,light,BM25 (Char 3-5gram),blank,70,0.0,0.0
+EasyOCR Blur,light,Dense MiniLM,all_probes,99,0.0292,0.0404
+EasyOCR Blur,light,Dense MiniLM,non_blank,29,0.0674,0.1379
+EasyOCR Blur,light,Dense MiniLM,blank,70,0.0135,0.0
+EasyOCR Blur,light,Dense BGE-base,all_probes,99,0.0432,0.0303
+EasyOCR Blur,light,Dense BGE-base,non_blank,29,0.0892,0.1034
+EasyOCR Blur,light,Dense BGE-base,blank,70,0.0242,0.0
+EasyOCR Blur,light,Tuned Hybrid,all_probes,99,0.0252,0.0202
+EasyOCR Blur,light,Tuned Hybrid,non_blank,29,0.0723,0.069
+EasyOCR Blur,light,Tuned Hybrid,blank,70,0.0057,0.0

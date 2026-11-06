@@ -1,0 +1,5 @@
+System,Human_N100_MRR,Human_N200_MRR,Source
+Word BM25,0.6353,0.5626,Unified Test Index (N=813)
+Char 3-5g BM25,0.6059,0.5605,Unified Test Index (N=813)
+Dense BGE-M3,0.502,0.4909,Unified Test Index (N=813)
+ColQwen2-v1.0 (Live GPU),0.766,0.6471,Live Tesla T4 GPU Execution

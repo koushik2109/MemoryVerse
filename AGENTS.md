@@ -127,8 +127,18 @@ cd backend && ../.venv/bin/python -m pytest tests/ -v
 # Flutter static analysis and tests
 cd frontend && flutter analyze
 cd frontend && flutter test
+
+# Cloud GPU evaluations via Kaggle CLI (always version existing notebooks)
+.venv/bin/kaggle kernels list --mine
+.venv/bin/kaggle kernels push -p kaggle/run_<task>_kernel/
+.venv/bin/kaggle kernels status <username>/<slug>
+.venv/bin/kaggle kernels output <username>/<slug> -p results/<dir>/
 ```
 
+- When running GPU experiments on Kaggle via CLI, always reuse the existing
+  kernel slug in `kernel-metadata.json` so runs create sequential versions of
+  the same notebook rather than spawning new notebooks. Stage execution in an
+  isolated folder to avoid uploading local zip datasets.
 - Prefer a focused test target first, then expand to the relevant component
   suite. Run `flutter build` only when the change or requested verification is
   platform/build specific.

@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""
-Generate publication-quality Figure 2: Retrieval effectiveness across architectures and query formulations.
-Synchronized with exact frozen metrics from Table III, Table XII, and colqwen_paired_v10.csv.
-Formatted for IEEE/IJCDS single-column width (3.45 inches).
+"""Generate the publication Figure 2 regime comparison.
+
+The line chart makes the query-formulation crossover visible without the
+rotated value labels used by the earlier grouped-bar version.
 """
 from pathlib import Path
 import matplotlib
@@ -12,7 +12,7 @@ import numpy as np
 
 repo_root = Path(__file__).resolve().parents[1]
 
-# Set style for publication (single column: 3.45 in)
+# Set style for publication (single column: 3.45 in).
 plt.rcParams.update({
     "font.family": "serif",
     "font.serif": ["Times New Roman", "Times", "DejaVu Serif"],
@@ -21,12 +21,12 @@ plt.rcParams.update({
     "axes.titlesize": 9.0,
     "xtick.labelsize": 7.5,
     "ytick.labelsize": 8.0,
-    "legend.fontsize": 7.0,
+    "legend.fontsize": 6.8,
     "axes.linewidth": 0.7,
     "lines.linewidth": 1.0,
 })
 
-fig, ax = plt.subplots(figsize=(3.45, 2.5), dpi=300)
+fig, ax = plt.subplots(figsize=(3.45, 2.45), dpi=300)
 
 formulations = ["Verbatim\nLookup", "Light\nParaphrase", "Answerable\nQuestions"]
 
@@ -37,32 +37,67 @@ dense_mrr   = [0.3022, 0.1601, 0.5128]
 colqwen_mrr = [0.8417, 0.4962, 0.8595]
 
 x = np.arange(len(formulations))
-width = 0.20
+series = [
+    ("Char BM25", char_mrr, "#1f4e79", "o", "-"),
+    ("Word BM25", word_mrr, "#2e75b6", "s", "--"),
+    ("Dense BGE", dense_mrr, "#d55e00", "^", "-"),
+    ("ColQwen2", colqwen_mrr, "#009e73", "D", "-"),
+]
 
-rects1 = ax.bar(x - 1.5*width, char_mrr, width, label="Char BM25 (CPU)", color="#1f4e79", edgecolor="black", linewidth=0.4)
-rects2 = ax.bar(x - 0.5*width, word_mrr, width, label="Word BM25 (CPU)", color="#2e75b6", edgecolor="black", linewidth=0.4)
-rects3 = ax.bar(x + 0.5*width, dense_mrr, width, label="Dense BGE (CPU)", color="#d55e00", edgecolor="black", linewidth=0.4)
-rects4 = ax.bar(x + 1.5*width, colqwen_mrr, width, label="ColQwen2 (GPU)", color="#009e73", edgecolor="black", linewidth=0.4)
+# Specific vertical offsets for the right-side value labels to prevent collision (0.884 vs 0.860)
+label_offsets = {
+    "Char BM25": 0.000,
+    "Word BM25": +0.012,
+    "ColQwen2": -0.012,
+    "Dense BGE": 0.000,
+}
 
-for rects in [rects1, rects2, rects3, rects4]:
-    for rect in rects:
-        h = rect.get_height()
-        ax.annotate(f"{h:.4f}",
-                    xy=(rect.get_x() + rect.get_width() / 2, h),
-                    xytext=(0, 2),
-                    textcoords="offset points",
-                    ha="center", va="bottom", fontsize=4.8, rotation=45)
+for label, values, color, marker, linestyle in series:
+    ax.plot(
+        x,
+        values,
+        label=label,
+        color=color,
+        marker=marker,
+        linestyle=linestyle,
+        linewidth=1.6,
+        markersize=4.2,
+        markeredgecolor="white",
+        markeredgewidth=0.5,
+        zorder=3,
+    )
+    offset = label_offsets.get(label, 0.0)
+    ax.text(
+        x[-1] + 0.07,
+        values[-1] + offset,
+        f"{values[-1]:.3f}",
+        color=color,
+        fontsize=6.5,
+        va="center",
+        ha="left",
+    )
 
 ax.set_ylabel("Mean Reciprocal Rank (MRR)", fontweight="bold")
+ax.set_xlabel("Query formulation")
 ax.set_xticks(x)
 ax.set_xticklabels(formulations)
-ax.set_ylim(0, 1.34)
+ax.set_xlim(-0.15, 2.52)
+ax.set_ylim(0, 1.02)
 ax.set_yticks([0.0, 0.2, 0.4, 0.6, 0.8, 1.0])
-ax.axhline(0.5, color="gray", linestyle="--", linewidth=0.5, alpha=0.5)
-ax.axhline(1.0, color="#cccccc", linestyle=":", linewidth=0.5, alpha=0.7)
-ax.legend(frameon=True, facecolor="white", framealpha=0.95, edgecolor="#cccccc", loc="upper center", bbox_to_anchor=(0.5, 0.99), ncol=2, handletextpad=0.3, columnspacing=0.8, fontsize=6.8)
-ax.grid(axis="y", linestyle=":", alpha=0.5)
-plt.tight_layout(pad=0.3)
+ax.axvspan(0.55, 1.45, color="#f3f4f6", zorder=0)
+ax.text(1.0, 0.985, "semantic variation", ha="center", va="top", fontsize=6.5, color="#6b7280")
+ax.grid(axis="y", linestyle=":", linewidth=0.6, alpha=0.6)
+ax.grid(axis="x", visible=False)
+ax.legend(
+    frameon=False,
+    loc="upper center",
+    bbox_to_anchor=(0.47, 1.13),
+    ncol=4,
+    handletextpad=0.25,
+    columnspacing=0.55,
+    borderaxespad=0,
+)
+fig.subplots_adjust(left=0.16, right=0.88, bottom=0.18, top=0.80)
 
 out_fig1 = repo_root / "ijcds" / "figures" / "fig_mrr_regime_systems.png"
 out_fig2 = repo_root / "figures" / "fig_mrr_regime_systems.png"
@@ -74,9 +109,9 @@ out_fig2.parent.mkdir(parents=True, exist_ok=True)
 out_fig3.parent.mkdir(parents=True, exist_ok=True)
 out_fig4.parent.mkdir(parents=True, exist_ok=True)
 
-plt.savefig(out_fig1, dpi=300)
-plt.savefig(out_fig2, dpi=300)
-plt.savefig(out_fig3, dpi=300)
-plt.savefig(out_fig4, dpi=300)
+plt.savefig(out_fig1, dpi=300, bbox_inches="tight")
+plt.savefig(out_fig2, dpi=300, bbox_inches="tight")
+plt.savefig(out_fig3, dpi=300, bbox_inches="tight")
+plt.savefig(out_fig4, dpi=300, bbox_inches="tight")
 plt.close()
 print("Updated scripts/make_regime_figure.py and regenerated images including paper_v4.")

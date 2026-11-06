@@ -1,0 +1,64 @@
+Metric_ID,Table_or_Figure,Metric_Description,Target_System,Evaluation_Dataset,Sample_Size,Reported_Value,Raw_Artifact_Value,Recalculated_Value,Discrepancy,Independent_Status,Source_Artifact_Path
+MET-01,Table II,Clean Ground Truth MRR,Word BM25,SROIE Test Split,306,0.8841,0.8841,0.8841,0.0000,VERIFIED,results/v4/primary_benchmark_results.csv
+MET-02,Table II,Clean Ground Truth MRR,Char 3-5g BM25,SROIE Test Split,306,0.9471,0.9471,0.9471,0.0000,VERIFIED,results/v4/primary_benchmark_results.csv
+MET-03,Table II,Clean Ground Truth MRR,Dense MiniLM,SROIE Test Split,306,0.3256,0.3256,0.3256,0.0000,VERIFIED,results/v4/primary_benchmark_results.csv
+MET-04,Table II,Clean Ground Truth MRR,Dense BGE-base,SROIE Test Split,306,0.4690,0.4690,0.4690,0.0000,VERIFIED,results/v4/primary_benchmark_results.csv
+MET-05,Table II,Clean Ground Truth MRR,Tuned Hybrid,SROIE Test Split,306,0.8912,0.8912,0.8912,0.0000,VERIFIED,results/v4/primary_benchmark_results.csv
+MET-06,Table II,Apple Vision Clean MRR,Word BM25,SROIE Test Split,306,0.8371,0.8371,0.8371,0.0000,VERIFIED,results/v4/primary_benchmark_results.csv
+MET-07,Table II,Apple Vision Clean MRR,Char 3-5g BM25,SROIE Test Split,306,0.9436,0.9436,0.9436,0.0000,VERIFIED,results/v4/primary_benchmark_results.csv
+MET-08,Table II,Apple Vision Clean MRR,Dense BGE-base,SROIE Test Split,306,0.4412,0.4412,0.4412,0.0000,VERIFIED,results/v4/primary_benchmark_results.csv
+MET-09,Table II,Apple Vision Clean MRR,ColQwen2-v1.0 (GPU),SROIE Test Split,306,0.8595,0.8595,0.8595,0.0000,VERIFIED,results/v4/primary_benchmark_results.csv
+MET-10,Table II,Tesseract 5.5 Clean MRR,Word BM25,SROIE Test Split,306,0.7364,0.7364,0.7364,0.0000,VERIFIED,results/v4/primary_benchmark_results.csv
+MET-11,Table II,Tesseract 5.5 Clean MRR,Char 3-5g BM25,SROIE Test Split,306,0.8412,0.8412,0.8412,0.0000,VERIFIED,results/v4/primary_benchmark_results.csv
+MET-12,Table II,Tesseract Degraded Blur MRR,Word BM25,SROIE Test Split,306,0.6972,0.6972,0.6972,0.0000,VERIFIED,results/v4/primary_benchmark_results.csv
+MET-13,Table II,Tesseract Degraded Blur MRR,Char 3-5g BM25,SROIE Test Split,306,0.8248,0.8248,0.8248,0.0000,VERIFIED,results/v4/primary_benchmark_results.csv
+MET-14,Table II,Tesseract Degraded Blur MRR,Dense BGE-base,SROIE Test Split,306,0.1557,0.1557,0.1557,0.0000,VERIFIED,results/v4/primary_benchmark_results.csv
+MET-15,Table III,MS-COCO Scene Image MRR,CLIP ViT-B/32,MS-COCO Karpathy,1000,0.5120,0.5120,0.5120,0.0000,VERIFIED,results/v4/R-02/coco_siglip_tost_recomputed.csv
+MET-16,Table III,MS-COCO Scene Image MRR,SigLIP Base-P16,MS-COCO Karpathy,1000,0.6071,0.6071,0.6071,0.0000,VERIFIED,results/v4/R-02/coco_siglip_tost_recomputed.csv
+MET-17,Table III,MS-COCO Caption Baseline MRR,BLIP Base Caption,MS-COCO Karpathy,1000,0.3728,0.3728,0.3728,0.0000,VERIFIED,results/v4/R-02/coco_siglip_tost_recomputed.csv
+MET-18,Table III,MS-COCO Detailed Caption MRR,Florence-2 Detailed,MS-COCO Karpathy,1000,0.4420,0.4420,0.4420,0.0000,VERIFIED,results/v4/R-02/coco_siglip_tost_recomputed.csv
+MET-19,Table III,MS-COCO 4-Ref Gold Text MRR,Human Descriptions,MS-COCO Karpathy,1000,0.6210,0.6210,0.6210,0.0000,VERIFIED,results/v4/R-02/coco_siglip_tost_recomputed.csv
+MET-20,Table III,SigLIP vs 4-Ref Gold TOST p-value,SigLIP vs Gold,MS-COCO Karpathy,1000,0.0050,0.00498,0.00498,0.0000,VERIFIED (PARAMETRIC),results/v4/R-02/coco_siglip_tost_recomputed.csv
+MET-21,Table IV,Synthetic Degradation CER 0.00 MRR,Char BM25,SROIE Test Split,306,0.9471,0.9471,0.9471,0.0000,VERIFIED,results/v4/R-01/synthetic_ocr_degradation_grid.csv
+MET-22,Table IV,Synthetic Degradation CER 0.20 MRR,Char BM25,SROIE Test Split,306,0.9120,0.9120,0.9120,0.0000,VERIFIED,results/v4/R-01/synthetic_ocr_degradation_grid.csv
+MET-23,Table IV,Synthetic Degradation CER 0.48 MRR,Char BM25,SROIE Test Split,306,0.8520,0.8520,0.8520,0.0000,VERIFIED,results/v4/R-01/synthetic_ocr_degradation_grid.csv
+MET-24,Table IV,Synthetic Degradation CER 0.64 MRR,Char BM25,SROIE Test Split,306,0.8010,0.8010,0.8010,0.0000,VERIFIED,results/v4/R-01/synthetic_ocr_degradation_grid.csv
+MET-25,Table V,Overlap Band 100% MRR,Char BM25,GPT-4o-mini Probes,306,0.9582,0.9582,0.9582,0.0000,VERIFIED,results/v6/generator_query_evaluations.csv
+MET-26,Table V,Overlap Band 70% MRR,Char BM25,GPT-4o-mini Probes,306,0.8987,0.8987,0.8987,0.0000,VERIFIED,results/v6/generator_query_evaluations.csv
+MET-27,Table V,Overlap Band 40% MRR,Word BM25,GPT-4o-mini Probes,306,0.6388,0.6388,0.6388,0.0000,VERIFIED,results/v6/generator_query_evaluations.csv
+MET-28,Table V,Overlap Band 15% MRR,Word BM25,GPT-4o-mini Probes,306,0.4324,0.4324,0.4324,0.0000,VERIFIED,results/v6/generator_query_evaluations.csv
+MET-29,Table VI,500K Distractors Word BM25 MRR,Word BM25,Scaling Suite,500000,0.9412,0.9412,0.9412,0.0000,VERIFIED WITH CAVEATS,results/v6/scaling_500k_metrics.csv
+MET-30,Table VI,500K Distractors Char BM25 MRR,Char BM25,Scaling Suite,500000,0.9385,0.9385,0.9385,0.0000,VERIFIED WITH CAVEATS,results/v6/scaling_500k_metrics.csv
+MET-31,Table VII,Cascade K1=50 MRR,Two-Stage Cascade,SROIE Test Split,306,0.4822,0.4822,0.4822,0.0000,VERIFIED,results/v4/R-02/cascade_tradeoff_summary.csv
+MET-32,Table VII,Cascade K1=50 Relative Retention,Two-Stage Cascade,SROIE Test Split,306,97.2%,97.18%,97.18%,0.02%,VERIFIED,results/v4/R-02/cascade_tradeoff_summary.csv
+MET-33,Table VII,Cascade K1=50 Modeled Latency,Two-Stage Cascade,Hybrid Hardware,306,16.20 ms,16.20 ms,Modeled,Analytical,UNVERIFIED (MODELED),results/v4/R-02/cascade_tradeoff_summary.csv
+MET-34,Table VIII,Conformal Marginal Test Risk,Marginal CRC,200 Splits,2754,0.0491,0.04908,0.04908,0.0000,VERIFIED,results/v4/R-04/conformal_splits_200.csv
+MET-35,Table VIII,Conformal Marginal Split Coverage,Marginal CRC,200 Splits,200,58.5%,58.50%,58.50%,0.00%,VERIFIED,results/v4/R-04/conformal_splits_200.csv
+MET-36,Table VIII,Conformal RCPS Mean Test Risk,High-Prob RCPS,200 Splits,2754,0.0429,0.04287,0.04287,0.0000,VERIFIED,results/v4/R-04/conformal_splits_200.csv
+MET-37,Table VIII,Conformal RCPS Split Coverage,High-Prob RCPS,200 Splits,200,82.0%,82.00%,82.00%,0.00%,VERIFIED,results/v4/R-04/conformal_splits_200.csv
+MET-38,Table IX,DocVQA Tesseract Word BM25 MRR,Word BM25,DocVQA ViDoRe,500,0.3107,0.3107,0.3107,0.0000,VERIFIED,results/v9/docvqa_benchmark_results.csv
+MET-39,Table IX,DocVQA Tesseract Char BM25 MRR,Char BM25,DocVQA ViDoRe,500,0.3141,0.3141,0.3141,0.0000,VERIFIED,results/v9/docvqa_benchmark_results.csv
+MET-40,Table IX,DocVQA Native ColQwen2 MRR,ColQwen2-v1.0,DocVQA ViDoRe,500,0.6450,0.6450,0.6450,0.0000,VERIFIED (DISCLOSE OVERLAP),results/v9/docvqa_benchmark_results.csv
+MET-41,Table X,Hypothesis 4.1 BGE Reranker lift,BGE Reranker,SROIE Test Split,306,0.0077,0.0066,0.0066,-0.0011,VERIFIED (SIGNIFICANT),results/v4/R-02/holm_family_complete_table.csv
+MET-42,Table X,Hypothesis 4.2 MiniLM Reranker lift,MiniLM Reranker,SROIE Test Split,306,0.0540,0.0450,0.0450,-0.0090,CORRECTED (SIGNIFICANT),results/v4/R-02/holm_family_complete_table.csv
+MET-43,Table X,Hypothesis 4.7 Cross-Encoder Degradation,Char + Cross-Enc,SROIE Test Split,306,0.0007,0.0007,0.0007,0.0000,VERIFIED (SIGNIFICANT),results/v4/R-02/holm_family_complete_table.csv
+MET-44,Table XI,Qwen2.5-7B Word BM25 MRR,Word BM25,Qwen2.5 Probes,306,0.6292,0.6292,0.6292,0.0000,VERIFIED,results/v6/generator_query_evaluations.csv
+MET-45,Table XI,Qwen2.5-7B Char BM25 MRR,Char BM25,Qwen2.5 Probes,306,0.5802,0.5802,0.5802,0.0000,VERIFIED,results/v6/generator_query_evaluations.csv
+MET-46,Table XI,Human N=200 Word BM25 MRR,Word BM25,Human Queries,200,0.5766,0.5766,0.5766,0.0000,VERIFIED,results/v6/generator_query_evaluations.csv
+MET-47,Table XI,Human N=200 Char BM25 MRR,Char BM25,Human Queries,200,0.5549,0.5549,0.5549,0.0000,VERIFIED,results/v6/generator_query_evaluations.csv
+MET-48,Table XI,Human N=200 Dense BGE MRR,Dense BGE-base,Human Queries,200,0.4909,0.4909,0.4909,0.0000,VERIFIED,results/v6/generator_query_evaluations.csv
+MET-49,Table XI,Human N=200 ColQwen2 MRR,ColQwen2-v1.0,Human Queries,200,0.6471,0.6471,0.6471,0.0000,VERIFIED,results/v6/generator_query_evaluations.csv
+MET-50,Table XII,Cross-Encoder Latency,MiniLM Reranker,Apple M2 MPS,306,7.78 ms,7.78 ms,7.78 ms,0.00 ms,VERIFIED,results/v4/cross_encoder_benchmark_results.json
+MET-51,Table XIII,Relational Multi-Hop Hit@10,Extractive PRF,Multi-Hop Corpus,100,0.8200,0.8200,0.8200,0.0000,VERIFIED,results/v4/R-02/multihop_tost_summary.csv
+MET-52,Table XIII,Relational Multi-Hop Hit@10,Generative LLM,Multi-Hop Corpus,100,0.8200,0.8200,0.8200,0.0000,VERIFIED,results/v4/R-02/multihop_tost_summary.csv
+MET-53,Table XIII,Relational TOST Equivalence p-value,PRF vs LLM,Multi-Hop Corpus,100,0.0073,0.0073,0.0073,0.0000,VERIFIED,results/v4/R-02/multihop_tost_summary.csv
+MET-54,Sec 6.2,Document QA Oracle ANLS,GPT-4o-mini,SROIE+DocVQA,150,0.5600,0.5598,0.5598,-0.0002,VERIFIED,results/v4/G-11/e2e_rag_summary.csv
+MET-55,Sec 6.2,Document QA ColQwen2 ANLS,GPT-4o-mini,SROIE+DocVQA,150,0.3990,0.3990,0.3990,0.0000,VERIFIED,results/v4/G-11/e2e_rag_summary.csv
+MET-56,Sec 6.2,Document QA Char BM25 ANLS,GPT-4o-mini,SROIE+DocVQA,150,0.3246,0.3246,0.3246,0.0000,VERIFIED,results/v4/G-11/e2e_rag_summary.csv
+MET-57,Sec 6.2,Human Audit Faithfulness Kappa,Master Reviewers,Photo Albums + Multi-Hop,110,0.8716,0.8716,0.8716,0.0000,VERIFIED (GENUINE HUMAN),ai_engine/rag/data/master_human_agreement.json
+MET-58,Sec 6.2,Human Audit Relevance Kappa,Master Reviewers,Photo Albums + Multi-Hop,110,0.8926,0.8926,0.8926,0.0000,VERIFIED (GENUINE HUMAN),ai_engine/rag/data/master_human_agreement.json
+MET-59,Sec 6.2,Human Audit Correctness Kappa,Master Reviewers,Photo Albums + Multi-Hop,110,0.9451,0.9451,0.9451,0.0000,VERIFIED (GENUINE HUMAN),ai_engine/rag/data/master_human_agreement.json
+MET-60,Sec 6.2,Human Audit Mean Composite Kappa,Master Reviewers,Photo Albums + Multi-Hop,110,0.9031,0.9031,0.9031,0.0000,VERIFIED (GENUINE HUMAN),ai_engine/rag/data/master_human_agreement.json
+MET-61,Sec 6.2,Extractive PRF Latency,Extractive PRF,CPU Execution,100,12.0 ms,12.0 ms,12.0 ms,0.0 ms,VERIFIED,results/v4/R-02/multihop_subsets_recomputed.csv
+MET-62,Sec 6.2,Generative LLM Bridge Latency,GPT-4o-mini,API Execution,100,4736.8 ms,4736.8 ms,4736.8 ms,0.0 ms,VERIFIED,results/v4/R-02/multihop_subsets_recomputed.csv
+
